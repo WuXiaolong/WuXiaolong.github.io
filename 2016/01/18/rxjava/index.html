@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/favicon.ico?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="RxJava,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="吴小龙同學" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="RxJava是什么a library for composing asynchronous and event-based programs using observable sequences for the Java VM（一个对于构成使用的Java虚拟机观察序列异步和基于事件的程序库）。github：https://github.com/ReactiveX/RxJava">
+<meta name="keywords" content="RxJava">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RxJava">
+<meta property="og:url" content="http://wuxiaolong.me/2016/01/18/rxjava/index.html">
+<meta property="og:site_name" content="吴小龙同學">
+<meta property="og:description" content="RxJava是什么a library for composing asynchronous and event-based programs using observable sequences for the Java VM（一个对于构成使用的Java虚拟机观察序列异步和基于事件的程序库）。github：https://github.com/ReactiveX/RxJava">
+<meta property="og:updated_time" content="2016-12-20T13:04:52.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RxJava">
+<meta name="twitter:description" content="RxJava是什么a library for composing asynchronous and event-based programs using observable sequences for the Java VM（一个对于构成使用的Java虚拟机观察序列异步和基于事件的程序库）。github：https://github.com/ReactiveX/RxJava">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://wuxiaolong.me/2016/01/18/rxjava/">
+
+
+
+
+
+  <title>RxJava | 吴小龙同學</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-105780265-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0e1dc2030f397dfa0d60ad22b374430d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">吴小龙同學</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">党要我帅，我不得不帅！</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-friendslinks">
+          <a href="/friendslinks/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-users"></i> <br>
+            
+            小伙伴
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input">
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'ywBn2eRCzfb494KCWJw3','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2016/01/18/rxjava/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吴小龙同學">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://7q5c2h.com1.z0.glb.clouddn.com/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴小龙同學">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">RxJava</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-01-18T15:50:14+08:00">
+                2016-01-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/RxJava/" itemprop="url" rel="index">
+                    <span itemprop="name">RxJava</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="RxJava是什么"><a href="#RxJava是什么" class="headerlink" title="RxJava是什么"></a>RxJava是什么</h1><p>a library for composing asynchronous and event-based programs using observable sequences for the Java VM（一个对于构成使用的Java虚拟机观察序列异步和基于事件的程序库）。<br>github：<a href="https://github.com/ReactiveX/RxJava" target="_blank" rel="external">https://github.com/ReactiveX/RxJava</a><br><a id="more"></a></p>
+<h2 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h2><p>RxJava的世界里，我们有四种角色：<br>Observable(被观察者)、Observer(观察者)<br>Subscriber(订阅者)、Subject<br>Observable和Subject是两个“生产”实体，Observer和Subscriber是两个“消费”实体。Observable 和 Observer 通过 subscribe() 方法实现订阅关系，从而 Observable 可以在需要的时候发出事件来通知 Observer。</p>
+<h2 id="回调方法"><a href="#回调方法" class="headerlink" title="回调方法"></a>回调方法</h2><p>Subscribe方法用于将观察者连接到Observable，你的观察者需要实现以下方法：</p>
+<ul>
+<li><p>onNext(T item)<br>Observable调用这个方法发射数据，方法的参数就是Observable发射的数据，这个方法可能会被调用多次，取决于你的实现。</p>
+</li>
+<li><p>onError(Exception ex)<br>当Observable遇到错误或者无法返回期望的数据时会调用这个方法，这个调用会终止Observable，后续不会再调用onNext和onCompleted，onError方法的参数是抛出的异常。</p>
+</li>
+<li><p>onComplete<br>正常终止，如果没有遇到错误，Observable在最后一次调用onNext之后调用此方法。</p>
+</li>
+</ul>
+<h1 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">compile &apos;io.reactivex:rxandroid:1.1.0&apos;</div><div class="line">compile &apos;io.reactivex:rxjava:1.1.0&apos;</div></pre></td></tr></table></figure>
+<h1 id="创建操作"><a href="#创建操作" class="headerlink" title="创建操作"></a>创建操作</h1><h2 id="create"><a href="#create" class="headerlink" title="create"></a>create</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">Observable.create(<span class="keyword">new</span> Observable.OnSubscribe&lt;String&gt;() &#123;</div><div class="line">           <span class="meta">@Override</span></div><div class="line">           <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">call</span><span class="params">(Subscriber&lt;? <span class="keyword">super</span> String&gt; subscriber)</span> </span>&#123;</div><div class="line">               subscriber.onNext(<span class="string">"Hello"</span>);</div><div class="line">               subscriber.onNext(<span class="string">"RxJava"</span>);</div><div class="line">               subscriber.onCompleted();</div><div class="line">           &#125;</div><div class="line">       &#125;)</div><div class="line">       .subscribe(<span class="keyword">new</span> Observer&lt;String&gt;() &#123;</div><div class="line">           <span class="meta">@Override</span></div><div class="line">           <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCompleted</span><span class="params">()</span> </span>&#123;</div><div class="line">               Log.i(<span class="string">"wxl"</span>, <span class="string">"onCompleted"</span>);</div><div class="line">           &#125;</div><div class="line"></div><div class="line">           <span class="meta">@Override</span></div><div class="line">           <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onError</span><span class="params">(Throwable e)</span> </span>&#123;</div><div class="line"></div><div class="line">           &#125;</div><div class="line"></div><div class="line">           <span class="meta">@Override</span></div><div class="line">           <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onNext</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">               Log.i(<span class="string">"wxl"</span>, <span class="string">"onNext="</span> + s);</div><div class="line">           &#125;</div><div class="line">       &#125;);</div></pre></td></tr></table></figure>
+<p>除了 Observer 接口之外，RxJava 还内置了一个实现了 Observer 的抽象类：Subscriber。 Subscriber 对 Observer 接口进行了一些扩展，但他们的基本使用方式是完全一样的：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">.subscribe(<span class="keyword">new</span> Subscriber() &#123;</div><div class="line">           <span class="meta">@Override</span></div><div class="line">           <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCompleted</span><span class="params">()</span> </span>&#123;</div><div class="line">               Log.i(<span class="string">"wxl"</span>, <span class="string">"onCompleted"</span>);</div><div class="line">           &#125;</div><div class="line"></div><div class="line">           <span class="meta">@Override</span></div><div class="line">           <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onError</span><span class="params">(Throwable e)</span> </span>&#123;</div><div class="line"></div><div class="line">           &#125;</div><div class="line"></div><div class="line">           <span class="meta">@Override</span></div><div class="line">           <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onNext</span><span class="params">(Object o)</span> </span>&#123;</div><div class="line">               Log.i(<span class="string">"wxl"</span>, <span class="string">"onNext="</span> + o);</div><div class="line">           &#125;</div><div class="line">       &#125;);</div></pre></td></tr></table></figure></p>
+<h2 id="from"><a href="#from" class="headerlink" title="from"></a>from</h2><p>接受数组，返回一个按参数列表顺序发射这些数据的Observable。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">String[] froms=&#123;<span class="string">"Hello"</span>,<span class="string">"RxJava"</span>&#125;;</div><div class="line">Observable.from(froms)</div><div class="line">.subscribe(<span class="keyword">new</span> Observer&lt;String&gt;() &#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCompleted</span><span class="params">()</span> </span>&#123;</div><div class="line">        Log.i(<span class="string">"wxl"</span>, <span class="string">"onCompleted"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onError</span><span class="params">(Throwable e)</span> </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onNext</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">        Log.i(<span class="string">"wxl"</span>, <span class="string">"onNext="</span> + s);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h2 id="just"><a href="#just" class="headerlink" title="just"></a>just</h2><p>just函数，它接受一至九个参数，返回一个按参数列表顺序发射这些数据的Observable。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">Observable.just(<span class="string">"Hello"</span>,<span class="string">"RxJava"</span>)</div><div class="line">          .subscribe(<span class="keyword">new</span> Observer&lt;String&gt;() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCompleted</span><span class="params">()</span> </span>&#123;</div><div class="line">                Log.i(<span class="string">"wxl"</span>, <span class="string">"onCompleted"</span>);</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onError</span><span class="params">(Throwable e)</span> </span>&#123;</div><div class="line"></div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onNext</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">                Log.i(<span class="string">"wxl"</span>, <span class="string">"onNext="</span> + s);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div></pre></td></tr></table></figure></p>
+<p>以上打印结果都是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">com.wuxiaolong.apksample I/wxl: onNext=Hello</div><div class="line">com.wuxiaolong.apksample I/wxl: onNext=RxJava</div><div class="line">com.wuxiaolong.apksample I/wxl: onCompleted</div></pre></td></tr></table></figure></p>
+<h1 id="变换操作"><a href="#变换操作" class="headerlink" title="变换操作"></a>变换操作</h1><h2 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h2><p>操作符对原始Observable发射的每一项数据应用一个你选择的函数，然后返回一个发射这些结果。<br>如下，将原始Observable数据转化成大写，再发射：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">Observable.just(<span class="string">"Hello"</span>, <span class="string">"RxJava"</span>)</div><div class="line">               .map(<span class="keyword">new</span> Func1&lt;String, String&gt;() &#123;</div><div class="line">                   <span class="meta">@Override</span></div><div class="line">                   <span class="function"><span class="keyword">public</span> String <span class="title">call</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">                       <span class="keyword">return</span> s.toUpperCase();</div><div class="line">                   &#125;</div><div class="line">               &#125;)</div><div class="line">               .subscribe(<span class="keyword">new</span> Observer&lt;String&gt;() &#123;</div><div class="line">                   <span class="meta">@Override</span></div><div class="line">                   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCompleted</span><span class="params">()</span> </span>&#123;</div><div class="line">                       Log.i(<span class="string">"wxl"</span>, <span class="string">"onCompleted"</span>);</div><div class="line">                   &#125;</div><div class="line"></div><div class="line">                   <span class="meta">@Override</span></div><div class="line">                   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onError</span><span class="params">(Throwable e)</span> </span>&#123;</div><div class="line"></div><div class="line">                   &#125;</div><div class="line"></div><div class="line">                   <span class="meta">@Override</span></div><div class="line">                   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onNext</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">                       Log.i(<span class="string">"wxl"</span>, <span class="string">"onNext="</span> + s);</div><div class="line">                   &#125;</div><div class="line">               &#125;);</div></pre></td></tr></table></figure></p>
+<p>打印结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">com.wuxiaolong.apksample I/wxl: onNext=HELLO</div><div class="line">com.wuxiaolong.apksample I/wxl: onNext=RXJAVA</div><div class="line">com.wuxiaolong.apksample I/wxl: onCompleted</div></pre></td></tr></table></figure></p>
+<h2 id="flatMap"><a href="#flatMap" class="headerlink" title="flatMap"></a>flatMap</h2><p>flatMap()接收一个Observable的输出作为输入，然后作为一个新的Observable再发射。理解flatMap的关键点在于，flatMap输出的新的Observable正是我们在Subscriber想要接收的，比如这里输出单个的字符串。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">        list.add(<span class="string">"Hello"</span>);</div><div class="line">        list.add(<span class="string">"RxJava"</span>);</div><div class="line">Observable.from(list)</div><div class="line">                .flatMap(<span class="keyword">new</span> Func1&lt;String, Observable&lt;String&gt;&gt;() &#123;</div><div class="line">                    <span class="meta">@Override</span></div><div class="line">                    <span class="function"><span class="keyword">public</span> Observable&lt;String&gt; <span class="title">call</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">                        <span class="keyword">return</span> Observable.just(s.toUpperCase());</div><div class="line">                    &#125;</div><div class="line">                &#125;)</div><div class="line">                .subscribe(<span class="keyword">new</span> Observer&lt;String&gt;() &#123;</div><div class="line">                    <span class="meta">@Override</span></div><div class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCompleted</span><span class="params">()</span> </span>&#123;</div><div class="line">                        Log.i(<span class="string">"wxl"</span>, <span class="string">"onCompleted"</span>);</div><div class="line">                    &#125;</div><div class="line"></div><div class="line">                    <span class="meta">@Override</span></div><div class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onError</span><span class="params">(Throwable e)</span> </span>&#123;</div><div class="line"></div><div class="line">                    &#125;</div><div class="line"></div><div class="line">                    <span class="meta">@Override</span></div><div class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onNext</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">                        Log.i(<span class="string">"wxl"</span>, <span class="string">"onNext="</span> + s);</div><div class="line">                    &#125;</div><div class="line">                &#125;);</div></pre></td></tr></table></figure></p>
+<p>打印结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">com.wuxiaolong.apksample I/wxl: onNext=HELLO</div><div class="line">com.wuxiaolong.apksample I/wxl: onNext=RXJAVA</div><div class="line">com.wuxiaolong.apksample I/wxl: onCompleted</div></pre></td></tr></table></figure></p>
+<h1 id="Scan"><a href="#Scan" class="headerlink" title="Scan"></a>Scan</h1><p>一个累加器函数，操作符对原始Observable发射的第一项数据应用一个函数，然后将那个函数的结果作为自己的第一项数据发射。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">Observable.just(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>)</div><div class="line">        .scan(<span class="keyword">new</span> Func2&lt;Integer, Integer, Integer&gt;() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> Integer <span class="title">call</span><span class="params">(Integer integer, Integer integer2)</span> </span>&#123;</div><div class="line">                <span class="keyword">return</span> integer + integer2;</div><div class="line">            &#125;</div><div class="line">        &#125;)</div><div class="line">        .subscribe(<span class="keyword">new</span> Observer&lt;Integer&gt;() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCompleted</span><span class="params">()</span> </span>&#123;</div><div class="line">                Log.i(<span class="string">"wxl"</span>, <span class="string">"onCompleted"</span>);</div><div class="line">            &#125;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onError</span><span class="params">(Throwable e)</span> </span>&#123;</div><div class="line">            &#125;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onNext</span><span class="params">(Integer integer)</span> </span>&#123;</div><div class="line">                Log.i(<span class="string">"wxl"</span>, <span class="string">"onNext="</span> + integer);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div></pre></td></tr></table></figure></p>
+<p>第一次发射得到1，作为结果与2相加；发射得到3，作为结果与3相加，以此类推，打印结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">I/wxl: onNext=1</div><div class="line">I/wxl: onNext=3</div><div class="line">I/wxl: onNext=6</div><div class="line">I/wxl: onNext=10</div><div class="line">I/wxl: onNext=15</div><div class="line">I/wxl: onCompleted</div></pre></td></tr></table></figure></p>
+<h2 id="GroupBy"><a href="#GroupBy" class="headerlink" title="GroupBy"></a>GroupBy</h2><p>按照指定的规则来分组元素。</p>
+<h1 id="过滤操作"><a href="#过滤操作" class="headerlink" title="过滤操作"></a>过滤操作</h1><h2 id="Filter"><a href="#Filter" class="headerlink" title="Filter"></a>Filter</h2><p>观测序列中只有通过的数据才会被发射。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">Observable.just(<span class="number">4</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">7</span>, <span class="number">5</span>)</div><div class="line">        .filter(<span class="keyword">new</span> Func1&lt;Integer, Boolean&gt;() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> Boolean <span class="title">call</span><span class="params">(Integer integer)</span> </span>&#123;</div><div class="line">                <span class="keyword">return</span> integer &gt; <span class="number">3</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;)</div><div class="line">        .subscribe(<span class="keyword">new</span> Observer&lt;Integer&gt;() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCompleted</span><span class="params">()</span> </span>&#123;</div><div class="line">                Log.i(<span class="string">"wxl"</span>, <span class="string">"onCompleted"</span>);</div><div class="line">            &#125;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onError</span><span class="params">(Throwable e)</span> </span>&#123;</div><div class="line">            &#125;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onNext</span><span class="params">(Integer integer)</span> </span>&#123;</div><div class="line">                Log.i(<span class="string">"wxl"</span>, <span class="string">"onNext="</span> + integer);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div></pre></td></tr></table></figure></p>
+<p>过滤小于3的，打印结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">I/wxl: onNext=4</div><div class="line">I/wxl: onNext=7</div><div class="line">I/wxl: onNext=5</div><div class="line">I/wxl: onCompleted</div></pre></td></tr></table></figure></p>
+<h2 id="take-、takeLast"><a href="#take-、takeLast" class="headerlink" title="take()、takeLast()"></a>take()、takeLast()</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">.take(<span class="number">3</span>)</div></pre></td></tr></table></figure>
+<p>只发射前N个元素<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">.takeLast(<span class="number">3</span>)</div></pre></td></tr></table></figure></p>
+<p>只发射最后N个元素</p>
+<h2 id="First、last"><a href="#First、last" class="headerlink" title="First、last"></a>First、last</h2><p>只发射第一个元素或者最后一个元素</p>
+<h2 id="Skip、SkipLast"><a href="#Skip、SkipLast" class="headerlink" title="Skip、SkipLast"></a>Skip、SkipLast</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">.skip(<span class="number">2</span>)</div></pre></td></tr></table></figure>
+<p>来创建一个不发射前两个元素而是发射它后面的那些数据的序列</p>
+<h2 id="distinct"><a href="#distinct" class="headerlink" title="distinct"></a>distinct</h2><p>仅处理一次，可以处理去除重复的数据</p>
+<h2 id="ElementAt"><a href="#ElementAt" class="headerlink" title="ElementAt"></a>ElementAt</h2><p>仅从一个序列中发射第n个元素然后就完成了，这里是从0开始计的。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Observable.just(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>)</div><div class="line">                .elementAt(<span class="number">3</span>)</div><div class="line">                .subscribe(……);</div></pre></td></tr></table></figure></p>
+<p>打印结果：4</p>
+<h2 id="Sample"><a href="#Sample" class="headerlink" title="Sample"></a>Sample</h2><p>定期发射Observable最近发射的数据项<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">.sample(<span class="number">1000</span>, TimeUnit.MILLISECONDS)</div></pre></td></tr></table></figure></p>
+<h1 id="合并操作"><a href="#合并操作" class="headerlink" title="合并操作"></a>合并操作</h1><h2 id="Merge"><a href="#Merge" class="headerlink" title="Merge"></a>Merge</h2><p>合并多个Observables的发射物，多输入，单输出<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">Observable&lt;Integer&gt; observable1 = Observable.just(<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>);</div><div class="line">Observable&lt;Integer&gt; observable2 = Observable.just(<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>);</div><div class="line">Observable.merge(observable1,observable2)</div><div class="line">        .subscribe(<span class="keyword">new</span> Observer&lt;Integer&gt;() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCompleted</span><span class="params">()</span> </span>&#123;</div><div class="line">                Log.i(<span class="string">"wxl"</span>, <span class="string">"onCompleted"</span>);</div><div class="line">            &#125;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onError</span><span class="params">(Throwable e)</span> </span>&#123;</div><div class="line">            &#125;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onNext</span><span class="params">(Integer integer)</span> </span>&#123;</div><div class="line">                Log.i(<span class="string">"wxl"</span>, <span class="string">"onNext="</span> + integer);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div></pre></td></tr></table></figure></p>
+<p>打印结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">I/wxl: onNext=1</div><div class="line">I/wxl: onNext=3</div><div class="line">I/wxl: onNext=5</div><div class="line">I/wxl: onNext=2</div><div class="line">I/wxl: onNext=4</div><div class="line">I/wxl: onNext=6</div><div class="line">I/wxl: onCompleted</div></pre></td></tr></table></figure></p>
+<h2 id="zip"><a href="#zip" class="headerlink" title="zip"></a>zip</h2><p>合并两个或者多个Observables发射出的数据项，根据指定的函数Func2变换它们，并发射一个新值。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">Observable&lt;Integer&gt; observable1 = Observable.just(<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>);</div><div class="line">Observable&lt;Integer&gt; observable2 = Observable.just(<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">9</span>);</div><div class="line">Observable.zip(observable1, observable2, <span class="keyword">new</span> Func2&lt;Integer, Integer, Integer&gt;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">call</span><span class="params">(Integer integer, Integer integer2)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> integer + integer2;</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line">        .subscribe(<span class="keyword">new</span> Observer&lt;Integer&gt;() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCompleted</span><span class="params">()</span> </span>&#123;</div><div class="line">                Log.i(<span class="string">"wxl"</span>, <span class="string">"onCompleted"</span>);</div><div class="line">            &#125;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onError</span><span class="params">(Throwable e)</span> </span>&#123;</div><div class="line">            &#125;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onNext</span><span class="params">(Integer integer)</span> </span>&#123;</div><div class="line">                Log.i(<span class="string">"wxl"</span>, <span class="string">"onNext="</span> + integer);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div></pre></td></tr></table></figure></p>
+<p>打印结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">I/wxl: onNext=3</div><div class="line">I/wxl: onNext=7</div><div class="line">I/wxl: onNext=11</div><div class="line">I/wxl: onCompleted</div></pre></td></tr></table></figure></p>
+<h2 id="join"><a href="#join" class="headerlink" title="join"></a>join</h2><h2 id="startWith"><a href="#startWith" class="headerlink" title="startWith"></a>startWith</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">.startWith(<span class="number">1</span>)</div></pre></td></tr></table></figure>
+<p>在数据序列的开头插入一条指定的项1</p>
+<h1 id="Schedulers"><a href="#Schedulers" class="headerlink" title="Schedulers"></a>Schedulers</h1><p>调度器，解决Android主线程问题，有5种：</p>
+<ul>
+<li><p>Schedulers.io()<br>这个调度器时用于I/O操作（读写文件、读写数据库、网络信息交互等）</p>
+</li>
+<li><p>Schedulers.computation()<br>这个是计算工作默认的调度器，它与I/O操作无关。它也是许多RxJava方法的默认调度器：buffer()，debounce()，delay()，interval()，sample()，skip()</p>
+</li>
+<li><p>Schedulers.immediate()<br>这个调度器允许你立即在当前线程执行你指定的工作。它是timeout()，timeInterval()，以及timestamp()方法默认的调度器。</p>
+</li>
+<li><p>Schedulers.newThread()<br>它为指定任务启动一个新的线程。</p>
+</li>
+<li><p>Schedulers.trampoline()<br>当我们想在当前线程执行一个任务时，并不是立即，我们可以用.trampoline()将它入队。这个调度器将会处理它的队列并且按序运行队列中每一个任务。它是repeat()和retry()方法默认的调度器。</p>
+<h2 id="SubscribeOn、ObserveOn"><a href="#SubscribeOn、ObserveOn" class="headerlink" title="SubscribeOn、ObserveOn"></a>SubscribeOn、ObserveOn</h2><p>subscribeOn()：事件产生的线程<br>observeOn()：事件消费的线程，AndroidSchedulers.mainThread()，它指定的操作将在 Android 主线程运行。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">.subscribeOn(Schedulers.io()) <span class="comment">// 指定 subscribe() 发生在 IO 线程</span></div><div class="line">.observeOn(AndroidSchedulers.mainThread()) <span class="comment">// 指定 Subscriber 的回调发生在主线程</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="完整示例"><a href="#完整示例" class="headerlink" title="完整示例"></a>完整示例</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"> Subscription subscription = Observable.just(&quot;Hello&quot;, &quot;RxJava&quot;, &quot;WuXiaolong&quot;)</div><div class="line">                .subscribe(new Observer&lt;String&gt;() &#123;</div><div class="line">                    @Override</div><div class="line">                    public void onCompleted() &#123;</div><div class="line">                        Log.i(&quot;wxl&quot;, &quot;onCompleted&quot;);</div><div class="line">                    &#125;</div><div class="line"></div><div class="line">                    @Override</div><div class="line">                    public void onError(Throwable e) &#123;</div><div class="line"></div><div class="line">                    &#125;</div><div class="line"></div><div class="line">                    @Override</div><div class="line">                    public void onNext(String s) &#123;</div><div class="line">                        Log.i(&quot;wxl&quot;, &quot;onNext=&quot; + s);</div><div class="line">                    &#125;</div><div class="line">                &#125;);</div><div class="line">addSubscription(subscription);</div></pre></td></tr></table></figure>
+<p>addSubscription方法可以放到父类：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">private CompositeSubscription mCompositeSubscription;</div><div class="line"></div><div class="line">   public void addSubscription(Subscription subscription) &#123;</div><div class="line">       if (this.mCompositeSubscription == null) &#123;</div><div class="line">           this.mCompositeSubscription = new CompositeSubscription();</div><div class="line">       &#125;</div><div class="line"></div><div class="line">       this.mCompositeSubscription.add(subscription);</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   @Override</div><div class="line">   protected void onDestroy() &#123;</div><div class="line">       super.onDestroy();</div><div class="line">       if (this.mCompositeSubscription != null) &#123;</div><div class="line">           this.mCompositeSubscription.unsubscribe();</div><div class="line">       &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure></p>
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><a href="http://rxjava.yuxingxin.com/" target="_blank" rel="external">RxJava Essentials CN</a><br><a href="https://mcxiaoke.gitbooks.io/rxdocs/content/" target="_blank" rel="external">ReactiveX文档中文翻译</a><br><a href="http://gank.io/post/560e15be2dca930e00da1083" target="_blank" rel="external">给 Android 开发者的 RxJava 详解</a></p>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>赞赏是一种共鸣或认可</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="吴小龙同學 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    吴小龙同學
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://wuxiaolong.me/2016/01/18/rxjava/" title="RxJava">http://wuxiaolong.me/2016/01/18/rxjava/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/RxJava/" rel="tag"># RxJava</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/01/15/retrofit/" rel="next" title="Android Retrofit 2.0使用">
+                <i class="fa fa-chevron-left"></i> Android Retrofit 2.0使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/02/04/RuntimePermission/" rel="prev" title="Android 6.0 RuntimePermission">
+                Android 6.0 RuntimePermission <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTM2My81OTMx"></div>
+    </div>
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="http://7q5c2h.com1.z0.glb.clouddn.com/avatar.jpg" alt="吴小龙同學">
+            
+              <p class="site-author-name" itemprop="name">吴小龙同學</p>
+              <p class="site-description motion-element" itemprop="description">我的微信公众号：吴小龙同学</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">163</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">129</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/WuXiaolong" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://open.weixin.qq.com/qr/code/?username=MrWuXiaolong" target="_blank" title="WeChat">
+                    
+                      <i class="fa fa-fw fa-globe"></i>WeChat</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/u/2175011601" target="_blank" title="Weibo">
+                    
+                      <i class="fa fa-fw fa-globe"></i>Weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="/qq/index.html" target="_blank" title="QQ">
+                    
+                      <i class="fa fa-fw fa-globe"></i>QQ</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RxJava是什么"><span class="nav-number">1.</span> <span class="nav-text">RxJava是什么</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#观察者模式"><span class="nav-number">1.1.</span> <span class="nav-text">观察者模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回调方法"><span class="nav-number">1.2.</span> <span class="nav-text">回调方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#添加依赖"><span class="nav-number">2.</span> <span class="nav-text">添加依赖</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建操作"><span class="nav-number">3.</span> <span class="nav-text">创建操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#create"><span class="nav-number">3.1.</span> <span class="nav-text">create</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#from"><span class="nav-number">3.2.</span> <span class="nav-text">from</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#just"><span class="nav-number">3.3.</span> <span class="nav-text">just</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#变换操作"><span class="nav-number">4.</span> <span class="nav-text">变换操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Map"><span class="nav-number">4.1.</span> <span class="nav-text">Map</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#flatMap"><span class="nav-number">4.2.</span> <span class="nav-text">flatMap</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Scan"><span class="nav-number">5.</span> <span class="nav-text">Scan</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#GroupBy"><span class="nav-number">5.1.</span> <span class="nav-text">GroupBy</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#过滤操作"><span class="nav-number">6.</span> <span class="nav-text">过滤操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Filter"><span class="nav-number">6.1.</span> <span class="nav-text">Filter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#take-、takeLast"><span class="nav-number">6.2.</span> <span class="nav-text">take()、takeLast()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#First、last"><span class="nav-number">6.3.</span> <span class="nav-text">First、last</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Skip、SkipLast"><span class="nav-number">6.4.</span> <span class="nav-text">Skip、SkipLast</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#distinct"><span class="nav-number">6.5.</span> <span class="nav-text">distinct</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ElementAt"><span class="nav-number">6.6.</span> <span class="nav-text">ElementAt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample"><span class="nav-number">6.7.</span> <span class="nav-text">Sample</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#合并操作"><span class="nav-number">7.</span> <span class="nav-text">合并操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Merge"><span class="nav-number">7.1.</span> <span class="nav-text">Merge</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zip"><span class="nav-number">7.2.</span> <span class="nav-text">zip</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#join"><span class="nav-number">7.3.</span> <span class="nav-text">join</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#startWith"><span class="nav-number">7.4.</span> <span class="nav-text">startWith</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Schedulers"><span class="nav-number">8.</span> <span class="nav-text">Schedulers</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SubscribeOn、ObserveOn"><span class="nav-number">8.1.</span> <span class="nav-text">SubscribeOn、ObserveOn</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#完整示例"><span class="nav-number">9.</span> <span class="nav-text">完整示例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#附录"><span class="nav-number">10.</span> <span class="nav-text">附录</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2013 &mdash; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">吴小龙同學</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

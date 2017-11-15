@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/favicon.ico?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Retrofit,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="吴小龙同學" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="推荐阅读，猛戳：1、Android MVP 实例2、Android Retrofit 2.0使用3、RxJava4、RxBus5、Android MVP+Retrofit+RxJava实践小结  之前分享的Android Retrofit 2.0 使用，属于基本的使用，实际开发还远远不够，因此对其补充，主要在Retrofit配置和接口参数。">
+<meta name="keywords" content="Retrofit">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android Retrofit 2.0 使用-补充篇">
+<meta property="og:url" content="http://wuxiaolong.me/2016/06/18/retrofits/index.html">
+<meta property="og:site_name" content="吴小龙同學">
+<meta property="og:description" content="推荐阅读，猛戳：1、Android MVP 实例2、Android Retrofit 2.0使用3、RxJava4、RxBus5、Android MVP+Retrofit+RxJava实践小结  之前分享的Android Retrofit 2.0 使用，属于基本的使用，实际开发还远远不够，因此对其补充，主要在Retrofit配置和接口参数。">
+<meta property="og:updated_time" content="2017-04-15T14:24:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android Retrofit 2.0 使用-补充篇">
+<meta name="twitter:description" content="推荐阅读，猛戳：1、Android MVP 实例2、Android Retrofit 2.0使用3、RxJava4、RxBus5、Android MVP+Retrofit+RxJava实践小结  之前分享的Android Retrofit 2.0 使用，属于基本的使用，实际开发还远远不够，因此对其补充，主要在Retrofit配置和接口参数。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://wuxiaolong.me/2016/06/18/retrofits/">
+
+
+
+
+
+  <title>Android Retrofit 2.0 使用-补充篇 | 吴小龙同學</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-105780265-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0e1dc2030f397dfa0d60ad22b374430d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">吴小龙同學</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">党要我帅，我不得不帅！</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-friendslinks">
+          <a href="/friendslinks/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-users"></i> <br>
+            
+            小伙伴
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input">
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'ywBn2eRCzfb494KCWJw3','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2016/06/18/retrofits/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吴小龙同學">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://7q5c2h.com1.z0.glb.clouddn.com/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴小龙同學">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Android Retrofit 2.0 使用-补充篇</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-18T08:48:53+08:00">
+                2016-06-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Retrofit/" itemprop="url" rel="index">
+                    <span itemprop="name">Retrofit</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>推荐阅读，猛戳：<br>1、<a href="http://wuxiaolong.me/2015/09/23/AndroidMVPSample/">Android MVP 实例</a><br>2、<a href="http://wuxiaolong.me/2016/01/15/retrofit/">Android Retrofit 2.0使用</a><br>3、<a href="http://wuxiaolong.me/2016/01/18/rxjava/">RxJava</a><br>4、<a href="http://wuxiaolong.me/2016/04/07/rxbus/">RxBus</a><br>5、<a href="http://wuxiaolong.me/2016/06/12/mvpRetrofitRxjava/">Android MVP+Retrofit+RxJava实践小结</a></p>
+<blockquote>
+<p>之前分享的<a href="http://wuxiaolong.me/2016/01/15/retrofit/">Android Retrofit 2.0 使用</a>，属于基本的使用，实际开发还远远不够，因此对其补充，主要在Retrofit配置和接口参数。</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="Retrofit配置"><a href="#Retrofit配置" class="headerlink" title="Retrofit配置"></a>Retrofit配置</h1><h2 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h2><p>app/build.gradle<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile <span class="string">'com.squareup.retrofit2:retrofit:2.0.2'</span></div></pre></td></tr></table></figure></p>
+<p>首先Builder()，得到OkHttpClient.Builder对象builder<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">OkHttpClient.Builder builder = <span class="keyword">new</span> OkHttpClient.Builder();</div></pre></td></tr></table></figure></p>
+<h2 id="Log信息拦截器"><a href="#Log信息拦截器" class="headerlink" title="Log信息拦截器"></a>Log信息拦截器</h2><p>Debug可以看到，网络请求，打印Log信息，发布的时候就不需要这些log<br>1、添加依赖<br>app/build.gradle<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile <span class="string">'com.squareup.okhttp3:logging-interceptor:3.1.2'</span></div></pre></td></tr></table></figure></p>
+<p>2、Log信息拦截器<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (BuildConfig.DEBUG) &#123;</div><div class="line">    <span class="comment">// Log信息拦截器</span></div><div class="line">    HttpLoggingInterceptor loggingInterceptor = <span class="keyword">new</span> HttpLoggingInterceptor();</div><div class="line">    loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);</div><div class="line">    <span class="comment">//设置 Debug Log 模式</span></div><div class="line">    builder.addInterceptor(loggingInterceptor);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="缓存机制"><a href="#缓存机制" class="headerlink" title="缓存机制"></a>缓存机制</h2><p>无网络时，也能显示数据<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">File cacheFile = <span class="keyword">new</span> File(DemoApplication.getContext().getExternalCacheDir(), <span class="string">"WuXiaolongCache"</span>);</div><div class="line">Cache cache = <span class="keyword">new</span> Cache(cacheFile, <span class="number">1024</span> * <span class="number">1024</span> * <span class="number">50</span>);</div><div class="line">Interceptor cacheInterceptor = <span class="keyword">new</span> Interceptor() &#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> Response <span class="title">intercept</span><span class="params">(Chain chain)</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">        Request request = chain.request();</div><div class="line">        <span class="keyword">if</span> (!AppUtils.networkIsAvailable(DemoApplication.getContext())) &#123;</div><div class="line">            request = request.newBuilder()</div><div class="line">                    .cacheControl(CacheControl.FORCE_CACHE)</div><div class="line">                    .build();</div><div class="line">        &#125;</div><div class="line">        Response response = chain.proceed(request);</div><div class="line">        <span class="keyword">if</span> (AppUtils.networkIsAvailable(DemoApplication.getContext())) &#123;</div><div class="line">            <span class="keyword">int</span> maxAge = <span class="number">0</span>;</div><div class="line">            <span class="comment">// 有网络时 设置缓存超时时间0个小时</span></div><div class="line">            response.newBuilder()</div><div class="line">                    .header(<span class="string">"Cache-Control"</span>, <span class="string">"public, max-age="</span> + maxAge)</div><div class="line">                    .removeHeader(<span class="string">"WuXiaolong"</span>)<span class="comment">// 清除头信息，因为服务器如果不支持，会返回一些干扰信息，不清除下面无法生效</span></div><div class="line">                    .build();</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="comment">// 无网络时，设置超时为4周</span></div><div class="line">            <span class="keyword">int</span> maxStale = <span class="number">60</span> * <span class="number">60</span> * <span class="number">24</span> * <span class="number">28</span>;</div><div class="line">            response.newBuilder()</div><div class="line">                    .header(<span class="string">"Cache-Control"</span>, <span class="string">"public, only-if-cached, max-stale="</span> + maxStale)</div><div class="line">                    .removeHeader(<span class="string">"nyn"</span>)</div><div class="line">                    .build();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> response;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">builder.cache(cache).addInterceptor(cacheInterceptor);</div></pre></td></tr></table></figure></p>
+<h2 id="公共参数"><a href="#公共参数" class="headerlink" title="公共参数"></a>公共参数</h2><p>可能接口有某些参数是公共的，不可能一个个接口都去加吧<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//公共参数</span></div><div class="line">Interceptor addQueryParameterInterceptor = <span class="keyword">new</span> Interceptor() &#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> Response <span class="title">intercept</span><span class="params">(Chain chain)</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">        Request originalRequest = chain.request();</div><div class="line">        Request request;</div><div class="line">        String method = originalRequest.method();</div><div class="line">        Headers headers = originalRequest.headers();</div><div class="line">        HttpUrl modifiedUrl = originalRequest.url().newBuilder()</div><div class="line">                <span class="comment">// Provide your custom parameter here</span></div><div class="line">                .addQueryParameter(<span class="string">"platform"</span>, <span class="string">"android"</span>)</div><div class="line">                .addQueryParameter(<span class="string">"version"</span>, <span class="string">"1.0.0"</span>)              </div><div class="line">                .build();</div><div class="line">        request = originalRequest.newBuilder().url(modifiedUrl).build();</div><div class="line">        <span class="keyword">return</span> chain.proceed(request);</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"><span class="comment">//公共参数</span></div><div class="line">builder.addInterceptor(addQueryParameterInterceptor);</div></pre></td></tr></table></figure></p>
+<h2 id="设置头"><a href="#设置头" class="headerlink" title="设置头"></a>设置头</h2><p>有的接口可能对请求头要设置<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">Interceptor headerInterceptor = <span class="keyword">new</span> Interceptor() &#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> Response <span class="title">intercept</span><span class="params">(Chain chain)</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">        Request originalRequest = chain.request();</div><div class="line">        Request.Builder requestBuilder = originalRequest.newBuilder()</div><div class="line">                .header(<span class="string">"AppType"</span>, <span class="string">"TPOS"</span>)</div><div class="line">                .header(<span class="string">"Content-Type"</span>, <span class="string">"application/json"</span>)</div><div class="line">                .header(<span class="string">"Accept"</span>, <span class="string">"application/json"</span>)</div><div class="line">                .method(originalRequest.method(), originalRequest.body());</div><div class="line">        Request request = requestBuilder.build();</div><div class="line">        <span class="keyword">return</span> chain.proceed(request);</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"><span class="comment">//设置头</span></div><div class="line">builder.addInterceptor(headerInterceptor );</div></pre></td></tr></table></figure></p>
+<h2 id="设置cookie"><a href="#设置cookie" class="headerlink" title="设置cookie"></a>设置cookie</h2><p>服务端可能需要保持请求是同一个cookie，主要看各自需求<br>1、app/build.gradle<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile <span class="string">'com.squareup.okhttp3:okhttp-urlconnection:3.2.0'</span></div></pre></td></tr></table></figure></p>
+<p>2、设置cookie<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">CookieManager cookieManager = <span class="keyword">new</span> CookieManager();</div><div class="line">cookieManager.setCookiePolicy(CookiePolicy.ACCEPT_ALL);</div><div class="line">builder.cookieJar(<span class="keyword">new</span> JavaNetCookieJar(cookieManager));</div></pre></td></tr></table></figure></p>
+<h2 id="设置超时和重连"><a href="#设置超时和重连" class="headerlink" title="设置超时和重连"></a>设置超时和重连</h2><p>希望超时时能重连<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//设置超时</span></div><div class="line">builder.connectTimeout(<span class="number">15</span>, TimeUnit.SECONDS);</div><div class="line">builder.readTimeout(<span class="number">20</span>, TimeUnit.SECONDS);</div><div class="line">builder.writeTimeout(<span class="number">20</span>, TimeUnit.SECONDS);</div><div class="line"><span class="comment">//错误重连</span></div><div class="line">builder.retryOnConnectionFailure(<span class="keyword">true</span>);</div></pre></td></tr></table></figure></p>
+<p>最后将这些配置设置给retrofit：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">OkHttpClient okHttpClient = builder.build();</div><div class="line">Retrofit retrofit = <span class="keyword">new</span> Retrofit.Builder()</div><div class="line">        .baseUrl(ApiStores.API_SERVER_URL)</div><div class="line">        <span class="comment">//设置 Json 转换器</span></div><div class="line">        .addConverterFactory(GsonConverterFactory.create())</div><div class="line">        <span class="comment">//RxJava 适配器</span></div><div class="line">        .addCallAdapterFactory(RxJavaCallAdapterFactory.create())</div><div class="line">        .client(okHttpClient)</div><div class="line">        .build();</div></pre></td></tr></table></figure></p>
+<h2 id="完整配置"><a href="#完整配置" class="headerlink" title="完整配置"></a>完整配置</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AppClient</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Retrofit retrofit = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Retrofit <span class="title">retrofit</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (retrofit == <span class="keyword">null</span>) &#123;</div><div class="line">	         OkHttpClient.Builder builder = <span class="keyword">new</span> OkHttpClient.Builder();</div><div class="line">            <span class="comment">/**</span></div><div class="line">             *设置缓存，代码略</div><div class="line">             */</div><div class="line">                      </div><div class="line">            <span class="comment">/**</span></div><div class="line">             *  公共参数，代码略</div><div class="line">             */</div><div class="line">           </div><div class="line">            <span class="comment">/**</span></div><div class="line">             * 设置头，代码略</div><div class="line">             */           </div><div class="line">           </div><div class="line">			 <span class="comment">/**</span></div><div class="line">             * Log信息拦截器，代码略</div><div class="line">             */</div><div class="line">            </div><div class="line">			 <span class="comment">/**</span></div><div class="line">             * 设置cookie，代码略</div><div class="line">             */</div><div class="line">            </div><div class="line">             <span class="comment">/**</span></div><div class="line">             * 设置超时和重连，代码略</div><div class="line">             */</div><div class="line"></div><div class="line">            <span class="comment">//以上设置结束，才能build(),不然设置白搭</span></div><div class="line">            OkHttpClient okHttpClient = builder.build();</div><div class="line"></div><div class="line">            retrofit = <span class="keyword">new</span> Retrofit.Builder()</div><div class="line">                    .baseUrl(ApiStores.API_SERVER_URL)                  </div><div class="line">                    .client(okHttpClient)</div><div class="line">                    .build();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> retrofit;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="接口参数"><a href="#接口参数" class="headerlink" title="接口参数"></a>接口参数</h1><h2 id="Path"><a href="#Path" class="headerlink" title="Path"></a>Path</h2><p>类似这样链接：<a href="http://wuxiaolong.me/2016/01/15/retrofit/">http://wuxiaolong.me/2016/01/15/retrofit/</a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@GET</span>(<span class="string">"2016/01/15/&#123;retrofit&#125;"</span>)</div><div class="line"><span class="function">Call&lt;ResponseBody&gt; <span class="title">getData</span><span class="params">(@Path(<span class="string">"retrofit"</span>)</span> String retrofit)</span>;</div></pre></td></tr></table></figure></p>
+<p>即您传的参数retrofit内容会替换大括号里的内容。</p>
+<h2 id="Query"><a href="#Query" class="headerlink" title="Query"></a>Query</h2><p>类似这样链接：<a href="http://wuxiaolong.me/v1?ip=202.202.33.33&amp;name=WuXiaolong">http://wuxiaolong.me/v1?ip=202.202.33.33&amp;name=WuXiaolong</a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@GET</span>(<span class="string">"v1"</span>)</div><div class="line"><span class="function">Call&lt;ResponseBody&gt; <span class="title">getData</span><span class="params">(@Query(<span class="string">"ip"</span>)</span> String ip,</span></div><div class="line">@<span class="title">Query</span><span class="params">(<span class="string">"name"</span>)</span> String name);</div></pre></td></tr></table></figure></p>
+<h2 id="Field"><a href="#Field" class="headerlink" title="Field"></a>Field</h2><p>表单提交，如登录<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@FormUrlEncoded</span></div><div class="line"><span class="meta">@POST</span>(<span class="string">"v1/login"</span>)</div><div class="line"><span class="function">Call&lt;ResponseBody&gt; <span class="title">userLogin</span><span class="params">(@Field(<span class="string">"phone"</span>)</span> String phone, </span></div><div class="line">@<span class="title">Field</span><span class="params">(<span class="string">"password"</span>)</span> String password);</div></pre></td></tr></table></figure></p>
+<h2 id="传json格式"><a href="#传json格式" class="headerlink" title="传json格式"></a>传json格式</h2><p>如果参数是json格式，如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;		</div><div class="line">    <span class="string">"apiInfo"</span>: &#123;		</div><div class="line">        <span class="string">"apiName"</span>: <span class="string">"WuXiaolong"</span>,		</div><div class="line">        <span class="string">"apiKey"</span>: <span class="string">"666"</span>		</div><div class="line">    &#125;		</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>建立Bean<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ApiInfo</span> </span>&#123;</div><div class="line">       <span class="keyword">private</span> ApiInfoBean apiInfo;</div><div class="line"></div><div class="line">       <span class="function"><span class="keyword">public</span> ApiInfoBean <span class="title">getApiInfo</span><span class="params">()</span> </span>&#123;</div><div class="line">           <span class="keyword">return</span> apiInfo;</div><div class="line">       &#125;</div><div class="line"></div><div class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setApiInfo</span><span class="params">(ApiInfoBean apiInfo)</span> </span>&#123;</div><div class="line">           <span class="keyword">this</span>.apiInfo = apiInfo;</div><div class="line">       &#125;</div><div class="line"></div><div class="line">       <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ApiInfoBean</span> </span>&#123;</div><div class="line">           <span class="keyword">private</span> String apiName;</div><div class="line">           <span class="keyword">private</span> String apiKey;</div><div class="line">           <span class="comment">//省略get和set方法</span></div><div class="line">       &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure></p>
+<p>ApiStores</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@POST</span>(<span class="string">"getCarType"</span>)</div><div class="line"><span class="function">Call&lt;ResponseBody&gt; <span class="title">getData</span><span class="params">(@Body ApiInfo apiInfo)</span></span>;</div></pre></td></tr></table></figure>
+<p>代码调用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">ApiInfo apiInfo = <span class="keyword">new</span> ApiInfo();</div><div class="line">ApiInfo.ApiInfoBean apiInfoBean = apiInfo.new ApiInfoBean();</div><div class="line">apiInfoBean.setApiKey(<span class="string">"666"</span>);</div><div class="line">apiInfoBean.setApiName(<span class="string">"WuXiaolong"</span>);</div><div class="line">apiInfo.setApiInfo(apiInfoBean);</div><div class="line">getData(apiInfo);<span class="comment">//调接口</span></div></pre></td></tr></table></figure>
+<h2 id="传数组"><a href="#传数组" class="headerlink" title="传数组"></a>传数组</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@GET</span>(<span class="string">"v1/enterprise/find"</span>)</div><div class="line"><span class="function">Call&lt;ResponseBody&gt; <span class="title">getData</span><span class="params">(@Query(<span class="string">"id"</span>)</span> String id, </span></div><div class="line">@<span class="title">Query</span><span class="params">(<span class="string">"linked[]"</span>)</span> String... linked);</div></pre></td></tr></table></figure>
+<p>代码调用<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">String id=<span class="string">"WuXiaolong"</span>；</div><div class="line">String[] s = <span class="keyword">new</span> String[]&#123;<span class="string">"WuXiaolong"</span>&#125;;</div><div class="line"><span class="comment">//调接口</span></div><div class="line">getData(id, s);</div></pre></td></tr></table></figure></p>
+<h2 id="传文件-单个"><a href="#传文件-单个" class="headerlink" title="传文件-单个"></a>传文件-单个</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Multipart</span></div><div class="line"><span class="meta">@POST</span>(<span class="string">"v1/create"</span>)</div><div class="line"><span class="function">Call&lt;ResponseBody&gt; <span class="title">create</span><span class="params">(@Part(<span class="string">"pictureName"</span>)</span> RequestBody pictureName,  </span></div><div class="line">@Part MultipartBody.Part picture);</div></pre></td></tr></table></figure>
+<p>代码调用<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">RequestBody pictureNameBody = RequestBody.create(MediaType.parse(AppConstants.CONTENT_TYPE_FILE), <span class="string">"pictureName"</span>);</div><div class="line">File picture= <span class="keyword">new</span> File(path);</div><div class="line">RequestBody requestFile = RequestBody.create(MediaType.parse(AppConstants.CONTENT_TYPE_FILE), picture);</div><div class="line"><span class="comment">// MultipartBody.Part is used to send also the actual file name</span></div><div class="line">MultipartBody.Part picturePart = MultipartBody.Part.createFormData(<span class="string">"picture"</span>, picture.getName(), requestFile);</div><div class="line"><span class="comment">//调接口</span></div><div class="line">create(pictureNameBody, picturePart);</div></pre></td></tr></table></figure></p>
+<h2 id="传文件-多个"><a href="#传文件-多个" class="headerlink" title="传文件-多个"></a>传文件-多个</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Multipart</span></div><div class="line"><span class="meta">@POST</span>(<span class="string">"v1/create"</span>)</div><div class="line"><span class="function">Call&lt;ResponseBody&gt; <span class="title">create</span><span class="params">(@Part(<span class="string">"pictureName"</span>)</span> RequestBody pictureName,   </span></div><div class="line">@PartMap Map&lt;String, </div><div class="line">RequestBody&gt; params);</div></pre></td></tr></table></figure>
+<p>代码调用<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">RequestBody pictureNameBody = RequestBody.create(MediaType.parse(AppConstants.CONTENT_TYPE_FILE), <span class="string">"pictureName"</span>);</div><div class="line">File picture= <span class="keyword">new</span> File(path);</div><div class="line">RequestBody requestFile = RequestBody.create(MediaType.parse(AppConstants.CONTENT_TYPE_FILE), picture);</div><div class="line">Map&lt;String, RequestBody&gt; params = <span class="keyword">new</span> HashMap&lt;&gt;();</div><div class="line">params.put(<span class="string">"picture\"; filename=\""</span> + picture.getName() + <span class="string">""</span>, requestFile);</div><div class="line"><span class="comment">//调接口</span></div><div class="line">create(pictureNameBody, params);</div></pre></td></tr></table></figure></p>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>赞赏是一种共鸣或认可</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="吴小龙同學 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    吴小龙同學
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://wuxiaolong.me/2016/06/18/retrofits/" title="Android Retrofit 2.0 使用-补充篇">http://wuxiaolong.me/2016/06/18/retrofits/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Retrofit/" rel="tag"># Retrofit</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/12/mvpRetrofitRxjava/" rel="next" title="Android MVP+Retrofit+RxJava实践小结">
+                <i class="fa fa-chevron-left"></i> Android MVP+Retrofit+RxJava实践小结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/20/uCrop/" rel="prev" title="uCrop使用及源码浅析">
+                uCrop使用及源码浅析 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTM2My81OTMx"></div>
+    </div>
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="http://7q5c2h.com1.z0.glb.clouddn.com/avatar.jpg" alt="吴小龙同學">
+            
+              <p class="site-author-name" itemprop="name">吴小龙同學</p>
+              <p class="site-description motion-element" itemprop="description">我的微信公众号：吴小龙同学</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">163</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">129</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/WuXiaolong" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://open.weixin.qq.com/qr/code/?username=MrWuXiaolong" target="_blank" title="WeChat">
+                    
+                      <i class="fa fa-fw fa-globe"></i>WeChat</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/u/2175011601" target="_blank" title="Weibo">
+                    
+                      <i class="fa fa-fw fa-globe"></i>Weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="/qq/index.html" target="_blank" title="QQ">
+                    
+                      <i class="fa fa-fw fa-globe"></i>QQ</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Retrofit配置"><span class="nav-number">1.</span> <span class="nav-text">Retrofit配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#添加依赖"><span class="nav-number">1.1.</span> <span class="nav-text">添加依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Log信息拦截器"><span class="nav-number">1.2.</span> <span class="nav-text">Log信息拦截器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缓存机制"><span class="nav-number">1.3.</span> <span class="nav-text">缓存机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#公共参数"><span class="nav-number">1.4.</span> <span class="nav-text">公共参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置头"><span class="nav-number">1.5.</span> <span class="nav-text">设置头</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置cookie"><span class="nav-number">1.6.</span> <span class="nav-text">设置cookie</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置超时和重连"><span class="nav-number">1.7.</span> <span class="nav-text">设置超时和重连</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#完整配置"><span class="nav-number">1.8.</span> <span class="nav-text">完整配置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#接口参数"><span class="nav-number">2.</span> <span class="nav-text">接口参数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Path"><span class="nav-number">2.1.</span> <span class="nav-text">Path</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Query"><span class="nav-number">2.2.</span> <span class="nav-text">Query</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Field"><span class="nav-number">2.3.</span> <span class="nav-text">Field</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#传json格式"><span class="nav-number">2.4.</span> <span class="nav-text">传json格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#传数组"><span class="nav-number">2.5.</span> <span class="nav-text">传数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#传文件-单个"><span class="nav-number">2.6.</span> <span class="nav-text">传文件-单个</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#传文件-多个"><span class="nav-number">2.7.</span> <span class="nav-text">传文件-多个</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2013 &mdash; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">吴小龙同學</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/favicon.ico?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="GitBranch,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="吴小龙同學" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="新公司有些项目是用的 Git，以前公司都是 svn，为了练手 Git，我个人 APP  用到了，但是仅简单的 git pull/push 的使用，并未用到 Git 精髓，只有当项目中用到，才会紧迫去全面学习，所以说，在项目中进步是最快的。  开发场景：远程有主分支 master，提供用户使用的正式的稳定的版本；开发分支 dev，用于日常开发。dev 们可以在本地任意创建自己的 Local Bra">
+<meta name="keywords" content="GitBranch">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android Studio Git 分支实践">
+<meta property="og:url" content="http://wuxiaolong.me/2017/03/09/gitBranch/index.html">
+<meta property="og:site_name" content="吴小龙同學">
+<meta property="og:description" content="新公司有些项目是用的 Git，以前公司都是 svn，为了练手 Git，我个人 APP  用到了，但是仅简单的 git pull/push 的使用，并未用到 Git 精髓，只有当项目中用到，才会紧迫去全面学习，所以说，在项目中进步是最快的。  开发场景：远程有主分支 master，提供用户使用的正式的稳定的版本；开发分支 dev，用于日常开发。dev 们可以在本地任意创建自己的 Local Bra">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/gitBranch0.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/gitBranch3.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/gitBranch4.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/gitBranch5.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/gitBranch6.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/gitBranch7.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:updated_time" content="2017-07-12T07:52:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android Studio Git 分支实践">
+<meta name="twitter:description" content="新公司有些项目是用的 Git，以前公司都是 svn，为了练手 Git，我个人 APP  用到了，但是仅简单的 git pull/push 的使用，并未用到 Git 精髓，只有当项目中用到，才会紧迫去全面学习，所以说，在项目中进步是最快的。  开发场景：远程有主分支 master，提供用户使用的正式的稳定的版本；开发分支 dev，用于日常开发。dev 们可以在本地任意创建自己的 Local Bra">
+<meta name="twitter:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/gitBranch0.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://wuxiaolong.me/2017/03/09/gitBranch/">
+
+
+
+
+
+  <title>Android Studio Git 分支实践 | 吴小龙同學</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-105780265-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0e1dc2030f397dfa0d60ad22b374430d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">吴小龙同學</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">党要我帅，我不得不帅！</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-friendslinks">
+          <a href="/friendslinks/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-users"></i> <br>
+            
+            小伙伴
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input">
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'ywBn2eRCzfb494KCWJw3','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2017/03/09/gitBranch/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吴小龙同學">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://7q5c2h.com1.z0.glb.clouddn.com/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴小龙同學">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Android Studio Git 分支实践</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-09T19:05:03+08:00">
+                2017-03-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>新公司有些项目是用的 Git，以前公司都是 svn，为了练手 Git，我个人 APP  用到了，但是仅简单的 git pull/push 的使用，并未用到 Git 精髓，只有当项目中用到，才会紧迫去全面学习，所以说，在项目中进步是最快的。</p>
+</blockquote>
+<p>开发场景：远程有主分支 master，提供用户使用的正式的稳定的版本；开发分支 dev，用于日常开发。dev 们可以在本地任意创建自己的 Local Branch，然后合并到本地 master 再提交到远程分支 dev。<br><a id="more"></a></p>
+<h1 id="命令行实践"><a href="#命令行实践" class="headerlink" title="命令行实践"></a>命令行实践</h1><p>高手都是直接用命令行，用命令行显得逼格更高。</p>
+<h2 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h2><p>首先我创建 Android 项目 GitBranchSample， Share Project on GitHub。</p>
+<h2 id="查看分支"><a href="#查看分支" class="headerlink" title="查看分支"></a>查看分支</h2><p>查看本地所有分支：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git branch</div><div class="line">* master</div></pre></td></tr></table></figure></p>
+<p>master 分支前的 * 字符，它表示当前所在的分支。</p>
+<p>查看远程所有分支：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git branch -r</div><div class="line">  origin/master</div></pre></td></tr></table></figure></p>
+<p>列出所有本地分支和远程分支：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch -a</div></pre></td></tr></table></figure></p>
+<h2 id="创建本地-dev1-分支"><a href="#创建本地-dev1-分支" class="headerlink" title="创建本地 dev1 分支"></a>创建本地 dev1 分支</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git checkout -b dev1 </div><div class="line">Switched to a new branch &apos;dev1&apos;</div></pre></td></tr></table></figure>
+<p>本地 master 分支默认就是远程 master 分支，上面命令在此基础上创建本地 dev1 分支，然后切换到 dev1 分支，相当于以下两条命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git branch dev1</div><div class="line">$ git checkout dev1</div></pre></td></tr></table></figure></p>
+<p>想从远程分支 dev （远程有该分支）创建本地分支 dev1：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git checkout -b dev1 origin/dev</div><div class="line">Switched to a new branch &apos;dev1&apos;</div></pre></td></tr></table></figure></p>
+<h2 id="开发提交"><a href="#开发提交" class="headerlink" title="开发提交"></a>开发提交</h2><p>随便修改 README.md 文件，然后提交：</p>
+<p>add 文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git add README.md</div></pre></td></tr></table></figure></p>
+<p>commit 信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git commit -m &quot;branch test&quot;</div><div class="line">[dev1 8643ecb] branch dev1</div><div class="line">2 files changed, 3 insertions(+)</div></pre></td></tr></table></figure></p>
+<h2 id="合并到本地-master-分支"><a href="#合并到本地-master-分支" class="headerlink" title="合并到本地 master 分支"></a>合并到本地 master 分支</h2><p>分支 dev1 开发工作完成，我们就可以切换回本地 master 分支：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git checkout master</div><div class="line">Switched to branch &apos;master&apos;</div></pre></td></tr></table></figure></p>
+<p>进行本地分支 dev1 合并：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git merge dev1</div><div class="line">Updating 82951ea..444bb8e</div><div class="line">Fast-forward</div><div class="line"> README.md | 1 +</div><div class="line"> 1 file changed, 1 insertion(+)</div></pre></td></tr></table></figure></p>
+<p>Fast-forward 信息，“快进模式”合并，这种模式下，删除分支后，会丢掉分支信息，可以用 –no-ff 方式进行 merge ：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git merge --no-ff -m &quot;merge with no-ff&quot; dev1</div></pre></td></tr></table></figure></p>
+<p>如果分支很多，这个分支历史可能就会变得很复杂了，可以使用 rebase，提交的历史会保持线性：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git rebase dev1</div></pre></td></tr></table></figure></p>
+<p>也是进行本地分支 dev1 合并。</p>
+<h2 id="删除本地分支"><a href="#删除本地分支" class="headerlink" title="删除本地分支"></a>删除本地分支</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch -d dev1</div></pre></td></tr></table></figure>
+<p>这是删除，如果没有完成合并会有提示，以下是强删：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git branch -D dev1</div><div class="line">Deleted branch dev1 (was d39f6c3).</div></pre></td></tr></table></figure></p>
+<h2 id="创建远程分支-dev"><a href="#创建远程分支-dev" class="headerlink" title="创建远程分支 dev"></a>创建远程分支 dev</h2><p>直接提交<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push origin master:dev</div></pre></td></tr></table></figure></p>
+<p>这里冒号可以提交到指定分支，上面命令，把提交本地 master 分支到远程的 dev 分支，远程没有dev这个分支，会创建。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push origin master</div></pre></td></tr></table></figure>
+<p>这是本地 master 提交到远程主分支 master，相当于：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push origin master:master</div></pre></td></tr></table></figure></p>
+<h2 id="跟踪远程分支"><a href="#跟踪远程分支" class="headerlink" title="跟踪远程分支"></a>跟踪远程分支</h2><p>从远程分支 checkout 出来的本地分支，称为 跟踪分支 (tracking branch)。跟踪分支是一种和某个远程分支有直接联系的本地分支。在跟踪分支里输入 git pull/push，Git 会自行推断应该向哪个服务器的哪个分支更新/推送数据。</p>
+<p>手动建立追踪关系：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git branch -u origin/dev master</div><div class="line">Branch master set up to track remote branch dev from origin.</div></pre></td></tr></table></figure></p>
+<p>或者：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git branch --set-upstream-to origin/dev master</div><div class="line">Branch master set up to track remote branch dev from origin.</div></pre></td></tr></table></figure></p>
+<p>指定本地 master 分支追踪远程 dev 分支。</p>
+<p>查看所有分支跟踪关系：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git branch -vv</div><div class="line">* master 444bb8e [origin/dev] branch test</div></pre></td></tr></table></figure></p>
+<h2 id="合并远程分支"><a href="#合并远程分支" class="headerlink" title="合并远程分支"></a>合并远程分支</h2><p>我们把远程分支 dev 合并到 master，怎么做？</p>
+<p>1、指定本地 master 分支追踪远程 dev 分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git branch -u origin/dev master</div><div class="line">Branch master set up to track remote branch dev from origin.</div></pre></td></tr></table></figure></p>
+<p>2、更新内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$ git pull</div><div class="line">remote: Counting objects: 3, done.</div><div class="line">remote: Compressing objects: 100% (3/3), done.</div><div class="line">remote: Total 3 (delta 1), reused 0 (delta 0), pack-reused 0</div><div class="line">Unpacking objects: 100% (3/3), done.</div><div class="line">From https://github.com/WuXiaolong/GitBranchSample</div><div class="line">   0138684..d0ca159  dev        -&gt; origin/dev</div><div class="line">Updating 0138684..d0ca159</div><div class="line">Fast-forward</div><div class="line"> README.md | 2 +-</div><div class="line"> 1 file changed, 1 insertion(+), 1 deletion(-)</div></pre></td></tr></table></figure></p>
+<p>3、开发提交远程分支 dev</p>
+<p>修改了 README.md 文件，然后提交：</p>
+<p>add 文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git add README.md</div></pre></td></tr></table></figure></p>
+<p>commit 信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git commit -m &quot;merge origin/dev&quot;</div><div class="line">[master 44150b4] merge origin/dev</div><div class="line"> 1 file changed, 1 insertion(+), 1 deletion(-)</div></pre></td></tr></table></figure>
+<p>进行 push<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ git push origin master:dev</div><div class="line">Counting objects: 3, done.</div><div class="line">Delta compression using up to 4 threads.</div><div class="line">Compressing objects: 100% (2/2), done.</div><div class="line">Writing objects: 100% (3/3), 310 bytes | 0 bytes/s, done.</div><div class="line">Total 3 (delta 1), reused 0 (delta 0)</div><div class="line">remote: Resolving deltas: 100% (1/1), completed with 1 local object.</div><div class="line">To https://github.com/WuXiaolong/GitBranchSample.git</div><div class="line">   d0ca159..44150b4  master -&gt; dev</div></pre></td></tr></table></figure></p>
+<p>4、指定本地 master 分支追踪远程 master 分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git branch -u origin/master master</div><div class="line">Branch master set up to track remote branch master from origin.</div></pre></td></tr></table></figure></p>
+<p>5、更新内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git pull</div><div class="line">Already up-to-date.</div></pre></td></tr></table></figure></p>
+<p>6、同样提交远程分支 master</p>
+<p>不用 commit ，上面已经 commit 了，也提交给 origin/master，这样远程分支 dev 和 master 就是一样的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git push origin master</div><div class="line">Total 0 (delta 0), reused 0 (delta 0)</div><div class="line">To https://github.com/WuXiaolong/GitBranchSample.git</div><div class="line">   0138684..44150b4  master -&gt; master</div></pre></td></tr></table></figure></p>
+<p>PS：以上远程分支合并，我不知道是不是正确的方式，望指导。</p>
+<h2 id="删除远程分支"><a href="#删除远程分支" class="headerlink" title="删除远程分支"></a>删除远程分支</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push origin --delete dev</div></pre></td></tr></table></figure>
+<p>或者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push origin :dev</div></pre></td></tr></table></figure></p>
+<p>远程分支 dev 将被删除。</p>
+<h1 id="Android-Studio-实践"><a href="#Android-Studio-实践" class="headerlink" title="Android Studio 实践"></a>Android Studio 实践</h1><p>毕竟我们开发工具是 Android Studio，知道 Android  Studio 进行分支开发是必要的。</p>
+<h2 id="查看当前分支"><a href="#查看当前分支" class="headerlink" title="查看当前分支"></a>查看当前分支</h2><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/gitBranch0.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""></p>
+<p>这个分支指的当然是本地的，默认 master。</p>
+<h2 id="创建本地-dev1-分支-1"><a href="#创建本地-dev1-分支-1" class="headerlink" title="创建本地 dev1 分支"></a>创建本地 dev1 分支</h2><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/gitBranch3.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""></p>
+<p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/gitBranch4.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""></p>
+<p>以 origin/master 为基础 checkout 本地分支 dev1。</p>
+<h2 id="合并到本地-master-分支-1"><a href="#合并到本地-master-分支-1" class="headerlink" title="合并到本地 master 分支"></a>合并到本地 master 分支</h2><p>同样修改 README.md 文件，add，commit，然后切换到 master 分支：<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/gitBranch5.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""></p>
+<p>然后合并本地分支 dev1：<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/gitBranch6.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""></p>
+<p>再 push 就 OK 了。</p>
+<h2 id="删除本地分支-1"><a href="#删除本地分支-1" class="headerlink" title="删除本地分支"></a>删除本地分支</h2><p>如上图，有个 Delete 按钮，点击直接干掉。</p>
+<h2 id="创建远程分支-dev-1"><a href="#创建远程分支-dev-1" class="headerlink" title="创建远程分支 dev"></a>创建远程分支 dev</h2><p>直接提交，我们会发现是提交到远程 master 上，这里我们可以修改：<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/gitBranch7.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br>改成 dev，点击 Enter，然后 Push，这样远程就有了分支 dev。</p>
+<h2 id="查看跟踪远程分支"><a href="#查看跟踪远程分支" class="headerlink" title="查看跟踪远程分支"></a>查看跟踪远程分支</h2><p>如上图可以查看跟踪关系，也可以手动修改。</p>
+<h2 id="合并远程分支-1"><a href="#合并远程分支-1" class="headerlink" title="合并远程分支"></a>合并远程分支</h2><p>修改 README.md 文件，add，commit，分别提交到远程 dev 和 master 即可，是不是比命令行简单多了啊。</p>
+<h2 id="删除远程分支-1"><a href="#删除远程分支-1" class="headerlink" title="删除远程分支"></a>删除远程分支</h2><p>点击 origin/dev，直接删除就好了。</p>
+<h1 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h1><h2 id="git-fetch"><a href="#git-fetch" class="headerlink" title="git fetch"></a>git fetch</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git fetch origin master</div></pre></td></tr></table></figure>
+<p>下载远程 master 的所有变动到当前分支，与 git pull 区别，没有与本地合并。</p>
+<h2 id="查看当前的远程库"><a href="#查看当前的远程库" class="headerlink" title="查看当前的远程库"></a>查看当前的远程库</h2><p>显示对应的克隆地址：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git remote -v</div></pre></td></tr></table></figure></p>
+<p> -v 为 –verbose 的简写，取首字母</p>
+<h2 id="修改远程仓库地址"><a href="#修改远程仓库地址" class="headerlink" title="修改远程仓库地址"></a>修改远程仓库地址</h2><p>服务器要换地址了，本地有 clone 出来的 git 厍，则需要修改一下 origin 的地址，以便能继续 push 和 pull，项目所在目录下执行命令行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote set-url origin 新地址</div></pre></td></tr></table></figure></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="external">常用 Git 命令清单</a></p>
+<p><a href="http://www.ruanyifeng.com/blog/2012/07/git.html" target="_blank" rel="external">Git分支管理策略</a></p>
+<hr>
+<h2 id="切换分支"><a href="#切换分支" class="headerlink" title="切换分支"></a>切换分支</h2><p>我们新建一个分支（Branch1）后，这时如果我们要切换到master分支，我们点击Local Branches下面的按钮，然后在其左边会弹出一个对话框，我们点击Checkout就可以将其切换到master分支下了。要明白的是Local是存在本地Repo的，你可以直接进行切换。Remote是远程仓库的，远程仓库的你只能checkout到本地，而不能切换过去。 切换分支，addcommit下，防止代码丢失。</p>
+<p>git push origin dev:master<br>提交本地 dev 分支推送到远程master分支</p>
+<p>git push origin dev:dev<br>提交本地 dev 分支作为远程的dev 分支</p>
+<p>git push origin :dev<br>刚提交到远程的 dev 将被删除，本地还是会保存的</p>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>赞赏是一种共鸣或认可</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="吴小龙同學 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    吴小龙同學
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://wuxiaolong.me/2017/03/09/gitBranch/" title="Android Studio Git 分支实践">http://wuxiaolong.me/2017/03/09/gitBranch/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/GitBranch/" rel="tag"># GitBranch</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/08/addBlogQRCode/" rel="next" title="博客：固定位置增加二维码">
+                <i class="fa fa-chevron-left"></i> 博客：固定位置增加二维码
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/13/appStart/" rel="prev" title="Android APP启动优化">
+                Android APP启动优化 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTM2My81OTMx"></div>
+    </div>
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="http://7q5c2h.com1.z0.glb.clouddn.com/avatar.jpg" alt="吴小龙同學">
+            
+              <p class="site-author-name" itemprop="name">吴小龙同學</p>
+              <p class="site-description motion-element" itemprop="description">我的微信公众号：吴小龙同学</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">163</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">129</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/WuXiaolong" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://open.weixin.qq.com/qr/code/?username=MrWuXiaolong" target="_blank" title="WeChat">
+                    
+                      <i class="fa fa-fw fa-globe"></i>WeChat</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/u/2175011601" target="_blank" title="Weibo">
+                    
+                      <i class="fa fa-fw fa-globe"></i>Weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="/qq/index.html" target="_blank" title="QQ">
+                    
+                      <i class="fa fa-fw fa-globe"></i>QQ</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#命令行实践"><span class="nav-number">1.</span> <span class="nav-text">命令行实践</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建项目"><span class="nav-number">1.1.</span> <span class="nav-text">创建项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看分支"><span class="nav-number">1.2.</span> <span class="nav-text">查看分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建本地-dev1-分支"><span class="nav-number">1.3.</span> <span class="nav-text">创建本地 dev1 分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开发提交"><span class="nav-number">1.4.</span> <span class="nav-text">开发提交</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#合并到本地-master-分支"><span class="nav-number">1.5.</span> <span class="nav-text">合并到本地 master 分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除本地分支"><span class="nav-number">1.6.</span> <span class="nav-text">删除本地分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建远程分支-dev"><span class="nav-number">1.7.</span> <span class="nav-text">创建远程分支 dev</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跟踪远程分支"><span class="nav-number">1.8.</span> <span class="nav-text">跟踪远程分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#合并远程分支"><span class="nav-number">1.9.</span> <span class="nav-text">合并远程分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除远程分支"><span class="nav-number">1.10.</span> <span class="nav-text">删除远程分支</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android-Studio-实践"><span class="nav-number">2.</span> <span class="nav-text">Android Studio 实践</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看当前分支"><span class="nav-number">2.1.</span> <span class="nav-text">查看当前分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建本地-dev1-分支-1"><span class="nav-number">2.2.</span> <span class="nav-text">创建本地 dev1 分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#合并到本地-master-分支-1"><span class="nav-number">2.3.</span> <span class="nav-text">合并到本地 master 分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除本地分支-1"><span class="nav-number">2.4.</span> <span class="nav-text">删除本地分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建远程分支-dev-1"><span class="nav-number">2.5.</span> <span class="nav-text">创建远程分支 dev</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看跟踪远程分支"><span class="nav-number">2.6.</span> <span class="nav-text">查看跟踪远程分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#合并远程分支-1"><span class="nav-number">2.7.</span> <span class="nav-text">合并远程分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除远程分支-1"><span class="nav-number">2.8.</span> <span class="nav-text">删除远程分支</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#拓展"><span class="nav-number">3.</span> <span class="nav-text">拓展</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#git-fetch"><span class="nav-number">3.1.</span> <span class="nav-text">git fetch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看当前的远程库"><span class="nav-number">3.2.</span> <span class="nav-text">查看当前的远程库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改远程仓库地址"><span class="nav-number">3.3.</span> <span class="nav-text">修改远程仓库地址</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#切换分支"><span class="nav-number">4.1.</span> <span class="nav-text">切换分支</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2013 &mdash; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">吴小龙同學</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/favicon.ico?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Drawable,Bitmap,String,InputStream,byte,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="吴小龙同學" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="Drawable互转BitmapDrawable转Bitmap1234Resources res = getResources();Drawable drawable = res.getDrawable(R.drawable.myimage);BitmapDrawable bd = (BitmapDrawable) d;Bitmap bm = bd.getBitmap();">
+<meta name="keywords" content="Drawable,Bitmap,String,InputStream,byte">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Drawable &#x2F;Bitmap、String&#x2F;InputStream、Bitmap&#x2F;byte[]互转">
+<meta property="og:url" content="http://wuxiaolong.me/2015/08/10/Drawable-to-Bitmap/index.html">
+<meta property="og:site_name" content="吴小龙同學">
+<meta property="og:description" content="Drawable互转BitmapDrawable转Bitmap1234Resources res = getResources();Drawable drawable = res.getDrawable(R.drawable.myimage);BitmapDrawable bd = (BitmapDrawable) d;Bitmap bm = bd.getBitmap();">
+<meta property="og:updated_time" content="2016-08-25T11:38:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Drawable &#x2F;Bitmap、String&#x2F;InputStream、Bitmap&#x2F;byte[]互转">
+<meta name="twitter:description" content="Drawable互转BitmapDrawable转Bitmap1234Resources res = getResources();Drawable drawable = res.getDrawable(R.drawable.myimage);BitmapDrawable bd = (BitmapDrawable) d;Bitmap bm = bd.getBitmap();">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://wuxiaolong.me/2015/08/10/Drawable-to-Bitmap/">
+
+
+
+
+
+  <title>Drawable /Bitmap、String/InputStream、Bitmap/byte[]互转 | 吴小龙同學</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-105780265-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0e1dc2030f397dfa0d60ad22b374430d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">吴小龙同學</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">党要我帅，我不得不帅！</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-friendslinks">
+          <a href="/friendslinks/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-users"></i> <br>
+            
+            小伙伴
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input">
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'ywBn2eRCzfb494KCWJw3','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2015/08/10/Drawable-to-Bitmap/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吴小龙同學">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://7q5c2h.com1.z0.glb.clouddn.com/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴小龙同學">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Drawable /Bitmap、String/InputStream、Bitmap/byte[]互转</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-08-10T16:26:25+08:00">
+                2015-08-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Drawable互转Bitmap"><a href="#Drawable互转Bitmap" class="headerlink" title="Drawable互转Bitmap"></a>Drawable互转Bitmap</h2><h3 id="Drawable转Bitmap"><a href="#Drawable转Bitmap" class="headerlink" title="Drawable转Bitmap"></a>Drawable转Bitmap</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Resources res = getResources();</div><div class="line">Drawable drawable = res.getDrawable(R.drawable.myimage);</div><div class="line">BitmapDrawable bd = (BitmapDrawable) d;</div><div class="line">Bitmap bm = bd.getBitmap();</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Bitmap <span class="title">drawableToBitmap</span><span class="params">(Drawable drawable)</span> </span>&#123;       </div><div class="line">        Bitmap bitmap = Bitmap.createBitmap(</div><div class="line">                                        drawable.getIntrinsicWidth(),</div><div class="line">                                        drawable.getIntrinsicHeight(),</div><div class="line">                                        drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888</div><div class="line">                                                        : Bitmap.Config.RGB_565);</div><div class="line">        Canvas canvas = <span class="keyword">new</span> Canvas(bitmap);</div><div class="line">        <span class="comment">//canvas.setBitmap(bitmap);</span></div><div class="line">        drawable.setBounds(<span class="number">0</span>, <span class="number">0</span>, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());</div><div class="line">        drawable.draw(canvas);</div><div class="line">        <span class="keyword">return</span> bitmap;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Bitmap转Drawable"><a href="#Bitmap转Drawable" class="headerlink" title="Bitmap转Drawable"></a>Bitmap转Drawable</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Bitmap bm=xxx; <span class="comment">//xxx根据你的情况获取</span></div><div class="line">BitmapDrawable bd=BitmapDrawable(bm);</div><div class="line">BtimapDrawable是Drawable的子类，最终直接使用bd对象即可。</div><div class="line"></div><div class="line">mPicPath<span class="comment">//本地图片路径转成Bitmap格式</span></div><div class="line">Bitmap pic = BitmapFactory.decodeFile(<span class="keyword">this</span>.mPicPath);</div><div class="line">		image.setImageBitmap(pic);</div><div class="line">转成Bitmap格式</div></pre></td></tr></table></figure>
+<h2 id="String与InputStream相互转换"><a href="#String与InputStream相互转换" class="headerlink" title="String与InputStream相互转换"></a>String与InputStream相互转换</h2><h3 id="String-to-InputStream"><a href="#String-to-InputStream" class="headerlink" title="String to InputStream"></a>String to InputStream</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">String str = <span class="string">"String与InputStream相互转换"</span>;</div><div class="line">InputStream   in_nocode   =   <span class="keyword">new</span>   ByteArrayInputStream(str.getBytes());   </div><div class="line">InputStream   in_withcode   =   <span class="keyword">new</span>   ByteArrayInputStream(str.getBytes(<span class="string">"UTF-8"</span>));</div></pre></td></tr></table></figure>
+<h3 id="InputStream-to-String"><a href="#InputStream-to-String" class="headerlink" title="InputStream to String"></a>InputStream to String</h3><pre><code>这里提供几个方法。
+</code></pre><p>方法1：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">convertStreamToString</span><span class="params">(InputStream is)</span> </span>&#123;   </div><div class="line"> BufferedReader reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(is));   </div><div class="line">      StringBuilder sb = <span class="keyword">new</span> StringBuilder();   </div><div class="line">  </div><div class="line">      String line = <span class="keyword">null</span>;   </div><div class="line">      <span class="keyword">try</span> &#123;   </div><div class="line">          <span class="keyword">while</span> ((line = reader.readLine()) != <span class="keyword">null</span>) &#123;   </div><div class="line">              sb.append(line + <span class="string">"/n"</span>);   </div><div class="line">          &#125;   </div><div class="line">      &#125; <span class="keyword">catch</span> (IOException e) &#123;   </div><div class="line">          e.printStackTrace();   </div><div class="line">      &#125; <span class="keyword">finally</span> &#123;   </div><div class="line">          <span class="keyword">try</span> &#123;   </div><div class="line">              is.close();   </div><div class="line">          &#125; <span class="keyword">catch</span> (IOException e) &#123;   </div><div class="line">              e.printStackTrace();   </div><div class="line">          &#125;   </div><div class="line">      &#125;   </div><div class="line">  </div><div class="line">      <span class="keyword">return</span> sb.toString();   </div><div class="line">  &#125;</div></pre></td></tr></table></figure></p>
+<p>方法2：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span>   String   <span class="title">inputStream2String</span>   <span class="params">(InputStream   in)</span>   <span class="keyword">throws</span>   IOException   </span>&#123; </div><div class="line">        StringBuffer   out   =   <span class="keyword">new</span>   StringBuffer(); </div><div class="line">        <span class="keyword">byte</span>[]   b   =   <span class="keyword">new</span>   <span class="keyword">byte</span>[<span class="number">4096</span>]; </div><div class="line">        <span class="keyword">for</span>   (<span class="keyword">int</span>   n;   (n   =   in.read(b))   !=   -<span class="number">1</span>;)   &#123; </div><div class="line">                out.append(<span class="keyword">new</span>   String(b,   <span class="number">0</span>,   n)); </div><div class="line">        &#125; </div><div class="line">        <span class="keyword">return</span>   out.toString(); </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>方法3：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span>   <span class="keyword">static</span>   String   <span class="title">inputStream2String</span><span class="params">(InputStream   is)</span>   <span class="keyword">throws</span>   IOException</span>&#123; </div><div class="line">        ByteArrayOutputStream   baos   =   <span class="keyword">new</span>   ByteArrayOutputStream(); </div><div class="line">        <span class="keyword">int</span>   i=-<span class="number">1</span>; </div><div class="line">        <span class="keyword">while</span>((i=is.read())!=-<span class="number">1</span>)&#123; </div><div class="line">        baos.write(i); </div><div class="line">        &#125; </div><div class="line">       <span class="keyword">return</span>   baos.toString(); </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="Bitmap-和-byte-互转"><a href="#Bitmap-和-byte-互转" class="headerlink" title="Bitmap 和 byte[]互转"></a>Bitmap 和 byte[]互转</h2><h3 id="Bitmap-→-byte"><a href="#Bitmap-→-byte" class="headerlink" title="Bitmap → byte[]"></a>Bitmap → byte[]</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">byte</span>[] Bitmap2Bytes(Bitmap bm)&#123;</div><div class="line">    ByteArrayOutputStream baos = <span class="keyword">new</span> ByteArrayOutputStream();</div><div class="line">    bm.compress(Bitmap.CompressFormat.PNG, <span class="number">100</span>, baos);</div><div class="line">    <span class="keyword">return</span> baos.toByteArray();   &#125;</div></pre></td></tr></table></figure>
+<h3 id="byte-→-Bitmap"><a href="#byte-→-Bitmap" class="headerlink" title="byte[] → Bitmap"></a>byte[] → Bitmap</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> Bitmap <span class="title">Bytes2Bimap</span><span class="params">(<span class="keyword">byte</span>[] b)</span></span>&#123;</div><div class="line">                 <span class="keyword">if</span>(b.length!=<span class="number">0</span>)&#123;</div><div class="line">                         <span class="keyword">return</span> BitmapFactory.decodeByteArray(b, <span class="number">0</span>, b.length);</div><div class="line">                 &#125;</div><div class="line">                 <span class="keyword">else</span> &#123;</div><div class="line">                         <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">                 &#125;</div><div class="line">       &#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>赞赏是一种共鸣或认可</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="吴小龙同學 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    吴小龙同學
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://wuxiaolong.me/2015/08/10/Drawable-to-Bitmap/" title="Drawable /Bitmap、String/InputStream、Bitmap/byte[]互转">http://wuxiaolong.me/2015/08/10/Drawable-to-Bitmap/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Drawable/" rel="tag"># Drawable</a>
+          
+            <a href="/tags/Bitmap/" rel="tag"># Bitmap</a>
+          
+            <a href="/tags/String/" rel="tag"># String</a>
+          
+            <a href="/tags/InputStream/" rel="tag"># InputStream</a>
+          
+            <a href="/tags/byte/" rel="tag"># byte</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/08/10/android-small-knowledge-base/" rel="next" title="Android小知识库">
+                <i class="fa fa-chevron-left"></i> Android小知识库
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/08/19/PreferenceUtils/" rel="prev" title="SharedPreferencesUtil">
+                SharedPreferencesUtil <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTM2My81OTMx"></div>
+    </div>
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="http://7q5c2h.com1.z0.glb.clouddn.com/avatar.jpg" alt="吴小龙同學">
+            
+              <p class="site-author-name" itemprop="name">吴小龙同學</p>
+              <p class="site-description motion-element" itemprop="description">我的微信公众号：吴小龙同学</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">163</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">129</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/WuXiaolong" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://open.weixin.qq.com/qr/code/?username=MrWuXiaolong" target="_blank" title="WeChat">
+                    
+                      <i class="fa fa-fw fa-globe"></i>WeChat</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/u/2175011601" target="_blank" title="Weibo">
+                    
+                      <i class="fa fa-fw fa-globe"></i>Weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="/qq/index.html" target="_blank" title="QQ">
+                    
+                      <i class="fa fa-fw fa-globe"></i>QQ</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Drawable互转Bitmap"><span class="nav-number">1.</span> <span class="nav-text">Drawable互转Bitmap</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Drawable转Bitmap"><span class="nav-number">1.1.</span> <span class="nav-text">Drawable转Bitmap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bitmap转Drawable"><span class="nav-number">1.2.</span> <span class="nav-text">Bitmap转Drawable</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String与InputStream相互转换"><span class="nav-number">2.</span> <span class="nav-text">String与InputStream相互转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#String-to-InputStream"><span class="nav-number">2.1.</span> <span class="nav-text">String to InputStream</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#InputStream-to-String"><span class="nav-number">2.2.</span> <span class="nav-text">InputStream to String</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bitmap-和-byte-互转"><span class="nav-number">3.</span> <span class="nav-text">Bitmap 和 byte[]互转</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Bitmap-→-byte"><span class="nav-number">3.1.</span> <span class="nav-text">Bitmap → byte[]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#byte-→-Bitmap"><span class="nav-number">3.2.</span> <span class="nav-text">byte[] → Bitmap</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2013 &mdash; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">吴小龙同學</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/favicon.ico?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="PersonalApp,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="吴小龙同學" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="我们都知道，开发一个app很大程度依赖服务端：服务端提供接口数据，然后我们展示；另外，开发一个app，还需要美工协助切图。没了接口，没了美工，app似乎只能做成单机版或工具类app，真的是这样的吗？先来展示下我的个人app，没有服务端，没有美工完成的，换言之，我干了所有人的活：">
+<meta name="keywords" content="PersonalApp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="手把手教你做个人 app">
+<meta property="og:url" content="http://wuxiaolong.me/2016/11/11/PersonalApp/index.html">
+<meta property="og:site_name" content="吴小龙同學">
+<meta property="og:description" content="我们都知道，开发一个app很大程度依赖服务端：服务端提供接口数据，然后我们展示；另外，开发一个app，还需要美工协助切图。没了接口，没了美工，app似乎只能做成单机版或工具类app，真的是这样的吗？先来展示下我的个人app，没有服务端，没有美工完成的，换言之，我干了所有人的活：">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/PersonalApp4.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/PersonalApp1.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/PersonalApp2.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/PersonalApp3.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/PersonalApp5.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/AppShortcuts6.gif?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/weiyan512.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/weiyan_good_comment.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/weiyan_rank.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/weiyan_rank2.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://open.weixin.qq.com/qr/code/?username=MrWuXiaolong">
+<meta property="og:updated_time" content="2017-03-14T13:08:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="手把手教你做个人 app">
+<meta name="twitter:description" content="我们都知道，开发一个app很大程度依赖服务端：服务端提供接口数据，然后我们展示；另外，开发一个app，还需要美工协助切图。没了接口，没了美工，app似乎只能做成单机版或工具类app，真的是这样的吗？先来展示下我的个人app，没有服务端，没有美工完成的，换言之，我干了所有人的活：">
+<meta name="twitter:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/PersonalApp4.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://wuxiaolong.me/2016/11/11/PersonalApp/">
+
+
+
+
+
+  <title>手把手教你做个人 app | 吴小龙同學</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-105780265-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0e1dc2030f397dfa0d60ad22b374430d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">吴小龙同學</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">党要我帅，我不得不帅！</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-friendslinks">
+          <a href="/friendslinks/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-users"></i> <br>
+            
+            小伙伴
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input">
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'ywBn2eRCzfb494KCWJw3','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2016/11/11/PersonalApp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吴小龙同學">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://7q5c2h.com1.z0.glb.clouddn.com/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴小龙同學">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">手把手教你做个人 app</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-11T22:54:16+08:00">
+                2016-11-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/App/" itemprop="url" rel="index">
+                    <span itemprop="name">App</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>我们都知道，开发一个app很大程度依赖服务端：服务端提供接口数据，然后我们展示；另外，开发一个app，还需要美工协助切图。没了接口，没了美工，app似乎只能做成单机版或工具类app，真的是这样的吗？先来展示下我的个人app，没有服务端，没有美工完成的，换言之，我干了所有人的活：<br><a id="more"></a><br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/PersonalApp4.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br>这个app叫“微言”，他对于我意义很重大，最初微言只是我一个练手的项目，刚刚工作，技术有限，微言只是sqlite记事本类app，只能本地操作，后来慢慢演变现在几近完美的app，从中我学到很多，熟悉了立项到上线的整个流程，最新技术得以实践，从一个程序猿思维从而向产品思维转变，简单的Photoshop等。当然长期的积累自然会带来经济方面的收益，这里秀下我的app广告收益，我的所有app之和：<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/PersonalApp1.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br>最多一个月4000多，4000多什么概念，比我当时薪资都高呢，这些“成就”有了我可以在此吹牛的资本，哈哈哈！</p>
+<p>接下来，我一一分析，带您完成这样的一个完整的app。</p>
+<h1 id="没有服务端"><a href="#没有服务端" class="headerlink" title="没有服务端"></a>没有服务端</h1><h2 id="jsoup"><a href="#jsoup" class="headerlink" title="jsoup"></a>jsoup</h2><p>我无意听到大牛同事说到解析html，比较有兴趣去搜索这是什么玩意儿，知道了一个强大的东西jsoup，jsoup能解析html，即网站，于是我的微言脱离了单机版。对用户而言，他不在乎数据从何而来，管您是从接口取的还是解析html，他们关心的是app体验和功能的完善。我就这样瞒天过海，数据取之网页了，群里之前太多人太多人问我用的什么服务器，回复太多次解析html后就不愿意再回复了。</p>
+<p>我选择这种方式有个最大的好处就是数据不需要本人维护，巧妙地避开了我不会服务端开发，更不需要做接口；解析html也有个最大的弊端，一旦对方网站节点变化了，或许您的app就挂了，必须及时去更新。</p>
+<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><p><strong>步骤一</strong>：<br>首先网络请求，这里用的Retrofit，具体见：<a href="http://wuxiaolong.me/2016/06/12/mvpRetrofitRxjava/">Android MVP+Retrofit+RxJava实践小结</a>。以解析我的博客<a href="http://wuxiaolong.me/">http://wuxiaolong.me/</a> 示例，可以拿到类似以下数据：<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/PersonalApp2.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br>在谷歌浏览器，我的博客页面点击右键-查看网页源代码（V），同样看到以上数据。</p>
+<p><strong>步骤二</strong>：<br>1、app/build.gradle<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile <span class="string">'org.jsoup:jsoup:1.10.1'</span></div></pre></td></tr></table></figure></p>
+<p>2、解析html<br>要诀：多观察html节点、标签。<br>先观察我们要解析的数据（以我的博客<a href="http://wuxiaolong.me/">http://wuxiaolong.me/</a> 示例），首页分别有标题、发表时间、文章分类、文章评论、文章摘要5个元素谷歌浏览器，我们这次只需要标题、发表时间、文章摘要；可以看到我的博客是分页，第一页网址是<a href="http://wuxiaolong.me">http://wuxiaolong.me</a> 和第二页网址却是<a href="http://wuxiaolong.me/page/2/">http://wuxiaolong.me/page/2/</a> ，之后区别就是页码，因此app做分页的话要判断第一页和其他页，最终我做成的效果：<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/PersonalApp3.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br>我们一一分析，关于jsoup语法，这里不说，见 <a href="https://jsoup.org/" target="_blank" rel="external">jsoup官网</a>。</p>
+<p>（1）标题数据结构如下：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">class</span>=<span class="string">"post-title"</span> <span class="attr">itemprop</span>=<span class="string">"name headline"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"post-title-link"</span> <span class="attr">href</span>=<span class="string">"/2016/10/31/AppShortcuts/"</span> <span class="attr">itemprop</span>=<span class="string">"url"</span>&gt;</span>Android App Shortcuts<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>观察可根据class=”post-title”的getElementsByClass解析：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//responseBody是retrofit网络请求返回的，转成String，即我们需要解析的数据</span></div><div class="line">Document document = Jsoup.parse(<span class="keyword">new</span> String(responseBody.bytes(), <span class="string">"UTF-8"</span>));</div><div class="line">List&lt;Element&gt; titleElementList = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">Elements titleElements = document.getElementsByClass(<span class="string">"post-title-link"</span>);</div><div class="line"><span class="keyword">for</span> (Element element : titleElements) &#123;</div><div class="line">    titleElementList.add(element);</div><div class="line">    <span class="comment">//text拿到文本，如这里的“Android App Shortcuts”</span></div><div class="line">    LogUtil.d(<span class="string">"text="</span> + element.text());</div><div class="line">    <span class="comment">//拿到href属性值，如这里“/2016/10/31/AppShortcuts/”，即博客链接，如果跳转详情需要加上“http://wuxiaolong.me”</span></div><div class="line">    LogUtil.d(<span class="string">"href="</span> + element.attr(<span class="string">"href"</span>));</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>（2）发表时间数据结构如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"post-time"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"post-meta-item-icon"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-calendar-o"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"post-meta-item-text"</span>&gt;</span>发表于<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">time</span> <span class="attr">itemprop</span>=<span class="string">"dateCreated"</span> <span class="attr">datetime</span>=<span class="string">"2016-10-31T21:49:53+08:00"</span> <span class="attr">content</span>=<span class="string">"2016-10-31"</span>&gt;</span>2016-10-31<span class="tag">&lt;/<span class="name">time</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>观察，同样用getElementsByClass解析：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">List&lt;Element&gt; timeElementList = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">Elements timeElements = document.getElementsByClass(<span class="string">"post-time"</span>);</div><div class="line"><span class="keyword">for</span> (Element element : timeElements) &#123;</div><div class="line">    <span class="comment">//这里通过解析"time"标签，然后取文本，即“2016-10-31”</span></div><div class="line">    LogUtil.d(<span class="string">"time="</span> + element.getElementsByTag(<span class="string">"time"</span>).text());</div><div class="line">    timeElementList.add(element);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>（3）文章摘要数据结构如下：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"post-body"</span> <span class="attr">itemprop</span>=<span class="string">"articleBody"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">id</span>=<span class="string">"简介"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#简介"</span> <span class="attr">class</span>=<span class="string">"headerlink"</span> <span class="attr">title</span>=<span class="string">"简介"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span>简介<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Android 7.1允许您定义应用程序中特定操作的快捷方式。这些快捷键可以显示桌面，例如Nexus和Pixel设备。快捷键可让您的用户在应用程序中快速启动常见或推荐的任务。<span class="tag">&lt;<span class="name">br</span>&gt;</span>每个快捷键引用一个或多个意图，每个意图在用户选择快捷方式时在应用程序中启动特定操作。可以表达为快捷方式的操作示例包括：<span class="tag">&lt;<span class="name">br</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"post-more-link text-center"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"btn"</span> <span class="attr">href</span>=<span class="string">"/2016/10/31/AppShortcuts/"</span> <span class="attr">rel</span>=<span class="string">"contents"</span>&gt;</span></div><div class="line">阅读全文 &amp;raquo;<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>恩，也是用的getElementsByClass解析：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">List&lt;Element&gt; bodyElementList = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">Elements bodyElements = document.getElementsByClass(<span class="string">"post-body"</span>);</div><div class="line"><span class="keyword">for</span> (Element element : bodyElements) &#123;</div><div class="line">	<span class="comment">//这里用text()只是拿到文本，但我想要直接返回html标签，很好，jsoup有html()方法。</span></div><div class="line">    LogUtil.d(<span class="string">"body="</span> + element.html());</div><div class="line">    bodyElementList.add(element);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>3、核心代码<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">loadMyBlog</span><span class="params">()</span> </span>&#123;</div><div class="line">    Call&lt;ResponseBody&gt; call;</div><div class="line">    <span class="comment">//分页处理</span></div><div class="line">    <span class="keyword">if</span> (page == <span class="number">1</span>) &#123;</div><div class="line">        call = apiStores.loadMyBlog();</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        call = apiStores.loadMyBlog(page);</div><div class="line">    &#125;</div><div class="line">    call.enqueue(<span class="keyword">new</span> RetrofitCallback&lt;ResponseBody&gt;() &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSuccess</span><span class="params">(ResponseBody responseBody)</span> </span>&#123;</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                Document document = Jsoup.parse(<span class="keyword">new</span> String(responseBody.bytes(), <span class="string">"UTF-8"</span>));</div><div class="line">                List&lt;Element&gt; titleElementList = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">                Elements titleElements = document.getElementsByClass(<span class="string">"post-title-link"</span>);</div><div class="line">                <span class="keyword">for</span> (Element element : titleElements) &#123;</div><div class="line">                    titleElementList.add(element);</div><div class="line">                    <span class="comment">//LogUtil.d("text=" + element.text());</span></div><div class="line">                    <span class="comment">//LogUtil.d("href=" + element.attr("href"));</span></div><div class="line">                &#125;</div><div class="line">                List&lt;Element&gt; timeElementList = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">                Elements timeElements = document.getElementsByClass(<span class="string">"post-time"</span>);</div><div class="line">                <span class="keyword">for</span> (Element element : timeElements) &#123;</div><div class="line">                    <span class="comment">//LogUtil.d("time=" + element.getElementsByTag("time").text());</span></div><div class="line">                    timeElementList.add(element);</div><div class="line">                &#125;</div><div class="line">                <span class="comment">//Elements categoryElements = document.getElementsByClass("post-category");</span></div><div class="line">                <span class="comment">//for (Element element : categoryElements) &#123;</span></div><div class="line">                <span class="comment">//    LogUtil.d("category=" + element.getElementsByTag("a").text());</span></div><div class="line">                <span class="comment">//&#125;</span></div><div class="line">                List&lt;Element&gt; bodyElementList = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">                Elements bodyElements = document.getElementsByClass(<span class="string">"post-body"</span>);</div><div class="line">                <span class="keyword">for</span> (Element element : bodyElements) &#123;</div><div class="line">                    LogUtil.d(<span class="string">"body="</span> + element.html());</div><div class="line">                    bodyElementList.add(element);</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">if</span> (page == <span class="number">1</span>) &#123;</div><div class="line">                    dataAdapter.clear();</div><div class="line">                &#125;</div><div class="line">                dataAdapter.addAll(titleElementList, timeElementList, bodyElementList);</div><div class="line">                <span class="keyword">if</span> (titleElementList.size() &lt; <span class="number">8</span>) &#123;</div><div class="line">                    <span class="comment">//因为我的博客一页8条数据，当小于8时，说明没有下一页了</span></div><div class="line">                    pullLoadMoreRecyclerView.setHasMore(<span class="keyword">false</span>);</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    pullLoadMoreRecyclerView.setHasMore(<span class="keyword">true</span>);</div><div class="line">                &#125;</div><div class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">                e.printStackTrace();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFailure</span><span class="params">(<span class="keyword">int</span> code, String msg)</span> </span>&#123;</div><div class="line">            toastShow(msg);</div><div class="line">        &#125;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onThrowable</span><span class="params">(Throwable t)</span> </span>&#123;</div><div class="line">            toastShow(t.getMessage());</div><div class="line">        &#125;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFinish</span><span class="params">()</span> </span>&#123;</div><div class="line">            pullLoadMoreRecyclerView.setPullLoadMoreCompleted();</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">    addCalls(call);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="jsoup解析源码"><a href="#jsoup解析源码" class="headerlink" title="jsoup解析源码"></a>jsoup解析源码</h3><p>解析我的博客源码已经上传我的github，见：<a href="https://github.com/WuXiaolong/WeWin" target="_blank" rel="external">https://github.com/WuXiaolong/WeWin</a> </p>
+<p>想必这样一一分析，您一定会jsoup解析html，如果还不会，私下给我发个大红包，我再手把手教您，发个超大红包，今晚我就是您的啦，嘿嘿。</p>
+<h3 id="题外"><a href="#题外" class="headerlink" title="题外"></a>题外</h3><p>可能您担心，jsoup解析html，这样爬虫难道不侵权吗？是的，我也担心，所以我的app也只在我的群里“宣传宣传”。</p>
+<h2 id="bmob"><a href="#bmob" class="headerlink" title="bmob"></a>bmob</h2><p>仔细的您，肯定发现了，jsoup爬数据，只能做展示功能，那我的微言里不是有评论功能嘛！这是怎么做到的呢？我刚开始做app那会，个人app是做不了POST功能的，但bmob出现解决了个人开发者这个没有服务器的痛点，它就相当于一个数据库，提供了sdk，您可以做增删改查操作，我们只需要专注客户端，后端就不用管了，话说如此，我们还是稍微懂点数据库知识的，以便于我们更好利用bmob。除了bmob，现在还有leancloud、apicloud等都有类似的服务，很感谢他们，及时解决我们的刚需，个人app还可以有一线生机。</p>
+<p>关于bmob、leancloud、apicloud如何使用，我知道聪明的您已经在看他们的官方文档了。</p>
+<h1 id="没有美工"><a href="#没有美工" class="headerlink" title="没有美工"></a>没有美工</h1><h2 id="美工切图"><a href="#美工切图" class="headerlink" title="美工切图"></a>美工切图</h2><p>在实际开发中，有些效果，只需要美工做张图片就能轻松搞定，没有美工切图的配合，app开发似乎难以进展下去了，是吗？其实我在《<a href="http://wuxiaolong.me/2015/11/06/DesignSupportLibrary/">Android Design Support Library使用</a>》一文提到一句话：“目前这个sample，Material design风格的效果都有了，相当一个空壳子，您只需在实际开发中塞真实数据就是一个perfect app”，对，就用谷歌的Material design风格就OK了，它提供了一套规范、图片，足够我们个人app使用了，而且现在还有vector，更是强大之极。比如微言-每日推荐右上角的刷新按钮，如图：<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/PersonalApp5.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br>相应的xml：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">menu</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">      <span class="attr">xmlns:app</span>=<span class="string">"http://schemas.android.com/apk/res-auto"</span>&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">item</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/action_refresh"</span></div><div class="line">        <span class="attr">android:icon</span>=<span class="string">"@drawable/ic_loop_24dp"</span></div><div class="line">        <span class="attr">android:title</span>=<span class="string">"刷新"</span></div><div class="line">        <span class="attr">app:showAsAction</span>=<span class="string">"always"</span> /&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">menu</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>平时ic_loop_24dp肯定是张图片，然而我用的vector，代码如下：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">vector</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">        <span class="attr">android:width</span>=<span class="string">"24dp"</span></div><div class="line">        <span class="attr">android:height</span>=<span class="string">"24dp"</span></div><div class="line">        <span class="attr">android:viewportWidth</span>=<span class="string">"24.0"</span></div><div class="line">        <span class="attr">android:viewportHeight</span>=<span class="string">"24.0"</span>&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">path</span></span></div><div class="line">        <span class="attr">android:fillColor</span>=<span class="string">"?attr/colorControlNormal"</span></div><div class="line">        <span class="attr">android:pathData</span>=<span class="string">"M12,4L12,1L8,5l4,4L12,6c3.31,0 6,2.69 6,6 0,1.01 -0.25,1.97 -0.7,2.8l1.46,1.46C19.54,15.03 20,13.57 20,12c0,-4.42 -3.58,-8 -8,-8zM12,18c-3.31,0 -6,-2.69 -6,-6 0,-1.01 0.25,-1.97 0.7,-2.8L5.24,7.74C4.46,8.97 4,10.43 4,12c0,4.42 3.58,8 8,8v3l4,-4 -4,-4v3z"</span>/&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">vector</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>是不是很神奇，vector如何创建：<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/AppShortcuts6.gif?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br>这里随便演示，创建了一个vector，关于vector学习可参考医生的《<a href="http://blog.csdn.net/eclipsexys/article/details/51838119" target="_blank" rel="external">Android Vector曲折的兼容之路</a>》一文，写的很详细，这里不多说了。</p>
+<h2 id="app图标"><a href="#app图标" class="headerlink" title="app图标"></a>app图标</h2><p>app当然希望有个漂亮的有意义的图标，会用到Photoshop，我当然不会啊，那必须得学啊。一般安卓市场需要图标尺寸16<em>16，48</em>48，512<em>512，圆角，Android开发需要48</em>48，72<em>72，96</em>96，144<em>144，196</em>196，因此PS的时候，只需要做个最大尺寸512*512，然后缩小即可。<br>图标的PS步骤：<br>1、用photoshop打开您想修改的图片<br>2、在左侧工具栏中选择“圆角矩形工具”（默认的是“矩形工具”，您只需要右击图标就可以发现“圆角矩形工具”），如上图<br>3、在上面“半径”框中输入您想要的圆角半径，一般图片选25即可，为了效果明显我设置为40，看上图有一个框显示半径40.<br>4、在打开的图片上画一个圆角矩形，把图片覆盖住。<br>5、对着已经被覆盖的图片选区右击，选择“建立选区”，如果有窗口弹出直接点击“确定”，在弹出的选项中直接点击“确认”<br>6、在上方的“选择”选项卡中点击，在下拉框中找到“反向”，也可以使用快捷键ctrl+shilf+i。<br>7、在右下方的图层栏中双击“背景”图片（上面第一张图片右下角可以看到），如果有窗口弹出直接点击“确定”，完成解锁。<br>8、按键盘上的”DELETE”键清除四个直角。<br>9、继续右击“形状1”（在画面右下方图层那里可以找到），在弹出选项中选择“删除图层”，如果有窗口弹出直接点击“是”。<br>10、OK，您可以看到一个圆角图片。<br>11、最后在左上角点击文件–》存储为–》选择png格式（其他格式也可以），完成。<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/weiyan512.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br>为什么微言的图标是一个“言”字，因为我觉得这样简洁大方，简单明了，言简意赅……算了，不装了，其他我不会P啊！</p>
+<h1 id="推广技巧"><a href="#推广技巧" class="headerlink" title="推广技巧"></a>推广技巧</h1><p>做完一个个人app，是不是很有成就感啊，上线安卓市场，却没几个下载量，尼玛，劳资花了很长时间呢，这么牛B的app怎么没人下载？！心情一下子跌倒谷底，那得让更多的人知道自己的app啊，我是这样做的：</p>
+<p>1、邀请好评<br>您去下载一个app时，可能会看下这个app的评论，如果有很多好评，您会不会更愿意去下载呢，是的，来看我的微言好评如潮：<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/weiyan_good_comment.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br>哈哈哈，是不是很牛，邀请评论我写成了工具类了，请笑纳：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InviteCommentUtil</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> String mDateFormat = <span class="string">"yyyy-MM-dd"</span>;</div><div class="line">    <span class="keyword">private</span> String mInviteCommentTime;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 选择哪天弹邀请评论框</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">startComment</span><span class="params">(<span class="keyword">final</span> Activity activity)</span> </span>&#123;</div><div class="line">        mInviteCommentTime = PreferenceUtils.getPreferenceString(activity, <span class="string">"inviteCommentTime"</span>, TimeUtil.getCurrentTime(mDateFormat));</div><div class="line">        String saveCommentTime = PreferenceUtils.getPreferenceString(activity, <span class="string">"saveCommentTime"</span>, TimeUtil.getCurrentTime(mDateFormat));</div><div class="line">          <span class="keyword">int</span> compareDateValue = TimeUtil.compareDate(mInviteCommentTime, saveCommentTime, mDateFormat);</div><div class="line">        <span class="keyword">if</span> (compareDateValue == <span class="number">1</span>) &#123;</div><div class="line">            AlertDialog.Builder builder = <span class="keyword">new</span> AlertDialog.Builder(</div><div class="line">                    activity);</div><div class="line">            <span class="keyword">int</span> nowReadingTotal = ReadUtil.getReadedTotal();</div><div class="line">            builder.setMessage(Html.fromHtml(<span class="string">"您已经累计阅读&lt;font color=#FF0000&gt;"</span> + nowReadingTotal + <span class="string">"&lt;/font&gt;字，再接再厉哦！如果喜欢我，希望您能在应用市场给予&lt;font color=#FF0000&gt;五星&lt;/font&gt;好评！"</span>));</div><div class="line">            builder.setTitle(<span class="string">"求好评"</span>);</div><div class="line">            builder.setPositiveButton(<span class="string">"好评鼓励"</span>,</div><div class="line">                    <span class="keyword">new</span> android.content.DialogInterface.OnClickListener() &#123;</div><div class="line">                        <span class="meta">@Override</span></div><div class="line">                        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> which)</span> </span>&#123;</div><div class="line">                            setComment(activity);</div><div class="line">                            <span class="keyword">try</span> &#123;</div><div class="line">                                Intent intent = <span class="keyword">new</span> Intent(</div><div class="line">                                        <span class="string">"android.intent.action.VIEW"</span>);</div><div class="line">                                intent.setData(Uri</div><div class="line">                                        .parse(<span class="string">"market://details?id=com.android.xiaomolongstudio.weiyan"</span>));</div><div class="line">                                activity.startActivity(intent);</div><div class="line">                                activity.overridePendingTransition(</div><div class="line">                                        R.anim.enter_right_to_left, R.anim.exit);</div><div class="line">                            &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">                                e.printStackTrace();</div><div class="line">                            &#125;</div><div class="line"></div><div class="line">                            dialog.dismiss();</div><div class="line">                        &#125;</div><div class="line">                    &#125;);</div><div class="line">            builder.setNegativeButton(<span class="string">"下次再说"</span>,</div><div class="line">                    <span class="keyword">new</span> android.content.DialogInterface.OnClickListener() &#123;</div><div class="line"></div><div class="line">                        <span class="meta">@Override</span></div><div class="line">                        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> which)</span> </span>&#123;</div><div class="line">                            setComment(activity);</div><div class="line">                            dialog.dismiss();</div><div class="line">                        &#125;</div><div class="line">                    &#125;);</div><div class="line">            builder.create().show();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 保存，直到下周再提示</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setComment</span><span class="params">(Activity activity)</span> </span>&#123;</div><div class="line">        PreferenceUtils.setPreferenceString(activity, <span class="string">"saveCommentTime"</span>, mInviteCommentTime);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>注意：这里邀请评论时间控制好，不能太频繁了，不然用户会反感的。</p>
+<p>2、专注一个市场<br>不知道您有没有发现，某个市场您明明没有发布，却能搜到您的app，没错，一些市场会抓您的这个app，比如豌豆荚，百度，因此策略，专注一个市场，这个市场出名了，还怕其他市场不知道吗？当然我们是争取每个市场都能发布上线，多一个下载是一个。<br>微言位于分类下前排<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/weiyan_rank.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br>多次进入精品系列<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/weiyan_rank2.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""></p>
+<p>如何进入前排或精品，邀请好评是关键的一步。</p>
+<p>3、新品推荐<br>新品上线，很多市场有新品推荐，比如小米、妹纸、360、应用宝，一般需要自荐，一旦被推荐，下载量是可观的，微言肯定被推荐过啦。哦，更新版本也算新品哦。</p>
+<p>4、微博<br>这是我好哥们教我的，他真的好牛，个人app做的更牛，给您们看一个链接：<a href="http://weibo.com/p/1008082a702d2cb6146485e5dc3d624d31def6" target="_blank" rel="external">http://weibo.com/p/1008082a702d2cb6146485e5dc3d624d31def6</a> ，就知道如何在微博上推广了，没错，就是话题，用两个#号圈起来，发微博，就是一个话题，别人可以这个话题下讨论，无形中形成了推广作用。</p>
+<p>5、app分享<br>app分享功能肯定是要做的，万一用户觉得您的这个app很棒，想推荐给好友，结果没分享功能，岂不歇菜，分享微博可以加两个#号圈起来哦。</p>
+<p>6、QQ群<br>如果您直接群里发app的下载链接，只会一个结果：被T。像我们程序猿，大部分都是技术群，我的做法是写文章分享我app用的技术，文章会附上app下载地址，然后有这个技术兴趣的人可能询问，这样我就名正言顺地“推广”了，哈哈，我好坏！</p>
+<p>以上仅我知道的，不一定有效，毕竟我不是专业的推广人员。</p>
+<h1 id="如何赚钱"><a href="#如何赚钱" class="headerlink" title="如何赚钱"></a>如何赚钱</h1><p>万事俱备，只欠东风，当您的用户量足够大的时候，自然有人找您，投资您的app，这个过程前期0收益，耗得精力时间不算，可能还得烧钱，不适合个人开发者，我选择的是赚赚小钱，app加广告的方式。<br>广告平台选择第三方的，最早我使用的多盟，但是一段时间发现我根本没什么收益，感觉多盟扣量好严重，之后尝试多易传媒、艾德思奇、芒果聚合，也使用过点乐积分，发现一些市场不让上线积分类app，放弃之，还有百度移动广告联盟、腾讯的广点通，谷歌的也玩过，收益最稳定属百度的，这点不黑它。<br>至于广告集成，也是提供sdk，自行去他们的官网了解吧。</p>
+<h1 id="推荐阅读"><a href="#推荐阅读" class="headerlink" title="推荐阅读"></a>推荐阅读</h1><p><a href="http://mp.weixin.qq.com/s?__biz=MzI4MTQyNDg3Mg==&amp;mid=2247483753&amp;idx=1&amp;sn=9a6a2052bfc4c58883b72bc02ba97210&amp;chksm=eba827eedcdfaef805812de7e37ed7ddc6fb52244bd3f5b4bca26c225e5e91a42d3862f8c5ce#rd" target="_blank" rel="external">一套完整的Android通用框架</a><br><a href="http://mp.weixin.qq.com/s?__biz=MzI4MTQyNDg3Mg==&amp;mid=2247483752&amp;idx=1&amp;sn=e5a12a53d12dbe80c27ae78af9660b12&amp;chksm=eba827efdcdfaef999ac120869fb3b32508d76f883d1c9b2701c840834a9feef53d0ed9669a3#rd" target="_blank" rel="external">Android Design Support Library使用</a><br><a href="http://mp.weixin.qq.com/s?__biz=MzI4MTQyNDg3Mg==&amp;mid=2247483703&amp;idx=1&amp;sn=0bc01a24c29ec31ffed98838ee9ad2a0&amp;chksm=eba827b0dcdfaea6b95c6f54b7aa3a905b723180ca6feae08c211345327e8b7932efc732ded1#rd" target="_blank" rel="external">AndroidMVPSample</a></p>
+<h1 id="联系作者"><a href="#联系作者" class="headerlink" title="联系作者"></a>联系作者</h1><p>我的微信公众号：吴小龙同学，欢迎关注交流~</p>
+<p><img src="http://open.weixin.qq.com/qr/code/?username=MrWuXiaolong" alt=""></p>
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>我的几个app，都是我个人做到了很满意，功能都很完善，以至于我后来觉得没什么好更新的，再加上广告收益好也就一段时间，移动广告商雨后春笋，导致广告单价太低，而且安卓市场对个人开发者各种限制，比如不让上线视频类app；某度，某60必须用自家的加固才让上线app等，就没什么动力继续维护app，做事还是要有动力的，不然活着干吗？不过我知道有人还在坚持做个人app，做的好的，日入几百甚至上千的。app最终目的就是赚钱。</p>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>赞赏是一种共鸣或认可</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="吴小龙同學 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    吴小龙同學
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://wuxiaolong.me/2016/11/11/PersonalApp/" title="手把手教你做个人 app">http://wuxiaolong.me/2016/11/11/PersonalApp/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/PersonalApp/" rel="tag"># PersonalApp</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/31/AppShortcuts/" rel="next" title="Android App Shortcuts">
+                <i class="fa fa-chevron-left"></i> Android App Shortcuts
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/18/MyWorkLive/" rel="prev" title="一个平凡人的职场经历">
+                一个平凡人的职场经历 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTM2My81OTMx"></div>
+    </div>
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="http://7q5c2h.com1.z0.glb.clouddn.com/avatar.jpg" alt="吴小龙同學">
+            
+              <p class="site-author-name" itemprop="name">吴小龙同學</p>
+              <p class="site-description motion-element" itemprop="description">我的微信公众号：吴小龙同学</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">163</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">129</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/WuXiaolong" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://open.weixin.qq.com/qr/code/?username=MrWuXiaolong" target="_blank" title="WeChat">
+                    
+                      <i class="fa fa-fw fa-globe"></i>WeChat</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/u/2175011601" target="_blank" title="Weibo">
+                    
+                      <i class="fa fa-fw fa-globe"></i>Weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="/qq/index.html" target="_blank" title="QQ">
+                    
+                      <i class="fa fa-fw fa-globe"></i>QQ</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#没有服务端"><span class="nav-number">1.</span> <span class="nav-text">没有服务端</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#jsoup"><span class="nav-number">1.1.</span> <span class="nav-text">jsoup</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用方法"><span class="nav-number">1.1.1.</span> <span class="nav-text">使用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jsoup解析源码"><span class="nav-number">1.1.2.</span> <span class="nav-text">jsoup解析源码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题外"><span class="nav-number">1.1.3.</span> <span class="nav-text">题外</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bmob"><span class="nav-number">1.2.</span> <span class="nav-text">bmob</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#没有美工"><span class="nav-number">2.</span> <span class="nav-text">没有美工</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#美工切图"><span class="nav-number">2.1.</span> <span class="nav-text">美工切图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#app图标"><span class="nav-number">2.2.</span> <span class="nav-text">app图标</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#推广技巧"><span class="nav-number">3.</span> <span class="nav-text">推广技巧</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何赚钱"><span class="nav-number">4.</span> <span class="nav-text">如何赚钱</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#推荐阅读"><span class="nav-number">5.</span> <span class="nav-text">推荐阅读</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#联系作者"><span class="nav-number">6.</span> <span class="nav-text">联系作者</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最后"><span class="nav-number">7.</span> <span class="nav-text">最后</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2013 &mdash; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">吴小龙同學</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

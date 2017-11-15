@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/favicon.ico?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="memory,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="吴小龙同學" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="为什么优化虽然 Java 对内存的释放有垃圾自动回收机制，但是实际开发中，不再用到的对象因为被错误引用会导致无法回收，从而造成内存泄漏，甚至内存溢出 OOM（OutOfMemory），程序崩溃。">
+<meta name="keywords" content="memory">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 内存优化">
+<meta property="og:url" content="http://wuxiaolong.me/2017/04/15/memory/index.html">
+<meta property="og:site_name" content="吴小龙同學">
+<meta property="og:description" content="为什么优化虽然 Java 对内存的释放有垃圾自动回收机制，但是实际开发中，不再用到的对象因为被错误引用会导致无法回收，从而造成内存泄漏，甚至内存溢出 OOM（OutOfMemory），程序崩溃。">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/monitor-heap-dump.png">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/monitor-garbage-collect.png">
+<meta property="og:updated_time" content="2017-04-16T12:46:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android 内存优化">
+<meta name="twitter:description" content="为什么优化虽然 Java 对内存的释放有垃圾自动回收机制，但是实际开发中，不再用到的对象因为被错误引用会导致无法回收，从而造成内存泄漏，甚至内存溢出 OOM（OutOfMemory），程序崩溃。">
+<meta name="twitter:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/monitor-heap-dump.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://wuxiaolong.me/2017/04/15/memory/">
+
+
+
+
+
+  <title>Android 内存优化 | 吴小龙同學</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-105780265-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0e1dc2030f397dfa0d60ad22b374430d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">吴小龙同學</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">党要我帅，我不得不帅！</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-friendslinks">
+          <a href="/friendslinks/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-users"></i> <br>
+            
+            小伙伴
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input">
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'ywBn2eRCzfb494KCWJw3','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2017/04/15/memory/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吴小龙同學">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://7q5c2h.com1.z0.glb.clouddn.com/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴小龙同學">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Android 内存优化</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-15T22:01:28+08:00">
+                2017-04-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Performance/" itemprop="url" rel="index">
+                    <span itemprop="name">Performance</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="为什么优化"><a href="#为什么优化" class="headerlink" title="为什么优化"></a>为什么优化</h1><p>虽然 Java 对内存的释放有垃圾自动回收机制，但是实际开发中，不再用到的对象因为被错误引用会导致无法回收，从而造成内存泄漏，甚至内存溢出 OOM（OutOfMemory），程序崩溃。<br><a id="more"></a></p>
+<h2 id="Android-GC-原理"><a href="#Android-GC-原理" class="headerlink" title="Android GC 原理"></a>Android GC 原理</h2><p>参考：<a href="https://mp.weixin.qq.com/s/CUU3Ml394H_fkabhNNX32Q" target="_blank" rel="external">Android GC 原理探究</a></p>
+<h2 id="Android-内存管理"><a href="#Android-内存管理" class="headerlink" title="Android 内存管理"></a>Android 内存管理</h2><p>参考：<a href="https://developer.android.google.cn/topic/performance/memory-overview.html" target="_blank" rel="external">Android 内存管理</a></p>
+<h1 id="如何检测"><a href="#如何检测" class="headerlink" title="如何检测"></a>如何检测</h1><h2 id="使用-LeakCanary"><a href="#使用-LeakCanary" class="headerlink" title="使用 LeakCanary"></a>使用 LeakCanary</h2><p>Android 内存泄漏检测库：<a href="https://github.com/square/leakcanary" target="_blank" rel="external">https://github.com/square/leakcanary</a> ，善于使用 LeakCanary 发现内存泄漏。</p>
+<h2 id="Memory-Monitor工具"><a href="#Memory-Monitor工具" class="headerlink" title="Memory Monitor工具"></a>Memory Monitor工具</h2><p>Android Studio 中的 Android Monitor ，选择其中的 Memory，<strong>跟踪整个 APP 的内存变化情况</strong>。<br>步骤如下：<br>1、与您的应用交互，在 Memory 监视器中，查看 Free 和 Alloated 内存。<br>2、点击 Dump Java Heap：<img src="http://7q5c2h.com1.z0.glb.clouddn.com/monitor-heap-dump.png" alt="">，这个会打开 HPROF 查看器，如果没有，在 Captures 标签中，双击堆快照文件以打开 HPROF 查看器。<br>3、要引起堆分配，请与您的应用交互，然后点击触发 GC 的按钮： <img src="http://7q5c2h.com1.z0.glb.clouddn.com/monitor-garbage-collect.png" alt=""></p>
+<h2 id="Heap-Viewer-工具"><a href="#Heap-Viewer-工具" class="headerlink" title="Heap Viewer 工具"></a>Heap Viewer 工具</h2><p><strong>实时查看App分配的内存大小和空闲内存大小，发现 Memory Leaks</strong> 。<br>详细使用教程：<a href="https://www.kancloud.cn/digest/itfootballprefermanc/100907" target="_blank" rel="external">Heap Viewer工具</a></p>
+<h2 id="Allocation-Tracker"><a href="#Allocation-Tracker" class="headerlink" title="Allocation Tracker"></a>Allocation Tracker</h2><p><strong>追踪内存对象的来源</strong>。<br>详细使用教程：<a href="https://www.kancloud.cn/digest/itfootballprefermanc/100908" target="_blank" rel="external">Allocation Tracker(Device Monitor)</a></p>
+<h1 id="优化方案"><a href="#优化方案" class="headerlink" title="优化方案"></a>优化方案</h1><h2 id="检查使用多少内存"><a href="#检查使用多少内存" class="headerlink" title="检查使用多少内存"></a>检查使用多少内存</h2><p>每个 APP 的堆（heap）内存大小有硬性限制，如果您的 APP 已达到堆内存限制，并尝试分配更多的内存，系统会抛出 OutOfMemoryError 。为了避免 OOM ，您可以查询当前设备有多少堆空间，可以通过调用系统 getMemoryInfo() 查询，返回 一个ActivityManager.MemoryInfo 对象，它提供该设备当前存储器的状态信息，包括可用的存储器，总存储器，和低于该阈值存储器。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">getMemoryInfo</span><span class="params">()</span> </span>&#123;</div><div class="line">    ActivityManager activityManager = (ActivityManager) <span class="keyword">this</span>.getSystemService(ACTIVITY_SERVICE);</div><div class="line">    ActivityManager.MemoryInfo memoryInfo = <span class="keyword">new</span> ActivityManager.MemoryInfo();</div><div class="line">    activityManager.getMemoryInfo(memoryInfo);</div><div class="line">    LogUtil.d(<span class="string">"totalMem="</span> + memoryInfo.totalMem + <span class="string">",availMem="</span> + memoryInfo.availMem);</div><div class="line">    <span class="keyword">if</span> (!memoryInfo.lowMemory) &#123;</div><div class="line">        <span class="comment">// 运行在低内存环境</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="当界面不可见时释放内存"><a href="#当界面不可见时释放内存" class="headerlink" title="当界面不可见时释放内存"></a>当界面不可见时释放内存</h2><p>实现 <a href="https://developer.android.google.cn/reference/android/content/ComponentCallbacks2.html" target="_blank" rel="external">ComponentCallbacks2</a> API 中 <a href="https://developer.android.google.cn/reference/android/content/ComponentCallbacks2.html#onTrimMemory(int" target="_blank" rel="external">onTrimMemory()</a>) ，当回调参数 level 为 TRIM_MEMORY_UI_HIDDEN ，是用户点击了Home键或者Back键退出应用，所有UI界面被隐藏，这时候应该释放一些不可见的时候非必须的资源。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span></span></div><div class="line">    <span class="keyword">implements</span> <span class="title">ComponentCallbacks2</span> &#123;</div><div class="line">    <span class="comment">// Other activity code ...</span></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Release memory when the UI becomes hidden or when system resources become low.</div><div class="line">     * <span class="doctag">@param</span> level the memory-related event that was raised.</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTrimMemory</span><span class="params">(<span class="keyword">int</span> level)</span> </span>&#123;</div><div class="line">        <span class="comment">// Determine which lifecycle or system event was raised.</span></div><div class="line">        <span class="keyword">switch</span> (level) &#123;</div><div class="line">            <span class="keyword">case</span> ComponentCallbacks2.TRIM_MEMORY_UI_HIDDEN:</div><div class="line">                <span class="comment">/*</span></div><div class="line">                   Release any UI objects that currently hold memory.</div><div class="line">                   The user interface has moved to the background.</div><div class="line">                */</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> ComponentCallbacks2.TRIM_MEMORY_RUNNING_MODERATE:</div><div class="line">            <span class="keyword">case</span> ComponentCallbacks2.TRIM_MEMORY_RUNNING_LOW:</div><div class="line">            <span class="keyword">case</span> ComponentCallbacks2.TRIM_MEMORY_RUNNING_CRITICAL:</div><div class="line">                <span class="comment">/*</span></div><div class="line">                   Release any memory that your app doesn't need to run.</div><div class="line">                   The device is running low on memory while the app is running.</div><div class="line">                   The event raised indicates the severity of the memory-related event.</div><div class="line">                   If the event is TRIM_MEMORY_RUNNING_CRITICAL, then the system will</div><div class="line">                   begin killing background processes.</div><div class="line">                */</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> ComponentCallbacks2.TRIM_MEMORY_BACKGROUND:</div><div class="line">            <span class="keyword">case</span> ComponentCallbacks2.TRIM_MEMORY_MODERATE:</div><div class="line">            <span class="keyword">case</span> ComponentCallbacks2.TRIM_MEMORY_COMPLETE:</div><div class="line">                <span class="comment">/*</span></div><div class="line">                   Release as much memory as the process can.</div><div class="line">                   The app is on the LRU list and the system is running low on memory.</div><div class="line">                   The event raised indicates where the app sits within the LRU list.</div><div class="line">                   If the event is TRIM_MEMORY_COMPLETE, the process will be one of</div><div class="line">                   the first to be terminated.</div><div class="line">                */</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">default</span>:</div><div class="line">                <span class="comment">/*</span></div><div class="line">                  Release any non-critical data structures.</div><div class="line">                  The app received an unrecognized memory level value</div><div class="line">                  from the system. Treat this as a generic low-memory message.</div><div class="line">                */</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>该 onTrimMemory() 回调是在搭载Android 4.0（API级别14）加入。对于早期版本，您可以使用 onLowMemory() 回调作为旧版本的回调，这大致相当于 TRIM_MEMORY_COMPLETE事件。</p>
+<h2 id="谨慎使用服务"><a href="#谨慎使用服务" class="headerlink" title="谨慎使用服务"></a>谨慎使用服务</h2><p>离开了 APP 还在运行服务是最糟糕的内存管理错误之一，当 APP 处在后台，我们应该停止服务，除非它需要运行的任务。我们可以使用 <a href="https://developer.android.google.cn/topic/performance/background-optimization.html" target="_blank" rel="external">JobScheduler</a> 替代实现，<a href="https://developer.android.google.cn/topic/performance/background-optimization.html" target="_blank" rel="external">JobScheduler</a> 把一些不是特别紧急的任务放到更合适的时机批量处理。如果必须使用一个服务，最佳方法是使用 <a href="https://developer.android.google.cn/training/run-background-service/index.html" target="_blank" rel="external">IntentService</a> ，限制服务寿命，所有请求处理完成后，IntentService 会自动停止。</p>
+<h2 id="使用优化的数据容器"><a href="#使用优化的数据容器" class="headerlink" title="使用优化的数据容器"></a>使用优化的数据容器</h2><p>考虑使用优化过数据的容器 SparseArray / SparseBooleanArray / LongSparseArray 代替 HashMap 等传统数据结构，通用 HashMap 的实现可以说是相当低效的内存，因为它需要为每个映射一个单独的条目对象。</p>
+<h2 id="避免在-Android-上使用枚举"><a href="#避免在-Android-上使用枚举" class="headerlink" title="避免在 Android 上使用枚举"></a>避免在 Android 上使用枚举</h2><p>枚举往往需要两倍多的内存，静态常量更多，我们应该严格避免在 Android 上使用枚举。</p>
+<h2 id="使用-nano-protobufs-序列化数据"><a href="#使用-nano-protobufs-序列化数据" class="headerlink" title="使用 nano protobufs 序列化数据"></a>使用 nano protobufs 序列化数据</h2><p>Protocol buffers 是一个语言中立，平台中立的，可扩展的机制，由谷歌进行序列化结构化数据，类似于 XML 设计的，但是更小，更快，更简单。如果需要为您的数据序列化与协议化，建议使用 nano protobufs。</p>
+<h2 id="避免内存流失"><a href="#避免内存流失" class="headerlink" title="避免内存流失"></a>避免内存流失</h2><p>内存流失可能会导致出现大量的 GC 事件，如自定义组件的 onDraw() ，避免大量创建临时对象，比如 String ，以免频繁触发 GC。GC 事件通常不影响您的 APP 的性能，然而在很短的时间段，发生许多垃圾收集事件可以快速地吃了您的帧时间，系统上时间的都花费在 GC ，就有很少时间做其他的东西像渲染或音频流。</p>
+<h2 id="使用ProGuard来剔除不需要的代码"><a href="#使用ProGuard来剔除不需要的代码" class="headerlink" title="使用ProGuard来剔除不需要的代码"></a>使用ProGuard来剔除不需要的代码</h2><p>使用 ProGuard 来剔除不需要的代码，移除任何冗余的，不必要的，或臃肿的组件，资源或库完善 APP 的内存消耗。</p>
+<h2 id="降低整体尺寸APK"><a href="#降低整体尺寸APK" class="headerlink" title="降低整体尺寸APK"></a>降低整体尺寸APK</h2><p>您可以通过减少 APP 的整体规模显著减少 APP 的内存使用情况。文章：<a href="http://wuxiaolong.me/2017/03/19/ReduceAPKSize/">Android APK瘦身实践</a></p>
+<h2 id="优化布局层次"><a href="#优化布局层次" class="headerlink" title="优化布局层次"></a>优化布局层次</h2><p>通过优化视图层次结构，以减少重叠的 UI 对象的数量来提高性能。文章：<a href="http://wuxiaolong.me/2017/03/26/Rendering/">Android 渲染优化</a></p>
+<h2 id="使用-Dagger-2依赖注入"><a href="#使用-Dagger-2依赖注入" class="headerlink" title="使用 Dagger 2依赖注入"></a>使用 Dagger 2依赖注入</h2><p>依赖注入框架可以简化您写的代码，并提供一个自适应环境测试和便于其他配置的更改。如果打算在您的 APP 使用依赖注入框架，可以考虑用 Dagger 2 ，Dagger 不使用反射扫描 APP 的代码，Dagger 是静态的，意味着它编译时不需要占用运行 Android 应用或内存的使用。</p>
+<h2 id="请小心使用外部库"><a href="#请小心使用外部库" class="headerlink" title="请小心使用外部库"></a>请小心使用外部库</h2><p>外部库的代码往往是未针对移动环境下编写并用于工作在移动客户端上时，可能是低效的。当您决定使用外部库，您可能需要优化该库为移动设备。</p>
+<h2 id="避免Bitmap浪费"><a href="#避免Bitmap浪费" class="headerlink" title="避免Bitmap浪费"></a>避免Bitmap浪费</h2><p>Bitmap是内存消耗的大头，当使用时要及时回收。另外配置：<br>inSampleSize：缩放比例，图片按需加载，避免不必要的大图载入。<br>decode format：解码格式，选择ARGB_8888/RBG_565/ARGB_4444/ALPHA_8，存在很大差异。</p>
+<h2 id="Cursor关闭"><a href="#Cursor关闭" class="headerlink" title="Cursor关闭"></a>Cursor关闭</h2><p>如查询数据库的操作，使用到Cursor，也要对Cursor对象及时关闭。</p>
+<h2 id="监听器的注销"><a href="#监听器的注销" class="headerlink" title="监听器的注销"></a>监听器的注销</h2><p>Android程序里面存在很多需要register与unregister的监听器，手动add的listener，需要记得及时remove这个listener。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://developer.android.google.cn/topic/performance/memory-overview.html" target="_blank" rel="external">官网Overview of Android Memory Management</a></p>
+<p><a href="https://developer.android.google.cn/topic/performance/memory.html" target="_blank" rel="external">官网Manage Your App’s Memory</a></p>
+<p><a href="http://hukai.me/android-performance-oom/" target="_blank" rel="external">Android内存优化之OOM</a></p>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>赞赏是一种共鸣或认可</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="吴小龙同學 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    吴小龙同學
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://wuxiaolong.me/2017/04/15/memory/" title="Android 内存优化">http://wuxiaolong.me/2017/04/15/memory/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/memory/" rel="tag"># memory</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/26/Rendering/" rel="next" title="Android 渲染优化">
+                <i class="fa fa-chevron-left"></i> Android 渲染优化
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/21/kotlin1/" rel="prev" title="Kotlin for Android（一）准备工作">
+                Kotlin for Android（一）准备工作 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTM2My81OTMx"></div>
+    </div>
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="http://7q5c2h.com1.z0.glb.clouddn.com/avatar.jpg" alt="吴小龙同學">
+            
+              <p class="site-author-name" itemprop="name">吴小龙同學</p>
+              <p class="site-description motion-element" itemprop="description">我的微信公众号：吴小龙同学</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">163</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">129</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/WuXiaolong" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://open.weixin.qq.com/qr/code/?username=MrWuXiaolong" target="_blank" title="WeChat">
+                    
+                      <i class="fa fa-fw fa-globe"></i>WeChat</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/u/2175011601" target="_blank" title="Weibo">
+                    
+                      <i class="fa fa-fw fa-globe"></i>Weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="/qq/index.html" target="_blank" title="QQ">
+                    
+                      <i class="fa fa-fw fa-globe"></i>QQ</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么优化"><span class="nav-number">1.</span> <span class="nav-text">为什么优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Android-GC-原理"><span class="nav-number">1.1.</span> <span class="nav-text">Android GC 原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android-内存管理"><span class="nav-number">1.2.</span> <span class="nav-text">Android 内存管理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何检测"><span class="nav-number">2.</span> <span class="nav-text">如何检测</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-LeakCanary"><span class="nav-number">2.1.</span> <span class="nav-text">使用 LeakCanary</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Memory-Monitor工具"><span class="nav-number">2.2.</span> <span class="nav-text">Memory Monitor工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Heap-Viewer-工具"><span class="nav-number">2.3.</span> <span class="nav-text">Heap Viewer 工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Allocation-Tracker"><span class="nav-number">2.4.</span> <span class="nav-text">Allocation Tracker</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#优化方案"><span class="nav-number">3.</span> <span class="nav-text">优化方案</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#检查使用多少内存"><span class="nav-number">3.1.</span> <span class="nav-text">检查使用多少内存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#当界面不可见时释放内存"><span class="nav-number">3.2.</span> <span class="nav-text">当界面不可见时释放内存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#谨慎使用服务"><span class="nav-number">3.3.</span> <span class="nav-text">谨慎使用服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用优化的数据容器"><span class="nav-number">3.4.</span> <span class="nav-text">使用优化的数据容器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#避免在-Android-上使用枚举"><span class="nav-number">3.5.</span> <span class="nav-text">避免在 Android 上使用枚举</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-nano-protobufs-序列化数据"><span class="nav-number">3.6.</span> <span class="nav-text">使用 nano protobufs 序列化数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#避免内存流失"><span class="nav-number">3.7.</span> <span class="nav-text">避免内存流失</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用ProGuard来剔除不需要的代码"><span class="nav-number">3.8.</span> <span class="nav-text">使用ProGuard来剔除不需要的代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#降低整体尺寸APK"><span class="nav-number">3.9.</span> <span class="nav-text">降低整体尺寸APK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化布局层次"><span class="nav-number">3.10.</span> <span class="nav-text">优化布局层次</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-Dagger-2依赖注入"><span class="nav-number">3.11.</span> <span class="nav-text">使用 Dagger 2依赖注入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#请小心使用外部库"><span class="nav-number">3.12.</span> <span class="nav-text">请小心使用外部库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#避免Bitmap浪费"><span class="nav-number">3.13.</span> <span class="nav-text">避免Bitmap浪费</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cursor关闭"><span class="nav-number">3.14.</span> <span class="nav-text">Cursor关闭</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#监听器的注销"><span class="nav-number">3.15.</span> <span class="nav-text">监听器的注销</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2013 &mdash; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">吴小龙同學</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

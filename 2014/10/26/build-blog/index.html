@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/favicon.ico?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="GitHub,Jekyll,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="吴小龙同學" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="目录 一、适合人群 二、github创建博客 注册账号 创建页面仓库 项目设置 页面生成器 创建用户页面 页面发布 查看效果   三、如何发布博客 安装 Ruby 安装 DevKit 安装 Python 安装 Jekyll 启动 Jekyll 图床   四、总结 五、附录">
+<meta name="keywords" content="GitHub,Jekyll">
+<meta property="og:type" content="article">
+<meta property="og:title" content="手把手教你建github技术博客by jekyll">
+<meta property="og:url" content="http://wuxiaolong.me/2014/10/26/build-blog/index.html">
+<meta property="og:site_name" content="吴小龙同學">
+<meta property="og:description" content="目录 一、适合人群 二、github创建博客 注册账号 创建页面仓库 项目设置 页面生成器 创建用户页面 页面发布 查看效果   三、如何发布博客 安装 Ruby 安装 DevKit 安装 Python 安装 Jekyll 启动 Jekyll 图床   四、总结 五、附录">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/2014-10-26-build-blog-1.png">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/2014-10-26-build-blog-2.png">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/2014-10-26-build-blog-3.png">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/2014-10-26-build-blog-4.png">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/2014-10-26-build-blog-5.png">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/2014-10-26-build-blog-6.png">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/2014-10-26-build-blog-7.png">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/2014-10-26-build-blog-8.png">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/2014-10-26-build-blog-9.png">
+<meta property="og:updated_time" content="2017-08-07T01:13:27.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="手把手教你建github技术博客by jekyll">
+<meta name="twitter:description" content="目录 一、适合人群 二、github创建博客 注册账号 创建页面仓库 项目设置 页面生成器 创建用户页面 页面发布 查看效果   三、如何发布博客 安装 Ruby 安装 DevKit 安装 Python 安装 Jekyll 启动 Jekyll 图床   四、总结 五、附录">
+<meta name="twitter:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/2014-10-26-build-blog-1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://wuxiaolong.me/2014/10/26/build-blog/">
+
+
+
+
+
+  <title>手把手教你建github技术博客by jekyll | 吴小龙同學</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-105780265-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0e1dc2030f397dfa0d60ad22b374430d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">吴小龙同學</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">党要我帅，我不得不帅！</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-friendslinks">
+          <a href="/friendslinks/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-users"></i> <br>
+            
+            小伙伴
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input">
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'ywBn2eRCzfb494KCWJw3','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2014/10/26/build-blog/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吴小龙同學">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://7q5c2h.com1.z0.glb.clouddn.com/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴小龙同學">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">手把手教你建github技术博客by jekyll</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-10-26T07:56:29+08:00">
+                2014-10-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Jekyll/" itemprop="url" rel="index">
+                    <span itemprop="name">Jekyll</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a><a name="index">目录</a></h2><ul>
+<li><a href="#for-the-crowd">一、适合人群</a></li>
+<li><a href="#build-blog">二、github创建博客</a><ul>
+<li>注册账号</li>
+<li>创建页面仓库</li>
+<li>项目设置</li>
+<li>页面生成器</li>
+<li>创建用户页面</li>
+<li>页面发布</li>
+<li>查看效果</li>
+</ul>
+</li>
+<li><a href="#write-blog">三、如何发布博客</a><ul>
+<li>安装 Ruby</li>
+<li>安装 DevKit</li>
+<li>安装 Python</li>
+<li>安装 Jekyll</li>
+<li>启动 Jekyll</li>
+<li>图床</li>
+</ul>
+</li>
+<li><a href="#ps">四、总结</a></li>
+<li><a href="#appendix">五、附录</a></li>
+</ul>
+<a id="more"></a>
+<p><a name="for-the-crowd"></a></p>
+<h2 id="一、适合人群"><a href="#一、适合人群" class="headerlink" title="一、适合人群"></a>一、适合人群</h2><ul>
+<li>喜欢写Blog的人</li>
+<li>有一定的编程基础</li>
+<li>爱折腾的人</li>
+<li>熟练使用版本控制Git</li>
+<li>了解使用Github</li>
+<li>熟悉基本的MarkDown语法</li>
+</ul>
+<p><a name="build-blog"></a></p>
+<h2 id="二、github-创建博客"><a href="#二、github-创建博客" class="headerlink" title="二、github 创建博客"></a>二、github 创建博客</h2><ul>
+<li><h3 id="注册账号"><a href="#注册账号" class="headerlink" title="注册账号"></a>注册账号</h3><p>地址：<a href="https://github.com/" target="_blank" rel="external">https://github.com/</a><br>输入账号、邮箱、密码,然后点击注册按钮.<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/2014-10-26-build-blog-1.png" alt="1"></p>
+</li>
+<li><h3 id="创建页面仓库"><a href="#创建页面仓库" class="headerlink" title="创建页面仓库"></a>创建页面仓库</h3><p>这个仓库的名字需要和你的账号对应，格式:<code>yourname</code>.github.io<br>输入基本信息，然后点击创建仓库.<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/2014-10-26-build-blog-2.png" alt="2"><br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/2014-10-26-build-blog-3.png" alt="3"></p>
+</li>
+<li><h3 id="项目设置"><a href="#项目设置" class="headerlink" title="项目设置"></a>项目设置</h3><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/2014-10-26-build-blog-4.png" alt="4"></p>
+</li>
+<li><h3 id="页面生成器"><a href="#页面生成器" class="headerlink" title="页面生成器"></a>页面生成器</h3><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/2014-10-26-build-blog-5.png" alt="5"></p>
+</li>
+<li><h3 id="创建用户页面"><a href="#创建用户页面" class="headerlink" title="创建用户页面"></a>创建用户页面</h3><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/2014-10-26-build-blog-6.png" alt="6"></p>
+</li>
+<li><h3 id="页面发布"><a href="#页面发布" class="headerlink" title="页面发布"></a>页面发布</h3><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/2014-10-26-build-blog-7.png" alt="7"></p>
+</li>
+<li><h3 id="查看效果"><a href="#查看效果" class="headerlink" title="查看效果"></a>查看效果</h3><p>需要等待十分钟，自此，完成了github的博客创建，访问地址：yourname.github.io<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/2014-10-26-build-blog-8.png" alt="8"><br><a name="write-blog"></a></p>
+</li>
+</ul>
+<h2 id="三、如何发布博客"><a href="#三、如何发布博客" class="headerlink" title="三、如何发布博客"></a>三、如何发布博客</h2><p>以上只是创建了博客，那怎么发布自己的博客？共分为以下几个重要步骤（window下）：</p>
+<ul>
+<li>安装 Ruby</li>
+<li>安装 DevKit</li>
+<li>安装 Python</li>
+<li>安装 Jekyll</li>
+</ul>
+<h3 id="安装-Ruby"><a href="#安装-Ruby" class="headerlink" title="安装 Ruby"></a>安装 Ruby</h3><ul>
+<li>下载地址：<a href="http://rubyinstaller.org/downloads/" target="_blank" rel="external">http://rubyinstaller.org/downloads/</a> </li>
+<li>安装<ul>
+<li>最好保持默认的路径 C:\Ruby200-x64， 因为安装包明确提出 “请不要使用带有空格的文件夹 (如： Program Files)”。</li>
+<li>勾选 “Add Ruby executables to your PATH”，这样执行程序会被自动添加至 PATH 而避免不必要的头疼。</li>
+</ul>
+</li>
+</ul>
+<p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/2014-10-26-build-blog-9.png" alt="9"></p>
+<pre><code>* 命令行ruby -v来检测Ruby是否成功安装        
+</code></pre><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">C:\Users\WuXL&gt;ruby -v	</div><div class="line">返回ruby <span class="number">2.1</span><span class="number">.3</span>p242 (<span class="number">2014</span><span class="number">-09</span><span class="number">-19</span> revision <span class="number">47630</span>) [x64-mingw32]，ok</div></pre></td></tr></table></figure>
+<h3 id="五、安装-DevKit"><a href="#五、安装-DevKit" class="headerlink" title="五、安装 DevKit"></a>五、安装 DevKit</h3><ul>
+<li>下载地址：<a href="http://rubyinstaller.org/downloads/" target="_blank" rel="external">http://rubyinstaller.org/downloads/</a> </li>
+<li>下载同系统及 Ruby 版本相对应的 DevKit 安装包。 例如，DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe 适用于64位 Windows 系统上的 Ruby 2.0.0 x64。</li>
+<li>运行安装包并解压缩至某文件夹，如 C:\DevKit</li>
+<li>通过初始化来创建 config.yml 文件。在命令行窗口内，输入下列命令：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd “C:\DevKit”</div><div class="line">ruby dk.rb init</div><div class="line">notepad config.yml</div></pre></td></tr></table></figure>
+<ul>
+<li>在打开的记事本窗口中，于末尾添加新的一行 - C:\Ruby200-x64，保存文件并退出。</li>
+<li>回到命令行窗口内，审查（非必须）并安装。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ruby dk.rb review</div><div class="line">ruby dk.rb install</div></pre></td></tr></table></figure>
+<h3 id="安装-pyhton"><a href="#安装-pyhton" class="headerlink" title="安装 pyhton"></a>安装 pyhton</h3><ul>
+<li>下载地址：<a href="http://www.python.org/download/" target="_blank" rel="external">http://www.python.org/download/</a> </li>
+<li>添加安装路径 (如C:\Python27)至PATH。</li>
+</ul>
+<h3 id="安装-Jekyll"><a href="#安装-Jekyll" class="headerlink" title="安装 Jekyll"></a>安装 Jekyll</h3><ul>
+<li>查看是否安装 gem 成功</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">gem --version</div><div class="line">返回<span class="number">2.2</span><span class="number">.2</span>，OK</div></pre></td></tr></table></figure>
+<ul>
+<li><p>更新为 淘宝镜像<br><br>  RubyGems镜像换为 淘宝、防止下载包出错(官网<a href="https://ruby.taobao.org/" target="_blank" rel="external">https://ruby.taobao.org/</a>)</p>
+</li>
+<li><p>移除旧地址</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">gem sources --remove https:<span class="comment">//rubygems.org/ </span></div><div class="line">返回https:<span class="comment">//rubygems.org/ removed from sources，ok</span></div></pre></td></tr></table></figure>
+<ul>
+<li>更新为淘宝镜像</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">gem sources -a https:<span class="comment">//ruby.taobao.org/</span></div><div class="line">返回https:<span class="comment">//ruby.taobao.org/ added to sources，ok</span></div></pre></td></tr></table></figure>
+<ul>
+<li>安装jekyll</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gem install jekyll</div></pre></td></tr></table></figure>
+<ul>
+<li>查看是否安装jekyll成功</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">jekyll -version</div><div class="line">返回jekyll <span class="number">2.4</span><span class="number">.0</span>，ok</div></pre></td></tr></table></figure>
+<ul>
+<li>安装 依赖包 </li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gem install wdm</div></pre></td></tr></table></figure>
+<ul>
+<li>安装依赖包代码 高亮 </li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gem install rdiscount</div></pre></td></tr></table></figure>
+<ul>
+<li>安装 ‘Easy Install’</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">浏览 https:<span class="comment">//pypi.python.org/pypi/setuptools#installation-instructions 来查看详细的安装指南。</span></div><div class="line">对于 Windows <span class="number">7</span> 的机器，下载 ez_setup.py 并保存，例如，至C:\。 然后从命令行使用 Python 运行此文件：python “C:\ez_setup.py”</div><div class="line">添加 ‘Python Scripts’ 路径 (如： C:\Python27\Scripts) 至 PATH</div></pre></td></tr></table></figure>
+<ul>
+<li>安装 Pygments</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">确保 easy_install 已经正确安装</div><div class="line">easy_install --version</div><div class="line">输出示例：</div><div class="line">setuptools <span class="number">3.1</span></div></pre></td></tr></table></figure>
+<ul>
+<li>使用 “easy_install” 来安装 Pygments</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">easy_install Pygments</div></pre></td></tr></table></figure>
+<ul>
+<li>安装指定版本的yajl</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">删除<span class="number">86</span>版本的yajl</div><div class="line">C:\OpenSources\liyouhai&gt;gem uninstall yajl-ruby</div><div class="line">Successfully uninstalled yajl-ruby<span class="number">-1.1</span><span class="number">.0</span>-x86-mingw32</div><div class="line">安装指定版本的yajl</div><div class="line">C:\OpenSources\liyouhai&gt;gem install yajl-ruby -v <span class="number">1.1</span><span class="number">.0</span> --platform=ruby</div><div class="line">Fetching: yajl-ruby<span class="number">-1.1</span><span class="number">.0</span>.gem (<span class="number">100</span>%)</div><div class="line">Temporarily enhancing PATH to include DevKit...</div><div class="line">Building native extensions.  This could take a <span class="keyword">while</span>...</div><div class="line">Successfully installed yajl-ruby<span class="number">-1.1</span><span class="number">.0</span></div><div class="line">Parsing documentation <span class="keyword">for</span> yajl-ruby<span class="number">-1.1</span><span class="number">.0</span></div><div class="line">unable to convert <span class="string">"\x90"</span> <span class="keyword">from</span> ASCII<span class="number">-8</span>BIT to UTF<span class="number">-8</span> <span class="keyword">for</span> lib/yajl/yajl.so, skipping</div><div class="line">Installing ri documentation <span class="keyword">for</span> yajl-ruby<span class="number">-1.1</span><span class="number">.0</span></div><div class="line"><span class="number">1</span> gem installed</div></pre></td></tr></table></figure>
+<h3 id="启动-Jekyll"><a href="#启动-Jekyll" class="headerlink" title="启动 Jekyll"></a>启动 Jekyll</h3><p>按照官方的 Jekyll<a href="http://jekyllrb.com/docs/quickstart/" target="_blank" rel="external"><code>快速开始手册</code></a>的步骤，或者克隆<a href="https://github.com/jekyll/jekyll/wiki/Sites" target="_blank" rel="external"><code>模板</code></a>到本地，cmd下cd进入目录运行如下命令，就能在 localhost:4000 中预览了，大功告成。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jekyll serve -watch (或jekyll serve -w)</div></pre></td></tr></table></figure>
+<h3 id="图床"><a href="#图床" class="headerlink" title="图床"></a>图床</h3><p>1.墙裂推荐七牛云储存,<a href="https://portal.qiniu.com/signup?code=3lk4saqepkdhu" target="_blank" rel="external">注册地址</a>。</p>
+<p>2.七牛云储存提供10G的免费空间,以及每月10G的流量.存放个人博客图片最好不过了</p>
+<p>3.七牛云储存还有各种图形处理功能、缩略图、视频存放速度也给力（非打广告）。</p>
+<p>具体使用见<a href="http://wuxiaolong.github.io/blog/2014/10/30/qiniu-photo-bed.html" target="_blank" rel="external">使用七牛作为github博客的图床</a></p>
+<p><a name="ps"></a></p>
+<h2 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h2><p>一开始认为 GitHub.io 技术博客很有难度，从10月23日着手，经历24日一天摸索，知道了jekyll，MarkDown(其实就是github的 READ.md ,幸亏之前自学过READ.md语法），也有幸自学了git，不然还不知道这个建博客 什么时候能做好，进jekyll安装就花了半天，反正各种错误，然后各种谷歌百度  ，25日一天就写了这个博客（集众建博客的帖子所长），问题主要是没有 文章摘要 ，一下子全部显示出来，我有强迫症，不能接受这个，到26日才解决，如果您没有一定的编程基础，爱折腾，坚持不懈的精神，还是不要建自己的 GitHub.io 技术博客吧。</p>
+<p><a name="appendix"></a></p>
+<h2 id="五、附录"><a href="#五、附录" class="headerlink" title="五、附录"></a>五、附录</h2><p>jekyll中文官网：<a href="http://jekyllcn.com/" target="_blank" rel="external">http://jekyllcn.com/</a> <br><br>Markdown 语法说明：<a href="http://wowubuntu.com/markdown/#autoescape" target="_blank" rel="external">http://wowubuntu.com/markdown/#autoescape</a> </p>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>赞赏是一种共鸣或认可</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="吴小龙同學 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    吴小龙同學
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://wuxiaolong.me/2014/10/26/build-blog/" title="手把手教你建github技术博客by jekyll">http://wuxiaolong.me/2014/10/26/build-blog/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/GitHub/" rel="tag"># GitHub</a>
+          
+            <a href="/tags/Jekyll/" rel="tag"># Jekyll</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/10/21/Android-Studio-shortcut-keys-arranged-like-Eclipse/" rel="next" title="Android Studio快捷键设置成跟Eclipse一样">
+                <i class="fa fa-chevron-left"></i> Android Studio快捷键设置成跟Eclipse一样
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/10/30/qiniu-photo-bed/" rel="prev" title="使用七牛作为github博客的图床">
+                使用七牛作为github博客的图床 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTM2My81OTMx"></div>
+    </div>
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="http://7q5c2h.com1.z0.glb.clouddn.com/avatar.jpg" alt="吴小龙同學">
+            
+              <p class="site-author-name" itemprop="name">吴小龙同學</p>
+              <p class="site-description motion-element" itemprop="description">我的微信公众号：吴小龙同学</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">163</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">129</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/WuXiaolong" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://open.weixin.qq.com/qr/code/?username=MrWuXiaolong" target="_blank" title="WeChat">
+                    
+                      <i class="fa fa-fw fa-globe"></i>WeChat</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/u/2175011601" target="_blank" title="Weibo">
+                    
+                      <i class="fa fa-fw fa-globe"></i>Weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="/qq/index.html" target="_blank" title="QQ">
+                    
+                      <i class="fa fa-fw fa-globe"></i>QQ</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目录"><span class="nav-number">1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、适合人群"><span class="nav-number">2.</span> <span class="nav-text">一、适合人群</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、github-创建博客"><span class="nav-number">3.</span> <span class="nav-text">二、github 创建博客</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注册账号"><span class="nav-number">3.1.</span> <span class="nav-text">注册账号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建页面仓库"><span class="nav-number">3.2.</span> <span class="nav-text">创建页面仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目设置"><span class="nav-number">3.3.</span> <span class="nav-text">项目设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#页面生成器"><span class="nav-number">3.4.</span> <span class="nav-text">页面生成器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建用户页面"><span class="nav-number">3.5.</span> <span class="nav-text">创建用户页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#页面发布"><span class="nav-number">3.6.</span> <span class="nav-text">页面发布</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看效果"><span class="nav-number">3.7.</span> <span class="nav-text">查看效果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、如何发布博客"><span class="nav-number">4.</span> <span class="nav-text">三、如何发布博客</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-Ruby"><span class="nav-number">4.1.</span> <span class="nav-text">安装 Ruby</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、安装-DevKit"><span class="nav-number">4.2.</span> <span class="nav-text">五、安装 DevKit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-pyhton"><span class="nav-number">4.3.</span> <span class="nav-text">安装 pyhton</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-Jekyll"><span class="nav-number">4.4.</span> <span class="nav-text">安装 Jekyll</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动-Jekyll"><span class="nav-number">4.5.</span> <span class="nav-text">启动 Jekyll</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图床"><span class="nav-number">4.6.</span> <span class="nav-text">图床</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、总结"><span class="nav-number">5.</span> <span class="nav-text">四、总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、附录"><span class="nav-number">6.</span> <span class="nav-text">五、附录</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2013 &mdash; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">吴小龙同學</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/favicon.ico?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Canvas,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="吴小龙同學" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="写完 Android 画笔Paint，自然少不了Canvas画布，本文延续上篇风格，一一来过Canvas API。  绘制方法以drawXXX为主的绘制方法，api如下：">
+<meta name="keywords" content="Canvas">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 画布Canvas">
+<meta property="og:url" content="http://wuxiaolong.me/2016/08/27/Canvas/index.html">
+<meta property="og:site_name" content="吴小龙同學">
+<meta property="og:description" content="写完 Android 画笔Paint，自然少不了Canvas画布，本文延续上篇风格，一一来过Canvas API。  绘制方法以drawXXX为主的绘制方法，api如下：">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/canvas1.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/canvas2.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/canvas3.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/canvas4.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/canvas5.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/canvas6.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/canvas7.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/canvas8.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/canvas9.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/canvas10.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/canvas11.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/canvas12.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/canvas13.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/canvas14.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/canvas15.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/canvas16.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/canvas17.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/canvas18.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/canvas19.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/canvas20.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/canvas21.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/canvas22.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/canvas23.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/canvas24.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/canvas25.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/canvas28.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/canvas26.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/canvas27.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/canvas29.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:updated_time" content="2017-03-14T13:16:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android 画布Canvas">
+<meta name="twitter:description" content="写完 Android 画笔Paint，自然少不了Canvas画布，本文延续上篇风格，一一来过Canvas API。  绘制方法以drawXXX为主的绘制方法，api如下：">
+<meta name="twitter:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/canvas1.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://wuxiaolong.me/2016/08/27/Canvas/">
+
+
+
+
+
+  <title>Android 画布Canvas | 吴小龙同學</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-105780265-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0e1dc2030f397dfa0d60ad22b374430d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">吴小龙同學</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">党要我帅，我不得不帅！</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-friendslinks">
+          <a href="/friendslinks/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-users"></i> <br>
+            
+            小伙伴
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input">
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'ywBn2eRCzfb494KCWJw3','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2016/08/27/Canvas/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吴小龙同學">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://7q5c2h.com1.z0.glb.clouddn.com/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴小龙同學">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Android 画布Canvas</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-08-27T16:28:30+08:00">
+                2016-08-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CustomView/" itemprop="url" rel="index">
+                    <span itemprop="name">CustomView</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>写完 <a href="http://wuxiaolong.github.io/2016/08/20/Paint/" target="_blank" rel="external">Android 画笔Paint</a>，自然少不了Canvas画布，本文延续上篇风格，一一来过Canvas API。</p>
+</blockquote>
+<h1 id="绘制方法"><a href="#绘制方法" class="headerlink" title="绘制方法"></a>绘制方法</h1><p>以drawXXX为主的绘制方法，api如下：<br><a id="more"></a><br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/canvas1.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/canvas2.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/canvas3.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/canvas4.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""></p>
+<h2 id="drawARGB"><a href="#drawARGB" class="headerlink" title="drawARGB"></a>drawARGB</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">drawARGB</span> <span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> r,<span class="keyword">int</span> g,<span class="keyword">int</span> b)</span></span></div></pre></td></tr></table></figure>
+<p>统一颜色绘制，四个参数取值范围0~255</p>
+<h2 id="drawArc"><a href="#drawArc" class="headerlink" title="drawArc"></a>drawArc</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">drawArc</span> <span class="params">(RectF oval, </span></span></div><div class="line">                <span class="keyword">float</span> startAngle, </div><div class="line">                <span class="keyword">float</span> sweepAngle, </div><div class="line">                <span class="keyword">boolean</span> useCenter, </div><div class="line">                Paint paint)</div></pre></td></tr></table></figure>
+<p>绘制弧面或弧线。对于绘制对应图形的填充面，还是图形的轮廓线，这在于画笔Paint中的setStyle。<br>oval：矩形；<br>startAngle：起点角度，0度的角度对应于0度的几何角（在手表3点钟）；<br>sweepAngle：顺时针扫过的角度；<br>useCenter：弧面或弧线；<br>paint：画笔</p>
+<p><strong>弧面</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">RectF rectF = <span class="keyword">new</span> RectF(<span class="number">100f</span>, <span class="number">100f</span>, <span class="number">500f</span>, <span class="number">500f</span>);</div><div class="line">canvas.drawArc(rectF, <span class="number">0</span>, <span class="number">150</span>, <span class="keyword">true</span>, mPaint);</div></pre></td></tr></table></figure></p>
+<p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/canvas5.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""></p>
+<p><strong>弧线</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">RectF rectF = <span class="keyword">new</span> RectF(<span class="number">100f</span>, <span class="number">100f</span>, <span class="number">500f</span>, <span class="number">500f</span>);</div><div class="line">canvas.drawArc(rectF, <span class="number">0</span>, <span class="number">150</span>, <span class="keyword">false</span>, mPaint);</div></pre></td></tr></table></figure></p>
+<p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/canvas6.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""></p>
+<h2 id="drawBitmap"><a href="#drawBitmap" class="headerlink" title="drawBitmap"></a>drawBitmap</h2><p>绘制使用指定的矩阵的位图。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//方法1</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">drawBitmap</span> <span class="params">(Bitmap bitmap, </span></span></div><div class="line">                <span class="keyword">float</span> left, </div><div class="line">                <span class="keyword">float</span> top, </div><div class="line">                Paint paint) </div><div class="line"></div><div class="line"><span class="comment">//方法2               </span></div><div class="line"><span class="keyword">void</span> <span class="title">drawBitmap</span> <span class="params">(Bitmap bitmap, </span></div><div class="line">                Rect src, </div><div class="line">                Rect dst, </div><div class="line">                Paint paint)</div><div class="line"><span class="comment">//方法3               </span></div><div class="line"><span class="keyword">void</span> <span class="title">drawBitmap</span> <span class="params">(Bitmap bitmap, </span></div><div class="line">                Matrix matrix, </div><div class="line">                Paint paint)</div></pre></td></tr></table></figure></p>
+<p>例子代码<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">mBitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.logo);</div><div class="line"></div><div class="line">canvas.drawBitmap(mBitmap, <span class="number">0</span>, <span class="number">0</span>, mPaint);</div><div class="line"></div><div class="line"><span class="comment">//绘制Bitmap的一部分，并对其拉伸</span></div><div class="line"><span class="comment">//srcRect绘制Bitmap的哪一部分</span></div><div class="line">Rect src = <span class="keyword">new</span> Rect(<span class="number">0</span>, <span class="number">0</span>, mBitmap.getWidth(), mBitmap.getHeight() / <span class="number">3</span>);</div><div class="line"><span class="comment">//dstRecF绘制的Bitmap拉伸到哪里</span></div><div class="line">RectF dst = <span class="keyword">new</span> RectF(<span class="number">0</span>, mBitmap.getHeight(), canvas.getWidth(), mBitmap.getHeight() + <span class="number">200</span>);</div><div class="line">canvas.drawBitmap(mBitmap, src, dst, mPaint);</div><div class="line"></div><div class="line">Matrix matrix = <span class="keyword">new</span> Matrix();</div><div class="line">matrix.postTranslate(<span class="number">0</span>, mBitmap.getHeight() + <span class="number">200</span>);</div><div class="line">canvas.drawBitmap(mBitmap, matrix, mPaint);</div></pre></td></tr></table></figure></p>
+<p>效果图从上至下，分别对应方法1-3<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/canvas7.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""></p>
+<h2 id="drawBitmapMesh"><a href="#drawBitmapMesh" class="headerlink" title="drawBitmapMesh"></a>drawBitmapMesh</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">drawBitmapMesh</span> <span class="params">(Bitmap bitmap, </span></span></div><div class="line">                <span class="keyword">int</span> meshWidth, </div><div class="line">                <span class="keyword">int</span> meshHeight, </div><div class="line">                <span class="keyword">float</span>[] verts, </div><div class="line">                <span class="keyword">int</span> vertOffset, </div><div class="line">                <span class="keyword">int</span>[] colors, </div><div class="line">                <span class="keyword">int</span> colorOffset, </div><div class="line">                Paint paint)</div></pre></td></tr></table></figure>
+<p>绘制网格顶点被均匀地分布在该位图<br>bitmap：位图<br>meshWidth：横向上把该源位图划成成多少格<br>meshHeight：竖向上把该源位图划成成多少格<br>verts：长度为(meshWidth + 1) <em> (meshHeight + 1) </em> 2的数组，它记录了扭曲后的位图各顶点位置<br>vertOffset：控制verts数组中从第几个数组元素开始才对bitmap进行扭曲<br>colors：可以为null，指定在每个顶点，其值由对应的位图颜色相乘内插的颜色。如果不为空，必须有至少（meshWidth+ 1）*（meshHeight+ 1）+ colorOffset数组中的值。<br>colorOffset    int: Number of color elements to skip before drawing<br>paint：画笔，可以为null</p>
+<p>效果参考博客 <a href="http://blog.csdn.net/u010947098/article/details/44731781" target="_blank" rel="external">Android Canvas的drawBitmapMesh实现扭曲图像</a></p>
+<h2 id="drawCircle"><a href="#drawCircle" class="headerlink" title="drawCircle"></a>drawCircle</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">drawCircle</span> <span class="params">(<span class="keyword">float</span> cx, </span></span></div><div class="line">                <span class="keyword">float</span> cy, </div><div class="line">                <span class="keyword">float</span> radius, </div><div class="line">                Paint paint)</div></pre></td></tr></table></figure>
+<p>绘制圆<br>cx，cy代表圆心的坐标<br>radius圆的半径<br>paint画笔<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">canvas.drawCircle(<span class="number">500f</span>, <span class="number">500f</span>, <span class="number">200</span>, mPaint);</div></pre></td></tr></table></figure></p>
+<p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/canvas8.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""></p>
+<h2 id="drawColor"><a href="#drawColor" class="headerlink" title="drawColor"></a>drawColor</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">drawColor</span> <span class="params">(<span class="keyword">int</span> color)</span></span></div></pre></td></tr></table></figure>
+<p>设置画布颜色</p>
+<h2 id="drawLine"><a href="#drawLine" class="headerlink" title="drawLine"></a>drawLine</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">drawLine</span> <span class="params">(<span class="keyword">float</span> startX, </span></span></div><div class="line">                <span class="keyword">float</span> startY, </div><div class="line">                <span class="keyword">float</span> stopX, </div><div class="line">                <span class="keyword">float</span> stopY, </div><div class="line">                Paint paint)</div><div class="line"><span class="keyword">void</span> <span class="title">drawLines</span> <span class="params">(<span class="keyword">float</span>[] pts, </span></div><div class="line">                Paint paint)                </div><div class="line"><span class="keyword">void</span> <span class="title">drawLines</span> <span class="params">(<span class="keyword">float</span>[] pts, </span></div><div class="line">                <span class="keyword">int</span> offset, </div><div class="line">                <span class="keyword">int</span> count, </div><div class="line">                Paint paint)</div></pre></td></tr></table></figure>
+<p>画线<br>方法1<br>startX，startY起点坐标<br>stopX，stopY终点坐标<br>paint画笔</p>
+<p>方法2<br>pts：绘制直线的端点数组，每条直线占用4个数据，即起终点坐标。<br>paint：绘制直线所使用的画笔。</p>
+<p>方法2<br>pts：绘制直线的端点数组，每条直线占用4个数据，即起终点坐标。<br>offset：跳过的数据个数，取值为4的倍数。<br>count：实际参与绘制的数据个数。<br>paint：绘制直线所使用的画笔。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">canvas.drawLine(<span class="number">100f</span>,<span class="number">100f</span>,<span class="number">500f</span>,<span class="number">500f</span>,mPaint);</div></pre></td></tr></table></figure>
+<p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/canvas9.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">float</span>[] pts = &#123;<span class="number">100f</span>, <span class="number">100f</span>, <span class="number">400f</span>, <span class="number">400f</span>,</div><div class="line">                <span class="number">400f</span>, <span class="number">400f</span>, <span class="number">250f</span>, <span class="number">560f</span>,</div><div class="line">                <span class="number">250f</span>, <span class="number">560f</span>, <span class="number">400f</span>, <span class="number">800f</span>,</div><div class="line">                <span class="number">400f</span>, <span class="number">800f</span>, <span class="number">280f</span>, <span class="number">880f</span>&#125;;</div><div class="line">canvas.drawLines(pts, mPaint);</div></pre></td></tr></table></figure>
+<p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/canvas10.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">float</span>[] pts = &#123;<span class="number">100f</span>, <span class="number">100f</span>, <span class="number">400f</span>, <span class="number">400f</span>,</div><div class="line">                <span class="number">400f</span>, <span class="number">400f</span>, <span class="number">250f</span>, <span class="number">560f</span>,</div><div class="line">                <span class="number">250f</span>, <span class="number">560f</span>, <span class="number">400f</span>, <span class="number">800f</span>,</div><div class="line">                <span class="number">400f</span>, <span class="number">800f</span>, <span class="number">280f</span>, <span class="number">880f</span>&#125;;</div><div class="line"><span class="comment">//有选择地绘制直线</span></div><div class="line">canvas.drawLines(pts, <span class="number">4</span>, <span class="number">8</span>, mPaint);</div></pre></td></tr></table></figure></p>
+<p>跳过前4个数据，绘制后面8的数据，即绘制了第二第三个点：<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/canvas11.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""></p>
+<h2 id="drawOval"><a href="#drawOval" class="headerlink" title="drawOval"></a>drawOval</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">drawOval</span> <span class="params">(RectF oval,Paint paint)</span></span></div></pre></td></tr></table></figure>
+<p>绘制椭圆<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">RectF rectF = <span class="keyword">new</span> RectF(<span class="number">100f</span>, <span class="number">100f</span>, <span class="number">600f</span>, <span class="number">500f</span>);</div><div class="line"><span class="comment">//等同于圆的效果</span></div><div class="line"><span class="comment">//RectF rectF = new RectF(100f, 100f, 500f, 500f);</span></div><div class="line">canvas.drawOval(rectF, mPaint);</div></pre></td></tr></table></figure></p>
+<p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/canvas12.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""></p>
+<h2 id="drawPath"><a href="#drawPath" class="headerlink" title="drawPath"></a>drawPath</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">drawPath</span> <span class="params">(Path path,Paint paint)</span></span></div></pre></td></tr></table></figure>
+<p>例子<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Path path = <span class="keyword">new</span> Path();</div><div class="line"><span class="comment">//向Path中加入Arc</span></div><div class="line">RectF arcRecF = <span class="keyword">new</span> RectF(<span class="number">0</span>, <span class="number">0</span>, <span class="number">500</span>, <span class="number">500</span>);</div><div class="line">path.addArc(arcRecF, <span class="number">0</span>, <span class="number">135</span>);</div><div class="line">canvas.drawPath(path, mPaint);</div></pre></td></tr></table></figure></p>
+<p>更多Path（宝藏，可继续挖掘），详见博客<a href="http://ghui.me/post/2015/10/android-graphics-path/" target="_blank" rel="external">android绘图之Path总结</a></p>
+<h2 id="drawPoint"><a href="#drawPoint" class="headerlink" title="drawPoint"></a>drawPoint</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">drawPoint</span> <span class="params">(<span class="keyword">float</span> x, </span></span></div><div class="line">                <span class="keyword">float</span> y, </div><div class="line">                Paint paint)</div></pre></td></tr></table></figure>
+<p>绘制点，x，y分别是点坐标<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">drawPoints</span> <span class="params">(<span class="keyword">float</span>[] pts, </span></span></div><div class="line">                <span class="keyword">int</span> offset, </div><div class="line">                <span class="keyword">int</span> count, </div><div class="line">                Paint paint)</div><div class="line"><span class="keyword">void</span> <span class="title">drawPoints</span> <span class="params">(<span class="keyword">float</span>[] pts, </span></div><div class="line">                Paint paint)</div></pre></td></tr></table></figure></p>
+<p>drawPoints与drawLines类似</p>
+<h2 id="drawRGB"><a href="#drawRGB" class="headerlink" title="drawRGB"></a>drawRGB</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">drawRGB</span> <span class="params">(<span class="keyword">int</span> r, </span></span></div><div class="line">                <span class="keyword">int</span> g, </div><div class="line">                <span class="keyword">int</span> b)</div></pre></td></tr></table></figure>
+<p>RGB绘制画布颜色，取值也是0~255</p>
+<h2 id="drawRect"><a href="#drawRect" class="headerlink" title="drawRect"></a>drawRect</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">drawRect</span> <span class="params">(<span class="keyword">float</span> left, </span></span></div><div class="line">                <span class="keyword">float</span> top, </div><div class="line">                <span class="keyword">float</span> right, </div><div class="line">                <span class="keyword">float</span> bottom, </div><div class="line">                Paint paint)</div></pre></td></tr></table></figure>
+<p>绘制矩形，前四个参数分别表示矩形的左，顶，右，低</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">drawRect</span> <span class="params">(Rect r,Paint paint)</span></span></div><div class="line"><span class="keyword">void</span> <span class="title">drawRect</span> <span class="params">(RectF rect,Paint paint)</span></div></pre></td></tr></table></figure>
+<p>Rect 和 RectF区别是Rect初始化 是int，RectF 是left</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">canvas.drawRect(<span class="number">100f</span>,<span class="number">100f</span>,<span class="number">500f</span>,<span class="number">500f</span>,mPaint);</div></pre></td></tr></table></figure>
+<p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/canvas13.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""> </p>
+<h2 id="drawRoundRect"><a href="#drawRoundRect" class="headerlink" title="drawRoundRect"></a>drawRoundRect</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">drawRoundRect</span> <span class="params">(RectF rect, </span></span></div><div class="line">                <span class="keyword">float</span> rx, </div><div class="line">                <span class="keyword">float</span> ry, </div><div class="line">                Paint paint)</div></pre></td></tr></table></figure>
+<p>绘制圆矩形<br>rx：圆角x方向的半径<br>ry：圆角y方向的半径</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">RectF rectF = <span class="keyword">new</span> RectF(<span class="number">100f</span>, <span class="number">100f</span>, <span class="number">500f</span>, <span class="number">500f</span>);</div><div class="line">canvas.drawRoundRect(rectF, <span class="number">50</span>, <span class="number">150</span>, mPaint);</div></pre></td></tr></table></figure>
+<p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/canvas14.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""> </p>
+<h2 id="drawText"><a href="#drawText" class="headerlink" title="drawText"></a>drawText</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">drawText</span> <span class="params">(CharSequence text, </span></span></div><div class="line">                <span class="keyword">int</span> start, </div><div class="line">                <span class="keyword">int</span> end, </div><div class="line">                <span class="keyword">float</span> x, </div><div class="line">                <span class="keyword">float</span> y, </div><div class="line">                Paint paint)</div><div class="line"><span class="keyword">void</span> <span class="title">drawText</span> <span class="params">(String text, </span></div><div class="line">                <span class="keyword">float</span> x, </div><div class="line">                <span class="keyword">float</span> y, </div><div class="line">                Paint paint)</div><div class="line"><span class="keyword">void</span> <span class="title">drawText</span> <span class="params">(String text, </span></div><div class="line">                <span class="keyword">int</span> start, </div><div class="line">                <span class="keyword">int</span> end, </div><div class="line">                <span class="keyword">float</span> x, </div><div class="line">                <span class="keyword">float</span> y, </div><div class="line">                Paint paint)</div></pre></td></tr></table></figure>
+<p>绘制文本<br>start：指的文本从哪个开始；end：文本结束的位置；x，y：文本起点<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mPaint.setTextSize(<span class="number">50</span>);</div><div class="line">String text = <span class="string">"我的微信公众号：吴小龙同学"</span>;</div><div class="line">canvas.drawText(text, <span class="number">2</span>, text.length(), <span class="number">100</span>, <span class="number">100</span>, mPaint)</div><div class="line">canvas.drawText(<span class="string">"我的微信公众号：吴小龙同学"</span>, <span class="number">100</span>, <span class="number">400</span>, mPaint);</div></pre></td></tr></table></figure></p>
+<p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/canvas15.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""> </p>
+<h2 id="drawTextOnPath"><a href="#drawTextOnPath" class="headerlink" title="drawTextOnPath"></a>drawTextOnPath</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">drawTextOnPath</span> <span class="params">(String text, </span></span></div><div class="line">                Path path, </div><div class="line">                <span class="keyword">float</span> hOffset, </div><div class="line">                <span class="keyword">float</span> vOffset, </div><div class="line">                Paint paint)</div><div class="line"><span class="keyword">void</span> <span class="title">drawTextOnPath</span> <span class="params">(<span class="keyword">char</span>[] text, </span></div><div class="line">                <span class="keyword">int</span> index, </div><div class="line">                <span class="keyword">int</span> count, </div><div class="line">                Path path, </div><div class="line">                <span class="keyword">float</span> hOffset, </div><div class="line">                <span class="keyword">float</span> vOffset, </div><div class="line">                Paint paint)</div></pre></td></tr></table></figure>
+<p>沿着Path绘制一段文字<br>hOffset  : 与路径起始点的水平偏移距离<br>vOffset  : 与路径中心的垂直偏移量</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Path path = <span class="keyword">new</span> Path();</div><div class="line"><span class="comment">//Path.Direction.CW，沿外环；Path.Direction.CCW，沿内环</span></div><div class="line">path.addCircle(<span class="number">500</span>, <span class="number">500</span>, <span class="number">200</span>, Path.Direction.CW);</div><div class="line">mPaint.setTextSize(<span class="number">50</span>);</div><div class="line"><span class="comment">// 绘制路径</span></div><div class="line">canvas.drawPath(path, mPaint);</div><div class="line">String text = <span class="string">"我的微信公众号：吴小龙同学"</span>;</div><div class="line">canvas.drawTextOnPath(text, path, <span class="number">0f</span>, <span class="number">0f</span>, mPaint);</div></pre></td></tr></table></figure>
+<p> <img src="http://7q5c2h.com1.z0.glb.clouddn.com/canvas16.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""> </p>
+<h2 id="drawVertices"><a href="#drawVertices" class="headerlink" title="drawVertices"></a>drawVertices</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">drawVertices</span> <span class="params">(Canvas.VertexMode mode, </span></span></div><div class="line">                <span class="keyword">int</span> vertexCount, </div><div class="line">                <span class="keyword">float</span>[] verts, </div><div class="line">                <span class="keyword">int</span> vertOffset, </div><div class="line">                <span class="keyword">float</span>[] texs, </div><div class="line">                <span class="keyword">int</span> texOffset, </div><div class="line">                <span class="keyword">int</span>[] colors, </div><div class="line">                <span class="keyword">int</span> colorOffset, </div><div class="line">                <span class="keyword">short</span>[] indices, </div><div class="line">                <span class="keyword">int</span> indexOffset, </div><div class="line">                <span class="keyword">int</span> indexCount, </div><div class="line">                Paint paint)</div></pre></td></tr></table></figure>
+<p>绘制顶点数组</p>
+<h1 id="裁剪方法"><a href="#裁剪方法" class="headerlink" title="裁剪方法"></a>裁剪方法</h1><p>以clipXXX为主的<br> <img src="http://7q5c2h.com1.z0.glb.clouddn.com/canvas17.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""> </p>
+<h2 id="clipPath"><a href="#clipPath" class="headerlink" title="clipPath"></a>clipPath</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">clipPath</span> <span class="params">(Path path, </span></span></div><div class="line">                Region.Op op) </div><div class="line"><span class="keyword">boolean</span> <span class="title">clipPath</span> <span class="params">(Path path)</span></div></pre></td></tr></table></figure>
+<p>裁剪路径<br>op：各种裁剪组合模式，有六个枚举常量，下有详解<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Path path = <span class="keyword">new</span> Path();</div><div class="line">RectF arcRecF = <span class="keyword">new</span> RectF(<span class="number">0</span>, <span class="number">0</span>, <span class="number">500</span>, <span class="number">500</span>);</div><div class="line">path.addArc(arcRecF, <span class="number">0</span>, <span class="number">135</span>);</div><div class="line">canvas.clipPath(path);</div><div class="line">canvas.drawColor(Color.RED);</div></pre></td></tr></table></figure></p>
+<p> <img src="http://7q5c2h.com1.z0.glb.clouddn.com/canvas18.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br> 有图可知，画布已经是红区区域了。</p>
+<h2 id="clipRect"><a href="#clipRect" class="headerlink" title="clipRect"></a>clipRect</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">clipRect</span> <span class="params">(<span class="keyword">float</span> left, </span></span></div><div class="line">                <span class="keyword">float</span> top, </div><div class="line">                <span class="keyword">float</span> right, </div><div class="line">                <span class="keyword">float</span> bottom, </div><div class="line">                Region.Op op)</div><div class="line"><span class="keyword">boolean</span> <span class="title">clipRect</span> <span class="params">(RectF rect)</span></div><div class="line"><span class="keyword">boolean</span> <span class="title">clipRect</span> <span class="params">(<span class="keyword">int</span> left, </span></div><div class="line">                <span class="keyword">int</span> top, </div><div class="line">                <span class="keyword">int</span> right, </div><div class="line">                <span class="keyword">int</span> bottom)</div><div class="line"><span class="keyword">boolean</span> <span class="title">clipRect</span> <span class="params">(RectF rect, </span></div><div class="line">                Region.Op op)</div><div class="line"><span class="keyword">boolean</span> <span class="title">clipRect</span> <span class="params">(Rect rect)</span></div></pre></td></tr></table></figure>
+<p>裁剪矩形<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">canvas.clipRect(<span class="number">100</span>, <span class="number">100</span>, <span class="number">400</span>, <span class="number">500</span>);</div><div class="line">canvas.drawColor(Color.RED);</div></pre></td></tr></table></figure></p>
+<p> <img src="http://7q5c2h.com1.z0.glb.clouddn.com/canvas19.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br>  有图可知，画布已经是红区矩形区域了。</p>
+<p><strong>Region.Op</strong><br>各种裁剪组合模式，有六个枚举常量，如下图，红色即组合裁剪的区域。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 填充颜色</span></div><div class="line">canvas.drawColor(Color.BLUE);</div><div class="line">canvas.save();</div><div class="line">canvas.clipRect(<span class="number">100</span>, <span class="number">100</span>, <span class="number">400</span>, <span class="number">500</span>);</div><div class="line">canvas.clipRect(<span class="number">200</span>, <span class="number">200</span>, <span class="number">600</span>, <span class="number">600</span>, Region.Op.DIFFERENCE);</div><div class="line">canvas.drawColor(Color.RED);</div><div class="line">canvas.restore();</div><div class="line"><span class="comment">// 绘制和裁剪一样的矩形便于观察</span></div><div class="line">canvas.drawRect(<span class="number">100</span>, <span class="number">100</span>, <span class="number">400</span>, <span class="number">500</span>, mPaint);</div><div class="line">canvas.drawRect(<span class="number">200</span>, <span class="number">200</span>, <span class="number">600</span>, <span class="number">600</span>, mPaint);</div></pre></td></tr></table></figure></p>
+<p>Region.Op     DIFFERENCE<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/canvas20.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br>Region.Op     INTERSECT<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/canvas21.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br>Region.Op     REPLACE<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/canvas22.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br>Region.Op     REVERSE_DIFFERENCE<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/canvas23.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br>Region.Op     UNION<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/canvas24.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br>Region.Op     XOR<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/canvas25.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt="">  </p>
+<h1 id="变换方法"><a href="#变换方法" class="headerlink" title="变换方法"></a>变换方法</h1><p>rotate，scale、skew、translate<br>旋转、缩放、错切、平移</p>
+<h2 id="rotate"><a href="#rotate" class="headerlink" title="rotate"></a>rotate</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">rotate</span> <span class="params">(<span class="keyword">float</span> degrees)</span></span></div><div class="line"><span class="keyword">void</span> <span class="title">rotate</span> <span class="params">(<span class="keyword">float</span> degrees, </span></div><div class="line">                <span class="keyword">float</span> px, </div><div class="line">                <span class="keyword">float</span> py)</div></pre></td></tr></table></figure>
+<p>画布的旋转<br>degrees：顺时针旋转的角度<br>px和py 基准点平移，默认起点（0,0）<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">canvas.drawColor(Color.BLUE);</div><div class="line">canvas.drawRect(<span class="keyword">new</span> Rect(<span class="number">0</span>, <span class="number">0</span>, <span class="number">400</span>, <span class="number">400</span>), mPaint);</div><div class="line">mPaint.setColor(Color.YELLOW);</div><div class="line">canvas.rotate(<span class="number">45</span>);</div><div class="line">canvas.drawRect(<span class="keyword">new</span> Rect(<span class="number">0</span>, <span class="number">0</span>, <span class="number">400</span>, <span class="number">400</span>), mPaint);</div></pre></td></tr></table></figure></p>
+<p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/canvas28.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt="">  </p>
+<h2 id="scale"><a href="#scale" class="headerlink" title="scale"></a>scale</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//方法1</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">scale</span> <span class="params">(<span class="keyword">float</span> sx, <span class="keyword">float</span> sy)</span></span></div></pre></td></tr></table></figure>
+<p>画布的缩放<br>sx、sy是x、y方向上缩放的倍数<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">canvas.drawColor(Color.BLUE);</div><div class="line">mPaint.setColor(Color.GREEN);</div><div class="line">canvas.drawRect(<span class="number">0</span>, <span class="number">0</span>, <span class="number">400</span>, <span class="number">500</span>, mPaint);</div><div class="line">canvas.scale(<span class="number">0.5f</span>, <span class="number">0.5f</span>);</div><div class="line">mPaint.setColor(Color.RED);</div><div class="line">canvas.drawRect(<span class="number">0</span>, <span class="number">0</span>, <span class="number">400</span>, <span class="number">500</span>, mPaint);</div></pre></td></tr></table></figure></p>
+<p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/canvas26.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br> 红色矩形比绿色缩小的一半<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//方法2</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">scale</span> <span class="params">(<span class="keyword">float</span> sx, </span></span></div><div class="line">                <span class="keyword">float</span> sy, </div><div class="line">                <span class="keyword">float</span> px, </div><div class="line">                <span class="keyword">float</span> py)</div></pre></td></tr></table></figure></p>
+<p>px和py 分别为缩放的基准点，看scale源码可知基准点平移了:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">scale</span><span class="params">(<span class="keyword">float</span> sx, <span class="keyword">float</span> sy, <span class="keyword">float</span> px, <span class="keyword">float</span> py)</span> </span>&#123;</div><div class="line">    translate(px, py);</div><div class="line">    scale(sx, sy);</div><div class="line">    translate(-px, -py);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>例子<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">canvas.drawColor(Color.BLUE);</div><div class="line">mPaint.setColor(Color.GREEN);</div><div class="line">canvas.drawRect(<span class="number">0</span>, <span class="number">0</span>, <span class="number">400</span>, <span class="number">500</span>, mPaint);</div><div class="line"><span class="comment">// 保存画布状态</span></div><div class="line">canvas.save();</div><div class="line">canvas.scale(<span class="number">0.5f</span>, <span class="number">0.5f</span>);</div><div class="line">mPaint.setColor(Color.RED);</div><div class="line">canvas.drawRect(<span class="number">0</span>, <span class="number">0</span>, <span class="number">400</span>, <span class="number">500</span>, mPaint);</div><div class="line">canvas.restore();</div><div class="line">canvas.scale(<span class="number">0.5f</span>, <span class="number">0.5f</span>, <span class="number">200</span>, <span class="number">200</span>);</div><div class="line">mPaint.setColor(Color.WHITE);</div><div class="line">canvas.drawRect(<span class="number">0</span>, <span class="number">0</span>, <span class="number">400</span>, <span class="number">500</span>, mPaint);</div></pre></td></tr></table></figure></p>
+<p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/canvas27.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br>白色就是平移后的效果</p>
+<h2 id="skew"><a href="#skew" class="headerlink" title="skew"></a>skew</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">skew</span> <span class="params">(<span class="keyword">float</span> sx,<span class="keyword">float</span> sy)</span></span></div></pre></td></tr></table></figure>
+<p>画布的错切<br>float sx:将画布在x方向上倾斜相应的角度，sx为倾斜角度的tan值；<br>float sy:将画布在y轴方向上倾斜相应的角度，sy为倾斜角度的tan值；<br>比如在X轴方向上倾斜45度，tan45=1；</p>
+<h2 id="translate"><a href="#translate" class="headerlink" title="translate"></a>translate</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">translate</span> <span class="params">(<span class="keyword">float</span> dx,<span class="keyword">float</span> dy)</span></span></div></pre></td></tr></table></figure>
+<p>画布的平移<br>dx，dy平移量<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">canvas.drawColor(Color.BLUE);</div><div class="line">canvas.translate(<span class="number">100</span>, <span class="number">100</span>);</div><div class="line">canvas.drawRect(<span class="keyword">new</span> Rect(<span class="number">0</span>, <span class="number">0</span>, <span class="number">400</span>, <span class="number">400</span>), mPaint);</div></pre></td></tr></table></figure></p>
+<p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/canvas29.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br>坐标从起点（0,0）变成了（100,100）</p>
+<h1 id="画布锁定和还原"><a href="#画布锁定和还原" class="headerlink" title="画布锁定和还原"></a>画布锁定和还原</h1><p>以saveXXX和restoreXXX构成的画布锁定和还原</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">save</span> <span class="params">(<span class="keyword">int</span> saveFlags)</span></span></div><div class="line"><span class="keyword">int</span> <span class="title">save</span> <span class="params">()</span></div><div class="line"><span class="keyword">void</span> <span class="title">restore</span> <span class="params">()</span></div></pre></td></tr></table></figure>
+<p>save 保存当前矩阵，剪辑到一个私有堆栈。save()方法之后的代码，可以调用Canvas的平移、放缩、旋转、裁剪等操作<br>restore 恢复Canvas之前保存的状态<br>save和restore要配对使用，restore可以比save少，但不能多，如果restore调用次数比save多，会引发Error。</p>
+<h1 id="例子源码"><a href="#例子源码" class="headerlink" title="例子源码"></a>例子源码</h1><p><a href="https://github.com/WuXiaolong/AndroidSamples/blob/master/app/src/main/java/com/wuxiaolong/androidsamples/paintcanvas/CanvasView.java" target="_blank" rel="external">https://github.com/WuXiaolong/AndroidSamples/blob/master/app/src/main/java/com/wuxiaolong/androidsamples/paintcanvas/CanvasView.java</a></p>
+<h1 id="鸣谢"><a href="#鸣谢" class="headerlink" title="鸣谢"></a>鸣谢</h1><p><a href="https://developer.android.com/reference/android/graphics/Canvas.html" target="_blank" rel="external">官网api</a><br><a href="http://blog.csdn.net/aigestudio/article/details/41960507" target="_blank" rel="external">自定义控件其实很简单5/12</a><br><a href="http://blog.csdn.net/tianjian4592/article/details/45234419" target="_blank" rel="external">Canvas之translate、scale、rotate、skew方法讲解！</a><br><a href="http://ghui.me/post/2015/10/android-graphics-path/" target="_blank" rel="external">android绘图之Path总结</a></p>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>赞赏是一种共鸣或认可</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="吴小龙同學 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    吴小龙同學
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://wuxiaolong.me/2016/08/27/Canvas/" title="Android 画布Canvas">http://wuxiaolong.me/2016/08/27/Canvas/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Canvas/" rel="tag"># Canvas</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/20/Paint/" rel="next" title="Android 画笔Paint">
+                <i class="fa fa-chevron-left"></i> Android 画笔Paint
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/07/MyAndroidLibrary/" rel="prev" title="一套完整的Android通用框架">
+                一套完整的Android通用框架 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTM2My81OTMx"></div>
+    </div>
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="http://7q5c2h.com1.z0.glb.clouddn.com/avatar.jpg" alt="吴小龙同學">
+            
+              <p class="site-author-name" itemprop="name">吴小龙同學</p>
+              <p class="site-description motion-element" itemprop="description">我的微信公众号：吴小龙同学</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">163</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">129</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/WuXiaolong" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://open.weixin.qq.com/qr/code/?username=MrWuXiaolong" target="_blank" title="WeChat">
+                    
+                      <i class="fa fa-fw fa-globe"></i>WeChat</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/u/2175011601" target="_blank" title="Weibo">
+                    
+                      <i class="fa fa-fw fa-globe"></i>Weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="/qq/index.html" target="_blank" title="QQ">
+                    
+                      <i class="fa fa-fw fa-globe"></i>QQ</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#绘制方法"><span class="nav-number">1.</span> <span class="nav-text">绘制方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#drawARGB"><span class="nav-number">1.1.</span> <span class="nav-text">drawARGB</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#drawArc"><span class="nav-number">1.2.</span> <span class="nav-text">drawArc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#drawBitmap"><span class="nav-number">1.3.</span> <span class="nav-text">drawBitmap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#drawBitmapMesh"><span class="nav-number">1.4.</span> <span class="nav-text">drawBitmapMesh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#drawCircle"><span class="nav-number">1.5.</span> <span class="nav-text">drawCircle</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#drawColor"><span class="nav-number">1.6.</span> <span class="nav-text">drawColor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#drawLine"><span class="nav-number">1.7.</span> <span class="nav-text">drawLine</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#drawOval"><span class="nav-number">1.8.</span> <span class="nav-text">drawOval</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#drawPath"><span class="nav-number">1.9.</span> <span class="nav-text">drawPath</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#drawPoint"><span class="nav-number">1.10.</span> <span class="nav-text">drawPoint</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#drawRGB"><span class="nav-number">1.11.</span> <span class="nav-text">drawRGB</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#drawRect"><span class="nav-number">1.12.</span> <span class="nav-text">drawRect</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#drawRoundRect"><span class="nav-number">1.13.</span> <span class="nav-text">drawRoundRect</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#drawText"><span class="nav-number">1.14.</span> <span class="nav-text">drawText</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#drawTextOnPath"><span class="nav-number">1.15.</span> <span class="nav-text">drawTextOnPath</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#drawVertices"><span class="nav-number">1.16.</span> <span class="nav-text">drawVertices</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#裁剪方法"><span class="nav-number">2.</span> <span class="nav-text">裁剪方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#clipPath"><span class="nav-number">2.1.</span> <span class="nav-text">clipPath</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#clipRect"><span class="nav-number">2.2.</span> <span class="nav-text">clipRect</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#变换方法"><span class="nav-number">3.</span> <span class="nav-text">变换方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#rotate"><span class="nav-number">3.1.</span> <span class="nav-text">rotate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scale"><span class="nav-number">3.2.</span> <span class="nav-text">scale</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#skew"><span class="nav-number">3.3.</span> <span class="nav-text">skew</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#translate"><span class="nav-number">3.4.</span> <span class="nav-text">translate</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#画布锁定和还原"><span class="nav-number">4.</span> <span class="nav-text">画布锁定和还原</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#例子源码"><span class="nav-number">5.</span> <span class="nav-text">例子源码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#鸣谢"><span class="nav-number">6.</span> <span class="nav-text">鸣谢</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2013 &mdash; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">吴小龙同學</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

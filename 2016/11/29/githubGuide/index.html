@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/favicon.ico?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="GitHub,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="吴小龙同學" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="公司让我内部普及下GitHub，嗯好，抛砖引玉之。  定义GitHub 是一个面向开源及私有软件项目的托管平台，因为只支持 Git 作为唯一的版本库格式进行托管，故名 GitHub—来自百度百科">
+<meta name="keywords" content="GitHub">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GitHub 使用">
+<meta property="og:url" content="http://wuxiaolong.me/2016/11/29/githubGuide/index.html">
+<meta property="og:site_name" content="吴小龙同學">
+<meta property="og:description" content="公司让我内部普及下GitHub，嗯好，抛砖引玉之。  定义GitHub 是一个面向开源及私有软件项目的托管平台，因为只支持 Git 作为唯一的版本库格式进行托管，故名 GitHub—来自百度百科">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/github1.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/github2.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/github3.jpg">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/github4.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/github10.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/github6.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/github7.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/github5.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/github8.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/github11.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/github9.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/github12.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:updated_time" content="2017-03-27T14:21:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GitHub 使用">
+<meta name="twitter:description" content="公司让我内部普及下GitHub，嗯好，抛砖引玉之。  定义GitHub 是一个面向开源及私有软件项目的托管平台，因为只支持 Git 作为唯一的版本库格式进行托管，故名 GitHub—来自百度百科">
+<meta name="twitter:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/github1.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://wuxiaolong.me/2016/11/29/githubGuide/">
+
+
+
+
+
+  <title>GitHub 使用 | 吴小龙同學</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-105780265-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0e1dc2030f397dfa0d60ad22b374430d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">吴小龙同學</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">党要我帅，我不得不帅！</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-friendslinks">
+          <a href="/friendslinks/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-users"></i> <br>
+            
+            小伙伴
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input">
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'ywBn2eRCzfb494KCWJw3','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2016/11/29/githubGuide/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吴小龙同學">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://7q5c2h.com1.z0.glb.clouddn.com/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴小龙同學">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">GitHub 使用</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-29T23:02:18+08:00">
+                2016-11-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/GitHub/" itemprop="url" rel="index">
+                    <span itemprop="name">GitHub</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>公司让我内部普及下GitHub，嗯好，抛砖引玉之。</p>
+</blockquote>
+<h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><p>GitHub 是一个面向开源及私有软件项目的托管平台，因为只支持 Git 作为唯一的版本库格式进行托管，故名 GitHub—来自百度百科<br><a id="more"></a></p>
+<h1 id="主要作用"><a href="#主要作用" class="headerlink" title="主要作用"></a>主要作用</h1><ul>
+<li>学习优秀开源项目</li>
+<li>团队协作</li>
+<li>基于 GitHub Pages 来搭建个人博客</li>
+<li>写作</li>
+</ul>
+<h1 id="注册"><a href="#注册" class="headerlink" title="注册"></a>注册</h1><p>点击Sign up，填写相关信息<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/github1.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br>注意：用户名建议取正式点，如果你以后想基于GitHub 搭建博客，默认给你生成的博客地址就是<a href="http://username.github.io" target="_blank" rel="external">http://username.github.io</a></p>
+<h1 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h1><p>点击Sign in，登录成功，点击头像里的your profile进入我的主界面<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/github2.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""></p>
+<h1 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h1><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/github3.jpg" alt=""></p>
+<ul>
+<li>Private选项针对企业，收费的，我们个人只能Public，创建的项目，全世界都能看到</li>
+<li>可以勾上Initialize this repository with a README，对项目有个介绍</li>
+</ul>
+<h1 id="git学习"><a href="#git学习" class="headerlink" title="git学习"></a>git学习</h1><p>先了解下git知识，克隆项目和提交代码需要。<br>1、下载：<a href="https://git-for-windows.github.io/" target="_blank" rel="external">https://git-for-windows.github.io/</a><br>2、所有命令行<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/github4.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br>3、设置账号<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.name &quot;Your Name&quot;</div><div class="line">git config --global user.email &quot;email@example.com&quot;</div></pre></td></tr></table></figure></p>
+<p>这步是要告诉github，谁提交了代码<br>4、查看配置信息<br>要检查已有的配置信息，可以使用 git config –list 命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git config --list</div></pre></td></tr></table></figure></p>
+<h1 id="克隆项目"><a href="#克隆项目" class="headerlink" title="克隆项目"></a>克隆项目</h1><p>有GitHub后，可以自由的 clone 或者下载其他项目，命令行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/WuXiaolong/WeWin.git</div></pre></td></tr></table></figure></p>
+<p>其中<a href="https://github.com/WuXiaolong/WeWin.git" target="_blank" rel="external">https://github.com/WuXiaolong/WeWin.git</a> 就是项目的github地址：<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/github10.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""></p>
+<h1 id="SSH-Key"><a href="#SSH-Key" class="headerlink" title="SSH Key"></a>SSH Key</h1><p>github提交代码需要SSH授权，不然可以随便提交代码了</p>
+<h2 id="查看SSh"><a href="#查看SSh" class="headerlink" title="查看SSh"></a>查看SSh</h2><p>SSH 公钥默认储存在账户的主目录下的 ~/.ssh 目录。<br>进入.ssh 目录下，命令行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ls</div></pre></td></tr></table></figure></p>
+<p>查看，如果返回：<br>something 和 something.pub ，说明已经有SSH 公钥。</p>
+<h2 id="创建SSH-Key"><a href="#创建SSH-Key" class="headerlink" title="创建SSH Key"></a>创建SSH Key</h2><p>没有的话，生成，还是在.ssh目录下，命令行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</div></pre></td></tr></table></figure></p>
+<p>你需要把邮件地址换成你自己的邮件地址，然后一路回车，使用默认值即可。<br>如果一切顺利的话，可以在用户主目录里找到.ssh目录，里面有id_rsa和id_rsa.pub两个文件，<br>这两个就是SSH Key的秘钥对，id_rsa是私钥，不能泄露出去，id_rsa.pub是公钥。</p>
+<h2 id="设置GitHub"><a href="#设置GitHub" class="headerlink" title="设置GitHub"></a>设置GitHub</h2><p>登陆GitHub，打开“Account settings”，“GitHub”页面<br>点“Add SSH Key”，填上任意Title，在Key文本框里粘贴id_rsa.pub文件的内容。</p>
+<h1 id="提交代码"><a href="#提交代码" class="headerlink" title="提交代码"></a>提交代码</h1><h2 id="本地提交"><a href="#本地提交" class="headerlink" title="本地提交"></a>本地提交</h2><p>使用命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git add README.md</div><div class="line">git commit -m &quot;first commit&quot;</div></pre></td></tr></table></figure></p>
+<h2 id="关联远程库"><a href="#关联远程库" class="headerlink" title="关联远程库"></a>关联远程库</h2><p>如果是直接clone下来，这步跳出，clone已经关联了，本地新建，使用命令以下命令关联：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote add origin https://github.com/WuXiaolong/WeWin.git</div></pre></td></tr></table></figure></p>
+<h2 id="推送代码"><a href="#推送代码" class="headerlink" title="推送代码"></a>推送代码</h2><p>使用命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push origin master</div></pre></td></tr></table></figure></p>
+<h1 id="可视化工具"><a href="#可视化工具" class="headerlink" title="可视化工具"></a>可视化工具</h1><p>如果不想使用命令行，可以使用：<br>GitHub Desktop：<a href="https://desktop.github.com/" target="_blank" rel="external">https://desktop.github.com/</a> 只能提交github<br>tortoisegit：<a href="https://tortoisegit.org/" target="_blank" rel="external">https://tortoisegit.org/</a><br>SourceTree：<a href="https://www.sourcetreeapp.com/" target="_blank" rel="external">https://www.sourcetreeapp.com/</a></p>
+<h1 id="GitHub与Android-studio"><a href="#GitHub与Android-studio" class="headerlink" title="GitHub与Android studio"></a>GitHub与Android studio</h1><p>Android studio已经集成了github</p>
+<h2 id="配置GitHub账号"><a href="#配置GitHub账号" class="headerlink" title="配置GitHub账号"></a>配置GitHub账号</h2><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/github6.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""></p>
+<h2 id="配置git"><a href="#配置git" class="headerlink" title="配置git"></a>配置git</h2><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/github7.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br>可以点击Test，检测下是否成功</p>
+<h2 id="导入项目"><a href="#导入项目" class="headerlink" title="导入项目"></a>导入项目</h2><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/github5.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/github8.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""></p>
+<h2 id="提交代码-1"><a href="#提交代码-1" class="headerlink" title="提交代码"></a>提交代码</h2><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/github11.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br>真实项目中，一般先pull，防止冲突，然后add、commit提交，再push推送。</p>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><h2 id="Issue"><a href="#Issue" class="headerlink" title="Issue"></a>Issue</h2><p>问题的意思，比如你发现某个开源项目有bug，你可以提Issue给作者，作者可以修复bug，修复完毕可以一个个 Close 掉。图为新建Issue：<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/github9.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""></p>
+<h2 id="Pull-request"><a href="#Pull-request" class="headerlink" title="Pull request"></a>Pull request</h2><p>发起请求，这个其实是基于 Fork 的，比如你Fork别人项目，你修改，想提交给原作者，可以通过Pull Request方式，原作者觉得你的代码没问题，选择Merge pull request，合并你的提交的代码。图为新建Pull request：<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/github12.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""></p>
+<h1 id="我与GayHub"><a href="#我与GayHub" class="headerlink" title="我与GayHub"></a>我与GayHub</h1><p>我是2013年5月6日注册GitHub，12年工作，当时根本不知道GitHub，经常泡在安卓巴士和eoeandroid，接触GitHub是从Android-Universal-Image-Loader开始，这个库是朋友介绍的，渐渐玩GitHub了，14年，基于 GitHub Pages  搭建了属于自己的技术博客：<a href="http://wuxiaolong.me/">http://wuxiaolong.me/</a> ，自此，弃论坛，专注自己的博客。GitHub起初我只是下载代码学习，后来留意github有个README.md，知道这肯定是文本，却是md结尾的，于是了解并自学了点markdown语法，也庆幸那点好奇，才为后来的个人博客打了基础。15年尝试分享了一个RecyclerView下拉刷新和上拉加载的库<a href="https://github.com/WuXiaolong/PullLoadMoreRecyclerView" target="_blank" rel="external">PullLoadMoreRecyclerView</a>，之后又分享了Android常用工具类的库<a href="https://github.com/WuXiaolong/AndroidUtils" target="_blank" rel="external">AndroidUtils</a>，也分享了一个完整的项目<a href="https://github.com/WuXiaolong/WeWin" target="_blank" rel="external">WeWin</a>，还写了几个sample，<a href="https://github.com/WuXiaolong/AndroidMVPSample" target="_blank" rel="external">AndroidMVPSample</a>，<a href="https://github.com/WuXiaolong/DesignSupportLibrarySample" target="_blank" rel="external">DesignSupportLibrarySample</a>等，从中我“被迫”去学习了git相关知识，如何Issue，如何 Pull request。有时候，为了解决需求，可能要学习很多相关知识，学海无涯，回头是岸！哈哈！总之GitHub是好东西，赶紧注册个号玩起！</p>
+<h1 id="相关阅读"><a href="#相关阅读" class="headerlink" title="相关阅读"></a>相关阅读</h1><p><a href="http://wuxiaolong.me/2015/07/31/build-blog-by-hexo/">手把手教你建github技术博客by hexo</a><br><a href="http://wuxiaolong.me/2016/10/11/markdownGuide/">Markdown常用语法</a><br><a href="http://wuxiaolong.me/2015/11/06/DesignSupportLibrary/">Android Design Support Library使用</a><br><a href="http://wuxiaolong.me/2016/06/12/mvpRetrofitRxjava/">Android MVP+Retrofit+RxJava实践小结</a><br><a href="http://wuxiaolong.me/2015/07/24/PullLoadMoreRecyclerView/">PullLoadMoreRecyclerView</a><br><a href="http://wuxiaolong.me/2015/11/25/WeWin/">WeWin</a></p>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>赞赏是一种共鸣或认可</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="吴小龙同學 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    吴小龙同學
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://wuxiaolong.me/2016/11/29/githubGuide/" title="GitHub 使用">http://wuxiaolong.me/2016/11/29/githubGuide/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/GitHub/" rel="tag"># GitHub</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/22/AndroidPay/" rel="next" title="Android 接入微信支付宝支付">
+                <i class="fa fa-chevron-left"></i> Android 接入微信支付宝支付
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/10/ItemTouchHelper/" rel="prev" title="Android ItemTouchHelper 实践">
+                Android ItemTouchHelper 实践 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTM2My81OTMx"></div>
+    </div>
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="http://7q5c2h.com1.z0.glb.clouddn.com/avatar.jpg" alt="吴小龙同學">
+            
+              <p class="site-author-name" itemprop="name">吴小龙同學</p>
+              <p class="site-description motion-element" itemprop="description">我的微信公众号：吴小龙同学</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">163</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">129</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/WuXiaolong" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://open.weixin.qq.com/qr/code/?username=MrWuXiaolong" target="_blank" title="WeChat">
+                    
+                      <i class="fa fa-fw fa-globe"></i>WeChat</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/u/2175011601" target="_blank" title="Weibo">
+                    
+                      <i class="fa fa-fw fa-globe"></i>Weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="/qq/index.html" target="_blank" title="QQ">
+                    
+                      <i class="fa fa-fw fa-globe"></i>QQ</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#定义"><span class="nav-number">1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#主要作用"><span class="nav-number">2.</span> <span class="nav-text">主要作用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注册"><span class="nav-number">3.</span> <span class="nav-text">注册</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#登录"><span class="nav-number">4.</span> <span class="nav-text">登录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建项目"><span class="nav-number">5.</span> <span class="nav-text">创建项目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#git学习"><span class="nav-number">6.</span> <span class="nav-text">git学习</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#克隆项目"><span class="nav-number">7.</span> <span class="nav-text">克隆项目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SSH-Key"><span class="nav-number">8.</span> <span class="nav-text">SSH Key</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看SSh"><span class="nav-number">8.1.</span> <span class="nav-text">查看SSh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建SSH-Key"><span class="nav-number">8.2.</span> <span class="nav-text">创建SSH Key</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置GitHub"><span class="nav-number">8.3.</span> <span class="nav-text">设置GitHub</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#提交代码"><span class="nav-number">9.</span> <span class="nav-text">提交代码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#本地提交"><span class="nav-number">9.1.</span> <span class="nav-text">本地提交</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关联远程库"><span class="nav-number">9.2.</span> <span class="nav-text">关联远程库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推送代码"><span class="nav-number">9.3.</span> <span class="nav-text">推送代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#可视化工具"><span class="nav-number">10.</span> <span class="nav-text">可视化工具</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#GitHub与Android-studio"><span class="nav-number">11.</span> <span class="nav-text">GitHub与Android studio</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置GitHub账号"><span class="nav-number">11.1.</span> <span class="nav-text">配置GitHub账号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置git"><span class="nav-number">11.2.</span> <span class="nav-text">配置git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#导入项目"><span class="nav-number">11.3.</span> <span class="nav-text">导入项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提交代码-1"><span class="nav-number">11.4.</span> <span class="nav-text">提交代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他"><span class="nav-number">12.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Issue"><span class="nav-number">12.1.</span> <span class="nav-text">Issue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pull-request"><span class="nav-number">12.2.</span> <span class="nav-text">Pull request</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我与GayHub"><span class="nav-number">13.</span> <span class="nav-text">我与GayHub</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#相关阅读"><span class="nav-number">14.</span> <span class="nav-text">相关阅读</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2013 &mdash; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">吴小龙同學</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/favicon.ico?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Canvas,Paint,PorterDuffXfermode,Shader,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="吴小龙同學" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="先了解画笔Paint和画布Canvas一些基本方法，然后学习画笔特效处理的高级属性PorterDuffXfermode、Shader、PathEffect，并实现圆角、刮刮卡、圆形头像、倒影效果">
+<meta name="keywords" content="Canvas,Paint,PorterDuffXfermode,Shader">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 画笔Paint和画布Canvas">
+<meta property="og:url" content="http://wuxiaolong.me/2015/12/06/PaintCanvas/index.html">
+<meta property="og:site_name" content="吴小龙同學">
+<meta property="og:description" content="先了解画笔Paint和画布Canvas一些基本方法，然后学习画笔特效处理的高级属性PorterDuffXfermode、Shader、PathEffect，并实现圆角、刮刮卡、圆形头像、倒影效果">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/PaintCanvas1.png">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/PaintCanvas2.png">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/PaintCanvas3.gif">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/PaintCanvas4.png">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/PaintCanvas5.png">
+<meta property="og:updated_time" content="2016-12-20T13:09:04.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android 画笔Paint和画布Canvas">
+<meta name="twitter:description" content="先了解画笔Paint和画布Canvas一些基本方法，然后学习画笔特效处理的高级属性PorterDuffXfermode、Shader、PathEffect，并实现圆角、刮刮卡、圆形头像、倒影效果">
+<meta name="twitter:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/PaintCanvas1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://wuxiaolong.me/2015/12/06/PaintCanvas/">
+
+
+
+
+
+  <title>Android 画笔Paint和画布Canvas | 吴小龙同學</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-105780265-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0e1dc2030f397dfa0d60ad22b374430d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">吴小龙同學</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">党要我帅，我不得不帅！</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-friendslinks">
+          <a href="/friendslinks/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-users"></i> <br>
+            
+            小伙伴
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input">
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'ywBn2eRCzfb494KCWJw3','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2015/12/06/PaintCanvas/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吴小龙同學">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://7q5c2h.com1.z0.glb.clouddn.com/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴小龙同學">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Android 画笔Paint和画布Canvas</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-12-06T10:45:38+08:00">
+                2015-12-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CustomView/" itemprop="url" rel="index">
+                    <span itemprop="name">CustomView</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>先了解画笔Paint和画布Canvas一些基本方法，然后学习画笔特效处理的高级属性PorterDuffXfermode、Shader、PathEffect，并实现圆角、刮刮卡、圆形头像、倒影效果</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="Paint"><a href="#Paint" class="headerlink" title="Paint"></a>Paint</h1><ul>
+<li><p>void  setARGB(int a, int r, int g, int b)<br>设置Paint对象颜色，参数一为alpha透明通道</p>
+</li>
+<li><p>void  setAlpha(int a)<br>设置alpha不透明度，范围为0~255</p>
+</li>
+<li><p>void  setAntiAlias(boolean aa)<br>是否抗锯齿</p>
+</li>
+<li><p>void  setColor(int color)<br>设置颜色，这里Android内部定义的有Color类包含了一些常见颜色定义</p>
+</li>
+<li><p>void setStyle(Style style)<br>设置画笔样式为描边,画笔样式分三种：<br>1.Paint.Style.STROKE：描边<br>2.Paint.Style.FILL_AND_STROKE：描边并填充<br>3.Paint.Style.FILL：填充</p>
+</li>
+<li><p>void  setFakeBoldText(boolean fakeBoldText)<br>设置伪粗体文本</p>
+</li>
+<li><p>void  setLinearText(boolean linearText)<br>设置线性文本</p>
+</li>
+<li><p>PathEffect  setPathEffect(PathEffect effect)<br>设置路径效果</p>
+</li>
+<li><p>Rasterizer  setRasterizer(Rasterizer rasterizer)<br>设置光栅化</p>
+</li>
+<li><p>Shader  setShader(Shader shader)<br>设置阴影</p>
+</li>
+<li><p>void  setTextAlign(Paint.Align align)<br>设置文本对齐</p>
+</li>
+<li><p>void  setTextScaleX(float scaleX)<br>设置文本缩放倍数，1.0f为原始</p>
+</li>
+<li><p>void  setTextSize(float textSize)<br>设置字体大小</p>
+</li>
+<li><p>Typeface  setTypeface(Typeface typeface)<br>设置字体，Typeface包含了字体的类型，粗细，还有倾斜、颜色等。</p>
+</li>
+<li><p>void  setUnderlineText(boolean underlineText)<br>设置下划线</p>
+</li>
+</ul>
+<h1 id="Canvas"><a href="#Canvas" class="headerlink" title="Canvas"></a>Canvas</h1><h2 id="绘制点"><a href="#绘制点" class="headerlink" title="绘制点"></a>绘制点</h2><ul>
+<li><p>void  drawPoint(float x, float y, Paint paint)<br>画点，参数一水平x轴，参数二垂直y轴，第三个参数为Paint对象。</p>
+</li>
+<li><p>void drawPoints (float[] pts, Paint paint)<br>绘制一组点，坐标位置由float数组指定</p>
+</li>
+</ul>
+<h2 id="绘制直线"><a href="#绘制直线" class="headerlink" title="绘制直线"></a>绘制直线</h2><ul>
+<li>void  drawLine(float startX, float startY, float stopX, float stopY, Paint paint)<br>画线，参数一起始点的x轴位置，参数二起始点的y轴位置，参数三终点的x轴水平位置，参数四y轴垂直位置，最后一个参数为Paint对象。</li>
+</ul>
+<p>void drawLines (float[] pts,  Paint paint)<br>绘制一组线 ，坐标位置由float数组指定</p>
+<h2 id="绘制矩形"><a href="#绘制矩形" class="headerlink" title="绘制矩形"></a>绘制矩形</h2><ul>
+<li><p>void drawRect(Rect r, Paint paint)<br>绘制矩形，参数一为Rect一个区域</p>
+</li>
+<li><p>void drawRect (float left, float top, float right,float bottom, Paint paint)<br>绘制矩形，四个数值(矩形左上角和右下角两个点的坐标)来确定一个矩形</p>
+</li>
+<li><p>void drawRect (RectF rect,Paint paint)<br>绘制矩形，参数一为RectF 一个区域</p>
+</li>
+</ul>
+<h2 id="绘制圆角矩形"><a href="#绘制圆角矩形" class="headerlink" title="绘制圆角矩形"></a>绘制圆角矩形</h2><ul>
+<li><p>void drawRoundRect(@NonNull RectF rect, float rx, float ry, @NonNull Paint paint)<br>绘制圆角矩形，rx, ry分别是圆弧的圆心 和 半径，其中圆心用于确定位置，而半径用于确定大小</p>
+</li>
+<li><p>void drawRoundRect (float left,float top,  float right, float bottom,  float rx, float ry, Paint paint)<br>API level 21才添加的</p>
+</li>
+</ul>
+<h2 id="绘制椭圆"><a href="#绘制椭圆" class="headerlink" title="绘制椭圆"></a>绘制椭圆</h2><ul>
+<li><p>void drawOval(@NonNull RectF oval, @NonNull Paint paint)<br>绘制椭圆</p>
+</li>
+<li><p>drawOval(float left, float top, float right, float bottom, Paint paint)</p>
+</li>
+</ul>
+<h2 id="绘制圆"><a href="#绘制圆" class="headerlink" title="绘制圆"></a>绘制圆</h2><ul>
+<li>drawCircle(float cx, float cy, float radius, @NonNull Paint paint)<br>绘制圆，cx，cy是圆心坐标，radius是半径，paint是画笔对象</li>
+</ul>
+<h1 id="绘制路径"><a href="#绘制路径" class="headerlink" title="绘制路径"></a>绘制路径</h1><ul>
+<li>void drawPath(Path path, Paint paint)<br>绘制一个路径，参数一为Path路径对象</li>
+</ul>
+<h2 id="绘制图片"><a href="#绘制图片" class="headerlink" title="绘制图片"></a>绘制图片</h2><ul>
+<li>void  drawBitmap(Bitmap bitmap, Rect src, Rect dst, Paint paint)<br>参数一就是我们常规的Bitmap对象，参数二是源区域(这里是bitmap)，参数三是目标区域(应该在 canvas的位置和大小)，参数四是Paint画刷对象，因为用到了缩放和拉伸的可能，当原始Rect不等于目标Rect时性能将会有大幅损失。</li>
+</ul>
+<h2 id="绘制文本"><a href="#绘制文本" class="headerlink" title="绘制文本"></a>绘制文本</h2><ul>
+<li><p>void drawText(String text, float x, float y, Paint paint)<br>绘制文本，Canvas类除了上面的还可以描绘文字，参数一是String类型的文本，参数二x轴，参数三y轴，参数四是Paint对象。</p>
+</li>
+<li><p>void  drawTextOnPath(String text, Path path, float hOffset, float vOffset, Paint paint)<br>在路径上绘制文本，相对于上面第二个参数是Path路径对象</p>
+</li>
+</ul>
+<h2 id="绘制弧形"><a href="#绘制弧形" class="headerlink" title="绘制弧形"></a>绘制弧形</h2><ul>
+<li>void drawArc(@NonNull RectF oval, float startAngle, float sweepAngle, boolean useCenter,@NonNull Paint paint)<br>绘制弧形、扇形</li>
+</ul>
+<h2 id="画布变换"><a href="#画布变换" class="headerlink" title="画布变换"></a>画布变换</h2><p>translate(float dx, float dy)<br>位移</p>
+<p>scale(float sx, float sy, float px, float py)<br>缩放</p>
+<p>void rotate(float degrees)<br>旋转,默认旋转中心为原点<br>void rotate(float degrees, float px, float py)<br>第一个参数是旋转角度，后两个参数依旧是控制旋转中心点 </p>
+<h1 id="实例练习"><a href="#实例练习" class="headerlink" title="实例练习"></a>实例练习</h1><h2 id="PorterDuffXfermode"><a href="#PorterDuffXfermode" class="headerlink" title="PorterDuffXfermode"></a>PorterDuffXfermode</h2><p>PorterDuffXfermode设置的是两个图层交集区域的显示方式（如下图），dst是先画的图形，而src是后画的图形。<br>当然，这些模式也不是经常使用的，用的最多的是，使用一张图片作为另一张图片的遮罩层，通过控制遮罩层的图形，来控制下面被遮罩图形的显示效果。其中最常用的就是通过SRC_IN（两层混合，保留重合部分的上面一层）、DST_IN（两层混合，保留重合部分的下面一层）模式来实现。其他模式如下图：<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/PaintCanvas1.png" alt=""></p>
+<h3 id="圆角"><a href="#圆角" class="headerlink" title="圆角"></a>圆角</h3><p>效果预览<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/PaintCanvas2.png" alt=""></p>
+<p>完整代码<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PaintCanvas</span> <span class="keyword">extends</span> <span class="title">View</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PaintCanvas</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context);</div><div class="line">        initRoundRectImage();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PaintCanvas</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context, attrs);</div><div class="line">        initRoundRectImage();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PaintCanvas</span><span class="params">(Context context, AttributeSet attrs, <span class="keyword">int</span> defStyleAttr)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context, attrs, defStyleAttr);</div><div class="line">        initRoundRectImage();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@TargetApi</span>(Build.VERSION_CODES.LOLLIPOP)</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PaintCanvas</span><span class="params">(Context context, AttributeSet attrs, <span class="keyword">int</span> defStyleAttr, <span class="keyword">int</span> defStyleRes)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context, attrs, defStyleAttr, defStyleRes);</div><div class="line">        initRoundRectImage();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    Bitmap mBitmap, mNewBitmap;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initRoundRectImage</span><span class="params">()</span> </span>&#123;</div><div class="line">        mBitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.dog);</div><div class="line"></div><div class="line">        mNewBitmap = Bitmap.createBitmap(mBitmap.getWidth(), mBitmap.getHeight(), Bitmap.Config.ARGB_8888);</div><div class="line"></div><div class="line">        Canvas canvas = <span class="keyword">new</span> Canvas(mNewBitmap);</div><div class="line">        Paint paint = <span class="keyword">new</span> Paint();</div><div class="line">        paint.setAntiAlias(<span class="keyword">true</span>);</div><div class="line">        RectF rectF = <span class="keyword">new</span> RectF(<span class="number">0</span>, <span class="number">0</span>, mBitmap.getWidth(), mBitmap.getHeight());</div><div class="line">        canvas.drawRoundRect(rectF, <span class="number">80</span>, <span class="number">80</span>, paint);</div><div class="line">        paint.setXfermode(<span class="keyword">new</span> PorterDuffXfermode(PorterDuff.Mode.SRC_IN));</div><div class="line">        canvas.drawBitmap(mBitmap, <span class="number">0</span>, <span class="number">0</span>, paint);</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onDraw(canvas);</div><div class="line">        canvas.drawBitmap(mNewBitmap, <span class="number">0</span>, <span class="number">0</span>, <span class="keyword">null</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="刮刮卡"><a href="#刮刮卡" class="headerlink" title="刮刮卡"></a>刮刮卡</h3><p>效果预览<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/PaintCanvas3.gif" alt=""></p>
+<p>完整代码<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PaintCanvas</span> <span class="keyword">extends</span> <span class="title">View</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PaintCanvas</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context);</div><div class="line">        init();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PaintCanvas</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context, attrs);</div><div class="line">        init();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PaintCanvas</span><span class="params">(Context context, AttributeSet attrs, <span class="keyword">int</span> defStyleAttr)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context, attrs, defStyleAttr);</div><div class="line">        init();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@TargetApi</span>(Build.VERSION_CODES.LOLLIPOP)</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PaintCanvas</span><span class="params">(Context context, AttributeSet attrs, <span class="keyword">int</span> defStyleAttr, <span class="keyword">int</span> defStyleRes)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context, attrs, defStyleAttr, defStyleRes);</div><div class="line">        init();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> Bitmap mBgBitmap, mNewBitmap;</div><div class="line">    <span class="keyword">private</span> Path mPath;</div><div class="line">    <span class="keyword">private</span> Paint mPaint;</div><div class="line">    <span class="keyword">private</span> Canvas mCanvas;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</div><div class="line">        mPaint = <span class="keyword">new</span> Paint();</div><div class="line">        mPaint.setAlpha(<span class="number">0</span>);</div><div class="line">        mPaint.setXfermode(<span class="keyword">new</span> PorterDuffXfermode(PorterDuff.Mode.DST_IN));<span class="comment">//设置混合模式为DST_IN</span></div><div class="line">        mPaint.setStyle(Paint.Style.STROKE);</div><div class="line">        mPaint.setStrokeWidth(<span class="number">50</span>);</div><div class="line">        mPaint.setStrokeJoin(Paint.Join.ROUND);<span class="comment">//Paint.Join.ROUND和Paint.Cap.ROUND设置Paint笔触和连接处更加圆滑一点</span></div><div class="line">        mPaint.setStrokeCap(Paint.Cap.ROUND);</div><div class="line"></div><div class="line">        mBgBitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.dog);<span class="comment">//设置背景图</span></div><div class="line">        mNewBitmap = Bitmap.createBitmap(mBgBitmap.getWidth(), mBgBitmap.getHeight(), Bitmap.Config.ARGB_8888); <span class="comment">//设置遮罩图</span></div><div class="line"></div><div class="line">        mCanvas = <span class="keyword">new</span> Canvas(mNewBitmap);</div><div class="line">        mCanvas.drawColor(Color.GRAY);</div><div class="line"></div><div class="line">        mPath = <span class="keyword">new</span> Path();</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onTouchEvent</span><span class="params">(MotionEvent event)</span> </span>&#123;</div><div class="line">        <span class="keyword">switch</span> (event.getAction()) &#123;</div><div class="line">            <span class="keyword">case</span> MotionEvent.ACTION_DOWN:</div><div class="line">                mPath.reset();</div><div class="line">                mPath.moveTo(event.getX(), event.getY());</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> MotionEvent.ACTION_MOVE:</div><div class="line">                mPath.lineTo(event.getX(), event.getY());</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">        mCanvas.drawPath(mPath, mPaint);</div><div class="line">        invalidate();</div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onDraw(canvas);</div><div class="line">        canvas.drawBitmap(mBgBitmap, <span class="number">0</span>, <span class="number">0</span>, <span class="keyword">null</span>); <span class="comment">//画背景</span></div><div class="line">        canvas.drawBitmap(mNewBitmap, <span class="number">0</span>, <span class="number">0</span>, <span class="keyword">null</span>);<span class="comment">//画灰色</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="Shader"><a href="#Shader" class="headerlink" title="Shader"></a>Shader</h2><p>Shader又被称为着色器、渲染器，主要用来实现一些列的渐变、渲染效果。Android中的Shader包括以下几种：<br>BitmapShader——位图<br>LinearGradient——线性<br>RadialGrdient——光束<br>SweepGradient——梯度<br>ComposeShader——混合</p>
+<p>除了第一个shader意外，其他的Shader都比较正常。而与其他的Shader所产生的渐变不同，BitmapShader产生的是一个图像，这个有点像Photoshop中的图像填充渐变。他的作用就是通过Paint对画布进行指定的Bitmap的填充，填充有以下几个模式可以选择。<br>CLAMP 重复最后一个颜色至最后<br>MIRROR 重复着色的图像水平或垂直方向已镜像方式填充会有翻转效果<br>REPEAT 重复着色的图像水平或垂直方向</p>
+<h3 id="圆形头像"><a href="#圆形头像" class="headerlink" title="圆形头像"></a>圆形头像</h3><p>效果预览<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/PaintCanvas4.png" alt=""></p>
+<p>完整代码<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>&#123;</div><div class="line">       <span class="keyword">super</span>.onDraw(canvas);</div><div class="line">       Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.dog);</div><div class="line">       BitmapShader bitmapShader = <span class="keyword">new</span> BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);</div><div class="line">       Paint paint = <span class="keyword">new</span> Paint();</div><div class="line">       paint.setShader(bitmapShader);</div><div class="line">       canvas.drawCircle(<span class="number">300</span>, <span class="number">250</span>, <span class="number">200</span>, paint);</div><div class="line">   &#125;</div></pre></td></tr></table></figure></p>
+<h3 id="倒影"><a href="#倒影" class="headerlink" title="倒影"></a>倒影</h3><p>效果预览<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/PaintCanvas5.png" alt=""><br>完整代码<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PaintCanvas</span> <span class="keyword">extends</span> <span class="title">View</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> Bitmap mSrcBitmap, mRefBitmap;</div><div class="line">    <span class="keyword">private</span> Paint mPaint;</div><div class="line">    <span class="keyword">private</span> PorterDuffXfermode mXfermode;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PaintCanvas</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context);</div><div class="line">        initXfermodeShader();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PaintCanvas</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context, attrs);</div><div class="line">        initXfermodeShader();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PaintCanvas</span><span class="params">(Context context, AttributeSet attrs, <span class="keyword">int</span> defStyleAttr)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context, attrs, defStyleAttr);</div><div class="line">        initXfermodeShader();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@TargetApi</span>(Build.VERSION_CODES.LOLLIPOP)</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PaintCanvas</span><span class="params">(Context context, AttributeSet attrs, <span class="keyword">int</span> defStyleAttr, <span class="keyword">int</span> defStyleRes)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context, attrs, defStyleAttr, defStyleRes);</div><div class="line">        initXfermodeShader();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">     <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initXfermodeShader</span><span class="params">()</span> </span>&#123;</div><div class="line">        mSrcBitmap = BitmapFactory.decodeResource(getResources(),</div><div class="line">                R.mipmap.dog);</div><div class="line"></div><div class="line">        Matrix matrix = <span class="keyword">new</span> Matrix();</div><div class="line">        matrix.setScale(<span class="number">1F</span>, -<span class="number">1F</span>);<span class="comment">//实现图片垂直翻转</span></div><div class="line"></div><div class="line">        mRefBitmap = Bitmap.createBitmap(mSrcBitmap, <span class="number">0</span>, <span class="number">0</span>,</div><div class="line">                mSrcBitmap.getWidth(), mSrcBitmap.getHeight(), matrix, <span class="keyword">true</span>);</div><div class="line"></div><div class="line">        mPaint = <span class="keyword">new</span> Paint();</div><div class="line">        mPaint.setShader(<span class="keyword">new</span> LinearGradient(<span class="number">0</span>, mSrcBitmap.getHeight(), <span class="number">0</span>,</div><div class="line">                mSrcBitmap.getHeight() + mSrcBitmap.getHeight() / <span class="number">2</span>,</div><div class="line">                <span class="number">0x70ffffff</span>, <span class="number">0x00ffffff</span>, Shader.TileMode.CLAMP));</div><div class="line"></div><div class="line">        mXfermode = <span class="keyword">new</span> PorterDuffXfermode(PorterDuff.Mode.DST_IN);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>&#123;</div><div class="line"><span class="comment">//        canvas.drawColor(Color.BLACK);</span></div><div class="line">        canvas.drawBitmap(mSrcBitmap, <span class="number">0</span>, <span class="number">0</span>, <span class="keyword">null</span>);</div><div class="line">        canvas.drawBitmap(mRefBitmap, <span class="number">0</span>, mSrcBitmap.getHeight(), <span class="keyword">null</span>);</div><div class="line">        mPaint.setXfermode(mXfermode);</div><div class="line">        <span class="comment">// 绘制渐变效果矩形</span></div><div class="line">        canvas.drawRect(<span class="number">0</span>, mSrcBitmap.getHeight(),</div><div class="line">                mRefBitmap.getWidth(), mSrcBitmap.getHeight() * <span class="number">2</span>, mPaint);</div><div class="line">        mPaint.setXfermode(<span class="keyword">null</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="LinearGradient实现文字一闪一闪"><a href="#LinearGradient实现文字一闪一闪" class="headerlink" title="LinearGradient实现文字一闪一闪"></a>LinearGradient实现文字一闪一闪</h3><p><a href="http://wuxiaolong.me/2015/12/06/PaintCanvas/">http://wuxiaolong.me/2015/12/06/PaintCanvas/</a></p>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>赞赏是一种共鸣或认可</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="吴小龙同學 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    吴小龙同學
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://wuxiaolong.me/2015/12/06/PaintCanvas/" title="Android 画笔Paint和画布Canvas">http://wuxiaolong.me/2015/12/06/PaintCanvas/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Canvas/" rel="tag"># Canvas</a>
+          
+            <a href="/tags/Paint/" rel="tag"># Paint</a>
+          
+            <a href="/tags/PorterDuffXfermode/" rel="tag"># PorterDuffXfermode</a>
+          
+            <a href="/tags/Shader/" rel="tag"># Shader</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/12/04/ViewDragHelper/" rel="next" title="Android ViewDragHelper实例">
+                <i class="fa fa-chevron-left"></i> Android ViewDragHelper实例
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/12/19/MotionEvent/" rel="prev" title="Android事件传递机制分析">
+                Android事件传递机制分析 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTM2My81OTMx"></div>
+    </div>
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="http://7q5c2h.com1.z0.glb.clouddn.com/avatar.jpg" alt="吴小龙同學">
+            
+              <p class="site-author-name" itemprop="name">吴小龙同學</p>
+              <p class="site-description motion-element" itemprop="description">我的微信公众号：吴小龙同学</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">163</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">129</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/WuXiaolong" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://open.weixin.qq.com/qr/code/?username=MrWuXiaolong" target="_blank" title="WeChat">
+                    
+                      <i class="fa fa-fw fa-globe"></i>WeChat</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/u/2175011601" target="_blank" title="Weibo">
+                    
+                      <i class="fa fa-fw fa-globe"></i>Weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="/qq/index.html" target="_blank" title="QQ">
+                    
+                      <i class="fa fa-fw fa-globe"></i>QQ</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Paint"><span class="nav-number">1.</span> <span class="nav-text">Paint</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Canvas"><span class="nav-number">2.</span> <span class="nav-text">Canvas</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#绘制点"><span class="nav-number">2.1.</span> <span class="nav-text">绘制点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绘制直线"><span class="nav-number">2.2.</span> <span class="nav-text">绘制直线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绘制矩形"><span class="nav-number">2.3.</span> <span class="nav-text">绘制矩形</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绘制圆角矩形"><span class="nav-number">2.4.</span> <span class="nav-text">绘制圆角矩形</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绘制椭圆"><span class="nav-number">2.5.</span> <span class="nav-text">绘制椭圆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绘制圆"><span class="nav-number">2.6.</span> <span class="nav-text">绘制圆</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#绘制路径"><span class="nav-number">3.</span> <span class="nav-text">绘制路径</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#绘制图片"><span class="nav-number">3.1.</span> <span class="nav-text">绘制图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绘制文本"><span class="nav-number">3.2.</span> <span class="nav-text">绘制文本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绘制弧形"><span class="nav-number">3.3.</span> <span class="nav-text">绘制弧形</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#画布变换"><span class="nav-number">3.4.</span> <span class="nav-text">画布变换</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实例练习"><span class="nav-number">4.</span> <span class="nav-text">实例练习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#PorterDuffXfermode"><span class="nav-number">4.1.</span> <span class="nav-text">PorterDuffXfermode</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#圆角"><span class="nav-number">4.1.1.</span> <span class="nav-text">圆角</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#刮刮卡"><span class="nav-number">4.1.2.</span> <span class="nav-text">刮刮卡</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Shader"><span class="nav-number">4.2.</span> <span class="nav-text">Shader</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#圆形头像"><span class="nav-number">4.2.1.</span> <span class="nav-text">圆形头像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#倒影"><span class="nav-number">4.2.2.</span> <span class="nav-text">倒影</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LinearGradient实现文字一闪一闪"><span class="nav-number">4.2.3.</span> <span class="nav-text">LinearGradient实现文字一闪一闪</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2013 &mdash; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">吴小龙同學</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

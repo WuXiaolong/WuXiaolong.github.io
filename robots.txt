@@ -1,0 +1,19 @@
+﻿# hexo robots.txt 添加蜘蛛协议
+# Allow后面是你的menu
+User-agent: *
+Allow: /
+Allow: /archives/
+Allow: /categories/
+Allow: /tags/
+Allow: /friendslinks/
+Allow: /about/
+
+Disallow: /vendors/
+Disallow: /js/
+Disallow: /css/
+Disallow: /fonts/
+Disallow: /vendors/
+Disallow: /fancybox/
+
+Sitemap: http://wuxiaolong.me/sitemap.xml
+Sitemap: http://wuxiaolong.me/baidusitemap.xml

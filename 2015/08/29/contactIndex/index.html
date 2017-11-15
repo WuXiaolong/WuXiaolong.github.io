@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/favicon.ico?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="contact,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="吴小龙同學" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="通讯录索引效果，网上很多了，我这里做个记录。  效果预览">
+<meta name="keywords" content="contact">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android通讯录索引效果">
+<meta property="og:url" content="http://wuxiaolong.me/2015/08/29/contactIndex/index.html">
+<meta property="og:site_name" content="吴小龙同學">
+<meta property="og:description" content="通讯录索引效果，网上很多了，我这里做个记录。  效果预览">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/contactIndex.png">
+<meta property="og:image" content="http://pub.idqqimg.com/wpa/images/group.png">
+<meta property="og:updated_time" content="2016-08-25T11:38:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android通讯录索引效果">
+<meta name="twitter:description" content="通讯录索引效果，网上很多了，我这里做个记录。  效果预览">
+<meta name="twitter:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/contactIndex.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://wuxiaolong.me/2015/08/29/contactIndex/">
+
+
+
+
+
+  <title>Android通讯录索引效果 | 吴小龙同學</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-105780265-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0e1dc2030f397dfa0d60ad22b374430d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">吴小龙同學</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">党要我帅，我不得不帅！</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-friendslinks">
+          <a href="/friendslinks/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-users"></i> <br>
+            
+            小伙伴
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input">
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'ywBn2eRCzfb494KCWJw3','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2015/08/29/contactIndex/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吴小龙同學">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://7q5c2h.com1.z0.glb.clouddn.com/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴小龙同學">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Android通讯录索引效果</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-08-29T11:04:21+08:00">
+                2015-08-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>通讯录索引效果，网上很多了，我这里做个记录。</p>
+</blockquote>
+<h1 id="效果预览"><a href="#效果预览" class="headerlink" title="效果预览"></a>效果预览</h1><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/contactIndex.png" alt=""><br><a id="more"></a></p>
+<h1 id="SideBar"><a href="#SideBar" class="headerlink" title="SideBar"></a>SideBar</h1><p>此类自定义索引的字母<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SideBar</span> <span class="keyword">extends</span> <span class="title">View</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">// 触摸事件</span></div><div class="line">    <span class="keyword">private</span> OnTouchingLetterChangedListener onTouchingLetterChangedListener;</div><div class="line">    <span class="comment">// 26个字母</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String[] A_Z = &#123;<span class="string">"A"</span>, <span class="string">"B"</span>, <span class="string">"C"</span>, <span class="string">"D"</span>, <span class="string">"E"</span>, <span class="string">"F"</span>, <span class="string">"G"</span>, <span class="string">"H"</span>, <span class="string">"I"</span>,</div><div class="line">            <span class="string">"J"</span>, <span class="string">"K"</span>, <span class="string">"L"</span>, <span class="string">"M"</span>, <span class="string">"N"</span>, <span class="string">"O"</span>, <span class="string">"P"</span>, <span class="string">"Q"</span>, <span class="string">"R"</span>, <span class="string">"S"</span>, <span class="string">"T"</span>, <span class="string">"U"</span>, <span class="string">"V"</span>,</div><div class="line">            <span class="string">"W"</span>, <span class="string">"X"</span>, <span class="string">"Y"</span>, <span class="string">"Z"</span>, <span class="string">"#"</span>&#125;;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> choose = -<span class="number">1</span>;<span class="comment">// 选中</span></div><div class="line">    <span class="keyword">private</span> Paint paint = <span class="keyword">new</span> Paint();</div><div class="line"></div><div class="line">    <span class="keyword">private</span> TextView mTextDialog;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 为SideBar设置显示字母的TextView</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> mTextDialog</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTextView</span><span class="params">(TextView mTextDialog)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.mTextDialog = mTextDialog;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SideBar</span><span class="params">(Context context, AttributeSet attrs, <span class="keyword">int</span> defStyle)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context, attrs, defStyle);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SideBar</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context, attrs);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SideBar</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 重写这个方法</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onDraw(canvas);</div><div class="line">        <span class="comment">// 获取焦点改变背景颜色.</span></div><div class="line">        <span class="keyword">int</span> height = getHeight();<span class="comment">// 获取对应高度</span></div><div class="line">        <span class="keyword">int</span> width = getWidth(); <span class="comment">// 获取对应宽度</span></div><div class="line">        <span class="keyword">int</span> singleHeight = height / A_Z.length - <span class="number">2</span>;<span class="comment">// 获取每一个字母的高度  (这里-2仅仅是为了好看而已)</span></div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; A_Z.length; i++) &#123;</div><div class="line">            paint.setColor(Color.rgb(<span class="number">33</span>, <span class="number">65</span>, <span class="number">98</span>));  <span class="comment">//设置字体颜色</span></div><div class="line">            paint.setTypeface(Typeface.DEFAULT_BOLD);  <span class="comment">//设置字体</span></div><div class="line">            paint.setAntiAlias(<span class="keyword">true</span>);  <span class="comment">//设置抗锯齿</span></div><div class="line">            paint.setTextSize(<span class="number">30</span>);  <span class="comment">//设置字母字体大小</span></div><div class="line">            <span class="comment">// 选中的状态</span></div><div class="line">            <span class="keyword">if</span> (i == choose) &#123;</div><div class="line">                paint.setColor(Color.parseColor(<span class="string">"#3399ff"</span>));  <span class="comment">//选中的字母改变颜色</span></div><div class="line">                paint.setFakeBoldText(<span class="keyword">true</span>);  <span class="comment">//设置字体为粗体</span></div><div class="line">            &#125;</div><div class="line">            <span class="comment">// x坐标等于中间-字符串宽度的一半.</span></div><div class="line">            <span class="keyword">float</span> xPos = width / <span class="number">2</span> - paint.measureText(A_Z[i]) / <span class="number">2</span>;</div><div class="line">            <span class="keyword">float</span> yPos = singleHeight * i + singleHeight;</div><div class="line">            canvas.drawText(A_Z[i], xPos, yPos, paint);  <span class="comment">//绘制所有的字母</span></div><div class="line">            paint.reset();<span class="comment">// 重置画笔</span></div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">dispatchTouchEvent</span><span class="params">(MotionEvent event)</span> </span>&#123;</div><div class="line">        <span class="keyword">final</span> <span class="keyword">int</span> action = event.getAction();</div><div class="line">        <span class="keyword">final</span> <span class="keyword">float</span> y = event.getY();<span class="comment">// 点击y坐标</span></div><div class="line">        <span class="keyword">final</span> <span class="keyword">int</span> oldChoose = choose;</div><div class="line">        <span class="keyword">final</span> OnTouchingLetterChangedListener listener = onTouchingLetterChangedListener;</div><div class="line">        <span class="keyword">final</span> <span class="keyword">int</span> c = (<span class="keyword">int</span>) (y / getHeight() * A_Z.length);<span class="comment">// 点击y坐标所占总高度的比例*b数组的长度就等于点击b中的个数.</span></div><div class="line"></div><div class="line">        <span class="keyword">switch</span> (action) &#123;</div><div class="line">            <span class="keyword">case</span> MotionEvent.ACTION_UP:</div><div class="line">                setBackgroundDrawable(<span class="keyword">new</span> ColorDrawable(<span class="number">0x00000000</span>));</div><div class="line">                choose = -<span class="number">1</span>;<span class="comment">//</span></div><div class="line">                invalidate();</div><div class="line">                <span class="keyword">if</span> (mTextDialog != <span class="keyword">null</span>) &#123;</div><div class="line">                    mTextDialog.setVisibility(View.INVISIBLE);</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line"></div><div class="line">            <span class="keyword">default</span>:</div><div class="line">                setBackgroundResource(R.color.colorPrimary);</div><div class="line">                <span class="keyword">if</span> (oldChoose != c) &#123;  <span class="comment">//判断选中字母是否发生改变</span></div><div class="line">                    <span class="keyword">if</span> (c &gt;= <span class="number">0</span> &amp;&amp; c &lt; A_Z.length) &#123;</div><div class="line">                        <span class="keyword">if</span> (listener != <span class="keyword">null</span>) &#123;</div><div class="line">                            listener.onTouchingLetterChanged(A_Z[c]);</div><div class="line">                        &#125;</div><div class="line">                        <span class="keyword">if</span> (mTextDialog != <span class="keyword">null</span>) &#123;</div><div class="line">                            mTextDialog.setText(A_Z[c]);</div><div class="line">                            mTextDialog.setVisibility(View.VISIBLE);</div><div class="line">                        &#125;</div><div class="line"></div><div class="line">                        choose = c;</div><div class="line">                        invalidate();</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line"></div><div class="line">                <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 向外公开的方法</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> onTouchingLetterChangedListener</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setOnTouchingLetterChangedListener</span><span class="params">(</span></span></div><div class="line">            OnTouchingLetterChangedListener onTouchingLetterChangedListener) &#123;</div><div class="line">        <span class="keyword">this</span>.onTouchingLetterChangedListener = onTouchingLetterChangedListener;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 接口</div><div class="line">     *</div><div class="line">     * <span class="doctag">@author</span> coder</div><div class="line">     */</div><div class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">OnTouchingLetterChangedListener</span> </span>&#123;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTouchingLetterChanged</span><span class="params">(String s)</span></span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="xml调用"><a href="#xml调用" class="headerlink" title="xml调用"></a>xml调用</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">&lt;RelativeLayout</div><div class="line">       android:layout_width=<span class="string">"match_parent"</span></div><div class="line">       android:layout_height=<span class="string">"match_parent"</span>&gt;</div><div class="line"></div><div class="line">       <span class="xml"><span class="tag">&lt;<span class="name">android.support.v7.widget.RecyclerView</span></span></span></div><div class="line">           <span class="attr">android:id</span>=<span class="string">"@+id/mRecyclerView"</span></div><div class="line">           <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">           <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span> /&gt;</div><div class="line"></div><div class="line">       <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">           <span class="attr">android:id</span>=<span class="string">"@+id/textDialog"</span></div><div class="line">           <span class="attr">android:layout_width</span>=<span class="string">"80dip"</span></div><div class="line">           <span class="attr">android:layout_height</span>=<span class="string">"80dip"</span></div><div class="line">           <span class="attr">android:layout_centerInParent</span>=<span class="string">"true"</span></div><div class="line">           <span class="attr">android:layout_gravity</span>=<span class="string">"center"</span></div><div class="line">           <span class="attr">android:gravity</span>=<span class="string">"center"</span></div><div class="line">           <span class="attr">android:textColor</span>=<span class="string">"#ffffffff"</span></div><div class="line">           <span class="attr">android:background</span>=<span class="string">"@color/colorPrimary"</span></div><div class="line">           <span class="attr">android:textSize</span>=<span class="string">"30.0dip"</span></div><div class="line">           <span class="attr">android:visibility</span>=<span class="string">"invisible"</span> /&gt;</div><div class="line"></div><div class="line">       <span class="tag">&lt;<span class="name">你的包名.SideBar</span></span></div><div class="line">           <span class="attr">android:id</span>=<span class="string">"@+id/sidebar"</span></div><div class="line">           <span class="attr">android:layout_width</span>=<span class="string">"20dip"</span></div><div class="line">           <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">           <span class="attr">android:layout_alignParentRight</span>=<span class="string">"true"</span> /&gt;</div><div class="line"></div><div class="line">   <span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<h1 id="ContactActivity"><a href="#ContactActivity" class="headerlink" title="ContactActivity"></a>ContactActivity</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ContactActivity</span> <span class="keyword">extends</span> <span class="title">BaseActivity</span> </span>&#123;</div><div class="line">    <span class="meta">@Bind</span>(R.id.mRecyclerView)</div><div class="line">    RecyclerView mRecyclerView;</div><div class="line"></div><div class="line">    <span class="meta">@Bind</span>(R.id.sidebar)</div><div class="line">    SideBar sidebar;</div><div class="line">    <span class="meta">@Bind</span>(R.id.textDialog)</div><div class="line">    TextView textDialog;</div><div class="line">    <span class="keyword">private</span> List&lt;PersonBean&gt; data;</div><div class="line">    ContactAdapter mContactAdapter;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_contact);        </div><div class="line">        sidebar.setTextView(textDialog);</div><div class="line">        <span class="comment">// 设置字母导航触摸监听</span></div><div class="line">        sidebar.setOnTouchingLetterChangedListener(<span class="keyword">new</span> SideBar.OnTouchingLetterChangedListener() &#123;</div><div class="line"></div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTouchingLetterChanged</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">                <span class="comment">// TODO Auto-generated method stub</span></div><div class="line">                <span class="comment">// 该字母首次出现的位置</span></div><div class="line">                <span class="keyword">int</span> position = mContactAdapter.getPositionForSelection(s.charAt(<span class="number">0</span>));</div><div class="line"></div><div class="line">                <span class="keyword">if</span> (position != -<span class="number">1</span>) &#123;</div><div class="line">                    mRecyclerView.getLayoutManager().scrollToPosition(position);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        data = getData(getResources().getStringArray(R.array.listpersons));</div><div class="line">        <span class="comment">// 数据在放在adapter之前需要排序</span></div><div class="line">        Collections.sort(data, <span class="keyword">new</span> PinyinComparator());</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; data.size(); i++) &#123;</div><div class="line">            Log.i(<span class="string">"wxl"</span>, <span class="string">"Fpinyin="</span> + data.get(i).getFirstPinYin());</div><div class="line">        &#125;</div><div class="line">        LinearLayoutManager linearLayoutManager = <span class="keyword">new</span> LinearLayoutManager(<span class="keyword">this</span>);</div><div class="line">        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);</div><div class="line">        mRecyclerView.setLayoutManager(linearLayoutManager);</div><div class="line">        mContactAdapter = <span class="keyword">new</span> ContactAdapter(data);</div><div class="line">        mRecyclerView.setAdapter(mContactAdapter);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> List&lt;PersonBean&gt; <span class="title">getData</span><span class="params">(String[] data)</span> </span>&#123;</div><div class="line">        List&lt;PersonBean&gt; listarray = <span class="keyword">new</span> ArrayList&lt;PersonBean&gt;();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; data.length; i++) &#123;</div><div class="line">            String pinyin = PinyinUtils.getPingYin(data[i]);</div><div class="line">            String Fpinyin = pinyin.substring(<span class="number">0</span>, <span class="number">1</span>).toUpperCase();</div><div class="line"></div><div class="line">            PersonBean person = <span class="keyword">new</span> PersonBean();</div><div class="line">            person.setName(data[i]);</div><div class="line">            person.setPinYin(pinyin);</div><div class="line">            <span class="comment">// 正则表达式，判断首字母是否是英文字母</span></div><div class="line">            <span class="keyword">if</span> (Fpinyin.matches(<span class="string">"[A-Z]"</span>)) &#123;</div><div class="line">                person.setFirstPinYin(Fpinyin);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                person.setFirstPinYin(<span class="string">"#"</span>);</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            listarray.add(person);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> listarray;</div><div class="line"></div><div class="line">    &#125;  </div><div class="line">   </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="persons-xml"><a href="#persons-xml" class="headerlink" title="persons.xml"></a>persons.xml</h1><p>模拟数据<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span>?&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></span></div><div class="line">    <span class="tag">&lt;<span class="name">string-array</span> <span class="attr">name</span>=<span class="string">"listpersons"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span>&gt;</span> 马云<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span>&gt;</span> 马化腾<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span>&gt;</span> 佩兰<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span>&gt;</span> 奥巴马<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span>&gt;</span> 普京<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span>&gt;</span> 金三胖<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span>&gt;</span> 暗影军团<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span>&gt;</span> 141特遣队<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span>&gt;</span> 冲锋号<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span>&gt;</span> +胜利号<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span>&gt;</span> 超级赛亚人<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span>&gt;</span> 金克拉<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span>&gt;</span> 亚古兽<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span>&gt;</span> 数码宝贝大冒险<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span>&gt;</span> 大胜归来<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span>&gt;</span> 道士下山<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span>&gt;</span> A利亚克<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span>&gt;</span> 胜利冲锋龙卷风<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span>&gt;</span> 走在冷风中<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span>&gt;</span> 外面的世界<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span>&gt;</span> 烦恼歌<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span>&gt;</span> 如果没有你<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span>&gt;</span> 四季歌<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span>&gt;</span> 南山南<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span>&gt;</span> +胜利号<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span>&gt;</span> 光能使者<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span>&gt;</span> 铁甲小宝<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span>&gt;</span> 皮卡丘<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span>&gt;</span> 奥特曼<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span>&gt;</span> 开普勒452b<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span>&gt;</span> 神舟20号<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span>&gt;</span> 屌炸天的结尾<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">string-array</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">resources</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h1 id="PersonBean"><a href="#PersonBean" class="headerlink" title="PersonBean"></a>PersonBean</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PersonBean</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> String Name;</div><div class="line">    <span class="keyword">private</span> String PinYin;</div><div class="line">    <span class="keyword">private</span> String FirstPinYin;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> Name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">        Name = name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getPinYin</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> PinYin;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPinYin</span><span class="params">(String pinYin)</span> </span>&#123;</div><div class="line">        PinYin = pinYin;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getFirstPinYin</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> FirstPinYin;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setFirstPinYin</span><span class="params">(String firstPinYin)</span> </span>&#123;</div><div class="line">        FirstPinYin = firstPinYin;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"姓名："</span> + getName() + <span class="string">"   拼音："</span> + getPinYin() + <span class="string">"    首字母："</span></div><div class="line">                + getFirstPinYin();</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="PinyinUtils"><a href="#PinyinUtils" class="headerlink" title="PinyinUtils"></a>PinyinUtils</h1><p>这里需要pinyin4j包，下载地址：<a href="http://pinyin4j.sourceforge.net/" target="_blank" rel="external">http://pinyin4j.sourceforge.net/</a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PinyinUtils</span> </span>&#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 汉字转拼音</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getPingYin</span><span class="params">(String inputString)</span> </span>&#123;</div><div class="line">        HanyuPinyinOutputFormat format = <span class="keyword">new</span> HanyuPinyinOutputFormat();</div><div class="line">        format.setCaseType(HanyuPinyinCaseType.LOWERCASE);</div><div class="line">        format.setToneType(HanyuPinyinToneType.WITHOUT_TONE);</div><div class="line">        format.setVCharType(HanyuPinyinVCharType.WITH_V);</div><div class="line"></div><div class="line">        <span class="keyword">char</span>[] input = inputString.trim().toCharArray();</div><div class="line">        String output = <span class="string">""</span>;</div><div class="line"></div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">char</span> curchar : input) &#123;</div><div class="line">                <span class="keyword">if</span> (java.lang.Character.toString(curchar).matches(<span class="string">"[\\u4E00-\\u9FA5]+"</span>)) &#123;</div><div class="line">                    String[] temp = PinyinHelper.toHanyuPinyinStringArray(curchar, format);</div><div class="line">                    output += temp[<span class="number">0</span>];</div><div class="line">                &#125; <span class="keyword">else</span></div><div class="line">                    output += java.lang.Character.toString(curchar);</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">catch</span> (BadHanyuPinyinOutputFormatCombination e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> output;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="PinyinComparator"><a href="#PinyinComparator" class="headerlink" title="PinyinComparator"></a>PinyinComparator</h1><p>按照字母排序类<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PinyinComparator</span> <span class="keyword">implements</span> <span class="title">Comparator</span>&lt;<span class="title">PersonBean</span>&gt; </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(PersonBean lhs, PersonBean rhs)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> sort(lhs, rhs);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">sort</span><span class="params">(PersonBean lhs, PersonBean rhs)</span> </span>&#123;</div><div class="line">        <span class="comment">// 获取ascii值</span></div><div class="line">        <span class="keyword">int</span> lhs_ascii = lhs.getFirstPinYin().toUpperCase().charAt(<span class="number">0</span>);</div><div class="line">        <span class="keyword">int</span> rhs_ascii = rhs.getFirstPinYin().toUpperCase().charAt(<span class="number">0</span>);</div><div class="line">        <span class="comment">// 判断若不是字母，则排在字母之后</span></div><div class="line">        <span class="keyword">if</span> (lhs_ascii &lt; <span class="number">65</span> || lhs_ascii &gt; <span class="number">90</span>)</div><div class="line">            <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (rhs_ascii &lt; <span class="number">65</span> || rhs_ascii &gt; <span class="number">90</span>)</div><div class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">        <span class="keyword">else</span></div><div class="line">            <span class="keyword">return</span> lhs.getPinYin().compareTo(rhs.getPinYin());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="ContactAdapter"><a href="#ContactAdapter" class="headerlink" title="ContactAdapter"></a>ContactAdapter</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ContactAdapter</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">Adapter</span>&lt;<span class="title">ContactAdapter</span>.<span class="title">ViewHolder</span>&gt; </span>&#123;</div><div class="line">    List&lt;PersonBean&gt; data;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ContactAdapter</span><span class="params">(List&lt;PersonBean&gt; data)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.data = data;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">ViewHolder</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">ViewHolder</span> </span>&#123;</div><div class="line">        TextView nickname;</div><div class="line">        TextView tag;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="title">ViewHolder</span><span class="params">(View itemView)</span> </span>&#123;</div><div class="line">            <span class="keyword">super</span>(itemView);</div><div class="line">            nickname = (TextView) itemView.findViewById(R.id.nickname);</div><div class="line">            tag = (TextView) itemView.findViewById(R.id.tag);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> ViewHolder <span class="title">onCreateViewHolder</span><span class="params">(ViewGroup parent, <span class="keyword">int</span> viewType)</span> </span>&#123;</div><div class="line">        View view = View.inflate(parent.getContext(), R.layout.contact_item, <span class="keyword">null</span>);</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ViewHolder(view);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onBindViewHolder</span><span class="params">(ViewHolder holder, <span class="keyword">int</span> position)</span> </span>&#123;</div><div class="line">        PersonBean person = data.get(position);</div><div class="line">        <span class="comment">// 获取首字母的assii值</span></div><div class="line">        <span class="keyword">int</span> selection = person.getFirstPinYin().charAt(<span class="number">0</span>);</div><div class="line">        <span class="comment">// 通过首字母的assii值来判断是否显示字母</span></div><div class="line">        <span class="keyword">int</span> positionForSelection = getPositionForSelection(selection);</div><div class="line">        <span class="keyword">if</span> (position == positionForSelection) &#123;<span class="comment">// 相等说明需要显示字母</span></div><div class="line">            holder.tag.setVisibility(View.VISIBLE);</div><div class="line">            holder.tag.setText(person.getFirstPinYin());</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            holder.tag.setVisibility(View.GONE);</div><div class="line"></div><div class="line">        &#125;</div><div class="line">        holder.nickname.setText(data.get(position).getName());</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getPositionForSelection</span><span class="params">(<span class="keyword">int</span> selection)</span> </span>&#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; data.size(); i++) &#123;</div><div class="line">            String Fpinyin = data.get(i).getFirstPinYin();</div><div class="line"></div><div class="line">            <span class="keyword">char</span> first = Fpinyin.toUpperCase().charAt(<span class="number">0</span>);</div><div class="line">            <span class="keyword">if</span> (first == selection) &#123;</div><div class="line">                <span class="keyword">return</span> i;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getItemCount</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> data.size();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="contact-item-xml"><a href="#contact-item-xml" class="headerlink" title="contact_item.xml"></a>contact_item.xml</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span>?&gt;</div><div class="line">&lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"</div><div class="line">    android:layout_width="match_parent"</div><div class="line">    android:layout_height="match_parent"</div><div class="line">    android:orientation="vertical"&gt;</div><div class="line">    &lt;!-- 这个TextView就是显示字母的 --&gt;</div><div class="line">    &lt;TextView</div><div class="line">        android:id="@+id/tag"</div><div class="line">        android:layout_width="match_parent"</div><div class="line">        android:layout_height="20dp"</div><div class="line">        android:background="#e6e6e6"</div><div class="line">        android:gravity="center_vertical"</div><div class="line">        android:paddingLeft="10dip"</div><div class="line">        android:text="Z"</div><div class="line">        android:visibility="visible" /&gt;</div><div class="line"></div><div class="line">    &lt;RelativeLayout</div><div class="line">        android:layout_width="match_parent"</div><div class="line">        android:layout_height="wrap_content"&gt;</div><div class="line"></div><div class="line">        &lt;View</div><div class="line">            android:id="@+id/view_lv_item_line"</div><div class="line">            android:layout_width="match_parent"</div><div class="line">            android:layout_height="0.5dip"</div><div class="line">            android:layout_marginLeft="10dip"</div><div class="line">            android:layout_marginRight="20dip"</div><div class="line">            android:background="#174465" /&gt;</div><div class="line"></div><div class="line">        &lt;ImageView</div><div class="line">            android:id="@+id/iv_lv_item_head"</div><div class="line">            android:layout_width="wrap_content"</div><div class="line">            android:layout_height="wrap_content"</div><div class="line">            android:layout_below="@id/view_lv_item_line"</div><div class="line">            android:layout_marginLeft="5dp"</div><div class="line">            android:src="@mipmap/ic_launcher" /&gt;</div><div class="line"></div><div class="line">        &lt;TextView</div><div class="line">            android:id="@+id/nickname"</div><div class="line">            android:layout_width="wrap_content"</div><div class="line">            android:layout_height="wrap_content"</div><div class="line">            android:layout_centerVertical="true"</div><div class="line">            android:layout_marginLeft="5dip"</div><div class="line">            android:layout_toRightOf="@id/iv_lv_item_head"</div><div class="line">            android:text="周华健" /&gt;</div><div class="line">    &lt;/RelativeLayout&gt;</div><div class="line"></div><div class="line">&lt;/LinearLayout&gt;</div></pre></td></tr></table></figure>
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><a href="http://www.cnblogs.com/scetopcsa/p/4724308.html" target="_blank" rel="external">Android 联系人字母排序（仿微信）</a></p>
+<h1 id="剩者为王"><a href="#剩者为王" class="headerlink" title="剩者为王"></a>剩者为王</h1><p>我的Android技术交流群，群名寓意很简单，经过时间洗礼，最终剩下的才是王者，欢迎“剩友”。<br>剩者为王③群：370527306 <a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=0a992ba077da4c8325cbfef1c9e81f0443ffb782a0f2135c1a8f7326baac58ac"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="剩者为王③群" title="剩者为王③群"></a></p>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>赞赏是一种共鸣或认可</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="吴小龙同學 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    吴小龙同學
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://wuxiaolong.me/2015/08/29/contactIndex/" title="Android通讯录索引效果">http://wuxiaolong.me/2015/08/29/contactIndex/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/contact/" rel="tag"># contact</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/08/28/PioneeringRoad/" rel="next" title="PioneeringRoad">
+                <i class="fa fa-chevron-left"></i> PioneeringRoad
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/09/02/SharePopupWindow/" rel="prev" title="微言之自定义分享PopupWindow">
+                微言之自定义分享PopupWindow <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTM2My81OTMx"></div>
+    </div>
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="http://7q5c2h.com1.z0.glb.clouddn.com/avatar.jpg" alt="吴小龙同學">
+            
+              <p class="site-author-name" itemprop="name">吴小龙同學</p>
+              <p class="site-description motion-element" itemprop="description">我的微信公众号：吴小龙同学</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">163</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">129</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/WuXiaolong" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://open.weixin.qq.com/qr/code/?username=MrWuXiaolong" target="_blank" title="WeChat">
+                    
+                      <i class="fa fa-fw fa-globe"></i>WeChat</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/u/2175011601" target="_blank" title="Weibo">
+                    
+                      <i class="fa fa-fw fa-globe"></i>Weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="/qq/index.html" target="_blank" title="QQ">
+                    
+                      <i class="fa fa-fw fa-globe"></i>QQ</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#效果预览"><span class="nav-number">1.</span> <span class="nav-text">效果预览</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SideBar"><span class="nav-number">2.</span> <span class="nav-text">SideBar</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#xml调用"><span class="nav-number">3.</span> <span class="nav-text">xml调用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ContactActivity"><span class="nav-number">4.</span> <span class="nav-text">ContactActivity</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#persons-xml"><span class="nav-number">5.</span> <span class="nav-text">persons.xml</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PersonBean"><span class="nav-number">6.</span> <span class="nav-text">PersonBean</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PinyinUtils"><span class="nav-number">7.</span> <span class="nav-text">PinyinUtils</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PinyinComparator"><span class="nav-number">8.</span> <span class="nav-text">PinyinComparator</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ContactAdapter"><span class="nav-number">9.</span> <span class="nav-text">ContactAdapter</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#contact-item-xml"><span class="nav-number">9.1.</span> <span class="nav-text">contact_item.xml</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#附录"><span class="nav-number">10.</span> <span class="nav-text">附录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#剩者为王"><span class="nav-number">11.</span> <span class="nav-text">剩者为王</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2013 &mdash; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">吴小龙同學</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

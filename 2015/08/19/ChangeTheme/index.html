@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/favicon.ico?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Theme,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="吴小龙同學" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="来自开源项目：https://github.com/lguipeng/Notes，其中有改变主题的功能，我做了部分修改，并应用到我的APP中。感谢lguipeng的开源。  效果预览">
+<meta name="keywords" content="Theme">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android更换主题">
+<meta property="og:url" content="http://wuxiaolong.me/2015/08/19/ChangeTheme/index.html">
+<meta property="og:site_name" content="吴小龙同學">
+<meta property="og:description" content="来自开源项目：https://github.com/lguipeng/Notes，其中有改变主题的功能，我做了部分修改，并应用到我的APP中。感谢lguipeng的开源。  效果预览">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/weiyanScreenshots.gif">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/weiyanAppDownload.png">
+<meta property="og:updated_time" content="2016-12-13T13:29:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android更换主题">
+<meta name="twitter:description" content="来自开源项目：https://github.com/lguipeng/Notes，其中有改变主题的功能，我做了部分修改，并应用到我的APP中。感谢lguipeng的开源。  效果预览">
+<meta name="twitter:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/weiyanScreenshots.gif">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://wuxiaolong.me/2015/08/19/ChangeTheme/">
+
+
+
+
+
+  <title>Android更换主题 | 吴小龙同學</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-105780265-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0e1dc2030f397dfa0d60ad22b374430d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">吴小龙同學</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">党要我帅，我不得不帅！</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-friendslinks">
+          <a href="/friendslinks/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-users"></i> <br>
+            
+            小伙伴
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input">
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'ywBn2eRCzfb494KCWJw3','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2015/08/19/ChangeTheme/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吴小龙同學">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://7q5c2h.com1.z0.glb.clouddn.com/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴小龙同學">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Android更换主题</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-08-19T11:05:53+08:00">
+                2015-08-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>来自开源项目：<a href="https://github.com/lguipeng/Notes" target="_blank" rel="external">https://github.com/lguipeng/Notes</a>，其中有改变主题的功能，我做了部分修改，并应用到我的APP中。感谢lguipeng的开源。</p>
+</blockquote>
+<h1 id="效果预览"><a href="#效果预览" class="headerlink" title="效果预览"></a>效果预览</h1><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/weiyanScreenshots.gif" alt=""><br><a id="more"></a></p>
+<h1 id="实例APK"><a href="#实例APK" class="headerlink" title="实例APK"></a>实例APK</h1><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/weiyanAppDownload.png" alt=""></p>
+<h1 id="样式定义"><a href="#样式定义" class="headerlink" title="样式定义"></a>样式定义</h1><p>style.xml<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"AppTheme"</span> <span class="attr">parent</span>=<span class="string">"Theme.AppCompat.Light.NoActionBar"</span>&gt;</span><span class="xml"></span></div><div class="line">    <span class="comment">&lt;!-- Customize your theme here. --&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"AppTheme.NoActionBar"</span>&gt;</span><span class="xml"></span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"windowActionBar"</span>&gt;</span>false<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"windowNoTitle"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"ChangeThemeDialog"</span> <span class="attr">parent</span>=<span class="string">"Theme.AppCompat.Light.Dialog"</span>&gt;</span><span class="xml"></span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowEnterAnimation"</span>&gt;</span>@anim/abc_fade_in<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowExitAnimation"</span>&gt;</span>@anim/abc_fade_out<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"RedTheme"</span> <span class="attr">parent</span>=<span class="string">"AppTheme"</span>&gt;</span><span class="xml"></span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimary"</span>&gt;</span>@color/red_primary<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimaryDark"</span>&gt;</span>@color/red_primary_dark<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorAccent"</span>&gt;</span>@color/red_accent<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"PinkTheme"</span> <span class="attr">parent</span>=<span class="string">"AppTheme"</span>&gt;</span><span class="xml"></span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimary"</span>&gt;</span>@color/pink_primary<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimaryDark"</span>&gt;</span>@color/pink_primary_dark<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorAccent"</span>&gt;</span>@color/pink_accent<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"BrownTheme"</span> <span class="attr">parent</span>=<span class="string">"AppTheme"</span>&gt;</span><span class="xml"></span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimary"</span>&gt;</span>@color/brown_primary<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimaryDark"</span>&gt;</span>@color/brown_primary_dark<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorAccent"</span>&gt;</span>@color/brown_accent<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"BlueTheme"</span> <span class="attr">parent</span>=<span class="string">"AppTheme"</span>&gt;</span><span class="xml"></span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimary"</span>&gt;</span>@color/blue_primary<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimaryDark"</span>&gt;</span>@color/blue_primary_dark<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorAccent"</span>&gt;</span>@color/blue_accent<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"BlueGreyTheme"</span> <span class="attr">parent</span>=<span class="string">"AppTheme"</span>&gt;</span><span class="xml"></span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimary"</span>&gt;</span>@color/blue_grey_primary<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimaryDark"</span>&gt;</span>@color/blue_grey_primary_dark<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorAccent"</span>&gt;</span>@color/blue_grey_accent<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"YellowTheme"</span> <span class="attr">parent</span>=<span class="string">"AppTheme"</span>&gt;</span><span class="xml"></span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimary"</span>&gt;</span>@color/yellow_primary<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimaryDark"</span>&gt;</span>@color/yellow_primary_dark<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorAccent"</span>&gt;</span>@color/yellow_accent<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"DeepPurpleTheme"</span> <span class="attr">parent</span>=<span class="string">"AppTheme"</span>&gt;</span><span class="xml"></span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimary"</span>&gt;</span>@color/deep_purple_primary<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimaryDark"</span>&gt;</span>@color/deep_purple_primary_dark<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorAccent"</span>&gt;</span>@color/deep_purple_accent<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"GreenTheme"</span> <span class="attr">parent</span>=<span class="string">"AppTheme"</span>&gt;</span><span class="xml"></span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimary"</span>&gt;</span>@color/green_primary<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimaryDark"</span>&gt;</span>@color/green_primary_dark<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorAccent"</span>&gt;</span>@color/green_accent<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"DeepOrangeTheme"</span> <span class="attr">parent</span>=<span class="string">"AppTheme"</span>&gt;</span><span class="xml"></span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimary"</span>&gt;</span>@color/deep_orange_primary<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimaryDark"</span>&gt;</span>@color/deep_orange_primary_dark<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorAccent"</span>&gt;</span>@color/deep_orange_accent<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"GreyTheme"</span> <span class="attr">parent</span>=<span class="string">"AppTheme"</span>&gt;</span><span class="xml"></span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimary"</span>&gt;</span>@color/grey_primary<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimaryDark"</span>&gt;</span>@color/grey_primary_dark<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorAccent"</span>&gt;</span>@color/grey_accent<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"CyanTheme"</span> <span class="attr">parent</span>=<span class="string">"AppTheme"</span>&gt;</span><span class="xml"></span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimary"</span>&gt;</span>@color/cyan_primary<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimaryDark"</span>&gt;</span>@color/cyan_primary_dark<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorAccent"</span>&gt;</span>@color/cyan_accent<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"AmberTheme"</span> <span class="attr">parent</span>=<span class="string">"AppTheme"</span>&gt;</span><span class="xml"></span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimary"</span>&gt;</span>@color/amber_primary<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorPrimaryDark"</span>&gt;</span>@color/amber_primary_dark<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorAccent"</span>&gt;</span>@color/amber_accent<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h1 id="颜色定义"><a href="#颜色定义" class="headerlink" title="颜色定义"></a>颜色定义</h1><p>color.xml<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"red_primary"</span>&gt;</span>#F44336<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"red_primary_dark"</span>&gt;</span>#D32F2F<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"red_accent"</span>&gt;</span>#F44336<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line"></div><div class="line">   <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"pink_primary"</span>&gt;</span>#E91E63<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"pink_primary_dark"</span>&gt;</span>#C2185B<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"pink_accent"</span>&gt;</span>#E91E63<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line"></div><div class="line">   <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"brown_primary"</span>&gt;</span>#795548<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"brown_primary_dark"</span>&gt;</span>#5D4037<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"brown_accent"</span>&gt;</span>#795548<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line"></div><div class="line"></div><div class="line">   <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"blue_primary"</span>&gt;</span>#2196F3<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"blue_primary_dark"</span>&gt;</span>#1976D2<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"blue_accent"</span>&gt;</span>#2196F3<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line"></div><div class="line">   <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"blue_grey_primary"</span>&gt;</span>#607D8B<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"blue_grey_primary_dark"</span>&gt;</span>#455A64<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"blue_grey_accent"</span>&gt;</span>#607D8B<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line"></div><div class="line">   <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"yellow_primary"</span>&gt;</span>#FFEB3B<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"yellow_primary_dark"</span>&gt;</span>#FBC02D<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"yellow_accent"</span>&gt;</span>#FFEB3B<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line"></div><div class="line">   <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"deep_purple_primary"</span>&gt;</span>#673AB7<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"deep_purple_primary_dark"</span>&gt;</span>#512DA8<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"deep_purple_accent"</span>&gt;</span>#673AB7<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line"></div><div class="line"></div><div class="line">   <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"green_primary"</span>&gt;</span>#4CAF50<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"green_primary_dark"</span>&gt;</span>#388E3C<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"green_accent"</span>&gt;</span>#4CAF50<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line"></div><div class="line">   <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"deep_orange_primary"</span>&gt;</span>#FF5722<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"deep_orange_primary_dark"</span>&gt;</span>#E64A19<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"deep_orange_accent"</span>&gt;</span>#FF5722<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line"></div><div class="line">   <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"grey_primary"</span>&gt;</span>#9E9E9E<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"grey_primary_dark"</span>&gt;</span>#616161<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"grey_accent"</span>&gt;</span>#9E9E9E<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line"></div><div class="line">   <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"cyan_primary"</span>&gt;</span>#00BCD4<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"cyan_primary_dark"</span>&gt;</span>#0097A7<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"cyan_accent"</span>&gt;</span>#00BCD4<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line"></div><div class="line">   <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"amber_primary"</span>&gt;</span>#FFC107<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"amber_primary_dark"</span>&gt;</span>#FFA000<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"amber_accent"</span>&gt;</span>#FFC107<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line"></div><div class="line">   <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"primary"</span>&gt;</span>#2196F3<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"primary_dark"</span>&gt;</span>#1E88E5<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">color</span> <span class="attr">name</span>=<span class="string">"accent"</span>&gt;</span>@color/primary<span class="tag">&lt;/<span class="name">color</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h1 id="基类BaseActivity"><a href="#基类BaseActivity" class="headerlink" title="基类BaseActivity"></a>基类BaseActivity</h1><p>初始化主题<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BaseActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line">    <span class="keyword">protected</span> PreferenceUtils preferenceUtils;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        preferenceUtils = PreferenceUtils.getInstance(<span class="keyword">this</span>);</div><div class="line">        initTheme();</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_base);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initTheme</span><span class="params">()</span> </span>&#123;</div><div class="line">        ThemeUtils.Theme theme = ThemeUtils.getCurrentTheme(<span class="keyword">this</span>);</div><div class="line">        ThemeUtils.changTheme(<span class="keyword">this</span>, theme);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">   &#125;</div></pre></td></tr></table></figure></p>
+<h1 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">BaseActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line">        findViewById(R.id.start).setOnClickListener(</div><div class="line">                <span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">                    <span class="meta">@Override</span></div><div class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View view)</span> </span>&#123;</div><div class="line">                        showThemeChooseDialog();</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">        );</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">showThemeChooseDialog</span><span class="params">()</span> </span>&#123;</div><div class="line">        AlertDialog.Builder builder = <span class="keyword">new</span> AlertDialog.Builder(mAtivity, R.style.ChangeThemeDialog);</div><div class="line">        builder.setTitle(<span class="string">"更换主题"</span>);</div><div class="line">        Integer[] res = <span class="keyword">new</span> Integer[]&#123;R.drawable.red_round, R.drawable.brown_round, R.drawable.blue_round,</div><div class="line">                R.drawable.blue_grey_round, R.drawable.yellow_round, R.drawable.deep_purple_round,</div><div class="line">                R.drawable.pink_round, R.drawable.green_round, R.drawable.deep_orange_round,</div><div class="line">                R.drawable.grey_round, R.drawable.cyan_round, R.drawable.amber_round&#125;;</div><div class="line">        List&lt;Integer&gt; list = Arrays.asList(res);</div><div class="line">        ColorsListAdapter adapter = <span class="keyword">new</span> ColorsListAdapter(mAtivity, list);</div><div class="line">        adapter.setCheckItem(ThemeUtils.getCurrentTheme(mAtivity).getIntValue());</div><div class="line">        GridView gridView = (GridView) LayoutInflater.from(mAtivity).inflate(R.layout.colors_panel_layout, <span class="keyword">null</span>);</div><div class="line">        gridView.setStretchMode(GridView.STRETCH_COLUMN_WIDTH);</div><div class="line">        gridView.setCacheColorHint(<span class="number">0</span>);</div><div class="line">        gridView.setAdapter(adapter);</div><div class="line">        builder.setView(gridView);</div><div class="line">        <span class="keyword">final</span> AlertDialog dialog = builder.show();</div><div class="line">        gridView.setOnItemClickListener(</div><div class="line">                <span class="keyword">new</span> AdapterView.OnItemClickListener() &#123;</div><div class="line">                    <span class="meta">@Override</span></div><div class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onItemClick</span><span class="params">(AdapterView&lt;?&gt; parent, View view, <span class="keyword">int</span> position, <span class="keyword">long</span> id)</span> </span>&#123;</div><div class="line">                        dialog.dismiss();</div><div class="line">                        <span class="keyword">int</span> value = ThemeUtils.getCurrentTheme(mAtivity).getIntValue();</div><div class="line">                        Log.d(<span class="string">"wxl"</span>, <span class="string">"value=="</span> + value);</div><div class="line">                        <span class="keyword">if</span> (value != position) &#123;</div><div class="line">                            PreferenceUtils.setPreferenceInt(mAtivity, <span class="string">"change_theme_key"</span>, position);</div><div class="line">                            mAtivity.recreate();</div><div class="line">                        &#125;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">        );</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ColorsListAdapter</span> <span class="keyword">extends</span> <span class="title">BaseAdapter</span> </span>&#123;</div><div class="line">        <span class="keyword">private</span> <span class="keyword">int</span> checkItem;</div><div class="line">        <span class="keyword">private</span> Context context;</div><div class="line">        <span class="keyword">private</span> List&lt;Integer&gt; list;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="title">ColorsListAdapter</span><span class="params">(Context context, List&lt;Integer&gt; list)</span> </span>&#123;</div><div class="line">            <span class="keyword">this</span>.context = context;</div><div class="line">            <span class="keyword">this</span>.list = list;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCount</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> list.size();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> Object <span class="title">getItem</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> list.get(position);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">getItemId</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> position;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> View <span class="title">getView</span><span class="params">(<span class="keyword">int</span> position, View convertView, ViewGroup parent)</span> </span>&#123;</div><div class="line">            Holder holder;</div><div class="line">            <span class="keyword">if</span> (convertView == <span class="keyword">null</span>) &#123;</div><div class="line">                convertView = LayoutInflater.from(context).inflate(R.layout.colors_image_layout, <span class="keyword">null</span>);</div><div class="line">                holder = <span class="keyword">new</span> Holder();</div><div class="line">                holder.imageView1 = (ImageView) convertView.findViewById(R.id.img_1);</div><div class="line">                holder.imageView2 = (ImageView) convertView.findViewById(R.id.img_2);</div><div class="line">                convertView.setTag(holder);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                holder = (Holder) convertView.getTag();</div><div class="line">            &#125;</div><div class="line">            holder.imageView1.setImageResource(list.get(position));</div><div class="line">            <span class="keyword">if</span> (checkItem == position) &#123;</div><div class="line">                holder.imageView2.setImageResource(R.mipmap.ic_done_white);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> convertView;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCheckItem</span><span class="params">(<span class="keyword">int</span> checkItem)</span> </span>&#123;</div><div class="line">            <span class="keyword">this</span>.checkItem = checkItem;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="class"><span class="keyword">class</span> <span class="title">Holder</span> </span>&#123;</div><div class="line">            ImageView imageView1;</div><div class="line">            ImageView imageView2;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>其中colors_panel_layout.xml<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">GridView</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span> <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:numColumns</span>=<span class="string">"4"</span></div><div class="line">    <span class="attr">android:padding</span>=<span class="string">"24dp"</span></div><div class="line">    <span class="attr">android:background</span>=<span class="string">"@android:color/transparent"</span></div><div class="line">    <span class="attr">android:listSelector</span>=<span class="string">"@android:color/transparent"</span></div><div class="line">    <span class="attr">android:horizontalSpacing</span>=<span class="string">"20dp"</span></div><div class="line">    <span class="attr">android:verticalSpacing</span>=<span class="string">"20dp"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">GridView</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>colors_image_layout.xml<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">FrameLayout</span></span></div><div class="line">    <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">    <span class="attr">android:background</span>=<span class="string">"@android:color/transparent"</span></div><div class="line">    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">ImageView</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/img_1"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"40dp"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"40dp"</span></div><div class="line">        <span class="attr">android:layout_gravity</span>=<span class="string">"center"</span>/&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">ImageView</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/img_2"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"20dp"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"20dp"</span></div><div class="line">        <span class="attr">android:layout_gravity</span>=<span class="string">"center"</span>/&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">FrameLayout</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>对话框圆形颜色<br>drawable下建red_round.xml，代码如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span>?&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">shape</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span> <span class="attr">android:shape</span>=<span class="string">"oval"</span>&gt;</span></span></div><div class="line">    <span class="tag">&lt;<span class="name">solid</span> <span class="attr">android:color</span>=<span class="string">"@color/red_primary"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">shape</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>还有其他8个颜色，自己按照上面写写，这里代码不贴出了。</p>
+<h1 id="PreferenceUtils"><a href="#PreferenceUtils" class="headerlink" title="PreferenceUtils"></a>PreferenceUtils</h1><p>SharedPreferences 封装类<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PreferenceUtils</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getPreferenceString</span><span class="params">(Context context, String key,</span></span></div><div class="line">                                             <span class="keyword">final</span> String defaultValue) &#123;</div><div class="line">        <span class="keyword">final</span> SharedPreferences settings = PreferenceManager</div><div class="line">                .getDefaultSharedPreferences(context);</div><div class="line">        <span class="keyword">return</span> settings.getString(key, defaultValue);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setPreferenceString</span><span class="params">(Context context, <span class="keyword">final</span> String key,</span></span></div><div class="line">                                           <span class="keyword">final</span> String value) &#123;</div><div class="line">        <span class="keyword">final</span> SharedPreferences settings = PreferenceManager</div><div class="line">                .getDefaultSharedPreferences(context);</div><div class="line">        settings.edit().putString(key, value).apply();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">getPreferenceBoolean</span><span class="params">(Context context, <span class="keyword">final</span> String key,</span></span></div><div class="line">                                               <span class="keyword">final</span> <span class="keyword">boolean</span> defaultValue) &#123;</div><div class="line">        <span class="keyword">final</span> SharedPreferences settings = PreferenceManager</div><div class="line">                .getDefaultSharedPreferences(context);</div><div class="line">        <span class="keyword">return</span> settings.getBoolean(key, defaultValue);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">hasKey</span><span class="params">(Context context, <span class="keyword">final</span> String key)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> PreferenceManager.getDefaultSharedPreferences(context).contains(</div><div class="line">                key);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setPreferenceBoolean</span><span class="params">(Context context, <span class="keyword">final</span> String key,</span></span></div><div class="line">                                            <span class="keyword">final</span> <span class="keyword">boolean</span> value) &#123;</div><div class="line">        <span class="keyword">final</span> SharedPreferences settings = PreferenceManager</div><div class="line">                .getDefaultSharedPreferences(context);</div><div class="line">        settings.edit().putBoolean(key, value).apply();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setPreferenceInt</span><span class="params">(Context context, <span class="keyword">final</span> String key,</span></span></div><div class="line">                                        <span class="keyword">final</span> <span class="keyword">int</span> value) &#123;</div><div class="line">        <span class="keyword">final</span> SharedPreferences settings = PreferenceManager</div><div class="line">                .getDefaultSharedPreferences(context);</div><div class="line">        settings.edit().putInt(key, value).apply();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">getPreferenceInt</span><span class="params">(Context context, <span class="keyword">final</span> String key,</span></span></div><div class="line">                                       <span class="keyword">final</span> <span class="keyword">int</span> defaultValue) &#123;</div><div class="line">        <span class="keyword">final</span> SharedPreferences settings = PreferenceManager</div><div class="line">                .getDefaultSharedPreferences(context);</div><div class="line">        <span class="keyword">return</span> settings.getInt(key, defaultValue);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setPreferenceFloat</span><span class="params">(Context context, <span class="keyword">final</span> String key,</span></span></div><div class="line">                                          <span class="keyword">final</span> <span class="keyword">float</span> value) &#123;</div><div class="line">        <span class="keyword">final</span> SharedPreferences settings = PreferenceManager</div><div class="line">                .getDefaultSharedPreferences(context);</div><div class="line">        settings.edit().putFloat(key, value).apply();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">float</span> <span class="title">getPreferenceFloat</span><span class="params">(Context context, <span class="keyword">final</span> String key,</span></span></div><div class="line">                                           <span class="keyword">final</span> <span class="keyword">float</span> defaultValue) &#123;</div><div class="line">        <span class="keyword">final</span> SharedPreferences settings = PreferenceManager</div><div class="line">                .getDefaultSharedPreferences(context);</div><div class="line">        <span class="keyword">return</span> settings.getFloat(key, defaultValue);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setPreferenceLong</span><span class="params">(Context context, <span class="keyword">final</span> String key,</span></span></div><div class="line">                                         <span class="keyword">final</span> <span class="keyword">long</span> value) &#123;</div><div class="line">        <span class="keyword">final</span> SharedPreferences settings = PreferenceManager</div><div class="line">                .getDefaultSharedPreferences(context);</div><div class="line">        settings.edit().putLong(key, value).apply();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">long</span> <span class="title">getPreferenceLong</span><span class="params">(Context context, <span class="keyword">final</span> String key,</span></span></div><div class="line">                                         <span class="keyword">final</span> <span class="keyword">long</span> defaultValue) &#123;</div><div class="line">        <span class="keyword">final</span> SharedPreferences settings = PreferenceManager</div><div class="line">                .getDefaultSharedPreferences(context);</div><div class="line">        <span class="keyword">return</span> settings.getLong(key, defaultValue);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">clearPreference</span><span class="params">(Context context,</span></span></div><div class="line">                                       <span class="keyword">final</span> SharedPreferences p) &#123;</div><div class="line">        <span class="keyword">final</span> SharedPreferences.Editor editor = p.edit();</div><div class="line">        editor.clear();</div><div class="line">        editor.apply();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="ThemeUtils"><a href="#ThemeUtils" class="headerlink" title="ThemeUtils"></a>ThemeUtils</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThemeUtils</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">changTheme</span><span class="params">(Activity activity, Theme theme)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (activity == <span class="keyword">null</span>)</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        <span class="keyword">int</span> style = R.style.RedTheme;</div><div class="line">        <span class="keyword">switch</span> (theme) &#123;</div><div class="line">            <span class="keyword">case</span> BROWN:</div><div class="line">                style = R.style.BrownTheme;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> BLUE:</div><div class="line">                style = R.style.BlueTheme;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> BLUE_GREY:</div><div class="line">                style = R.style.BlueGreyTheme;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> YELLOW:</div><div class="line">                style = R.style.YellowTheme;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> DEEP_PURPLE:</div><div class="line">                style = R.style.DeepPurpleTheme;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> PINK:</div><div class="line">                style = R.style.PinkTheme;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> GREEN:</div><div class="line">                style = R.style.GreenTheme;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> DEEP_ORANGE:</div><div class="line">                style = R.style.DeepOrangeTheme;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> GREY:</div><div class="line">                style = R.style.GreyTheme;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> CYAN:</div><div class="line">                style = R.style.CyanTheme;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> AMBER:</div><div class="line">                style = R.style.AmberTheme;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">default</span>:</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">        activity.setTheme(style);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Theme <span class="title">getCurrentTheme</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> value = PreferenceUtils.getPreferenceInt(context, <span class="string">"change_theme_key"</span>, <span class="number">0</span>);</div><div class="line">        <span class="keyword">return</span> ThemeUtils.Theme.mapValueToTheme(value);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">enum</span> Theme &#123;</div><div class="line">        RED(<span class="number">0</span>),</div><div class="line">        BROWN(<span class="number">1</span>),</div><div class="line">        BLUE(<span class="number">2</span>),</div><div class="line">        BLUE_GREY(<span class="number">3</span>),</div><div class="line">        YELLOW(<span class="number">4</span>),</div><div class="line">        DEEP_PURPLE(<span class="number">5</span>),</div><div class="line">        PINK(<span class="number">6</span>),</div><div class="line">        GREEN(<span class="number">7</span>),</div><div class="line">        DEEP_ORANGE(<span class="number">8</span>),</div><div class="line">        GREY(<span class="number">9</span>),</div><div class="line">        CYAN(<span class="number">10</span>),</div><div class="line">        AMBER(<span class="number">11</span>);</div><div class="line">        <span class="keyword">private</span> <span class="keyword">int</span> mValue;</div><div class="line"></div><div class="line">        Theme(<span class="keyword">int</span> value) &#123;</div><div class="line">            <span class="keyword">this</span>.mValue = value;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Theme <span class="title">mapValueToTheme</span><span class="params">(<span class="keyword">final</span> <span class="keyword">int</span> value)</span> </span>&#123;</div><div class="line">            <span class="keyword">for</span> (Theme theme : Theme.values()) &#123;</div><div class="line">                <span class="keyword">if</span> (value == theme.getIntValue()) &#123;</div><div class="line">                    <span class="keyword">return</span> theme;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="comment">// If run here, return default</span></div><div class="line">            <span class="keyword">return</span> RED;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">static</span> Theme <span class="title">getDefault</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> RED;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getIntValue</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> mValue;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="完整demo"><a href="#完整demo" class="headerlink" title="完整demo"></a>完整demo</h1><p>联系QQ1413129987</p>
+<h1 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h1><ul>
+<li>2016/12/13 修改</li>
+<li>2015/08/19 撰笔</li>
+</ul>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>赞赏是一种共鸣或认可</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="吴小龙同學 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    吴小龙同學
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://wuxiaolong.me/2015/08/19/ChangeTheme/" title="Android更换主题">http://wuxiaolong.me/2015/08/19/ChangeTheme/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Theme/" rel="tag"># Theme</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/08/19/PreferenceUtils/" rel="next" title="SharedPreferencesUtil">
+                <i class="fa fa-chevron-left"></i> SharedPreferencesUtil
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/08/28/PioneeringRoad/" rel="prev" title="PioneeringRoad">
+                PioneeringRoad <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTM2My81OTMx"></div>
+    </div>
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="http://7q5c2h.com1.z0.glb.clouddn.com/avatar.jpg" alt="吴小龙同學">
+            
+              <p class="site-author-name" itemprop="name">吴小龙同學</p>
+              <p class="site-description motion-element" itemprop="description">我的微信公众号：吴小龙同学</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">163</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">129</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/WuXiaolong" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://open.weixin.qq.com/qr/code/?username=MrWuXiaolong" target="_blank" title="WeChat">
+                    
+                      <i class="fa fa-fw fa-globe"></i>WeChat</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/u/2175011601" target="_blank" title="Weibo">
+                    
+                      <i class="fa fa-fw fa-globe"></i>Weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="/qq/index.html" target="_blank" title="QQ">
+                    
+                      <i class="fa fa-fw fa-globe"></i>QQ</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#效果预览"><span class="nav-number">1.</span> <span class="nav-text">效果预览</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实例APK"><span class="nav-number">2.</span> <span class="nav-text">实例APK</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#样式定义"><span class="nav-number">3.</span> <span class="nav-text">样式定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#颜色定义"><span class="nav-number">4.</span> <span class="nav-text">颜色定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基类BaseActivity"><span class="nav-number">5.</span> <span class="nav-text">基类BaseActivity</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#调用"><span class="nav-number">6.</span> <span class="nav-text">调用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PreferenceUtils"><span class="nav-number">7.</span> <span class="nav-text">PreferenceUtils</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ThemeUtils"><span class="nav-number">8.</span> <span class="nav-text">ThemeUtils</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#完整demo"><span class="nav-number">9.</span> <span class="nav-text">完整demo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#更新日志"><span class="nav-number">10.</span> <span class="nav-text">更新日志</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2013 &mdash; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">吴小龙同學</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

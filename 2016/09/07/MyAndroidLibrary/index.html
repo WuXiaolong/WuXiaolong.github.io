@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/favicon.ico?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Library,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="吴小龙同學" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="现在做Android开发，已经是大好时机，网上有很多成熟的框架，我们应充分利用好这些，所谓前人种树后人好乘凉，很多时候压根不需要了解太多原理，只需站在巨人的丁丁上即可，当然您说您能力强，非要重复造轮子，无可厚非。  MVP模式">
+<meta name="keywords" content="Library">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一套完整的Android通用框架">
+<meta property="og:url" content="http://wuxiaolong.me/2016/09/07/MyAndroidLibrary/index.html">
+<meta property="og:site_name" content="吴小龙同學">
+<meta property="og:description" content="现在做Android开发，已经是大好时机，网上有很多成熟的框架，我们应充分利用好这些，所谓前人种树后人好乘凉，很多时候压根不需要了解太多原理，只需站在巨人的丁丁上即可，当然您说您能力强，非要重复造轮子，无可厚非。  MVP模式">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/mvp.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/butterknife.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/retrofit2.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/glide_logo.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/glide.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/PhotoView.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/ucrop0.gif?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/CircleImageView.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/realm.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/rxjava.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/PullLoadMoreRecyclerView.gif?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:updated_time" content="2016-09-08T12:21:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一套完整的Android通用框架">
+<meta name="twitter:description" content="现在做Android开发，已经是大好时机，网上有很多成熟的框架，我们应充分利用好这些，所谓前人种树后人好乘凉，很多时候压根不需要了解太多原理，只需站在巨人的丁丁上即可，当然您说您能力强，非要重复造轮子，无可厚非。  MVP模式">
+<meta name="twitter:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/mvp.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://wuxiaolong.me/2016/09/07/MyAndroidLibrary/">
+
+
+
+
+
+  <title>一套完整的Android通用框架 | 吴小龙同學</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-105780265-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0e1dc2030f397dfa0d60ad22b374430d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">吴小龙同學</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">党要我帅，我不得不帅！</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-friendslinks">
+          <a href="/friendslinks/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-users"></i> <br>
+            
+            小伙伴
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input">
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'ywBn2eRCzfb494KCWJw3','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2016/09/07/MyAndroidLibrary/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吴小龙同學">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://7q5c2h.com1.z0.glb.clouddn.com/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴小龙同學">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">一套完整的Android通用框架</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-07T21:01:10+08:00">
+                2016-09-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Library/" itemprop="url" rel="index">
+                    <span itemprop="name">Library</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>现在做Android开发，已经是大好时机，网上有很多成熟的框架，我们应充分利用好这些，所谓前人种树后人好乘凉，很多时候压根不需要了解太多原理，只需站在巨人的丁丁上即可，当然您说您能力强，非要重复造轮子，无可厚非。</p>
+</blockquote>
+<h1 id="MVP模式"><a href="#MVP模式" class="headerlink" title="MVP模式"></a>MVP模式</h1><a id="more"></a>
+<p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/mvp.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""></p>
+<h2 id="MVP"><a href="#MVP" class="headerlink" title="MVP"></a>MVP</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Android MVP Sample，MVP+Retrofit+RxJava实践小结</p>
+<h3 id="github地址"><a href="#github地址" class="headerlink" title="github地址"></a>github地址</h3><p><a href="https://github.com/WuXiaolong/AndroidMVPSample" target="_blank" rel="external">https://github.com/WuXiaolong/AndroidMVPSample</a></p>
+<h3 id="相关博客"><a href="#相关博客" class="headerlink" title="相关博客"></a>相关博客</h3><p><a href="http://wuxiaolong.me/2016/06/12/mvpRetrofitRxjava/">Android MVP+Retrofit+RxJava实践小结</a><br><a href="http://wuxiaolong.me/2015/09/23/AndroidMVPSample/">Android MVP 实例</a></p>
+<h1 id="依赖注入"><a href="#依赖注入" class="headerlink" title="依赖注入"></a>依赖注入</h1><h2 id="butterknife"><a href="#butterknife" class="headerlink" title="butterknife"></a>butterknife</h2><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/butterknife.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""></p>
+<h3 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h3><p>Bind Android views and callbacks to fields and methods 将Android视图和回调方法绑定到字段和方法上</p>
+<h3 id="github地址-1"><a href="#github地址-1" class="headerlink" title="github地址"></a>github地址</h3><p><a href="https://github.com/JakeWharton/butterknife" target="_blank" rel="external">https://github.com/JakeWharton/butterknife</a></p>
+<h3 id="相关博客-1"><a href="#相关博客-1" class="headerlink" title="相关博客"></a>相关博客</h3><p><a href="http://jakewharton.github.io/butterknife/" target="_blank" rel="external">butterknife官网</a></p>
+<h1 id="网络请求"><a href="#网络请求" class="headerlink" title="网络请求"></a>网络请求</h1><h2 id="Retrofit"><a href="#Retrofit" class="headerlink" title="Retrofit"></a>Retrofit</h2><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/retrofit2.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""></p>
+<h3 id="简介-2"><a href="#简介-2" class="headerlink" title="简介"></a>简介</h3><p>Type-safe HTTP client for Android and Java by Square 类型安全的Http客户端</p>
+<h3 id="github地址-2"><a href="#github地址-2" class="headerlink" title="github地址"></a>github地址</h3><p><a href="https://github.com/square/retrofit" target="_blank" rel="external">https://github.com/square/retrofit</a></p>
+<h3 id="相关博客-2"><a href="#相关博客-2" class="headerlink" title="相关博客"></a>相关博客</h3><p><a href="http://wuxiaolong.me/2016/06/18/retrofits/">Android Retrofit 2.0 使用-补充篇</a><br><a href="http://wuxiaolong.me/2016/01/15/retrofit/">Android Retrofit 2.0使用</a><br><a href="http://square.github.io/retrofit/" target="_blank" rel="external">Retrofit官网</a></p>
+<h1 id="图片加载"><a href="#图片加载" class="headerlink" title="图片加载"></a>图片加载</h1><h2 id="glide"><a href="#glide" class="headerlink" title="glide"></a>glide</h2><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/glide_logo.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""></p>
+<h3 id="简介-3"><a href="#简介-3" class="headerlink" title="简介"></a>简介</h3><p>An image loading and caching library for Android focused on smooth scrolling  一个图片加载和缓存的库</p>
+<h3 id="github地址-3"><a href="#github地址-3" class="headerlink" title="github地址"></a>github地址</h3><p><a href="https://github.com/bumptech/glide" target="_blank" rel="external">https://github.com/bumptech/glide</a></p>
+<h2 id="picasso"><a href="#picasso" class="headerlink" title="picasso"></a>picasso</h2><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/glide.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""></p>
+<h3 id="简介-4"><a href="#简介-4" class="headerlink" title="简介"></a>简介</h3><p>A powerful image downloading and caching library for Android 一个强大的图片下载与缓存的库</p>
+<h3 id="github地址-4"><a href="#github地址-4" class="headerlink" title="github地址"></a>github地址</h3><p><a href="https://github.com/square/picasso" target="_blank" rel="external">https://github.com/square/picasso</a></p>
+<h3 id="相关博客-3"><a href="#相关博客-3" class="headerlink" title="相关博客"></a>相关博客</h3><p><strong>Glide 系列预览</strong><br><a href="http://mrfu.me/2016/02/27/Glide_Getting_Started/" target="_blank" rel="external">开始！</a><br><a href="http://mrfu.me/2016/02/27/Glide_Advanced_Loading/" target="_blank" rel="external">加载进阶</a><br><a href="http://mrfu.me/2016/02/27/Glide_ListAdapter_(ListView,_GridView" target="_blank" rel="external">ListAdapter(ListView, GridView)</a>/)<br><a href="http://mrfu.me/2016/02/27/Glide_Placeholders_&amp;_Fade_Animations/" target="_blank" rel="external">占位符 和 渐现动画</a><br><a href="http://mrfu.me/2016/02/27/Glide_Image_Resizing_&amp;_Scaling/" target="_blank" rel="external">图片重设大小 和 缩放</a><br><a href="http://mrfu.me/2016/02/27/Glide_Displaying_Gifs_&amp;_Videos/" target="_blank" rel="external">显示 Gif 和 Video</a><br><a href="http://mrfu.me/2016/02/27/Glide_Caching_Basics/" target="_blank" rel="external">缓存基础</a><br><a href="http://mrfu.me/2016/02/27/Glide_Request_Priorities/" target="_blank" rel="external">请求优先级</a><br><a href="http://mrfu.me/2016/02/27/Glide_Thumbnails/" target="_blank" rel="external">缩略图</a><br><a href="http://mrfu.me/2016/02/27/Glide_Callbacks_SimpleTarget_and_ViewTarget_for_Custom_View_Classes/" target="_blank" rel="external">回调：SimpleTarget 和 ViewTarget 用于自定义视图类</a><br><a href="http://mrfu.me/2016/02/27/Glide_Loading_Images_into_Notifications_and_AppWidgets/" target="_blank" rel="external">加载图片到通知栏和应用小部件中</a><br><a href="http://mrfu.me/2016/02/28/Glide_Exceptions-_Debugging_and_Error_Handling/" target="_blank" rel="external">异常：调试和错误处理</a><br><a href="http://mrfu.me/2016/02/28/Glide_Custom_Transformations/" target="_blank" rel="external">自定义转换</a><br><a href="http://mrfu.me/2016/02/28/Glide_Custom_Transformations/" target="_blank" rel="external">用 animate() 自定义动画</a><br><a href="http://mrfu.me/2016/02/28/Glide_Integrating_Networking_Stacks/" target="_blank" rel="external">集成网络栈</a><br><a href="http://mrfu.me/2016/02/28/Glide_Customize_Glide_with_Modules/" target="_blank" rel="external">用 Module 自定义 Glide</a><br><a href="http://mrfu.me/2016/02/28/Glide_Module_Example_Accepting_Self-Signed_HTTPS_Certificates/" target="_blank" rel="external">Module 实例：接受自签名证书的 HTTPS</a><br><a href="http://mrfu.me/2016/02/28/Glide_Module_Example_Customize_Caching/" target="_blank" rel="external">Module 实例：自定义缓存</a><br><a href="http://mrfu.me/2016/02/28/Glide_Module_Example_Optimizing/" target="_blank" rel="external">Module 实例：用自定义尺寸优化加载的图片</a><br><a href="http://mrfu.me/2016/02/28/Glide_Dynamically_Use_Model_Loaders/" target="_blank" rel="external">动态使用 Model Loader</a><br><a href="http://mrfu.me/2016/02/28/Glide_How_to_Rotate_Images/" target="_blank" rel="external">如何旋转图像</a><br><a href="http://mrfu.me/2016/02/28/Glide_Series_Roundup/" target="_blank" rel="external">系列综述</a></p>
+<p><strong>Picasso</strong><br><a href="http://wuxiaolong.me/2015/09/14/Picasso/">github之Picasso使用</a></p>
+<h1 id="图片操作"><a href="#图片操作" class="headerlink" title="图片操作"></a>图片操作</h1><h2 id="PhotoView"><a href="#PhotoView" class="headerlink" title="PhotoView"></a>PhotoView</h2><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/PhotoView.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""></p>
+<h3 id="简介-5"><a href="#简介-5" class="headerlink" title="简介"></a>简介</h3><p>Implementation of ImageView for Android that supports zooming, by various touch gestures 图片缩放</p>
+<h3 id="github地址-5"><a href="#github地址-5" class="headerlink" title="github地址"></a>github地址</h3><p><a href="https://github.com/chrisbanes/PhotoView" target="_blank" rel="external">https://github.com/chrisbanes/PhotoView</a></p>
+<h3 id="相关博客-4"><a href="#相关博客-4" class="headerlink" title="相关博客"></a>相关博客</h3><p><a href="http://wuxiaolong.me/2015/09/14/PhotoView/">github之PhotoView使用</a></p>
+<h2 id="uCrop"><a href="#uCrop" class="headerlink" title="uCrop"></a>uCrop</h2><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/ucrop0.gif?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""></p>
+<h3 id="简介-6"><a href="#简介-6" class="headerlink" title="简介"></a>简介</h3><p>Image Cropping Library for Android 图片裁剪</p>
+<h3 id="github地址-6"><a href="#github地址-6" class="headerlink" title="github地址"></a>github地址</h3><p><a href="https://github.com/Yalantis/uCrop" target="_blank" rel="external">https://github.com/Yalantis/uCrop</a></p>
+<h3 id="相关博客-5"><a href="#相关博客-5" class="headerlink" title="相关博客"></a>相关博客</h3><p><a href="http://wuxiaolong.me/2016/06/20/uCrop/">uCrop使用及源码浅析</a></p>
+<h2 id="CircleImageView"><a href="#CircleImageView" class="headerlink" title="CircleImageView"></a>CircleImageView</h2><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/CircleImageView.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""></p>
+<h3 id="简介-7"><a href="#简介-7" class="headerlink" title="简介"></a>简介</h3><p>A circular ImageView for Android 圆头像</p>
+<h3 id="github地址-7"><a href="#github地址-7" class="headerlink" title="github地址"></a>github地址</h3><p><a href="https://github.com/hdodenhof/CircleImageView" target="_blank" rel="external">https://github.com/hdodenhof/CircleImageView</a></p>
+<h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><h2 id="Realm"><a href="#Realm" class="headerlink" title="Realm"></a>Realm</h2><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/realm.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""></p>
+<h3 id="简介-8"><a href="#简介-8" class="headerlink" title="简介"></a>简介</h3><p>Realm is a mobile database: a replacement for SQLite &amp; ORMs</p>
+<h3 id="github地址-8"><a href="#github地址-8" class="headerlink" title="github地址"></a>github地址</h3><p><a href="https://github.com/realm/realm-java" target="_blank" rel="external">https://github.com/realm/realm-java</a></p>
+<h3 id="相关博客-6"><a href="#相关博客-6" class="headerlink" title="相关博客"></a>相关博客</h3><p><a href="https://realm.io/cn/docs/java/latest/#getting-started" target="_blank" rel="external">Realm官网</a></p>
+<h1 id="响应式编程"><a href="#响应式编程" class="headerlink" title="响应式编程"></a>响应式编程</h1><h2 id="RxJava"><a href="#RxJava" class="headerlink" title="RxJava"></a>RxJava</h2><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/rxjava.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""></p>
+<h3 id="简介-9"><a href="#简介-9" class="headerlink" title="简介"></a>简介</h3><p>RxJava – Reactive Extensions for the JVM – a library for composing asynchronous and event-based programs using observable sequences for the Java VM</p>
+<h3 id="github地址-9"><a href="#github地址-9" class="headerlink" title="github地址"></a>github地址</h3><p><a href="https://github.com/ReactiveX/RxJava" target="_blank" rel="external">https://github.com/ReactiveX/RxJava</a></p>
+<h3 id="相关博客-7"><a href="#相关博客-7" class="headerlink" title="相关博客"></a>相关博客</h3><p><a href="http://wuxiaolong.me/2016/01/18/rxjava/">RxJava</a><br><a href="http://rxjava.yuxingxin.com/" target="_blank" rel="external">RxJava Essentials CN</a><br><a href="https://mcxiaoke.gitbooks.io/rxdocs/content/" target="_blank" rel="external">ReactiveX文档中文翻译</a><br><a href="http://gank.io/post/560e15be2dca930e00da1083" target="_blank" rel="external">给 Android 开发者的 RxJava 详解</a></p>
+<h1 id="事件总线"><a href="#事件总线" class="headerlink" title="事件总线"></a>事件总线</h1><h2 id="RxBus"><a href="#RxBus" class="headerlink" title="RxBus"></a>RxBus</h2><h3 id="简介-10"><a href="#简介-10" class="headerlink" title="简介"></a>简介</h3><p>基于RxJava写的事件总线</p>
+<h3 id="相关博客-8"><a href="#相关博客-8" class="headerlink" title="相关博客"></a>相关博客</h3><p><a href="http://wuxiaolong.me/2016/04/07/rxbus/">RxBus</a></p>
+<h1 id="下拉刷新"><a href="#下拉刷新" class="headerlink" title="下拉刷新"></a>下拉刷新</h1><h2 id="PullLoadMoreRecyclerView"><a href="#PullLoadMoreRecyclerView" class="headerlink" title="PullLoadMoreRecyclerView"></a>PullLoadMoreRecyclerView</h2><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/PullLoadMoreRecyclerView.gif?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""></p>
+<h3 id="简介-11"><a href="#简介-11" class="headerlink" title="简介"></a>简介</h3><p>实现RecyclerView下拉刷新和上拉加载更多以及RecyclerView线性、网格、瀑布流效果演示。适用于只需要简单地实现下拉刷新和上拉加载效果。</p>
+<h3 id="github地址-10"><a href="#github地址-10" class="headerlink" title="github地址"></a>github地址</h3><p><a href="https://github.com/WuXiaolong/PullLoadMoreRecyclerView" target="_blank" rel="external">https://github.com/WuXiaolong/PullLoadMoreRecyclerView</a></p>
+<h3 id="相关博客-9"><a href="#相关博客-9" class="headerlink" title="相关博客"></a>相关博客</h3><p><a href="https://github.com/WuXiaolong/PullLoadMoreRecyclerView/blob/master/README.md" target="_blank" rel="external">PullLoadMoreRecyclerView</a></p>
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>知道了解以上开源框架，开发又何忧！我总结的可能还不够全，如果您觉得实际项目中还有必用到的库，欢迎留言哈。</p>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>赞赏是一种共鸣或认可</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="吴小龙同學 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    吴小龙同學
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://wuxiaolong.me/2016/09/07/MyAndroidLibrary/" title="一套完整的Android通用框架">http://wuxiaolong.me/2016/09/07/MyAndroidLibrary/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Library/" rel="tag"># Library</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/27/Canvas/" rel="next" title="Android 画布Canvas">
+                <i class="fa fa-chevron-left"></i> Android 画布Canvas
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/12/weiyanChild/" rel="prev" title="微言-源码售卖">
+                微言-源码售卖 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTM2My81OTMx"></div>
+    </div>
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="http://7q5c2h.com1.z0.glb.clouddn.com/avatar.jpg" alt="吴小龙同學">
+            
+              <p class="site-author-name" itemprop="name">吴小龙同學</p>
+              <p class="site-description motion-element" itemprop="description">我的微信公众号：吴小龙同学</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">163</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">129</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/WuXiaolong" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://open.weixin.qq.com/qr/code/?username=MrWuXiaolong" target="_blank" title="WeChat">
+                    
+                      <i class="fa fa-fw fa-globe"></i>WeChat</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/u/2175011601" target="_blank" title="Weibo">
+                    
+                      <i class="fa fa-fw fa-globe"></i>Weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="/qq/index.html" target="_blank" title="QQ">
+                    
+                      <i class="fa fa-fw fa-globe"></i>QQ</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MVP模式"><span class="nav-number">1.</span> <span class="nav-text">MVP模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#MVP"><span class="nav-number">1.1.</span> <span class="nav-text">MVP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#github地址"><span class="nav-number">1.1.2.</span> <span class="nav-text">github地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关博客"><span class="nav-number">1.1.3.</span> <span class="nav-text">相关博客</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#依赖注入"><span class="nav-number">2.</span> <span class="nav-text">依赖注入</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#butterknife"><span class="nav-number">2.1.</span> <span class="nav-text">butterknife</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介-1"><span class="nav-number">2.1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#github地址-1"><span class="nav-number">2.1.2.</span> <span class="nav-text">github地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关博客-1"><span class="nav-number">2.1.3.</span> <span class="nav-text">相关博客</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#网络请求"><span class="nav-number">3.</span> <span class="nav-text">网络请求</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Retrofit"><span class="nav-number">3.1.</span> <span class="nav-text">Retrofit</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介-2"><span class="nav-number">3.1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#github地址-2"><span class="nav-number">3.1.2.</span> <span class="nav-text">github地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关博客-2"><span class="nav-number">3.1.3.</span> <span class="nav-text">相关博客</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#图片加载"><span class="nav-number">4.</span> <span class="nav-text">图片加载</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#glide"><span class="nav-number">4.1.</span> <span class="nav-text">glide</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介-3"><span class="nav-number">4.1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#github地址-3"><span class="nav-number">4.1.2.</span> <span class="nav-text">github地址</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#picasso"><span class="nav-number">4.2.</span> <span class="nav-text">picasso</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介-4"><span class="nav-number">4.2.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#github地址-4"><span class="nav-number">4.2.2.</span> <span class="nav-text">github地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关博客-3"><span class="nav-number">4.2.3.</span> <span class="nav-text">相关博客</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#图片操作"><span class="nav-number">5.</span> <span class="nav-text">图片操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#PhotoView"><span class="nav-number">5.1.</span> <span class="nav-text">PhotoView</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介-5"><span class="nav-number">5.1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#github地址-5"><span class="nav-number">5.1.2.</span> <span class="nav-text">github地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关博客-4"><span class="nav-number">5.1.3.</span> <span class="nav-text">相关博客</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#uCrop"><span class="nav-number">5.2.</span> <span class="nav-text">uCrop</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介-6"><span class="nav-number">5.2.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#github地址-6"><span class="nav-number">5.2.2.</span> <span class="nav-text">github地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关博客-5"><span class="nav-number">5.2.3.</span> <span class="nav-text">相关博客</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CircleImageView"><span class="nav-number">5.3.</span> <span class="nav-text">CircleImageView</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介-7"><span class="nav-number">5.3.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#github地址-7"><span class="nav-number">5.3.2.</span> <span class="nav-text">github地址</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据库"><span class="nav-number">6.</span> <span class="nav-text">数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Realm"><span class="nav-number">6.1.</span> <span class="nav-text">Realm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介-8"><span class="nav-number">6.1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#github地址-8"><span class="nav-number">6.1.2.</span> <span class="nav-text">github地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关博客-6"><span class="nav-number">6.1.3.</span> <span class="nav-text">相关博客</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#响应式编程"><span class="nav-number">7.</span> <span class="nav-text">响应式编程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#RxJava"><span class="nav-number">7.1.</span> <span class="nav-text">RxJava</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介-9"><span class="nav-number">7.1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#github地址-9"><span class="nav-number">7.1.2.</span> <span class="nav-text">github地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关博客-7"><span class="nav-number">7.1.3.</span> <span class="nav-text">相关博客</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#事件总线"><span class="nav-number">8.</span> <span class="nav-text">事件总线</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#RxBus"><span class="nav-number">8.1.</span> <span class="nav-text">RxBus</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介-10"><span class="nav-number">8.1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关博客-8"><span class="nav-number">8.1.2.</span> <span class="nav-text">相关博客</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#下拉刷新"><span class="nav-number">9.</span> <span class="nav-text">下拉刷新</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#PullLoadMoreRecyclerView"><span class="nav-number">9.1.</span> <span class="nav-text">PullLoadMoreRecyclerView</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介-11"><span class="nav-number">9.1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#github地址-10"><span class="nav-number">9.1.2.</span> <span class="nav-text">github地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关博客-9"><span class="nav-number">9.1.3.</span> <span class="nav-text">相关博客</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最后"><span class="nav-number">10.</span> <span class="nav-text">最后</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2013 &mdash; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">吴小龙同學</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

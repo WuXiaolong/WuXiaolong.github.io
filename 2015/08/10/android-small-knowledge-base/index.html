@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/favicon.ico?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Android,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="吴小龙同學" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="这份是我工作以来，总结的小知识库，有些知识点现在看来太LOW了，把还觉得有用的分享出来！">
+<meta name="keywords" content="Android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android小知识库">
+<meta property="og:url" content="http://wuxiaolong.me/2015/08/10/android-small-knowledge-base/index.html">
+<meta property="og:site_name" content="吴小龙同學">
+<meta property="og:description" content="这份是我工作以来，总结的小知识库，有些知识点现在看来太LOW了，把还觉得有用的分享出来！">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/AlertDialog.jpg">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/changelist1.jpg">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/changelist2.jpg">
+<meta property="og:image" content="http://i.stack.imgur.com/2KSyU.png">
+<meta property="og:updated_time" content="2016-10-10T14:21:52.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android小知识库">
+<meta name="twitter:description" content="这份是我工作以来，总结的小知识库，有些知识点现在看来太LOW了，把还觉得有用的分享出来！">
+<meta name="twitter:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/AlertDialog.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://wuxiaolong.me/2015/08/10/android-small-knowledge-base/">
+
+
+
+
+
+  <title>Android小知识库 | 吴小龙同學</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-105780265-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0e1dc2030f397dfa0d60ad22b374430d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">吴小龙同學</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">党要我帅，我不得不帅！</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-friendslinks">
+          <a href="/friendslinks/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-users"></i> <br>
+            
+            小伙伴
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input">
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'ywBn2eRCzfb494KCWJw3','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2015/08/10/android-small-knowledge-base/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吴小龙同學">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://7q5c2h.com1.z0.glb.clouddn.com/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴小龙同學">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Android小知识库</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-08-10T14:32:49+08:00">
+                2015-08-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>这份是我工作以来，总结的小知识库，有些知识点现在看来太LOW了，把还觉得有用的分享出来！</p>
+</blockquote>
+<a id="more"></a>
+<h1 id="Android-6-0-Dialog-text-doesn’t-appear"><a href="#Android-6-0-Dialog-text-doesn’t-appear" class="headerlink" title="Android 6.0 Dialog text doesn’t appear"></a>Android 6.0 Dialog text doesn’t appear</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">AlertDialog.Builder builder = new AlertDialog.Builder(this);</div><div class="line">builder.setTitle(&quot;退出登录&quot;);</div><div class="line">builder.setMessage(&quot;您确定要退出登录吗？&quot;);</div><div class="line">builder.setNegativeButton(&quot;取消&quot;, null);</div><div class="line">builder.setPositiveButton(&quot;确定&quot;, new DialogInterface.OnClickListener() &#123;</div><div class="line">    @Override</div><div class="line">    public void onClick(DialogInterface dialog, int which) &#123;</div><div class="line">        HashMap&lt;String, String&gt; params = new HashMap&lt;String, String&gt;();</div><div class="line">        postData(API.LOGOUT, params, false, new ResponseCallBack&lt;String&gt;(Settingctivity.this) &#123;</div><div class="line">            @Override</div><div class="line">            public void onSuccessResponse(String bean, String msg) &#123;</div><div class="line">               </div><div class="line">            &#125;</div><div class="line">            @Override</div><div class="line">            public void onFailResponse(String msg) &#123;</div><div class="line">               </div><div class="line">            &#125;</div><div class="line">        &#125;, null, null, true);</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">builder.create().show();</div></pre></td></tr></table></figure>
+<p>正常这样是没问题，但是在Android 6.0发现文本不显示，如图：<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/AlertDialog.jpg" alt=""></p>
+<p>解决方案:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * http://stackoverflow.com/questions/33228454/android-6-0-dialog-text-doesnt-appear</div><div class="line"> *</div><div class="line"> * @param context</div><div class="line"> * @return</div><div class="line"> */</div><div class="line">public static AlertDialog.Builder alertDialogBuilder(Context context) &#123;</div><div class="line">    AlertDialog.Builder builder;</div><div class="line">    if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.LOLLIPOP) &#123;</div><div class="line">        builder = new AlertDialog.Builder(context, android.R.style.Theme_Material_Light_Dialog_Alert);</div><div class="line">    &#125; else &#123;</div><div class="line">        builder = new AlertDialog.Builder(context);</div><div class="line">    &#125;</div><div class="line">    return builder;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>然后初始化<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AlertDialog.Builder builder = alertDialogBuilder(this);</div></pre></td></tr></table></figure></p>
+<h1 id="android-studio-svn-commit-changelist-delete"><a href="#android-studio-svn-commit-changelist-delete" class="headerlink" title="android studio svn commit changelist delete"></a>android studio svn commit changelist delete</h1><p>如图，强迫症犯了，就想删掉<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/changelist1.jpg" alt=""><br>解决方案：<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/changelist2.jpg" alt=""></p>
+<h1 id="Android-Activity做成对话框效果"><a href="#Android-Activity做成对话框效果" class="headerlink" title="Android Activity做成对话框效果"></a>Android Activity做成对话框效果</h1><p>设置透明主题<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar"&gt;</div><div class="line">    &lt;!-- Customize your theme here. --&gt;</div><div class="line">    &lt;item name="colorPrimary"&gt;@color/colorPrimary&lt;/item&gt;</div><div class="line">    &lt;item name="colorPrimaryDark"&gt;@color/colorPrimaryDark&lt;/item&gt;</div><div class="line">    &lt;item name="colorAccent"&gt;@color/colorAccent&lt;/item&gt;    </div><div class="line">&lt;/style&gt;</div><div class="line">&lt;style name="ActivityDialog" parent="AppTheme"&gt;</div><div class="line">    &lt;!--透明主题android:theme="@android:style/Theme.Translucent"--&gt;</div><div class="line">    &lt;item name="android:windowBackground"&gt;@color/transparent&lt;/item&gt;</div><div class="line">    &lt;item name="android:colorBackgroundCacheHint"&gt;@null&lt;/item&gt;</div><div class="line">    &lt;item name="android:windowIsTranslucent"&gt;true&lt;/item&gt;</div><div class="line">    &lt;item name="android:windowAnimationStyle"&gt;@android:style/Animation&lt;/item&gt;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure></p>
+<p>颜色值<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;color name="transparent"&gt;#9000&lt;/color&gt;</div></pre></td></tr></table></figure></p>
+<p>主题引用<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"> &lt;activity</div><div class="line">    android:name=".views.activitys.useraddress.ActivityDialogActivity"</div><div class="line">    android:screenOrientation="portrait"</div><div class="line">    android:theme="@style/ActivityDialog"&gt;</div><div class="line">&lt;/activity&gt;</div></pre></td></tr></table></figure></p>
+<h1 id="The-APK-file-does-not-exist-on-disk-Error-while-Installing-APK"><a href="#The-APK-file-does-not-exist-on-disk-Error-while-Installing-APK" class="headerlink" title="The APK file does not exist on disk.Error while Installing APK"></a>The APK file does not exist on disk.Error while Installing APK</h1><p>解决方案：<br><img src="http://i.stack.imgur.com/2KSyU.png" alt=""></p>
+<h1 id="Android-Studio获取SHA1"><a href="#Android-Studio获取SHA1" class="headerlink" title="Android Studio获取SHA1"></a>Android Studio获取SHA1</h1><p>1、全局配置jdk1.8.0_45\bin（或cd进入bin目录）<br>2、keytool -v -list -keystore 你的keystore路径<br>3、输入秘钥库口令：如果没设置，这里就是空，直接回车就进去了。</p>
+<h1 id="Genymotion下载虚拟镜像Connection-timeout"><a href="#Genymotion下载虚拟镜像Connection-timeout" class="headerlink" title="Genymotion下载虚拟镜像Connection timeout"></a>Genymotion下载虚拟镜像Connection timeout</h1><p>Add new device出现的问题：</p>
+<blockquote>
+<p>Failed to deploy virtual device.<br>Unable to create virtual device.Connection timeout occurred.</p>
+</blockquote>
+<p>解决方案：</p>
+<ol>
+<li>当选择Google Nexus 5 - 6.0.0 - API 23 - 1080x1920下载device失败后，到C:\Users\用户主目录\AppData\Local\Genymobile\Genymotion\ova下看到genymotion_vbox86p_6.0_160114_090449.ova，大小却是0KB，在C:\Users\用户主目录\AppData\Local\Genymobile\genymotion.log，打开该文件，找到类似“<a href="http://files2.genymotion.com/dists/6.0.0/ova/genymotion_vbox86p_6.0_160114_090449.ova”路径，即您想要下载的镜像文件URL；" target="_blank" rel="external">http://files2.genymotion.com/dists/6.0.0/ova/genymotion_vbox86p_6.0_160114_090449.ova”路径，即您想要下载的镜像文件URL；</a></li>
+<li>用迅雷去下载，下载完成后放到C:\Users\用户主目录\AppData\Local\Genymobile\Genymotion\ova；</li>
+<li>重新点击Google Nexus 5 - 6.0.0 - API 23 - 1080x1920去下载，验证安装后即会显示在设备列表中。</li>
+</ol>
+<h1 id="Android-Studio-如何Debug"><a href="#Android-Studio-如何Debug" class="headerlink" title="Android Studio 如何Debug"></a>Android Studio 如何Debug</h1><p>单击F5(Step Over)，单行一个个方法执行<br>单击F6(Step Into)，单行执行<br>单击F7(Step Out)，不往下执行，回到上一行<br>单击F8(Resume Program)，跳出当前断点</p>
+<h1 id="Android-Studio设置默认的签名文件"><a href="#Android-Studio设置默认的签名文件" class="headerlink" title="Android Studio设置默认的签名文件"></a>Android Studio设置默认的签名文件</h1><p>新浪微博SSO登录，微信分享这些都需要签名打包，才能看到效果，设置默认签名文件为自己的签名jks，这样就不需要打包了。<br>在app目录下添加你的.jks，然后app的build.gradle文件中的增加以下内容：<br>第一种：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">android &#123;  </div><div class="line">    signingConfigs &#123;  </div><div class="line">        debug &#123;  </div><div class="line">            <span class="function">storeFile <span class="title">file</span><span class="params">(<span class="string">"你的.jks"</span>)</span></span></div><div class="line">            storePassword 'android'</div><div class="line">            keyAlias 'android'</div><div class="line">            keyPassword 'android'</div><div class="line">        &#125;          </div><div class="line">    &#125;  	</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>第二种：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">android &#123;  </div><div class="line">    signingConfigs &#123;  </div><div class="line">        release &#123;  </div><div class="line">            <span class="function">storeFile <span class="title">file</span><span class="params">(<span class="string">"你的.jks"</span>)</span></span></div><div class="line">            storePassword 'android'</div><div class="line">            keyAlias 'android'</div><div class="line">            keyPassword 'android'</div><div class="line">        &#125;          </div><div class="line">    &#125;  </div><div class="line">	buildTypes &#123;</div><div class="line">        debug &#123;</div><div class="line">            signingConfig signingConfigs.release</div><div class="line">        &#125;        </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这样编译出来的debug版本直接用的是你的正式签名</p>
+<h1 id="Fragment懒加载"><a href="#Fragment懒加载" class="headerlink" title="Fragment懒加载"></a>Fragment懒加载</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">protected</span> <span class="keyword">boolean</span> isVisible;</div><div class="line"></div><div class="line">   <span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUserVisibleHint</span><span class="params">(<span class="keyword">boolean</span> isVisibleToUser)</span> </span>&#123;</div><div class="line">       <span class="keyword">super</span>.setUserVisibleHint(isVisibleToUser);</div><div class="line">       <span class="keyword">if</span> (getUserVisibleHint()) &#123;</div><div class="line">           isVisible = <span class="keyword">true</span>;</div><div class="line">           onVisible();</div><div class="line">       &#125; <span class="keyword">else</span> &#123;</div><div class="line">           isVisible = <span class="keyword">false</span>;</div><div class="line">           onInvisible();</div><div class="line">       &#125;</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onVisible</span><span class="params">()</span> </span>&#123;</div><div class="line">      lazyLoad();</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">lazyLoad</span><span class="params">()</span> </span>&#123;</div><div class="line">       <span class="keyword">if</span> (!isVisible) &#123;</div><div class="line">           <span class="keyword">return</span>;</div><div class="line">       &#125;</div><div class="line">       getData();</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onInvisible</span><span class="params">()</span> </span>&#123;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<h1 id="Android-studio头注释和方法注释"><a href="#Android-studio头注释和方法注释" class="headerlink" title="Android studio头注释和方法注释"></a>Android studio头注释和方法注释</h1><p>File | Settings | Editor|File and Code Templates|Includes|File Header<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by $&#123;USER&#125; on $&#123;DATE&#125;.</div><div class="line"> */</div></pre></td></tr></table></figure></p>
+<p>输入我们想要设置的注释模板</p>
+<h1 id="adapter-getPositionForSelection-和getSectionForPosition"><a href="#adapter-getPositionForSelection-和getSectionForPosition" class="headerlink" title="adapter.getPositionForSelection()和getSectionForPosition()"></a>adapter.getPositionForSelection()和getSectionForPosition()</h1><p>getPositionForSection()根据分类列的索引号获得该序列的首个位置<br>getSectionForPosition()通过该项的位置，获得所在分类组的索引号</p>
+<h1 id="getResources-getColor-R-color-color-name-is-deprecated和drawableTop"><a href="#getResources-getColor-R-color-color-name-is-deprecated和drawableTop" class="headerlink" title="getResources().getColor(R.color.color_name) is deprecated和drawableTop"></a>getResources().getColor(R.color.color_name) is deprecated和drawableTop</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">textView.setTextColor(Color.parseColor(<span class="string">"#FFFFFF"</span>));</div><div class="line"><span class="comment">//或者</span></div><div class="line">ContextCompat.getColor(context, R.color.color_name)</div></pre></td></tr></table></figure>
+<h1 id="showPopupWindow"><a href="#showPopupWindow" class="headerlink" title="showPopupWindow"></a>showPopupWindow</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">showPopupMenu</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">    <span class="keyword">final</span> View bgView = View.inflate(DemoApplication.getContext(), R.layout.demo_popup_window_bg, <span class="keyword">null</span>);</div><div class="line">    bgView.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">            hidePopupWindow();</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">    <span class="keyword">if</span> (mPopupBackground == <span class="keyword">null</span>) &#123;</div><div class="line">        mPopupBackground = <span class="keyword">new</span> PopupWindow(bgView, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);</div><div class="line">    &#125;</div><div class="line">    mPopupBackground.showAtLocation(v, Gravity.BOTTOM, <span class="number">0</span>, <span class="number">0</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>v：父布局<br>demo_popup_window_bg.xml<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span>?&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:background</span>=<span class="string">"@color/aliwx_common_alpha_black"</span>&gt;</div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h1 id="onFinishInflate"><a href="#onFinishInflate" class="headerlink" title="onFinishInflate()"></a>onFinishInflate()</h1><p>view的onFinishInflate()何时调用的？<br>当View中所有的子控件均被映射成xml后触发；<br>MyView mv = (MyView)View.inflate (context,R.layout.my_view,null);<br>当加载完成xml后，就会执行那个方法；<br>我们一般使用View的流程是在onCreate中使用setContentView来设置要显示Layout文件或直接创建一个View，在当设置了ContentView之后系统会对这个View进行解析，然后回调当前视图View中的onFinishInflate方法。只有解析了这个View我们才能在这个View容器中获取到拥有Id的组件，同样因为系统解析完View之后才会调用onFinishInflate方法，所以我们自定义组件时可以onFinishInflate方法中获取指定子View的引用。</p>
+<h1 id="Fragment设置隐藏或显示某个Fragment"><a href="#Fragment设置隐藏或显示某个Fragment" class="headerlink" title="Fragment设置隐藏或显示某个Fragment"></a>Fragment设置隐藏或显示某个Fragment</h1><p>MainFragment点击<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onItemClick</span><span class="params">(AdapterView&lt;?&gt; adapterView, View view,</span></span></div><div class="line">                            <span class="keyword">int</span> position, <span class="keyword">long</span> id) &#123;</div><div class="line">       </div><div class="line">        ((MainActivity) getActivity()).showImageFragment(<span class="keyword">true</span>, mData.get(position).get(<span class="string">"title"</span>).toString(), mData.get(position).get(<span class="string">"imgUrl"</span>).toString());</div><div class="line">        </div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>MainActivity<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showImageFragment</span><span class="params">(<span class="keyword">boolean</span> show, String imgTxt, String imgUrl)</span> </span>&#123;</div><div class="line">        <span class="comment">// showActionbarWithTabs(!show);</span></div><div class="line">        <span class="keyword">if</span> (show) &#123;</div><div class="line">            getSupportFragmentManager().beginTransaction()</div><div class="line">                    .show(imageDetailFragment).commit();</div><div class="line">            imageDetailFragment.setImgData(imgTxt, imgUrl);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            getSupportFragmentManager().beginTransaction()</div><div class="line">                    .hide(imageDetailFragment).commit();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<h1 id="获取arrt的值"><a href="#获取arrt的值" class="headerlink" title="获取arrt的值"></a>获取arrt的值</h1><p>不同主题下需要把颜色，数值写成attr属性<br>xml里，我们可以简单的引用attr属性值<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">android:background=<span class="string">"?attr/colorPrimary"</span></div></pre></td></tr></table></figure></p>
+<p>代码获取<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">TypedValue typedValue = <span class="keyword">new</span> TypedValue();</div><div class="line">mContext.getTheme().resolveAttribute(R.attr.colorPrimary, typedValue, <span class="keyword">true</span>);</div><div class="line"><span class="keyword">int</span> colorPrimary = typedValue.data;<span class="comment">//value.data里面存储着的就是获取到的colorPrimary的值</span></div></pre></td></tr></table></figure></p>
+<h1 id="拨号盘拨打电话"><a href="#拨号盘拨打电话" class="headerlink" title="拨号盘拨打电话"></a>拨号盘拨打电话</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Intent intent = <span class="keyword">new</span> Intent(Intent.ACTION_CALL,</div><div class="line">Uri.parse(<span class="string">"tel:"</span> + <span class="string">"400-036-1977"</span>));</div><div class="line"><span class="comment">// intent.setAction(Intent.ACTION_CALL);// 直接拨号</span></div><div class="line">intent.setAction(Intent.ACTION_DIAL);<span class="comment">// 拨号盘</span></div><div class="line">startActivity(intent);</div></pre></td></tr></table></figure>
+<h1 id="Drawable-Bitmap、String-InputStream、Bitmap-byte-互转"><a href="#Drawable-Bitmap、String-InputStream、Bitmap-byte-互转" class="headerlink" title="Drawable /Bitmap、String/InputStream、Bitmap/byte[]互转"></a>Drawable /Bitmap、String/InputStream、Bitmap/byte[]互转</h1><p><a href="http://wuxiaolong.me/2015/08/10/Drawable-to-Bitmap/">http://wuxiaolong.me/2015/08/10/Drawable-to-Bitmap/</a></p>
+<h1 id="ProgressDialog"><a href="#ProgressDialog" class="headerlink" title="ProgressDialog"></a>ProgressDialog</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">final</span> ProgressDialog progress = <span class="keyword">new</span> ProgressDialog(LoginActivity.<span class="keyword">this</span>);</div><div class="line">		progress.setMessage(<span class="string">"请稍等..."</span>);</div><div class="line">		progress.setCanceledOnTouchOutside(<span class="keyword">false</span>);</div><div class="line">		progress.show();</div><div class="line">progress.dismiss();</div></pre></td></tr></table></figure>
+<h1 id="毫秒"><a href="#毫秒" class="headerlink" title="毫秒"></a>毫秒</h1><p>毫秒Calendar.getInstance().getTimeInMillis()和System.currentTimeMillis()</p>
+<h1 id="Fragment-setUserVisibleHint-boolean-isVisibleToUser"><a href="#Fragment-setUserVisibleHint-boolean-isVisibleToUser" class="headerlink" title="Fragment  setUserVisibleHint(boolean isVisibleToUser)"></a>Fragment  setUserVisibleHint(boolean isVisibleToUser)</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUserVisibleHint</span><span class="params">(<span class="keyword">boolean</span> isVisibleToUser)</span> </span>&#123;</div><div class="line">       <span class="keyword">super</span>.setUserVisibleHint(isVisibleToUser);</div><div class="line">       <span class="keyword">if</span> (isVisibleToUser) &#123;</div><div class="line">           <span class="comment">//相当于Fragment的onResume</span></div><div class="line">       &#125; <span class="keyword">else</span> &#123;</div><div class="line">           <span class="comment">//相当于Fragment的onPause</span></div><div class="line">       &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<h1 id="Fragment-onActivityResult"><a href="#Fragment-onActivityResult" class="headerlink" title="Fragment  onActivityResult"></a>Fragment  onActivityResult</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onActivityResult</span><span class="params">(<span class="keyword">int</span> requestCode, <span class="keyword">int</span> resultCode, Intent data)</span> </span>&#123;</div><div class="line">		<span class="keyword">super</span>.onActivityResult(requestCode, resultCode, data);</div><div class="line">		getActivity();</div><div class="line">		<span class="keyword">if</span> (resultCode == Activity.RESULT_OK</div><div class="line">				&amp;&amp; requestCode == AppUtils.REQUEST_CODE_ISLOGIN) &#123;</div><div class="line">			<span class="comment">// 检查是否完善资料</span></div><div class="line"></div><div class="line">			<span class="keyword">if</span> (AppUtils.getSharedPreferences(getActivity()).getBoolean(</div><div class="line">					<span class="string">"hasPersonalData"</span>, <span class="keyword">false</span>)) &#123;</div><div class="line">				<span class="comment">// 取本地存取是否完善资料,完善直接提示咨询对话框</span></div><div class="line">				consultationDialog();</div><div class="line">			&#125; <span class="keyword">else</span> &#123;</div><div class="line">				getCheckPersonalData();</div><div class="line">			&#125;</div><div class="line"></div><div class="line">		&#125;</div><div class="line">	&#125; </div><div class="line"></div><div class="line">startActivityForResult(intent,</div><div class="line">							AppConfig.REQUEST_CODE_DIALOGUE);<span class="comment">// 不是调用 getActivity().startActivityForResult()。</span></div></pre></td></tr></table></figure>
+<h1 id="dimen代码取值"><a href="#dimen代码取值" class="headerlink" title="dimen代码取值"></a>dimen代码取值</h1><p>getDimension方法获取到资源文件中定义的dimension值。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Resources res = getResources();</div><div class="line">float fontSize = res.getDimension(R.dimen.font_size);</div></pre></td></tr></table></figure></p>
+<h1 id="数组初始化赋值"><a href="#数组初始化赋值" class="headerlink" title="数组初始化赋值"></a>数组初始化赋值</h1><p>1、创建数组后，通过循环对数组赋值。<br>例如代码：<br>int [] nums = new int [100];<br>for(int i=0;i&lt;10;i++){<br>nums[i] = i;<br>}<br>2、例如代码：<br>int [] nums = {0,1,2,3,4,5,6,7,8,9};<br>3、int [] nums = new int[]{0,1,2,3,4,5,6,7,8,9};</p>
+<p>4、数组增加元素<br>//增加ruby<br>List list = new ArrayList();<br>for (int i=0; i<br>list.add(str[i]);<br>}<br>list.add(2, “ruby”); //list.add(“ruby”)<br>System.out.println();<br>String[] newStr = list.toArray(new String[1]); //返回一个包含所有对象的指定类型的数组</p>
+<h1 id="Fragment-isAdded"><a href="#Fragment-isAdded" class="headerlink" title="Fragment.isAdded()"></a>Fragment.isAdded()</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Fragment mBeforeFragment = <span class="keyword">new</span> Fragment();</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">switchFragment</span><span class="params">(Fragment currentFragment)</span> </span>&#123;</div><div class="line"><span class="keyword">if</span> (currentFragment.isAdded()) &#123;</div><div class="line">getSupportFragmentManager().beginTransaction().hide(mBeforeFragment).show(currentFragment).commit();</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">getSupportFragmentManager().beginTransaction().hide(mBeforeFragment).add(R.id.container, currentFragment).commit();</div><div class="line">&#125;</div><div class="line">mBeforeFragment = currentFragment;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>调用：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">switchFragment(HomeFragment.newInstance());</div></pre></td></tr></table></figure></p>
+<p>HomeFragment<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> HomeFragment homeFragment = <span class="keyword">null</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> HomeFragment <span class="title">newInstance</span><span class="params">()</span> </span>&#123;</div><div class="line"><span class="keyword">if</span> (homeFragment == <span class="keyword">null</span>) &#123;</div><div class="line">homeFragment = <span class="keyword">new</span> HomeFragment();</div><div class="line">&#125;</div><div class="line"><span class="keyword">return</span> homeFragment;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="android之inputType属性"><a href="#android之inputType属性" class="headerlink" title="android之inputType属性"></a>android之inputType属性</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">&lt;EditText android:layout_width=<span class="string">"fill_parent"</span> </div><div class="line">android:layout_height=<span class="string">"wrap_content"</span> </div><div class="line">android:inputType=<span class="string">"phone"</span> /&gt;</div><div class="line"><span class="comment">//文本类型，多为大写、小写和数字符号。</span></div><div class="line">    android:inputType=<span class="string">"none"</span></div><div class="line">    android:inputType=<span class="string">"text"</span></div><div class="line">    android:inputType=<span class="string">"textCapCharacters"</span> 字母大写</div><div class="line">    android:inputType=<span class="string">"textCapWords"</span> 首字母大写</div><div class="line">    android:inputType=<span class="string">"textCapSentences"</span> 仅第一个字母大写</div><div class="line">    android:inputType=<span class="string">"textAutoCorrect"</span> 自动完成</div><div class="line">    android:inputType=<span class="string">"textAutoComplete"</span> 自动完成</div><div class="line">    android:inputType=<span class="string">"textMultiLine"</span> 多行输入</div><div class="line">    android:inputType=<span class="string">"textImeMultiLine"</span> 输入法多行（如果支持）</div><div class="line">    android:inputType=<span class="string">"textNoSuggestions"</span> 不提示</div><div class="line">    android:inputType=<span class="string">"textUri"</span> 网址</div><div class="line">    android:inputType=<span class="string">"textEmailAddress"</span> 电子邮件地址</div><div class="line">    android:inputType=<span class="string">"textEmailSubject"</span> 邮件主题</div><div class="line">    android:inputType=<span class="string">"textShortMessage"</span> 短讯</div><div class="line">    android:inputType=<span class="string">"textLongMessage"</span> 长信息</div><div class="line">    android:inputType=<span class="string">"textPersonName"</span> 人名</div><div class="line">    android:inputType=<span class="string">"textPostalAddress"</span> 地址</div><div class="line">    android:inputType=<span class="string">"textPassword"</span> 密码</div><div class="line">    android:inputType=<span class="string">"textVisiblePassword"</span> 可见密码</div><div class="line">    android:inputType=<span class="string">"textWebEditText"</span> 作为网页表单的文本</div><div class="line">    android:inputType=<span class="string">"textFilter"</span> 文本筛选过滤</div><div class="line">    android:inputType=<span class="string">"textPhonetic"</span> 拼音输入</div><div class="line"><span class="comment">//数值类型</span></div><div class="line">    android:inputType=<span class="string">"number"</span> 数字</div><div class="line">    android:inputType=<span class="string">"numberSigned"</span> 带符号数字格式</div><div class="line">    android:inputType=<span class="string">"numberDecimal"</span> 带小数点的浮点格式</div><div class="line">    android:inputType=<span class="string">"phone"</span> 拨号键盘</div><div class="line">    android:inputType=<span class="string">"datetime"</span> 时间日期</div><div class="line">    android:inputType=<span class="string">"date"</span> 日期键盘</div><div class="line">android:inputType=<span class="string">"time"</span> 时间键盘</div></pre></td></tr></table></figure>
+<h1 id="ImageView-ScaleType"><a href="#ImageView-ScaleType" class="headerlink" title="ImageView.ScaleType"></a>ImageView.ScaleType</h1><p>（1）ImageView.ScaleType.center:图片位于视图中间，但不执行缩放。<br>（2）ImageView.ScaleType.CENTER_CROP 按统一比例缩放图片（保持图片的尺寸比例）便于图片的两维（宽度和高度）等于或者大于相应的视图的维度<br>（3）ImageView.ScaleType.CENTER_INSIDE按统一比例缩放图片（保持图片的尺寸比例）便于图片的两维（宽度和高度）等于或者小于相应的视图的维度<br>（4）ImageView.ScaleType.FIT_CENTER缩放图片使用center<br>（5）ImageView.ScaleType.FIT_END缩放图片使用END<br>（6）ImageView.ScaleType.FIT_START缩放图片使用START<br>（7）ImageView.ScaleType.FIT_XY缩放图片使用XY<br>（8）ImageView.ScaleType.MATRIX当绘制时使用图片矩阵缩放</p>
+<h1 id="调用系统发送短信界面"><a href="#调用系统发送短信界面" class="headerlink" title="调用系统发送短信界面"></a>调用系统发送短信界面</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">* 发送短信</div><div class="line">* <span class="doctag">@param</span> smsBody</div><div class="line">*/</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">sendSMS</span><span class="params">(String smsBody)</span></span></div><div class="line">&#123;</div><div class="line"><span class="comment">//Uri smsToUri = Uri.parse("smsto:10000"); //如果想指定发送人</span></div><div class="line">Uri smsToUri = Uri.parse(<span class="string">"smsto:"</span>);</div><div class="line">Intent intent = <span class="keyword">new</span> Intent(Intent.ACTION_SENDTO, smsToUri);</div><div class="line">intent.putExtra(<span class="string">"sms_body"</span>, smsBody);</div><div class="line">startActivity(intent);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="跳转市场搜索某款软件"><a href="#跳转市场搜索某款软件" class="headerlink" title="跳转市场搜索某款软件"></a>跳转市场搜索某款软件</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Intent intent = <span class="keyword">new</span> Intent(</div><div class="line">				<span class="string">"android.intent.action.VIEW"</span>);</div><div class="line">		intent.setData(Uri</div><div class="line">				.parse(<span class="string">"market://details?id=com.adobe.flashplayer"</span>));</div><div class="line">		startActivity(intent);</div></pre></td></tr></table></figure>
+<h1 id="检测系统中是否安装某款软件"><a href="#检测系统中是否安装某款软件" class="headerlink" title="检测系统中是否安装某款软件"></a>检测系统中是否安装某款软件</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//检测系统中是否已经安装了adobe flash player插件，插件的packageName是com.adobe.flashplayer：</span></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">check</span><span class="params">()</span> </span>&#123;</div><div class="line">		PackageManager pm = getPackageManager();</div><div class="line">		List&lt;PackageInfo&gt; infoList = pm</div><div class="line">				.getInstalledPackages(PackageManager.GET_SERVICES);</div><div class="line">		<span class="keyword">for</span> (PackageInfo info : infoList) &#123;</div><div class="line">			<span class="keyword">if</span> (<span class="string">"com.adobe.flashplayer"</span>.equals(info.packageName)) &#123;</div><div class="line">				<span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">isAvilible</span><span class="params">(String packageName)</span> </span>&#123;</div><div class="line"></div><div class="line">		PackageInfo packageInfo;</div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			packageInfo = <span class="keyword">this</span>.getPackageManager().getPackageInfo(packageName,</div><div class="line">					<span class="number">0</span>);</div><div class="line"></div><div class="line">		&#125; <span class="keyword">catch</span> (NameNotFoundException e) &#123;</div><div class="line">			packageInfo = <span class="keyword">null</span>;</div><div class="line">			e.printStackTrace();</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span> (packageInfo != <span class="keyword">null</span>) &#123;</div><div class="line"><span class="comment">//1、通过包名</span></div><div class="line">			Intent intent = <span class="keyword">new</span> Intent();</div><div class="line">			intent = getPackageManager().getLaunchIntentForPackage(packageName);</div><div class="line">			startActivity(intent);</div><div class="line"><span class="comment">//2、通过类名： </span></div><div class="line">Intent intent=<span class="keyword">new</span> Intent();  </div><div class="line">intent.setComponent(<span class="keyword">new</span> ComponentName(packageName, <span class="string">"com.joe.internet.Main"</span>));  </div><div class="line">startActivity(intent);  </div><div class="line">		&#125; </div><div class="line"></div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<h1 id="对话框菜单"><a href="#对话框菜单" class="headerlink" title="对话框菜单"></a>对话框菜单</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> AlertDialog.Builder(<span class="keyword">this</span>)</div><div class="line">						.setTitle(<span class="string">"choice"</span>)</div><div class="line">						.setItems(<span class="keyword">new</span> String[] &#123; <span class="string">"选择1"</span>, <span class="string">"选择2"</span>, <span class="string">"选择3"</span>, <span class="string">"选择4"</span> &#125;,</div><div class="line">								<span class="keyword">new</span> DialogInterface.OnClickListener() &#123;</div><div class="line"></div><div class="line">									<span class="meta">@Override</span></div><div class="line">									<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog,</span></span></div><div class="line">											<span class="keyword">int</span> which) &#123;</div><div class="line">										Toast.makeText(MyContentActivity.<span class="keyword">this</span>,</div><div class="line">												which + <span class="string">""</span>, Toast.LENGTH_SHORT)</div><div class="line">												.show();</div><div class="line"></div><div class="line">									&#125;</div><div class="line">								&#125;).show();</div></pre></td></tr></table></figure>
+<h1 id="定义ProgressBar"><a href="#定义ProgressBar" class="headerlink" title="定义ProgressBar"></a>定义ProgressBar</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;ProgressBar</div><div class="line">        android:id=<span class="string">"@+id/mProgress"</span></div><div class="line">        android:layout_width=<span class="string">"wrap_content"</span></div><div class="line">        android:layout_height=<span class="string">"wrap_content"</span>          android:indeterminateDrawable=<span class="string">"@drawable/progress_rotate"</span> /&gt;</div></pre></td></tr></table></figure>
+<p>progress_rotate：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</div><div class="line">&lt;layer-list xmlns:android="http://schemas.android.com/apk/res/android" &gt;</div><div class="line">    &lt;item&gt;</div><div class="line">        &lt;rotate</div><div class="line">            android:drawable="@drawable/progressbar"</div><div class="line">            android:duration="300"</div><div class="line">            android:fromDegrees="0.0"</div><div class="line">            android:pivotX="50.0%"</div><div class="line">            android:pivotY="50.0%"</div><div class="line">            android:toDegrees="360.0" /&gt;</div><div class="line">    &lt;/item&gt;</div><div class="line">&lt;/layer-list&gt;</div></pre></td></tr></table></figure></p>
+<h1 id="幻灯片效果"><a href="#幻灯片效果" class="headerlink" title="幻灯片效果"></a>幻灯片效果</h1><p>xml<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;ProgressBar</div><div class="line">        android:id=<span class="string">"@+id/ProgressBar01"</span></div><div class="line">        style=<span class="string">"@style/animStyle"</span></div><div class="line">        android:layout_width=<span class="string">"fill_parent"</span></div><div class="line">        android:layout_height=<span class="string">"fill_parent"</span></div><div class="line">        android:layout_centerInParent=<span class="string">"true"</span> /&gt;</div></pre></td></tr></table></figure></p>
+<p>style<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;style name=<span class="string">"animStyle"</span> parent=<span class="string">"@android:style/Widget.ProgressBar.Large"</span>&gt;</div><div class="line">        <span class="xml"><span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:indeterminateDrawable"</span>&gt;</span>@anim/test<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></div><div class="line">&lt;<span class="regexp">/style&gt;</span></div></pre></td></tr></table></figure></p>
+<p>anim<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</div><div class="line">&lt;animation-list xmlns:android="http://schemas.android.com/apk/res/android"</div><div class="line">    android:oneshot="false" &gt;</div><div class="line"></div><div class="line">    &lt;item</div><div class="line">        android:drawable="@drawable/t1"</div><div class="line">        android:duration="500"/&gt;</div><div class="line">    &lt;item</div><div class="line">        android:drawable="@drawable/t2"</div><div class="line">        android:duration="500"/&gt;</div><div class="line">    &lt;item</div><div class="line">        android:drawable="@drawable/t3"</div><div class="line">        android:duration="500"/&gt;</div><div class="line">    &lt;item</div><div class="line">        android:drawable="@drawable/t4"</div><div class="line">        android:duration="500"/&gt;</div><div class="line">    &lt;item</div><div class="line">        android:drawable="@drawable/t5"</div><div class="line">        android:duration="500"/&gt;</div><div class="line"></div><div class="line">&lt;/animation-list&gt;</div></pre></td></tr></table></figure></p>
+<h1 id="MD5加密"><a href="#MD5加密" class="headerlink" title="MD5加密"></a>MD5加密</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">Md5</span><span class="params">(String plainText)</span> </span>&#123;</div><div class="line">		String result = <span class="string">""</span>;</div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			MessageDigest md = MessageDigest.getInstance(<span class="string">"MD5"</span>);</div><div class="line">			md.update(plainText.getBytes());</div><div class="line">			<span class="keyword">byte</span> b[] = md.digest();</div><div class="line"></div><div class="line">			<span class="keyword">int</span> i;</div><div class="line"></div><div class="line">			StringBuffer buf = <span class="keyword">new</span> StringBuffer(<span class="string">""</span>);</div><div class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> offset = <span class="number">0</span>; offset &lt; b.length; offset++) &#123;</div><div class="line">				i = b[offset];</div><div class="line">				<span class="keyword">if</span> (i &lt; <span class="number">0</span>)</div><div class="line">					i += <span class="number">256</span>;</div><div class="line">				<span class="keyword">if</span> (i &lt; <span class="number">16</span>)</div><div class="line">					buf.append(<span class="string">"0"</span>);</div><div class="line">				buf.append(Integer.toHexString(i));</div><div class="line">			&#125;</div><div class="line">			result = buf.toString().toUpperCase();<span class="comment">// 32位的加密（转成大写）</span></div><div class="line"></div><div class="line">			buf.toString().substring(<span class="number">8</span>, <span class="number">24</span>);<span class="comment">// 16位的加密</span></div><div class="line"></div><div class="line">		&#125; <span class="keyword">catch</span> (NoSuchAlgorithmException e) &#123;</div><div class="line">			e.printStackTrace();</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> result;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<h1 id="设置自动跳转页面"><a href="#设置自动跳转页面" class="headerlink" title="设置自动跳转页面"></a>设置自动跳转页面</h1><h2 id="Timer"><a href="#Timer" class="headerlink" title="Timer"></a>Timer</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">Timer timer = <span class="keyword">new</span> Timer();</div><div class="line">		timer.schedule(<span class="keyword">new</span> TimerTask() &#123;</div><div class="line">			<span class="meta">@Override</span></div><div class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">				<span class="comment">// TODO Auto-generated method stub</span></div><div class="line">				Intent goIntent = <span class="keyword">new</span> Intent();</div><div class="line">				goIntent.setClass(LauncherActivity.<span class="keyword">this</span>, DemoActivity.class);</div><div class="line">				startActivity(goIntent);</div><div class="line">			&#125;</div><div class="line">		&#125;, <span class="number">3</span> * <span class="number">1000</span>);</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<h2 id="Handler"><a href="#Handler" class="headerlink" title="Handler"></a>Handler</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> Handler().postDelayed(<span class="keyword">new</span> Runnable() &#123;</div><div class="line">			<span class="meta">@Override</span></div><div class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">				startActivity(<span class="keyword">new</span> Intent(SplashScreen.<span class="keyword">this</span>,</div><div class="line">						DomobSampleActivity.class));</div><div class="line">				finish();</div><div class="line">			&#125;</div><div class="line">		&#125;, <span class="number">1000</span>);</div></pre></td></tr></table></figure>
+<h1 id="随机取数"><a href="#随机取数" class="headerlink" title="随机取数"></a>随机取数</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">List&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line">			list.add(i);</div><div class="line">		&#125;</div><div class="line">		Collections.shuffle(list);</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> v : list) &#123;</div><div class="line">			Log.d(<span class="string">"wxl"</span>, <span class="string">"V==="</span> + v);</div><div class="line">		&#125;</div></pre></td></tr></table></figure>
+<p>或：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Random random = <span class="keyword">new</span> Random();</div><div class="line"><span class="keyword">int</span> ran = random.nextInt(keywordsList.size());</div><div class="line">			String tmp = keywordsList.get(ran).get(<span class="string">"keyword"</span>).toString();</div></pre></td></tr></table></figure></p>
+<h1 id="selector下的属性值"><a href="#selector下的属性值" class="headerlink" title="selector下的属性值"></a>selector下的属性值</h1><p>android:state_pressed<br>如果是true，当被点击时显示该图片，如果是false没被按下时显示默认。<br>android:state_focused<br>true，获得焦点时显示；false，没获得焦点显示默认。<br>android:state_selected<br>true，当被选择时显示该图片；false，当未被选择时显示该图片。<br>android:state_checkable<br>true，当    能使用时显示该图片；false，当CheckBox不能使用时显示该图片。<br>android:state_checked<br>true，当CheckBox选中时显示该图片；false，当CheckBox为选中时显示该图片。<br>android:state_enabled<br>true，当该组件能使用时显示该图片；false，当该组件不能使用时显示该图片。<br>android:state_window_focused<br>true，当此activity获得焦点在最前面时显示该图片；false，当没在最前面时显示该图片。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span>?&gt;</div><div class="line">&lt;selector xmlns:android="http://schemas.android.com/apk/res/android"&gt;</div><div class="line">    &lt;item android:state_pressed="true"</div><div class="line">          android:drawable="@drawable/button_pressed"/&gt;&lt;!-- pressed --&gt;</div><div class="line">    &lt;item android:state_focused="true"</div><div class="line">          android:drawable="@drawable/button_focused"/&gt;&lt;!-- focused --&gt;</div><div class="line">    &lt;item android:drawable="@drawable/button_normal"/&gt;&lt;!-- default --&gt;</div><div class="line">&lt;/selector&gt;</div></pre></td></tr></table></figure></p>
+<h1 id="带下划线的EditText"><a href="#带下划线的EditText" class="headerlink" title="带下划线的EditText"></a>带下划线的EditText</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LinedEditText</span> <span class="keyword">extends</span> <span class="title">EditText</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> Paint linePaint;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">float</span> margin;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span> paperColor;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">LinedEditText</span><span class="params">(Context paramContext, AttributeSet paramAttributeSet)</span> </span>&#123;</div><div class="line">		<span class="keyword">super</span>(paramContext, paramAttributeSet);</div><div class="line">		<span class="keyword">this</span>.linePaint = <span class="keyword">new</span> Paint();</div><div class="line">	&#125;</div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas paramCanvas)</span> </span>&#123;</div><div class="line">		paramCanvas.drawColor(<span class="keyword">this</span>.paperColor);</div><div class="line">		<span class="keyword">int</span> i = getLineCount();<span class="comment">// 得到总的行數</span></div><div class="line">		<span class="keyword">int</span> j = getHeight();<span class="comment">// 获得TextView的高度</span></div><div class="line">		<span class="keyword">int</span> k = getLineHeight();<span class="comment">// 获得TextView的行高</span></div><div class="line">		<span class="keyword">int</span> m = j / k + <span class="number">1</span>;<span class="comment">// 总的线数</span></div><div class="line">		<span class="keyword">if</span> (i &lt; m)</div><div class="line">			i = m;</div><div class="line">		<span class="keyword">int</span> n = getCompoundPaddingTop();</div><div class="line">		Log.d(<span class="string">"wxl"</span>, <span class="string">"n----"</span> + n);</div><div class="line">		paramCanvas.drawLine(<span class="number">0.0F</span>, n, getRight(), n, <span class="keyword">this</span>.linePaint);</div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i2 = <span class="number">0</span>;; i2++) &#123;</div><div class="line">			<span class="keyword">if</span> (i2 &gt;= i) &#123;</div><div class="line">				setPadding(<span class="number">10</span> + (<span class="keyword">int</span>) <span class="keyword">this</span>.margin, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</div><div class="line">				<span class="keyword">super</span>.onDraw(paramCanvas);</div><div class="line">				paramCanvas.restore();</div><div class="line">				<span class="keyword">return</span>;</div><div class="line">			&#125;</div><div class="line">			n += k;</div><div class="line">			paramCanvas.drawLine(<span class="number">0.0F</span>, n, getRight(), n, <span class="keyword">this</span>.linePaint);</div><div class="line">			paramCanvas.save();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>主要工作就是重载onDraw方法，利用从TextView继承下来的getLineCount函数获取文本所占的行数，以及getLineBounds来获取特定行的基准高度值，而且这个函数第二个参数会返回此行的“外包装”值。再利用这些值绘制这一行的线条。为了让界面的View使用自定义的EditText类，必须在配置文件中进行设置</p>
+<h1 id="关闭键盘"><a href="#关闭键盘" class="headerlink" title="关闭键盘"></a>关闭键盘</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">hideSoftInput</span><span class="params">(Activity activity)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (activity.getCurrentFocus() != <span class="keyword">null</span>)</div><div class="line">            ((InputMethodManager) activity</div><div class="line">                    .getSystemService(Context.INPUT_METHOD_SERVICE))</div><div class="line">                    .hideSoftInputFromWindow(activity.getCurrentFocus()</div><div class="line">                            .getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h1 id="界面不被弹出的键盘盖住"><a href="#界面不被弹出的键盘盖住" class="headerlink" title="界面不被弹出的键盘盖住"></a>界面不被弹出的键盘盖住</h1><p>一进入activity就弹出键盘<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">android:windowSoftInputMode=<span class="string">"adjustResize"</span> </div><div class="line">android:windowSoftInputMode=<span class="string">"adjustPan|stateAlwaysVisible"</span></div></pre></td></tr></table></figure></p>
+<p>第一个软键盘和输入框会完全分离，而第二个输入框还是会被软键盘盖住一点点<br>而且第二个要把两个属性叠加起来，为什么要叠加起来呢，因为如果只用adjustPan 的话需要点击输入框才会弹出软键盘</p>
+<p>在 AndroidMainfest.xml中选择哪个activity，设置windowSoftInputMode属性为<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">adjustUnspecified|stateHidden</div><div class="line">android:windowSoftInputMode=<span class="string">"adjustUnspecified|stateHidden"</span></div></pre></td></tr></table></figure></p>
+<p>windowSoftInputMode各值的含义：</p>
+<p>stateUnspecified：软键盘的状态并没有指定，系统将选择一个合适的状态或依赖于主题的设置</p>
+<p>stateUnchanged：当这个activity出现时，软键盘将一直保持在上一个activity里的状态，无论是隐藏还是显示</p>
+<p>stateHidden：用户选择activity时，软键盘总是被隐藏</p>
+<p>stateAlwaysHidden：当该Activity主窗口获取焦点时，软键盘也总是被隐藏的</p>
+<p>stateVisible：软键盘通常是可见的</p>
+<p>stateAlwaysVisible：用户选择activity时，软键盘总是显示的状态</p>
+<p>adjustUnspecified：默认设置，通常由系统自行决定是隐藏还是显示</p>
+<p>adjustResize：该Activity总是调整屏幕的大小以便留出软键盘的空间</p>
+<p>adjustPan：当前窗口的内容将自动移动以便当前焦点从不被键盘覆盖和用户能总是看到输入内容的部分</p>
+<h1 id="控件美化Shape"><a href="#控件美化Shape" class="headerlink" title="控件美化Shape"></a>控件美化Shape</h1><p><a href="http://wuxiaolong.me/2013/07/09/shape/">http://wuxiaolong.me/2013/07/09/shape/</a></p>
+<h1 id="获取版本名称-VersionName"><a href="#获取版本名称-VersionName" class="headerlink" title="获取版本名称 VersionName"></a>获取版本名称 VersionName</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getVersionName</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">		PackageManager manager = context.getPackageManager();</div><div class="line">		String packageName = context.getPackageName();</div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			PackageInfo info = manager.getPackageInfo(packageName, <span class="number">0</span>);</div><div class="line">			<span class="keyword">return</span> info.versionName;</div><div class="line">		&#125; <span class="keyword">catch</span> (NameNotFoundException e) &#123;</div><div class="line">			<span class="keyword">return</span> <span class="string">"1.0"</span>;</div><div class="line">		&#125;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<h1 id="获取Android手机设备的IMSI-IMEI-信息"><a href="#获取Android手机设备的IMSI-IMEI-信息" class="headerlink" title="获取Android手机设备的IMSI / IMEI 信息"></a>获取Android手机设备的IMSI / IMEI 信息</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">TelephonyManager mTelephonyMgr = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);</div><div class="line">String imsi = mTelephonyMgr.getSubscriberId(); </div><div class="line">String imei = mTelephonyMgr.getDeviceId(); </div><div class="line">Log.i(<span class="string">"wxl"</span>, <span class="string">"imsi="</span>+imsi);为<span class="keyword">null</span></div><div class="line">Log.i(<span class="string">"wxl"</span>, <span class="string">"imei="</span>+imei); </div><div class="line">另外不要忘了在AndroidManifest.xml中加上读取手机状态的权限</div><div class="line">&lt;uses-permission android:name=<span class="string">"android.permission.READ_PHONE_STATE"</span>/&gt;</div></pre></td></tr></table></figure>
+<h1 id="自定义Log是否显示"><a href="#自定义Log是否显示" class="headerlink" title="自定义Log是否显示"></a>自定义Log是否显示</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Log</span> </span>&#123;</div><div class="line">       <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">"wxl"</span>;</div><div class="line">       <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">boolean</span> LOG = <span class="keyword">true</span>;</div><div class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">i</span><span class="params">(String msg)</span> </span>&#123;</div><div class="line">           <span class="keyword">if</span> (LOG)</div><div class="line">               android.util.Log.i(TAG , msg);</div><div class="line">       &#125;</div><div class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">d</span><span class="params">(String msg)</span> </span>&#123;</div><div class="line">           <span class="keyword">if</span> (LOG)</div><div class="line">               android.util.Log.d(TAG , msg);</div><div class="line">       &#125;</div><div class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">w</span><span class="params">(String msg)</span> </span>&#123;</div><div class="line">           <span class="keyword">if</span> (LOG)</div><div class="line">               android.util.Log.w(TAG , msg);</div><div class="line">       &#125;</div><div class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">w</span><span class="params">(String msg, Throwable throwable)</span> </span>&#123;</div><div class="line">           <span class="keyword">if</span> (LOG)</div><div class="line">               android.util.Log.w(TAG , msg, throwable);</div><div class="line">       &#125;</div><div class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">v</span><span class="params">(String msg)</span> </span>&#123;</div><div class="line">           <span class="keyword">if</span> (LOG)</div><div class="line">               android.util.Log.v(TAG , msg);</div><div class="line">       &#125;</div><div class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">e</span><span class="params">(String msg)</span> </span>&#123;</div><div class="line">           android.util.Log.e(TAG , msg);</div><div class="line">       &#125;</div><div class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">e</span><span class="params">(String msg, Throwable throwable)</span> </span>&#123;</div><div class="line">           android.util.Log.e(TAG , msg, throwable);</div><div class="line">       &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<h1 id="异步操作AsyncTask"><a href="#异步操作AsyncTask" class="headerlink" title="异步操作AsyncTask"></a>异步操作AsyncTask</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">参数<span class="number">1</span>：向后台任务的执行方法传递参数的类型 ； </div><div class="line">参数<span class="number">2</span>：在后台任务执行过程中，要求主UI线程处理中间状态，通常是一些UI处理中传递的参数类型；</div><div class="line">参数<span class="number">3</span>：后台任务执行完返回时的参数类型。</div><div class="line"> <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">MyAsyncTask</span> <span class="keyword">extends</span> <span class="title">AsyncTask</span>&lt;<span class="title">Integer</span>, <span class="title">String</span>, <span class="title">Void</span>&gt; </span>&#123;</div><div class="line"></div><div class="line">		<span class="comment">// 实现抽象方法doInBackground()，代码将在后台线程中执行，由execute()触发</span></div><div class="line">		<span class="function"><span class="keyword">protected</span> Void <span class="title">doInBackground</span><span class="params">(Integer... params)</span> </span>&#123;</div><div class="line">			<span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="comment">// 任务启动，可以在这里显示一个对话框，这里简单处理</span></div><div class="line">		<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPreExecute</span><span class="params">()</span> </span>&#123;</div><div class="line">			<span class="keyword">super</span>.onPreExecute();</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="comment">// 取消</span></div><div class="line">		<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCancelled</span><span class="params">()</span> </span>&#123;</div><div class="line">			<span class="keyword">super</span>.onCancelled();</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="comment">// 定义后台进程执行完后的处理</span></div><div class="line">		<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPostExecute</span><span class="params">(Void result)</span> </span>&#123;</div><div class="line">			<span class="keyword">super</span>.onPostExecute(result);</div><div class="line">			Toast.makeText(MainActivity.<span class="keyword">this</span>, <span class="string">"OK"</span>, Toast.LENGTH_SHORT).show();</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="comment">// 更新进度,在UI主线程执行的内容，将item加入list中。方法中的参数为范式方式，实质为数组，由于我们只传递了item一个String，要获取，为values[0]</span></div><div class="line">		<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onProgressUpdate</span><span class="params">(String... values)</span> </span>&#123;</div><div class="line">			<span class="keyword">super</span>.onProgressUpdate(values);</div><div class="line">		&#125;</div><div class="line"></div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<p>调用：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> MyAsyncTask().execute(参数<span class="number">1</span>);<span class="comment">// 创建后台任务的对象</span></div></pre></td></tr></table></figure></p>
+<h1 id="检查网络状态"><a href="#检查网络状态" class="headerlink" title="检查网络状态"></a>检查网络状态</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">checkNetworkInfo</span><span class="params">()</span> </span>&#123;</div><div class="line">		ConnectivityManager conMan = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);</div><div class="line">		<span class="comment">// mobile 3G Data Network</span></div><div class="line">		State mobile = conMan.getNetworkInfo(ConnectivityManager.TYPE_MOBILE)</div><div class="line">				.getState();</div><div class="line">		<span class="comment">// wifi</span></div><div class="line">		State wifi = conMan.getNetworkInfo(ConnectivityManager.TYPE_WIFI)</div><div class="line">				.getState();</div><div class="line">		<span class="comment">// 如果3G网络和wifi网络都未连接，且不是处于正在连接状态 则进入Network Setting界面 由用户配置网络连接</span></div><div class="line">		<span class="keyword">if</span> (mobile == State.CONNECTED || mobile == State.CONNECTING)</div><div class="line">			<span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">		<span class="keyword">if</span> (wifi == State.CONNECTED || wifi == State.CONNECTING)</div><div class="line">			<span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">		AlertDialog.Builder builder = <span class="keyword">new</span> AlertDialog.Builder(<span class="keyword">this</span>);</div><div class="line">		builder.setMessage(getResources().getString(R.string.no_network))</div><div class="line">				.setCancelable(<span class="keyword">false</span>)</div><div class="line">				.setPositiveButton(</div><div class="line">						getResources().getString(R.string.configuration),</div><div class="line">						<span class="keyword">new</span> DialogInterface.OnClickListener() &#123;</div><div class="line">							<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> id)</span> </span>&#123;</div><div class="line"></div><div class="line">								<span class="comment">// 进入无线网络配置界面</span></div><div class="line">								startActivity(<span class="keyword">new</span> Intent(</div><div class="line">										Settings.ACTION_WIRELESS_SETTINGS));</div><div class="line">								MainActivity.<span class="keyword">this</span>.finish();</div><div class="line">							&#125;</div><div class="line">						&#125;)</div><div class="line">				.setNegativeButton(getResources().getString(R.string.quit),</div><div class="line">						<span class="keyword">new</span> DialogInterface.OnClickListener() &#123;</div><div class="line">							<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> id)</span> </span>&#123;</div><div class="line">								MainActivity.<span class="keyword">this</span>.finish();</div><div class="line">							&#125;</div><div class="line">						&#125;);</div><div class="line">		builder.show();</div><div class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<p>代码判断调用：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 检查网络状态</span></div><div class="line">		<span class="keyword">if</span> (!checkNetworkInfo()) &#123;</div><div class="line">			<span class="keyword">return</span>;</div><div class="line">		&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="Html-fromHtml（）"><a href="#Html-fromHtml（）" class="headerlink" title="Html.fromHtml（）"></a>Html.fromHtml（）</h1><p>让数据接受网页的格式<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">URLEncoder.encode(String s); 网址请求中文解析</div><div class="line">&amp;#8230;代表省略号</div></pre></td></tr></table></figure></p>
+<h1 id="URLEncoder-encode"><a href="#URLEncoder-encode" class="headerlink" title="URLEncoder.encode"></a>URLEncoder.encode</h1><p>网址请求带中文<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">URLEncoder.encode(content, <span class="string">"utf-8"</span>)</div></pre></td></tr></table></figure></p>
+<h1 id="Android中字体加粗"><a href="#Android中字体加粗" class="headerlink" title="Android中字体加粗"></a>Android中字体加粗</h1><ul>
+<li><p>在xml文件中使用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">android:textStyle=”bold”</div></pre></td></tr></table></figure>
+</li>
+<li><p>Java 代码</p>
+</li>
+</ul>
+<p>（网上查XML不能将中文设置成粗体，只能通过Java code。Android 2.2 可以通过XML将中文设置成粗体）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">TextView tv = (TextView)findViewById(R.id.TextView01); </div><div class="line">TextPaint tp = tv.getPaint();</div><div class="line">tp.setFakeBoldText(<span class="keyword">true</span>);</div></pre></td></tr></table></figure>
+<ul>
+<li>Html.fromHtml(“\&lt;\b&gt;”)</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(<span class="number">1</span>)viewHolder.title.setText(Html.fromHtml(<span class="string">"&lt;b&gt;"</span></div><div class="line">				+ listTitle.get(position).get(<span class="string">"title"</span>) + <span class="string">"&lt;/b&gt;"</span>));</div><div class="line">(<span class="number">2</span>)TextView.setText(Html.fromHtml(<span class="string">"&lt;font color=#FF0000&gt;hello&lt;/font&gt;"</span>));</div></pre></td></tr></table></figure>
+<h1 id="代码设置背景图setImageResource-setBackgroundResource"><a href="#代码设置背景图setImageResource-setBackgroundResource" class="headerlink" title="代码设置背景图setImageResource/setBackgroundResource"></a>代码设置背景图setImageResource/setBackgroundResource</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">textView.setBackgroundResource(R.drawable.bg_menu_1);设置背景图片</div><div class="line">textView.setBackgroundColor(<span class="number">0xffffffff</span>);</div><div class="line">setImageResource與xml中的src的屬性才是相匹配的，而setBackgroundResource是與xml中的background屬性相匹配</div><div class="line">的</div><div class="line">holder.chat_sound_iv_right.setBackgroundResource(<span class="number">0</span>);<span class="comment">//没有图片</span></div></pre></td></tr></table></figure>
+<h1 id="android中的ellipsize"><a href="#android中的ellipsize" class="headerlink" title="android中的ellipsize"></a>android中的ellipsize</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">用法如下：</div><div class="line">在xml中</div><div class="line">android:ellipsize = <span class="string">"end"</span>　　  省略号在结尾</div><div class="line">android:ellipsize = <span class="string">"start"</span> 　　省略号在开头</div><div class="line">android:ellipsize = <span class="string">"middle"</span>     省略号在中间</div><div class="line">android:ellipsize = <span class="string">"marquee"</span>  跑马灯</div><div class="line">最好加一个约束android:singleline = <span class="string">"true"</span></div><div class="line">跑马灯</div><div class="line">android:singleLine=<span class="string">"true"</span></div><div class="line">android:ellipsize=<span class="string">"marquee"</span></div><div class="line">android:focusableInTouchMode=<span class="string">"true"</span></div><div class="line">android:focusable=<span class="string">"true"</span></div><div class="line">android:marqueeRepeatLimit=<span class="string">"marquee_forever"</span></div><div class="line">android:singleLine=<span class="keyword">true</span> 表示使用单行文字，多行文字也就无所谓使用Marquee效果了。</div><div class="line">android:marqueeRepeatLimit，设置走马灯滚动的次数。</div><div class="line">android:ellipsize，设置了文字过长时如何切断文字，可以有none, start,middle, end, 如果使用走马灯效果则设为marquee.</div><div class="line">android:focusable，Android的缺省行为是在控件获得Focus时才会显示走马灯效果</div></pre></td></tr></table></figure>
+<h1 id="控件点击效果"><a href="#控件点击效果" class="headerlink" title="控件点击效果"></a>控件点击效果</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;selector xmlns:android=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</div><div class="line">    &lt;item android:state_focused="true" android:state_pressed="false" android:drawable="@drawable/professional_1"/&gt;</div><div class="line">    &lt;item android:state_focused="false" android:state_pressed="true" android:drawable="@drawable/professional_1"/&gt;</div><div class="line">    &lt;item android:drawable="@drawable/professional"/&gt;</div><div class="line">&lt;/selector&gt;</div></pre></td></tr></table></figure>
+<h1 id="保留小数点"><a href="#保留小数点" class="headerlink" title="保留小数点"></a>保留小数点</h1><p>方法一：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> DecimalFormat df;</div><div class="line">df = <span class="keyword">new</span> DecimalFormat(<span class="string">"0.0"</span>);</div><div class="line"><span class="keyword">float</span> data;</div><div class="line">df.format(data);<span class="comment">//返回值</span></div></pre></td></tr></table></figure></p>
+<p>方法二：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">double</span> juli = <span class="number">1569</span>;</div><div class="line">String result = String.format(<span class="string">"%.1f"</span>, juli/<span class="number">1000</span>);</div></pre></td></tr></table></figure></p>
+<h1 id="RadioGroup"><a href="#RadioGroup" class="headerlink" title="RadioGroup"></a>RadioGroup</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">&lt;RadioGroup</div><div class="line">      android:layout_width=<span class="string">"wrap_content"</span></div><div class="line">      android:layout_height=<span class="string">"wrap_content"</span></div><div class="line">      android:orientation=<span class="string">"vertical"</span> &gt;</div><div class="line"></div><div class="line">       <span class="xml"><span class="tag">&lt;<span class="name">RadioButton</span></span></span></div><div class="line">           <span class="attr">android:id</span>=<span class="string">"@+id/open"</span></div><div class="line">           <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">           <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">           <span class="attr">android:layout_marginLeft</span>=<span class="string">"10dip"</span></div><div class="line">           <span class="attr">android:layout_marginTop</span>=<span class="string">"10dip"</span></div><div class="line">           <span class="attr">android:button</span>=<span class="string">"@drawable/radiobutton"</span></div><div class="line">           <span class="attr">android:checked</span>=<span class="string">"true"</span></div><div class="line">           <span class="attr">android:text</span>=<span class="string">"@string/open_album"</span></div><div class="line">           <span class="attr">android:textColor</span>=<span class="string">"#000000"</span></div><div class="line">           <span class="attr">android:textSize</span>=<span class="string">"16dip"</span> /&gt;</div><div class="line"></div><div class="line">       <span class="tag">&lt;<span class="name">RadioButton</span></span></div><div class="line">           <span class="attr">android:id</span>=<span class="string">"@+id/secrecy"</span></div><div class="line">           <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">           <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">           <span class="attr">android:layout_marginLeft</span>=<span class="string">"10dip"</span></div><div class="line">           <span class="attr">android:button</span>=<span class="string">"@drawable/radiobutton"</span></div><div class="line">           <span class="attr">android:text</span>=<span class="string">"@string/secrecy_album"</span></div><div class="line">           <span class="attr">android:textColor</span>=<span class="string">"#000000"</span></div><div class="line">           <span class="attr">android:textSize</span>=<span class="string">"16dip"</span> /&gt;</div><div class="line">   <span class="tag">&lt;/<span class="name">RadioGroup</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>android:button=”@null”  去除RadioButton前面的圆点<br>android:background=”@drawable/radio” 使用定义的样式</p>
+<h1 id="占位符-s替换"><a href="#占位符-s替换" class="headerlink" title="占位符%s替换"></a>占位符%s替换</h1><p>%d   （表示整数）<br>%f    （表示浮点数）<br>%s   （表示字符串）<br>txt.setText(String.format (“被替换%1$s”,”替换内容”));</p>
+<h1 id="TextView中嵌套图片Drawable"><a href="#TextView中嵌套图片Drawable" class="headerlink" title="TextView中嵌套图片Drawable"></a>TextView中嵌套图片Drawable</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Drawable drawable = getResources().getDrawable(R.drawable.ji_dot_nor);</div><div class="line">drawable.setBounds(<span class="number">0</span>, <span class="number">0</span>, drawable.getIntrinsicWidth(),drawable.getIntrinsicHeight());</div><div class="line">textView.setCompoundDrawablesWithIntrinsicBounds(<span class="keyword">null</span>, drawable, <span class="keyword">null</span>, <span class="keyword">null</span>);  </div><div class="line">说明：setCompoundDrawablesWithIntrinsicBounds(left, top, right, bottom)</div><div class="line">意思是设置Drawable显示在text的左、上、右、下位置。(Textview、Button都可以)</div></pre></td></tr></table></figure>
+<h1 id="TextView做成分割线"><a href="#TextView做成分割线" class="headerlink" title="TextView做成分割线"></a>TextView做成分割线</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;TextView</div><div class="line">     android:id=<span class="string">"@id/textView2"</span></div><div class="line">     android:layout_width=<span class="string">"fill_parent"</span></div><div class="line">     android:layout_height=<span class="string">"2.0px"</span></div><div class="line">android:background=<span class="string">"@color/orange"</span> /&gt;</div></pre></td></tr></table></figure>
+<h1 id="SpannableString单击文字链接"><a href="#SpannableString单击文字链接" class="headerlink" title="SpannableString单击文字链接"></a>SpannableString单击文字链接</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">SpannableString spannableString = <span class="keyword">new</span> SpannableString(str);</div><div class="line">		spannableString.setSpan(<span class="keyword">new</span> ClickableSpan() &#123;</div><div class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View view)</span> </span>&#123;</div><div class="line">				<span class="comment">// Intent intent = new Intent(ApkTest.this, Apk.class);</span></div><div class="line">				Intent intent = <span class="keyword">new</span> Intent(Intent.ACTION_CALL, Uri.parse(<span class="string">"tel:"</span></div><div class="line">						+ <span class="string">"15261589767"</span>));</div><div class="line">				startActivity(intent);</div><div class="line">			&#125;</div><div class="line">		&#125;, <span class="number">0</span>, str.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);</div><div class="line">		TextView.setText(spannableString);</div><div class="line">		TextView.setMovementMethod(LinkMovementMethod.getInstance());</div></pre></td></tr></table></figure>
+<h1 id="TextView中文字通过SpannableString"><a href="#TextView中文字通过SpannableString" class="headerlink" title="TextView中文字通过SpannableString"></a>TextView中文字通过SpannableString</h1><p>来设置超链接、颜色、字体等属性<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">String  title =”<span class="number">123456</span>”;</div><div class="line">SpannableString titleStr = <span class="keyword">new</span> SpannableString(title);</div><div class="line">titleStr.setSpan(<span class="keyword">new</span> ForegroundColorSpan(Color.RED), <span class="number">0</span>,</div><div class="line">						titleStr.length(), <span class="number">0</span>);</div><div class="line">textView.setText(titleStr);</div></pre></td></tr></table></figure></p>
+<h1 id="android-drawableTop属性"><a href="#android-drawableTop属性" class="headerlink" title="android:drawableTop属性"></a>android:drawableTop属性</h1><p>写在TextView里，实现图片+文字</p>
+<h1 id="获取分辨率"><a href="#获取分辨率" class="headerlink" title="获取分辨率"></a>获取分辨率</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">DisplayMetrics displayMetrics = <span class="keyword">new</span> DisplayMetrics();</div><div class="line">getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);</div><div class="line"></div><div class="line">displayMetrics.widthPixels + <span class="string">"x"</span></div><div class="line">				+ displayMetrics.heightPixels;</div></pre></td></tr></table></figure>
+<h1 id="代码完成控件"><a href="#代码完成控件" class="headerlink" title="代码完成控件"></a>代码完成控件</h1><p>Button<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">linearLayout = (LinearLayout) findViewById(R.id.linearLayout2);</div><div class="line">LayoutParams layoutParams = <span class="keyword">new</span> LinearLayout.LayoutParams(<span class="number">0</span>,</div><div class="line">				LinearLayout.LayoutParams.WRAP_CONTENT, <span class="number">1</span>);<span class="comment">//1均分属性</span></div><div class="line">layoutParams.setMargins(<span class="number">10</span>, <span class="number">10</span>, <span class="number">10</span>, <span class="number">10</span>);</div><div class="line"></div><div class="line">Button button = <span class="keyword">new</span> Button(MainActivity.<span class="keyword">this</span>);</div><div class="line">button.setLayoutParams(layoutParams);</div><div class="line">linearLayout.addView(button);</div></pre></td></tr></table></figure></p>
+<p>TextView<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> TextView overlay;</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initOverlay</span><span class="params">()</span> </span>&#123;</div><div class="line">		LayoutInflater inflater = LayoutInflater.from(<span class="keyword">this</span>);</div><div class="line">		overlay = (TextView) inflater.inflate(R.layout.overlay, <span class="keyword">null</span>);</div><div class="line">		overlay.setVisibility(View.INVISIBLE);</div><div class="line">		WindowManager.LayoutParams lp = <span class="keyword">new</span> WindowManager.LayoutParams(</div><div class="line">				LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT,</div><div class="line">				WindowManager.LayoutParams.TYPE_APPLICATION,</div><div class="line">				WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE</div><div class="line">						| WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,</div><div class="line">				PixelFormat.TRANSLUCENT);</div><div class="line">		WindowManager windowManager = (WindowManager) <span class="keyword">this</span></div><div class="line">				.getSystemService(Context.WINDOW_SERVICE);</div><div class="line">		windowManager.addView(overlay, lp);</div><div class="line">	&#125;</div><div class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span>?&gt;</div><div class="line">&lt;TextView xmlns:android=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">    android:background=<span class="string">"#ffffff"</span></div><div class="line">    android:gravity=<span class="string">"center"</span></div><div class="line">    android:maxWidth=<span class="string">"80dip"</span></div><div class="line">    android:minWidth=<span class="string">"80dip"</span></div><div class="line">    android:padding=<span class="string">"5dip"</span></div><div class="line">    android:textColor=<span class="string">"#3399ff"</span></div><div class="line">    android:textSize=<span class="string">"70sp"</span> /&gt;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">private</span> LinearLayout.LayoutParams layoutParams = <span class="keyword">null</span>;</div><div class="line">		<span class="keyword">private</span> LinearLayout.LayoutParams btnParmas;</div><div class="line"></div><div class="line">layoutParams = <span class="keyword">new</span> LinearLayout.LayoutParams(</div><div class="line">							LinearLayout.LayoutParams.WRAP_CONTENT,</div><div class="line">							LinearLayout.LayoutParams.WRAP_CONTENT);</div><div class="line">					layoutParams.setMargins(</div><div class="line">							(<span class="keyword">int</span>) getResources().getDimension(</div><div class="line">									R.dimen.lable_left), <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</div><div class="line">					btnParmas = <span class="keyword">new</span> LinearLayout.LayoutParams(</div><div class="line">							LinearLayout.LayoutParams.WRAP_CONTENT,</div><div class="line">							(<span class="keyword">int</span>) getResources().getDimension(</div><div class="line">									R.dimen.lable_height));</div><div class="line"></div><div class="line">					<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; lables.length; i++) &#123;</div><div class="line">						LinearLayout linearLayout = <span class="keyword">new</span> LinearLayout(activity);</div><div class="line">						lableColor = random.nextInt(lableColors.length);</div><div class="line">						Button lable = <span class="keyword">new</span> Button(activity);</div><div class="line">						lable.setText(lables[i]);</div><div class="line">						lable.setGravity(Gravity.CENTER_HORIZONTAL</div><div class="line">								| Gravity.CENTER_VERTICAL);</div><div class="line">						lable.setTextSize(getResources().getDimension(</div><div class="line">								R.dimen.lable));</div><div class="line">						lable.setTextColor(getResources().getColor(</div><div class="line">								R.color.white));</div><div class="line">						lable.setBackgroundResource(lableColors[i]);</div><div class="line">						linearLayout.addView(lable, btnParmas);</div><div class="line">						holder.play_lables.addView(linearLayout, layoutParams);</div><div class="line">					&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="TextWatcher"><a href="#TextWatcher" class="headerlink" title="TextWatcher"></a>TextWatcher</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">editText1.addTextChangedListener(watcher);</div><div class="line">TextWatcher watcher = <span class="keyword">new</span> TextWatcher() &#123;</div><div class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTextChanged</span><span class="params">(CharSequence arg0, <span class="keyword">int</span> arg1, <span class="keyword">int</span> arg2,</span></span></div><div class="line">				<span class="keyword">int</span> arg3) &#123;</div><div class="line">		&#125;</div><div class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">beforeTextChanged</span><span class="params">(CharSequence arg0, <span class="keyword">int</span> arg1, <span class="keyword">int</span> arg2,</span></span></div><div class="line">				<span class="keyword">int</span> arg3) &#123;</div><div class="line">		&#125;</div><div class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterTextChanged</span><span class="params">(Editable arg0)</span> </span>&#123;			</div><div class="line">		&#125;</div><div class="line">	&#125;;</div></pre></td></tr></table></figure>
+<h1 id="屏幕旋转时不销毁"><a href="#屏幕旋转时不销毁" class="headerlink" title="屏幕旋转时不销毁"></a>屏幕旋转时不销毁</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">AndroidManifest加入</div><div class="line">android:configChanges=<span class="string">"orientation|keyboardHidden"</span></div></pre></td></tr></table></figure>
+<p>获取屏幕方向<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Configuration newConfig = getResources().getConfiguration();    </div><div class="line">        <span class="keyword">if</span> (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE)&#123;    </div><div class="line">            <span class="comment">//横屏    </span></div><div class="line">         &#125;<span class="keyword">else</span> <span class="keyword">if</span>(newConfig.orientation == Configuration.ORIENTATION_PORTRAIT)&#123;    </div><div class="line">            <span class="comment">//竖屏    </span></div><div class="line">         &#125;<span class="keyword">else</span> <span class="keyword">if</span>(newConfig.hardKeyboardHidden == Configuration.KEYBOARDHIDDEN_NO)&#123;    </div><div class="line">            <span class="comment">//键盘没关闭。屏幕方向为横屏    </span></div><div class="line">         &#125;<span class="keyword">else</span> <span class="keyword">if</span>(newConfig.hardKeyboardHidden == Configuration.KEYBOARDHIDDEN_YES)&#123;    </div><div class="line">            <span class="comment">//键盘关闭。屏幕方向为竖屏    </span></div><div class="line">         &#125;</div></pre></td></tr></table></figure></p>
+<h1 id="List增加数据"><a href="#List增加数据" class="headerlink" title="List增加数据"></a>List增加数据</h1><h2 id="简单"><a href="#简单" class="headerlink" title="简单"></a>简单</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> List&lt;String&gt; <span class="title">getData</span><span class="params">()</span> </span>&#123;</div><div class="line">		List&lt;String&gt; data = <span class="keyword">new</span> ArrayList&lt;String&gt;();</div><div class="line">		data.add(<span class="string">"123"</span>);</div><div class="line">		data.add(<span class="string">"345"</span>);</div><div class="line">		data.add(<span class="string">"456"</span>);</div><div class="line">		data.add(<span class="string">"567"</span>);</div><div class="line">		<span class="keyword">return</span> data;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<h2 id="键值对"><a href="#键值对" class="headerlink" title="键值对"></a>键值对</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> List&lt;Map&lt;String, Object&gt;&gt; getData() &#123;</div><div class="line">        List&lt;Map&lt;String, Object&gt;&gt; list = <span class="keyword">new</span> ArrayList&lt;Map&lt;String, Object&gt;&gt;();</div><div class="line"> </div><div class="line">        Map&lt;String, Object&gt; map = <span class="keyword">new</span> HashMap&lt;String, Object&gt;();</div><div class="line">        map.put(<span class="string">"title"</span>, <span class="string">"G1"</span>);</div><div class="line">        map.put(<span class="string">"info"</span>, <span class="string">"google 1"</span>);</div><div class="line">        map.put(<span class="string">"img"</span>, R.drawable.i1);</div><div class="line">        list.add(map);</div><div class="line"> </div><div class="line">        map = <span class="keyword">new</span> HashMap&lt;String, Object&gt;();</div><div class="line">        map.put(<span class="string">"title"</span>, <span class="string">"G2"</span>);</div><div class="line">        map.put(<span class="string">"info"</span>, <span class="string">"google 2"</span>);</div><div class="line">        map.put(<span class="string">"img"</span>, R.drawable.i2);</div><div class="line">        list.add(map);</div><div class="line"> </div><div class="line">        map = <span class="keyword">new</span> HashMap&lt;String, Object&gt;();</div><div class="line">        map.put(<span class="string">"title"</span>, <span class="string">"G3"</span>);</div><div class="line">        map.put(<span class="string">"info"</span>, <span class="string">"google 3"</span>);</div><div class="line">        map.put(<span class="string">"img"</span>, R.drawable.i3);</div><div class="line">        list.add(map);</div><div class="line">         </div><div class="line">        <span class="keyword">return</span> list;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>清除数据：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">data.clear();</div><div class="line">listView.setAdapter(<span class="keyword">new</span> ArrayAdapter&lt;String&gt;(<span class="keyword">this</span>, android.R.layout.simple_expandable_list_item_1,getData()));</div></pre></td></tr></table></figure></p>
+<h2 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">LinkedList&lt;String&gt; list = <span class="keyword">new</span> LinkedList&lt;String&gt;();</div><div class="line">list.addFirst(<span class="string">"000"</span>);</div></pre></td></tr></table></figure>
+<h1 id="验证是否手机号码"><a href="#验证是否手机号码" class="headerlink" title="验证是否手机号码"></a>验证是否手机号码</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isMobileNO</span><span class="params">(String mobiles)</span> </span>&#123;</div><div class="line">		String expression = <span class="string">"((^(13|15|18)[0-9]&#123;9&#125;$)|(^0[1,2]&#123;1&#125;\\d&#123;1&#125;-?\\d&#123;8&#125;$)|(^0[3-9] &#123;1&#125;\\d&#123;2&#125;-?\\d&#123;7,8&#125;$)|(^0[1,2]&#123;1&#125;\\d&#123;1&#125;-?\\d&#123;8&#125;-(\\d&#123;1,4&#125;)$)|(^0[3-9]&#123;1&#125;\\d&#123;2&#125;-? \\d&#123;7,8&#125;-(\\d&#123;1,4&#125;)$))"</span>;</div><div class="line">		Pattern pattern = Pattern.compile(expression);</div><div class="line">		Matcher matcher = pattern.matcher(mobiles);</div><div class="line">		Log.d(<span class="string">"wxl"</span>, matcher.matches() + <span class="string">""</span>);</div><div class="line">		<span class="keyword">return</span> matcher.matches();</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<h1 id="正则表达式数字验证"><a href="#正则表达式数字验证" class="headerlink" title="正则表达式数字验证"></a>正则表达式数字验证</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isNumber</span><span class="params">(String str)</span></span></div><div class="line">    &#123;</div><div class="line">        java.util.regex.Pattern pattern=java.util.regex.Pattern.compile(<span class="string">"[0-9]*"</span>);</div><div class="line">        java.util.regex.Matcher match=pattern.matcher(str);</div><div class="line">        <span class="keyword">if</span>(match.matches()==<span class="keyword">false</span>)</div><div class="line">        &#123;</div><div class="line">             <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span></div><div class="line">        &#123;</div><div class="line">             <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h1 id="SharedPreferences"><a href="#SharedPreferences" class="headerlink" title="SharedPreferences"></a>SharedPreferences</h1><h2 id="SharedPreferences存数据"><a href="#SharedPreferences存数据" class="headerlink" title="SharedPreferences存数据"></a>SharedPreferences存数据</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">SharedPreferences sharedPreferences = getSharedPreferences(<span class="string">"test"</span>, Context.MODE_PRIVATE);</div><div class="line">Editor editor = sharedPreferences.edit();<span class="comment">//获取编辑器</span></div><div class="line">editor.putString(<span class="string">"name"</span>, <span class="string">"张三"</span>);</div><div class="line">editor.putInt(<span class="string">"age"</span>, <span class="number">24</span>);</div><div class="line">editor.putBoolean(<span class="string">"AutoLogin"</span>, <span class="keyword">false</span>);</div><div class="line"></div><div class="line">editor.commit();<span class="comment">//提交修改</span></div></pre></td></tr></table></figure>
+<h2 id="SharedPreferences取数据"><a href="#SharedPreferences取数据" class="headerlink" title="SharedPreferences取数据"></a>SharedPreferences取数据</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">SharedPreferences sharedPreferences = getSharedPreferences(<span class="string">"test"</span>, Context.MODE_PRIVATE);</div><div class="line"><span class="comment">//getString()第二个参数为缺省值,如果preference中不存在该key,将返回缺省值</span></div><div class="line">String name = sharedPreferences.getString(<span class="string">"name"</span>, <span class="string">""</span>);</div><div class="line"><span class="keyword">int</span> age = sharedPreferences.getInt(<span class="string">"age"</span>, <span class="number">1</span>);</div><div class="line"><span class="keyword">boolean</span> autoLogin= sharedPreferences. getBoolean(<span class="string">"AutoLogin"</span>, <span class="keyword">false</span>);</div></pre></td></tr></table></figure>
+<h1 id="Intent-传值"><a href="#Intent-传值" class="headerlink" title="Intent 传值"></a>Intent 传值</h1><h2 id="简单传值"><a href="#简单传值" class="headerlink" title="简单传值"></a>简单传值</h2><p>ActivityPage<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Intent intent = <span class="keyword">new</span> Intent(ActivityPage.<span class="keyword">this</span>, Player.class);</div><div class="line">			<span class="comment">//保存信息</span></div><div class="line">			Bundle mBundle = <span class="keyword">new</span> Bundle();</div><div class="line">			mBundle.putString(<span class="string">"realname "</span>, realname);</div><div class="line">			intent.putExtras(mBundle);</div></pre></td></tr></table></figure></p>
+<p>Player接受<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">realname = <span class="keyword">this</span>.getIntent().getStringExtra(<span class="string">"realname"</span>);</div><div class="line">Intent intent = <span class="keyword">new</span> Intent();</div><div class="line">intent.setClass(HomeActivity.<span class="keyword">this</span>, CompanyActivity.class);</div><div class="line">intent.putExtra(<span class="string">"mCompanySupply"</span>, mCompanySupply);</div><div class="line">				startActivity(intent);</div><div class="line">CompanyActivity.class:</div><div class="line">ArrayList&lt;ClassifySub3Bean&gt;  mCompanySupply = (ArrayList&lt;ClassifySub3Bean&gt;) getIntent()</div><div class="line">				.getSerializableExtra(<span class="string">"mCompanySupply"</span>);</div></pre></td></tr></table></figure></p>
+<h1 id="复杂传值"><a href="#复杂传值" class="headerlink" title="复杂传值"></a>复杂传值</h1><p>A页面：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> REQUEST_CODE_A = <span class="number">0</span>;</div><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> RESULT_CODE_B = <span class="number">0</span>;</div><div class="line">Intent intent = <span class="keyword">new</span> Intent();</div><div class="line">				Bundle bundle = <span class="keyword">new</span> Bundle();</div><div class="line">				intent.setClass(MainActivity.<span class="keyword">this</span>, TestBActivity.class);</div><div class="line">				bundle.putString(<span class="string">"msg"</span>, textView.getText().toString());</div><div class="line">				intent.putExtras(bundle);</div><div class="line">				startActivityForResult(intent, REQUEST_CODE_A);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onActivityResult</span><span class="params">(<span class="keyword">int</span> requestCode, <span class="keyword">int</span> resultCode, Intent data)</span> </span>&#123;</div><div class="line">		<span class="keyword">super</span>.onActivityResult(requestCode, resultCode, data);</div><div class="line">		<span class="keyword">if</span> (requestCode == REQUEST_CODE_A &amp;&amp; resultCode == RESULT_OK) &#123;</div><div class="line">			String str=data.getExtras().getString(<span class="string">"result"</span>);</div><div class="line">		&#125;</div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
+<p>B页面<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> RESULT_CODE_B = <span class="number">0</span>;</div><div class="line">Intent intent = <span class="keyword">new</span> Intent();</div><div class="line">				intent.putExtra(<span class="string">"result"</span>, textView.getText().toString());</div><div class="line">				setResult(RESULT_OK, intent);</div><div class="line">				finish();</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onKeyDown</span><span class="params">(<span class="keyword">int</span> keyCode, KeyEvent event)</span> </span>&#123;</div><div class="line">		<span class="keyword">if</span> (keyCode == KeyEvent.KEYCODE_BACK) &#123;</div><div class="line">			Intent intent = <span class="keyword">new</span> Intent();</div><div class="line">			intent.putExtra(<span class="string">"result"</span>, <span class="string">"直接返回"</span>);</div><div class="line">			setResult(RESULT_OK, intent);</div><div class="line">			<span class="keyword">this</span>.finish();</div><div class="line">			<span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">		&#125; <span class="keyword">else</span> &#123;</div><div class="line">			<span class="keyword">return</span> <span class="keyword">super</span>.onKeyDown(keyCode, event);</div><div class="line">		&#125;</div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Intent intent = <span class="keyword">new</span> Intent();</div><div class="line">					intent.putStringArrayListExtra(<span class="string">"mSelectedPhotos"</span>,</div><div class="line">							mSelectedPhotos);</div><div class="line">					setResult(RESULT_OK, intent);</div><div class="line">					</div><div class="line">					</div><div class="line">					ArrayList&lt;String&gt; mSelectedPhotos = (ArrayList&lt;String&gt;) intent</div><div class="line">						.getStringArrayListExtra(<span class="string">"mSelectedPhotos"</span>);</div></pre></td></tr></table></figure>
+<h1 id="xml文件中导入另一个xml文件的方法include"><a href="#xml文件中导入另一个xml文件的方法include" class="headerlink" title="xml文件中导入另一个xml文件的方法include"></a>xml文件中导入另一个xml文件的方法include</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;include </div><div class="line">android:id=<span class="string">"@+id/included1"</span></div><div class="line">layout=<span class="string">"@layout/anotherlayout"</span> /&gt;</div></pre></td></tr></table></figure>
+<h1 id="单击返回键两次退出"><a href="#单击返回键两次退出" class="headerlink" title="单击返回键两次退出"></a>单击返回键两次退出</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> Boolean isExit = <span class="keyword">false</span>;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onKeyDown</span><span class="params">(<span class="keyword">int</span> keyCode, KeyEvent event)</span> </span>&#123;</div><div class="line">                <span class="keyword">if</span> (keyCode == KeyEvent.KEYCODE_BACK) &#123;</div><div class="line">                        <span class="keyword">if</span> (isExit == <span class="keyword">false</span>) &#123;</div><div class="line">                                isExit = <span class="keyword">true</span>;</div><div class="line">                                Toast.makeText(<span class="keyword">this</span>, <span class="string">"再按一次退出程序"</span>, Toast.LENGTH_SHORT).show();</div><div class="line">                                <span class="keyword">new</span> Timer().schedule(<span class="keyword">new</span> TimerTask() &#123;</div><div class="line">                                        <span class="meta">@Override</span></div><div class="line">                                        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">                                                isExit = <span class="keyword">false</span>;</div><div class="line">                                        &#125;</div><div class="line">                                &#125;, <span class="number">2000</span>);</div><div class="line">                        &#125; <span class="keyword">else</span> &#123;</div><div class="line">                                finish();</div><div class="line">                                System.exit(<span class="number">0</span>);</div><div class="line">                        &#125;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+<p>或者<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span> </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onKeyUp</span><span class="params">(<span class="keyword">int</span> keyCode, KeyEvent event)</span> </span>&#123; </div><div class="line">        <span class="keyword">if</span> (keyCode == KeyEvent.KEYCODE_BACK) &#123; </div><div class="line">            <span class="keyword">long</span> secondTime = System.currentTimeMillis(); </div><div class="line">            <span class="keyword">if</span> (secondTime - firstTime &gt; <span class="number">800</span>) &#123;<span class="comment">//如果两次按键时间间隔大于800毫秒，则不退出 </span></div><div class="line">                Toast.makeText(MainActivity.<span class="keyword">this</span>, <span class="string">"再按一次退出程序..."</span>, </div><div class="line">                        Toast.LENGTH_SHORT).show(); </div><div class="line">                firstTime = secondTime;<span class="comment">//更新firstTime </span></div><div class="line">                <span class="keyword">return</span> <span class="keyword">true</span>; </div><div class="line">            &#125; <span class="keyword">else</span> &#123; </div><div class="line">                System.exit(<span class="number">0</span>);<span class="comment">//否则退出程序 </span></div><div class="line">            &#125; </div><div class="line">        &#125; </div><div class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.onKeyUp(keyCode, event); </div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<h1 id="图片左右循环移动"><a href="#图片左右循环移动" class="headerlink" title="图片左右循环移动"></a>图片左右循环移动</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">TranslateAnimation left, right;</div><div class="line">right = <span class="keyword">new</span> TranslateAnimation(Animation.RELATIVE_TO_PARENT, -<span class="number">1f</span>,</div><div class="line">				Animation.RELATIVE_TO_PARENT, -<span class="number">2f</span>,</div><div class="line">				Animation.RELATIVE_TO_PARENT, <span class="number">0f</span>, Animation.RELATIVE_TO_PARENT,</div><div class="line">				<span class="number">0f</span>);</div><div class="line">		left = <span class="keyword">new</span> TranslateAnimation(Animation.RELATIVE_TO_PARENT, -<span class="number">2f</span>,</div><div class="line">				Animation.RELATIVE_TO_PARENT, -<span class="number">1f</span>,</div><div class="line">				Animation.RELATIVE_TO_PARENT, <span class="number">0f</span>, Animation.RELATIVE_TO_PARENT,</div><div class="line">				<span class="number">0f</span>);</div><div class="line">		right.setDuration(<span class="number">25000</span>);</div><div class="line">		left.setDuration(<span class="number">25000</span>);</div><div class="line">		right.setFillAfter(<span class="keyword">true</span>);</div><div class="line">		left.setFillAfter(<span class="keyword">true</span>);</div><div class="line"></div><div class="line">		right.setAnimationListener(<span class="keyword">new</span> Animation.AnimationListener() &#123;</div><div class="line">			<span class="meta">@Override</span></div><div class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationStart</span><span class="params">(Animation animation)</span> </span>&#123;</div><div class="line">			&#125;</div><div class="line"></div><div class="line">			<span class="meta">@Override</span></div><div class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationRepeat</span><span class="params">(Animation animation)</span> </span>&#123;</div><div class="line">			&#125;</div><div class="line"></div><div class="line">			<span class="meta">@Override</span></div><div class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationEnd</span><span class="params">(Animation animation)</span> </span>&#123;</div><div class="line">				runImage.startAnimation(left);</div><div class="line">			&#125;</div><div class="line">		&#125;);</div><div class="line">		left.setAnimationListener(<span class="keyword">new</span> Animation.AnimationListener() &#123;</div><div class="line">			<span class="meta">@Override</span></div><div class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationStart</span><span class="params">(Animation animation)</span> </span>&#123;</div><div class="line">			&#125;</div><div class="line"></div><div class="line">			<span class="meta">@Override</span></div><div class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationRepeat</span><span class="params">(Animation animation)</span> </span>&#123;</div><div class="line">			&#125;</div><div class="line"></div><div class="line">			<span class="meta">@Override</span></div><div class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationEnd</span><span class="params">(Animation animation)</span> </span>&#123;</div><div class="line">				runImage.startAnimation(right);</div><div class="line">			&#125;</div><div class="line">		&#125;);</div><div class="line">		runImage.startAnimation(right);</div></pre></td></tr></table></figure>
+<h1 id="控件左右抖动"><a href="#控件左右抖动" class="headerlink" title="控件左右抖动"></a>控件左右抖动</h1><p>res下anim<br>animlayout.xml<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span>?&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">translate</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span></div><div class="line">    <span class="attr">android:duration</span>=<span class="string">"1000"</span></div><div class="line">    <span class="attr">android:fromXDelta</span>=<span class="string">"0"</span></div><div class="line">    <span class="attr">android:interpolator</span>=<span class="string">"@anim/cycle_7"</span></div><div class="line">    <span class="attr">android:toXDelta</span>=<span class="string">"10"</span> /&gt;</div></pre></td></tr></table></figure></p>
+<p>cycle_7.xml<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span>?&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">cycleInterpolator</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span></div><div class="line"><span class="attr">android:cycles</span>=<span class="string">"7"</span> /&gt;</div></pre></td></tr></table></figure></p>
+<p>(2)java代码<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Animation shake = AnimationUtils.loadAnimation(</div><div class="line">						MainActivity.<span class="keyword">this</span>, R.anim.animlayout);</div><div class="line">				btn.setAnimation(shake);</div></pre></td></tr></table></figure></p>
+<h1 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h1><p><a href="http://wuxiaolong.me/about/">点击查看</a></p>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+  <div>赞赏是一种共鸣或认可</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="吴小龙同學 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    吴小龙同學
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://wuxiaolong.me/2015/08/10/android-small-knowledge-base/" title="Android小知识库">http://wuxiaolong.me/2015/08/10/android-small-knowledge-base/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/08/04/TodayEmotion/" rel="next" title="今日情感">
+                <i class="fa fa-chevron-left"></i> 今日情感
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/08/10/Drawable-to-Bitmap/" rel="prev" title="Drawable /Bitmap、String/InputStream、Bitmap/byte[]互转">
+                Drawable /Bitmap、String/InputStream、Bitmap/byte[]互转 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTM2My81OTMx"></div>
+    </div>
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="http://7q5c2h.com1.z0.glb.clouddn.com/avatar.jpg" alt="吴小龙同學">
+            
+              <p class="site-author-name" itemprop="name">吴小龙同學</p>
+              <p class="site-description motion-element" itemprop="description">我的微信公众号：吴小龙同学</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">163</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">129</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/WuXiaolong" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://open.weixin.qq.com/qr/code/?username=MrWuXiaolong" target="_blank" title="WeChat">
+                    
+                      <i class="fa fa-fw fa-globe"></i>WeChat</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/u/2175011601" target="_blank" title="Weibo">
+                    
+                      <i class="fa fa-fw fa-globe"></i>Weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="/qq/index.html" target="_blank" title="QQ">
+                    
+                      <i class="fa fa-fw fa-globe"></i>QQ</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Android-6-0-Dialog-text-doesn’t-appear"><span class="nav-number">1.</span> <span class="nav-text">Android 6.0 Dialog text doesn’t appear</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#android-studio-svn-commit-changelist-delete"><span class="nav-number">2.</span> <span class="nav-text">android studio svn commit changelist delete</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android-Activity做成对话框效果"><span class="nav-number">3.</span> <span class="nav-text">Android Activity做成对话框效果</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#The-APK-file-does-not-exist-on-disk-Error-while-Installing-APK"><span class="nav-number">4.</span> <span class="nav-text">The APK file does not exist on disk.Error while Installing APK</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android-Studio获取SHA1"><span class="nav-number">5.</span> <span class="nav-text">Android Studio获取SHA1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Genymotion下载虚拟镜像Connection-timeout"><span class="nav-number">6.</span> <span class="nav-text">Genymotion下载虚拟镜像Connection timeout</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android-Studio-如何Debug"><span class="nav-number">7.</span> <span class="nav-text">Android Studio 如何Debug</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android-Studio设置默认的签名文件"><span class="nav-number">8.</span> <span class="nav-text">Android Studio设置默认的签名文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Fragment懒加载"><span class="nav-number">9.</span> <span class="nav-text">Fragment懒加载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android-studio头注释和方法注释"><span class="nav-number">10.</span> <span class="nav-text">Android studio头注释和方法注释</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#adapter-getPositionForSelection-和getSectionForPosition"><span class="nav-number">11.</span> <span class="nav-text">adapter.getPositionForSelection()和getSectionForPosition()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#getResources-getColor-R-color-color-name-is-deprecated和drawableTop"><span class="nav-number">12.</span> <span class="nav-text">getResources().getColor(R.color.color_name) is deprecated和drawableTop</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#showPopupWindow"><span class="nav-number">13.</span> <span class="nav-text">showPopupWindow</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#onFinishInflate"><span class="nav-number">14.</span> <span class="nav-text">onFinishInflate()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Fragment设置隐藏或显示某个Fragment"><span class="nav-number">15.</span> <span class="nav-text">Fragment设置隐藏或显示某个Fragment</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#获取arrt的值"><span class="nav-number">16.</span> <span class="nav-text">获取arrt的值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#拨号盘拨打电话"><span class="nav-number">17.</span> <span class="nav-text">拨号盘拨打电话</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Drawable-Bitmap、String-InputStream、Bitmap-byte-互转"><span class="nav-number">18.</span> <span class="nav-text">Drawable /Bitmap、String/InputStream、Bitmap/byte[]互转</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ProgressDialog"><span class="nav-number">19.</span> <span class="nav-text">ProgressDialog</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#毫秒"><span class="nav-number">20.</span> <span class="nav-text">毫秒</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Fragment-setUserVisibleHint-boolean-isVisibleToUser"><span class="nav-number">21.</span> <span class="nav-text">Fragment  setUserVisibleHint(boolean isVisibleToUser)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Fragment-onActivityResult"><span class="nav-number">22.</span> <span class="nav-text">Fragment  onActivityResult</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dimen代码取值"><span class="nav-number">23.</span> <span class="nav-text">dimen代码取值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数组初始化赋值"><span class="nav-number">24.</span> <span class="nav-text">数组初始化赋值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Fragment-isAdded"><span class="nav-number">25.</span> <span class="nav-text">Fragment.isAdded()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#android之inputType属性"><span class="nav-number">26.</span> <span class="nav-text">android之inputType属性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ImageView-ScaleType"><span class="nav-number">27.</span> <span class="nav-text">ImageView.ScaleType</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#调用系统发送短信界面"><span class="nav-number">28.</span> <span class="nav-text">调用系统发送短信界面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#跳转市场搜索某款软件"><span class="nav-number">29.</span> <span class="nav-text">跳转市场搜索某款软件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#检测系统中是否安装某款软件"><span class="nav-number">30.</span> <span class="nav-text">检测系统中是否安装某款软件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对话框菜单"><span class="nav-number">31.</span> <span class="nav-text">对话框菜单</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#定义ProgressBar"><span class="nav-number">32.</span> <span class="nav-text">定义ProgressBar</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#幻灯片效果"><span class="nav-number">33.</span> <span class="nav-text">幻灯片效果</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MD5加密"><span class="nav-number">34.</span> <span class="nav-text">MD5加密</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设置自动跳转页面"><span class="nav-number">35.</span> <span class="nav-text">设置自动跳转页面</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Timer"><span class="nav-number">35.1.</span> <span class="nav-text">Timer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Handler"><span class="nav-number">35.2.</span> <span class="nav-text">Handler</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#随机取数"><span class="nav-number">36.</span> <span class="nav-text">随机取数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#selector下的属性值"><span class="nav-number">37.</span> <span class="nav-text">selector下的属性值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#带下划线的EditText"><span class="nav-number">38.</span> <span class="nav-text">带下划线的EditText</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关闭键盘"><span class="nav-number">39.</span> <span class="nav-text">关闭键盘</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#界面不被弹出的键盘盖住"><span class="nav-number">40.</span> <span class="nav-text">界面不被弹出的键盘盖住</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#控件美化Shape"><span class="nav-number">41.</span> <span class="nav-text">控件美化Shape</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#获取版本名称-VersionName"><span class="nav-number">42.</span> <span class="nav-text">获取版本名称 VersionName</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#获取Android手机设备的IMSI-IMEI-信息"><span class="nav-number">43.</span> <span class="nav-text">获取Android手机设备的IMSI / IMEI 信息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自定义Log是否显示"><span class="nav-number">44.</span> <span class="nav-text">自定义Log是否显示</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异步操作AsyncTask"><span class="nav-number">45.</span> <span class="nav-text">异步操作AsyncTask</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#检查网络状态"><span class="nav-number">46.</span> <span class="nav-text">检查网络状态</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Html-fromHtml（）"><span class="nav-number">47.</span> <span class="nav-text">Html.fromHtml（）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#URLEncoder-encode"><span class="nav-number">48.</span> <span class="nav-text">URLEncoder.encode</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android中字体加粗"><span class="nav-number">49.</span> <span class="nav-text">Android中字体加粗</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码设置背景图setImageResource-setBackgroundResource"><span class="nav-number">50.</span> <span class="nav-text">代码设置背景图setImageResource/setBackgroundResource</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#android中的ellipsize"><span class="nav-number">51.</span> <span class="nav-text">android中的ellipsize</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#控件点击效果"><span class="nav-number">52.</span> <span class="nav-text">控件点击效果</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#保留小数点"><span class="nav-number">53.</span> <span class="nav-text">保留小数点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#RadioGroup"><span class="nav-number">54.</span> <span class="nav-text">RadioGroup</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#占位符-s替换"><span class="nav-number">55.</span> <span class="nav-text">占位符%s替换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TextView中嵌套图片Drawable"><span class="nav-number">56.</span> <span class="nav-text">TextView中嵌套图片Drawable</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TextView做成分割线"><span class="nav-number">57.</span> <span class="nav-text">TextView做成分割线</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SpannableString单击文字链接"><span class="nav-number">58.</span> <span class="nav-text">SpannableString单击文字链接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TextView中文字通过SpannableString"><span class="nav-number">59.</span> <span class="nav-text">TextView中文字通过SpannableString</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#android-drawableTop属性"><span class="nav-number">60.</span> <span class="nav-text">android:drawableTop属性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#获取分辨率"><span class="nav-number">61.</span> <span class="nav-text">获取分辨率</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码完成控件"><span class="nav-number">62.</span> <span class="nav-text">代码完成控件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TextWatcher"><span class="nav-number">63.</span> <span class="nav-text">TextWatcher</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#屏幕旋转时不销毁"><span class="nav-number">64.</span> <span class="nav-text">屏幕旋转时不销毁</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#List增加数据"><span class="nav-number">65.</span> <span class="nav-text">List增加数据</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简单"><span class="nav-number">65.1.</span> <span class="nav-text">简单</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#键值对"><span class="nav-number">65.2.</span> <span class="nav-text">键值对</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LinkedList"><span class="nav-number">65.3.</span> <span class="nav-text">LinkedList</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#验证是否手机号码"><span class="nav-number">66.</span> <span class="nav-text">验证是否手机号码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#正则表达式数字验证"><span class="nav-number">67.</span> <span class="nav-text">正则表达式数字验证</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SharedPreferences"><span class="nav-number">68.</span> <span class="nav-text">SharedPreferences</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SharedPreferences存数据"><span class="nav-number">68.1.</span> <span class="nav-text">SharedPreferences存数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SharedPreferences取数据"><span class="nav-number">68.2.</span> <span class="nav-text">SharedPreferences取数据</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Intent-传值"><span class="nav-number">69.</span> <span class="nav-text">Intent 传值</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简单传值"><span class="nav-number">69.1.</span> <span class="nav-text">简单传值</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#复杂传值"><span class="nav-number">70.</span> <span class="nav-text">复杂传值</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#List"><span class="nav-number">70.1.</span> <span class="nav-text">List</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#xml文件中导入另一个xml文件的方法include"><span class="nav-number">71.</span> <span class="nav-text">xml文件中导入另一个xml文件的方法include</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#单击返回键两次退出"><span class="nav-number">72.</span> <span class="nav-text">单击返回键两次退出</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#图片左右循环移动"><span class="nav-number">73.</span> <span class="nav-text">图片左右循环移动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#控件左右抖动"><span class="nav-number">74.</span> <span class="nav-text">控件左右抖动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于作者"><span class="nav-number">75.</span> <span class="nav-text">关于作者</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2013 &mdash; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">吴小龙同學</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
