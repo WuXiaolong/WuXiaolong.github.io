@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="开发过程，如果某个权限被第三方限制了，比如录音，网上查了下 123456String permName = &quot;android.permission.RECORD_AUDIO&quot;;       String pkgName = getPackageName();       // 结果为0则表示使用了该权限，-1则表求没有使用该权限       int reslut = getPackageManag">
+<meta name="description" content="开发过程，如果某个权限被第三方限制了，比如录音，网上查了下 String permName = &quot;android.permission.RECORD_AUDIO&quot;;       String pkgName = getPackageName();       // 结果为0则表示使用了该权限，-1则表求没有使用该权限       int reslut = getPackageManager().c">
 <meta name="keywords" content="Android,Permission">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android判断权限被限制">
 <meta property="og:url" content="http://wuxiaolong.me/2015/06/10/checkPermission/index.html">
 <meta property="og:site_name" content="吴小龙同學">
-<meta property="og:description" content="开发过程，如果某个权限被第三方限制了，比如录音，网上查了下 123456String permName = &quot;android.permission.RECORD_AUDIO&quot;;       String pkgName = getPackageName();       // 结果为0则表示使用了该权限，-1则表求没有使用该权限       int reslut = getPackageManag">
+<meta property="og:description" content="开发过程，如果某个权限被第三方限制了，比如录音，网上查了下 String permName = &quot;android.permission.RECORD_AUDIO&quot;;       String pkgName = getPackageName();       // 结果为0则表示使用了该权限，-1则表求没有使用该权限       int reslut = getPackageManager().c">
 <meta property="og:updated_time" content="2016-08-25T11:38:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android判断权限被限制">
-<meta name="twitter:description" content="开发过程，如果某个权限被第三方限制了，比如录音，网上查了下 123456String permName = &quot;android.permission.RECORD_AUDIO&quot;;       String pkgName = getPackageName();       // 结果为0则表示使用了该权限，-1则表求没有使用该权限       int reslut = getPackageManag">
+<meta name="twitter:description" content="开发过程，如果某个权限被第三方限制了，比如录音，网上查了下 String permName = &quot;android.permission.RECORD_AUDIO&quot;;       String pkgName = getPackageName();       // 结果为0则表示使用了该权限，-1则表求没有使用该权限       int reslut = getPackageManager().c">
 
 
 
@@ -420,11 +420,11 @@ border:2px solid #69c;
 
       
         <p>开发过程，如果某个权限被第三方限制了，比如录音，网上查了下</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">String permName = <span class="string">"android.permission.RECORD_AUDIO"</span>;</div><div class="line">       String pkgName = getPackageName();</div><div class="line">       <span class="comment">// 结果为0则表示使用了该权限，-1则表求没有使用该权限</span></div><div class="line">       <span class="keyword">int</span> reslut = getPackageManager().checkPermission(permName, pkgName);</div><div class="line">       Log.d(<span class="string">"wxl"</span>, <span class="string">"reslut="</span> + reslut + <span class="string">"======"</span></div><div class="line">               + PackageManager.PERMISSION_GRANTED);</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">String permName = <span class="string">"android.permission.RECORD_AUDIO"</span>;</div><div class="line">       String pkgName = getPackageName();</div><div class="line">       <span class="comment">// 结果为0则表示使用了该权限，-1则表求没有使用该权限</span></div><div class="line">       <span class="keyword">int</span> reslut = getPackageManager().checkPermission(permName, pkgName);</div><div class="line">       Log.d(<span class="string">"wxl"</span>, <span class="string">"reslut="</span> + reslut + <span class="string">"======"</span></div><div class="line">               + PackageManager.PERMISSION_GRANTED);</div></pre></td></tr></table></figure>
 <p>实际这个方法只是检测你的APP是否使用了某个权限，但是不能检测是否被限制了。</p>
 <a id="more"></a>
 <p>我以为做不了，找了微信，限制录音权限，结果提示录音权限被限，于是我仔细看了异常信息。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="number">06</span><span class="number">-11</span> <span class="number">11</span>:<span class="number">33</span>:<span class="number">58.644</span>    <span class="number">7706</span><span class="number">-7706</span>/cn.cntv.tvt W/System.err﹕ java.io.IOException: Recording permission has been disabled <span class="keyword">for</span> current app</div><div class="line"><span class="number">06</span><span class="number">-11</span> <span class="number">11</span>:<span class="number">33</span>:<span class="number">58.644</span>    <span class="number">7706</span><span class="number">-7706</span>/cn.cntv.tvt W/System.err﹕ at com.lbe.security.service.core.client.MultimediaClient.mrShouldBlock(Unknown Source)</div><div class="line"><span class="number">06</span><span class="number">-11</span> <span class="number">11</span>:<span class="number">33</span>:<span class="number">58.644</span>    <span class="number">7706</span><span class="number">-7706</span>/cn.cntv.tvt W/System.err﹕ at android.media.MediaRecorder._setOutputFile(Native Method)</div><div class="line"><span class="number">06</span><span class="number">-11</span> <span class="number">11</span>:<span class="number">33</span>:<span class="number">58.644</span>    <span class="number">7706</span><span class="number">-7706</span>/cn.cntv.tvt W/System.err﹕ at android.media.MediaRecorder.prepare(MediaRecorder.java:<span class="number">769</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"><span class="number">06</span><span class="number">-11</span> <span class="number">11</span>:<span class="number">33</span>:<span class="number">58.644</span>    <span class="number">7706</span><span class="number">-7706</span>/cn.cntv.tvt W/System.err﹕ java.io.IOException: Recording permission has been disabled <span class="keyword">for</span> current app</div><div class="line"><span class="number">06</span><span class="number">-11</span> <span class="number">11</span>:<span class="number">33</span>:<span class="number">58.644</span>    <span class="number">7706</span><span class="number">-7706</span>/cn.cntv.tvt W/System.err﹕ at com.lbe.security.service.core.client.MultimediaClient.mrShouldBlock(Unknown Source)</div><div class="line"><span class="number">06</span><span class="number">-11</span> <span class="number">11</span>:<span class="number">33</span>:<span class="number">58.644</span>    <span class="number">7706</span><span class="number">-7706</span>/cn.cntv.tvt W/System.err﹕ at android.media.MediaRecorder._setOutputFile(Native Method)</div><div class="line"><span class="number">06</span><span class="number">-11</span> <span class="number">11</span>:<span class="number">33</span>:<span class="number">58.644</span>    <span class="number">7706</span><span class="number">-7706</span>/cn.cntv.tvt W/System.err﹕ at android.media.MediaRecorder.prepare(MediaRecorder.java:<span class="number">769</span>)</div></pre></td></tr></table></figure>
 <p>对比Recording permission has been disabled for current app，做相应的提示就OK！</p>
       
     </div>
@@ -509,8 +509,8 @@ border:2px solid #69c;
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/07/08/TimeUtil/" rel="prev" title="时间工具类TimeUtil">
-                时间工具类TimeUtil <i class="fa fa-chevron-right"></i>
+              <a href="/2015/07/08/listView_item_state/" rel="prev" title="刷新RecyclerView/ListView某个item状态">
+                刷新RecyclerView/ListView某个item状态 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -774,9 +774,6 @@ border:2px solid #69c;
 
 
 
-  
-  
-
 
 
 
@@ -802,12 +799,6 @@ border:2px solid #69c;
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-  
-  <script type="text/javascript" src="/lib/three/three.min.js"></script>
-
-  
-  <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
 
 
   

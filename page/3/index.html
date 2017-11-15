@@ -415,9 +415,9 @@ border:2px solid #69c;
 
       
         
-          <h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>1、 app/build.gradle<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">    compile <span class="string">'pub.devrel:easypermissions:0.3.0'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+          <h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>1、 app/build.gradle<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">    compile <span class="string">'pub.devrel:easypermissions:0.3.0'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>2、 在Activity / Fragment实现PermissionCallbacks，回调方法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPermissionsGranted</span><span class="params">(<span class="keyword">int</span> requestCode, List&lt;String&gt; list)</span> </span>&#123;</div><div class="line">    <span class="comment">// Some permissions have been granted</span></div><div class="line">    <span class="comment">// ...</span></div><div class="line">    LogUtil.d(<span class="string">"Some permissions have been granted="</span> + requestCode);</div><div class="line">&#125;</div><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPermissionsDenied</span><span class="params">(<span class="keyword">int</span> requestCode, List&lt;String&gt; list)</span> </span>&#123;</div><div class="line">    <span class="comment">// Some permissions have been denied</span></div><div class="line">    <span class="comment">// ...</span></div><div class="line">    LogUtil.d(<span class="string">"Some permissions have been denied="</span> + requestCode);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPermissionsGranted</span><span class="params">(<span class="keyword">int</span> requestCode, List&lt;String&gt; list)</span> </span>&#123;</div><div class="line">    <span class="comment">// Some permissions have been granted</span></div><div class="line">    <span class="comment">// ...</span></div><div class="line">    LogUtil.d(<span class="string">"Some permissions have been granted="</span> + requestCode);</div><div class="line">&#125;</div><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPermissionsDenied</span><span class="params">(<span class="keyword">int</span> requestCode, List&lt;String&gt; list)</span> </span>&#123;</div><div class="line">    <span class="comment">// Some permissions have been denied</span></div><div class="line">    <span class="comment">// ...</span></div><div class="line">    LogUtil.d(<span class="string">"Some permissions have been denied="</span> + requestCode);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/03/07/easypermissions/" rel="contents">
@@ -2028,9 +2028,6 @@ border:2px solid #69c;
 
 
 
-  
-  
-
 
 
 
@@ -2056,12 +2053,6 @@ border:2px solid #69c;
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-  
-  <script type="text/javascript" src="/lib/three/three.min.js"></script>
-
-  
-  <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
 
 
   

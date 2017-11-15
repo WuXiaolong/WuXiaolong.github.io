@@ -430,17 +430,17 @@ border:2px solid #69c;
 <h2 id="设置-Python-版本"><a href="#设置-Python-版本" class="headerlink" title="设置 Python 版本"></a>设置 Python 版本</h2><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/Python3Learn3.png?imageView2/0/format/png/q/75|watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5a6L5L2T/fontsize/1200/fill/IzIxOTZGMw==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim" alt=""></p>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>用 PyCharm 够了。</p>
 <h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>Python 中的变量不需要声明类型，但每个变量在使用前都必须赋值，变量赋值后才会被创建。变量命名全部小写，可由下划线连接各个单词。</p>
-<h2 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a>赋值</h2><h3 id="单个变量赋值"><a href="#单个变量赋值" class="headerlink" title="单个变量赋值"></a>单个变量赋值</h3><p>等号 = 用来给变量赋值。如：<br><!--more--><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 整型变量</span></div><div class="line">a = <span class="number">100</span></div><div class="line"><span class="comment"># 浮点型变量</span></div><div class="line">b = <span class="number">100.0</span></div><div class="line"><span class="comment"># 字符串</span></div><div class="line">c = <span class="string">'wxl'</span></div><div class="line">print(a, b, c)</div></pre></td></tr></table></figure></p>
-<p>返回：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="number">100</span> <span class="number">100.0</span> wxl</div></pre></td></tr></table></figure></p>
-<h3 id="多个变量赋值"><a href="#多个变量赋值" class="headerlink" title="多个变量赋值"></a>多个变量赋值</h3><h4 id="多重赋值"><a href="#多重赋值" class="headerlink" title="多重赋值"></a>多重赋值</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">a = b = c = <span class="number">100</span></div><div class="line">print(a, b, c)</div></pre></td></tr></table></figure>
-<p>返回：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="number">100</span> <span class="number">100</span> <span class="number">100</span></div></pre></td></tr></table></figure></p>
+<h2 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a>赋值</h2><h3 id="单个变量赋值"><a href="#单个变量赋值" class="headerlink" title="单个变量赋值"></a>单个变量赋值</h3><p>等号 = 用来给变量赋值。如：<br><!--more--><br><figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="comment"># 整型变量</span></div><div class="line">a = <span class="number">100</span></div><div class="line"><span class="comment"># 浮点型变量</span></div><div class="line">b = <span class="number">100.0</span></div><div class="line"><span class="comment"># 字符串</span></div><div class="line">c = <span class="string">'wxl'</span></div><div class="line">print(a, b, c)</div></pre></td></tr></table></figure></p>
+<p>返回：<br><figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="number">100</span> <span class="number">100.0</span> wxl</div></pre></td></tr></table></figure></p>
+<h3 id="多个变量赋值"><a href="#多个变量赋值" class="headerlink" title="多个变量赋值"></a>多个变量赋值</h3><h4 id="多重赋值"><a href="#多重赋值" class="headerlink" title="多重赋值"></a>多重赋值</h4><figure class="highlight python"><table><tr><td class="code"><pre><div class="line">a = b = c = <span class="number">100</span></div><div class="line">print(a, b, c)</div></pre></td></tr></table></figure>
+<p>返回：<br><figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="number">100</span> <span class="number">100</span> <span class="number">100</span></div></pre></td></tr></table></figure></p>
 <p>整型对象，值都为 100，三个变量被分配到相同的内存空间上。</p>
-<h4 id="多元赋值"><a href="#多元赋值" class="headerlink" title="多元赋值"></a>多元赋值</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">a, b, c = <span class="number">100</span>, <span class="number">100.0</span>, <span class="string">'wxl'</span></div><div class="line">print(a, b, c)</div></pre></td></tr></table></figure>
-<p>返回：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="number">100</span> <span class="number">100.0</span> wxl</div></pre></td></tr></table></figure></p>
-<h3 id="查询变量类型"><a href="#查询变量类型" class="headerlink" title="查询变量类型"></a>查询变量类型</h3><p>1、type()<br>内置的 type() 函数可以用来查询变量所指的对象类型。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">a = <span class="number">1000</span></div><div class="line">print(type(a))</div></pre></td></tr></table></figure></p>
-<p>返回：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="class"><span class="keyword">class</span> '<span class="title">int</span>'&gt;</span></div></pre></td></tr></table></figure></p>
-<p>2、isinstance()<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">a = <span class="number">1000</span></div><div class="line">print(isinstance(a, int))</div></pre></td></tr></table></figure></p>
-<p>返回：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">True</span></div></pre></td></tr></table></figure></p>
+<h4 id="多元赋值"><a href="#多元赋值" class="headerlink" title="多元赋值"></a>多元赋值</h4><figure class="highlight python"><table><tr><td class="code"><pre><div class="line">a, b, c = <span class="number">100</span>, <span class="number">100.0</span>, <span class="string">'wxl'</span></div><div class="line">print(a, b, c)</div></pre></td></tr></table></figure>
+<p>返回：<br><figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="number">100</span> <span class="number">100.0</span> wxl</div></pre></td></tr></table></figure></p>
+<h3 id="查询变量类型"><a href="#查询变量类型" class="headerlink" title="查询变量类型"></a>查询变量类型</h3><p>1、type()<br>内置的 type() 函数可以用来查询变量所指的对象类型。<br><figure class="highlight python"><table><tr><td class="code"><pre><div class="line">a = <span class="number">1000</span></div><div class="line">print(type(a))</div></pre></td></tr></table></figure></p>
+<p>返回：<br><figure class="highlight python"><table><tr><td class="code"><pre><div class="line">&lt;<span class="class"><span class="keyword">class</span> '<span class="title">int</span>'&gt;</span></div></pre></td></tr></table></figure></p>
+<p>2、isinstance()<br><figure class="highlight python"><table><tr><td class="code"><pre><div class="line">a = <span class="number">1000</span></div><div class="line">print(isinstance(a, int))</div></pre></td></tr></table></figure></p>
+<p>返回：<br><figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="keyword">True</span></div></pre></td></tr></table></figure></p>
 <p>3、两者区别<br>type() 不会认为子类是一种父类类型；<br>isinstance() 会认为子类是一种父类类型。</p>
 <h2 id="小结-1"><a href="#小结-1" class="headerlink" title="小结"></a>小结</h2><p>Python 变量不需要声明类型，会根据您赋给的值推断。</p>
 <h1 id="题外"><a href="#题外" class="headerlink" title="题外"></a>题外</h1><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/Python3Learn6.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/Python3Learn7.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br>猜猜我在干嘛？</p>
@@ -816,9 +816,6 @@ border:2px solid #69c;
 
 
 
-  
-  
-
 
 
 
@@ -844,12 +841,6 @@ border:2px solid #69c;
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-  
-  <script type="text/javascript" src="/lib/three/three.min.js"></script>
-
-  
-  <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
 
 
   

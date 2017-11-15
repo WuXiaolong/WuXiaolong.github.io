@@ -712,9 +712,9 @@ border:2px solid #69c;
         
           
             <p>百度SQLite 随机取n行的方法大多数如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SELECT key,<span class="function">value FROM dict ORDER BY <span class="title">RANDOM</span><span class="params">(key)</span> LIMIT 1</span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">SELECT key,<span class="function">value FROM dict ORDER BY <span class="title">RANDOM</span><span class="params">(key)</span> LIMIT 1</span></div></pre></td></tr></table></figure>
 <p>那如何写入android的SQLite？LIMIT 1<br>我也懂了就是拿到一条数据，可能是key给我误导了，<br>我运行时一直报错，现在才调试好。<br>现在分享给大家，代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Cursor cursor = db.query(<span class="string">"表名"</span>, <span class="keyword">new</span> String[] &#123; <span class="string">"*"</span> &#125;, <span class="keyword">null</span>, <span class="keyword">null</span>,<span class="keyword">null</span>, <span class="keyword">null</span>, <span class="string">"RANDOM()"</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">Cursor cursor = db.query(<span class="string">"表名"</span>, <span class="keyword">new</span> String[] &#123; <span class="string">"*"</span> &#125;, <span class="keyword">null</span>, <span class="keyword">null</span>,<span class="keyword">null</span>, <span class="keyword">null</span>, <span class="string">"RANDOM()"</span>);</div></pre></td></tr></table></figure>
           
         
       
@@ -992,9 +992,6 @@ border:2px solid #69c;
 
 
 
-  
-  
-
 
 
 
@@ -1020,12 +1017,6 @@ border:2px solid #69c;
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-  
-  <script type="text/javascript" src="/lib/three/three.min.js"></script>
-
-  
-  <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
 
 
   

@@ -1451,7 +1451,7 @@ border:2px solid #69c;
       
         
           
-            <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;ListView </div><div class="line">android:divider="@drawable/song_item_line"  item之间的分割线</div><div class="line">       android:cacheColorHint="#00000000"拖动系统切换item时的缓存色</div><div class="line">       android:scrollbars="none"不显示滚动条</div><div class="line">       android:listSelector="#00000000"/&gt;选中时背景色</div><div class="line">       android:fadingEdge="none" 设置后上边和下边没有阴影了</div><div class="line">       android:fastScrollEnabled="true" 快速滚动滑块</div><div class="line">       android:cacheColorHint 如果你是用图片做背景的话，那也只要将android:cacheColorHint指定为透明（#00000000）就可以了.  </div><div class="line">       android:divider="@drawable/list_driver" 设置显示分割线图形，如果不想显示分割线则只要设置为</div><div class="line">       android:divider="@null" 就可以了，分割线可以自定义颜色、或图片.</div><div class="line">       android:dividerHeight="6px"设置分割线高度像素.  </div><div class="line">       android:fadeScrollbars="true"  滚动条的自动隐藏和显示. </div><div class="line">       android:transcriptMode="alwaysScroll"  （支持ScrollBar）自动滑动到最底部.</div><div class="line">       android:stackFromBottom="true" 设置你做好的列表显示在列表的最下面，值为true和false. </div><div class="line">       android:drawSelectorOnTop="true"  点击某一条记录，颜色会显示在最上面，记录上的文字被遮住，所以点击文字不放，文字就看不到</div><div class="line">       android:drawSelectorOnTop="false" 点击某条记录不放，颜色会在记录的后面，成为背景色，但是记录内容的文字是可见的</div><div class="line">/&gt;</div></pre></td></tr></table></figure>
+            <figure class="highlight"><table><tr><td class="code"><pre><div class="line">&lt;ListView </div><div class="line">android:divider="@drawable/song_item_line"  item之间的分割线</div><div class="line">       android:cacheColorHint="#00000000"拖动系统切换item时的缓存色</div><div class="line">       android:scrollbars="none"不显示滚动条</div><div class="line">       android:listSelector="#00000000"/&gt;选中时背景色</div><div class="line">       android:fadingEdge="none" 设置后上边和下边没有阴影了</div><div class="line">       android:fastScrollEnabled="true" 快速滚动滑块</div><div class="line">       android:cacheColorHint 如果你是用图片做背景的话，那也只要将android:cacheColorHint指定为透明（#00000000）就可以了.  </div><div class="line">       android:divider="@drawable/list_driver" 设置显示分割线图形，如果不想显示分割线则只要设置为</div><div class="line">       android:divider="@null" 就可以了，分割线可以自定义颜色、或图片.</div><div class="line">       android:dividerHeight="6px"设置分割线高度像素.  </div><div class="line">       android:fadeScrollbars="true"  滚动条的自动隐藏和显示. </div><div class="line">       android:transcriptMode="alwaysScroll"  （支持ScrollBar）自动滑动到最底部.</div><div class="line">       android:stackFromBottom="true" 设置你做好的列表显示在列表的最下面，值为true和false. </div><div class="line">       android:drawSelectorOnTop="true"  点击某一条记录，颜色会显示在最上面，记录上的文字被遮住，所以点击文字不放，文字就看不到</div><div class="line">       android:drawSelectorOnTop="false" 点击某条记录不放，颜色会在记录的后面，成为背景色，但是记录内容的文字是可见的</div><div class="line">/&gt;</div></pre></td></tr></table></figure>
           
         
       
@@ -1738,7 +1738,7 @@ border:2px solid #69c;
       
         
           <p>除了使用drawable这样的图片外，随着图片资源增多，程序也越来越大，今天我们自定义图形shape的方法。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&lt;shape&gt;</div><div class="line">           &lt;!-- 实心 --&gt;</div><div class="line">           &lt;solid android:color="#ff9d77"/&gt;</div><div class="line">           &lt;!-- 渐变 --&gt;</div><div class="line">           &lt;gradient</div><div class="line">               android:startColor="#ff8c00"</div><div class="line">               android:endColor="#FFFFFF"</div><div class="line">               android:angle="270" /&gt;</div><div class="line">           &lt;!-- 描边 --&gt;</div><div class="line">           &lt;stroke</div><div class="line">               android:width="2dp"</div><div class="line">               android:color="#dcdcdc" /&gt;</div><div class="line">           &lt;!-- 圆角 --&gt;</div><div class="line">           &lt;corners</div><div class="line">               android:radius="2dp" /&gt;</div><div class="line">           &lt;padding</div><div class="line">               android:left="10dp"</div><div class="line">               android:top="10dp"</div><div class="line">               android:right="10dp"</div><div class="line">               android:bottom="10dp" /&gt;</div><div class="line">       &lt;/shape&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line">&lt;shape&gt;</div><div class="line">           &lt;!-- 实心 --&gt;</div><div class="line">           &lt;solid android:color="#ff9d77"/&gt;</div><div class="line">           &lt;!-- 渐变 --&gt;</div><div class="line">           &lt;gradient</div><div class="line">               android:startColor="#ff8c00"</div><div class="line">               android:endColor="#FFFFFF"</div><div class="line">               android:angle="270" /&gt;</div><div class="line">           &lt;!-- 描边 --&gt;</div><div class="line">           &lt;stroke</div><div class="line">               android:width="2dp"</div><div class="line">               android:color="#dcdcdc" /&gt;</div><div class="line">           &lt;!-- 圆角 --&gt;</div><div class="line">           &lt;corners</div><div class="line">               android:radius="2dp" /&gt;</div><div class="line">           &lt;padding</div><div class="line">               android:left="10dp"</div><div class="line">               android:top="10dp"</div><div class="line">               android:right="10dp"</div><div class="line">               android:bottom="10dp" /&gt;</div><div class="line">       &lt;/shape&gt;</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2013/07/09/shape/" rel="contents">
@@ -2022,9 +2022,6 @@ border:2px solid #69c;
 
 
 
-  
-  
-
 
 
 
@@ -2050,12 +2047,6 @@ border:2px solid #69c;
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-  
-  <script type="text/javascript" src="/lib/three/three.min.js"></script>
-
-  
-  <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
 
 
   

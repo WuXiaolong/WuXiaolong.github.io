@@ -437,7 +437,7 @@ border:2px solid #69c;
 <p>有两点需要<code>注意</code>：①大数（854）必须在前，否则会报错；②两个数字之间的符号是小写英文字母“x”，不是乘号。系统会根据机器的分辨率来分别到这几个文件夹里面去找对应的布局文件。如下：<br><img src="http://wuxiaolong.qiniudn.com/2013-07-23-screen-adaptation-1.jpg" alt="布局文件"></p>
 <p>如果你建立的layout文件夹的分辨率是你的eclipse加载的android工具所支持的分辨率，那么在可视化的布局界面中会自动给出屏幕分辨率、屏幕尺寸（红色箭头处）等参数，值得注意的是，如果红色箭头处是“Custom…”，那么你就要人为对其进行修改，选择合适的屏幕尺寸。<br><img src="http://wuxiaolong.qiniudn.com/2013-07-23-screen-adaptation-2.jpg" alt="选择合适的屏幕尺寸"></p>
 <p>3、设置屏幕的横竖屏显示：<br>如果不做特殊说明，开发的应用是横竖屏重力敏感的，如果禁止横竖屏切换，需要在AndroidManifest.xml文件中做相应的修改：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;activity android:name=<span class="string">".MenuView"</span></div><div class="line">android:label=<span class="string">"@string/app_name"</span></div><div class="line">android:screenOrientation=<span class="string">"portrait"</span>&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">&lt;activity android:name=<span class="string">".MenuView"</span></div><div class="line">android:label=<span class="string">"@string/app_name"</span></div><div class="line">android:screenOrientation=<span class="string">"portrait"</span>&gt;</div></pre></td></tr></table></figure>
 <p>在activity的属性中添“android:screenOrientation=”portrait””，portrait表示竖屏，横屏则用landscape表示。</p>
 <p>4、dip和px的问题：</p>
 <p>在网上找了好多关于“dip和px的区别”的资料，但是解释的都不是很清楚。<br>我很肤浅的理解：dip是相对的，px是绝对的，所以dip能够有效解决不同型号手机不同分辨率的布局适配问题。</p>
@@ -788,9 +788,6 @@ border:2px solid #69c;
 
 
 
-  
-  
-
 
 
 
@@ -816,12 +813,6 @@ border:2px solid #69c;
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-  
-  <script type="text/javascript" src="/lib/three/three.min.js"></script>
-
-  
-  <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
 
 
   

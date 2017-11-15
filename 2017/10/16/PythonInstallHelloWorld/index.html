@@ -426,30 +426,30 @@ border:2px solid #69c;
 <h2 id="Mac-安装-Python"><a href="#Mac-安装-Python" class="headerlink" title="Mac 安装 Python"></a>Mac 安装 Python</h2><p>Mac OS 已经自带了 Python，版本是 2.7，我们需要安装最新版本的 Python，有两个方法：<br><a id="more"></a><br>方法一：从 <a href="https://www.python.org/" target="_blank" rel="external">Python 官网</a>下载最新 Python 的安装程序，双击运行并安装；<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/Python3Learn2.png?imageView2/0/format/png/q/75|watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5a6L5L2T/fontsize/1200/fill/IzIxOTZGMw==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim" alt=""></p>
 <p>方法二：如果安装了 <a href="https://brew.sh/" target="_blank" rel="external">HomeBrew</a>，直接通过命令 <code>brew install python3</code> 安装即可。</p>
 <h2 id="Windows-安装-Python"><a href="#Windows-安装-Python" class="headerlink" title="Windows 安装 Python"></a>Windows 安装 Python</h2><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/Python3Learn9.png?imageView2/0/format/png/q/75|watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5a6L5L2T/fontsize/1200/fill/IzIxOTZGMw==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim" alt=""><br>特别要注意勾上 Add Python 3.6 to PATH，然后点“Install Now”或 “Customize installation”即可完成安装，不然需要手动配置环境变量。</p>
-<h2 id="查看-python-版本"><a href="#查看-python-版本" class="headerlink" title="查看 python 版本"></a>查看 python 版本</h2><p>Windows 命令行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python -V</div></pre></td></tr></table></figure></p>
-<p>Mac 命令行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python3 -V</div></pre></td></tr></table></figure></p>
+<h2 id="查看-python-版本"><a href="#查看-python-版本" class="headerlink" title="查看 python 版本"></a>查看 python 版本</h2><p>Windows 命令行：<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">python -V</div></pre></td></tr></table></figure></p>
+<p>Mac 命令行：<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">python3 -V</div></pre></td></tr></table></figure></p>
 <p><strong>说明</strong>：这里 python3 是为了区别 Mac 上的 2.x 和3.x，Windows 不需要。    </p>
-<p>返回：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Python 3.6.2</div></pre></td></tr></table></figure></p>
+<p>返回：<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">Python 3.6.2</div></pre></td></tr></table></figure></p>
 <p>到此 Python 安装完成。</p>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>Python 安装：</p>
 <p>1、官网</p>
 <p>2、Mac 上用 Homebrew 命令</p>
 <p>Python 第一行代码，让我们打印“Hello World”。</p>
-<h1 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h1><h2 id="打开-Python-交互式环境"><a href="#打开-Python-交互式环境" class="headerlink" title="打开 Python 交互式环境"></a>打开 Python 交互式环境</h2><p>打开终端，然后运行命令行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python3</div></pre></td></tr></table></figure></p>
-<p>返回：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Python 3.6.2 (v3.6.2:5fd33b5926, Jul 16 2017, 20:11:06)</div><div class="line">[GCC 4.2.1 (Apple Inc. build 5666) (dot 3)] on darwin</div><div class="line">Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.</div><div class="line">&gt;&gt;&gt;</div></pre></td></tr></table></figure></p>
+<h1 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h1><h2 id="打开-Python-交互式环境"><a href="#打开-Python-交互式环境" class="headerlink" title="打开 Python 交互式环境"></a>打开 Python 交互式环境</h2><p>打开终端，然后运行命令行：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">python3</div></pre></td></tr></table></figure></p>
+<p>返回：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Python 3.6.2 (v3.6.2:5fd33b5926, Jul 16 2017, 20:11:06)</div><div class="line">[GCC 4.2.1 (Apple Inc. build 5666) (dot 3)] on darwin</div><div class="line">Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.</div><div class="line">&gt;&gt;&gt;</div></pre></td></tr></table></figure></p>
 <p>这里<code>&gt;&gt;&gt;</code>说明在交互式环境，可以直接输入代码，按回车，既能得到代码执行结果。</p>
-<h2 id="Hello-World-1"><a href="#Hello-World-1" class="headerlink" title="Hello World"></a>Hello World</h2><p>输入 “Hello World”：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; print(&apos;Hello World&apos;)</div></pre></td></tr></table></figure></p>
-<p>返回：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Hello World</div></pre></td></tr></table></figure></p>
+<h2 id="Hello-World-1"><a href="#Hello-World-1" class="headerlink" title="Hello World"></a>Hello World</h2><p>输入 “Hello World”：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&gt;&gt;&gt; print(&apos;Hello World&apos;)</div></pre></td></tr></table></figure></p>
+<p>返回：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Hello World</div></pre></td></tr></table></figure></p>
 <p>还可以：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; print(&apos;你好&apos;, &apos;世界&apos;)</div></pre></td></tr></table></figure>
-<p>返回：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">你好 世界</div></pre></td></tr></table></figure></p>
-<h3 id="print"><a href="#print" class="headerlink" title="print"></a>print</h3><p>Python 提供了一个 print()，用于输出。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 单个输出</span></div><div class="line">print(<span class="string">'Hello World'</span>)</div><div class="line"></div><div class="line"><span class="comment"># 接收整型</span></div><div class="line">print(<span class="number">1</span> + <span class="number">3</span>) <span class="comment"># 会直接计算结果</span></div><div class="line"></div><div class="line"><span class="comment"># 接收多个</span></div><div class="line">print(<span class="string">'Hello'</span>, <span class="string">'World'</span>) <span class="comment"># 依次打印每个字符串，遇到逗号（,）会输出一个空格</span></div><div class="line"></div><div class="line"><span class="comment"># 占位符</span></div><div class="line">print(<span class="string">'I\'am %s'</span> % <span class="string">'WuXiaolong'</span>)</div></pre></td></tr></table></figure></p>
-<h3 id="input"><a href="#input" class="headerlink" title="input"></a>input</h3><p>Python 提供了一个 input()，提示用户输入，返回字符串，并存放到一个变量里。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">name = input() <span class="comment"># 提示输入</span></div><div class="line">print(<span class="string">'你好，'</span>, name)</div><div class="line"></div><div class="line">name = input(<span class="string">"请输入名字："</span>) <span class="comment"># 提示请输入名字：</span></div><div class="line">print(<span class="string">'你好，'</span>, name)</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&gt;&gt;&gt; print(&apos;你好&apos;, &apos;世界&apos;)</div></pre></td></tr></table></figure>
+<p>返回：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">你好 世界</div></pre></td></tr></table></figure></p>
+<h3 id="print"><a href="#print" class="headerlink" title="print"></a>print</h3><p>Python 提供了一个 print()，用于输出。<br><figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="comment"># 单个输出</span></div><div class="line">print(<span class="string">'Hello World'</span>)</div><div class="line"></div><div class="line"><span class="comment"># 接收整型</span></div><div class="line">print(<span class="number">1</span> + <span class="number">3</span>) <span class="comment"># 会直接计算结果</span></div><div class="line"></div><div class="line"><span class="comment"># 接收多个</span></div><div class="line">print(<span class="string">'Hello'</span>, <span class="string">'World'</span>) <span class="comment"># 依次打印每个字符串，遇到逗号（,）会输出一个空格</span></div><div class="line"></div><div class="line"><span class="comment"># 占位符</span></div><div class="line">print(<span class="string">'I\'am %s'</span> % <span class="string">'WuXiaolong'</span>)</div></pre></td></tr></table></figure></p>
+<h3 id="input"><a href="#input" class="headerlink" title="input"></a>input</h3><p>Python 提供了一个 input()，提示用户输入，返回字符串，并存放到一个变量里。<br><figure class="highlight python"><table><tr><td class="code"><pre><div class="line">name = input() <span class="comment"># 提示输入</span></div><div class="line">print(<span class="string">'你好，'</span>, name)</div><div class="line"></div><div class="line">name = input(<span class="string">"请输入名字："</span>) <span class="comment"># 提示请输入名字：</span></div><div class="line">print(<span class="string">'你好，'</span>, name)</div></pre></td></tr></table></figure></p>
 <p><strong>注意</strong>：input 输入的是字符串类型。</p>
 <h2 id="退出Python交互式环境"><a href="#退出Python交互式环境" class="headerlink" title="退出Python交互式环境"></a>退出Python交互式环境</h2><p>用 exit() 退出 Python。</p>
-<h2 id="命令行模式"><a href="#命令行模式" class="headerlink" title="命令行模式"></a>命令行模式</h2><p>上面打印 “Hello World“ 代码并没有保存下来，我们可以新建一个文件 hello.py，写上 print(‘Hello World！’)，然后命令行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python3 /Users/wuxiaolong/Desktop/Python/hello.py</div></pre></td></tr></table></figure></p>
-<p>或者进入 hello.py 目录下，运行命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python3 hello.py</div></pre></td></tr></table></figure></p>
-<p>依旧返回：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Hello World！</div></pre></td></tr></table></figure></p>
+<h2 id="命令行模式"><a href="#命令行模式" class="headerlink" title="命令行模式"></a>命令行模式</h2><p>上面打印 “Hello World“ 代码并没有保存下来，我们可以新建一个文件 hello.py，写上 print(‘Hello World！’)，然后命令行：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">python3 /Users/wuxiaolong/Desktop/Python/hello.py</div></pre></td></tr></table></figure></p>
+<p>或者进入 hello.py 目录下，运行命令：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">python3 hello.py</div></pre></td></tr></table></figure></p>
+<p>依旧返回：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Hello World！</div></pre></td></tr></table></figure></p>
 <h2 id="小结-1"><a href="#小结-1" class="headerlink" title="小结"></a>小结</h2><p>直接在终端写 Python ，回车，既能得到结果，但不能保存，后来有 IDE 介绍。</p>
       
     </div>
@@ -822,9 +822,6 @@ border:2px solid #69c;
 
 
 
-  
-  
-
 
 
 
@@ -850,12 +847,6 @@ border:2px solid #69c;
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-  
-  <script type="text/javascript" src="/lib/three/three.min.js"></script>
-
-  
-  <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
 
 
   

@@ -426,21 +426,21 @@ border:2px solid #69c;
 <p>3，WRAP_CONTENT，即包裹住组件就好。</p>
 <a id="more"></a>
 <p>在JAVA中动态构建的布局，常常这样写：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">setLayoutParams(<span class="keyword">new</span> LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">setLayoutParams(<span class="keyword">new</span> LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));</div></pre></td></tr></table></figure>
 <p>上面这一句话其实是子对父的，也就是说，父布局下的子控件要设置这句话。</p>
 <p>因为布局很多，虽然都继承至ViewGroup但是各个布局还是有很大的不同。</p>
 <p>很显然上面这句应该这样写才算准确：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">setLayoutParams(<span class="keyword">new</span> TableRow.LayoutParams(TableRow.LayoutParams.FILL_PARENT,TableRow.LayoutParams.FILL_PARENT));</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">setLayoutParams(<span class="keyword">new</span> TableRow.LayoutParams(TableRow.LayoutParams.FILL_PARENT,TableRow.LayoutParams.FILL_PARENT));</div></pre></td></tr></table></figure>
 <p>这表示这个子控件的父布局是一个TableRow , 这样的LayoutParams 太多，所以应明确指明。</p>
 <p>下面分别说下两个常用到布局:</p>
 <ol>
 <li>FrameLayout下动态设置子控件居中，动态用JAVA代码要这样实现:</li>
 </ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">FrameLayout.LayoutParams lytp = <span class="keyword">new</span> FrameLayout.LayoutParams(<span class="number">80</span>,LayoutParams.WRAP_CONTENT);</div><div class="line">lytp .gravity = Gravity.CENTER;</div><div class="line">btn.setLayoutParams(lytp);</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">FrameLayout.LayoutParams lytp = <span class="keyword">new</span> FrameLayout.LayoutParams(<span class="number">80</span>,LayoutParams.WRAP_CONTENT);</div><div class="line">lytp .gravity = Gravity.CENTER;</div><div class="line">btn.setLayoutParams(lytp);</div></pre></td></tr></table></figure>
 <ol>
 <li>RelativeLayout下动态设置子控件居中：</li>
 </ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">RelativeLayout.LayoutParams lp=<span class="keyword">new</span> RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT); </div><div class="line">lp.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, RelativeLayout.TRUE); </div><div class="line">lp.addRule(RelativeLayout.ALIGN_PARENT_TOP, RelativeLayout.TRUE); </div><div class="line">btn1.setLayoutParams(lp);</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">RelativeLayout.LayoutParams lp=<span class="keyword">new</span> RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT); </div><div class="line">lp.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, RelativeLayout.TRUE); </div><div class="line">lp.addRule(RelativeLayout.ALIGN_PARENT_TOP, RelativeLayout.TRUE); </div><div class="line">btn1.setLayoutParams(lp);</div></pre></td></tr></table></figure>
       
     </div>
     
@@ -789,9 +789,6 @@ border:2px solid #69c;
 
 
 
-  
-  
-
 
 
 
@@ -817,12 +814,6 @@ border:2px solid #69c;
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-  
-  <script type="text/javascript" src="/lib/three/three.min.js"></script>
-
-  
-  <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
 
 
   

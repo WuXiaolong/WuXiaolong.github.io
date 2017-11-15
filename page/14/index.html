@@ -417,7 +417,7 @@ border:2px solid #69c;
         
           <p>一、简单的CustomToast</p>
 <p>Java</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomToast</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> String tip = <span class="string">""</span>;</div><div class="line">	<span class="keyword">private</span> Activity activity;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span> duration;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">CustomToast</span><span class="params">(Activity activity, String tip, <span class="keyword">int</span> duration)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.tip = tip;</div><div class="line">		<span class="keyword">this</span>.activity = activity;</div><div class="line">		<span class="keyword">this</span>.duration = duration;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="meta">@SuppressLint</span>(<span class="string">"InflateParams"</span>)</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;</div><div class="line">		LayoutInflater inflater = activity.getLayoutInflater();</div><div class="line">		View view = inflater.inflate(R.layout.custom_toast, <span class="keyword">null</span>);</div><div class="line">		TextView txt = (TextView) view.findViewById(R.id.txt);</div><div class="line">		txt.setText(tip);</div><div class="line">		Toast toast = <span class="keyword">new</span> Toast(activity);</div><div class="line">		<span class="comment">// toast.setGravity(Gravity.CENTER | Gravity.TOP, 12, 40);</span></div><div class="line">		toast.setDuration(duration);</div><div class="line">		toast.setView(view);</div><div class="line">		toast.show();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomToast</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> String tip = <span class="string">""</span>;</div><div class="line">	<span class="keyword">private</span> Activity activity;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span> duration;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">CustomToast</span><span class="params">(Activity activity, String tip, <span class="keyword">int</span> duration)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.tip = tip;</div><div class="line">		<span class="keyword">this</span>.activity = activity;</div><div class="line">		<span class="keyword">this</span>.duration = duration;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="meta">@SuppressLint</span>(<span class="string">"InflateParams"</span>)</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;</div><div class="line">		LayoutInflater inflater = activity.getLayoutInflater();</div><div class="line">		View view = inflater.inflate(R.layout.custom_toast, <span class="keyword">null</span>);</div><div class="line">		TextView txt = (TextView) view.findViewById(R.id.txt);</div><div class="line">		txt.setText(tip);</div><div class="line">		Toast toast = <span class="keyword">new</span> Toast(activity);</div><div class="line">		<span class="comment">// toast.setGravity(Gravity.CENTER | Gravity.TOP, 12, 40);</span></div><div class="line">		toast.setDuration(duration);</div><div class="line">		toast.setView(view);</div><div class="line">		toast.show();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2015/04/17/CustomToast/" rel="contents">
@@ -1302,7 +1302,7 @@ border:2px solid #69c;
 
       
         
-          <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;item</div><div class="line">       android:id=<span class="string">"@+id/menu_search"</span></div><div class="line">       android:actionLayout=<span class="string">"@layout/searchview"</span><span class="comment">//自定义</span></div><div class="line">       android:icon=<span class="string">"@drawable/ic_action_search"</span></div><div class="line">       android:showAsAction=<span class="string">"always|collapseActionView"</span></div><div class="line">       android:title=<span class="string">"Search"</span>/&gt;</div><div class="line">       android:actionViewClass=<span class="string">"android.widget.SearchView"</span><span class="comment">//系统的</span></div></pre></td></tr></table></figure>
+          <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">&lt;item</div><div class="line">       android:id=<span class="string">"@+id/menu_search"</span></div><div class="line">       android:actionLayout=<span class="string">"@layout/searchview"</span><span class="comment">//自定义</span></div><div class="line">       android:icon=<span class="string">"@drawable/ic_action_search"</span></div><div class="line">       android:showAsAction=<span class="string">"always|collapseActionView"</span></div><div class="line">       android:title=<span class="string">"Search"</span>/&gt;</div><div class="line">       android:actionViewClass=<span class="string">"android.widget.SearchView"</span><span class="comment">//系统的</span></div></pre></td></tr></table></figure>
 <p>我们设定 showAsAction这个属性的时候，加了collapseActionView这么一个参数，它的意思是说，将item引用的布局隐藏起来，当你点击该item的时候，再将其展现出来。通过这个属性，我们就可以将每个item复杂的布局隐藏起来，从而有效的节约了actionbar的布局空间。<br>
           <!--noindex-->
           <div class="post-button text-center">
@@ -2026,9 +2026,6 @@ border:2px solid #69c;
 
 
 
-  
-  
-
 
 
 
@@ -2054,12 +2051,6 @@ border:2px solid #69c;
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-  
-  <script type="text/javascript" src="/lib/three/three.min.js"></script>
-
-  
-  <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
 
 
   

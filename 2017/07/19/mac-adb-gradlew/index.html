@@ -424,26 +424,26 @@ border:2px solid #69c;
 </blockquote>
 <a id="more"></a>
 <h1 id="配置-adb-环境"><a href="#配置-adb-环境" class="headerlink" title="配置 adb 环境"></a>配置 adb 环境</h1><p>windows 下安装 apk，可能直接点击应用宝就安装了，Mac  没有应用宝，因为只能用 adb 命令行安装，却发现 adb 命令行找不到，算了，搁置了几天，之后安装 APK 很是麻烦，又不能拷到 SD 卡上，最终还是 Google，解决了这个问题。</p>
-<h2 id="在命令行下，进入用户目录"><a href="#在命令行下，进入用户目录" class="headerlink" title="在命令行下，进入用户目录"></a>在命令行下，进入用户目录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd $HOME</div></pre></td></tr></table></figure>
-<h2 id="bash-profile文件"><a href="#bash-profile文件" class="headerlink" title=".bash_profile文件"></a>.bash_profile文件</h2><p>输入下行命令获取当前文件列表：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ls -al</div></pre></td></tr></table></figure></p>
-<p>查看文件列表，如果文件已经存在，则进行下一步。如果没有 .bash_profile 文件，执行以下命令新建：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">touch .bash_profile</div></pre></td></tr></table></figure></p>
-<h2 id="打开-bash-profile文件"><a href="#打开-bash-profile文件" class="headerlink" title="打开.bash_profile文件"></a>打开.bash_profile文件</h2><p>执行下行命令打开文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">open -e .bash_profile</div></pre></td></tr></table></figure></p>
+<h2 id="在命令行下，进入用户目录"><a href="#在命令行下，进入用户目录" class="headerlink" title="在命令行下，进入用户目录"></a>在命令行下，进入用户目录</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">cd $HOME</div></pre></td></tr></table></figure>
+<h2 id="bash-profile文件"><a href="#bash-profile文件" class="headerlink" title=".bash_profile文件"></a>.bash_profile文件</h2><p>输入下行命令获取当前文件列表：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">ls -al</div></pre></td></tr></table></figure></p>
+<p>查看文件列表，如果文件已经存在，则进行下一步。如果没有 .bash_profile 文件，执行以下命令新建：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">touch .bash_profile</div></pre></td></tr></table></figure></p>
+<h2 id="打开-bash-profile文件"><a href="#打开-bash-profile文件" class="headerlink" title="打开.bash_profile文件"></a>打开.bash_profile文件</h2><p>执行下行命令打开文件<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">open -e .bash_profile</div></pre></td></tr></table></figure></p>
 <p>说明：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">open .bash_profile：打开文件</div><div class="line">touch .bash_profile：如果文件不存在就创建文件</div><div class="line">open -e bash_profile：编辑文件</div></pre></td></tr></table></figure>
-<p>打开文件后，添加 sdk 的安装路径，如果你是安装的 Android Studio 而且没有手动去变换路径的话，直接复制下面两行命令后将用户名改为自己电脑的即可。如果自己修改了路径，则找到 /Android/sdk/platform-tools 和 /Android/sdk/tools 的路径，替换即可。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">export PATH=$&#123;PATH&#125;:/Users/用户名/Library/Android/sdk/platform-tools</div><div class="line">export PATH=$&#123;PATH&#125;:/Users/用户名/Library/Android/sdk/tools</div></pre></td></tr></table></figure></p>
-<h2 id="更新刚配置的环境变量"><a href="#更新刚配置的环境变量" class="headerlink" title="更新刚配置的环境变量"></a>更新刚配置的环境变量</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">source .bash_profile</div></pre></td></tr></table></figure>
-<h2 id="查看配置结果"><a href="#查看配置结果" class="headerlink" title="查看配置结果"></a>查看配置结果</h2><p>命令行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb version</div></pre></td></tr></table></figure></p>
-<p>显示 adb 版本号即为设置成功：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Android Debug Bridge version 1.0.39</div><div class="line">Revision 3db08f2c6889-android</div></pre></td></tr></table></figure></p>
-<h2 id="查看所有的配置路径"><a href="#查看所有的配置路径" class="headerlink" title="查看所有的配置路径"></a>查看所有的配置路径</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo $PATH</div></pre></td></tr></table></figure>
-<h1 id="gradlew-command-not-found"><a href="#gradlew-command-not-found" class="headerlink" title="gradlew: command not found"></a>gradlew: command not found</h1><h2 id="问题1"><a href="#问题1" class="headerlink" title="问题1"></a>问题1</h2><p>今天我想用命令行 gradlew assembleRelease 来打个 aar 文件出来，结果报：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bash: gradlew: command not found</div></pre></td></tr></table></figure></p>
-<h2 id="问题2"><a href="#问题2" class="headerlink" title="问题2"></a>问题2</h2><p>Google，原来 Mac 需要前面加 ./，结果又报新的错误：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bash: ./gradlew: Permission denied</div></pre></td></tr></table></figure></p>
-<p>貌似没有权限，再次 Google，网上都在说，尝试在 gradlew 文件上设置执行标志：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chmod +x gradlew</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">open .bash_profile：打开文件</div><div class="line">touch .bash_profile：如果文件不存在就创建文件</div><div class="line">open -e bash_profile：编辑文件</div></pre></td></tr></table></figure>
+<p>打开文件后，添加 sdk 的安装路径，如果你是安装的 Android Studio 而且没有手动去变换路径的话，直接复制下面两行命令后将用户名改为自己电脑的即可。如果自己修改了路径，则找到 /Android/sdk/platform-tools 和 /Android/sdk/tools 的路径，替换即可。<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">export PATH=$&#123;PATH&#125;:/Users/用户名/Library/Android/sdk/platform-tools</div><div class="line">export PATH=$&#123;PATH&#125;:/Users/用户名/Library/Android/sdk/tools</div></pre></td></tr></table></figure></p>
+<h2 id="更新刚配置的环境变量"><a href="#更新刚配置的环境变量" class="headerlink" title="更新刚配置的环境变量"></a>更新刚配置的环境变量</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">source .bash_profile</div></pre></td></tr></table></figure>
+<h2 id="查看配置结果"><a href="#查看配置结果" class="headerlink" title="查看配置结果"></a>查看配置结果</h2><p>命令行：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">adb version</div></pre></td></tr></table></figure></p>
+<p>显示 adb 版本号即为设置成功：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Android Debug Bridge version 1.0.39</div><div class="line">Revision 3db08f2c6889-android</div></pre></td></tr></table></figure></p>
+<h2 id="查看所有的配置路径"><a href="#查看所有的配置路径" class="headerlink" title="查看所有的配置路径"></a>查看所有的配置路径</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">echo $PATH</div></pre></td></tr></table></figure>
+<h1 id="gradlew-command-not-found"><a href="#gradlew-command-not-found" class="headerlink" title="gradlew: command not found"></a>gradlew: command not found</h1><h2 id="问题1"><a href="#问题1" class="headerlink" title="问题1"></a>问题1</h2><p>今天我想用命令行 gradlew assembleRelease 来打个 aar 文件出来，结果报：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">bash: gradlew: command not found</div></pre></td></tr></table></figure></p>
+<h2 id="问题2"><a href="#问题2" class="headerlink" title="问题2"></a>问题2</h2><p>Google，原来 Mac 需要前面加 ./，结果又报新的错误：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">bash: ./gradlew: Permission denied</div></pre></td></tr></table></figure></p>
+<p>貌似没有权限，再次 Google，网上都在说，尝试在 gradlew 文件上设置执行标志：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">chmod +x gradlew</div></pre></td></tr></table></figure></p>
 <p>却没说在那里设置，哪有gradlew 文件啊？实际在 Android Studio  的 Terminal 设置，除掉这个标志，直接 -。</p>
-<h2 id="问题3"><a href="#问题3" class="headerlink" title="问题3"></a>问题3</h2><p>到这里，你以为就能运行了吗，No，这时候继续报错：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">No Java runtime present, requesting install.</div></pre></td></tr></table></figure></p>
-<p>是啊，我安装 Android Studio，运行，居然可以，不用安装 JDK 吗，当时还想 Mac 这么好，JDK 都自带了，那为什么现在提示需要安装 JDK 呢，我看了项目的 JDK 路径，原来 Mac 版 Android Studio 已经自带 JDK 了，难道需要配置下 JDK 环境？Google Mac JDK环境配置，网上教程，都是配置另外安装的 JDK，我需要配置 Android Studio 下 JDK。<br>按照上面的 adb 环境配置步骤，打开 .bash_profile，添加如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#jdk安装路径   </div><div class="line">export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jre/jdk/Contents/Home </div><div class="line">export PATH=$JAVA_HOME/bin:$PATH</div></pre></td></tr></table></figure></p>
+<h2 id="问题3"><a href="#问题3" class="headerlink" title="问题3"></a>问题3</h2><p>到这里，你以为就能运行了吗，No，这时候继续报错：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">No Java runtime present, requesting install.</div></pre></td></tr></table></figure></p>
+<p>是啊，我安装 Android Studio，运行，居然可以，不用安装 JDK 吗，当时还想 Mac 这么好，JDK 都自带了，那为什么现在提示需要安装 JDK 呢，我看了项目的 JDK 路径，原来 Mac 版 Android Studio 已经自带 JDK 了，难道需要配置下 JDK 环境？Google Mac JDK环境配置，网上教程，都是配置另外安装的 JDK，我需要配置 Android Studio 下 JDK。<br>按照上面的 adb 环境配置步骤，打开 .bash_profile，添加如下：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">#jdk安装路径   </div><div class="line">export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jre/jdk/Contents/Home </div><div class="line">export PATH=$JAVA_HOME/bin:$PATH</div></pre></td></tr></table></figure></p>
 <p>注意：目录 Android Studio 有空格，搜到 stackoverflow，加了\。</p>
-<p>执行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java -version</div></pre></td></tr></table></figure></p>
-<p>返回如下，说明配置成功：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">openjdk version &quot;1.8.0_112-release&quot;</div><div class="line">OpenJDK Runtime Environment (build 1.8.0_112-release-b06)</div><div class="line">OpenJDK 64-Bit Server VM (build 25.112-b06, mixed mode)</div></pre></td></tr></table></figure></p>
+<p>执行：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">java -version</div></pre></td></tr></table></figure></p>
+<p>返回如下，说明配置成功：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">openjdk version &quot;1.8.0_112-release&quot;</div><div class="line">OpenJDK Runtime Environment (build 1.8.0_112-release-b06)</div><div class="line">OpenJDK 64-Bit Server VM (build 25.112-b06, mixed mode)</div></pre></td></tr></table></figure></p>
 <p>这样配置完毕，命令行 gradlew assembleRelease 正常执行，解决之。</p>
 <h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>问题一个接着一个，我都不想搞了，但一直以来，一个经验告诉我，遇到问题，不回避，解决才是王道，现在不解决，下次再遇到，还是回避不了。其实这些问题前人都遇到过，感谢他们无私分享，让我们遇到问题不再无助，不觉得孤独。</p>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://answerzhao.github.io/2016/09/15/mac%E4%B8%8Badb%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%92%8C%E5%B8%B8%E7%94%A8adb%E5%91%BD%E4%BB%A4/" target="_blank" rel="external">mac下adb环境配置和常用adb命令</a></p>
@@ -826,9 +826,6 @@ border:2px solid #69c;
 
 
 
-  
-  
-
 
 
 
@@ -854,12 +851,6 @@ border:2px solid #69c;
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-  
-  <script type="text/javascript" src="/lib/three/three.min.js"></script>
-
-  
-  <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
 
 
   

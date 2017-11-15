@@ -424,7 +424,7 @@ border:2px solid #69c;
 <p>修改安装目录下bin\studio.exe.vmoptions文件,如E:\Android\android-studio\bin\studio.exe.vmoptions</p>
 <a id="more"></a>
 <p>添加内容:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">-Djava.net.preferIPv4Stack=<span class="literal">true</span></div><div class="line">-Didea.updates.url=http:<span class="comment">//dl.google.com/android/studio/patches/updates.xml</span></div><div class="line">-Didea.patches.url=http:<span class="comment">//dl.google.com/android/studio/patches/</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">-Djava.net.preferIPv4Stack=<span class="literal">true</span></div><div class="line">-Didea.updates.url=http:<span class="comment">//dl.google.com/android/studio/patches/updates.xml</span></div><div class="line">-Didea.patches.url=http:<span class="comment">//dl.google.com/android/studio/patches/</span></div></pre></td></tr></table></figure>
 <p>重新启动..就可以在线更新了.</p>
 <p>备注：如果是64位系统,那就应该修改bin\studio64.exe.vmoptions文件,大家别改错了,不然没用!</p>
 <p>##Android SDK Manager</p>
@@ -432,7 +432,7 @@ border:2px solid #69c;
 <p>hosts文件添加内容:</p>
 <p>C:\Windows\System32\drivers\etc</p>
 <p>hosts文件windows系统目录中的\system32\drivers\etc下面，win98在windows系统目录中下面。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">203.208.46.146  www.google.com</div><div class="line">74.125.113.121  developer.android.com</div><div class="line">203.208.46.146 	dl.google.com</div><div class="line">203.208.46.146 	dl-ssl.google.com</div><div class="line"></div><div class="line">或者以下</div><div class="line"></div><div class="line">#更新的内容从以下地址下载</div><div class="line">74.125.113.121  developer.android.com</div><div class="line">203.208.46.200 dl.google.com</div><div class="line">203.208.46.200 dl-ssl.google.com</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line">203.208.46.146  www.google.com</div><div class="line">74.125.113.121  developer.android.com</div><div class="line">203.208.46.146 	dl.google.com</div><div class="line">203.208.46.146 	dl-ssl.google.com</div><div class="line"></div><div class="line">或者以下</div><div class="line"></div><div class="line">#更新的内容从以下地址下载</div><div class="line">74.125.113.121  developer.android.com</div><div class="line">203.208.46.200 dl.google.com</div><div class="line">203.208.46.200 dl-ssl.google.com</div></pre></td></tr></table></figure>
       
     </div>
     
@@ -781,9 +781,6 @@ border:2px solid #69c;
 
 
 
-  
-  
-
 
 
 
@@ -809,12 +806,6 @@ border:2px solid #69c;
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-  
-  <script type="text/javascript" src="/lib/three/three.min.js"></script>
-
-  
-  <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
 
 
   

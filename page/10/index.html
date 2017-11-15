@@ -416,9 +416,9 @@ border:2px solid #69c;
       
         
           <h2 id="导入Volley"><a href="#导入Volley" class="headerlink" title="导入Volley"></a>导入Volley</h2><p>Volley貌似没有官方的Maven repository，你必须依赖官方的源代码。从它的repository 下载Volley源码。使用Git命令：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https:<span class="comment">//android.googlesource.com/platform/frameworks/volley</span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">git clone https:<span class="comment">//android.googlesource.com/platform/frameworks/volley</span></div></pre></td></tr></table></figure>
 <p>不过还有第三种方法，你可以在build.gradle 文件的依赖部分添加这行代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile <span class="string">'com.mcxiaoke.volley:library-aar:1.0.15'</span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">compile <span class="string">'com.mcxiaoke.volley:library-aar:1.0.15'</span></div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2015/10/16/Volley/" rel="contents">
@@ -1012,8 +1012,8 @@ border:2px solid #69c;
           <blockquote>
 <p>GitHub地址：<a href="https://github.com/square/picasso" target="_blank" rel="external">https://github.com/square/picasso</a></p>
 </blockquote>
-<h2 id="Gradle"><a href="#Gradle" class="headerlink" title="Gradle:"></a>Gradle:</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile <span class="string">'com.squareup.picasso:picasso:2.5.2'</span></div></pre></td></tr></table></figure>
-<h2 id="加载网络图片"><a href="#加载网络图片" class="headerlink" title="加载网络图片"></a>加载网络图片</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Picasso.with(context).load(<span class="string">"http://i.imgur.com/DvpvklR.png"</span>).into(imageView);</div></pre></td></tr></table></figure>
+<h2 id="Gradle"><a href="#Gradle" class="headerlink" title="Gradle:"></a>Gradle:</h2><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">compile <span class="string">'com.squareup.picasso:picasso:2.5.2'</span></div></pre></td></tr></table></figure>
+<h2 id="加载网络图片"><a href="#加载网络图片" class="headerlink" title="加载网络图片"></a>加载网络图片</h2><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">Picasso.with(context).load(<span class="string">"http://i.imgur.com/DvpvklR.png"</span>).into(imageView);</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2015/09/14/Picasso/" rel="contents">
@@ -1162,7 +1162,7 @@ border:2px solid #69c;
           <blockquote>
 <p>PhotoView使用在ViewPager中<br>GitHub地址：<a href="https://github.com/chrisbanes/PhotoView" target="_blank" rel="external">https://github.com/chrisbanes/PhotoView</a></p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;com.android.xiaomolongstudio.danhuaer.view.HackyViewPager</div><div class="line">       android:id=<span class="string">"@+id/viewPager"</span></div><div class="line">       android:layout_width=<span class="string">"match_parent"</span></div><div class="line">       android:layout_height=<span class="string">"match_parent"</span></div><div class="line">       android:layout_above=<span class="string">"@id/ad_layout"</span> /&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">&lt;com.android.xiaomolongstudio.danhuaer.view.HackyViewPager</div><div class="line">       android:id=<span class="string">"@+id/viewPager"</span></div><div class="line">       android:layout_width=<span class="string">"match_parent"</span></div><div class="line">       android:layout_height=<span class="string">"match_parent"</span></div><div class="line">       android:layout_above=<span class="string">"@id/ad_layout"</span> /&gt;</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2015/09/14/PhotoView/" rel="contents">
@@ -2037,9 +2037,6 @@ border:2px solid #69c;
 
 
 
-  
-  
-
 
 
 
@@ -2065,12 +2062,6 @@ border:2px solid #69c;
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-  
-  <script type="text/javascript" src="/lib/three/three.min.js"></script>
-
-  
-  <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
 
 
   
