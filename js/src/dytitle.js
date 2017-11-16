@@ -1,0 +1,1 @@
+var OriginTitile=document.title;var titleTime;document.addEventListener("visibilitychange",function(){if(document.hidden){$('[rel="icon"]').attr("href","/img/TEP.ico");document.title=" 喔唷，崩溃啦 ";clearTimeout(titleTime)}else{$('[rel="icon"]').attr("href","/favicon.ico");document.title=" 噫，又好了~ ";titleTime=setTimeout(function(){document.title=OriginTitile},1500)}});

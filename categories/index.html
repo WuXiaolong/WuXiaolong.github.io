@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 
 
 
@@ -8,19 +8,11 @@
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta name="theme-color" content="#222">
-
-
-
-
-
-
 
 
 
 <meta http-equiv="Cache-Control" content="no-transform">
 <meta http-equiv="Cache-Control" content="no-siteapp">
-
 
 
 
@@ -43,27 +35,38 @@
 
 
 
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
 
 
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico?v=5.1.3">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico?v=5.1.3">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=5.1.3">
-
-
-  <link rel="mask-icon" href="/favicon.ico?v=5.1.3" color="#222">
-
-
-
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
 
 
   <meta name="keywords" content="Hexo, NexT">
@@ -73,6 +76,11 @@
 
 
   <link rel="alternate" href="/atom.xml" title="吴小龙同學" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
 
 
 
@@ -97,11 +105,9 @@
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    version: '5.1.3',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
-    tabs: true,
-    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    motion: false,
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -124,7 +130,44 @@
 
 
 
-  <title>分类 | 吴小龙同學</title>
+  <title>
+  
+
+  
+    分类 | 吴小龙同學
+  
+</title>
+
+  <style type="text/css">
+  .div_right_bottom {
+  width: 200px;
+  top: 50%;
+  right: 0px;
+  position: fixed;
+  margin-top: -100px;
+  _position: absolute; /* position fixed for IE6 */
+/*
+右上角
+float:right;
+top:0;
+边框
+border:2px solid #69c;
+  right:0px;
+  bottom:0px;
+  z-index:0;
+*/
+
+}
+</style>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+  <div class="div_right_bottom" align="center">
+  <img src="http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_MrWuXiaolong.jpg">
+  微信公众号
+  </div>
+
   
 
 
@@ -153,40 +196,18 @@
 
 
 
-   <style type="text/css">
-  .div_right_bottom {
-  width: 200px;
-  top: 50%;
-  right: 0px;
-  position: fixed;
-  margin-top: -100px;
-  _position: absolute; /* position fixed for IE6 */
-/*
-右上角
-float:right;
-top:0;
-边框
-border:2px solid #69c;
-  right:0px;
-  bottom:0px;
-  z-index:0;
-*/
 
-}
-</style>
-</head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
- <div class="div_right_bottom" align="center">
-  <img src="http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_MrWuXiaolong.jpg">
-  微信公众号
-  </div>
+
+
+
+
   
   
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -232,12 +253,32 @@ border:2px solid #69c;
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+          <a href="/archives/index.html" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
           </a>
         </li>
       
@@ -248,6 +289,16 @@ border:2px solid #69c;
               <i class="menu-item-icon fa fa-fw fa-users"></i> <br>
             
             小伙伴
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-gitbook">
+          <a href="https://wuxiaolong.gitbooks.io/wuxiaolong/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br>
+            
+            GitBook
           </a>
         </li>
       
@@ -311,11 +362,7 @@ border:2px solid #69c;
             
 
   <div id="posts" class="posts-expand">
-    
-    
-    
-    <div class="post-block page">
-      <header class="post-header">
+  <header class="post-header">
 
 	<h1 class="post-title" itemprop="name headline"></h1>
 
@@ -323,28 +370,16 @@ border:2px solid #69c;
 
 </header>
 
-      
-      
-      
-      <div class="post-body">
-        
-        
-          <div class="category-all-page">
-            <div class="category-all-title">
-                目前共计 38 个分类
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">46</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android-Studio/">Android Studio</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/AndroidUtil/">AndroidUtil</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/App/">App</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Banner/">Banner</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/BlogBuild/">BlogBuild</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/CustomView/">CustomView</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DesignPattern/">DesignPattern</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Fragment/">Fragment</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/GitBook/">GitBook</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/GitHub/">GitHub</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Gradle/">Gradle</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Jcenter/">Jcenter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Jekyll/">Jekyll</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Kotlin/">Kotlin</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Lambda/">Lambda</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Library/">Library</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/">Life</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ListView/">ListView</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Markdown/">Markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Modular/">Modular</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Performance/">Performance</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PopupWindow/">PopupWindow</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/QiNiu/">QiNiu</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/RecyclerView/">RecyclerView</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Retrofit/">Retrofit</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/RuntimePermission/">RuntimePermission</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/RxJava/">RxJava</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/SearchView/">SearchView</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/SupportLibrary/">SupportLibrary</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Toolbar/">Toolbar</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/XMPP/">XMPP</a><span class="category-list-count">3</span></li></ul>
-            </div>
-          </div>
-        
+    
+    
+      <div class="category-all-page">
+        <div class="category-all-title">
+            目前共计 38 个分类
+        </div>
+        <div class="category-all">
+          <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">46</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Android-Studio/">Android Studio</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/AndroidUtil/">AndroidUtil</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/App/">App</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Banner/">Banner</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/BlogBuild/">BlogBuild</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/CustomView/">CustomView</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DesignPattern/">DesignPattern</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Fragment/">Fragment</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/GitBook/">GitBook</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/GitHub/">GitHub</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Gradle/">Gradle</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Jcenter/">Jcenter</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Jekyll/">Jekyll</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Kotlin/">Kotlin</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Lambda/">Lambda</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Library/">Library</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/">Life</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ListView/">ListView</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mac/">Mac</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Markdown/">Markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Modular/">Modular</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Performance/">Performance</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PopupWindow/">PopupWindow</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/QiNiu/">QiNiu</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/RecyclerView/">RecyclerView</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Retrofit/">Retrofit</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/RuntimePermission/">RuntimePermission</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/RxJava/">RxJava</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/SearchView/">SearchView</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/SupportLibrary/">SupportLibrary</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Toolbar/">Toolbar</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/XMPP/">XMPP</a><span class="category-list-count">3</span></li></ul>
+        </div>
       </div>
-      
-      
-      
-    </div>
-    
-    
     
   </div>
 
@@ -354,11 +389,11 @@ border:2px solid #69c;
 
 
           
-  
-    <div class="comments" id="comments">
+  <div class="comments" id="comments">
+    
       <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTM2My81OTMx"></div>
-    </div>
-  
+    
+  </div>
 
 
         </div>
@@ -374,120 +409,115 @@ border:2px solid #69c;
   </div>
 
   <aside id="sidebar" class="sidebar">
-    
     <div class="sidebar-inner">
 
       
 
       
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image" src="http://7q5c2h.com1.z0.glb.clouddn.com/avatar.jpg" alt="吴小龙同學">
-            
-              <p class="site-author-name" itemprop="name">吴小龙同學</p>
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="http://7q5c2h.com1.z0.glb.clouddn.com/avatar.jpg" alt="吴小龙同學">
+          <p class="site-author-name" itemprop="name">吴小龙同學</p>
+           
               <p class="site-description motion-element" itemprop="description">我的微信公众号：吴小龙同学</p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">163</span>
-                  <span class="site-state-item-name">日志</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">38</span>
-                  <span class="site-state-item-name">分类</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">129</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
-            
-
-          </nav>
+          
+        </div>
+        <nav class="site-state motion-element">
 
           
-            <div class="feed-link motion-element">
-              <a href="/atom.xml" rel="alternate">
-                <i class="fa fa-rss"></i>
-                RSS
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/index.html">
+                <span class="site-state-item-count">163</span>
+                <span class="site-state-item-name">日志</span>
               </a>
             </div>
           
 
-          <div class="links-of-author motion-element">
+          
             
-              
-                <span class="links-of-author-item">
-                  <a href="https://github.com/WuXiaolong" target="_blank" title="GitHub">
-                    
-                      <i class="fa fa-fw fa-github"></i>GitHub</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="http://open.weixin.qq.com/qr/code/?username=MrWuXiaolong" target="_blank" title="WeChat">
-                    
-                      <i class="fa fa-fw fa-weixin"></i>WeChat</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="http://weibo.com/u/2175011601" target="_blank" title="Weibo">
-                    
-                      <i class="fa fa-fw fa-weibo"></i>Weibo</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://www.zhihu.com/people/wuxiaolong.me" target="_blank" title="知乎">
-                    
-                      <i class="fa fa-fw fa-commenting-o"></i>知乎</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://www.zhihu.com/people/wuxiaolong.me" target="_blank" title="GitBook">
-                    
-                      <i class="fa fa-fw fa-book"></i>GitBook</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="/qq/index.html" target="_blank" title="QQ">
-                    
-                      <i class="fa fa-fw fa-qq"></i>QQ</a>
-                </span>
-              
             
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">129</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
           </div>
+        
 
+        <div class="links-of-author motion-element">
           
+            
+              <span class="links-of-author-item">
+                <a href="http://open.weixin.qq.com/qr/code/?username=MrWuXiaolong" target="_blank" title="WeChat">
+                  
+                    <i class="fa fa-fw fa-weixin"></i>
+                  
+                  WeChat
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/WuXiaolong" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2175011601" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="/qq/index.html" target="_blank" title="QQ">
+                  
+                    <i class="fa fa-fw fa-qq"></i>
+                  
+                  QQ
+                </a>
+              </span>
+            
           
-
-          
-          
-
-          
-
         </div>
+
+        
+        
+
+        
+        
+
+        
+
+
       </section>
 
       
@@ -504,27 +534,27 @@ border:2px solid #69c;
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2013 &mdash; <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">吴小龙同學</span>
-
-  
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
 
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a></div>
-
-
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
 
 
         
@@ -547,12 +577,6 @@ border:2px solid #69c;
     </span>
   
 </div>
-
-
-
-
-
-
 
 
         
@@ -589,14 +613,6 @@ border:2px solid #69c;
 
 
 
-
-
-
-
-
-
-
-
   
   <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
@@ -619,36 +635,33 @@ border:2px solid #69c;
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
 
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
 
 
 
   
 
+  
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
 
 
 
   
+
 
 
   
@@ -657,6 +670,12 @@ border:2px solid #69c;
 
 
 	
+
+
+
+
+
+  
 
 
 
@@ -686,8 +705,6 @@ border:2px solid #69c;
 
 
 
-
-
   
 
 
@@ -702,9 +719,10 @@ border:2px solid #69c;
 
   
 
-  
 
-  
+  <!--崩溃欺骗
+  <script type="text/javascript" src="/js/src/dytitle.js"></script>
+  -->
 
 </body>
 </html>

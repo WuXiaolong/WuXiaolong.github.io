@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 
 
 
@@ -8,19 +8,11 @@
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta name="theme-color" content="#222">
-
-
-
-
-
-
 
 
 
 <meta http-equiv="Cache-Control" content="no-transform">
 <meta http-equiv="Cache-Control" content="no-siteapp">
-
 
 
 
@@ -43,27 +35,38 @@
 
 
 
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
 
 
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico?v=5.1.3">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico?v=5.1.3">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=5.1.3">
-
-
-  <link rel="mask-icon" href="/favicon.ico?v=5.1.3" color="#222">
-
-
-
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
 
 
   <meta name="keywords" content="Hexo, NexT">
@@ -73,6 +76,11 @@
 
 
   <link rel="alternate" href="/atom.xml" title="吴小龙同學" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
 
 
 
@@ -96,11 +104,9 @@
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    version: '5.1.3',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
-    tabs: true,
-    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    motion: false,
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -123,7 +129,38 @@
 
 
 
-  <title>吴小龙同學</title>
+  <title> 吴小龙同學 </title>
+
+  <style type="text/css">
+  .div_right_bottom {
+  width: 200px;
+  top: 50%;
+  right: 0px;
+  position: fixed;
+  margin-top: -100px;
+  _position: absolute; /* position fixed for IE6 */
+/*
+右上角
+float:right;
+top:0;
+边框
+border:2px solid #69c;
+  right:0px;
+  bottom:0px;
+  z-index:0;
+*/
+
+}
+</style>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+  <div class="div_right_bottom" align="center">
+  <img src="http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_MrWuXiaolong.jpg">
+  微信公众号
+  </div>
+
   
 
 
@@ -152,34 +189,12 @@
 
 
 
-   <style type="text/css">
-  .div_right_bottom {
-  width: 200px;
-  top: 50%;
-  right: 0px;
-  position: fixed;
-  margin-top: -100px;
-  _position: absolute; /* position fixed for IE6 */
-/*
-右上角
-float:right;
-top:0;
-边框
-border:2px solid #69c;
-  right:0px;
-  bottom:0px;
-  z-index:0;
-*/
 
-}
-</style>
-</head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
- <div class="div_right_bottom" align="center">
-  <img src="http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_MrWuXiaolong.jpg">
-  微信公众号
-  </div>
+
+
+
+
   
   
     
@@ -231,12 +246,32 @@ border:2px solid #69c;
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+          <a href="/archives/index.html" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
           </a>
         </li>
       
@@ -247,6 +282,16 @@ border:2px solid #69c;
               <i class="menu-item-icon fa fa-fw fa-users"></i> <br>
             
             小伙伴
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-gitbook">
+          <a href="https://wuxiaolong.gitbooks.io/wuxiaolong/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br>
+            
+            GitBook
           </a>
         </li>
       
@@ -319,10 +364,6 @@ border:2px solid #69c;
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2015/04/17/CustomToast/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -341,8 +382,16 @@ border:2px solid #69c;
         
         
           <h1 class="post-title" itemprop="name headline">
+            
+            
+              
                 
-                <a class="post-title-link" href="/2015/04/17/CustomToast/" itemprop="url">Android之CustomToast</a></h1>
+                <a class="post-title-link" href="/2015/04/17/CustomToast/" itemprop="url">
+                  Android之CustomToast
+                </a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
@@ -405,9 +454,7 @@ border:2px solid #69c;
       </header>
     
 
-    
-    
-    
+
     <div class="post-body" itemprop="articleBody">
 
       
@@ -427,16 +474,20 @@ border:2px solid #69c;
           <!--/noindex-->
         
       
+	   
     </div>
-    
-    
-    
 
-    
+    <div>
+      
+    </div>
 
-    
+    <div>
+      
+    </div>
 
-    
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
       
@@ -450,10 +501,6 @@ border:2px solid #69c;
         <div class="post-eof"></div>
       
     </footer>
-  </div>
-  
-  
-  
   </article>
 
 
@@ -467,10 +514,6 @@ border:2px solid #69c;
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2015/03/27/2015key/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -489,8 +532,16 @@ border:2px solid #69c;
         
         
           <h1 class="post-title" itemprop="name headline">
+            
+            
+              
                 
-                <a class="post-title-link" href="/2015/03/27/2015key/" itemprop="url">2015关键字</a></h1>
+                <a class="post-title-link" href="/2015/03/27/2015key/" itemprop="url">
+                  2015关键字
+                </a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
@@ -553,9 +604,7 @@ border:2px solid #69c;
       </header>
     
 
-    
-    
-    
+
     <div class="post-body" itemprop="articleBody">
 
       
@@ -575,16 +624,20 @@ border:2px solid #69c;
           <!--/noindex-->
         
       
+	   
     </p></div>
-    
-    
-    
 
-    
+    <div>
+      
+    </div>
 
-    
+    <div>
+      
+    </div>
 
-    
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
       
@@ -598,10 +651,6 @@ border:2px solid #69c;
         <div class="post-eof"></div>
       
     </footer>
-  </div>
-  
-  
-  
   </article>
 
 
@@ -615,10 +664,6 @@ border:2px solid #69c;
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2015/01/21/sdk-update/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -637,8 +682,16 @@ border:2px solid #69c;
         
         
           <h1 class="post-title" itemprop="name headline">
+            
+            
+              
                 
-                <a class="post-title-link" href="/2015/01/21/sdk-update/" itemprop="url">解决Android Studio和Android SDK Manager无法在线更新</a></h1>
+                <a class="post-title-link" href="/2015/01/21/sdk-update/" itemprop="url">
+                  解决Android Studio和Android SDK Manager无法在线更新
+                </a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
@@ -701,9 +754,7 @@ border:2px solid #69c;
       </header>
     
 
-    
-    
-    
+
     <div class="post-body" itemprop="articleBody">
 
       
@@ -723,16 +774,20 @@ border:2px solid #69c;
           <!--/noindex-->
         
       
+	   
     </div>
-    
-    
-    
 
-    
+    <div>
+      
+    </div>
 
-    
+    <div>
+      
+    </div>
 
-    
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
       
@@ -746,10 +801,6 @@ border:2px solid #69c;
         <div class="post-eof"></div>
       
     </footer>
-  </div>
-  
-  
-  
   </article>
 
 
@@ -763,10 +814,6 @@ border:2px solid #69c;
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2015/01/13/Context-Activity/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -785,8 +832,16 @@ border:2px solid #69c;
         
         
           <h1 class="post-title" itemprop="name headline">
+            
+            
+              
                 
-                <a class="post-title-link" href="/2015/01/13/Context-Activity/" itemprop="url">Android下Context、Activity、Application之间有什么区别</a></h1>
+                <a class="post-title-link" href="/2015/01/13/Context-Activity/" itemprop="url">
+                  Android下Context、Activity、Application之间有什么区别
+                </a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
@@ -849,9 +904,7 @@ border:2px solid #69c;
       </header>
     
 
-    
-    
-    
+
     <div class="post-body" itemprop="articleBody">
 
       
@@ -865,16 +918,20 @@ border:2px solid #69c;
           
         
       
+	   
     </div>
-    
-    
-    
 
-    
+    <div>
+      
+    </div>
 
-    
+    <div>
+      
+    </div>
 
-    
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
       
@@ -888,10 +945,6 @@ border:2px solid #69c;
         <div class="post-eof"></div>
       
     </footer>
-  </div>
-  
-  
-  
   </article>
 
 
@@ -905,10 +958,6 @@ border:2px solid #69c;
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2014/12/30/company/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -927,8 +976,16 @@ border:2px solid #69c;
         
         
           <h1 class="post-title" itemprop="name headline">
+            
+            
+              
                 
-                <a class="post-title-link" href="/2014/12/30/company/" itemprop="url">企业通</a></h1>
+                <a class="post-title-link" href="/2014/12/30/company/" itemprop="url">
+                  企业通
+                </a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
@@ -991,9 +1048,7 @@ border:2px solid #69c;
       </header>
     
 
-    
-    
-    
+
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1019,16 +1074,20 @@ border:2px solid #69c;
           <!--/noindex-->
         
       
+	   
     </p></div>
-    
-    
-    
 
-    
+    <div>
+      
+    </div>
 
-    
+    <div>
+      
+    </div>
 
-    
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
       
@@ -1042,10 +1101,6 @@ border:2px solid #69c;
         <div class="post-eof"></div>
       
     </footer>
-  </div>
-  
-  
-  
   </article>
 
 
@@ -1059,10 +1114,6 @@ border:2px solid #69c;
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2014/12/25/mobile/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1081,8 +1132,16 @@ border:2px solid #69c;
         
         
           <h1 class="post-title" itemprop="name headline">
+            
+            
+              
                 
-                <a class="post-title-link" href="/2014/12/25/mobile/" itemprop="url">吴小龙同學-客戶端</a></h1>
+                <a class="post-title-link" href="/2014/12/25/mobile/" itemprop="url">
+                  吴小龙同學-客戶端
+                </a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
@@ -1145,9 +1204,7 @@ border:2px solid #69c;
       </header>
     
 
-    
-    
-    
+
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1166,16 +1223,20 @@ border:2px solid #69c;
           
         
       
+	   
     </div>
-    
-    
-    
 
-    
+    <div>
+      
+    </div>
 
-    
+    <div>
+      
+    </div>
 
-    
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
       
@@ -1189,10 +1250,6 @@ border:2px solid #69c;
         <div class="post-eof"></div>
       
     </footer>
-  </div>
-  
-  
-  
   </article>
 
 
@@ -1206,10 +1263,6 @@ border:2px solid #69c;
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2014/12/11/SearchView/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1228,8 +1281,16 @@ border:2px solid #69c;
         
         
           <h1 class="post-title" itemprop="name headline">
+            
+            
+              
                 
-                <a class="post-title-link" href="/2014/12/11/SearchView/" itemprop="url">Actionbar之SearchView</a></h1>
+                <a class="post-title-link" href="/2014/12/11/SearchView/" itemprop="url">
+                  Actionbar之SearchView
+                </a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
@@ -1292,9 +1353,7 @@ border:2px solid #69c;
       </header>
     
 
-    
-    
-    
+
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1313,16 +1372,20 @@ border:2px solid #69c;
           <!--/noindex-->
         
       
+	   
     </p></div>
-    
-    
-    
 
-    
+    <div>
+      
+    </div>
 
-    
+    <div>
+      
+    </div>
 
-    
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
       
@@ -1336,10 +1399,6 @@ border:2px solid #69c;
         <div class="post-eof"></div>
       
     </footer>
-  </div>
-  
-  
-  
   </article>
 
 
@@ -1353,10 +1412,6 @@ border:2px solid #69c;
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2014/12/05/jarsigner/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1375,8 +1430,16 @@ border:2px solid #69c;
         
         
           <h1 class="post-title" itemprop="name headline">
+            
+            
+              
                 
-                <a class="post-title-link" href="/2014/12/05/jarsigner/" itemprop="url">jarsigner签名安卓Apk程序</a></h1>
+                <a class="post-title-link" href="/2014/12/05/jarsigner/" itemprop="url">
+                  jarsigner签名安卓Apk程序
+                </a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
@@ -1439,9 +1502,7 @@ border:2px solid #69c;
       </header>
     
 
-    
-    
-    
+
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1462,16 +1523,20 @@ border:2px solid #69c;
           <!--/noindex-->
         
       
+	   
     </div>
-    
-    
-    
 
-    
+    <div>
+      
+    </div>
 
-    
+    <div>
+      
+    </div>
 
-    
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
       
@@ -1485,10 +1550,6 @@ border:2px solid #69c;
         <div class="post-eof"></div>
       
     </footer>
-  </div>
-  
-  
-  
   </article>
 
 
@@ -1502,10 +1563,6 @@ border:2px solid #69c;
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2014/11/24/lock-screen-video/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1524,8 +1581,16 @@ border:2px solid #69c;
         
         
           <h1 class="post-title" itemprop="name headline">
+            
+            
+              
                 
-                <a class="post-title-link" href="/2014/11/24/lock-screen-video/" itemprop="url">解决Android视频锁屏还在继续播放</a></h1>
+                <a class="post-title-link" href="/2014/11/24/lock-screen-video/" itemprop="url">
+                  解决Android视频锁屏还在继续播放
+                </a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
@@ -1588,9 +1653,7 @@ border:2px solid #69c;
       </header>
     
 
-    
-    
-    
+
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1611,16 +1674,20 @@ border:2px solid #69c;
           <!--/noindex-->
         
       
+	   
     </div>
-    
-    
-    
 
-    
+    <div>
+      
+    </div>
 
-    
+    <div>
+      
+    </div>
 
-    
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
       
@@ -1634,10 +1701,6 @@ border:2px solid #69c;
         <div class="post-eof"></div>
       
     </footer>
-  </div>
-  
-  
-  
   </article>
 
 
@@ -1651,10 +1714,6 @@ border:2px solid #69c;
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2014/11/22/change-sdk-path/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1673,8 +1732,16 @@ border:2px solid #69c;
         
         
           <h1 class="post-title" itemprop="name headline">
+            
+            
+              
                 
-                <a class="post-title-link" href="/2014/11/22/change-sdk-path/" itemprop="url">Android Studio如何更改JDK和SDK的路径</a></h1>
+                <a class="post-title-link" href="/2014/11/22/change-sdk-path/" itemprop="url">
+                  Android Studio如何更改JDK和SDK的路径
+                </a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
@@ -1737,9 +1804,7 @@ border:2px solid #69c;
       </header>
     
 
-    
-    
-    
+
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1752,16 +1817,20 @@ border:2px solid #69c;
           
         
       
+	   
     </div>
-    
-    
-    
 
-    
+    <div>
+      
+    </div>
 
-    
+    <div>
+      
+    </div>
 
-    
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
       
@@ -1775,10 +1844,6 @@ border:2px solid #69c;
         <div class="post-eof"></div>
       
     </footer>
-  </div>
-  
-  
-  
   </article>
 
 
@@ -1811,120 +1876,115 @@ border:2px solid #69c;
   </div>
 
   <aside id="sidebar" class="sidebar">
-    
     <div class="sidebar-inner">
 
       
 
       
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image" src="http://7q5c2h.com1.z0.glb.clouddn.com/avatar.jpg" alt="吴小龙同學">
-            
-              <p class="site-author-name" itemprop="name">吴小龙同學</p>
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="http://7q5c2h.com1.z0.glb.clouddn.com/avatar.jpg" alt="吴小龙同學">
+          <p class="site-author-name" itemprop="name">吴小龙同學</p>
+           
               <p class="site-description motion-element" itemprop="description">我的微信公众号：吴小龙同学</p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">163</span>
-                  <span class="site-state-item-name">日志</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">38</span>
-                  <span class="site-state-item-name">分类</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">129</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
-            
-
-          </nav>
+          
+        </div>
+        <nav class="site-state motion-element">
 
           
-            <div class="feed-link motion-element">
-              <a href="/atom.xml" rel="alternate">
-                <i class="fa fa-rss"></i>
-                RSS
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/index.html">
+                <span class="site-state-item-count">163</span>
+                <span class="site-state-item-name">日志</span>
               </a>
             </div>
           
 
-          <div class="links-of-author motion-element">
+          
             
-              
-                <span class="links-of-author-item">
-                  <a href="https://github.com/WuXiaolong" target="_blank" title="GitHub">
-                    
-                      <i class="fa fa-fw fa-github"></i>GitHub</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="http://open.weixin.qq.com/qr/code/?username=MrWuXiaolong" target="_blank" title="WeChat">
-                    
-                      <i class="fa fa-fw fa-weixin"></i>WeChat</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="http://weibo.com/u/2175011601" target="_blank" title="Weibo">
-                    
-                      <i class="fa fa-fw fa-weibo"></i>Weibo</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://www.zhihu.com/people/wuxiaolong.me" target="_blank" title="知乎">
-                    
-                      <i class="fa fa-fw fa-commenting-o"></i>知乎</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://www.zhihu.com/people/wuxiaolong.me" target="_blank" title="GitBook">
-                    
-                      <i class="fa fa-fw fa-book"></i>GitBook</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="/qq/index.html" target="_blank" title="QQ">
-                    
-                      <i class="fa fa-fw fa-qq"></i>QQ</a>
-                </span>
-              
             
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">129</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
           </div>
+        
 
+        <div class="links-of-author motion-element">
           
+            
+              <span class="links-of-author-item">
+                <a href="http://open.weixin.qq.com/qr/code/?username=MrWuXiaolong" target="_blank" title="WeChat">
+                  
+                    <i class="fa fa-fw fa-weixin"></i>
+                  
+                  WeChat
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/WuXiaolong" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2175011601" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="/qq/index.html" target="_blank" title="QQ">
+                  
+                    <i class="fa fa-fw fa-qq"></i>
+                  
+                  QQ
+                </a>
+              </span>
+            
           
-
-          
-          
-
-          
-
         </div>
+
+        
+        
+
+        
+        
+
+        
+
+
       </section>
 
       
@@ -1941,27 +2001,27 @@ border:2px solid #69c;
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2013 &mdash; <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">吴小龙同學</span>
-
-  
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
 
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a></div>
-
-
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
 
 
         
@@ -1984,12 +2044,6 @@ border:2px solid #69c;
     </span>
   
 </div>
-
-
-
-
-
-
 
 
         
@@ -2026,14 +2080,6 @@ border:2px solid #69c;
 
 
 
-
-
-
-
-
-
-
-
   
   <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
@@ -2056,32 +2102,33 @@ border:2px solid #69c;
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
 
 
 
   
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
 
 
 
   
+
 
 
   
@@ -2107,6 +2154,21 @@ border:2px solid #69c;
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
 
 
 
@@ -2124,9 +2186,10 @@ border:2px solid #69c;
 
   
 
-  
 
-  
+  <!--崩溃欺骗
+  <script type="text/javascript" src="/js/src/dytitle.js"></script>
+  -->
 
 </body>
 </html>
