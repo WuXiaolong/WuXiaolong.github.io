@@ -3,6 +3,46 @@
 
 
     
+  <url>
+    <loc>http://wuxiaolong.me/2017/11/15/ClassModuleErrorExecptionFile/</loc>
+    <lastmod>2017-11-17T13:06:18.000Z</lastmod>
+    <data>
+        <display>
+        <title>Python 3 极简教程 之 类、模块、错误和异常、文件</title>
+        <pubTime>2017-11-15T15:20:08.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="http://wuxiaolong.me/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://wuxiaolong.me/2017/03/19/ReduceAPKSize/</loc>
+    <lastmod>2017-11-16T14:38:47.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android APK瘦身实践</title>
+        <pubTime>2017-03-19T12:02:55.000Z</pubTime>
+        
+        <tag>APK</tag>
+         
+         
+           
+             
+              <breadCrumb title="Performance" url="http://wuxiaolong.me/categories/Performance/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
     
     
@@ -650,26 +690,6 @@
            
              
               <breadCrumb title="Android Studio" url="http://wuxiaolong.me/categories/Android-Studio/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://wuxiaolong.me/2017/03/19/ReduceAPKSize/</loc>
-    <lastmod>2017-05-14T07:02:22.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android APK瘦身实践</title>
-        <pubTime>2017-03-19T12:02:55.000Z</pubTime>
-        
-        <tag>APK</tag>
-         
-         
-           
-             
-              <breadCrumb title="Performance" url="http://wuxiaolong.me/categories/Performance/"/>
           
         </display>
     </data>
@@ -2214,19 +2234,43 @@
 
     
   <url>
-    <loc>http://wuxiaolong.me/2015/01/13/Context-Activity/</loc>
+    <loc>http://wuxiaolong.me/2015/08/04/TodayEmotion/</loc>
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     <data>
         <display>
-        <title>Android下Context、Activity、Application之间有什么区别</title>
-        <pubTime>2015-01-12T16:00:00.000Z</pubTime>
+        <title>今日情感</title>
+        <pubTime>2015-08-04T08:27:21.000Z</pubTime>
         
         <tag>Android</tag>
+         
+        <tag>Life</tag>
+         
+        <tag>App</tag>
          
          
            
              
-              <breadCrumb title="Android" url="http://wuxiaolong.me/categories/Android/"/>
+              <breadCrumb title="App" url="http://wuxiaolong.me/categories/App/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://wuxiaolong.me/2015/07/24/AndroidDeveloperSurvey/</loc>
+    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android开发人员调查</title>
+        <pubTime>2015-07-23T16:00:00.000Z</pubTime>
+        
+        <tag>Life</tag>
+         
+         
+           
+             
+              <breadCrumb title="Life" url="http://wuxiaolong.me/categories/Life/"/>
           
         </display>
     </data>
@@ -2242,28 +2286,6 @@
         <pubTime>2013-07-22T16:00:00.000Z</pubTime>
         
         <tag>Android</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="http://wuxiaolong.me/categories/Android/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://wuxiaolong.me/2015/04/27/Split/</loc>
-    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android字符串分割</title>
-        <pubTime>2015-04-26T16:00:00.000Z</pubTime>
-        
-        <tag>Android</tag>
-         
-        <tag>Canvas</tag>
          
          
            
@@ -2298,14 +2320,22 @@
 
     
   <url>
-    <loc>http://wuxiaolong.me/2015/12/03/emulatorError/</loc>
+    <loc>http://wuxiaolong.me/2015/08/10/Drawable-to-Bitmap/</loc>
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     <data>
         <display>
-        <title>Android之emulator ERROR x86 emulation currently requires hardware acceleration</title>
-        <pubTime>2015-12-03T02:45:38.000Z</pubTime>
+        <title>Drawable /Bitmap、String/InputStream、Bitmap/byte[]互转</title>
+        <pubTime>2015-08-10T08:26:25.000Z</pubTime>
         
-        <tag>emulator</tag>
+        <tag>Drawable</tag>
+         
+        <tag>Bitmap</tag>
+         
+        <tag>String</tag>
+         
+        <tag>InputStream</tag>
+         
+        <tag>byte</tag>
          
          
            
@@ -2318,12 +2348,76 @@
 
     
   <url>
-    <loc>http://wuxiaolong.me/2015/07/27/SaveImageToGallery/</loc>
+    <loc>http://wuxiaolong.me/2015/09/23/AndroidMVPSample/</loc>
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     <data>
         <display>
-        <title>Android保存图片并显示系统图库</title>
-        <pubTime>2015-07-26T16:00:00.000Z</pubTime>
+        <title>Android MVP 实例</title>
+        <pubTime>2015-09-23T08:28:22.000Z</pubTime>
+        
+        <tag>MVP</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="http://wuxiaolong.me/categories/Android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://wuxiaolong.me/2015/11/25/WeWin/</loc>
+    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+    <data>
+        <display>
+        <title>剩者为王</title>
+        <pubTime>2015-11-25T06:57:37.000Z</pubTime>
+        
+        <tag>Life</tag>
+         
+        <tag>WeWin</tag>
+         
+         
+           
+             
+              <breadCrumb title="App" url="http://wuxiaolong.me/categories/App/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://wuxiaolong.me/2015/04/23/CanvasToPhoto/</loc>
+    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android之Canvas中内容保存为图片</title>
+        <pubTime>2015-04-22T16:00:00.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+        <tag>Canvas</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="http://wuxiaolong.me/categories/Android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://wuxiaolong.me/2015/01/13/Context-Activity/</loc>
+    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android下Context、Activity、Application之间有什么区别</title>
+        <pubTime>2015-01-12T16:00:00.000Z</pubTime>
         
         <tag>Android</tag>
          
@@ -2338,16 +2432,14 @@
 
     
   <url>
-    <loc>http://wuxiaolong.me/2014/08/26/eclipse-git/</loc>
+    <loc>http://wuxiaolong.me/2015/03/27/2015key/</loc>
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     <data>
         <display>
-        <title>Eclipse中整合git</title>
-        <pubTime>2014-08-25T16:00:00.000Z</pubTime>
+        <title>2015关键字</title>
+        <pubTime>2015-03-27T09:37:17.000Z</pubTime>
         
-        <tag>Life</tag>
-         
-        <tag>git</tag>
+        <tag>key word</tag>
          
          
            
@@ -2360,82 +2452,16 @@
 
     
   <url>
-    <loc>http://wuxiaolong.me/2015/11/16/LinearGradientTextView/</loc>
+    <loc>http://wuxiaolong.me/2014/11/24/lock-screen-video/</loc>
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     <data>
         <display>
-        <title>LinearGradient实现文字一闪一闪</title>
-        <pubTime>2015-11-16T03:14:43.000Z</pubTime>
-        
-        <tag>LinearGradient</tag>
-         
-        <tag>TextView</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="http://wuxiaolong.me/categories/Android/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://wuxiaolong.me/2015/05/28/LayoutParams/</loc>
-    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android之LayoutParams</title>
-        <pubTime>2015-05-27T16:00:00.000Z</pubTime>
+        <title>解决Android视频锁屏还在继续播放</title>
+        <pubTime>2014-11-23T16:00:00.000Z</pubTime>
         
         <tag>Android</tag>
          
-        <tag>LayoutParams</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="http://wuxiaolong.me/categories/Android/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://wuxiaolong.me/2015/04/23/LayoutInflater/</loc>
-    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android之LayoutInflate</title>
-        <pubTime>2015-04-22T16:00:00.000Z</pubTime>
-        
-        <tag>Android</tag>
-         
-        <tag>LayoutInflate</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="http://wuxiaolong.me/categories/Android/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://wuxiaolong.me/2015/04/21/SqliteSample/</loc>
-    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android之SqliteSample</title>
-        <pubTime>2015-04-20T16:00:00.000Z</pubTime>
-        
-        <tag>Android</tag>
-         
-        <tag>Sqlite</tag>
+        <tag>Video</tag>
          
          
            
@@ -2456,6 +2482,26 @@
         <pubTime>2015-11-03T01:40:54.000Z</pubTime>
         
         <tag>Intent</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="http://wuxiaolong.me/categories/Android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://wuxiaolong.me/2015/07/29/AppInfo/</loc>
+    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android获取手机已安装apk文件信息</title>
+        <pubTime>2015-07-28T16:00:00.000Z</pubTime>
+        
+        <tag>Android</tag>
          
          
            
@@ -2490,16 +2536,16 @@
 
     
   <url>
-    <loc>http://wuxiaolong.me/2014/11/24/lock-screen-video/</loc>
+    <loc>http://wuxiaolong.me/2015/05/28/LayoutParams/</loc>
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     <data>
         <display>
-        <title>解决Android视频锁屏还在继续播放</title>
-        <pubTime>2014-11-23T16:00:00.000Z</pubTime>
+        <title>Android之LayoutParams</title>
+        <pubTime>2015-05-27T16:00:00.000Z</pubTime>
         
         <tag>Android</tag>
          
-        <tag>Video</tag>
+        <tag>LayoutParams</tag>
          
          
            
@@ -2512,23 +2558,19 @@
 
     
   <url>
-    <loc>http://wuxiaolong.me/2015/11/09/dashishuo/</loc>
+    <loc>http://wuxiaolong.me/2015/08/28/PioneeringRoad/</loc>
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     <data>
         <display>
-        <title>大湿说</title>
-        <pubTime>2015-11-09T00:55:32.000Z</pubTime>
+        <title>PioneeringRoad</title>
+        <pubTime>2015-08-28T04:24:42.000Z</pubTime>
         
-        <tag>Android</tag>
-         
-        <tag>Life</tag>
-         
-        <tag>App</tag>
+        <tag>PioneeringRoad</tag>
          
          
            
              
-              <breadCrumb title="App" url="http://wuxiaolong.me/categories/App/"/>
+              <breadCrumb title="Life" url="http://wuxiaolong.me/categories/Life/"/>
           
         </display>
     </data>
@@ -2536,34 +2578,16 @@
 
     
   <url>
-    <loc>http://wuxiaolong.me/2013/06/14/android-developers-should-keep-the-following-characteristics/</loc>
+    <loc>http://wuxiaolong.me/2015/04/23/LayoutInflater/</loc>
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     <data>
         <display>
-        <title>Android开发者应该保持以下特质</title>
-        <pubTime>2013-06-13T16:00:00.000Z</pubTime>
+        <title>Android之LayoutInflate</title>
+        <pubTime>2015-04-22T16:00:00.000Z</pubTime>
         
         <tag>Android</tag>
          
-         
-           
-             
-              <breadCrumb title="Android" url="http://wuxiaolong.me/categories/Android/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://wuxiaolong.me/2013/11/22/Export-aborted-because-fatal-lint-errors-were-found/</loc>
-    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android打包错误Export aborted because fatal lint errors were found</title>
-        <pubTime>2013-11-21T16:00:00.000Z</pubTime>
-        
-        <tag>Android</tag>
+        <tag>LayoutInflate</tag>
          
          
            
@@ -2620,22 +2644,16 @@
 
     
   <url>
-    <loc>http://wuxiaolong.me/2015/08/10/Drawable-to-Bitmap/</loc>
+    <loc>http://wuxiaolong.me/2015/11/16/LinearGradientTextView/</loc>
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     <data>
         <display>
-        <title>Drawable /Bitmap、String/InputStream、Bitmap/byte[]互转</title>
-        <pubTime>2015-08-10T08:26:25.000Z</pubTime>
+        <title>LinearGradient实现文字一闪一闪</title>
+        <pubTime>2015-11-16T03:14:43.000Z</pubTime>
         
-        <tag>Drawable</tag>
+        <tag>LinearGradient</tag>
          
-        <tag>Bitmap</tag>
-         
-        <tag>String</tag>
-         
-        <tag>InputStream</tag>
-         
-        <tag>byte</tag>
+        <tag>TextView</tag>
          
          
            
@@ -2648,39 +2666,19 @@
 
     
   <url>
-    <loc>http://wuxiaolong.me/2014/06/30/custom-debug-keystore/</loc>
+    <loc>http://wuxiaolong.me/2015/05/12/AdFund/</loc>
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     <data>
         <display>
-        <title>Eclipse ADT的Custom debug keystore所需证书规格</title>
-        <pubTime>2014-06-29T16:00:00.000Z</pubTime>
+        <title>广告基金</title>
+        <pubTime>2015-05-11T16:00:00.000Z</pubTime>
         
-        <tag>Android</tag>
+        <tag>AD</tag>
          
          
            
              
-              <breadCrumb title="Android" url="http://wuxiaolong.me/categories/Android/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://wuxiaolong.me/2015/08/29/contactIndex/</loc>
-    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android通讯录索引效果</title>
-        <pubTime>2015-08-29T03:04:21.000Z</pubTime>
-        
-        <tag>contact</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="http://wuxiaolong.me/categories/Android/"/>
+              <breadCrumb title="Life" url="http://wuxiaolong.me/categories/Life/"/>
           
         </display>
     </data>
@@ -2696,6 +2694,50 @@
         <pubTime>2013-07-17T16:00:00.000Z</pubTime>
         
         <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="http://wuxiaolong.me/categories/Android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://wuxiaolong.me/2013/10/15/boentang/</loc>
+    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+    <data>
+        <display>
+        <title>播恩堂</title>
+        <pubTime>2013-10-15T14:34:14.000Z</pubTime>
+        
+        <tag>boentang</tag>
+         
+         
+           
+             
+              <breadCrumb title="App" url="http://wuxiaolong.me/categories/App/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://wuxiaolong.me/2015/09/15/RecyclerViewCardView/</loc>
+    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+    <data>
+        <display>
+        <title>RecyclerView+CardView使用</title>
+        <pubTime>2015-09-15T05:21:15.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+        <tag>RecyclerView</tag>
+         
+        <tag>CardView</tag>
          
          
            
@@ -2728,6 +2770,26 @@
 
     
   <url>
+    <loc>http://wuxiaolong.me/2014/09/15/qinziyouwan/</loc>
+    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+    <data>
+        <display>
+        <title>亲子游玩</title>
+        <pubTime>2014-09-15T14:58:57.000Z</pubTime>
+        
+        <tag>qinziyouwan</tag>
+         
+         
+           
+             
+              <breadCrumb title="App" url="http://wuxiaolong.me/categories/App/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://wuxiaolong.me/2015/11/03/processes-and-threads/</loc>
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     <data>
@@ -2750,19 +2812,19 @@
 
     
   <url>
-    <loc>http://wuxiaolong.me/2013/06/15/goufangche/</loc>
+    <loc>http://wuxiaolong.me/2015/12/27/2016key/</loc>
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     <data>
         <display>
-        <title>购房车</title>
-        <pubTime>2013-06-15T14:06:39.000Z</pubTime>
+        <title>2016关键字</title>
+        <pubTime>2015-12-27T09:43:42.000Z</pubTime>
         
-        <tag>goufangche</tag>
+        <tag>key word</tag>
          
          
            
              
-              <breadCrumb title="App" url="http://wuxiaolong.me/categories/App/"/>
+              <breadCrumb title="Life" url="http://wuxiaolong.me/categories/Life/"/>
           
         </display>
     </data>
@@ -2770,19 +2832,21 @@
 
     
   <url>
-    <loc>http://wuxiaolong.me/2014/09/15/qinziyouwan/</loc>
+    <loc>http://wuxiaolong.me/2015/04/30/ResResources/</loc>
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     <data>
         <display>
-        <title>亲子游玩</title>
-        <pubTime>2014-09-15T14:58:57.000Z</pubTime>
+        <title>android获取 res 中的资源</title>
+        <pubTime>2015-04-29T16:00:00.000Z</pubTime>
         
-        <tag>qinziyouwan</tag>
+        <tag>Android</tag>
+         
+        <tag>Canvas</tag>
          
          
            
              
-              <breadCrumb title="App" url="http://wuxiaolong.me/categories/App/"/>
+              <breadCrumb title="Android" url="http://wuxiaolong.me/categories/Android/"/>
           
         </display>
     </data>
@@ -2810,19 +2874,19 @@
 
     
   <url>
-    <loc>http://wuxiaolong.me/2016/03/04/TheSecondResignation/</loc>
+    <loc>http://wuxiaolong.me/2014/11/22/change-sdk-path/</loc>
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     <data>
         <display>
-        <title>生命不息，折腾不止</title>
-        <pubTime>2016-03-04T12:28:43.000Z</pubTime>
+        <title>Android Studio如何更改JDK和SDK的路径</title>
+        <pubTime>2014-11-21T16:00:00.000Z</pubTime>
         
-        <tag>Life</tag>
+        <tag>Android Studio</tag>
          
          
            
              
-              <breadCrumb title="Life" url="http://wuxiaolong.me/categories/Life/"/>
+              <breadCrumb title="Android Studio" url="http://wuxiaolong.me/categories/Android-Studio/"/>
           
         </display>
     </data>
@@ -2840,28 +2904,6 @@
         <tag>Android</tag>
          
         <tag>Permission</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="http://wuxiaolong.me/categories/Android/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://wuxiaolong.me/2015/01/21/sdk-update/</loc>
-    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-    <data>
-        <display>
-        <title>解决Android Studio和Android SDK Manager无法在线更新</title>
-        <pubTime>2015-01-20T16:00:00.000Z</pubTime>
-        
-        <tag>Android Studio</tag>
-         
-        <tag>Android</tag>
          
          
            
@@ -2894,61 +2936,21 @@
 
     
   <url>
-    <loc>http://wuxiaolong.me/2015/04/23/CanvasToPhoto/</loc>
+    <loc>http://wuxiaolong.me/2015/01/21/sdk-update/</loc>
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     <data>
         <display>
-        <title>Android之Canvas中内容保存为图片</title>
-        <pubTime>2015-04-22T16:00:00.000Z</pubTime>
-        
-        <tag>Android</tag>
-         
-        <tag>Canvas</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="http://wuxiaolong.me/categories/Android/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://wuxiaolong.me/2015/11/02/service/</loc>
-    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android之Service</title>
-        <pubTime>2015-11-02T07:23:04.000Z</pubTime>
-        
-        <tag>Service</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="http://wuxiaolong.me/categories/Android/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://wuxiaolong.me/2014/11/22/change-sdk-path/</loc>
-    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android Studio如何更改JDK和SDK的路径</title>
-        <pubTime>2014-11-21T16:00:00.000Z</pubTime>
+        <title>解决Android Studio和Android SDK Manager无法在线更新</title>
+        <pubTime>2015-01-20T16:00:00.000Z</pubTime>
         
         <tag>Android Studio</tag>
          
+        <tag>Android</tag>
+         
          
            
              
-              <breadCrumb title="Android Studio" url="http://wuxiaolong.me/categories/Android-Studio/"/>
+              <breadCrumb title="Android" url="http://wuxiaolong.me/categories/Android/"/>
           
         </display>
     </data>
@@ -2996,14 +2998,14 @@
 
     
   <url>
-    <loc>http://wuxiaolong.me/2015/11/03/BroadcastReceiver/</loc>
+    <loc>http://wuxiaolong.me/2015/11/02/service/</loc>
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     <data>
         <display>
-        <title>Android之BroadcastReceiver</title>
-        <pubTime>2015-11-03T00:54:41.000Z</pubTime>
+        <title>Android之Service</title>
+        <pubTime>2015-11-02T07:23:04.000Z</pubTime>
         
-        <tag>BroadcastReceiver</tag>
+        <tag>Service</tag>
          
          
            
@@ -3016,23 +3018,19 @@
 
     
   <url>
-    <loc>http://wuxiaolong.me/2015/08/04/TodayEmotion/</loc>
+    <loc>http://wuxiaolong.me/2015/07/27/SaveImageToGallery/</loc>
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     <data>
         <display>
-        <title>今日情感</title>
-        <pubTime>2015-08-04T08:27:21.000Z</pubTime>
+        <title>Android保存图片并显示系统图库</title>
+        <pubTime>2015-07-26T16:00:00.000Z</pubTime>
         
         <tag>Android</tag>
-         
-        <tag>Life</tag>
-         
-        <tag>App</tag>
          
          
            
              
-              <breadCrumb title="App" url="http://wuxiaolong.me/categories/App/"/>
+              <breadCrumb title="Android" url="http://wuxiaolong.me/categories/Android/"/>
           
         </display>
     </data>
@@ -3060,16 +3058,14 @@
 
     
   <url>
-    <loc>http://wuxiaolong.me/2015/04/30/ResResources/</loc>
+    <loc>http://wuxiaolong.me/2015/08/29/contactIndex/</loc>
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     <data>
         <display>
-        <title>android获取 res 中的资源</title>
-        <pubTime>2015-04-29T16:00:00.000Z</pubTime>
+        <title>Android通讯录索引效果</title>
+        <pubTime>2015-08-29T03:04:21.000Z</pubTime>
         
-        <tag>Android</tag>
-         
-        <tag>Canvas</tag>
+        <tag>contact</tag>
          
          
            
@@ -3104,36 +3100,12 @@
 
     
   <url>
-    <loc>http://wuxiaolong.me/2015/09/15/RecyclerViewCardView/</loc>
+    <loc>http://wuxiaolong.me/2014/06/30/custom-debug-keystore/</loc>
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     <data>
         <display>
-        <title>RecyclerView+CardView使用</title>
-        <pubTime>2015-09-15T05:21:15.000Z</pubTime>
-        
-        <tag>Android</tag>
-         
-        <tag>RecyclerView</tag>
-         
-        <tag>CardView</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="http://wuxiaolong.me/categories/Android/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://wuxiaolong.me/2015/07/29/AppInfo/</loc>
-    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android获取手机已安装apk文件信息</title>
-        <pubTime>2015-07-28T16:00:00.000Z</pubTime>
+        <title>Eclipse ADT的Custom debug keystore所需证书规格</title>
+        <pubTime>2014-06-29T16:00:00.000Z</pubTime>
         
         <tag>Android</tag>
          
@@ -3148,81 +3120,23 @@
 
     
   <url>
-    <loc>http://wuxiaolong.me/2015/08/28/PioneeringRoad/</loc>
+    <loc>http://wuxiaolong.me/2015/11/09/dashishuo/</loc>
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     <data>
         <display>
-        <title>PioneeringRoad</title>
-        <pubTime>2015-08-28T04:24:42.000Z</pubTime>
+        <title>大湿说</title>
+        <pubTime>2015-11-09T00:55:32.000Z</pubTime>
         
-        <tag>PioneeringRoad</tag>
+        <tag>Android</tag>
          
-         
-           
-             
-              <breadCrumb title="Life" url="http://wuxiaolong.me/categories/Life/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://wuxiaolong.me/2013/10/15/boentang/</loc>
-    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-    <data>
-        <display>
-        <title>播恩堂</title>
-        <pubTime>2013-10-15T14:34:14.000Z</pubTime>
-        
-        <tag>boentang</tag>
-         
-         
-           
-             
-              <breadCrumb title="App" url="http://wuxiaolong.me/categories/App/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://wuxiaolong.me/2015/11/25/WeWin/</loc>
-    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-    <data>
-        <display>
-        <title>剩者为王</title>
-        <pubTime>2015-11-25T06:57:37.000Z</pubTime>
-        
         <tag>Life</tag>
          
-        <tag>WeWin</tag>
+        <tag>App</tag>
          
          
            
              
               <breadCrumb title="App" url="http://wuxiaolong.me/categories/App/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://wuxiaolong.me/2014/11/09/AndroidSamples/</loc>
-    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android实战Samples</title>
-        <pubTime>2014-11-08T16:00:00.000Z</pubTime>
-        
-        <tag>Android</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="http://wuxiaolong.me/categories/Android/"/>
           
         </display>
     </data>
@@ -3254,14 +3168,14 @@
 
     
   <url>
-    <loc>http://wuxiaolong.me/2015/09/23/AndroidMVPSample/</loc>
+    <loc>http://wuxiaolong.me/2015/12/03/emulatorError/</loc>
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     <data>
         <display>
-        <title>Android MVP 实例</title>
-        <pubTime>2015-09-23T08:28:22.000Z</pubTime>
+        <title>Android之emulator ERROR x86 emulation currently requires hardware acceleration</title>
+        <pubTime>2015-12-03T02:45:38.000Z</pubTime>
         
-        <tag>MVP</tag>
+        <tag>emulator</tag>
          
          
            
@@ -3274,12 +3188,158 @@
 
     
   <url>
-    <loc>http://wuxiaolong.me/2015/07/24/AndroidDeveloperSurvey/</loc>
+    <loc>http://wuxiaolong.me/2014/08/26/eclipse-git/</loc>
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     <data>
         <display>
-        <title>Android开发人员调查</title>
-        <pubTime>2015-07-23T16:00:00.000Z</pubTime>
+        <title>Eclipse中整合git</title>
+        <pubTime>2014-08-25T16:00:00.000Z</pubTime>
+        
+        <tag>Life</tag>
+         
+        <tag>git</tag>
+         
+         
+           
+             
+              <breadCrumb title="Life" url="http://wuxiaolong.me/categories/Life/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://wuxiaolong.me/2013/11/22/Export-aborted-because-fatal-lint-errors-were-found/</loc>
+    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android打包错误Export aborted because fatal lint errors were found</title>
+        <pubTime>2013-11-21T16:00:00.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="http://wuxiaolong.me/categories/Android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://wuxiaolong.me/2015/11/03/BroadcastReceiver/</loc>
+    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android之BroadcastReceiver</title>
+        <pubTime>2015-11-03T00:54:41.000Z</pubTime>
+        
+        <tag>BroadcastReceiver</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="http://wuxiaolong.me/categories/Android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://wuxiaolong.me/2013/06/15/goufangche/</loc>
+    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+    <data>
+        <display>
+        <title>购房车</title>
+        <pubTime>2013-06-15T14:06:39.000Z</pubTime>
+        
+        <tag>goufangche</tag>
+         
+         
+           
+             
+              <breadCrumb title="App" url="http://wuxiaolong.me/categories/App/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://wuxiaolong.me/2015/04/27/Split/</loc>
+    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android字符串分割</title>
+        <pubTime>2015-04-26T16:00:00.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+        <tag>Canvas</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="http://wuxiaolong.me/categories/Android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://wuxiaolong.me/2014/11/09/AndroidSamples/</loc>
+    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android实战Samples</title>
+        <pubTime>2014-11-08T16:00:00.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="http://wuxiaolong.me/categories/Android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://wuxiaolong.me/2015/04/21/SqliteSample/</loc>
+    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android之SqliteSample</title>
+        <pubTime>2015-04-20T16:00:00.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+        <tag>Sqlite</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="http://wuxiaolong.me/categories/Android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://wuxiaolong.me/2016/03/04/TheSecondResignation/</loc>
+    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+    <data>
+        <display>
+        <title>生命不息，折腾不止</title>
+        <pubTime>2016-03-04T12:28:43.000Z</pubTime>
         
         <tag>Life</tag>
          
@@ -3314,59 +3374,19 @@
 
     
   <url>
-    <loc>http://wuxiaolong.me/2015/05/12/AdFund/</loc>
+    <loc>http://wuxiaolong.me/2013/06/14/android-developers-should-keep-the-following-characteristics/</loc>
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     <data>
         <display>
-        <title>广告基金</title>
-        <pubTime>2015-05-11T16:00:00.000Z</pubTime>
+        <title>Android开发者应该保持以下特质</title>
+        <pubTime>2013-06-13T16:00:00.000Z</pubTime>
         
-        <tag>AD</tag>
+        <tag>Android</tag>
          
          
            
              
-              <breadCrumb title="Life" url="http://wuxiaolong.me/categories/Life/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://wuxiaolong.me/2015/03/27/2015key/</loc>
-    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-    <data>
-        <display>
-        <title>2015关键字</title>
-        <pubTime>2015-03-27T09:37:17.000Z</pubTime>
-        
-        <tag>key word</tag>
-         
-         
-           
-             
-              <breadCrumb title="Life" url="http://wuxiaolong.me/categories/Life/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://wuxiaolong.me/2015/12/27/2016key/</loc>
-    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-    <data>
-        <display>
-        <title>2016关键字</title>
-        <pubTime>2015-12-27T09:43:42.000Z</pubTime>
-        
-        <tag>key word</tag>
-         
-         
-           
-             
-              <breadCrumb title="Life" url="http://wuxiaolong.me/categories/Life/"/>
+              <breadCrumb title="Android" url="http://wuxiaolong.me/categories/Android/"/>
           
         </display>
     </data>

@@ -97,7 +97,7 @@
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/reduceAPKSize1.jpg">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/reduceAPKSize2.jpg">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/reduceAPKSize3.jpg">
-<meta property="og:updated_time" content="2017-05-14T07:02:22.000Z">
+<meta property="og:updated_time" content="2017-11-16T14:38:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android APK瘦身实践">
 <meta name="twitter:description" content="为什么瘦身现在APK动不动就是几十兆，当用户连接到2G和3G网络，或者按流量收费的设备是多么的浪费，这篇文章介绍了如何对APK进行瘦身，帮助更多用户毫不犹顾忌地下载你们的APP。 了解APK结构在讨论如何缩小应用程序的大小之前，先了解应用程序APK的结构，是有帮助的。APK文件包含ZIP文件，其中包含构成应用程序的所有文件。这些文件包括Java类文件，资源文件和已编译资源的文件。">
@@ -491,7 +491,9 @@ border:2px solid #69c;
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line">android &#123;</div><div class="line">    buildTypes &#123;</div><div class="line">        release &#123;</div><div class="line">            minifyEnabled <span class="keyword">true</span></div><div class="line">            shrinkResources <span class="keyword">true</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>shrinkResources依赖于minifyEnabled，必须和minifyEnabled一起用，就是打开shrinkResources也必须打开minifyEnabled。</p>
 <p>APK大小 <strong>10903</strong> KB。</p>
-<h2 id="删除未使用到xml和图片"><a href="#删除未使用到xml和图片" class="headerlink" title="删除未使用到xml和图片"></a>删除未使用到xml和图片</h2><p>如何知道哪些xml和图片未被使用到？使用Android Studio的Lint，步骤：点击菜单栏 Analyze -&gt;  Run Inspection by Name -&gt; unused resources -&gt;  Moudule ‘app’ -&gt; OK，这样会搜出来哪些未被使用到未使用到xml和图片，如下：<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/reduceAPKSize1.jpg" alt=""><br>经过删除，APK大小 <strong>10891</strong> KB。</p>
+<h2 id="删除未使用到xml和图片"><a href="#删除未使用到xml和图片" class="headerlink" title="删除未使用到xml和图片"></a>删除未使用到xml和图片</h2><p>如何知道哪些xml和图片未被使用到？使用Android Studio的Lint，步骤：<br>Android Studio -&gt; Menu -&gt; Refactor -&gt; Remove Unused Resources<br>选择 Refactor 一键删除<br>选择 Perview 预览未使用到的资源</p>
+<p>或者</p>
+<p>点击菜单栏 Analyze -&gt;  Run Inspection by Name -&gt; unused resources -&gt;  Moudule ‘app’ -&gt; OK，这样会搜出来哪些未被使用到未使用到xml和图片，如下：<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/reduceAPKSize1.jpg" alt=""><br>经过删除，APK大小 <strong>10891</strong> KB。</p>
 <h2 id="删除未使用到代码"><a href="#删除未使用到代码" class="headerlink" title="删除未使用到代码"></a>删除未使用到代码</h2><p>同样使用Android Studio的Lint，步骤：点击菜单栏 Analyze -&gt;  Run Inspection by Name -&gt; unused declaration -&gt;  Moudule ‘app’ -&gt; OK</p>
 <p>经过一番清理，APK大小 <strong>10880</strong> KB，才瘦了11KB，我以为能瘦很多，不过，平时必须保持良好的编码习惯，哪些没有使用到的代码还是删删掉吧，不要想着以后还会用到。</p>
 <p>重复操作上一步和这一步，会有意外的发现哦。</p>
@@ -732,7 +734,7 @@ border:2px solid #69c;
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/index.html">
-                <span class="site-state-item-count">163</span>
+                <span class="site-state-item-count">164</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
