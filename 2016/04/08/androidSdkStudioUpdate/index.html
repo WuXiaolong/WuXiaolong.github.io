@@ -87,13 +87,14 @@
 
 
 
-<meta name="description" content="重点介绍网站http://www.androiddevtools.cn/，收集整理Android开发所需的Android SDK、开发中用到的工具、Android开发教程、Android设计规范，免费的设计素材等。感谢脉脉不得语，分享这么棒的AndroidTools！  号外就在今天，Android Studio终于迎来了2.0正式版更新（此版本最重要的两个更新是：即时运行和 GPU Profi">
+<meta name="description" content="重点介绍网站http://www.androiddevtools.cn/，收集整理Android开发所需的Android SDK、开发中用到的工具、Android开发教程、Android设计规范，免费的设计素材等。感谢脉脉不得语，分享这么棒的AndroidTools！  号外就在今天，Android Studio终于迎">
 <meta name="keywords" content="Android Studio,SDK">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【译】Android Studio、Android SDK在线更新">
 <meta property="og:url" content="http://wuxiaolong.me/2016/04/08/androidSdkStudioUpdate/index.html">
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="重点介绍网站http://www.androiddevtools.cn/，收集整理Android开发所需的Android SDK、开发中用到的工具、Android开发教程、Android设计规范，免费的设计素材等。感谢脉脉不得语，分享这么棒的AndroidTools！  号外就在今天，Android Studio终于迎来了2.0正式版更新（此版本最重要的两个更新是：即时运行和 GPU Profi">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/as2.0.png">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/asd1.png">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/asd2.png">
@@ -477,21 +478,21 @@ border:2px solid #69c;
 
       
         <blockquote>
-<p>重点介绍网站<a href="http://www.androiddevtools.cn/，收集整理Android开发所需的Android" target="_blank" rel="external">http://www.androiddevtools.cn/，收集整理Android开发所需的Android</a> SDK、开发中用到的工具、Android开发教程、Android设计规范，免费的设计素材等。感谢脉脉不得语，分享这么棒的AndroidTools！</p>
+<p>重点介绍网站<a href="http://www.androiddevtools.cn/，收集整理Android开发所需的Android" target="_blank" rel="noopener">http://www.androiddevtools.cn/，收集整理Android开发所需的Android</a> SDK、开发中用到的工具、Android开发教程、Android设计规范，免费的设计素材等。感谢脉脉不得语，分享这么棒的AndroidTools！</p>
 </blockquote>
 <h1 id="号外"><a href="#号外" class="headerlink" title="号外"></a>号外</h1><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/as2.0.png" alt=""><br>就在今天，Android Studio终于迎来了2.0正式版更新（此版本最重要的两个更新是：即时运行和 GPU Profiler。同时还有全新的 Android 开发套件，速度强行提升 50 倍），之前Android Studio Preview和Beta版本还存在很多bug，因此不建议更新。</p>
 <p>升级注意问题<br>1、点击Check for Update不能出现上面的<code>增量升级</code>提示，多点击几次Check for Update<br>2、升级完成，默认配置gradle1.5，进入后会报错，会有提示，做相应gradle同步<br><a id="more"></a></p>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
-<p>原文地址:<a href="http://android-mirror.bugly.qq.com:8080/include/usage.html" target="_blank" rel="external">http://android-mirror.bugly.qq.com:8080/include/usage.html</a></p>
+<p>原文地址:<a href="http://android-mirror.bugly.qq.com:8080/include/usage.html" target="_blank" rel="noopener">http://android-mirror.bugly.qq.com:8080/include/usage.html</a></p>
 </blockquote>
 <p><code>新手必知技能</code>：您去更新升级Android Studio时却提示 Connection failed. Please check your network connection and try again，shit，由于墙内，您也无法更新Android SDK，这里分享一篇教程帮您解决此烦恼，原文是英文，我适当做了翻译（本身我英文是渣渣，基本是意译）。</p>
 <h1 id="Android-Studio在线更新"><a href="#Android-Studio在线更新" class="headerlink" title="Android Studio在线更新"></a>Android Studio在线更新</h1><p>1、打开Android Studio安装的bin目录，如’D:\Android Studio\bin’<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/asd1.png" alt=""></p>
 <p>2、用文本编辑器（Notepad++），64位，打开 ‘studio64.exe.vmoptions’，32位，则打开studio.exe.vmoptions’<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/asd2.png" alt=""></p>
-<p>3、在studio64.exe.vmoptions文件添加如下：<br>-Djava.net.preferIPv4Stack=true<br>-Didea.updates.url=<a href="http://android-mirror.bugly.qq.com:8080/AndroidStudio/patches/updates.xml" target="_blank" rel="external">http://android-mirror.bugly.qq.com:8080/AndroidStudio/patches/updates.xml</a><br>-Didea.patches.url=<a href="http://android-mirror.bugly.qq.com:8080/AndroidStudio/patches/" target="_blank" rel="external">http://android-mirror.bugly.qq.com:8080/AndroidStudio/patches/</a> </p>
+<p>3、在studio64.exe.vmoptions文件添加如下：<br>-Djava.net.preferIPv4Stack=true<br>-Didea.updates.url=<a href="http://android-mirror.bugly.qq.com:8080/AndroidStudio/patches/updates.xml" target="_blank" rel="noopener">http://android-mirror.bugly.qq.com:8080/AndroidStudio/patches/updates.xml</a><br>-Didea.patches.url=<a href="http://android-mirror.bugly.qq.com:8080/AndroidStudio/patches/" target="_blank" rel="noopener">http://android-mirror.bugly.qq.com:8080/AndroidStudio/patches/</a> </p>
 <p>4、点击检测升级Android Studio<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/asd3.png" alt=""></p>
 <p>点击 ‘Update and Restart’.<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/asd4.png" alt=""><br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/incremental.png" alt=""><br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/restart.png" alt=""></p>
 <p>笔者：到此，Android Studio更新版本完成。</p>
-<h1 id="Android-SDK在线更新镜像服务器"><a href="#Android-SDK在线更新镜像服务器" class="headerlink" title="Android SDK在线更新镜像服务器"></a>Android SDK在线更新镜像服务器</h1><p>1、 打开 Android SDK Manager<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/sdk_manager.png" alt=""><br>2、配置用户自定义网站<br>点击 “User Defined Sites”，新建，添加<a href="http://android-mirror.bugly.qq.com:8080/android/repository/addon.xml" target="_blank" rel="external">http://android-mirror.bugly.qq.com:8080/android/repository/addon.xml</a><br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/site.png" alt=""><br>3、配置端口<br>勾上 Force https://… sources to be fetched using http://…<br> <img src="http://7q5c2h.com1.z0.glb.clouddn.com/proxy.png" alt=""></p>
+<h1 id="Android-SDK在线更新镜像服务器"><a href="#Android-SDK在线更新镜像服务器" class="headerlink" title="Android SDK在线更新镜像服务器"></a>Android SDK在线更新镜像服务器</h1><p>1、 打开 Android SDK Manager<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/sdk_manager.png" alt=""><br>2、配置用户自定义网站<br>点击 “User Defined Sites”，新建，添加<a href="http://android-mirror.bugly.qq.com:8080/android/repository/addon.xml" target="_blank" rel="noopener">http://android-mirror.bugly.qq.com:8080/android/repository/addon.xml</a><br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/site.png" alt=""><br>3、配置端口<br>勾上 Force https://… sources to be fetched using http://…<br> <img src="http://7q5c2h.com1.z0.glb.clouddn.com/proxy.png" alt=""></p>
 <p>笔者：重新打开Android SDK Manager，发现居然能在线更新 </p>
 		 <!--广告-->
 		﻿<!--<div> 
@@ -530,6 +531,7 @@ border:2px solid #69c;
 </div>
 
 -->  
+
       
 	   
     </div>
@@ -626,8 +628,8 @@ border:2px solid #69c;
       
       
     </footer>
-  </article>
 
+  </article> 
 
 
     <div class="post-spread">

@@ -87,13 +87,14 @@
 
 
 
-<meta name="description" content="在Material Design之中有一个名称为Toolbar，用来取代过去的ActionBar控件。 基本用法可分为三步： 新增ToolBar样式value/styles.xml：&amp;lt;style name=&quot;AppTheme&quot; parent=&quot;Theme.AppCompat.Light.NoActionBar&quot;&amp;gt; &amp;lt;item name=&quot;colorPrimary&quot;&amp;gt;@col">
+<meta name="description" content="在Material Design之中有一个名称为Toolbar，用来取代过去的ActionBar控件。 基本用法可分为三步： 新增ToolBar样式value/styles.xml：&amp;lt;style name=&quot;AppTheme&quot; parent=&quot;Theme.AppCompat.">
 <meta name="keywords" content="Toolbar">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android Toolbar">
 <meta property="og:url" content="http://wuxiaolong.me/2015/11/10/toolbar/index.html">
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="在Material Design之中有一个名称为Toolbar，用来取代过去的ActionBar控件。 基本用法可分为三步： 新增ToolBar样式value/styles.xml：&amp;lt;style name=&quot;AppTheme&quot; parent=&quot;Theme.AppCompat.Light.NoActionBar&quot;&amp;gt; &amp;lt;item name=&quot;colorPrimary&quot;&amp;gt;@col">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2016-12-20T13:24:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android Toolbar">
@@ -486,7 +487,7 @@ border:2px solid #69c;
 <p>可以通过以下方法取得StatusBarHeight：<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getStatusBarHeight</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> result = <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> resourceId = getResources().getIdentifier(<span class="string">"status_bar_height"</span>, <span class="string">"dimen"</span>, <span class="string">"android"</span>);</div><div class="line">        <span class="keyword">if</span> (resourceId &gt; <span class="number">0</span>) &#123;</div><div class="line">            result = getResources().getDimensionPixelSize(resourceId);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
 <p><code>另外注意：</code>toolbar所在的父布局不能同时设置fitsSystemWindow=”true”，它会使得屏幕上的可布局空间位于状态栏下方与导航栏上方。</p>
 <p>因为这个带来了键盘挡住EditText的问题，解决方案：<br>在EditText所在的父布局设置fitsSystemWindow=”true”即可。</p>
-<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><a href="http://blog.hwangjr.com/2015/07/10/Android-ToolBar-Widget-Usage/" target="_blank" rel="external">Android ToolBar Widget Usage</a><br><a href="http://blog.mosil.biz/2014/10/android-toolbar/" target="_blank" rel="external">ANDROID – TOOLBAR STEP BY STEP</a></p>
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><a href="http://blog.hwangjr.com/2015/07/10/Android-ToolBar-Widget-Usage/" target="_blank" rel="noopener">Android ToolBar Widget Usage</a><br><a href="http://blog.mosil.biz/2014/10/android-toolbar/" target="_blank" rel="noopener">ANDROID – TOOLBAR STEP BY STEP</a></p>
 		 <!--广告-->
 		﻿<!--<div> 
 <h1><b>联系我</b></h1>
@@ -524,6 +525,7 @@ border:2px solid #69c;
 </div>
 
 -->  
+
       
 	   
     </div>
@@ -618,8 +620,8 @@ border:2px solid #69c;
       
       
     </footer>
-  </article>
 
+  </article> 
 
 
     <div class="post-spread">

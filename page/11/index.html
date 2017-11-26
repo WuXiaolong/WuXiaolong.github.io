@@ -93,6 +93,7 @@
 <meta property="og:url" content="http://wuxiaolong.me/page/11/index.html">
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="我的微信公众号：吴小龙同学">
+<meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="吴小龙同學">
 <meta name="twitter:description" content="我的微信公众号：吴小龙同学">
@@ -497,8 +498,8 @@ border:2px solid #69c;
         <div class="post-eof"></div>
       
     </footer>
-  </article>
 
+  </article> 
 
     
       
@@ -609,7 +610,7 @@ border:2px solid #69c;
       
         
           <blockquote>
-<p>来自开源项目：<a href="https://github.com/lguipeng/Notes" target="_blank" rel="external">https://github.com/lguipeng/Notes</a>，其中有改变主题的功能，我做了部分修改，并应用到我的APP中。感谢lguipeng的开源。</p>
+<p>来自开源项目：<a href="https://github.com/lguipeng/Notes" target="_blank" rel="noopener">https://github.com/lguipeng/Notes</a>，其中有改变主题的功能，我做了部分修改，并应用到我的APP中。感谢lguipeng的开源。</p>
 </blockquote>
 <h1 id="效果预览"><a href="#效果预览" class="headerlink" title="效果预览"></a>效果预览</h1><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/weiyanScreenshots.gif" alt=""><br>
           <!--noindex-->
@@ -648,8 +649,8 @@ border:2px solid #69c;
         <div class="post-eof"></div>
       
     </footer>
-  </article>
 
+  </article> 
 
     
       
@@ -798,8 +799,8 @@ border:2px solid #69c;
         <div class="post-eof"></div>
       
     </footer>
-  </article>
 
+  </article> 
 
     
       
@@ -946,8 +947,8 @@ border:2px solid #69c;
         <div class="post-eof"></div>
       
     </footer>
-  </article>
 
+  </article> 
 
     
       
@@ -1096,8 +1097,8 @@ border:2px solid #69c;
         <div class="post-eof"></div>
       
     </footer>
-  </article>
 
+  </article> 
 
     
       
@@ -1244,8 +1245,8 @@ border:2px solid #69c;
         <div class="post-eof"></div>
       
     </footer>
-  </article>
 
+  </article> 
 
     
       
@@ -1392,8 +1393,8 @@ border:2px solid #69c;
         <div class="post-eof"></div>
       
     </footer>
-  </article>
 
+  </article> 
 
     
       
@@ -1540,8 +1541,8 @@ border:2px solid #69c;
         <div class="post-eof"></div>
       
     </footer>
-  </article>
 
+  </article> 
 
     
       
@@ -1696,8 +1697,8 @@ border:2px solid #69c;
         <div class="post-eof"></div>
       
     </footer>
-  </article>
 
+  </article> 
 
     
       
@@ -1709,7 +1710,7 @@ border:2px solid #69c;
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2015/07/29/AppInfo/">
+    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2015/07/29/Android-Iconics/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴小龙同學">
@@ -1731,8 +1732,8 @@ border:2px solid #69c;
             
               
                 
-                <a class="post-title-link" href="/2015/07/29/AppInfo/" itemprop="url">
-                  Android获取手机已安装apk文件信息
+                <a class="post-title-link" href="/2015/07/29/Android-Iconics/" itemprop="url">
+                  GitHub之Android-Iconics使用
                 </a>
               
             
@@ -1771,8 +1772,8 @@ border:2px solid #69c;
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
+                  <a href="/categories/Library/" itemprop="url" rel="index">
+                    <span itemprop="name">Library</span>
                   </a>
                 </span>
 
@@ -1807,10 +1808,14 @@ border:2px solid #69c;
 
       
         
-          <figure class="highlight java"><table><tr><td class="code"><pre><div class="line">Intent intent = <span class="keyword">new</span> Intent(Intent.ACTION_MAIN, <span class="keyword">null</span>);</div><div class="line">intent.addCategory(Intent.CATEGORY_LAUNCHER);</div><div class="line">List&lt;AppInfo&gt; applicationList = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">List&lt;ResolveInfo&gt; resolveInfoList = getPackageManager().queryIntentActivities(intent, <span class="number">0</span>);</div><div class="line"><span class="keyword">for</span> (ResolveInfo resolveInfo : resolveInfoList) &#123;</div><div class="line">AppInfo appInfo = <span class="keyword">new</span> AppInfo(MainActivity.<span class="keyword">this</span>, resolveInfo);</div><div class="line">PackageInfo packageInfo = appInfo.getPackageInfo();</div><div class="line"><span class="comment">//判断(applicationInfo.flags &amp; ApplicationInfo.FLAG_SYSTEM)的值，</span></div><div class="line"><span class="comment">// 该值大于0时，表示获取的应用为系统预装的应用，反之则为手动安装的应用</span></div><div class="line"><span class="keyword">if</span> ((packageInfo.applicationInfo.flags &amp; packageInfo.applicationInfo.FLAG_SYSTEM) &lt;= <span class="number">0</span>) &#123;</div><div class="line"><span class="comment">// customs applications</span></div><div class="line">applicationList.add(appInfo);</div><div class="line"> &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+          <p>源码地址：<a href="https://github.com/mikepenz/Android-Iconics" target="_blank" rel="noopener">https://github.com/mikepenz/Android-Iconics</a></p>
+<ul>
+<li>build.gradle添加</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">    compile <span class="string">'com.mikepenz:iconics:1.3.0@aar'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2015/07/29/AppInfo/" rel="contents">
+            <a class="btn" href="/2015/07/29/Android-Iconics/" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1844,8 +1849,8 @@ border:2px solid #69c;
         <div class="post-eof"></div>
       
     </footer>
-  </article>
 
+  </article> 
 
     
   </section>

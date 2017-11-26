@@ -87,13 +87,14 @@
 
 
 
-<meta name="description" content="动画模式View Animation主要有两种动画模式：一种是tweened animation(渐变动画):XML中：alphaJavaCode：AlphaAnimation XML中：scaleJavaCode：ScaleAnimation 一种是frame by frame(画面转换动画)XML中：translateJavaCode：TranslateAnimation XML中：rotat">
+<meta name="description" content="动画模式View Animation主要有两种动画模式：一种是tweened animation(渐变动画):XML中：alphaJavaCode：AlphaAnimation XML中：scaleJavaCode：ScaleAnimation 一种是frame by frame(画面转换动画)XML中：transla">
 <meta name="keywords" content="Animation">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android之视图动画Animation">
 <meta property="og:url" content="http://wuxiaolong.me/2015/09/08/ViewAnimation/index.html">
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="动画模式View Animation主要有两种动画模式：一种是tweened animation(渐变动画):XML中：alphaJavaCode：AlphaAnimation XML中：scaleJavaCode：ScaleAnimation 一种是frame by frame(画面转换动画)XML中：translateJavaCode：TranslateAnimation XML中：rotat">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2016-09-06T13:39:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android之视图动画Animation">
@@ -504,7 +505,7 @@ border:2px solid #69c;
 <p>第一个参数fromXDelta为动画起始时 X坐标上的移动位置<br>第二个参数toXDelta为动画结束时 X坐标上的移动位置<br>第三个参数fromYDelta为动画起始时Y坐标上的移动位置<br>第四个参数toYDelta为动画结束时Y坐标上的移动位置</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">private</span> TranslateAnimation myAnimation_Translate;</div><div class="line">myAnimation_Translate =<span class="keyword">new</span> TranslateAnimation(<span class="number">0f</span>, <span class="number">200f</span>,<span class="number">400f</span>, <span class="number">400f</span>);</div><div class="line"><span class="comment">//设置动画持续时间, 2000毫秒</span></div><div class="line">myAnimation_Translate.setDuration(<span class="number">2000</span>);</div></pre></td></tr></table></figure>
 <p>如何使用Java代码中的动画效果<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">startAnimation</span> <span class="params">(Animation animation)</span></span></div></pre></td></tr></table></figure></p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>官网：<a href="http://developer.android.com/intl/zh-cn/guide/topics/graphics/view-animation.html" target="_blank" rel="external">http://developer.android.com/intl/zh-cn/guide/topics/graphics/view-animation.html</a></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>官网：<a href="http://developer.android.com/intl/zh-cn/guide/topics/graphics/view-animation.html" target="_blank" rel="noopener">http://developer.android.com/intl/zh-cn/guide/topics/graphics/view-animation.html</a></p>
 		 <!--广告-->
 		﻿<!--<div> 
 <h1><b>联系我</b></h1>
@@ -542,6 +543,7 @@ border:2px solid #69c;
 </div>
 
 -->  
+
       
 	   
     </div>
@@ -636,8 +638,8 @@ border:2px solid #69c;
       
       
     </footer>
-  </article>
 
+  </article> 
 
 
     <div class="post-spread">

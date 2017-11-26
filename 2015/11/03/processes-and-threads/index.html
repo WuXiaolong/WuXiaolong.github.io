@@ -87,13 +87,14 @@
 
 
 
-<meta name="description" content="进程线程应用启动时，系统会为应用创建一个名为“主线程”的执行线程。 此线程非常重要，因为它负责将事件分派给相应的用户界面小工具，其中包括绘图事件。 此外，它也是应用与 Android UI 工具包组件（来自 android.widget 和 android.view 软件包的组件）进行交互的线程。因此，主线程有时也称为 UI 线程。 系统绝对不会为每个组件实例创建单独的线程。运行于同一进程的所有组">
+<meta name="description" content="进程线程应用启动时，系统会为应用创建一个名为“主线程”的执行线程。 此线程非常重要，因为它负责将事件分派给相应的用户界面小工具，其中包括绘图事件。 此外，它也是应用与 Android UI 工具包组件（来自 android.widget 和 android.view 软件包的组件）进行交互的线程。因此，主线程有时也称为">
 <meta name="keywords" content="Processes,Threads">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android之进程和线程">
 <meta property="og:url" content="http://wuxiaolong.me/2015/11/03/processes-and-threads/index.html">
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="进程线程应用启动时，系统会为应用创建一个名为“主线程”的执行线程。 此线程非常重要，因为它负责将事件分派给相应的用户界面小工具，其中包括绘图事件。 此外，它也是应用与 Android UI 工具包组件（来自 android.widget 和 android.view 软件包的组件）进行交互的线程。因此，主线程有时也称为 UI 线程。 系统绝对不会为每个组件实例创建单独的线程。运行于同一进程的所有组">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2016-08-25T11:38:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android之进程和线程">
@@ -489,7 +490,7 @@ border:2px solid #69c;
 <p>现在 UI 是安全的，代码也得到简化，因为任务分解成了两部分：一部分应在工作线程内完成，另一部分应在 UI 线程内完成。</p>
 <p>下面简要概述了 AsyncTask 的工作方法，但要全面了解如何使用此类，您应阅读 AsyncTask 参考文档：</p>
 <p>可以使用泛型指定参数类型、进度值和任务最终值<br>方法 doInBackground() 会在工作线程上自动执行<br>onPreExecute()、onPostExecute() 和 onProgressUpdate() 均在 UI 线程中调用<br>doInBackground() 返回的值将发送到 onPostExecute()<br>您可以随时在 doInBackground() 中调用publishProgress()，以在 UI 线程中执行 onProgressUpdate()<br>您可以随时取消任何线程中的任务</p>
-<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><p><a href="https://developer.android.com/intl/zh-cn/guide/components/processes-and-threads.html" target="_blank" rel="external">Processes And Threads</a><br><a href="http://www.cnblogs.com/plokmju/p/android_ProcessOrThread.html" target="_blank" rel="external">Android–多线程之进程与线程</a></p>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><p><a href="https://developer.android.com/intl/zh-cn/guide/components/processes-and-threads.html" target="_blank" rel="noopener">Processes And Threads</a><br><a href="http://www.cnblogs.com/plokmju/p/android_ProcessOrThread.html" target="_blank" rel="noopener">Android–多线程之进程与线程</a></p>
 		 <!--广告-->
 		﻿<!--<div> 
 <h1><b>联系我</b></h1>
@@ -527,6 +528,7 @@ border:2px solid #69c;
 </div>
 
 -->  
+
       
 	   
     </div>
@@ -623,8 +625,8 @@ border:2px solid #69c;
       
       
     </footer>
-  </article>
 
+  </article> 
 
 
     <div class="post-spread">

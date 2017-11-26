@@ -87,13 +87,14 @@
 
 
 
-<meta name="description" content="Lambda，是我去年学习RxJava时知道的，它让代码看起来更加简洁，但个人认为代码的可读性差了很多，因此一直没有去深入学习。  什么是lambdalambda是一种匿名表达式，retrolambda使得Android能使用lambda特性，举个例子：view.setOnClickListener(new View.OnClickListener() &amp;#123;            @Ov">
+<meta name="description" content="Lambda，是我去年学习RxJava时知道的，它让代码看起来更加简洁，但个人认为代码的可读性差了很多，因此一直没有去深入学习。  什么是lambdalambda是一种匿名表达式，retrolambda使得Android能使用lambda特性，举个例子：view.setOnClickListener(new View.">
 <meta name="keywords" content="lambda,retrolambda">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Lambda for Android">
 <meta property="og:url" content="http://wuxiaolong.me/2016/03/28/lambda4android/index.html">
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="Lambda，是我去年学习RxJava时知道的，它让代码看起来更加简洁，但个人认为代码的可读性差了很多，因此一直没有去深入学习。  什么是lambdalambda是一种匿名表达式，retrolambda使得Android能使用lambda特性，举个例子：view.setOnClickListener(new View.OnClickListener() &amp;#123;            @Ov">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/lambda4android1.png">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/lambda4android2.png">
 <meta property="og:updated_time" content="2017-03-14T13:45:38.000Z">
@@ -474,9 +475,9 @@ border:2px solid #69c;
 <h1 id="什么是lambda"><a href="#什么是lambda" class="headerlink" title="什么是lambda"></a>什么是lambda</h1><p>lambda是一种匿名表达式，retrolambda使得Android能使用lambda特性，举个例子：<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">view.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">                 Log.d(<span class="string">"wxl"</span>, <span class="string">"retrolambda test"</span>);</div><div class="line">            &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
 <p>使用 lambda<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">view.setOnClickListener(</div><div class="line">v -&gt; Log.d(<span class="string">"wxl"</span>, <span class="string">"retrolambda test"</span>));</div></pre></td></tr></table></figure></p>
 <a id="more"></a>
-<h1 id="Android如何使用"><a href="#Android如何使用" class="headerlink" title="Android如何使用"></a>Android如何使用</h1><p>这里是使用<a href="https://github.com/evant/gradle-retrolambda" target="_blank" rel="external">Retrolambda</a>的gradle插件，这样就可以在代码中使用lambda了。</p>
+<h1 id="Android如何使用"><a href="#Android如何使用" class="headerlink" title="Android如何使用"></a>Android如何使用</h1><p>这里是使用<a href="https://github.com/evant/gradle-retrolambda" target="_blank" rel="noopener">Retrolambda</a>的gradle插件，这样就可以在代码中使用lambda了。</p>
 <h2 id="Android-Studio配置Retrolambda"><a href="#Android-Studio配置Retrolambda" class="headerlink" title="Android Studio配置Retrolambda"></a>Android Studio配置Retrolambda</h2><ol>
-<li>lambda需要安装JDK8，下载最新版本<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="external">jdk-8u73</a></li>
+<li>lambda需要安装JDK8，下载最新版本<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener">jdk-8u73</a></li>
 <li>build.gradle</li>
 </ol>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line">buildscript &#123;</div><div class="line">    repositories &#123;</div><div class="line">        jcenter()</div><div class="line">    &#125;</div><div class="line">    dependencies &#123;</div><div class="line">        classpath <span class="string">'com.android.tools.build:gradle:1.5.0'</span></div><div class="line">        classpath <span class="string">'me.tatarka:gradle-retrolambda:3.2.4'</span><span class="comment">//加上这句依赖，这会使用retrolambda来编译Java代码</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -515,7 +516,7 @@ border:2px solid #69c;
 <li>多行不需要有返回值<br>(x, y) -&gt;{<br>x <em> x;<br>y </em> y;<br>}</li>
 <li>多行需要有返回值<br>(x, y) -&gt;{<br>x <em> x;<br>y </em> y;<br>return x + y;<br>}</li>
 </ul>
-<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><a href="http://www.jianshu.com/p/f02b04344365" target="_blank" rel="external">Lambda表达式的意义</a></p>
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><a href="http://www.jianshu.com/p/f02b04344365" target="_blank" rel="noopener">Lambda表达式的意义</a></p>
 		 <!--广告-->
 		﻿<!--<div> 
 <h1><b>联系我</b></h1>
@@ -553,6 +554,7 @@ border:2px solid #69c;
 </div>
 
 -->  
+
       
 	   
     </div>
@@ -649,8 +651,8 @@ border:2px solid #69c;
       
       
     </footer>
-  </article>
 
+  </article> 
 
 
     <div class="post-spread">

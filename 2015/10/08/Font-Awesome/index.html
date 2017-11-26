@@ -87,13 +87,14 @@
 
 
 
-<meta name="description" content="GitHub地址：https://github.com/FortAwesome/Font-Awesome，一直知道这个项目，但是却不知道如何使用它，现在有个博客介绍，感谢博主。我这里做个记录。  导入字体文件在安卓项目中，导航到 app &amp;gt; src &amp;gt; main。 main 目录应该包含了一个叫 assets的文件夹。在assets 文件夹中创建另一个fonts文件夹，并把fonta">
+<meta name="description" content="GitHub地址：https://github.com/FortAwesome/Font-Awesome，一直知道这个项目，但是却不知道如何使用它，现在有个博客介绍，感谢博主。我这里做个记录。  导入字体文件在安卓项目中，导航到 app &amp;gt; src &amp;gt; main。 main 目录应该包含了一">
 <meta name="keywords" content="Font-Awesome">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GitHub之Font-Awesome使用">
 <meta property="og:url" content="http://wuxiaolong.me/2015/10/08/Font-Awesome/index.html">
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="GitHub地址：https://github.com/FortAwesome/Font-Awesome，一直知道这个项目，但是却不知道如何使用它，现在有个博客介绍，感谢博主。我这里做个记录。  导入字体文件在安卓项目中，导航到 app &amp;gt; src &amp;gt; main。 main 目录应该包含了一个叫 assets的文件夹。在assets 文件夹中创建另一个fonts文件夹，并把fonta">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2016-12-20T13:36:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GitHub之Font-Awesome使用">
@@ -466,7 +467,7 @@ border:2px solid #69c;
 
       
         <blockquote>
-<p>GitHub地址：<a href="https://github.com/FortAwesome/Font-Awesome" target="_blank" rel="external">https://github.com/FortAwesome/Font-Awesome</a>，一直知道这个项目，但是却不知道如何使用它，现在有个<a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0925/3518.html" target="_blank" rel="external">博客</a>介绍，感谢博主。我这里做个记录。</p>
+<p>GitHub地址：<a href="https://github.com/FortAwesome/Font-Awesome" target="_blank" rel="noopener">https://github.com/FortAwesome/Font-Awesome</a>，一直知道这个项目，但是却不知道如何使用它，现在有个<a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0925/3518.html" target="_blank" rel="noopener">博客</a>介绍，感谢博主。我这里做个记录。</p>
 </blockquote>
 <h2 id="导入字体文件"><a href="#导入字体文件" class="headerlink" title="导入字体文件"></a>导入字体文件</h2><p>在安卓项目中，导航到 app &gt; src &gt; main。 main 目录应该包含了一个叫 assets的文件夹。在assets 文件夹中创建另一个fonts文件夹，并把fontawesome-webfont.ttf 添加到这个文件夹。<br>fonts 文件夹并不是必须的。你可以直接把FontAwesome 的字体文件放在 assets 目录，但是把相同类型的文件放在专门的目录里面比较方便。只要FontAwesome 字体在assets 或者子目录之下就行。<br><a id="more"></a></p>
 <h2 id="创建一个帮助类"><a href="#创建一个帮助类" class="headerlink" title="创建一个帮助类"></a>创建一个帮助类</h2><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FontManager</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String ROOT = <span class="string">""</span>,</div><div class="line">            FONTAWESOME = ROOT + <span class="string">"fontawesome-webfont.ttf"</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Typeface <span class="title">getTypeface</span><span class="params">(Context context, String font)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> Typeface.createFromAsset(context.getAssets(), font);</div><div class="line">    &#125;</div><div class="line">  <span class="comment">/**</span></div><div class="line">     * 图标一般都是包含在一个ViewGroup，</div><div class="line">     * 比如一个RelativeLayout或者LinearLayout中。</div><div class="line">     * 我们可以写一个方法，爬遍指定xml parent 并且递归的覆盖每个TextView的字体。</div><div class="line">     *</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">markAsIconContainer</span><span class="params">(View v, Typeface typeface)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (v <span class="keyword">instanceof</span> ViewGroup) &#123;</div><div class="line">            ViewGroup vg = (ViewGroup) v;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; vg.getChildCount(); i++) &#123;</div><div class="line">                View child = vg.getChildAt(i);</div><div class="line">                markAsIconContainer(child,typeface);</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (v <span class="keyword">instanceof</span> TextView) &#123;</div><div class="line">            ((TextView) v).setTypeface(typeface);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -511,6 +512,7 @@ border:2px solid #69c;
 </div>
 
 -->  
+
       
 	   
     </div>
@@ -605,8 +607,8 @@ border:2px solid #69c;
       
       
     </footer>
-  </article>
 
+  </article> 
 
 
     <div class="post-spread">

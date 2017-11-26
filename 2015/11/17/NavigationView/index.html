@@ -94,6 +94,7 @@
 <meta property="og:url" content="http://wuxiaolong.me/2015/11/17/NavigationView/index.html">
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="效果预览">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/NavigationView.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
 <meta property="og:updated_time" content="2017-08-16T14:33:09.000Z">
 <meta name="twitter:card" content="summary">
@@ -480,8 +481,8 @@ border:2px solid #69c;
 <p>通过这两个属性，我们可以非常方便的指定导航界面的头布局和菜单布局。<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">private</span> NavigationView navigationView;</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initNavigationViewHeader</span><span class="params">()</span> </span>&#123;</div><div class="line">    navigationView = (NavigationView) findViewById(R.id.navigation);</div><div class="line">    <span class="comment">//设置头像，布局app:headerLayout="@layout/drawer_header"所指定的头布局</span></div><div class="line">    View view = navigationView.inflateHeaderView(R.layout.drawer_header);</div><div class="line">    TextView userName = (TextView) view.findViewById(R.id.userName);</div><div class="line">    userName.setText(R.string.author);</div><div class="line">    <span class="comment">//View mNavigationViewHeader = View.inflate(MainActivity.this, R.layout.drawer_header, null);</span></div><div class="line">    <span class="comment">//navigationView.addHeaderView(mNavigationViewHeader);//此方法在魅族note 1，头像显示不全</span></div><div class="line">    <span class="comment">//菜单点击事件</span></div><div class="line">    navigationView.setNavigationItemSelectedListener(<span class="keyword">new</span> NavigationItemSelected());</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>NavigationItemSelected<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">NavigationItemSelected</span> <span class="keyword">implements</span> <span class="title">NavigationView</span>.<span class="title">OnNavigationItemSelectedListener</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onNavigationItemSelected</span><span class="params">(MenuItem menuItem)</span> </span>&#123;</div><div class="line">        <span class="comment">//mToolbar.setTitle(menuItem.getTitle());</span></div><div class="line">        mDrawerLayout.closeDrawers();</div><div class="line">        <span class="keyword">switch</span> (menuItem.getItemId()) &#123;</div><div class="line">            <span class="keyword">case</span> R.id.navigation_item_1:</div><div class="line">                menuItem.setChecked(<span class="keyword">true</span>);</div><div class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">            <span class="keyword">case</span> R.id.navigation_item_2:</div><div class="line">                menuItem.setChecked(<span class="keyword">true</span>);</div><div class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">            <span class="keyword">default</span>:</div><div class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>设置DrawerLayout<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">private</span> DrawerLayout mDrawerLayout;</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initDrawer</span><span class="params">()</span> </span>&#123;</div><div class="line">    mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);</div><div class="line">    mDrawerToggle = <span class="keyword">new</span> ActionBarDrawerToggle(<span class="keyword">this</span>, mDrawerLayout, mToolbar, R.string.open, R.string.close) &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDrawerOpened</span><span class="params">(View drawerView)</span> </span>&#123;</div><div class="line">            <span class="keyword">super</span>.onDrawerOpened(drawerView);</div><div class="line">        &#125;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDrawerClosed</span><span class="params">(View drawerView)</span> </span>&#123;</div><div class="line">            <span class="keyword">super</span>.onDrawerClosed(drawerView);</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">    mDrawerToggle.syncState();</div><div class="line">    mDrawerLayout.addDrawerListener(mDrawerToggle);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h1 id="源码地址"><a href="#源码地址" class="headerlink" title="源码地址"></a>源码地址</h1><p><a href="https://github.com/WuXiaolong/DesignSupportLibrarySample" target="_blank" rel="external">https://github.com/WuXiaolong/DesignSupportLibrarySample</a></p>
-<h1 id="官网API"><a href="#官网API" class="headerlink" title="官网API"></a>官网API</h1><p><a href="https://developer.android.com/reference/android/support/design/widget/NavigationView.html" target="_blank" rel="external">https://developer.android.com/reference/android/support/design/widget/NavigationView.html</a></p>
+<h1 id="源码地址"><a href="#源码地址" class="headerlink" title="源码地址"></a>源码地址</h1><p><a href="https://github.com/WuXiaolong/DesignSupportLibrarySample" target="_blank" rel="noopener">https://github.com/WuXiaolong/DesignSupportLibrarySample</a></p>
+<h1 id="官网API"><a href="#官网API" class="headerlink" title="官网API"></a>官网API</h1><p><a href="https://developer.android.com/reference/android/support/design/widget/NavigationView.html" target="_blank" rel="noopener">https://developer.android.com/reference/android/support/design/widget/NavigationView.html</a></p>
 		 <!--广告-->
 		﻿<!--<div> 
 <h1><b>联系我</b></h1>
@@ -519,6 +520,7 @@ border:2px solid #69c;
 </div>
 
 -->  
+
       
 	   
     </div>
@@ -613,8 +615,8 @@ border:2px solid #69c;
       
       
     </footer>
-  </article>
 
+  </article> 
 
 
     <div class="post-spread">

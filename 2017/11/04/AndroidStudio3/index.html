@@ -87,13 +87,14 @@
 
 
 
-<meta name="description" content="前几天，期待已久的 Android Studio 3.0 release 版来临了，根据以往经验，每次大版本升级肯定要折腾一番，况且公司最近项目紧，因此我没有着急升级。10 月 31 号项目交了第一个版本，有同事离职了，我接了 NDK 的锅，到现在终于有空了，手痒痒点了升级。  Android Studio 3.0官方更新日志：https://developer.android.google.c">
+<meta name="description" content="前几天，期待已久的 Android Studio 3.0 release 版来临了，根据以往经验，每次大版本升级肯定要折腾一番，况且公司最近项目紧，因此我没有着急升级。10 月 31 号项目交了第一个版本，有同事离职了，我接了 NDK 的锅，到现在终于有空了，手痒痒点了升级。  Android Studio 3.0官方">
 <meta name="keywords" content="Android Studio 3.0">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android Studio 3.0 升级一些坑">
 <meta property="og:url" content="http://wuxiaolong.me/2017/11/04/AndroidStudio3/index.html">
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="前几天，期待已久的 Android Studio 3.0 release 版来临了，根据以往经验，每次大版本升级肯定要折腾一番，况且公司最近项目紧，因此我没有着急升级。10 月 31 号项目交了第一个版本，有同事离职了，我接了 NDK 的锅，到现在终于有空了，手痒痒点了升级。  Android Studio 3.0官方更新日志：https://developer.android.google.c">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/AndroidStudio3.0_8.png?imageView2/0/format/png/q/75|watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5a6L5L2T/fontsize/1200/fill/IzIxOTZGMw==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/AndroidStudio3.0_9.png?imageView2/0/format/png/q/75|watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5a6L5L2T/fontsize/1200/fill/IzIxOTZGMw==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/AndroidStudio3.0_10.png?imageView2/0/format/png/q/75|watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5a6L5L2T/fontsize/1200/fill/IzIxOTZGMw==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim">
@@ -479,7 +480,7 @@ border:2px solid #69c;
         <blockquote>
 <p>前几天，期待已久的 Android Studio 3.0 release 版来临了，根据以往经验，每次大版本升级肯定要折腾一番，况且公司最近项目紧，因此我没有着急升级。10 月 31 号项目交了第一个版本，有同事离职了，我接了 NDK 的锅，到现在终于有空了，手痒痒点了升级。</p>
 </blockquote>
-<h1 id="Android-Studio-3-0"><a href="#Android-Studio-3-0" class="headerlink" title="Android Studio 3.0"></a>Android Studio 3.0</h1><p>官方更新日志：<a href="https://developer.android.google.cn/studio/releases/index.html" target="_blank" rel="external">https://developer.android.google.cn/studio/releases/index.html</a> ，我截图了，用的 Chrome 自带翻译功能，有些翻译不到位，但比我这半吊子英语看省事多了。<br><a id="more"></a><br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/AndroidStudio3.0_8.png?imageView2/0/format/png/q/75|watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5a6L5L2T/fontsize/1200/fill/IzIxOTZGMw==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim" alt=""><br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/AndroidStudio3.0_9.png?imageView2/0/format/png/q/75|watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5a6L5L2T/fontsize/1200/fill/IzIxOTZGMw==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim" alt=""><br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/AndroidStudio3.0_10.png?imageView2/0/format/png/q/75|watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5a6L5L2T/fontsize/1200/fill/IzIxOTZGMw==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim" alt=""></p>
+<h1 id="Android-Studio-3-0"><a href="#Android-Studio-3-0" class="headerlink" title="Android Studio 3.0"></a>Android Studio 3.0</h1><p>官方更新日志：<a href="https://developer.android.google.cn/studio/releases/index.html" target="_blank" rel="noopener">https://developer.android.google.cn/studio/releases/index.html</a> ，我截图了，用的 Chrome 自带翻译功能，有些翻译不到位，但比我这半吊子英语看省事多了。<br><a id="more"></a><br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/AndroidStudio3.0_8.png?imageView2/0/format/png/q/75|watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5a6L5L2T/fontsize/1200/fill/IzIxOTZGMw==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim" alt=""><br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/AndroidStudio3.0_9.png?imageView2/0/format/png/q/75|watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5a6L5L2T/fontsize/1200/fill/IzIxOTZGMw==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim" alt=""><br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/AndroidStudio3.0_10.png?imageView2/0/format/png/q/75|watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5a6L5L2T/fontsize/1200/fill/IzIxOTZGMw==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim" alt=""></p>
 <h1 id="增量升级"><a href="#增量升级" class="headerlink" title="增量升级"></a>增量升级</h1><p>点击 Check for Updates 增量更新：<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/AndroidStudio3.0_1.png?imageView2/0/format/png/q/75|watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5a6L5L2T/fontsize/1200/fill/IzIxOTZGMw==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim" alt=""><br>下载完成，会提示更新 您将 Gradle 更新至 4.1：<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/AndroidStudio3.0_2.png?imageView2/0/format/png/q/75|watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5a6L5L2T/fontsize/1200/fill/IzIxOTZGMw==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim" alt=""><br>这里建议您对老项目先暂时点击 Don’t remind me on this project，以防有坑。当然我不入地狱谁入地狱，我点 Update，于是问题来了，一直处于下载中，不过，莫担心，我下载好了，公众号聊天界面回复「<strong>gradle-4.1-all</strong>」，下载 gradle-4.1-all.zip 文件，放到：<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/AndroidStudio3.0_3.png?imageView2/0/format/png/q/75|watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5a6L5L2T/fontsize/1200/fill/IzIxOTZGMw==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim" alt=""><br>重启 Android Studio。</p>
 <p>gradle 目录：</p>
 <p>Mac系统默认：/Users/(用户名)/.gradle</p>
@@ -495,7 +496,7 @@ border:2px solid #69c;
 <p>使用 Gradle Plugin 3.0.0 时报错：<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line">Cannot set the value of read-only property <span class="string">'outputFile'</span> <span class="keyword">for</span> ApkVariantOutputImpl_Decorated&#123;apkData=Main&#123;type=MAIN, fullName=release, filters=[]&#125;&#125; of type com.android.build.gradle.internal.api.ApkVariantOutputImpl. Open File</div></pre></td></tr></table></figure></p>
 <p>需要修改 each() 和 outputFile() 方法为 all() 和 outputFileName，输出文件写法也有点不一样：<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">buildTypes &#123;</div><div class="line">    release &#123;</div><div class="line">        <span class="comment">//……</span></div><div class="line">        applicationVariants.all &#123; variant -&gt;</div><div class="line">            <span class="keyword">if</span> (variant.buildType.name == <span class="string">'release'</span>) &#123;</div><div class="line">                variant.outputs.all &#123;</div><div class="line">                    def apkName = <span class="string">"gradle4android_v$&#123;variant.versionName&#125;"</span></div><div class="line">                    <span class="keyword">if</span> (!variant.flavorName.isEmpty()) &#123;</div><div class="line">                        apkName += <span class="string">"_$&#123;variant.flavorName&#125;"</span></div><div class="line">                    &#125;</div><div class="line">                    outputFileName = apkName + <span class="string">"_$&#123;releaseTime()&#125;.apk"</span></div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>输出的路径也有点不一样，根目录是 release，如果有渠道 xiaomi，那根目录是 xiaomi／release。</p>
-<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>build.gradle 和 gradle-wrapper.properties 区别，了解更多：<a href="https://developer.android.com/studio/releases/gradle-plugin.html" target="_blank" rel="external">https://developer.android.com/studio/releases/gradle-plugin.html</a></p>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>build.gradle 和 gradle-wrapper.properties 区别，了解更多：<a href="https://developer.android.com/studio/releases/gradle-plugin.html" target="_blank" rel="noopener">https://developer.android.com/studio/releases/gradle-plugin.html</a></p>
 <h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>目前遇到这些坑，欢迎一起吐槽您在升级开发遇到的坑，这次升级又折腾了很久。另外如果需要gradle-4.1-all.zip 文件，公众号「吴小龙同学」聊天界面回复「<strong>gradle-4.1-all</strong>」获取。</p>
 		 <!--广告-->
 		﻿<!--<div> 
@@ -534,6 +535,7 @@ border:2px solid #69c;
 </div>
 
 -->  
+
       
 	   
     </div>
@@ -628,8 +630,8 @@ border:2px solid #69c;
       
       
     </footer>
-  </article>
 
+  </article> 
 
 
     <div class="post-spread">

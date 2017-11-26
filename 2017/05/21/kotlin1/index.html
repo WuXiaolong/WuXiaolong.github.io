@@ -87,13 +87,14 @@
 
 
 
-<meta name="description" content="从零开始，对比 Kotlin 与 Java，差异化学习 ，循序渐进。工欲善其事，必先利其器，有了 Kotlin 的 IDE，才能更好地进行下一步。  Kotlin是什么近日召开的 Google IO 2017 ， Google 将 Kotlin 列为 Android 官方开发语言了，Android Studio 3.0 也默认集成了 Kotlin plugin，那 Kotlin 是什么？">
+<meta name="description" content="从零开始，对比 Kotlin 与 Java，差异化学习 ，循序渐进。工欲善其事，必先利其器，有了 Kotlin 的 IDE，才能更好地进行下一步。  Kotlin是什么近日召开的 Google IO 2017 ， Google 将 Kotlin 列为 Android 官方开发语言了，Android Studio 3.0">
 <meta name="keywords" content="Kotlin">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kotlin for Android（一）准备工作">
 <meta property="og:url" content="http://wuxiaolong.me/2017/05/21/kotlin1/index.html">
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="从零开始，对比 Kotlin 与 Java，差异化学习 ，循序渐进。工欲善其事，必先利其器，有了 Kotlin 的 IDE，才能更好地进行下一步。  Kotlin是什么近日召开的 Google IO 2017 ， Google 将 Kotlin 列为 Android 官方开发语言了，Android Studio 3.0 也默认集成了 Kotlin plugin，那 Kotlin 是什么？">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/kotlin1.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/kotlin2.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/kotlin3.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
@@ -488,11 +489,11 @@ border:2px solid #69c;
 <p>app/build.gradle :<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">apply plugin: <span class="string">'com.android.application'</span></div><div class="line">apply plugin: <span class="string">'kotlin-android'</span></div><div class="line"></div><div class="line">android &#123;</div><div class="line">    <span class="comment">//……</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">dependencies &#123;</div><div class="line">    <span class="comment">//……</span></div><div class="line">    <span class="comment">//针对 JDK 7 或 JDK 8</span></div><div class="line">    compile <span class="string">"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>说明: Android Studio 3.0 创建工程时，如果我们勾上了 Include Kotlin support ，这些 Kotlin Gradle 配置就已经有了。 </p>
 <h2 id="创建-Kotlin-文件"><a href="#创建-Kotlin-文件" class="headerlink" title="创建 Kotlin 文件"></a>创建 Kotlin 文件</h2><p>Android Studio 3.0 以下:<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/kotlin4.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br>New 的时候，发现已经有了这两个选项，但是 Android Studio 3.0 没有这个 Kotlin Activity 选项，而是在创建 Activity ，默认源码语言就是 Kotlin :<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/kotlin5.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br>从 Android Studio 3.0 对 Kotlin 很好的支持，说明 Google 对 Kotlin 不是仅仅停留在口头上支持，有空我们就学学 Kotlin ，大势所趋，就像当初 Android Studio 一样。</p>
-<h1 id="Kotlin-学习资料"><a href="#Kotlin-学习资料" class="headerlink" title="Kotlin 学习资料"></a>Kotlin 学习资料</h1><p>Kotlin 官方网站<br><a href="http://kotlinlang.org/docs/reference/" target="_blank" rel="external">http://kotlinlang.org/docs/reference/</a></p>
-<p>Kotlin 官方网站 - 中文翻译<br><a href="https://www.kotlincn.net/docs/reference/" target="_blank" rel="external">https://www.kotlincn.net/docs/reference/</a></p>
-<p>《Kotlin for android Developers》中文翻译<br><a href="https://www.gitbook.com/book/wangjiegulu/kotlin-for-android-developers-zh/details" target="_blank" rel="external">https://www.gitbook.com/book/wangjiegulu/kotlin-for-android-developers-zh/details</a></p>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p>Getting started with Android and Kotlin<br><a href="https://www.kotlincn.net/docs/tutorials/kotlin-android.html" target="_blank" rel="external">https://www.kotlincn.net/docs/tutorials/kotlin-android.html</a></p>
-<p>Get Started with Kotlin on Android<br><a href="https://developer.android.google.cn/kotlin/get-started.html" target="_blank" rel="external">https://developer.android.google.cn/kotlin/get-started.html</a></p>
+<h1 id="Kotlin-学习资料"><a href="#Kotlin-学习资料" class="headerlink" title="Kotlin 学习资料"></a>Kotlin 学习资料</h1><p>Kotlin 官方网站<br><a href="http://kotlinlang.org/docs/reference/" target="_blank" rel="noopener">http://kotlinlang.org/docs/reference/</a></p>
+<p>Kotlin 官方网站 - 中文翻译<br><a href="https://www.kotlincn.net/docs/reference/" target="_blank" rel="noopener">https://www.kotlincn.net/docs/reference/</a></p>
+<p>《Kotlin for android Developers》中文翻译<br><a href="https://www.gitbook.com/book/wangjiegulu/kotlin-for-android-developers-zh/details" target="_blank" rel="noopener">https://www.gitbook.com/book/wangjiegulu/kotlin-for-android-developers-zh/details</a></p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p>Getting started with Android and Kotlin<br><a href="https://www.kotlincn.net/docs/tutorials/kotlin-android.html" target="_blank" rel="noopener">https://www.kotlincn.net/docs/tutorials/kotlin-android.html</a></p>
+<p>Get Started with Kotlin on Android<br><a href="https://developer.android.google.cn/kotlin/get-started.html" target="_blank" rel="noopener">https://developer.android.google.cn/kotlin/get-started.html</a></p>
 		 <!--广告-->
 		﻿<!--<div> 
 <h1><b>联系我</b></h1>
@@ -530,6 +531,7 @@ border:2px solid #69c;
 </div>
 
 -->  
+
       
 	   
     </div>
@@ -624,8 +626,8 @@ border:2px solid #69c;
       
       
     </footer>
-  </article>
 
+  </article> 
 
 
     <div class="post-spread">

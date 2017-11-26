@@ -87,13 +87,14 @@
 
 
 
-<meta name="description" content="新公司有些项目是用的 Git，以前公司都是 svn，为了练手 Git，我个人 APP  用到了，但是仅简单的 git pull/push 的使用，并未用到 Git 精髓，只有当项目中用到，才会紧迫去全面学习，所以说，在项目中进步是最快的。  开发场景：远程有主分支 master，提供用户使用的正式的稳定的版本；开发分支 dev，用于日常开发。dev 们可以在本地任意创建自己的 Local Bra">
+<meta name="description" content="新公司有些项目是用的 Git，以前公司都是 svn，为了练手 Git，我个人 APP  用到了，但是仅简单的 git pull/push 的使用，并未用到 Git 精髓，只有当项目中用到，才会紧迫去全面学习，所以说，在项目中进步是最快的。  开发场景：远程有主分支 master，提供用户使用的正式的稳定的版本；开发分支">
 <meta name="keywords" content="GitBranch">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android Studio Git 分支实践">
 <meta property="og:url" content="http://wuxiaolong.me/2017/03/09/gitBranch/index.html">
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="新公司有些项目是用的 Git，以前公司都是 svn，为了练手 Git，我个人 APP  用到了，但是仅简单的 git pull/push 的使用，并未用到 Git 精髓，只有当项目中用到，才会紧迫去全面学习，所以说，在项目中进步是最快的。  开发场景：远程有主分支 master，提供用户使用的正式的稳定的版本；开发分支 dev，用于日常开发。dev 们可以在本地任意创建自己的 Local Bra">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/gitBranch0.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/gitBranch3.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/gitBranch4.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
@@ -540,8 +541,8 @@ border:2px solid #69c;
 <h2 id="查看当前的远程库"><a href="#查看当前的远程库" class="headerlink" title="查看当前的远程库"></a>查看当前的远程库</h2><p>显示对应的克隆地址：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ git remote -v</div></pre></td></tr></table></figure></p>
 <p> -v 为 –verbose 的简写，取首字母</p>
 <h2 id="修改远程仓库地址"><a href="#修改远程仓库地址" class="headerlink" title="修改远程仓库地址"></a>修改远程仓库地址</h2><p>服务器要换地址了，本地有 clone 出来的 git 厍，则需要修改一下 origin 的地址，以便能继续 push 和 pull，项目所在目录下执行命令行：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">git remote set-url origin 新地址</div></pre></td></tr></table></figure></p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="external">常用 Git 命令清单</a></p>
-<p><a href="http://www.ruanyifeng.com/blog/2012/07/git.html" target="_blank" rel="external">Git分支管理策略</a></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="noopener">常用 Git 命令清单</a></p>
+<p><a href="http://www.ruanyifeng.com/blog/2012/07/git.html" target="_blank" rel="noopener">Git分支管理策略</a></p>
 <hr>
 <h2 id="切换分支"><a href="#切换分支" class="headerlink" title="切换分支"></a>切换分支</h2><p>我们新建一个分支（Branch1）后，这时如果我们要切换到master分支，我们点击Local Branches下面的按钮，然后在其左边会弹出一个对话框，我们点击Checkout就可以将其切换到master分支下了。要明白的是Local是存在本地Repo的，你可以直接进行切换。Remote是远程仓库的，远程仓库的你只能checkout到本地，而不能切换过去。 切换分支，addcommit下，防止代码丢失。</p>
 <p>git push origin dev:master<br>提交本地 dev 分支推送到远程master分支</p>
@@ -584,6 +585,7 @@ border:2px solid #69c;
 </div>
 
 -->  
+
       
 	   
     </div>
@@ -678,8 +680,8 @@ border:2px solid #69c;
       
       
     </footer>
-  </article>
 
+  </article> 
 
 
     <div class="post-spread">

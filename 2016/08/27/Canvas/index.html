@@ -94,6 +94,7 @@
 <meta property="og:url" content="http://wuxiaolong.me/2016/08/27/Canvas/index.html">
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="写完 Android 画笔Paint，自然少不了Canvas画布，本文延续上篇风格，一一来过Canvas API。  绘制方法以drawXXX为主的绘制方法，api如下：">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/canvas1.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/canvas2.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/canvas3.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
@@ -496,7 +497,7 @@ border:2px solid #69c;
 
       
         <blockquote>
-<p>写完 <a href="http://wuxiaolong.github.io/2016/08/20/Paint/" target="_blank" rel="external">Android 画笔Paint</a>，自然少不了Canvas画布，本文延续上篇风格，一一来过Canvas API。</p>
+<p>写完 <a href="http://wuxiaolong.github.io/2016/08/20/Paint/" target="_blank" rel="noopener">Android 画笔Paint</a>，自然少不了Canvas画布，本文延续上篇风格，一一来过Canvas API。</p>
 </blockquote>
 <h1 id="绘制方法"><a href="#绘制方法" class="headerlink" title="绘制方法"></a>绘制方法</h1><p>以drawXXX为主的绘制方法，api如下：<br><a id="more"></a><br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/canvas1.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/canvas2.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/canvas3.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/canvas4.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""></p>
 <h2 id="drawARGB"><a href="#drawARGB" class="headerlink" title="drawARGB"></a>drawARGB</h2><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">drawARGB</span> <span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> r,<span class="keyword">int</span> g,<span class="keyword">int</span> b)</span></span></div></pre></td></tr></table></figure>
@@ -512,7 +513,7 @@ border:2px solid #69c;
 <p>效果图从上至下，分别对应方法1-3<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/canvas7.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""></p>
 <h2 id="drawBitmapMesh"><a href="#drawBitmapMesh" class="headerlink" title="drawBitmapMesh"></a>drawBitmapMesh</h2><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">drawBitmapMesh</span> <span class="params">(Bitmap bitmap, </span></span></div><div class="line">                <span class="keyword">int</span> meshWidth, </div><div class="line">                <span class="keyword">int</span> meshHeight, </div><div class="line">                <span class="keyword">float</span>[] verts, </div><div class="line">                <span class="keyword">int</span> vertOffset, </div><div class="line">                <span class="keyword">int</span>[] colors, </div><div class="line">                <span class="keyword">int</span> colorOffset, </div><div class="line">                Paint paint)</div></pre></td></tr></table></figure>
 <p>绘制网格顶点被均匀地分布在该位图<br>bitmap：位图<br>meshWidth：横向上把该源位图划成成多少格<br>meshHeight：竖向上把该源位图划成成多少格<br>verts：长度为(meshWidth + 1) <em> (meshHeight + 1) </em> 2的数组，它记录了扭曲后的位图各顶点位置<br>vertOffset：控制verts数组中从第几个数组元素开始才对bitmap进行扭曲<br>colors：可以为null，指定在每个顶点，其值由对应的位图颜色相乘内插的颜色。如果不为空，必须有至少（meshWidth+ 1）*（meshHeight+ 1）+ colorOffset数组中的值。<br>colorOffset    int: Number of color elements to skip before drawing<br>paint：画笔，可以为null</p>
-<p>效果参考博客 <a href="http://blog.csdn.net/u010947098/article/details/44731781" target="_blank" rel="external">Android Canvas的drawBitmapMesh实现扭曲图像</a></p>
+<p>效果参考博客 <a href="http://blog.csdn.net/u010947098/article/details/44731781" target="_blank" rel="noopener">Android Canvas的drawBitmapMesh实现扭曲图像</a></p>
 <h2 id="drawCircle"><a href="#drawCircle" class="headerlink" title="drawCircle"></a>drawCircle</h2><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">drawCircle</span> <span class="params">(<span class="keyword">float</span> cx, </span></span></div><div class="line">                <span class="keyword">float</span> cy, </div><div class="line">                <span class="keyword">float</span> radius, </div><div class="line">                Paint paint)</div></pre></td></tr></table></figure>
 <p>绘制圆<br>cx，cy代表圆心的坐标<br>radius圆的半径<br>paint画笔<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">canvas.drawCircle(<span class="number">500f</span>, <span class="number">500f</span>, <span class="number">200</span>, mPaint);</div></pre></td></tr></table></figure></p>
 <p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/canvas8.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""></p>
@@ -532,7 +533,7 @@ border:2px solid #69c;
 <p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/canvas12.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""></p>
 <h2 id="drawPath"><a href="#drawPath" class="headerlink" title="drawPath"></a>drawPath</h2><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">drawPath</span> <span class="params">(Path path,Paint paint)</span></span></div></pre></td></tr></table></figure>
 <p>例子<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">Path path = <span class="keyword">new</span> Path();</div><div class="line"><span class="comment">//向Path中加入Arc</span></div><div class="line">RectF arcRecF = <span class="keyword">new</span> RectF(<span class="number">0</span>, <span class="number">0</span>, <span class="number">500</span>, <span class="number">500</span>);</div><div class="line">path.addArc(arcRecF, <span class="number">0</span>, <span class="number">135</span>);</div><div class="line">canvas.drawPath(path, mPaint);</div></pre></td></tr></table></figure></p>
-<p>更多Path（宝藏，可继续挖掘），详见博客<a href="http://ghui.me/post/2015/10/android-graphics-path/" target="_blank" rel="external">android绘图之Path总结</a></p>
+<p>更多Path（宝藏，可继续挖掘），详见博客<a href="http://ghui.me/post/2015/10/android-graphics-path/" target="_blank" rel="noopener">android绘图之Path总结</a></p>
 <h2 id="drawPoint"><a href="#drawPoint" class="headerlink" title="drawPoint"></a>drawPoint</h2><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">drawPoint</span> <span class="params">(<span class="keyword">float</span> x, </span></span></div><div class="line">                <span class="keyword">float</span> y, </div><div class="line">                Paint paint)</div></pre></td></tr></table></figure>
 <p>绘制点，x，y分别是点坐标<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">drawPoints</span> <span class="params">(<span class="keyword">float</span>[] pts, </span></span></div><div class="line">                <span class="keyword">int</span> offset, </div><div class="line">                <span class="keyword">int</span> count, </div><div class="line">                Paint paint)</div><div class="line"><span class="keyword">void</span> <span class="title">drawPoints</span> <span class="params">(<span class="keyword">float</span>[] pts, </span></div><div class="line">                Paint paint)</div></pre></td></tr></table></figure></p>
 <p>drawPoints与drawLines类似</p>
@@ -584,8 +585,8 @@ border:2px solid #69c;
 <h1 id="画布锁定和还原"><a href="#画布锁定和还原" class="headerlink" title="画布锁定和还原"></a>画布锁定和还原</h1><p>以saveXXX和restoreXXX构成的画布锁定和还原</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">save</span> <span class="params">(<span class="keyword">int</span> saveFlags)</span></span></div><div class="line"><span class="keyword">int</span> <span class="title">save</span> <span class="params">()</span></div><div class="line"><span class="keyword">void</span> <span class="title">restore</span> <span class="params">()</span></div></pre></td></tr></table></figure>
 <p>save 保存当前矩阵，剪辑到一个私有堆栈。save()方法之后的代码，可以调用Canvas的平移、放缩、旋转、裁剪等操作<br>restore 恢复Canvas之前保存的状态<br>save和restore要配对使用，restore可以比save少，但不能多，如果restore调用次数比save多，会引发Error。</p>
-<h1 id="例子源码"><a href="#例子源码" class="headerlink" title="例子源码"></a>例子源码</h1><p><a href="https://github.com/WuXiaolong/AndroidSamples/blob/master/app/src/main/java/com/wuxiaolong/androidsamples/paintcanvas/CanvasView.java" target="_blank" rel="external">https://github.com/WuXiaolong/AndroidSamples/blob/master/app/src/main/java/com/wuxiaolong/androidsamples/paintcanvas/CanvasView.java</a></p>
-<h1 id="鸣谢"><a href="#鸣谢" class="headerlink" title="鸣谢"></a>鸣谢</h1><p><a href="https://developer.android.com/reference/android/graphics/Canvas.html" target="_blank" rel="external">官网api</a><br><a href="http://blog.csdn.net/aigestudio/article/details/41960507" target="_blank" rel="external">自定义控件其实很简单5/12</a><br><a href="http://blog.csdn.net/tianjian4592/article/details/45234419" target="_blank" rel="external">Canvas之translate、scale、rotate、skew方法讲解！</a><br><a href="http://ghui.me/post/2015/10/android-graphics-path/" target="_blank" rel="external">android绘图之Path总结</a></p>
+<h1 id="例子源码"><a href="#例子源码" class="headerlink" title="例子源码"></a>例子源码</h1><p><a href="https://github.com/WuXiaolong/AndroidSamples/blob/master/app/src/main/java/com/wuxiaolong/androidsamples/paintcanvas/CanvasView.java" target="_blank" rel="noopener">https://github.com/WuXiaolong/AndroidSamples/blob/master/app/src/main/java/com/wuxiaolong/androidsamples/paintcanvas/CanvasView.java</a></p>
+<h1 id="鸣谢"><a href="#鸣谢" class="headerlink" title="鸣谢"></a>鸣谢</h1><p><a href="https://developer.android.com/reference/android/graphics/Canvas.html" target="_blank" rel="noopener">官网api</a><br><a href="http://blog.csdn.net/aigestudio/article/details/41960507" target="_blank" rel="noopener">自定义控件其实很简单5/12</a><br><a href="http://blog.csdn.net/tianjian4592/article/details/45234419" target="_blank" rel="noopener">Canvas之translate、scale、rotate、skew方法讲解！</a><br><a href="http://ghui.me/post/2015/10/android-graphics-path/" target="_blank" rel="noopener">android绘图之Path总结</a></p>
 		 <!--广告-->
 		﻿<!--<div> 
 <h1><b>联系我</b></h1>
@@ -623,6 +624,7 @@ border:2px solid #69c;
 </div>
 
 -->  
+
       
 	   
     </div>
@@ -717,8 +719,8 @@ border:2px solid #69c;
       
       
     </footer>
-  </article>
 
+  </article> 
 
 
     <div class="post-spread">

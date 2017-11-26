@@ -87,13 +87,14 @@
 
 
 
-<meta name="description" content="【转载】Android获取LayoutInflater对象的方法总结 在写Android程序时，有时候会编写自定义的View，使用Inflater对象来将布局文件解析成一个View。本文主要目的是总结获取LayoutInflater对象的方法。 1、若能获取context对象，可以有以下几种方法： LayoutInflater inflater = (LayoutInflater)context.">
+<meta name="description" content="【转载】Android获取LayoutInflater对象的方法总结 在写Android程序时，有时候会编写自定义的View，使用Inflater对象来将布局文件解析成一个View。本文主要目的是总结获取LayoutInflater对象的方法。 1、若能获取context对象，可以有以下几种方法： LayoutInfl">
 <meta name="keywords" content="Android,LayoutInflate">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android之LayoutInflate">
 <meta property="og:url" content="http://wuxiaolong.me/2015/04/23/LayoutInflater/index.html">
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="【转载】Android获取LayoutInflater对象的方法总结 在写Android程序时，有时候会编写自定义的View，使用Inflater对象来将布局文件解析成一个View。本文主要目的是总结获取LayoutInflater对象的方法。 1、若能获取context对象，可以有以下几种方法： LayoutInflater inflater = (LayoutInflater)context.">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2016-08-25T11:38:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android之LayoutInflate">
@@ -465,7 +466,7 @@ border:2px solid #69c;
       
 
       
-        <p>【转载】<a href="http://blog.csdn.net/bigconvience/article/details/26582497" target="_blank" rel="external">Android获取LayoutInflater对象的方法总结</a></p>
+        <p>【转载】<a href="http://blog.csdn.net/bigconvience/article/details/26582497" target="_blank" rel="noopener">Android获取LayoutInflater对象的方法总结</a></p>
 <p>在写Android程序时，有时候会编写自定义的View，使用Inflater对象来将布局文件解析成一个View。本文主要目的是总结获取LayoutInflater对象的方法。</p>
 <p>1、若能获取context对象，可以有以下几种方法：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line">LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);  </div><div class="line">View child = inflater.inflate(R.layout.child, <span class="keyword">null</span>);</div></pre></td></tr></table></figure>
@@ -520,6 +521,7 @@ border:2px solid #69c;
 </div>
 
 -->  
+
       
 	   
     </div>
@@ -595,8 +597,8 @@ border:2px solid #69c;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/04/23/weiyan/" rel="next" title="微言">
-                <i class="fa fa-chevron-left"></i> 微言
+              <a href="/2015/04/23/CanvasToPhoto/" rel="next" title="Android之Canvas中内容保存为图片">
+                <i class="fa fa-chevron-left"></i> Android之Canvas中内容保存为图片
               </a>
             
           </div>
@@ -605,8 +607,8 @@ border:2px solid #69c;
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/04/23/CanvasToPhoto/" rel="prev" title="Android之Canvas中内容保存为图片">
-                Android之Canvas中内容保存为图片 <i class="fa fa-chevron-right"></i>
+              <a href="/2015/04/23/weiyan/" rel="prev" title="微言">
+                微言 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -616,8 +618,8 @@ border:2px solid #69c;
       
       
     </footer>
-  </article>
 
+  </article> 
 
 
     <div class="post-spread">

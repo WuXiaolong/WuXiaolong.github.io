@@ -94,6 +94,7 @@
 <meta property="og:url" content="http://wuxiaolong.me/2014/10/26/build-blog/index.html">
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="目录 一、适合人群 二、github创建博客 注册账号 创建页面仓库 项目设置 页面生成器 创建用户页面 页面发布 查看效果   三、如何发布博客 安装 Ruby 安装 DevKit 安装 Python 安装 Jekyll 启动 Jekyll 图床   四、总结 五、附录">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/2014-10-26-build-blog-1.png">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/2014-10-26-build-blog-2.png">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/2014-10-26-build-blog-3.png">
@@ -512,7 +513,7 @@ border:2px solid #69c;
 </ul>
 <p><a name="build-blog"></a></p>
 <h2 id="二、github-创建博客"><a href="#二、github-创建博客" class="headerlink" title="二、github 创建博客"></a>二、github 创建博客</h2><ul>
-<li><h3 id="注册账号"><a href="#注册账号" class="headerlink" title="注册账号"></a>注册账号</h3><p>地址：<a href="https://github.com/" target="_blank" rel="external">https://github.com/</a><br>输入账号、邮箱、密码,然后点击注册按钮.<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/2014-10-26-build-blog-1.png" alt="1"></p>
+<li><h3 id="注册账号"><a href="#注册账号" class="headerlink" title="注册账号"></a>注册账号</h3><p>地址：<a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a><br>输入账号、邮箱、密码,然后点击注册按钮.<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/2014-10-26-build-blog-1.png" alt="1"></p>
 </li>
 <li><h3 id="创建页面仓库"><a href="#创建页面仓库" class="headerlink" title="创建页面仓库"></a>创建页面仓库</h3><p>这个仓库的名字需要和你的账号对应，格式:<code>yourname</code>.github.io<br>输入基本信息，然后点击创建仓库.<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/2014-10-26-build-blog-2.png" alt="2"><br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/2014-10-26-build-blog-3.png" alt="3"></p>
 </li>
@@ -535,7 +536,7 @@ border:2px solid #69c;
 <li>安装 Jekyll</li>
 </ul>
 <h3 id="安装-Ruby"><a href="#安装-Ruby" class="headerlink" title="安装 Ruby"></a>安装 Ruby</h3><ul>
-<li>下载地址：<a href="http://rubyinstaller.org/downloads/" target="_blank" rel="external">http://rubyinstaller.org/downloads/</a> </li>
+<li>下载地址：<a href="http://rubyinstaller.org/downloads/" target="_blank" rel="noopener">http://rubyinstaller.org/downloads/</a> </li>
 <li>安装<ul>
 <li>最好保持默认的路径 C:\Ruby200-x64， 因为安装包明确提出 “请不要使用带有空格的文件夹 (如： Program Files)”。</li>
 <li>勾选 “Add Ruby executables to your PATH”，这样执行程序会被自动添加至 PATH 而避免不必要的头疼。</li>
@@ -546,7 +547,7 @@ border:2px solid #69c;
 <pre><code>* 命令行ruby -v来检测Ruby是否成功安装        
 </code></pre><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">C:\Users\WuXL&gt;ruby -v	</div><div class="line">返回ruby <span class="number">2.1</span><span class="number">.3</span>p242 (<span class="number">2014</span><span class="number">-09</span><span class="number">-19</span> revision <span class="number">47630</span>) [x64-mingw32]，ok</div></pre></td></tr></table></figure>
 <h3 id="五、安装-DevKit"><a href="#五、安装-DevKit" class="headerlink" title="五、安装 DevKit"></a>五、安装 DevKit</h3><ul>
-<li>下载地址：<a href="http://rubyinstaller.org/downloads/" target="_blank" rel="external">http://rubyinstaller.org/downloads/</a> </li>
+<li>下载地址：<a href="http://rubyinstaller.org/downloads/" target="_blank" rel="noopener">http://rubyinstaller.org/downloads/</a> </li>
 <li>下载同系统及 Ruby 版本相对应的 DevKit 安装包。 例如，DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe 适用于64位 Windows 系统上的 Ruby 2.0.0 x64。</li>
 <li>运行安装包并解压缩至某文件夹，如 C:\DevKit</li>
 <li>通过初始化来创建 config.yml 文件。在命令行窗口内，输入下列命令：</li>
@@ -558,7 +559,7 @@ border:2px solid #69c;
 </ul>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">ruby dk.rb review</div><div class="line">ruby dk.rb install</div></pre></td></tr></table></figure>
 <h3 id="安装-pyhton"><a href="#安装-pyhton" class="headerlink" title="安装 pyhton"></a>安装 pyhton</h3><ul>
-<li>下载地址：<a href="http://www.python.org/download/" target="_blank" rel="external">http://www.python.org/download/</a> </li>
+<li>下载地址：<a href="http://www.python.org/download/" target="_blank" rel="noopener">http://www.python.org/download/</a> </li>
 <li>添加安装路径 (如C:\Python27)至PATH。</li>
 </ul>
 <h3 id="安装-Jekyll"><a href="#安装-Jekyll" class="headerlink" title="安装 Jekyll"></a>安装 Jekyll</h3><ul>
@@ -566,7 +567,7 @@ border:2px solid #69c;
 </ul>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">gem --version</div><div class="line">返回<span class="number">2.2</span><span class="number">.2</span>，OK</div></pre></td></tr></table></figure>
 <ul>
-<li><p>更新为 淘宝镜像<br><br>  RubyGems镜像换为 淘宝、防止下载包出错(官网<a href="https://ruby.taobao.org/" target="_blank" rel="external">https://ruby.taobao.org/</a>)</p>
+<li><p>更新为 淘宝镜像<br><br>  RubyGems镜像换为 淘宝、防止下载包出错(官网<a href="https://ruby.taobao.org/" target="_blank" rel="noopener">https://ruby.taobao.org/</a>)</p>
 </li>
 <li><p>移除旧地址</p>
 </li>
@@ -608,16 +609,16 @@ border:2px solid #69c;
 <li>安装指定版本的yajl</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">删除<span class="number">86</span>版本的yajl</div><div class="line">C:\OpenSources\liyouhai&gt;gem uninstall yajl-ruby</div><div class="line">Successfully uninstalled yajl-ruby<span class="number">-1.1</span><span class="number">.0</span>-x86-mingw32</div><div class="line">安装指定版本的yajl</div><div class="line">C:\OpenSources\liyouhai&gt;gem install yajl-ruby -v <span class="number">1.1</span><span class="number">.0</span> --platform=ruby</div><div class="line">Fetching: yajl-ruby<span class="number">-1.1</span><span class="number">.0</span>.gem (<span class="number">100</span>%)</div><div class="line">Temporarily enhancing PATH to include DevKit...</div><div class="line">Building native extensions.  This could take a <span class="keyword">while</span>...</div><div class="line">Successfully installed yajl-ruby<span class="number">-1.1</span><span class="number">.0</span></div><div class="line">Parsing documentation <span class="keyword">for</span> yajl-ruby<span class="number">-1.1</span><span class="number">.0</span></div><div class="line">unable to convert <span class="string">"\x90"</span> <span class="keyword">from</span> ASCII<span class="number">-8</span>BIT to UTF<span class="number">-8</span> <span class="keyword">for</span> lib/yajl/yajl.so, skipping</div><div class="line">Installing ri documentation <span class="keyword">for</span> yajl-ruby<span class="number">-1.1</span><span class="number">.0</span></div><div class="line"><span class="number">1</span> gem installed</div></pre></td></tr></table></figure>
-<h3 id="启动-Jekyll"><a href="#启动-Jekyll" class="headerlink" title="启动 Jekyll"></a>启动 Jekyll</h3><p>按照官方的 Jekyll<a href="http://jekyllrb.com/docs/quickstart/" target="_blank" rel="external"><code>快速开始手册</code></a>的步骤，或者克隆<a href="https://github.com/jekyll/jekyll/wiki/Sites" target="_blank" rel="external"><code>模板</code></a>到本地，cmd下cd进入目录运行如下命令，就能在 localhost:4000 中预览了，大功告成。</p>
+<h3 id="启动-Jekyll"><a href="#启动-Jekyll" class="headerlink" title="启动 Jekyll"></a>启动 Jekyll</h3><p>按照官方的 Jekyll<a href="http://jekyllrb.com/docs/quickstart/" target="_blank" rel="noopener"><code>快速开始手册</code></a>的步骤，或者克隆<a href="https://github.com/jekyll/jekyll/wiki/Sites" target="_blank" rel="noopener"><code>模板</code></a>到本地，cmd下cd进入目录运行如下命令，就能在 localhost:4000 中预览了，大功告成。</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">jekyll serve -watch (或jekyll serve -w)</div></pre></td></tr></table></figure>
-<h3 id="图床"><a href="#图床" class="headerlink" title="图床"></a>图床</h3><p>1.墙裂推荐七牛云储存,<a href="https://portal.qiniu.com/signup?code=3lk4saqepkdhu" target="_blank" rel="external">注册地址</a>。</p>
+<h3 id="图床"><a href="#图床" class="headerlink" title="图床"></a>图床</h3><p>1.墙裂推荐七牛云储存,<a href="https://portal.qiniu.com/signup?code=3lk4saqepkdhu" target="_blank" rel="noopener">注册地址</a>。</p>
 <p>2.七牛云储存提供10G的免费空间,以及每月10G的流量.存放个人博客图片最好不过了</p>
 <p>3.七牛云储存还有各种图形处理功能、缩略图、视频存放速度也给力（非打广告）。</p>
-<p>具体使用见<a href="http://wuxiaolong.github.io/blog/2014/10/30/qiniu-photo-bed.html" target="_blank" rel="external">使用七牛作为github博客的图床</a></p>
+<p>具体使用见<a href="http://wuxiaolong.github.io/blog/2014/10/30/qiniu-photo-bed.html" target="_blank" rel="noopener">使用七牛作为github博客的图床</a></p>
 <p><a name="ps"></a></p>
 <h2 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h2><p>一开始认为 GitHub.io 技术博客很有难度，从10月23日着手，经历24日一天摸索，知道了jekyll，MarkDown(其实就是github的 READ.md ,幸亏之前自学过READ.md语法），也有幸自学了git，不然还不知道这个建博客 什么时候能做好，进jekyll安装就花了半天，反正各种错误，然后各种谷歌百度  ，25日一天就写了这个博客（集众建博客的帖子所长），问题主要是没有 文章摘要 ，一下子全部显示出来，我有强迫症，不能接受这个，到26日才解决，如果您没有一定的编程基础，爱折腾，坚持不懈的精神，还是不要建自己的 GitHub.io 技术博客吧。</p>
 <p><a name="appendix"></a></p>
-<h2 id="五、附录"><a href="#五、附录" class="headerlink" title="五、附录"></a>五、附录</h2><p>jekyll中文官网：<a href="http://jekyllcn.com/" target="_blank" rel="external">http://jekyllcn.com/</a> <br><br>Markdown 语法说明：<a href="http://wowubuntu.com/markdown/#autoescape" target="_blank" rel="external">http://wowubuntu.com/markdown/#autoescape</a> </p>
+<h2 id="五、附录"><a href="#五、附录" class="headerlink" title="五、附录"></a>五、附录</h2><p>jekyll中文官网：<a href="http://jekyllcn.com/" target="_blank" rel="noopener">http://jekyllcn.com/</a> <br><br>Markdown 语法说明：<a href="http://wowubuntu.com/markdown/#autoescape" target="_blank" rel="noopener">http://wowubuntu.com/markdown/#autoescape</a> </p>
 		 <!--广告-->
 		﻿<!--<div> 
 <h1><b>联系我</b></h1>
@@ -655,6 +656,7 @@ border:2px solid #69c;
 </div>
 
 -->  
+
       
 	   
     </div>
@@ -730,8 +732,8 @@ border:2px solid #69c;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2014/10/21/Android-Studio-shortcut-keys-arranged-like-Eclipse/" rel="next" title="Android Studio快捷键设置成跟Eclipse一样">
-                <i class="fa fa-chevron-left"></i> Android Studio快捷键设置成跟Eclipse一样
+              <a href="/2014/10/21/Android-Studio-Genymotion/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
               </a>
             
           </div>
@@ -751,8 +753,8 @@ border:2px solid #69c;
       
       
     </footer>
-  </article>
 
+  </article> 
 
 
     <div class="post-spread">

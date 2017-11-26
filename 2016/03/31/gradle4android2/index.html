@@ -87,13 +87,14 @@
 
 
 
-<meta name="description" content="系列博客 Gradle for Android（一）基本配置、依赖管理Gradle for Android（三）多渠道打包、配置签名信息  全局设置根目录build.gradle如果有很多项目，可以设置全局来统一管理版本号或依赖库，根目录下build.gradle添加：def androidSupportVersion = &apos;25.3.1&apos;ext &amp;#123;    //编译的 SDK 版本，如A">
+<meta name="description" content="系列博客 Gradle for Android（一）基本配置、依赖管理Gradle for Android（三）多渠道打包、配置签名信息  全局设置根目录build.gradle如果有很多项目，可以设置全局来统一管理版本号或依赖库，根目录下build.gradle添加：def androidSupportVersion">
 <meta name="keywords" content="Gradle">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Gradle for Android（二）全局设置、自定义BuildConfig、混淆">
 <meta property="og:url" content="http://wuxiaolong.me/2016/03/31/gradle4android2/index.html">
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="系列博客 Gradle for Android（一）基本配置、依赖管理Gradle for Android（三）多渠道打包、配置签名信息  全局设置根目录build.gradle如果有很多项目，可以设置全局来统一管理版本号或依赖库，根目录下build.gradle添加：def androidSupportVersion = &apos;25.3.1&apos;ext &amp;#123;    //编译的 SDK 版本，如A">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/gradle4android2.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
 <meta property="og:updated_time" content="2017-08-07T13:16:52.000Z">
 <meta name="twitter:card" content="summary">
@@ -482,7 +483,7 @@ border:2px solid #69c;
 <p>buildConfigField 一共有3个参数，第一个是数据类型，和Java的类型是对等的；第二个参数是常量名，这里是API_SERVER_URL；第三个参数就是你要配置的值。<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/gradle4android2.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br>如图路径下就有个常量API_SERVER_URL，如何在代码取得这个常量值：<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">Log.d(<span class="string">"wxl"</span>, <span class="string">"API_SERVER_URL="</span> + BuildConfig.API_SERVER_URL);</div></pre></td></tr></table></figure></p>
 <h1 id="启用proguard混淆"><a href="#启用proguard混淆" class="headerlink" title="启用proguard混淆"></a>启用proguard混淆</h1><p>一般release发布版本是需要启用混淆的，这样别人反编译之后就很难分析你的代码，而我们自己开发调试的时候是不需要混淆的，所以debug不启用混淆。对release启用混淆的配置如下：<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">android &#123;</div><div class="line"></div><div class="line">    buildTypes &#123;</div><div class="line">        release &#123;</div><div class="line">            minifyEnabled <span class="keyword">true</span><span class="comment">//是否启动混淆</span></div><div class="line">			shrinkResources <span class="keyword">true</span> <span class="comment">//是否移除无用资源文件，shrinkResources依赖于minifyEnabled，必须和minifyEnabled一起用</span></div><div class="line">            <span class="function">proguardFiles <span class="title">getDefaultProguardFile</span><span class="params">(<span class="string">'proguard-android.txt'</span>)</span>, 'proguard-rules.pro'</span></div><div class="line">        &#125;</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>minifyEnabled为true表示启用混淆，proguardFile是混淆使用的配置文件，这里是module根目录下的proguard-rules.pro文件</p>
-<h1 id="完整配置"><a href="#完整配置" class="headerlink" title="完整配置"></a>完整配置</h1><p><a href="https://github.com/WuXiaolong/Gradle4Android" target="_blank" rel="external">https://github.com/WuXiaolong/Gradle4Android</a></p>
+<h1 id="完整配置"><a href="#完整配置" class="headerlink" title="完整配置"></a>完整配置</h1><p><a href="https://github.com/WuXiaolong/Gradle4Android" target="_blank" rel="noopener">https://github.com/WuXiaolong/Gradle4Android</a></p>
 		 <!--广告-->
 		﻿<!--<div> 
 <h1><b>联系我</b></h1>
@@ -520,6 +521,7 @@ border:2px solid #69c;
 </div>
 
 -->  
+
       
 	   
     </div>
@@ -614,8 +616,8 @@ border:2px solid #69c;
       
       
     </footer>
-  </article>
 
+  </article> 
 
 
     <div class="post-spread">

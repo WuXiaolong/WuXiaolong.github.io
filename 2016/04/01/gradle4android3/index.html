@@ -87,13 +87,14 @@
 
 
 
-<meta name="description" content="系列博客 Gradle for Android（一）基本配置、依赖管理Gradle for Android（二）全局设置、自定义BuildConfig、混淆  多渠道打包国内有太多Android App市场，每次发版几十个渠道包。还好Android Gradle给我们提供了productFlavors，我们可以对生成的APK包进行定制。productFlavors &amp;#123;//多渠道打包">
+<meta name="description" content="系列博客 Gradle for Android（一）基本配置、依赖管理Gradle for Android（二）全局设置、自定义BuildConfig、混淆  多渠道打包国内有太多Android App市场，每次发版几十个渠道包。还好Android Gradle给我们提供了productFlavors，我们可以对生成的">
 <meta name="keywords" content="Gradle">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Gradle for Android（三）多渠道打包、配置签名信息">
 <meta property="og:url" content="http://wuxiaolong.me/2016/04/01/gradle4android3/index.html">
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="系列博客 Gradle for Android（一）基本配置、依赖管理Gradle for Android（二）全局设置、自定义BuildConfig、混淆  多渠道打包国内有太多Android App市场，每次发版几十个渠道包。还好Android Gradle给我们提供了productFlavors，我们可以对生成的APK包进行定制。productFlavors &amp;#123;//多渠道打包">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/gradle4android3.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
 <meta property="og:updated_time" content="2017-08-07T13:23:45.000Z">
 <meta name="twitter:card" content="summary">
@@ -485,8 +486,8 @@ border:2px solid #69c;
 <p>先”build-clean Project”，然后Terminal输入命名行：<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">gradlew assembleRelease</div></pre></td></tr></table></figure></p>
 <p>打印信息如下：<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">E:\AndroidStudioProjects\Gradle4Android&gt;gradlew assembleRelease</div><div class="line">:app:preBuild UP-TO-DATE                                                             </div><div class="line">:app:preReleaseBuild UP-TO-DATE     </div><div class="line">:app:checkReleaseManifest                  </div><div class="line"><span class="comment">//省略部分               </span></div><div class="line">:app:packageRelease                 </div><div class="line">:app:zipalignRelease                 </div><div class="line">:app:assembleRelease                 </div><div class="line">               </div><div class="line">BUILD SUCCESSFUL</div></pre></td></tr></table></figure></p>
 <p>OK，打包成功的apk路径如：E:\AndroidStudioProjects\Gradle4Android\app\build\outputs\apk\app-release.apk<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/gradle4android3.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""></p>
-<h1 id="完整配置"><a href="#完整配置" class="headerlink" title="完整配置"></a>完整配置</h1><p><a href="https://github.com/WuXiaolong/Gradle4Android" target="_blank" rel="external">https://github.com/WuXiaolong/Gradle4Android</a></p>
-<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><a href="https://segmentfault.com/a/1190000004229002" target="_blank" rel="external">Gradle for Android 第一篇( 从 Gradle 和 AS 开始 )</a><br><a href="http://www.flysnow.org/2015/03/30/manage-your-android-project-with-gradle.html" target="_blank" rel="external">使用Gradle管理你的Android Studio工程</a></p>
+<h1 id="完整配置"><a href="#完整配置" class="headerlink" title="完整配置"></a>完整配置</h1><p><a href="https://github.com/WuXiaolong/Gradle4Android" target="_blank" rel="noopener">https://github.com/WuXiaolong/Gradle4Android</a></p>
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><a href="https://segmentfault.com/a/1190000004229002" target="_blank" rel="noopener">Gradle for Android 第一篇( 从 Gradle 和 AS 开始 )</a><br><a href="http://www.flysnow.org/2015/03/30/manage-your-android-project-with-gradle.html" target="_blank" rel="noopener">使用Gradle管理你的Android Studio工程</a></p>
 		 <!--广告-->
 		﻿<!--<div> 
 <h1><b>联系我</b></h1>
@@ -524,6 +525,7 @@ border:2px solid #69c;
 </div>
 
 -->  
+
       
 	   
     </div>
@@ -618,8 +620,8 @@ border:2px solid #69c;
       
       
     </footer>
-  </article>
 
+  </article> 
 
 
     <div class="post-spread">

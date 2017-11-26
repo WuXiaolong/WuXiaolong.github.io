@@ -87,13 +87,14 @@
 
 
 
-<meta name="description" content="设计模式设计模式（design pattern）是对软件设计中普遍存在（反复出现）的各种问题，所提出的解决方案。这个术语是由埃里希·伽玛（Erich Gamma）等人在1990年代从建筑设计领域引入到计算机科学的。《设计模式》一书原先把设计模式分为创建型模式、结构型模式、行为型模式，把它们通过授权、聚合、诊断的概念来描述。">
+<meta name="description" content="设计模式设计模式（design pattern）是对软件设计中普遍存在（反复出现）的各种问题，所提出的解决方案。这个术语是由埃里希·伽玛（Erich Gamma）等人在1990年代从建筑设计领域引入到计算机科学的。《设计模式》一书原先把设计模式分为创建型模式、结构型模式、行为型模式，把它们通过授权、聚合、诊断的概念来描">
 <meta name="keywords" content="Singleton">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式之单例模式">
 <meta property="og:url" content="http://wuxiaolong.me/2017/01/02/singleton/index.html">
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="设计模式设计模式（design pattern）是对软件设计中普遍存在（反复出现）的各种问题，所提出的解决方案。这个术语是由埃里希·伽玛（Erich Gamma）等人在1990年代从建筑设计领域引入到计算机科学的。《设计模式》一书原先把设计模式分为创建型模式、结构型模式、行为型模式，把它们通过授权、聚合、诊断的概念来描述。">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-04-21T13:48:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式之单例模式">
@@ -520,11 +521,11 @@ border:2px solid #69c;
 <h1 id="Android-应用"><a href="#Android-应用" class="headerlink" title="Android 应用"></a>Android 应用</h1><p>AccessibilityManager<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">AccessibilityManager</span> </span>&#123;</div><div class="line">    <span class="keyword">static</span> <span class="keyword">final</span> Object sInstanceSync = <span class="keyword">new</span> Object();</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> android.view.accessibility.AccessibilityManager sInstance;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> AccessibilityManager <span class="title">getInstance</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">        <span class="keyword">synchronized</span> (sInstanceSync) &#123;</div><div class="line">            <span class="keyword">if</span> (sInstance == <span class="keyword">null</span>) &#123;</div><div class="line">                <span class="comment">//省略部分代码</span></div><div class="line">                sInstance = <span class="keyword">new</span> AccessibilityManager(context, <span class="keyword">null</span>, userId);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> sInstance;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>InputMethodManager<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">InputMethodManager</span> </span>&#123;</div><div class="line">    <span class="keyword">static</span> android.view.inputmethod.InputMethodManager sInstance;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> InputMethodManager <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">synchronized</span> (InputMethodManager.class) &#123;</div><div class="line">            <span class="keyword">if</span> (sInstance == <span class="keyword">null</span>) &#123;</div><div class="line">                <span class="comment">//省略部分代码</span></div><div class="line">                sInstance = <span class="keyword">new</span> InputMethodManager(service, Looper.getMainLooper());</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> sInstance;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
-<li><a href="https://zh.wikipedia.org/wiki/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F" target="_blank" rel="external">维基百科-设计模式</a></li>
-<li><a href="https://zh.wikipedia.org/wiki/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%9A%E5%8F%AF%E5%A4%8D%E7%94%A8%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%9F%BA%E7%A1%80" target="_blank" rel="external">维基百科-设计模式：可复用面向对象软件的基础</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F" target="_blank" rel="noopener">维基百科-设计模式</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%9A%E5%8F%AF%E5%A4%8D%E7%94%A8%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%9F%BA%E7%A1%80" target="_blank" rel="noopener">维基百科-设计模式：可复用面向对象软件的基础</a></li>
 <li>Effective Java</li>
-<li>设计模式（二）单例模式的七种写法：<a href="http://blog.csdn.net/itachi85/article/details/50510124" target="_blank" rel="external">http://blog.csdn.net/itachi85/article/details/50510124</a></li>
-<li>Android设计模式之单例模式的七种写法：<a href="http://blog.csdn.net/happy_horse/article/details/51164262" target="_blank" rel="external">http://blog.csdn.net/happy_horse/article/details/51164262</a></li>
+<li>设计模式（二）单例模式的七种写法：<a href="http://blog.csdn.net/itachi85/article/details/50510124" target="_blank" rel="noopener">http://blog.csdn.net/itachi85/article/details/50510124</a></li>
+<li>Android设计模式之单例模式的七种写法：<a href="http://blog.csdn.net/happy_horse/article/details/51164262" target="_blank" rel="noopener">http://blog.csdn.net/happy_horse/article/details/51164262</a></li>
 </ul>
 		 <!--广告-->
 		﻿<!--<div> 
@@ -563,6 +564,7 @@ border:2px solid #69c;
 </div>
 
 -->  
+
       
 	   
     </div>
@@ -657,8 +659,8 @@ border:2px solid #69c;
       
       
     </footer>
-  </article>
 
+  </article> 
 
 
     <div class="post-spread">

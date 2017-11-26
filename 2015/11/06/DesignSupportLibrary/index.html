@@ -87,13 +87,14 @@
 
 
 
-<meta name="description" content="作为Android开发者，谷歌的Material design规范文档读过吗？谷歌出Material design规范很久了，但是市面上的Material design风格的APP却很少（Android的杯具），这个规范应该产品经理或UI设计师应该熟知于心，官网地址：https://material.google.com/，这里分享开发可能会使用的知识点和注意点，有详细sample哦。">
+<meta name="description" content="作为Android开发者，谷歌的Material design规范文档读过吗？谷歌出Material design规范很久了，但是市面上的Material design风格的APP却很少（Android的杯具），这个规范应该产品经理或UI设计师应该熟知于心，官网地址：https://material.google.co">
 <meta name="keywords" content="DesignSupportLibrary">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android Design Support Library使用">
 <meta property="og:url" content="http://wuxiaolong.me/2015/11/06/DesignSupportLibrary/index.html">
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="作为Android开发者，谷歌的Material design规范文档读过吗？谷歌出Material design规范很久了，但是市面上的Material design风格的APP却很少（Android的杯具），这个规范应该产品经理或UI设计师应该熟知于心，官网地址：https://material.google.com/，这里分享开发可能会使用的知识点和注意点，有详细sample哦。">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/DesignSupportLibrary1.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/DesignSupportLibrary2.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/DesignSupportLibrary3.gif?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
@@ -480,10 +481,10 @@ border:2px solid #69c;
       
 
       
-        <p>作为Android开发者，谷歌的Material design规范文档读过吗？<br>谷歌出Material design规范很久了，但是市面上的Material design风格的APP却很少（Android的杯具），这个规范应该产品经理或UI设计师应该熟知于心，官网地址：<a href="https://material.google.com/" target="_blank" rel="external">https://material.google.com/</a>，这里分享开发可能会使用的知识点和注意点，有详细sample哦。</p>
+        <p>作为Android开发者，谷歌的Material design规范文档读过吗？<br>谷歌出Material design规范很久了，但是市面上的Material design风格的APP却很少（Android的杯具），这个规范应该产品经理或UI设计师应该熟知于心，官网地址：<a href="https://material.google.com/" target="_blank" rel="noopener">https://material.google.com/</a>，这里分享开发可能会使用的知识点和注意点，有详细sample哦。</p>
 <a id="more"></a>
 <h1 id="样式"><a href="#样式" class="headerlink" title="样式"></a>样式</h1><h2 id="色彩"><a href="#色彩" class="headerlink" title="色彩"></a>色彩</h2><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/DesignSupportLibrary1.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""></p>
-<p>如图，工具栏和大色块适合使用饱和度 500 的基础色，这也是你应用的主要颜色。状态栏适合使用更深一些的饱和度 700 的基础色。更多Color见：<a href="https://material.google.com/style/color.html" target="_blank" rel="external">Style– Color</a></p>
+<p>如图，工具栏和大色块适合使用饱和度 500 的基础色，这也是你应用的主要颜色。状态栏适合使用更深一些的饱和度 700 的基础色。更多Color见：<a href="https://material.google.com/style/color.html" target="_blank" rel="noopener">Style– Color</a></p>
 <h2 id="字体标准样式"><a href="#字体标准样式" class="headerlink" title="字体标准样式"></a>字体标准样式</h2><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/DesignSupportLibrary2.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&lt;dimen name=&quot;button&quot;&gt;14sp&lt;/dimen&gt;</div><div class="line">&lt;!--给（图片、照片等）加说明文字--&gt;</div><div class="line">&lt;dimen name=&quot;caption&quot;&gt;12sp&lt;/dimen&gt;</div><div class="line">&lt;dimen name=&quot;body&quot;&gt;14sp&lt;/dimen&gt;</div><div class="line">&lt;!--副标题--&gt;</div><div class="line">&lt;dimen name=&quot;subheading&quot;&gt;16sp&lt;/dimen&gt;</div><div class="line">&lt;dimen name=&quot;title&quot;&gt;20sp&lt;/dimen&gt;</div><div class="line">&lt;dimen name=&quot;headline&quot;&gt;24sp&lt;/dimen&gt;</div><div class="line">&lt;dimen name=&quot;display1&quot;&gt;34sp&lt;/dimen&gt;</div><div class="line">&lt;dimen name=&quot;display2&quot;&gt;45sp&lt;/dimen&gt;</div><div class="line">&lt;dimen name=&quot;display3&quot;&gt;56sp&lt;/dimen&gt;</div><div class="line">&lt;dimen name=&quot;display4&quot;&gt;112sp&lt;/dimen&gt;</div></pre></td></tr></table></figure>
 <p>最基本的样式集合就是基于 12、14、16、20 和 34 号的字体排版缩放。</p>
@@ -506,8 +507,8 @@ border:2px solid #69c;
 <h2 id="微信公众号"><a href="#微信公众号" class="headerlink" title="微信公众号"></a>微信公众号</h2><p>我的微信公众号：吴小龙同学。不止于技术分享，还有诗和远方~欢迎微信扫一扫关注。<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_wuxiaolong.jpg" alt=""></p>
 <h2 id="夜间模式"><a href="#夜间模式" class="headerlink" title="夜间模式"></a>夜间模式</h2><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/DesignSupportLibrary9.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br>使用方法：<a href="http://wuxiaolong.me/2016/07/12/appcompatDayNight/">Android Support Library 之 夜间模式</a></p>
 <h2 id="其他组件"><a href="#其他组件" class="headerlink" title="其他组件"></a>其他组件</h2><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/DesignSupportLibrary10.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""></p>
-<p>使用方法：见<a href="https://github.com/WuXiaolong/DesignSupportLibrarySample" target="_blank" rel="external">源码</a></p>
-<h1 id="源码地址"><a href="#源码地址" class="headerlink" title="源码地址"></a>源码地址</h1><p><a href="https://github.com/WuXiaolong/DesignSupportLibrarySample" target="_blank" rel="external">https://github.com/WuXiaolong/DesignSupportLibrarySample</a>，Material design规范文档内容很多，很多东西是要细致推敲，值得产品经理或UI设计师，乃至开发人员好好学习，目前这个sample，Material design风格的效果都有了，相当一个空壳子，您只需在实际开发中塞真实数据就是一个perfect app，个人能力和精力有限，只能分享这么多了，over。</p>
+<p>使用方法：见<a href="https://github.com/WuXiaolong/DesignSupportLibrarySample" target="_blank" rel="noopener">源码</a></p>
+<h1 id="源码地址"><a href="#源码地址" class="headerlink" title="源码地址"></a>源码地址</h1><p><a href="https://github.com/WuXiaolong/DesignSupportLibrarySample" target="_blank" rel="noopener">https://github.com/WuXiaolong/DesignSupportLibrarySample</a>，Material design规范文档内容很多，很多东西是要细致推敲，值得产品经理或UI设计师，乃至开发人员好好学习，目前这个sample，Material design风格的效果都有了，相当一个空壳子，您只需在实际开发中塞真实数据就是一个perfect app，个人能力和精力有限，只能分享这么多了，over。</p>
 <h1 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h1><ul>
 <li>2016/10/21 修改</li>
 <li>2016/10/17 修改</li>
@@ -550,6 +551,7 @@ border:2px solid #69c;
 </div>
 
 -->  
+
       
 	   
     </div>
@@ -644,8 +646,8 @@ border:2px solid #69c;
       
       
     </footer>
-  </article>
 
+  </article> 
 
 
     <div class="post-spread">

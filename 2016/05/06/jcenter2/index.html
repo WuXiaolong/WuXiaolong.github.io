@@ -87,13 +87,14 @@
 
 
 
-<meta name="description" content="dependencies &amp;#123;  compile &apos;com.wuxiaolong.pullloadmorerecyclerview:library:1.0.4&apos;&amp;#125; build.gradle文件中只写上如上一行，就能在Android Studio中引入你的library到项目中，这样岂不是酷比了。之前github上分享一个简单的库，这两天花了点时间研究了下，如何也能这样一行就能依赖">
+<meta name="description" content="dependencies &amp;#123;  compile &apos;com.wuxiaolong.pullloadmorerecyclerview:library:1.0.4&apos;&amp;#125; build.gradle文件中只写上如上一行，就能在Android Studio中引入你的librar">
 <meta name="keywords" content="Jcenter">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android library分享到jcenter">
 <meta property="og:url" content="http://wuxiaolong.me/2016/05/06/jcenter2/index.html">
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="dependencies &amp;#123;  compile &apos;com.wuxiaolong.pullloadmorerecyclerview:library:1.0.4&apos;&amp;#125; build.gradle文件中只写上如上一行，就能在Android Studio中引入你的library到项目中，这样岂不是酷比了。之前github上分享一个简单的库，这两天花了点时间研究了下，如何也能这样一行就能依赖">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/includeMyPackage.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/jcenterApproved.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
 <meta property="og:updated_time" content="2017-08-07T01:53:05.000Z">
@@ -474,18 +475,18 @@ border:2px solid #69c;
 <p>之前写过同样的一篇教程（地址：<a href="http://wuxiaolong.me/2015/11/12/jcenter/">Android library分享到jcenter</a>），但是配置较多，还不能自己写库名（最新的貌似可以写），起码当时不能（直接取的建库时的名），这点被坑了，后来想改名都不行，后文会说。这篇教程和之前差不多，就配置这块不一样。好，快上车，老司机要开车了。</p>
 </blockquote>
 <a id="more"></a>
-<h1 id="申请bintray账号"><a href="#申请bintray账号" class="headerlink" title="申请bintray账号"></a>申请bintray账号</h1><p>登录 <a href="https://bintray.com/" target="_blank" rel="external">bintray.com</a><br>在<a href="https://bintray.com/" target="_blank" rel="external">bintray.com</a>上注册一个账号。<br>点击maven，点击Add New Package，为我们的library创建一个新的package。<br>命名所有字母应该为小写，单词之间用－分割。<br>需要API Key，点击进入你的账户信息里再点击Edit即有查看API Key的选项，把他复制下来。</p>
+<h1 id="申请bintray账号"><a href="#申请bintray账号" class="headerlink" title="申请bintray账号"></a>申请bintray账号</h1><p>登录 <a href="https://bintray.com/" target="_blank" rel="noopener">bintray.com</a><br>在<a href="https://bintray.com/" target="_blank" rel="noopener">bintray.com</a>上注册一个账号。<br>点击maven，点击Add New Package，为我们的library创建一个新的package。<br>命名所有字母应该为小写，单词之间用－分割。<br>需要API Key，点击进入你的账户信息里再点击Edit即有查看API Key的选项，把他复制下来。</p>
 <h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><p>library项目最好分成两个module，一个Application Module，一个Library Module。Application Module用于展示库的用法，Library Module是library的源代码。</p>
 <h2 id="配置项目"><a href="#配置项目" class="headerlink" title="配置项目"></a>配置项目</h2><p>修改项目的build.gradle件中的依赖部分，<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">        classpath <span class="string">'com.android.tools.build:gradle:2.1.0'</span></div><div class="line">        classpath <span class="string">'com.novoda:bintray-release:0.3.4'</span></div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
-<h2 id="配置library"><a href="#配置library" class="headerlink" title="配置library"></a>配置library</h2><p>具体配置可参考我的开源库<a href="https://github.com/WuXiaolong/PullLoadMoreRecyclerView/blob/master/library/build.gradle" target="_blank" rel="external">PullLoadMoreRecyclerView</a>。<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">apply plugin: <span class="string">'com.android.library'</span></div><div class="line">android &#123;</div><div class="line">   ……</div><div class="line">&#125;</div><div class="line"></div><div class="line">dependencies &#123;</div><div class="line">  ……</div><div class="line">&#125;</div><div class="line"><span class="comment">//添加</span></div><div class="line">apply plugin: <span class="string">'com.novoda.bintray-release'</span></div><div class="line">publish &#123;</div><div class="line">    <span class="comment">//bintray.com用户名</span></div><div class="line">    userOrg = <span class="string">'wuxiaolong'</span></div><div class="line">    <span class="comment">//jcenter上的路径</span></div><div class="line">    groupId = <span class="string">'com.wuxiaolong.pullloadmorerecyclerview'</span></div><div class="line">    <span class="comment">//项目名称</span></div><div class="line">    artifactId = <span class="string">'pullloadmorerecyclerview'</span></div><div class="line">    <span class="comment">//版本号</span></div><div class="line">    publishVersion = <span class="string">'1.0.5'</span></div><div class="line">    <span class="comment">//描述，不重要</span></div><div class="line">    desc = <span class="string">'实现RecyclerView下拉刷新和上拉加载更多以及RecyclerView线性、网格、瀑布流效果演示'</span></div><div class="line">    <span class="comment">//网站，不重要</span></div><div class="line">    website = <span class="string">'https://github.com/WuXiaolong/PullLoadMoreRecyclerView'</span></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="配置library"><a href="#配置library" class="headerlink" title="配置library"></a>配置library</h2><p>具体配置可参考我的开源库<a href="https://github.com/WuXiaolong/PullLoadMoreRecyclerView/blob/master/library/build.gradle" target="_blank" rel="noopener">PullLoadMoreRecyclerView</a>。<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">apply plugin: <span class="string">'com.android.library'</span></div><div class="line">android &#123;</div><div class="line">   ……</div><div class="line">&#125;</div><div class="line"></div><div class="line">dependencies &#123;</div><div class="line">  ……</div><div class="line">&#125;</div><div class="line"><span class="comment">//添加</span></div><div class="line">apply plugin: <span class="string">'com.novoda.bintray-release'</span></div><div class="line">publish &#123;</div><div class="line">    <span class="comment">//bintray.com用户名</span></div><div class="line">    userOrg = <span class="string">'wuxiaolong'</span></div><div class="line">    <span class="comment">//jcenter上的路径</span></div><div class="line">    groupId = <span class="string">'com.wuxiaolong.pullloadmorerecyclerview'</span></div><div class="line">    <span class="comment">//项目名称</span></div><div class="line">    artifactId = <span class="string">'pullloadmorerecyclerview'</span></div><div class="line">    <span class="comment">//版本号</span></div><div class="line">    publishVersion = <span class="string">'1.0.5'</span></div><div class="line">    <span class="comment">//描述，不重要</span></div><div class="line">    desc = <span class="string">'实现RecyclerView下拉刷新和上拉加载更多以及RecyclerView线性、网格、瀑布流效果演示'</span></div><div class="line">    <span class="comment">//网站，不重要</span></div><div class="line">    website = <span class="string">'https://github.com/WuXiaolong/PullLoadMoreRecyclerView'</span></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p><code>是不是配置少了很多哇，这里解释下，本来我想把项目名称改成pullloadmorerecyclerview，上传也成功了，但是依赖却找不到了，之前默认名是library，我改成了library，上传，这样算一个新的库，得重新审核，哎无奈，只能按照之前的方法去上传。</code></p>
 <h1 id="上传library到bintray空间"><a href="#上传library到bintray空间" class="headerlink" title="上传library到bintray空间"></a>上传library到bintray空间</h1><p>请到Android Studio的终端（Terminal）选项卡。<br>输入下面的命令：</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">gradlew clean build bintrayUpload </div><div class="line"> -PbintrayUser=wuxiaolong </div><div class="line"> -PbintrayKey=这里填写刚刚保存的API Key</div><div class="line"> -PdryRun=<span class="literal">false</span></div></pre></td></tr></table></figure>
 <p>如果显示如下，说明成功了！否则有log提示错误。<br><figure class="highlight js"><table><tr><td class="code"><pre><div class="line">BUILD SUCCESSFUL</div></pre></td></tr></table></figure></p>
-<p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/includeMyPackage.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br>上传完成即可在Bintray网站上找到你的Repo，我们需要完成最后一步工作，申请你的Repo添加到JCenter。可以进入<a href="https://bintray.com/bintray/jcenter" target="_blank" rel="external">这个页面</a>，点击Include My Package，输入你的项目名字，点击匹配到的项目，直接send即可，然后就等管理员批准了。<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/jcenterApproved.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br>如上，网站上会给你一条通过信息，然后就OK了，大功告成。</p>
+<p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/includeMyPackage.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br>上传完成即可在Bintray网站上找到你的Repo，我们需要完成最后一步工作，申请你的Repo添加到JCenter。可以进入<a href="https://bintray.com/bintray/jcenter" target="_blank" rel="noopener">这个页面</a>，点击Include My Package，输入你的项目名字，点击匹配到的项目，直接send即可，然后就等管理员批准了。<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/jcenterApproved.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br>如上，网站上会给你一条通过信息，然后就OK了，大功告成。</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line">compile <span class="string">'com.wuxiaolong.pullloadmorerecyclerview:library:1.0.5'</span></div></pre></td></tr></table></figure>
-<p>一般来说，我们需要知道library的字符串形式，包含3部分<br>GROUP_ID:ARTIFACT_ID:VERSION<br>上面的例子中，GROUP_ID是com.wuxiaolong.pullloadmorerecyclerview ，即配置library中group的值；ARTIFACT_ID是library，配置library中没有写到，是library项目的名字；VERSION是1.0.5。<br>查看bintray上库：<br><a href="http://jcenter.bintray.com/com/wuxiaolong/" target="_blank" rel="external">http://jcenter.bintray.com/com/wuxiaolong/</a></p>
-<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><a href="https://github.com/novoda/bintray-release" target="_blank" rel="external">bintray-release</a><br><a href="http://blog.csdn.net/lmj623565791/article/details/51148825" target="_blank" rel="external">Android 快速发布开源项目到jcenter</a></p>
+<p>一般来说，我们需要知道library的字符串形式，包含3部分<br>GROUP_ID:ARTIFACT_ID:VERSION<br>上面的例子中，GROUP_ID是com.wuxiaolong.pullloadmorerecyclerview ，即配置library中group的值；ARTIFACT_ID是library，配置library中没有写到，是library项目的名字；VERSION是1.0.5。<br>查看bintray上库：<br><a href="http://jcenter.bintray.com/com/wuxiaolong/" target="_blank" rel="noopener">http://jcenter.bintray.com/com/wuxiaolong/</a></p>
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><a href="https://github.com/novoda/bintray-release" target="_blank" rel="noopener">bintray-release</a><br><a href="http://blog.csdn.net/lmj623565791/article/details/51148825" target="_blank" rel="noopener">Android 快速发布开源项目到jcenter</a></p>
 		 <!--广告-->
 		﻿<!--<div> 
 <h1><b>联系我</b></h1>
@@ -523,6 +524,7 @@ border:2px solid #69c;
 </div>
 
 -->  
+
       
 	   
     </div>
@@ -617,8 +619,8 @@ border:2px solid #69c;
       
       
     </footer>
-  </article>
 
+  </article> 
 
 
     <div class="post-spread">

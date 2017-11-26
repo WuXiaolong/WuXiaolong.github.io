@@ -94,6 +94,7 @@
 <meta property="og:url" content="http://wuxiaolong.me/2015/08/03/TabLayout/index.html">
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="常规使用效果预览注：tab2 和tab4 需要自定义。">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/TabLayout2.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/TabLayout1.gif?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/TabLayout3.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
@@ -490,7 +491,7 @@ border:2px solid #69c;
 <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/TabLayout3.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br>如上，我看了 TabLayout 的源码，发现自定义 View 这里的 text 和 icon的 id 是写死了，意思我自定义的这两个 id 要相应写死，我的 custom_tab1.xml<br><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">RelativeLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"72dp"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"72dp"</span></div><div class="line">    <span class="attr">android:minWidth</span>=<span class="string">"56dp"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">ImageView</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/tabIcon"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"24dp"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"24dp"</span></div><div class="line">        <span class="attr">android:layout_centerHorizontal</span>=<span class="string">"true"</span></div><div class="line">        <span class="attr">android:layout_marginTop</span>=<span class="string">"8dp"</span></div><div class="line">        <span class="attr">android:background</span>=<span class="string">"@drawable/custom_tab_icon"</span></div><div class="line">        <span class="attr">android:scaleType</span>=<span class="string">"centerInside"</span> /&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/tabText"</span></div><div class="line">        <span class="attr">style</span>=<span class="string">"@style/TextAppearance.Design.Tab"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_below</span>=<span class="string">"@+id/tabIcon"</span></div><div class="line">        <span class="attr">android:layout_centerHorizontal</span>=<span class="string">"true"</span></div><div class="line">        <span class="attr">android:layout_marginTop</span>=<span class="string">"8dp"</span></div><div class="line">        <span class="attr">android:ellipsize</span>=<span class="string">"end"</span></div><div class="line">        <span class="attr">android:maxLines</span>=<span class="string">"2"</span></div><div class="line">        <span class="attr">android:textColor</span>=<span class="string">"@color/custom_tab_text"</span> /&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/tabPoint"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"20dp"</span></div><div class="line">        <span class="attr">android:gravity</span>=<span class="string">"center"</span></div><div class="line">        <span class="attr">android:layout_marginTop</span>=<span class="string">"5dp"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"20dp"</span></div><div class="line">        <span class="attr">android:background</span>=<span class="string">"@drawable/tab_point_bg"</span></div><div class="line">        <span class="attr">android:layout_alignParentRight</span>=<span class="string">"true"</span></div><div class="line">        <span class="attr">android:textColor</span>=<span class="string">"@color/tab_point_text"</span> /&gt;</div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></div></pre></td></tr></table></figure></p>
 <p>如果我 text 和 icon 写死成源码的 id，tab 反而不显示，我随便写，是可以，纳闷，它是如何 findViewById 到的？</p>
 <p>最后，不要问我，icon 的大小和 text 的字体颜色和字体大小为什么写这么多，我也不知道，是拷的源码。另外，还有选中时 icon 和 text 的效果，需要自己写的，具体请看下面的我给的 sample。</p>
-<h1 id="源码地址"><a href="#源码地址" class="headerlink" title="源码地址"></a>源码地址</h1><p><a href="https://github.com/WuXiaolong/DesignSupportLibrarySample" target="_blank" rel="external">https://github.com/WuXiaolong/DesignSupportLibrarySample</a></p>
+<h1 id="源码地址"><a href="#源码地址" class="headerlink" title="源码地址"></a>源码地址</h1><p><a href="https://github.com/WuXiaolong/DesignSupportLibrarySample" target="_blank" rel="noopener">https://github.com/WuXiaolong/DesignSupportLibrarySample</a></p>
 <h1 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h1><ul>
 <li>2017-08-20 更新</li>
 <li>2015-08-03 撰写</li>
@@ -532,6 +533,7 @@ border:2px solid #69c;
 </div>
 
 -->  
+
       
 	   
     </div>
@@ -626,8 +628,8 @@ border:2px solid #69c;
       
       
     </footer>
-  </article>
 
+  </article> 
 
 
     <div class="post-spread">

@@ -87,13 +87,14 @@
 
 
 
-<meta name="description" content="###一、锁屏T_T被整哭了，我明知道锁屏走了onDestroy()方法，没有着手这个，反而去监听锁屏，还是太菜，基础不牢。 看日志发现，主Activity先onDestroy()了，随即又onCreate()，原因如下： 视频本身是横屏，手机界面是竖屏，锁屏操作存在一个横屏转竖屏的过程，这个过程如果不加android:configChanges=”orientation”,Activity会自动">
+<meta name="description" content="###一、锁屏T_T被整哭了，我明知道锁屏走了onDestroy()方法，没有着手这个，反而去监听锁屏，还是太菜，基础不牢。 看日志发现，主Activity先onDestroy()了，随即又onCreate()，原因如下： 视频本身是横屏，手机界面是竖屏，锁屏操作存在一个横屏转竖屏的过程，这个过程如果不加android">
 <meta name="keywords" content="Android,Video">
 <meta property="og:type" content="article">
 <meta property="og:title" content="解决Android视频锁屏还在继续播放">
 <meta property="og:url" content="http://wuxiaolong.me/2014/11/24/lock-screen-video/index.html">
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="###一、锁屏T_T被整哭了，我明知道锁屏走了onDestroy()方法，没有着手这个，反而去监听锁屏，还是太菜，基础不牢。 看日志发现，主Activity先onDestroy()了，随即又onCreate()，原因如下： 视频本身是横屏，手机界面是竖屏，锁屏操作存在一个横屏转竖屏的过程，这个过程如果不加android:configChanges=”orientation”,Activity会自动">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2016-08-25T11:38:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="解决Android视频锁屏还在继续播放">
@@ -490,9 +491,9 @@ border:2px solid #69c;
 <p>另外，onRestoreInstanceState的bundle参数也会传递到onCreate方法中，你也可以选择在onCreate方法中做数据还原。</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"> <span class="comment">/**</span></div><div class="line"> * 记录播放位置</div><div class="line"> */</div><div class="line"><span class="keyword">private</span> <span class="keyword">int</span> mLastPos = <span class="number">0</span>;</div><div class="line"> <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">	<span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">	setContentView(R.layout.video_play);</div><div class="line">	<span class="keyword">if</span> (savedInstanceState != <span class="keyword">null</span>) &#123;</div><div class="line">	mLastPos = savedInstanceState.getInt(<span class="string">"LastPosition"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onRestoreInstanceState</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">	<span class="keyword">super</span>.onRestoreInstanceState(savedInstanceState);</div><div class="line">	Log.d(<span class="string">"wxl"</span>, <span class="string">"onRestoreInstanceState start"</span>);</div><div class="line">	<span class="keyword">if</span> (savedInstanceState != <span class="keyword">null</span>) &#123;</div><div class="line">		mLastPos = savedInstanceState.getInt(<span class="string">"LastPosition"</span>);</div><div class="line">		Log.d(<span class="string">"wxl"</span>, <span class="string">"onRestoreInstanceState "</span> + mLastPos);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onSaveInstanceState</span><span class="params">(Bundle outState)</span> </span>&#123;</div><div class="line">	<span class="keyword">super</span>.onSaveInstanceState(outState);</div><div class="line">	Log.d(<span class="string">"wxl"</span>, <span class="string">"onSaveInstanceState start"</span>);</div><div class="line">	outState.putInt(<span class="string">"LastPosition"</span>, mLastPos);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>###三、附录</p>
-<p><a href="http://blog.csdn.net/terrantian/article/details/18670381" target="_blank" rel="external">Android锁屏后主Activity的onDestroy方法被调用</a></p>
-<p><a href="http://android.blog.51cto.com/268543/634646/" target="_blank" rel="external">onSaveInstanceState和onRestoreInstanceState触发的时机</a></p>
-<p><a href="http://www.cnblogs.com/a284628487/p/3345317.html" target="_blank" rel="external">Android 监听屏幕锁屏,用户解锁</a></p>
+<p><a href="http://blog.csdn.net/terrantian/article/details/18670381" target="_blank" rel="noopener">Android锁屏后主Activity的onDestroy方法被调用</a></p>
+<p><a href="http://android.blog.51cto.com/268543/634646/" target="_blank" rel="noopener">onSaveInstanceState和onRestoreInstanceState触发的时机</a></p>
+<p><a href="http://www.cnblogs.com/a284628487/p/3345317.html" target="_blank" rel="noopener">Android 监听屏幕锁屏,用户解锁</a></p>
 		 <!--广告-->
 		﻿<!--<div> 
 <h1><b>联系我</b></h1>
@@ -530,6 +531,7 @@ border:2px solid #69c;
 </div>
 
 -->  
+
       
 	   
     </div>
@@ -626,8 +628,8 @@ border:2px solid #69c;
       
       
     </footer>
-  </article>
 
+  </article> 
 
 
     <div class="post-spread">

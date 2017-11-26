@@ -94,6 +94,7 @@
 <meta property="og:url" content="http://wuxiaolong.me/2015/07/31/build-blog-by-hexo/index.html">
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="适合人群 喜欢写 Blog 的人 有一定的编程基础 爱折腾的人 熟练使用版本控制 Git 了解使用 GitHub 熟悉基本的 MarkDown 语法">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/MyBlogHome.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/2014-10-26-build-blog-1.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/2014-10-26-build-blog-2.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
@@ -483,8 +484,8 @@ border:2px solid #69c;
 <li>熟悉基本的 MarkDown 语法</li>
 </ul>
 <a id="more"></a>
-<h1 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h1><h2 id="安装-Git"><a href="#安装-Git" class="headerlink" title="安装 Git"></a>安装 Git</h2><p>下载 <a href="http://msysgit.github.io/" target="_blank" rel="external">msysgit</a> 并执行即可完成安装。</p>
-<h2 id="安装-Node-js"><a href="#安装-Node-js" class="headerlink" title="安装 Node.js"></a>安装 Node.js</h2><p>在 Windows 环境下安装 <a href="http://nodejs.org/" target="_blank" rel="external">Node.js</a> 非常简单，仅须下载安装文件并执行即可完成安装。</p>
+<h1 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h1><h2 id="安装-Git"><a href="#安装-Git" class="headerlink" title="安装 Git"></a>安装 Git</h2><p>下载 <a href="http://msysgit.github.io/" target="_blank" rel="noopener">msysgit</a> 并执行即可完成安装。</p>
+<h2 id="安装-Node-js"><a href="#安装-Node-js" class="headerlink" title="安装 Node.js"></a>安装 Node.js</h2><p>在 Windows 环境下安装 <a href="http://nodejs.org/" target="_blank" rel="noopener">Node.js</a> 非常简单，仅须下载安装文件并执行即可完成安装。</p>
 <h2 id="安装-hexo"><a href="#安装-hexo" class="headerlink" title="安装 hexo"></a>安装 hexo</h2><p>利用 npm 命令即可安装。（在任意位置点击鼠标右键，选择Git bash）<br><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line">npm install -g hexo</div></pre></td></tr></table></figure></p>
 <p><strong><em>问题</em></strong></p>
 <ul>
@@ -506,14 +507,14 @@ border:2px solid #69c;
 </li>
 </ul>
 <p>安装此 server 后再试，问题解决</p>
-<h1 id="GitHub-创建博客"><a href="#GitHub-创建博客" class="headerlink" title="GitHub 创建博客"></a>GitHub 创建博客</h1><h2 id="注册账号"><a href="#注册账号" class="headerlink" title="注册账号"></a>注册账号</h2><p>地址：<a href="https://github.com/" target="_blank" rel="external">https://github.com/</a><br>输入账号、邮箱、密码，然后点击注册按钮.<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/2014-10-26-build-blog-1.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt="1"></p>
+<h1 id="GitHub-创建博客"><a href="#GitHub-创建博客" class="headerlink" title="GitHub 创建博客"></a>GitHub 创建博客</h1><h2 id="注册账号"><a href="#注册账号" class="headerlink" title="注册账号"></a>注册账号</h2><p>地址：<a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a><br>输入账号、邮箱、密码，然后点击注册按钮.<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/2014-10-26-build-blog-1.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt="1"></p>
 <h2 id="创建页面仓库"><a href="#创建页面仓库" class="headerlink" title="创建页面仓库"></a>创建页面仓库</h2><p>这个仓库的名字需要和你的账号对应，格式: yourname.github.io<br>输入基本信息，然后点击创建仓库.<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/2014-10-26-build-blog-2.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt="2"><br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/2014-10-26-build-blog-3.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt="3"><br><strong><em>注意</em></strong><br>命名规则：你的 GitHub 账号.github.io，我这里被坑了，之前是 jekell 写的，现在换成 hexo，所以我是另建创库了。</p>
 <h2 id="查看-SSh"><a href="#查看-SSh" class="headerlink" title="查看 SSh"></a>查看 SSh</h2><p>SSH 公钥默认储存在账户的主目录下的 ~/.ssh 目录。<br> 进入 .ssh 目录下，命令行：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">ls</div></pre></td></tr></table></figure></p>
 <p>查看，如果返回 something 和 something.pub，说明已经有 SSH 公钥。</p>
 <h2 id="生成SSH密钥"><a href="#生成SSH密钥" class="headerlink" title="生成SSH密钥"></a>生成SSH密钥</h2><p>没有的话，生成，还是在 .ssh 目录下，命令行：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">ssh-keygen -t rsa -C &quot;你的邮箱地址&quot;</div></pre></td></tr></table></figure></p>
 <p>按 3 个回车，密码为空。</p>
 <p>在 C:\Users\Administrator.ssh 下，得到两个文件 id_rsa 和 id_rsa.pub。</p>
-<h2 id="在-GitHub-上添加-SSH-密钥"><a href="#在-GitHub-上添加-SSH-密钥" class="headerlink" title="在 GitHub 上添加 SSH 密钥"></a>在 GitHub 上添加 SSH 密钥</h2><p>打开 id_rsa.pub，复制全文到 <a href="https://github.com/settings/ssh" target="_blank" rel="external">https://github.com/settings/ssh</a> ，Add SSH key，粘贴进去。</p>
+<h2 id="在-GitHub-上添加-SSH-密钥"><a href="#在-GitHub-上添加-SSH-密钥" class="headerlink" title="在 GitHub 上添加 SSH 密钥"></a>在 GitHub 上添加 SSH 密钥</h2><p>打开 id_rsa.pub，复制全文到 <a href="https://github.com/settings/ssh" target="_blank" rel="noopener">https://github.com/settings/ssh</a> ，Add SSH key，粘贴进去。</p>
 <h1 id="hexo使用"><a href="#hexo使用" class="headerlink" title="hexo使用"></a>hexo使用</h1><h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">├── .deploy       #需要部署的文件</div><div class="line">├── node_modules  #Hexo插件</div><div class="line">├── public        #生成的静态网页文件</div><div class="line">├── scaffolds     #模板</div><div class="line">├── source        #博客正文和其他源文件，404、favicon、CNAME 都应该放在这里</div><div class="line">|   ├── _drafts   #草稿</div><div class="line">|   └── _posts    #文章</div><div class="line">├── themes        #主题</div><div class="line">├── _config.yml   #全局配置文件</div><div class="line">└── package.json</div></pre></td></tr></table></figure>
 <h2 id="全局配置-config-yml"><a href="#全局配置-config-yml" class="headerlink" title="全局配置 _config.yml"></a>全局配置 _config.yml</h2><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"># Hexo Configuration</div><div class="line"># Docs: http://hexo.io/docs/configuration.html</div><div class="line"># Source: https://github.com/hexojs/hexo/</div><div class="line"># Site #站点信息</div><div class="line">title:  #标题</div><div class="line">subtitle:  #副标题</div><div class="line">description:  #站点描述，给搜索引擎看的</div><div class="line">author:  #作者</div><div class="line">email:  #电子邮箱</div><div class="line">language: zh-CN #语言</div><div class="line"># URL #链接格式</div><div class="line">url:  #网址</div><div class="line">root: / #根目录</div><div class="line">permalink: :year/:month/:day/:title/ #文章的链接格式</div><div class="line">tag_dir: tags #标签目录</div><div class="line">archive_dir: archives #存档目录</div><div class="line">category_dir: categories #分类目录</div><div class="line">code_dir: downloads/code</div><div class="line">permalink_defaults:</div><div class="line"># Directory #目录</div><div class="line">source_dir: source #源文件目录</div><div class="line">public_dir: public #生成的网页文件目录</div><div class="line"># Writing #写作</div><div class="line">new_post_name: :title.md #新文章标题</div><div class="line">default_layout: post #默认的模板，包括 post、page、photo、draft（文章、页面、照片、草稿）</div><div class="line">titlecase: false #标题转换成大写</div><div class="line">external_link: true #在新选项卡中打开连接</div><div class="line">filename_case: 0</div><div class="line">render_drafts: false</div><div class="line">post_asset_folder: false</div><div class="line">relative_link: false</div><div class="line">highlight: #语法高亮</div><div class="line">  enable: true #是否启用</div><div class="line">  line_number: true #显示行号</div><div class="line">  tab_replace:</div><div class="line"># Category &amp; Tag #分类和标签</div><div class="line">default_category: uncategorized #默认分类</div><div class="line">category_map:</div><div class="line">tag_map:</div><div class="line"># Archives</div><div class="line">2: 开启分页</div><div class="line">1: 禁用分页</div><div class="line">0: 全部禁用</div><div class="line">archive: 2</div><div class="line">category: 2</div><div class="line">tag: 2</div><div class="line"># Server #本地服务器</div><div class="line">port: 4000 #端口号</div><div class="line">server_ip: localhost #IP 地址</div><div class="line">logger: false</div><div class="line">logger_format: dev</div><div class="line"># Date / Time format #日期时间格式</div><div class="line">date_format: YYYY-MM-DD #参考http://momentjs.com/docs/#/displaying/format/</div><div class="line">time_format: H:mm:ss</div><div class="line"># Pagination #分页</div><div class="line">per_page: 10 #每页文章数，设置成 0 禁用分页</div><div class="line">pagination_dir: page</div><div class="line"># Disqus #Disqus评论，替换为多说</div><div class="line">disqus_shortname:</div><div class="line"># Extensions #拓展插件</div><div class="line">theme: landscape-plus #主题</div><div class="line">exclude_generator:</div><div class="line">plugins: #插件，例如生成 RSS 和站点地图的</div><div class="line">- hexo-generator-feed</div><div class="line">- hexo-generator-sitemap</div><div class="line"># Deployment #部署，将 lmintlcx 改成用户名</div><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: 刚刚github创库地址.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
 <p><strong><em>注意</em></strong></p>
@@ -533,12 +534,12 @@ border:2px solid #69c;
 <p>hexo deploy 问题：Deployer not found: git<br>执行<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure></p>
 <p>再重新 hexo deploy ，以下提示说明部署成功：<br><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line">[info] Deploy done: git</div></pre></td></tr></table></figure></p>
 <p>点击 GitHub 上项目的 Settings，GitHub Pages，提示 Your site is published at <a href="http://wuxiaolong.me">http://wuxiaolong.me</a> (这是我买的域名)。</p>
-<h1 id="图床"><a href="#图床" class="headerlink" title="图床"></a>图床</h1><p>1、墙裂推荐七牛云储存，<a href="https://portal.qiniu.com/signup?code=3lk4saqepkdhu" target="_blank" rel="external">注册地址</a>。</p>
+<h1 id="图床"><a href="#图床" class="headerlink" title="图床"></a>图床</h1><p>1、墙裂推荐七牛云储存，<a href="https://portal.qiniu.com/signup?code=3lk4saqepkdhu" target="_blank" rel="noopener">注册地址</a>。</p>
 <p>2、七牛云储存提供10G的免费空间，以及每月10G的流量，存放个人博客图片够了。</p>
 <p>3、七牛云储存还有各种图形处理功能、缩略图、视频存放速度也给力。</p>
-<p>具体使用见 <a href="http://wuxiaolong.github.io/2014/10/30/qiniu-photo-bed" target="_blank" rel="external">使用七牛作为github博客的图床</a>。</p>
+<p>具体使用见 <a href="http://wuxiaolong.github.io/2014/10/30/qiniu-photo-bed" target="_blank" rel="noopener">使用七牛作为github博客的图床</a>。</p>
 <h1 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h1><h2 id="将独立域名与-GitHub-Pages-的空间绑定"><a href="#将独立域名与-GitHub-Pages-的空间绑定" class="headerlink" title="将独立域名与 GitHub Pages 的空间绑定"></a>将独立域名与 GitHub Pages 的空间绑定</h2><p>方法一：在站点 source 目录下面，新建一个名为 CNAME 的文本文件，里面写入你要绑定的域名，比如 wuxiaolong.me<br>方法二：在 Repository 的根目录下面，新建一个名为 CNAME 的文本文件，里面写入你要绑定的域名，比如 wuxiaolong.me</p>
-<h2 id="DNS-设置"><a href="#DNS-设置" class="headerlink" title="DNS 设置"></a>DNS 设置</h2><p>用 <a href="https://www.dnspod.cn/" target="_blank" rel="external">DNSpod</a>，快，免费，稳定。<br>注册 DNSpod，添加域名，如下图设置。<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/build-blog-by-hexo-1.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br>其中A的两条记录指向的 ip 地址是 GitHub Pages 的提供的 ip<br>如何知道你的 GitHub 上项目的 ip，如下：<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/build-blog-by-hexo-2.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""></p>
+<h2 id="DNS-设置"><a href="#DNS-设置" class="headerlink" title="DNS 设置"></a>DNS 设置</h2><p>用 <a href="https://www.dnspod.cn/" target="_blank" rel="noopener">DNSpod</a>，快，免费，稳定。<br>注册 DNSpod，添加域名，如下图设置。<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/build-blog-by-hexo-1.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br>其中A的两条记录指向的 ip 地址是 GitHub Pages 的提供的 ip<br>如何知道你的 GitHub 上项目的 ip，如下：<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/build-blog-by-hexo-2.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""></p>
 <h2 id="去-Godaddy-修改-DNS-地址"><a href="#去-Godaddy-修改-DNS-地址" class="headerlink" title="去 Godaddy 修改 DNS 地址"></a>去 Godaddy 修改 DNS 地址</h2><p>更改 Godaddy 的 Nameservers 为 DNSpod 的 NameServers。<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/build-blog-by-hexo-5.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""></p>
 <h1 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h1><blockquote>
 <p>2016.08.20 更新，安装以下插件，据说博客访问速度更快。</p>
@@ -554,18 +555,18 @@ border:2px solid #69c;
 <p>imagages 压缩<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">npm install hexo-imagemin --save</div></pre></td></tr></table></figure></p>
 <h2 id="插件开启配置"><a href="#插件开启配置" class="headerlink" title="插件开启配置"></a>插件开启配置</h2><p>根目录下的 _config.yml，添加以下代码:<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"># RSS</div><div class="line">feed:</div><div class="line">type: atom</div><div class="line">path: atom.xml</div><div class="line">limit: 20</div><div class="line"></div><div class="line"># sitemap</div><div class="line"># 提交给谷歌搜素引擎，SEO优化开启配置是一样的</div><div class="line">sitemap:</div><div class="line">    path: sitemap.xml</div><div class="line"># 提交百度搜索引擎   </div><div class="line">baidusitemap:</div><div class="line">    path: baidusitemap.xml </div><div class="line"></div><div class="line"># HTML压缩</div><div class="line">html_minifier:</div><div class="line">  exclude:     </div><div class="line"># css压缩</div><div class="line">clean_css:</div><div class="line">  exclude: </div><div class="line">	- &apos;*.min.css&apos;</div><div class="line"># js压缩   </div><div class="line">uglify:</div><div class="line">  mangle: true</div><div class="line">  output:</div><div class="line">  compress:</div><div class="line">  exclude: </div><div class="line">	- &apos;*.min.js&apos;</div><div class="line"># image压缩    </div><div class="line">imagemin:</div><div class="line">  enable     : true</div><div class="line">  interlaced : false</div><div class="line">  multipass  : false</div><div class="line">  optimizationLevel: 2</div><div class="line">  pngquant   : false</div><div class="line">  progressive: false</div></pre></td></tr></table></figure></p>
 <p>package.json 可以看安装了哪些插件。</p>
-<p><a href="http://www.jianshu.com/p/86557c34b671" target="_blank" rel="external">Hexo Seo优化让你的博客在google搜索排名第一</a></p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>之前用的 jekell 写的，<a href="http://wuxiaolong.github.io/2014/10/26/build-blog/" target="_blank" rel="external">手把手教你建github技术博客by jekyll</a>，也是折腾了几天才做成自己满意的，昨天决定换成 hexo，也是花了一天半时间，为了追求更好，必须折腾！</p>
+<p><a href="http://www.jianshu.com/p/86557c34b671" target="_blank" rel="noopener">Hexo Seo优化让你的博客在google搜索排名第一</a></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>之前用的 jekell 写的，<a href="http://wuxiaolong.github.io/2014/10/26/build-blog/" target="_blank" rel="noopener">手把手教你建github技术博客by jekyll</a>，也是折腾了几天才做成自己满意的，昨天决定换成 hexo，也是花了一天半时间，为了追求更好，必须折腾！</p>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
-<li><a href="http://zipperary.com/2013/05/28/hexo-guide-1/" target="_blank" rel="external">hexo系列教程：（一）hexo介绍</a></li>
-<li><a href="http://blog.lmintlcx.com/post/blog-with-hexo.html" target="_blank" rel="external">使用Hexo搭建博客</a></li>
-<li><a href="http://blog.csdn.net/poem_of_sunshine/article/details/29369785" target="_blank" rel="external">如何搭建一个独立博客——简明Github Pages与Hexo教程</a></li>
-<li><a href="http://www.jianshu.com/p/e858a90d0a17" target="_blank" rel="external">windows下搭建hexo博客并将其部署到GitCafe终极教程</a></li>
-<li><a href="http://www.dute.me/" target="_blank" rel="external">GoDaddy优惠码</a></li>
-<li><a href="http://blog.csdn.net/poem_of_sunshine/article/details/29369785" target="_blank" rel="external">Godaddy购买域名及配置</a></li>
-<li><a href="http://blog.csdn.net/yuguiyang1990/article/details/39523005" target="_blank" rel="external">GitHub配置域名（Godaddy）</a></li>
-<li><a href="http://ibruce.info/2013/11/22/hexo-your-blog/" target="_blank" rel="external">hexo你的博客</a></li>
-<li><a href="https://hexo.io/zh-cn/" target="_blank" rel="external">hexo官网</a></li>
+<li><a href="http://zipperary.com/2013/05/28/hexo-guide-1/" target="_blank" rel="noopener">hexo系列教程：（一）hexo介绍</a></li>
+<li><a href="http://blog.lmintlcx.com/post/blog-with-hexo.html" target="_blank" rel="noopener">使用Hexo搭建博客</a></li>
+<li><a href="http://blog.csdn.net/poem_of_sunshine/article/details/29369785" target="_blank" rel="noopener">如何搭建一个独立博客——简明Github Pages与Hexo教程</a></li>
+<li><a href="http://www.jianshu.com/p/e858a90d0a17" target="_blank" rel="noopener">windows下搭建hexo博客并将其部署到GitCafe终极教程</a></li>
+<li><a href="http://www.dute.me/" target="_blank" rel="noopener">GoDaddy优惠码</a></li>
+<li><a href="http://blog.csdn.net/poem_of_sunshine/article/details/29369785" target="_blank" rel="noopener">Godaddy购买域名及配置</a></li>
+<li><a href="http://blog.csdn.net/yuguiyang1990/article/details/39523005" target="_blank" rel="noopener">GitHub配置域名（Godaddy）</a></li>
+<li><a href="http://ibruce.info/2013/11/22/hexo-your-blog/" target="_blank" rel="noopener">hexo你的博客</a></li>
+<li><a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">hexo官网</a></li>
 </ul>
 		 <!--广告-->
 		﻿<!--<div> 
@@ -604,6 +605,7 @@ border:2px solid #69c;
 </div>
 
 -->  
+
       
 	   
     </div>
@@ -677,8 +679,8 @@ border:2px solid #69c;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/07/29/AppInfo/" rel="next" title="Android获取手机已安装apk文件信息">
-                <i class="fa fa-chevron-left"></i> Android获取手机已安装apk文件信息
+              <a href="/2015/07/29/Android-Iconics/" rel="next" title="GitHub之Android-Iconics使用">
+                <i class="fa fa-chevron-left"></i> GitHub之Android-Iconics使用
               </a>
             
           </div>
@@ -698,8 +700,8 @@ border:2px solid #69c;
       
       
     </footer>
-  </article>
 
+  </article> 
 
 
     <div class="post-spread">

@@ -87,13 +87,14 @@
 
 
 
-<meta name="description" content="Android 6.0 棉花糖，app将不会在安装的时候授予权限，取而代之的是，app不得不在运行时一个一个询问用户授予权限。 android &amp;#123;    compileSdkVersion 23    ...      defaultConfig &amp;#123;        ...        targetSdkVersion 23        ...    &amp;#125;&amp;#125;">
+<meta name="description" content="Android 6.0 棉花糖，app将不会在安装的时候授予权限，取而代之的是，app不得不在运行时一个一个询问用户授予权限。 android &amp;#123;    compileSdkVersion 23    ...      defaultConfig &amp;#123;        ...      ">
 <meta name="keywords" content="RuntimePermission">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android 6.0 RuntimePermission">
 <meta property="og:url" content="http://wuxiaolong.me/2016/02/04/RuntimePermission/index.html">
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="Android 6.0 棉花糖，app将不会在安装的时候授予权限，取而代之的是，app不得不在运行时一个一个询问用户授予权限。 android &amp;#123;    compileSdkVersion 23    ...      defaultConfig &amp;#123;        ...        targetSdkVersion 23        ...    &amp;#125;&amp;#125;">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/RuntimePermission1.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/RuntimePermission3.gif?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/RuntimePermission2.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
@@ -490,8 +491,8 @@ border:2px solid #69c;
 <p>这里新建了接口onPermissionCallbackListener，为了回调方便：<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">onPermissionCallbackListener</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">onGranted</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">onDenied</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>在需要使用到权限之前调用requestRuntimePermission方法，如通讯录权限：<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">requestRuntimePermission(READ_CONTACTS, <span class="keyword">new</span> onPermissionCallbackListener() &#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onGranted</span><span class="params">()</span> </span>&#123;</div><div class="line">        Log.i(<span class="string">"wxl"</span>, <span class="string">"授权请求通过"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDenied</span><span class="params">()</span> </span>&#123;</div><div class="line">        Log.i(<span class="string">"wxl"</span>, <span class="string">"授权请求拒绝"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
 <p>其他权限调用示例：<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPermission</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">    <span class="keyword">switch</span> (v.getId()) &#123;</div><div class="line">        <span class="keyword">case</span> R.id.calendar:</div><div class="line">            <span class="comment">//日历</span></div><div class="line">            requestRuntimePermission(READ_CALENDAR, <span class="keyword">this</span>);</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> R.id.camera:</div><div class="line">            <span class="comment">//照相机</span></div><div class="line">            requestRuntimePermission(CAMERA, <span class="keyword">this</span>);</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> R.id.contacts:</div><div class="line">            <span class="comment">//通讯录</span></div><div class="line">            requestRuntimePermission(READ_CONTACTS, <span class="keyword">this</span>);</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> R.id.location:</div><div class="line">            <span class="comment">//定位</span></div><div class="line">            requestRuntimePermission(ACCESS_FINE_LOCATION, <span class="keyword">this</span>);</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> R.id.microPhone:</div><div class="line">            <span class="comment">//录音</span></div><div class="line">            requestRuntimePermission(RECORD_AUDIO, <span class="keyword">this</span>);</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> R.id.readPhone:</div><div class="line">            <span class="comment">//读取手机状态</span></div><div class="line">            requestRuntimePermission(READ_PHONE_STATE, <span class="keyword">this</span>);</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> R.id.sensors:</div><div class="line">            <span class="comment">//传感器</span></div><div class="line">            requestRuntimePermission(BODY_SENSORS, <span class="keyword">this</span>);</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> R.id.sms:</div><div class="line">            <span class="comment">//短信</span></div><div class="line">            requestRuntimePermission(SEND_SMS, <span class="keyword">this</span>);</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> R.id.storage:</div><div class="line">            <span class="comment">//文件管理</span></div><div class="line">            requestRuntimePermission(READ_EXTERNAL_STORAGE, <span class="keyword">this</span>);</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h1 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h1><p><a href="https://github.com/WuXiaolong/AndroidSamples/blob/master/app/src/main/java/com/wuxiaolong/androidsamples/runtimepermission/RuntimePermissionActivity.java" target="_blank" rel="external">https://github.com/WuXiaolong/AndroidSamples/blob/master/app/src/main/java/com/wuxiaolong/androidsamples/runtimepermission/RuntimePermissionActivity.java</a></p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0830/3387.html" target="_blank" rel="external">Android M 新的运行时权限开发者需要知道的一切</a></p>
+<h1 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h1><p><a href="https://github.com/WuXiaolong/AndroidSamples/blob/master/app/src/main/java/com/wuxiaolong/androidsamples/runtimepermission/RuntimePermissionActivity.java" target="_blank" rel="noopener">https://github.com/WuXiaolong/AndroidSamples/blob/master/app/src/main/java/com/wuxiaolong/androidsamples/runtimepermission/RuntimePermissionActivity.java</a></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0830/3387.html" target="_blank" rel="noopener">Android M 新的运行时权限开发者需要知道的一切</a></p>
 <h1 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h1><ul>
 <li>2017.03.04 修改</li>
 <li>2016.02.04 撰写</li>
@@ -533,6 +534,7 @@ border:2px solid #69c;
 </div>
 
 -->  
+
       
 	   
     </div>
@@ -627,8 +629,8 @@ border:2px solid #69c;
       
       
     </footer>
-  </article>
 
+  </article> 
 
 
     <div class="post-spread">

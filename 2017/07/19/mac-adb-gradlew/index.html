@@ -94,6 +94,7 @@
 <meta property="og:url" content="http://wuxiaolong.me/2017/07/19/mac-adb-gradlew/index.html">
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="今年 6 月 15 日，我痛下决心，买了心仪已久的 MacBook Pro，《2017 款 MacBook Pro 初体验》，Mac 小白，这篇文章是踩坑后的记录，也将持续记录，好记忆真不如烂笔头，现在会设置了，一个月过后呢，而且我年纪也大了。">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-08-26T06:27:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac 配置 adb 环境、gradlew：command not found">
@@ -466,7 +467,7 @@ border:2px solid #69c;
 
       
         <blockquote>
-<p>今年 6 月 15 日，我痛下决心，买了心仪已久的 MacBook Pro，《<a href="http://mp.weixin.qq.com/s/AXobpEbNEbhLLGzeQTrrrg" target="_blank" rel="external">2017 款 MacBook Pro 初体验</a>》，Mac 小白，这篇文章是踩坑后的记录，也将持续记录，好记忆真不如烂笔头，现在会设置了，一个月过后呢，而且我年纪也大了。</p>
+<p>今年 6 月 15 日，我痛下决心，买了心仪已久的 MacBook Pro，《<a href="http://mp.weixin.qq.com/s/AXobpEbNEbhLLGzeQTrrrg" target="_blank" rel="noopener">2017 款 MacBook Pro 初体验</a>》，Mac 小白，这篇文章是踩坑后的记录，也将持续记录，好记忆真不如烂笔头，现在会设置了，一个月过后呢，而且我年纪也大了。</p>
 </blockquote>
 <a id="more"></a>
 <h1 id="配置-adb-环境"><a href="#配置-adb-环境" class="headerlink" title="配置 adb 环境"></a>配置 adb 环境</h1><p>windows 下安装 apk，可能直接点击应用宝就安装了，Mac  没有应用宝，因为只能用 adb 命令行安装，却发现 adb 命令行找不到，算了，搁置了几天，之后安装 APK 很是麻烦，又不能拷到 SD 卡上，最终还是 Google，解决了这个问题。</p>
@@ -492,11 +493,11 @@ border:2px solid #69c;
 <p>返回如下，说明配置成功：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">openjdk version &quot;1.8.0_112-release&quot;</div><div class="line">OpenJDK Runtime Environment (build 1.8.0_112-release-b06)</div><div class="line">OpenJDK 64-Bit Server VM (build 25.112-b06, mixed mode)</div></pre></td></tr></table></figure></p>
 <p>这样配置完毕，命令行 gradlew assembleRelease 正常执行，解决之。</p>
 <h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>问题一个接着一个，我都不想搞了，但一直以来，一个经验告诉我，遇到问题，不回避，解决才是王道，现在不解决，下次再遇到，还是回避不了。其实这些问题前人都遇到过，感谢他们无私分享，让我们遇到问题不再无助，不觉得孤独。</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://answerzhao.github.io/2016/09/15/mac%E4%B8%8Badb%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%92%8C%E5%B8%B8%E7%94%A8adb%E5%91%BD%E4%BB%A4/" target="_blank" rel="external">mac下adb环境配置和常用adb命令</a></p>
-<p><a href="https://gxnotes.com/article/33908.html" target="_blank" rel="external">gradlew：权限被拒绝
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://answerzhao.github.io/2016/09/15/mac%E4%B8%8Badb%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%92%8C%E5%B8%B8%E7%94%A8adb%E5%91%BD%E4%BB%A4/" target="_blank" rel="noopener">mac下adb环境配置和常用adb命令</a></p>
+<p><a href="https://gxnotes.com/article/33908.html" target="_blank" rel="noopener">gradlew：权限被拒绝
 </a></p>
-<p><a href="http://www.cnblogs.com/havenshen/p/3490448.html" target="_blank" rel="external">mac OS X 10.9.1 配置jdk环境变量</a></p>
-<p><a href="https://stackoverflow.com/questions/43211282/using-jdk-that-is-bundled-inside-android-studio-as-java-home-on-mac" target="_blank" rel="external">Using JDK that is bundled inside Android Studio as JAVA_HOME on Mac</a></p>
+<p><a href="http://www.cnblogs.com/havenshen/p/3490448.html" target="_blank" rel="noopener">mac OS X 10.9.1 配置jdk环境变量</a></p>
+<p><a href="https://stackoverflow.com/questions/43211282/using-jdk-that-is-bundled-inside-android-studio-as-java-home-on-mac" target="_blank" rel="noopener">Using JDK that is bundled inside Android Studio as JAVA_HOME on Mac</a></p>
 		 <!--广告-->
 		﻿<!--<div> 
 <h1><b>联系我</b></h1>
@@ -534,6 +535,7 @@ border:2px solid #69c;
 </div>
 
 -->  
+
       
 	   
     </div>
@@ -632,8 +634,8 @@ border:2px solid #69c;
       
       
     </footer>
-  </article>
 
+  </article> 
 
 
     <div class="post-spread">

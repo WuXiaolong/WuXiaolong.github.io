@@ -87,13 +87,14 @@
 
 
 
-<meta name="description" content="发布过Android应用的朋友们应该都知道，Android APK的发布是必需要签名，本签名指南演示如何使用WoSign安卓代码签名证书，签名安卓 .apk 程序。 签名证书制作证书，证书文件名：android.keystore, 证书别名：android.keystore 安装签名环境JDK包签名工具包可以在JDK官方网站下载：http://www.oracle.com/technetwork/">
+<meta name="description" content="发布过Android应用的朋友们应该都知道，Android APK的发布是必需要签名，本签名指南演示如何使用WoSign安卓代码签名证书，签名安卓 .apk 程序。 签名证书制作证书，证书文件名：android.keystore, 证书别名：android.keystore 安装签名环境JDK包签名工具包可以在JDK官">
 <meta name="keywords" content="Android,jarsigner">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jarsigner签名安卓Apk程序">
 <meta property="og:url" content="http://wuxiaolong.me/2014/12/05/jarsigner/index.html">
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="发布过Android应用的朋友们应该都知道，Android APK的发布是必需要签名，本签名指南演示如何使用WoSign安卓代码签名证书，签名安卓 .apk 程序。 签名证书制作证书，证书文件名：android.keystore, 证书别名：android.keystore 安装签名环境JDK包签名工具包可以在JDK官方网站下载：http://www.oracle.com/technetwork/">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/2014-12-05-jarsigner-0.png">
 <meta property="og:image" content="http://wuxiaolong.qiniudn.com/2014-12-05-jarsigner-1.png">
 <meta property="og:image" content="http://wuxiaolong.qiniudn.com/2014-12-05-jarsigner-2.png">
@@ -471,7 +472,7 @@ border:2px solid #69c;
       
         <p>发布过Android应用的朋友们应该都知道，Android APK的发布是必需要签名，本签名指南演示如何使用WoSign安卓代码签名证书，签名安卓 .apk 程序。</p>
 <h2 id="签名证书"><a href="#签名证书" class="headerlink" title="签名证书"></a>签名证书</h2><p>制作证书，证书文件名：android.keystore, 证书别名：android.keystore</p>
-<h2 id="安装签名环境JDK包"><a href="#安装签名环境JDK包" class="headerlink" title="安装签名环境JDK包"></a>安装签名环境JDK包</h2><p>签名工具包可以在JDK官方网站下载：<a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="external">http://www.oracle.com/technetwork/java/javase/downloads/index.html</a>，也可以直接点击这里下载JDK工具包(请使用JDK 1.6版本)。<br>文件包下载安装完成后，然后就开始进入jdk的签名根目录，具体如下：</p>
+<h2 id="安装签名环境JDK包"><a href="#安装签名环境JDK包" class="headerlink" title="安装签名环境JDK包"></a>安装签名环境JDK包</h2><p>签名工具包可以在JDK官方网站下载：<a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="noopener">http://www.oracle.com/technetwork/java/javase/downloads/index.html</a>，也可以直接点击这里下载JDK工具包(请使用JDK 1.6版本)。<br>文件包下载安装完成后，然后就开始进入jdk的签名根目录，具体如下：</p>
 <p>开始-&gt; 运行-&gt; cmd-&gt;cd 到您安装的jdk的目录这里我是D:\Program Files\Java\jdk1.6.0\bin</p>
 <a id="more"></a>
 <h2 id="签名"><a href="#签名" class="headerlink" title="签名"></a>签名</h2><p>在D:\Program Files\Java\jdk1.6.0\bin 找到工具 jarsigner.exe，并把证书android.keystore 文件放入当前目录。签名命令：</p>
@@ -487,7 +488,7 @@ border:2px solid #69c;
 <pre><code>jarsigner -verify -verbose Last_gongs_sign.apk                                            
 </code></pre><p>或<br>    jarsigner -verify -verbose -certs Last_gongs_sign.apk  </p>
 <p>上面的命令, 使用 -certs 参数, 将显示 “CN=” 行, 描述是谁签名了APK文件.</p>
-<p>原文：<a href="http://feelyou.info/trying_to_manually_sign_android_package_with_jarsigner_but_install_failed/" target="_blank" rel="external">http://feelyou.info/trying_to_manually_sign_android_package_with_jarsigner_but_install_failed/</a></p>
+<p>原文：<a href="http://feelyou.info/trying_to_manually_sign_android_package_with_jarsigner_but_install_failed/" target="_blank" rel="noopener">http://feelyou.info/trying_to_manually_sign_android_package_with_jarsigner_but_install_failed/</a></p>
 		 <!--广告-->
 		﻿<!--<div> 
 <h1><b>联系我</b></h1>
@@ -525,6 +526,7 @@ border:2px solid #69c;
 </div>
 
 -->  
+
       
 	   
     </div>
@@ -621,8 +623,8 @@ border:2px solid #69c;
       
       
     </footer>
-  </article>
 
+  </article> 
 
 
     <div class="post-spread">

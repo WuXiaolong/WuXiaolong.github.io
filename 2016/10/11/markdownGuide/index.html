@@ -87,13 +87,14 @@
 
 
 
-<meta name="description" content="Markdown是什么，我还真不知道，嘿嘿，最初接触markdown，是因为github的README.md，知道这肯定是文本，却是md结尾的，于是了解并自学了点markdown语法，也庆幸那点好奇，才为后来的个人博客做了基础，写博客用markdown还是很便捷的。  Markdown的语法全由一些符号所组成，易读易写。本文主要分享我平时经常使用到的Markdown语法。">
+<meta name="description" content="Markdown是什么，我还真不知道，嘿嘿，最初接触markdown，是因为github的README.md，知道这肯定是文本，却是md结尾的，于是了解并自学了点markdown语法，也庆幸那点好奇，才为后来的个人博客做了基础，写博客用markdown还是很便捷的。  Markdown的语法全由一些符号所组成，易读易写">
 <meta name="keywords" content="Markdown">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Markdown常用语法">
 <meta property="og:url" content="http://wuxiaolong.me/2016/10/11/markdownGuide/index.html">
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="Markdown是什么，我还真不知道，嘿嘿，最初接触markdown，是因为github的README.md，知道这肯定是文本，却是md结尾的，于是了解并自学了点markdown语法，也庆幸那点好奇，才为后来的个人博客做了基础，写博客用markdown还是很便捷的。  Markdown的语法全由一些符号所组成，易读易写。本文主要分享我平时经常使用到的Markdown语法。">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/markdowm1.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/markdowm2.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_wuxiaolong.jpg">
@@ -492,7 +493,7 @@ border:2px solid #69c;
 <p>2、行首插入 1 到 6 个 # ，对应到标题 1 到 6 阶，如：<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/markdowm2.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""></p>
 <p><strong>我比较喜欢用第二种语法</strong>。</p>
 <h1 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h1><p>[吴小龙同學](<a href="http://wuxiaolong.me/">http://wuxiaolong.me/</a>)<br>效果如下：<br><a href="http://wuxiaolong.me/">吴小龙同學</a></p>
-<h1 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h1><p>![我的公众号](<a href="http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_wuxiaolong.jpg" target="_blank" rel="external">http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_wuxiaolong.jpg</a>)<br>前面的文本可不写，效果如下：<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_wuxiaolong.jpg" alt="吴小龙同學"></p>
+<h1 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h1><p>![我的公众号](<a href="http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_wuxiaolong.jpg" target="_blank" rel="noopener">http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_wuxiaolong.jpg</a>)<br>前面的文本可不写，效果如下：<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_wuxiaolong.jpg" alt="吴小龙同學"></p>
 <h1 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h1><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/markdowm4.jpg?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""></p>
 <p>java代表代码语言，效果如下：<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PaintCanvas</span> <span class="keyword">extends</span> <span class="title">View</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> Paint mPaint;</div><div class="line"></div><div class="line">    <span class="comment">// 省略构造方法</span></div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;       </div><div class="line">        mPaint = <span class="keyword">new</span> Paint();</div><div class="line">        mPaint.setAntiAlias(<span class="keyword">true</span>);        </div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>&#123;</div><div class="line">        canvas.drawCircle(<span class="number">500</span>, <span class="number">550</span>, <span class="number">500</span>, mPaint);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h1 id="横线"><a href="#横线" class="headerlink" title="横线"></a>横线</h1><p>比如代码过时，会有一个横线，可用分别用两个<strong>~</strong>包含内容表示，~~ android:singleLine=”true”~~ (并没有空格，为了演示)，效果如下：<br><del>android:singleLine=”true”</del></p>
@@ -554,6 +555,7 @@ border:2px solid #69c;
 </div>
 
 -->  
+
       
 	   
     </div>
@@ -648,8 +650,8 @@ border:2px solid #69c;
       
       
     </footer>
-  </article>
 
+  </article> 
 
 
     <div class="post-spread">
