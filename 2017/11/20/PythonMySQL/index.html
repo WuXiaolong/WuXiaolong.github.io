@@ -1,0 +1,1043 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Python,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="吴小龙同學" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="安装 MySQL下载 MySQL访问 MySQL 官网：https://dev.mysql.com/downloads/mysql/  点击，下个页面会提示需不需要注册的，直接选择最下面的“No thanks, just start my download.”进行下载。">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 3 极简教程 之 安装 MySQL、MySQL 数据库连接">
+<meta property="og:url" content="http://wuxiaolong.me/2017/11/20/PythonMySQL/index.html">
+<meta property="og:site_name" content="吴小龙同學">
+<meta property="og:description" content="安装 MySQL下载 MySQL访问 MySQL 官网：https://dev.mysql.com/downloads/mysql/  点击，下个页面会提示需不需要注册的，直接选择最下面的“No thanks, just start my download.”进行下载。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/mysql1.png?imageView2/0/format/png/q/75|watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5a6L5L2T/fontsize/1200/fill/IzIxOTZGMw==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/mysql2.png?imageView2/0/format/png/q/75|watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5a6L5L2T/fontsize/1200/fill/IzIxOTZGMw==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/mysql3.png?imageView2/0/format/png/q/75|watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5a6L5L2T/fontsize/1200/fill/IzIxOTZGMw==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/mysql4.png?imageView2/0/format/png/q/75|watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5a6L5L2T/fontsize/1200/fill/IzIxOTZGMw==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/mysql5.png?imageView2/0/format/png/q/75|watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5a6L5L2T/fontsize/1200/fill/IzIxOTZGMw==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/mysql6.png?imageView2/0/format/png/q/75|watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5a6L5L2T/fontsize/1200/fill/IzIxOTZGMw==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/Python3Learn8.png?imageView2/0/format/png/q/75|watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5a6L5L2T/fontsize/1200/fill/IzIxOTZGMw==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim">
+<meta property="og:updated_time" content="2017-11-27T13:36:58.539Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python 3 极简教程 之 安装 MySQL、MySQL 数据库连接">
+<meta name="twitter:description" content="安装 MySQL下载 MySQL访问 MySQL 官网：https://dev.mysql.com/downloads/mysql/  点击，下个页面会提示需不需要注册的，直接选择最下面的“No thanks, just start my download.”进行下载。">
+<meta name="twitter:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/mysql1.png?imageView2/0/format/png/q/75|watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5a6L5L2T/fontsize/1200/fill/IzIxOTZGMw==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://wuxiaolong.me/2017/11/20/PythonMySQL/">
+
+
+
+
+
+  <title> Python 3 极简教程 之 安装 MySQL、MySQL 数据库连接 | 吴小龙同學 </title>
+
+  <style type="text/css">
+  .div_right_bottom {
+  width: 200px;
+  top: 50%;
+  right: 0px;
+  position: fixed;
+  margin-top: -100px;
+  _position: absolute; /* position fixed for IE6 */
+/*
+右上角
+float:right;
+top:0;
+边框
+border:2px solid #69c;
+  right:0px;
+  bottom:0px;
+  z-index:0;
+*/
+
+}
+</style>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+  <div class="div_right_bottom" align="center">
+  <img src="http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_MrWuXiaolong.jpg">
+  微信公众号
+  </div>
+
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-105780265-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0e1dc2030f397dfa0d60ad22b374430d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">吴小龙同學</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">党要我帅，我不得不帅！</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-friendslinks">
+          <a href="/friendslinks/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-users"></i> <br>
+            
+            小伙伴
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-gitbook">
+          <a href="https://wuxiaolong.gitbooks.io/wuxiaolong/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br>
+            
+            GitBook
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input">
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'ywBn2eRCzfb494KCWJw3','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2017/11/20/PythonMySQL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吴小龙同學">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://7q5c2h.com1.z0.glb.clouddn.com/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴小龙同學">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Python 3 极简教程 之 安装 MySQL、MySQL 数据库连接
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-20T21:29:55+08:00">
+                2017-11-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="安装-MySQL"><a href="#安装-MySQL" class="headerlink" title="安装 MySQL"></a>安装 MySQL</h1><h2 id="下载-MySQL"><a href="#下载-MySQL" class="headerlink" title="下载 MySQL"></a>下载 MySQL</h2><p>访问 MySQL 官网：<a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="noopener">https://dev.mysql.com/downloads/mysql/</a></p>
+<p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/mysql1.png?imageView2/0/format/png/q/75|watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5a6L5L2T/fontsize/1200/fill/IzIxOTZGMw==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim" alt=""></p>
+<p>点击，下个页面会提示需不需要注册的，直接选择最下面的“No thanks, just start my download.”进行下载。<br><a id="more"></a><br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/mysql2.png?imageView2/0/format/png/q/75|watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5a6L5L2T/fontsize/1200/fill/IzIxOTZGMw==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim" alt=""></p>
+<h2 id="安装-MySQL-1"><a href="#安装-MySQL-1" class="headerlink" title="安装 MySQL"></a>安装 MySQL</h2><p>下载完成，点击安装：</p>
+<p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/mysql3.png?imageView2/0/format/png/q/75|watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5a6L5L2T/fontsize/1200/fill/IzIxOTZGMw==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim" alt=""></p>
+<p>一直继续：</p>
+<p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/mysql4.png?imageView2/0/format/png/q/75|watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5a6L5L2T/fontsize/1200/fill/IzIxOTZGMw==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim" alt=""><br>注意：安装时会弹出一个提示框，提示框中有临时密码，必须记住，后面会用到，界面上的文字可以复制。我的临时密码为：<strong>go_W&lt;y8%ULvO</strong>。</p>
+<p>安装完成后，Mac 系统偏好设置会有：</p>
+<p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/mysql5.png?imageView2/0/format/png/q/75|watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5a6L5L2T/fontsize/1200/fill/IzIxOTZGMw==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim" alt=""></p>
+<h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><p>参考之前的博客：<a href="http://wuxiaolong.me/2017/07/19/mac-adb-gradlew/">Mac 配置 adb 环境、gradlew：command not found</a>，MySQL 安装的路径为：/usr/local/mysql，因此在 .bash_profile 文件加入：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">## MySQL</div><div class="line">export PATH=$&#123;PATH&#125;:/usr/local/mysql/bin</div></pre></td></tr></table></figure></p>
+<h2 id="开启服务"><a href="#开启服务" class="headerlink" title="开启服务"></a>开启服务</h2><p>点击系统偏好设置 - MySQL，开启服务：</p>
+<p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/mysql6.png?imageView2/0/format/png/q/75|watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5a6L5L2T/fontsize/1200/fill/IzIxOTZGMw==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim" alt=""></p>
+<h2 id="连接-MySQl"><a href="#连接-MySQl" class="headerlink" title="连接 MySQl"></a>连接 MySQl</h2><p>命令行：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">mysql -u root -p</div></pre></td></tr></table></figure></p>
+<p>这时候需要输入安装时的临时密码：go_W&lt;y8%ULvO。</p>
+<h2 id="修改-root-密码"><a href="#修改-root-密码" class="headerlink" title="修改 root 密码"></a>修改 root 密码</h2><p>命令行：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">ALTER USER &apos;root&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;root&apos;;</div></pre></td></tr></table></figure></p>
+<p>提示 Query OK, 0 rows affected (0.00 sec)，这里我修改新密码为“root”了，然后重新开启 MySQL 服务。</p>
+<h2 id="可视化工具"><a href="#可视化工具" class="headerlink" title="可视化工具"></a>可视化工具</h2><p>1、MySQL Workbench</p>
+<p>不知道原来官方已经提供了 Mac 版工具了。</p>
+<p>2、NaviCat Premium</p>
+<p>很熟悉的软件了，不过 Mac 版是收费的。</p>
+<h2 id="卸载-MySQL"><a href="#卸载-MySQL" class="headerlink" title="卸载 MySQL"></a>卸载 MySQL</h2><p>参考 stackoverflow：<a href="https://stackoverflow.com/questions/1436425/how-do-you-uninstall-mysql-from-mac-os-x" target="_blank" rel="noopener">How do you uninstall MySQL from Mac OS X?</a></p>
+<p>命令行：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo rm -rf /var/db/receipts/com.mysql.*</div></pre></td></tr></table></figure></p>
+<h1 id="MySQL-数据库连接"><a href="#MySQL-数据库连接" class="headerlink" title="MySQL 数据库连接"></a>MySQL 数据库连接</h1><p>Python 3.x 可以用第三方模块 PyMySQL 用于连接 MySQL。我们简单实现数据库增删改查。</p>
+<h2 id="安装-PyMySQL"><a href="#安装-PyMySQL" class="headerlink" title="安装 PyMySQL"></a>安装 PyMySQL</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">pip3 install PyMySQL</div></pre></td></tr></table></figure>
+<h2 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h2><p>直接用 NaviCat Premium 创建。<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/Python3Learn8.png?imageView2/0/format/png/q/75|watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5a6L5L2T/fontsize/1200/fill/IzIxOTZGMw==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim" alt=""></p>
+<h3 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h3><figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_table</span><span class="params">()</span>:</span></div><div class="line">    <span class="comment"># 建立连接</span></div><div class="line">    db = pymysql.connect(host=<span class="string">'localhost'</span>,</div><div class="line">                         user=<span class="string">'root'</span>,</div><div class="line">                         password=<span class="string">'root'</span>,</div><div class="line">                         db=<span class="string">'python3learn'</span>)</div><div class="line">    <span class="comment"># 创建名为 developer 数据库语句</span></div><div class="line">    sql = <span class="string">'''create table if not exists developer (</span></div><div class="line">    id int NOT NULL AUTO_INCREMENT, </div><div class="line">    name text,</div><div class="line">    job text,</div><div class="line">    site text,</div><div class="line">    PRIMARY KEY (`id`)</div><div class="line">    )'''</div><div class="line">    <span class="comment"># 使用 cursor() 方法创建一个游标对象 cursor</span></div><div class="line">    cursor = db.cursor()</div><div class="line">    <span class="keyword">try</span>:</div><div class="line">        <span class="comment"># 执行 sql 语句</span></div><div class="line">        cursor.execute(sql)</div><div class="line">        <span class="comment"># 提交事务</span></div><div class="line">        db.commit()</div><div class="line">        print(<span class="string">'create table success'</span>)</div><div class="line">    <span class="keyword">except</span> BaseException <span class="keyword">as</span> e:  <span class="comment"># 如果发生错误则回滚</span></div><div class="line">        db.rollback()</div><div class="line">        print(e)</div><div class="line"></div><div class="line">    <span class="keyword">finally</span>:</div><div class="line">        <span class="comment"># 关闭游标连接</span></div><div class="line">        cursor.close()</div><div class="line">        <span class="comment"># 关闭数据库连接</span></div><div class="line">        db.close()</div></pre></td></tr></table></figure>
+<h3 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h3><figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">insert_table</span><span class="params">()</span>:</span></div><div class="line">    <span class="comment"># 建立连接</span></div><div class="line">    db = pymysql.connect(host=<span class="string">'localhost'</span>,</div><div class="line">                         user=<span class="string">'root'</span>,</div><div class="line">                         password=<span class="string">'root'</span>,</div><div class="line">                         db=<span class="string">'python3learn'</span>)</div><div class="line">    <span class="comment"># 插入数据</span></div><div class="line">    sql = <span class="string">'insert into developer (name,job,site) values (%s, %s, %s)'</span></div><div class="line">    <span class="comment"># 使用 cursor() 方法创建一个游标对象 cursor</span></div><div class="line">    cursor = db.cursor()</div><div class="line">    <span class="keyword">try</span>:</div><div class="line">        value = (<span class="string">'wxl'</span>, <span class="string">'Android'</span>, <span class="string">'http://wuxiaolong.me/'</span>)</div><div class="line">        <span class="comment"># 执行 sql 语句</span></div><div class="line">        cursor.execute(sql, value)</div><div class="line">        <span class="comment"># 提交事务</span></div><div class="line">        db.commit()</div><div class="line">        print(<span class="string">'insert table success'</span>)</div><div class="line"></div><div class="line">    <span class="keyword">except</span> BaseException <span class="keyword">as</span> e:</div><div class="line">        <span class="comment"># 如果发生错误则回滚</span></div><div class="line">        db.rollback()</div><div class="line">        print(e)</div><div class="line"></div><div class="line">    <span class="keyword">finally</span>:</div><div class="line">        <span class="comment"># 关闭游标连接</span></div><div class="line">        cursor.close()</div><div class="line">        <span class="comment"># 关闭数据库连接</span></div><div class="line">        db.close()</div></pre></td></tr></table></figure>
+<h3 id="查询数据"><a href="#查询数据" class="headerlink" title="查询数据"></a>查询数据</h3><figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">query_table</span><span class="params">()</span>:</span></div><div class="line">    <span class="comment"># 建立连接</span></div><div class="line">    db = pymysql.connect(host=<span class="string">'localhost'</span>,</div><div class="line">                         user=<span class="string">'root'</span>,</div><div class="line">                         password=<span class="string">'root'</span>,</div><div class="line">                         db=<span class="string">'python3learn'</span>)</div><div class="line">    <span class="comment"># 查询语句</span></div><div class="line">    sql = <span class="string">'select * from developer'</span></div><div class="line">    <span class="comment"># 使用 cursor() 方法创建一个游标对象 cursor</span></div><div class="line">    cursor = db.cursor()</div><div class="line">    <span class="keyword">try</span>:</div><div class="line">        <span class="comment"># 执行 sql 语句</span></div><div class="line">        cursor.execute(sql)</div><div class="line">        <span class="comment"># 查询一条记录</span></div><div class="line">        result = cursor.fetchone()</div><div class="line">        print(<span class="string">'查询一条记录：id=%s,name=%s,job=%s,site=%s'</span> % (result[<span class="number">0</span>], result[<span class="number">1</span>], result[<span class="number">2</span>], result[<span class="number">3</span>]))</div><div class="line">        <span class="comment"># 如果先用 fetchone()，游标是从 1 开始</span></div><div class="line">        <span class="comment"># 重置游标位置，偏移量:大于0向后移动;小于0向前移动，mode默认是relative</span></div><div class="line">        <span class="comment"># relative:表示从当前所在的行开始移动; absolute:表示从第一行开始移动</span></div><div class="line">        cursor.scroll(<span class="number">0</span>, mode=<span class="string">'absolute'</span>)</div><div class="line">        <span class="comment"># 查询多条记录</span></div><div class="line">        results = cursor.fetchall()</div><div class="line">        <span class="keyword">for</span> row <span class="keyword">in</span> results:</div><div class="line">            print(<span class="string">'查询多条记录：id=%s,name=%s,job=%s,site=%s'</span> % (row[<span class="number">0</span>], row[<span class="number">1</span>], row[<span class="number">2</span>], row[<span class="number">3</span>]))</div><div class="line"></div><div class="line">    <span class="keyword">except</span> BaseException <span class="keyword">as</span> e:</div><div class="line">        <span class="comment"># 如果发生错误则回滚</span></div><div class="line">        db.rollback()</div><div class="line">        print(e)</div><div class="line"></div><div class="line">    <span class="keyword">finally</span>:</div><div class="line">        <span class="comment"># 关闭游标连接</span></div><div class="line">        cursor.close()</div><div class="line">        <span class="comment"># 关闭数据库连接</span></div><div class="line">        db.close()</div></pre></td></tr></table></figure>
+<h3 id="更新数据"><a href="#更新数据" class="headerlink" title="更新数据"></a>更新数据</h3><p>更新 id 等于 1 的数据，将 name 改为 WuXiaolong。<br><figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">update_table</span><span class="params">()</span>:</span></div><div class="line">    <span class="comment"># 建立连接</span></div><div class="line">    db = pymysql.connect(host=<span class="string">'localhost'</span>,</div><div class="line">                         user=<span class="string">'root'</span>,</div><div class="line">                         password=<span class="string">'root'</span>,</div><div class="line">                         db=<span class="string">'python3learn'</span>)</div><div class="line">    <span class="comment"># 更新数据</span></div><div class="line">    sql = <span class="string">'update developer set name=%s where id=%s'</span></div><div class="line">    <span class="comment"># 使用 cursor() 方法创建一个游标对象 cursor</span></div><div class="line">    cursor = db.cursor()</div><div class="line">    <span class="keyword">try</span>:</div><div class="line">        value = (<span class="string">'WuXiaolong'</span>, <span class="number">1</span>)</div><div class="line">        <span class="comment"># 执行 sql 语句</span></div><div class="line">        cursor.execute(sql, value)</div><div class="line">        <span class="comment"># 提交事务</span></div><div class="line">        db.commit()</div><div class="line">        print(<span class="string">'update table success'</span>)</div><div class="line"></div><div class="line">    <span class="keyword">except</span> BaseException <span class="keyword">as</span> e:</div><div class="line">        <span class="comment"># 如果发生错误则回滚</span></div><div class="line">        db.rollback()</div><div class="line">        print(e)</div><div class="line"></div><div class="line">    <span class="keyword">finally</span>:</div><div class="line">        <span class="comment"># 关闭游标连接</span></div><div class="line">        cursor.close()</div><div class="line">        <span class="comment"># 关闭数据库连接</span></div><div class="line">        db.close()</div></pre></td></tr></table></figure></p>
+<h3 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h3><p>删除 id 等于 1 的数据。<br><figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">delete_table</span><span class="params">()</span>:</span></div><div class="line">    <span class="comment"># 建立连接</span></div><div class="line">    db = pymysql.connect(host=<span class="string">'localhost'</span>,</div><div class="line">                         user=<span class="string">'root'</span>,</div><div class="line">                         password=<span class="string">'root'</span>,</div><div class="line">                         db=<span class="string">'python3learn'</span>)</div><div class="line">    <span class="comment"># 更新数据</span></div><div class="line">    sql = <span class="string">'delete from developer where id=%s'</span></div><div class="line">    <span class="comment"># 使用 cursor() 方法创建一个游标对象 cursor</span></div><div class="line">    cursor = db.cursor()</div><div class="line">    <span class="keyword">try</span>:</div><div class="line">        <span class="comment"># 执行sql语句</span></div><div class="line">        cursor.execute(sql, <span class="number">1</span>)</div><div class="line">        <span class="comment"># 提交事务</span></div><div class="line">        db.commit()</div><div class="line">        print(<span class="string">'delete table success'</span>)</div><div class="line"></div><div class="line">    <span class="keyword">except</span> BaseException <span class="keyword">as</span> e:</div><div class="line">        <span class="comment"># 如果发生错误则回滚</span></div><div class="line">        db.rollback()</div><div class="line">        print(e)</div><div class="line"></div><div class="line">    <span class="keyword">finally</span>:</div><div class="line">        <span class="comment"># 关闭游标连接</span></div><div class="line">        cursor.close()</div><div class="line">        <span class="comment"># 关闭数据库连接</span></div><div class="line">        db.close()</div></pre></td></tr></table></figure></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://my.oschina.net/u/2391658/blog/716741" target="_blank" rel="noopener">Mac下安装mysql服务及基于workbench的使用方法</a></p>
+		 <!--广告-->
+		﻿<!--<div> 
+<h1><b>联系我</b></h1>
+
+1、我的知识星球：更多分享只对您公开，￥99/永久。
+<img src="http://7q5c2h.com1.z0.glb.clouddn.com/zhishixingqiu.jpeg" style="margin-top: 20px; width: 40%; height: 40%"/> 
+<br>
+
+
+2、我的微信公众号：吴小龙同学，欢迎关注交流~
+<img src="http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_wuxiaolong_travel.jpg"  style="margin-top: 20px; width: 40%; height: 40%"/> 
+<br>
+
+3、我的微信群，可以加我微信，拉你进群，加我时<b>请备注真名</b>。
+<img src="http://7q5c2h.com1.z0.glb.clouddn.com/weixin.jpg"  style="margin-top: 20px; width: 40%; height: 40%"/> 
+<br>
+
+<b>由于多说和网易云跟帖评论服务相继关闭，本博客决定不再折腾评论，大家可以前往我的公众号留言交流，抱歉了！</b>
+
+</div>
+
+
+<!--
+其实有 Disqus ……
+1、Android技术交流剩者为王④群：331553260。
+<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=d129018d31e801e676743da4b05a1063f88ae52ca0407579666545596bdb7a52"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="剩者为王④群" title="剩者为王④群"></a>
+<img src="http://7q5c2h.com1.z0.glb.clouddn.com/qun4.png"  style="margin-top: 20px; width: 40%; height: 40%"/> 
+-->
+
+
+<!--<div style="padding: 10px 0; margin: 20px auto; width: 99%; text-align: center;"> 
+<b>赞助商：<a href="https://shop240489162.taobao.com/">躲角落的猫咪</a></b>
+<br>
+<img src="http://7q5c2h.com1.z0.glb.clouddn.com/taobaoshop.png"/> 
+</div>
+
+-->  
+
+      
+	   
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+    <div></div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赞赏</span>
+    </button>
+    <div id="QR" style="display: none">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://7q5c2h.com1.z0.glb.clouddn.com/WechatPay1024.jpeg" alt="吴小龙同學 WeChat Pay">
+          <p></p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      吴小龙同學
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://wuxiaolong.me/2017/11/20/PythonMySQL/" title="Python 3 极简教程 之 安装 MySQL、MySQL 数据库连接">http://wuxiaolong.me/2017/11/20/PythonMySQL/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/15/ClassModuleErrorExecptionFile/" rel="next" title="Python 3 极简教程 之 类、模块、错误和异常、文件">
+                <i class="fa fa-chevron-left"></i> Python 3 极简教程 之 类、模块、错误和异常、文件
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/27/PythonFlask/" rel="prev" title="Python 3 极简教程 之 Flask、部署">
+                Python 3 极简教程 之 Flask、部署 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+
+  </article> 
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTM2My81OTMx"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="http://7q5c2h.com1.z0.glb.clouddn.com/avatar.jpg" alt="吴小龙同學">
+          <p class="site-author-name" itemprop="name">吴小龙同學</p>
+           
+              <p class="site-description motion-element" itemprop="description">我的微信公众号：吴小龙同学</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/index.html">
+                <span class="site-state-item-count">167</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">130</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://open.weixin.qq.com/qr/code/?username=MrWuXiaolong" target="_blank" title="WeChat">
+                  
+                    <i class="fa fa-fw fa-weixin"></i>
+                  
+                  WeChat
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/WuXiaolong" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2175011601" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="/qq/index.html" target="_blank" title="QQ">
+                  
+                    <i class="fa fa-fw fa-qq"></i>
+                  
+                  QQ
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装-MySQL"><span class="nav-number">1.</span> <span class="nav-text">安装 MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载-MySQL"><span class="nav-number">1.1.</span> <span class="nav-text">下载 MySQL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-MySQL-1"><span class="nav-number">1.2.</span> <span class="nav-text">安装 MySQL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置环境变量"><span class="nav-number">1.3.</span> <span class="nav-text">配置环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开启服务"><span class="nav-number">1.4.</span> <span class="nav-text">开启服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连接-MySQl"><span class="nav-number">1.5.</span> <span class="nav-text">连接 MySQl</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改-root-密码"><span class="nav-number">1.6.</span> <span class="nav-text">修改 root 密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可视化工具"><span class="nav-number">1.7.</span> <span class="nav-text">可视化工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#卸载-MySQL"><span class="nav-number">1.8.</span> <span class="nav-text">卸载 MySQL</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MySQL-数据库连接"><span class="nav-number">2.</span> <span class="nav-text">MySQL 数据库连接</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-PyMySQL"><span class="nav-number">2.1.</span> <span class="nav-text">安装 PyMySQL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建数据库"><span class="nav-number">2.2.</span> <span class="nav-text">创建数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建表"><span class="nav-number">2.2.1.</span> <span class="nav-text">创建表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入数据"><span class="nav-number">2.2.2.</span> <span class="nav-text">插入数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询数据"><span class="nav-number">2.2.3.</span> <span class="nav-text">查询数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新数据"><span class="nav-number">2.2.4.</span> <span class="nav-text">更新数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除数据"><span class="nav-number">2.2.5.</span> <span class="nav-text">删除数据</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">吴小龙同學</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+
+  <!--崩溃欺骗
+  <script type="text/javascript" src="/js/src/dytitle.js"></script>
+  -->
+
+</body>
+</html>
