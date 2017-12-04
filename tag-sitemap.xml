@@ -1,0 +1,880 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/AD/</loc>
+        <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/BroadcastReceiver/</loc>
+        <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Drawable/</loc>
+        <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Bitmap/</loc>
+        <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/String/</loc>
+        <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/InputStream/</loc>
+        <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/byte/</loc>
+        <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/LayoutInflate/</loc>
+        <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Intent/</loc>
+        <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/LayoutParams/</loc>
+        <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/LinearGradient/</loc>
+        <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/TextView/</loc>
+        <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/PioneeringRoad/</loc>
+        <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/CardView/</loc>
+        <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/SQLite/</loc>
+        <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/WeiYan/</loc>
+        <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Sqlite/</loc>
+        <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/App/</loc>
+        <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/WeWin/</loc>
+        <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/boentang/</loc>
+        <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Permission/</loc>
+        <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/contact/</loc>
+        <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/emulator/</loc>
+        <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/git/</loc>
+        <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/goufangche/</loc>
+        <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Video/</loc>
+        <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Processes/</loc>
+        <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Threads/</loc>
+        <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/qinziyouwan/</loc>
+        <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Service/</loc>
+        <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Shape/</loc>
+        <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/shengmingzhiyuan/</loc>
+        <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/weilian/</loc>
+        <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Animator/</loc>
+        <lastmod>2016-09-06T13:09:48.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Animation/</loc>
+        <lastmod>2016-09-06T13:39:50.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Library/</loc>
+        <lastmod>2016-09-08T12:21:20.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/weiyan/</loc>
+        <lastmod>2016-09-12T15:19:32.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/CollapsingToolbarLayout/</loc>
+        <lastmod>2016-10-10T14:21:52.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Markdown/</loc>
+        <lastmod>2016-10-10T15:27:46.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/9%E6%9C%8813%E6%97%A5/</loc>
+        <lastmod>2016-10-16T12:35:14.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/DesignSupportLibrary/</loc>
+        <lastmod>2016-10-21T14:35:18.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/AppShortcuts/</loc>
+        <lastmod>2016-11-01T12:44:08.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Work/</loc>
+        <lastmod>2016-11-18T13:36:56.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/ItemTouchHelper/</loc>
+        <lastmod>2016-12-11T11:48:42.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Theme/</loc>
+        <lastmod>2016-12-13T13:29:42.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/code/</loc>
+        <lastmod>2016-12-20T13:00:46.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/XMPP/</loc>
+        <lastmod>2016-12-20T13:02:24.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Smack/</loc>
+        <lastmod>2016-12-20T13:02:24.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/openfire/</loc>
+        <lastmod>2016-12-20T13:02:24.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/MotionEvent/</loc>
+        <lastmod>2016-12-20T13:08:24.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/PorterDuffXfermode/</loc>
+        <lastmod>2016-12-20T13:09:04.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Shader/</loc>
+        <lastmod>2016-12-20T13:09:04.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/ViewDragHelper/</loc>
+        <lastmod>2016-12-20T13:11:20.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/DragView/</loc>
+        <lastmod>2016-12-20T13:20:36.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/addHeaderView/</loc>
+        <lastmod>2016-12-20T13:22:14.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/gradle/</loc>
+        <lastmod>2016-12-20T13:22:48.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Toolbar/</loc>
+        <lastmod>2016-12-20T13:24:50.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Volley/</loc>
+        <lastmod>2016-12-20T13:30:58.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Font-Awesome/</loc>
+        <lastmod>2016-12-20T13:36:24.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Picasso/</loc>
+        <lastmod>2016-12-20T13:39:46.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/PhotoView/</loc>
+        <lastmod>2016-12-20T13:41:04.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/PopupWindow/</loc>
+        <lastmod>2016-12-20T13:44:14.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/SharedPreferences/</loc>
+        <lastmod>2016-12-20T13:45:52.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Palette/</loc>
+        <lastmod>2016-12-20T13:47:30.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Android-Iconics/</loc>
+        <lastmod>2016-12-20T13:50:02.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/EditText/</loc>
+        <lastmod>2016-12-20T13:54:04.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Fragment/</loc>
+        <lastmod>2016-12-20T13:55:56.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Actionbar/</loc>
+        <lastmod>2016-12-20T14:07:10.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/SearchView/</loc>
+        <lastmod>2016-12-20T14:07:10.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Android/</loc>
+        <lastmod>2016-12-20T14:07:44.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/jarsigner/</loc>
+        <lastmod>2016-12-20T14:07:44.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/ListView/</loc>
+        <lastmod>2016-12-20T14:11:16.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/RecyclerView/</loc>
+        <lastmod>2016-12-20T14:29:28.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Activity/</loc>
+        <lastmod>2017-03-05T10:40:28.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/RuntimePermission/</loc>
+        <lastmod>2017-03-10T11:42:04.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/xiaomiquan/</loc>
+        <lastmod>2017-03-11T12:20:54.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/PersonalApp/</loc>
+        <lastmod>2017-03-14T13:08:14.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/BottomNavigation/</loc>
+        <lastmod>2017-03-14T13:10:34.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Canvas/</loc>
+        <lastmod>2017-03-14T13:16:08.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Paint/</loc>
+        <lastmod>2017-03-14T13:19:38.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Happy/</loc>
+        <lastmod>2017-03-14T13:23:26.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/uCrop/</loc>
+        <lastmod>2017-03-14T13:26:36.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/MVP/</loc>
+        <lastmod>2017-03-14T13:29:08.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/RxJava/</loc>
+        <lastmod>2017-03-14T13:29:08.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Camera%EF%BC%8CAlbum/</loc>
+        <lastmod>2017-03-14T13:29:58.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/zxing/</loc>
+        <lastmod>2017-03-14T13:32:44.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/SDK/</loc>
+        <lastmod>2017-03-14T13:33:42.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/RxBus/</loc>
+        <lastmod>2017-03-14T13:34:48.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Life/</loc>
+        <lastmod>2017-03-14T13:35:30.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/lambda/</loc>
+        <lastmod>2017-03-14T13:45:38.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/retrolambda/</loc>
+        <lastmod>2017-03-14T13:45:38.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Retrofit/</loc>
+        <lastmod>2017-04-15T14:24:16.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Rendering/</loc>
+        <lastmod>2017-04-15T14:35:48.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/memory/</loc>
+        <lastmod>2017-04-16T12:46:50.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Singleton/</loc>
+        <lastmod>2017-04-21T13:48:16.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/ChainOfResponsibility/</loc>
+        <lastmod>2017-04-21T13:48:20.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Android-Studio/</loc>
+        <lastmod>2017-05-23T12:30:10.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Genymotion/</loc>
+        <lastmod>2017-05-23T12:30:10.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Kotlin/</loc>
+        <lastmod>2017-06-03T14:48:02.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/ObserverPattern/</loc>
+        <lastmod>2017-06-09T15:27:58.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Blog/</loc>
+        <lastmod>2017-07-12T07:27:56.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/GitBranch/</loc>
+        <lastmod>2017-07-12T07:52:10.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/hexo/</loc>
+        <lastmod>2017-07-24T13:29:49.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/AndroidPay/</loc>
+        <lastmod>2017-07-28T03:39:45.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/GitHub/</loc>
+        <lastmod>2017-08-07T01:13:27.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Jekyll/</loc>
+        <lastmod>2017-08-07T01:13:27.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/github/</loc>
+        <lastmod>2017-08-07T01:48:23.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Jcenter/</loc>
+        <lastmod>2017-08-07T01:53:05.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Gradle/</loc>
+        <lastmod>2017-08-07T13:23:45.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Modular/</loc>
+        <lastmod>2017-08-09T03:04:01.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/NightTheme/</loc>
+        <lastmod>2017-08-16T13:39:31.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/NavigationView/</loc>
+        <lastmod>2017-08-16T14:33:09.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/TabLayout/</loc>
+        <lastmod>2017-08-20T14:14:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/GitBook/</loc>
+        <lastmod>2017-09-03T02:23:19.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/CoordinatorLayout/</loc>
+        <lastmod>2017-09-13T02:31:03.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/CustomView/</loc>
+        <lastmod>2017-09-19T13:31:41.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Android-Studio-3-0/</loc>
+        <lastmod>2017-11-09T15:25:05.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/APK/</loc>
+        <lastmod>2017-11-16T14:38:47.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/AppStart/</loc>
+        <lastmod>2017-11-25T12:55:52.603Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Battery/</loc>
+        <lastmod>2017-11-27T12:48:29.672Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Mac/</loc>
+        <lastmod>2017-12-04T06:44:22.710Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/adb/</loc>
+        <lastmod>2017-12-04T06:44:22.710Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/gradlew/</loc>
+        <lastmod>2017-12-04T06:44:22.710Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Banner/</loc>
+        <lastmod>2017-12-04T07:33:17.765Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/key-word/</loc>
+        <lastmod>2017-12-04T07:34:06.394Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+</urlset>
+<!-- XML Sitemap generated by Hexo SEO Friendly Sitemap Generator -->
