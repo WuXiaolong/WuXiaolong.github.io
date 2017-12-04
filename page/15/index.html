@@ -463,7 +463,7 @@ border:2px solid #69c;
 
       
         
-          <figure class="highlight js"><table><tr><td class="code"><pre><div class="line">&lt;item</div><div class="line">       android:id=<span class="string">"@+id/menu_search"</span></div><div class="line">       android:actionLayout=<span class="string">"@layout/searchview"</span><span class="comment">//自定义</span></div><div class="line">       android:icon=<span class="string">"@drawable/ic_action_search"</span></div><div class="line">       android:showAsAction=<span class="string">"always|collapseActionView"</span></div><div class="line">       android:title=<span class="string">"Search"</span>/&gt;</div><div class="line">       android:actionViewClass=<span class="string">"android.widget.SearchView"</span><span class="comment">//系统的</span></div></pre></td></tr></table></figure>
+          <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;item</div><div class="line">       android:id=<span class="string">"@+id/menu_search"</span></div><div class="line">       android:actionLayout=<span class="string">"@layout/searchview"</span><span class="comment">//自定义</span></div><div class="line">       android:icon=<span class="string">"@drawable/ic_action_search"</span></div><div class="line">       android:showAsAction=<span class="string">"always|collapseActionView"</span></div><div class="line">       android:title=<span class="string">"Search"</span>/&gt;</div><div class="line">       android:actionViewClass=<span class="string">"android.widget.SearchView"</span><span class="comment">//系统的</span></div></pre></td></tr></table></figure>
 <p>我们设定 showAsAction这个属性的时候，加了collapseActionView这么一个参数，它的意思是说，将item引用的布局隐藏起来，当你点击该item的时候，再将其展现出来。通过这个属性，我们就可以将每个item复杂的布局隐藏起来，从而有效的节约了actionbar的布局空间。<br>
           <!--noindex-->
           <div class="post-button text-center">
@@ -1060,7 +1060,7 @@ border:2px solid #69c;
           <blockquote>
 <p>拍照和相册的功能在实际开发中是最常见的功能，这里记录下。</p>
 </blockquote>
-<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><p>权限<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">&lt;!-- 往SDCard写入数据权限 --&gt; </div><div class="line">&lt;uses-permission android:name=<span class="string">"android.permission.WRITE_EXTERNAL_STORAGE"</span> /&gt; </div><div class="line">&lt;!--请求访问使用照相设备--&gt;</div><div class="line">&lt;uses-permission android:name=<span class="string">"android.permission.CAMERA"</span> /&gt;</div></pre></td></tr></table></figure></p>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><p>权限<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 往SDCard写入数据权限 --&gt; </div><div class="line">&lt;uses-permission android:name=<span class="string">"android.permission.WRITE_EXTERNAL_STORAGE"</span> /&gt; </div><div class="line">&lt;!--请求访问使用照相设备--&gt;</div><div class="line">&lt;uses-permission android:name=<span class="string">"android.permission.CAMERA"</span> /&gt;</div></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2014/11/10/Android-Photograph_Album/" rel="contents">
@@ -1577,6 +1577,154 @@ border:2px solid #69c;
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2014/10/21/Android-Studio-Genymotion/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吴小龙同學">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://7q5c2h.com1.z0.glb.clouddn.com/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴小龙同學">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2014/10/21/Android-Studio-Genymotion/" itemprop="url">
+                  未命名
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-10-21T00:00:00+08:00">
+                2014-10-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android-Studio/" itemprop="url" rel="index">
+                    <span itemprop="name">Android Studio</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>1、File-&gt;settings<br><img src="http://wuxiaolong.qiniudn.com/2014-10-21-Android-Studio-Genymotion-1.png" alt=""><br>2、搜索Plugins，安装Genymotion插件<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2014/10/21/Android-Studio-Genymotion/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+	   
+    </p></div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+
+  </article> 
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2014/10/21/Android-Studio-shortcut-keys-arranged-like-Eclipse/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1682,154 +1830,6 @@ border:2px solid #69c;
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2014/10/21/Android-Studio-shortcut-keys-arranged-like-Eclipse/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-	   
-    </p></div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-
-  </article> 
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2014/10/21/Android-Studio-Genymotion/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="吴小龙同學">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://7q5c2h.com1.z0.glb.clouddn.com/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吴小龙同學">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2014/10/21/Android-Studio-Genymotion/" itemprop="url">
-                  未命名
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-10-21T00:00:00+08:00">
-                2014-10-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android-Studio/" itemprop="url" rel="index">
-                    <span itemprop="name">Android Studio</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>1、File-&gt;settings<br><img src="http://wuxiaolong.qiniudn.com/2014-10-21-Android-Studio-Genymotion-1.png" alt=""><br>2、搜索Plugins，安装Genymotion插件<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2014/10/21/Android-Studio-Genymotion/" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>

@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="【转载】Android获取LayoutInflater对象的方法总结 在写Android程序时，有时候会编写自定义的View，使用Inflater对象来将布局文件解析成一个View。本文主要目的是总结获取LayoutInflater对象的方法。 1、若能获取context对象，可以有以下几种方法： LayoutInfl">
+<meta name="description" content="【转载】Android获取LayoutInflater对象的方法总结 在写Android程序时，有时候会编写自定义的View，使用Inflater对象来将布局文件解析成一个View。本文主要目的是总结获取LayoutInflater对象的方法。 1、若能获取context对象，可以有以下几种方法： 12LayoutIn">
 <meta name="keywords" content="Android,LayoutInflate">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android之LayoutInflate">
 <meta property="og:url" content="http://wuxiaolong.me/2015/04/23/LayoutInflater/index.html">
 <meta property="og:site_name" content="吴小龙同學">
-<meta property="og:description" content="【转载】Android获取LayoutInflater对象的方法总结 在写Android程序时，有时候会编写自定义的View，使用Inflater对象来将布局文件解析成一个View。本文主要目的是总结获取LayoutInflater对象的方法。 1、若能获取context对象，可以有以下几种方法： LayoutInflater inflater = (LayoutInflater)context.">
+<meta property="og:description" content="【转载】Android获取LayoutInflater对象的方法总结 在写Android程序时，有时候会编写自定义的View，使用Inflater对象来将布局文件解析成一个View。本文主要目的是总结获取LayoutInflater对象的方法。 1、若能获取context对象，可以有以下几种方法： 12LayoutInflater inflater = (LayoutInflater)contex">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2016-08-25T11:38:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android之LayoutInflate">
-<meta name="twitter:description" content="【转载】Android获取LayoutInflater对象的方法总结 在写Android程序时，有时候会编写自定义的View，使用Inflater对象来将布局文件解析成一个View。本文主要目的是总结获取LayoutInflater对象的方法。 1、若能获取context对象，可以有以下几种方法： LayoutInflater inflater = (LayoutInflater)context.">
+<meta name="twitter:description" content="【转载】Android获取LayoutInflater对象的方法总结 在写Android程序时，有时候会编写自定义的View，使用Inflater对象来将布局文件解析成一个View。本文主要目的是总结获取LayoutInflater对象的方法。 1、若能获取context对象，可以有以下几种方法： 12LayoutInflater inflater = (LayoutInflater)contex">
 
 
 
@@ -469,21 +469,21 @@ border:2px solid #69c;
         <p>【转载】<a href="http://blog.csdn.net/bigconvience/article/details/26582497" target="_blank" rel="noopener">Android获取LayoutInflater对象的方法总结</a></p>
 <p>在写Android程序时，有时候会编写自定义的View，使用Inflater对象来将布局文件解析成一个View。本文主要目的是总结获取LayoutInflater对象的方法。</p>
 <p>1、若能获取context对象，可以有以下几种方法：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);  </div><div class="line">View child = inflater.inflate(R.layout.child, <span class="keyword">null</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);  </div><div class="line">View child = inflater.inflate(R.layout.child, <span class="keyword">null</span>);</div></pre></td></tr></table></figure>
 <a id="more"></a>
 <p>or</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">LayoutInflater inflater = LayoutInflater.from(context);  </div><div class="line">View child = inflater.inflate(R.layout.child, <span class="keyword">null</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">LayoutInflater inflater = LayoutInflater.from(context);  </div><div class="line">View child = inflater.inflate(R.layout.child, <span class="keyword">null</span>);</div></pre></td></tr></table></figure>
 <p>inflate实现源码如下：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> View <span class="title">inflate</span><span class="params">(Context context, <span class="keyword">int</span> resource, ViewGroup root)</span> </span>&#123;  </div><div class="line">    LayoutInflater factory = LayoutInflater.from(context);  </div><div class="line">    <span class="keyword">return</span> factory.inflate(resource, root);  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> View <span class="title">inflate</span><span class="params">(Context context, <span class="keyword">int</span> resource, ViewGroup root)</span> </span>&#123;  </div><div class="line">    LayoutInflater factory = LayoutInflater.from(context);  </div><div class="line">    <span class="keyword">return</span> factory.inflate(resource, root);  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>LayoutInflater.from(context)实际上是对方法1的包装，可参考以下源码：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> LayoutInflater <span class="title">from</span><span class="params">(Context context)</span> </span>&#123;  </div><div class="line">    LayoutInflater LayoutInflater =  </div><div class="line">            (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);  </div><div class="line">    <span class="keyword">if</span> (LayoutInflater == <span class="keyword">null</span>) &#123;  </div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> AssertionError(<span class="string">"LayoutInflater not found."</span>);  </div><div class="line">    &#125;  </div><div class="line">    <span class="keyword">return</span> LayoutInflater;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> LayoutInflater <span class="title">from</span><span class="params">(Context context)</span> </span>&#123;  </div><div class="line">    LayoutInflater LayoutInflater =  </div><div class="line">            (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);  </div><div class="line">    <span class="keyword">if</span> (LayoutInflater == <span class="keyword">null</span>) &#123;  </div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> AssertionError(<span class="string">"LayoutInflater not found."</span>);  </div><div class="line">    &#125;  </div><div class="line">    <span class="keyword">return</span> LayoutInflater;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>2、在一个Activity中，可以有以下方法：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">View child = getLayoutInflater().inflate(R.layout.child, item, <span class="keyword">false</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">View child = getLayoutInflater().inflate(R.layout.child, item, <span class="keyword">false</span>);</div></pre></td></tr></table></figure>
 <p>or</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">View view;   </div><div class="line">LayoutInflater inflater = (LayoutInflater)   getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);   </div><div class="line">view = inflater.inflate(R.layout.mylayout, <span class="keyword">null</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">View view;   </div><div class="line">LayoutInflater inflater = (LayoutInflater)   getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);   </div><div class="line">view = inflater.inflate(R.layout.mylayout, <span class="keyword">null</span>);</div></pre></td></tr></table></figure>
 <p>方法1和方法2其实都是对context().getSystemService()的使用。</p>
 <p>3、使用View的静态方法：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">View view=View.inflate(context, R.layout.child, <span class="keyword">null</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">View view=View.inflate(context, R.layout.child, <span class="keyword">null</span>)</div></pre></td></tr></table></figure>
 		 <!--广告-->
 		﻿<!--<div> 
 <h1><b>联系我</b></h1>

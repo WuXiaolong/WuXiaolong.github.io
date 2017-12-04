@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="源码地址：https://github.com/mikepenz/Android-Iconics  build.gradle添加  dependencies &amp;#123;    compile &apos;com.mikepenz:iconics:1.3.0@aar&apos;&amp;#125;">
+<meta name="description" content="源码地址：https://github.com/mikepenz/Android-Iconics  build.gradle添加  123dependencies &amp;#123;    compile &apos;com.mikepenz:iconics:1.3.0@aar&apos;&amp;#125;">
 <meta name="keywords" content="Android-Iconics">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GitHub之Android-Iconics使用">
 <meta property="og:url" content="http://wuxiaolong.me/2015/07/29/Android-Iconics/index.html">
 <meta property="og:site_name" content="吴小龙同學">
-<meta property="og:description" content="源码地址：https://github.com/mikepenz/Android-Iconics  build.gradle添加  dependencies &amp;#123;    compile &apos;com.mikepenz:iconics:1.3.0@aar&apos;&amp;#125;">
+<meta property="og:description" content="源码地址：https://github.com/mikepenz/Android-Iconics  build.gradle添加  123dependencies &amp;#123;    compile &apos;com.mikepenz:iconics:1.3.0@aar&apos;&amp;#125;">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2016-12-20T13:50:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GitHub之Android-Iconics使用">
-<meta name="twitter:description" content="源码地址：https://github.com/mikepenz/Android-Iconics  build.gradle添加  dependencies &amp;#123;    compile &apos;com.mikepenz:iconics:1.3.0@aar&apos;&amp;#125;">
+<meta name="twitter:description" content="源码地址：https://github.com/mikepenz/Android-Iconics  build.gradle添加  123dependencies &amp;#123;    compile &apos;com.mikepenz:iconics:1.3.0@aar&apos;&amp;#125;">
 
 
 
@@ -470,21 +470,21 @@ border:2px solid #69c;
 <ul>
 <li>build.gradle添加</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">    compile <span class="string">'com.mikepenz:iconics:1.3.0@aar'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">    compile <span class="string">'com.mikepenz:iconics:1.3.0@aar'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <a id="more"></a>
 <ul>
 <li>作为Drawable使用</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">ImageView image = (ImageView) findViewById(R.id.image);</div><div class="line">image.setImageDrawable(<span class="keyword">new</span> IconicsDrawable(<span class="keyword">this</span>, FontAwesome.Icon.faw_android).color(Color.RED).sizeDp(<span class="number">24</span>));</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ImageView image = (ImageView) findViewById(R.id.image);</div><div class="line">image.setImageDrawable(<span class="keyword">new</span> IconicsDrawable(<span class="keyword">this</span>, FontAwesome.Icon.faw_android).color(Color.RED).sizeDp(<span class="number">24</span>));</div></pre></td></tr></table></figure>
 <ul>
 <li>作为MenuItem使用</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">MenuItem menuItem = menu.findItem(R.id.action_opensource);</div><div class="line">menuItem.setIcon(<span class="keyword">new</span> IconicsDrawable(<span class="keyword">this</span>, FontAwesome.Icon.faw_github).actionBar().color(Color.WHITE));</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">MenuItem menuItem = menu.findItem(R.id.action_opensource);</div><div class="line">menuItem.setIcon(<span class="keyword">new</span> IconicsDrawable(<span class="keyword">this</span>, FontAwesome.Icon.faw_github).actionBar().color(Color.WHITE));</div></pre></td></tr></table></figure>
 <ul>
 <li>xml使用</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line">&lt;com.mikepenz.iconics.view.IconicsImageView</div><div class="line">       android:id=<span class="string">"@+id/icon"</span></div><div class="line">       android:layout_width=<span class="string">"48dp"</span></div><div class="line">       android:layout_height=<span class="string">"48dp"</span></div><div class="line">       android:clickable=<span class="string">"false"</span></div><div class="line">       android:padding=<span class="string">"8dp"</span></div><div class="line">       android:scaleType=<span class="string">"fitXY"</span></div><div class="line">       app:iiv_color=<span class="string">"@android:color/holo_green_dark"</span></div><div class="line">       app:iiv_icon=<span class="string">"faw_adjust"</span> /&gt;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">IconicsImageView icon = (IconicsImageView) findViewById(R.id.icon);</div><div class="line"> List&lt;String&gt; icons = <span class="keyword">new</span> ArrayList&lt;String&gt;();</div><div class="line">                       <span class="keyword">for</span> (ITypeface font : Iconics.getRegisteredFonts()) &#123;</div><div class="line">                           Log.d(<span class="string">"wxl"</span>, <span class="string">"FontName="</span> + font.getFontName());</div><div class="line">                           <span class="keyword">if</span> (font.getFontName().equalsIgnoreCase(<span class="string">"FontAwesome"</span>)) &#123;</div><div class="line">                               <span class="keyword">for</span> (String icon : font.getIcons()) &#123;</div><div class="line">                                   Log.d(<span class="string">"wxl"</span>, <span class="string">"getIcons="</span> + icon);</div><div class="line">                                   icons.add(icon);</div><div class="line">                               &#125;</div><div class="line">                           &#125;</div><div class="line">                       &#125;</div><div class="line"> icon.setIcon(icons.get(<span class="number">0</span>));</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;com.mikepenz.iconics.view.IconicsImageView</div><div class="line">       android:id=<span class="string">"@+id/icon"</span></div><div class="line">       android:layout_width=<span class="string">"48dp"</span></div><div class="line">       android:layout_height=<span class="string">"48dp"</span></div><div class="line">       android:clickable=<span class="string">"false"</span></div><div class="line">       android:padding=<span class="string">"8dp"</span></div><div class="line">       android:scaleType=<span class="string">"fitXY"</span></div><div class="line">       app:iiv_color=<span class="string">"@android:color/holo_green_dark"</span></div><div class="line">       app:iiv_icon=<span class="string">"faw_adjust"</span> /&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">IconicsImageView icon = (IconicsImageView) findViewById(R.id.icon);</div><div class="line"> List&lt;String&gt; icons = <span class="keyword">new</span> ArrayList&lt;String&gt;();</div><div class="line">                       <span class="keyword">for</span> (ITypeface font : Iconics.getRegisteredFonts()) &#123;</div><div class="line">                           Log.d(<span class="string">"wxl"</span>, <span class="string">"FontName="</span> + font.getFontName());</div><div class="line">                           <span class="keyword">if</span> (font.getFontName().equalsIgnoreCase(<span class="string">"FontAwesome"</span>)) &#123;</div><div class="line">                               <span class="keyword">for</span> (String icon : font.getIcons()) &#123;</div><div class="line">                                   Log.d(<span class="string">"wxl"</span>, <span class="string">"getIcons="</span> + icon);</div><div class="line">                                   icons.add(icon);</div><div class="line">                               &#125;</div><div class="line">                           &#125;</div><div class="line">                       &#125;</div><div class="line"> icon.setIcon(icons.get(<span class="number">0</span>));</div></pre></td></tr></table></figure>
 		 <!--广告-->
 		﻿<!--<div> 
 <h1><b>联系我</b></h1>
