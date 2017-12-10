@@ -105,7 +105,7 @@
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/AndroidStudio3.0_5.png?imageView2/0/format/png/q/75|watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5a6L5L2T/fontsize/1200/fill/IzIxOTZGMw==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/AndroidStudio3.0_6.png?imageView2/0/format/png/q/75|watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5a6L5L2T/fontsize/1200/fill/IzIxOTZGMw==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/AndroidStudio3.0_7.png?imageView2/0/format/png/q/75|watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5a6L5L2T/fontsize/1200/fill/IzIxOTZGMw==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim">
-<meta property="og:updated_time" content="2017-11-09T15:25:05.000Z">
+<meta property="og:updated_time" content="2017-12-08T06:42:19.443Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android Studio 3.0 升级一些坑">
 <meta name="twitter:description" content="前几天，期待已久的 Android Studio 3.0 release 版来临了，根据以往经验，每次大版本升级肯定要折腾一番，况且公司最近项目紧，因此我没有着急升级。10 月 31 号项目交了第一个版本，有同事离职了，我接了 NDK 的锅，到现在终于有空了，手痒痒点了升级。  Android Studio 3.0官方更新日志：https://developer.android.google.c">
@@ -496,6 +496,8 @@ border:2px solid #69c;
 <p>使用 Gradle Plugin 3.0.0 时报错：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">Cannot set the value of read-only property <span class="string">'outputFile'</span> <span class="keyword">for</span> ApkVariantOutputImpl_Decorated&#123;apkData=Main&#123;type=MAIN, fullName=release, filters=[]&#125;&#125; of type com.android.build.gradle.internal.api.ApkVariantOutputImpl. Open File</div></pre></td></tr></table></figure></p>
 <p>需要修改 each() 和 outputFile() 方法为 all() 和 outputFileName，输出文件写法也有点不一样：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">buildTypes &#123;</div><div class="line">    release &#123;</div><div class="line">        <span class="comment">//……</span></div><div class="line">        applicationVariants.all &#123; variant -&gt;</div><div class="line">            <span class="keyword">if</span> (variant.buildType.name == <span class="string">'release'</span>) &#123;</div><div class="line">                variant.outputs.all &#123;</div><div class="line">                    def apkName = <span class="string">"gradle4android_v$&#123;variant.versionName&#125;"</span></div><div class="line">                    <span class="keyword">if</span> (!variant.flavorName.isEmpty()) &#123;</div><div class="line">                        apkName += <span class="string">"_$&#123;variant.flavorName&#125;"</span></div><div class="line">                    &#125;</div><div class="line">                    outputFileName = apkName + <span class="string">"_$&#123;releaseTime()&#125;.apk"</span></div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>输出的路径也有点不一样，根目录是 release，如果有渠道 xiaomi，那根目录是 xiaomi／release。</p>
+<h1 id="style-attribute-‘-android-attr-windowEnterAnimation’-not-found"><a href="#style-attribute-‘-android-attr-windowEnterAnimation’-not-found" class="headerlink" title="style attribute ‘@android:attr/windowEnterAnimation’ not found."></a>style attribute ‘@android:attr/windowEnterAnimation’ not found.</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Error:(<span class="number">22</span>, <span class="number">5</span>) style attribute <span class="string">'@android:attr/windowEnterAnimation'</span> not found</div><div class="line">Error:(<span class="number">22</span>, <span class="number">5</span>) style attribute <span class="string">'@android:attr/windowExitAnimation'</span> not found</div><div class="line">Error:(<span class="number">31</span>, <span class="number">5</span>) style attribute <span class="string">'@android:attr/windowEnterAnimation'</span> not found</div><div class="line">Error:(<span class="number">31</span>, <span class="number">5</span>) style attribute <span class="string">'@android:attr/windowExitAnimation'</span> not found</div></pre></td></tr></table></figure>
+<p>这是aapt2导致的，3.0默认启用了aapt2。<br>解决办法：在project的根目录下的gradle.properties最后添加关闭aapt2的代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">android.enableAapt2=<span class="keyword">false</span></div></pre></td></tr></table></figure></p>
 <h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>build.gradle 和 gradle-wrapper.properties 区别，了解更多：<a href="https://developer.android.com/studio/releases/gradle-plugin.html" target="_blank" rel="noopener">https://developer.android.com/studio/releases/gradle-plugin.html</a></p>
 <h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>目前遇到这些坑，欢迎一起吐槽您在升级开发遇到的坑，这次升级又折腾了很久。另外如果需要gradle-4.1-all.zip 文件，公众号「吴小龙同学」聊天界面回复「<strong>gradle-4.1-all</strong>」获取。</p>
 		 <!--广告-->
@@ -619,6 +621,10 @@ border:2px solid #69c;
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2017/12/10/PythonCrawler1/" rel="prev" title="Python 爬虫实战（一）：使用 requests 和 BeautifulSoup">
+                Python 爬虫实战（一）：使用 requests 和 BeautifulSoup <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -712,7 +718,7 @@ border:2px solid #69c;
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/index.html">
-                <span class="site-state-item-count">159</span>
+                <span class="site-state-item-count">160</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -814,7 +820,7 @@ border:2px solid #69c;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Android-Studio-3-0"><span class="nav-number">1.</span> <span class="nav-text">Android Studio 3.0</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#增量升级"><span class="nav-number">2.</span> <span class="nav-text">增量升级</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#修改旧项目"><span class="nav-number">3.</span> <span class="nav-text">修改旧项目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#butterknife"><span class="nav-number">4.</span> <span class="nav-text">butterknife</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#打包自定义-APK-文件名"><span class="nav-number">5.</span> <span class="nav-text">打包自定义 APK 文件名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#补充"><span class="nav-number">6.</span> <span class="nav-text">补充</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最后"><span class="nav-number">7.</span> <span class="nav-text">最后</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Android-Studio-3-0"><span class="nav-number">1.</span> <span class="nav-text">Android Studio 3.0</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#增量升级"><span class="nav-number">2.</span> <span class="nav-text">增量升级</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#修改旧项目"><span class="nav-number">3.</span> <span class="nav-text">修改旧项目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#butterknife"><span class="nav-number">4.</span> <span class="nav-text">butterknife</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#打包自定义-APK-文件名"><span class="nav-number">5.</span> <span class="nav-text">打包自定义 APK 文件名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#style-attribute-‘-android-attr-windowEnterAnimation’-not-found"><span class="nav-number">6.</span> <span class="nav-text">style attribute ‘@android:attr/windowEnterAnimation’ not found.</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#补充"><span class="nav-number">7.</span> <span class="nav-text">补充</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最后"><span class="nav-number">8.</span> <span class="nav-text">最后</span></a></li></ol></div>
             
 
           </div>
