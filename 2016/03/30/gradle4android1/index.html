@@ -96,7 +96,7 @@
 <meta property="og:description" content="Gradle是一种基于Groovy的动态DSL，而Groovy语言是一种基于jvm的动态语言。这里只分享实际开发中会用到的场景，您不需要去学习Groovy语言，知道Java的您是很容易阅读Groovy语言的。系列博客涉及的知识点有：Gradle基本配置、依赖管理、全局设置、自定义BuildConfig、混淆、多渠道打包、配置签名信息、单元测试，是不是迫不及待了啊，快来学习学习。  基本配置新建项">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/gradle4android1.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
-<meta property="og:updated_time" content="2017-08-07T13:15:47.000Z">
+<meta property="og:updated_time" content="2017-12-18T06:45:37.524Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gradle for Android（一）基本配置、依赖管理">
 <meta name="twitter:description" content="Gradle是一种基于Groovy的动态DSL，而Groovy语言是一种基于jvm的动态语言。这里只分享实际开发中会用到的场景，您不需要去学习Groovy语言，知道Java的您是很容易阅读Groovy语言的。系列博客涉及的知识点有：Gradle基本配置、依赖管理、全局设置、自定义BuildConfig、混淆、多渠道打包、配置签名信息、单元测试，是不是迫不及待了啊，快来学习学习。  基本配置新建项">
@@ -481,7 +481,7 @@ border:2px solid #69c;
 <h3 id="so包"><a href="#so包" class="headerlink" title="so包"></a>so包</h3><p>用c或者c++写的library会被叫做so包，Android插件默认情况下支持native包，你需要把.so文件放在对应的文件夹中<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">app</div><div class="line">   ├── AndroidManifest.xml</div><div class="line">   └── jniLibs</div><div class="line">       ├── armeabi</div><div class="line">       │   └── WuXiaolong.so</div><div class="line">       ├── armeabi-v7a</div><div class="line">       │   └── WuXiaolong.so</div><div class="line">       ├── mips</div><div class="line">       │   └── WuXiaolong.so</div><div class="line">       └── x86</div><div class="line">           └── WuXiaolong.so</div></pre></td></tr></table></figure></p>
 <h3 id="library工程"><a href="#library工程" class="headerlink" title="library工程"></a>library工程</h3><p>直接依赖library库：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">       compile project(&apos;:library名字&apos;)</div><div class="line">       //多个library，libraries是文件夹名字</div><div class="line">       compile project(&apos;:libraries:library名字&apos;)</div><div class="line">  &#125;</div></pre></td></tr></table></figure></p>
 <h3 id="aar文件"><a href="#aar文件" class="headerlink" title="aar文件"></a>aar文件</h3><p>library库输出文件是.aar文件，包含了Android资源文件，在library工程build/output/aar/下，然后app目录下创建一个aars文件夹，然后把.aar文件拷贝到该文件夹里面，然后添加该文件夹作为依赖库：<br>app/bulid.gradle<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">android &#123;</div><div class="line">    //...</div><div class="line">&#125;</div><div class="line">repositories &#123;</div><div class="line">    flatDir &#123;</div><div class="line">        dirs &apos;aars&apos; </div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">dependencies &#123;</div><div class="line">       compile(name:&apos;libraryname&apos;, ext:&apos;aar&apos;)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong>如何生成.aar文件：</strong><br>执行 ./gradlew assembleRelease，然后就可以在 build/outputs/aar 文件夹里生成aar文件</p>
+<p><strong>如何生成.aar和.jar文件：</strong><br>执行 ./gradlew assembleRelease，然后就可以在 build/outputs/aar 文件夹里生成aar文件，jar 包路径：build/intermediates/bundles/。</p>
 <p><strong>.jar和.aar区别：</strong><br>*.jar：只包含了class文件与清单文件，不包含资源文件，如图片等所有res中的文件；</p>
 <p>*.aar：包含所有资源，class以及res资源文件全部包含。</p>
 <p><strong>注意：</strong><br>如果你的library依赖了第三方库aar，须app再次依赖。比如lib1依赖了lib2 的aar，app依赖lib1，需要：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">    compile(name: &apos;library1-release&apos;, ext: &apos;aar&apos;)</div><div class="line">    compile(name: &apos;library2-release&apos;, ext: &apos;aar&apos;)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
@@ -706,7 +706,7 @@ border:2px solid #69c;
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/index.html">
-                <span class="site-state-item-count">160</span>
+                <span class="site-state-item-count">162</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -717,7 +717,7 @@ border:2px solid #69c;
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-count">40</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -728,7 +728,7 @@ border:2px solid #69c;
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">130</span>
+                <span class="site-state-item-count">131</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
