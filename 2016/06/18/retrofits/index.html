@@ -500,7 +500,11 @@ border:2px solid #69c;
 <h2 id="传文件-多个"><a href="#传文件-多个" class="headerlink" title="传文件-多个"></a>传文件-多个</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Multipart</span></div><div class="line"><span class="meta">@POST</span>(<span class="string">"v1/create"</span>)</div><div class="line"><span class="function">Call&lt;ResponseBody&gt; <span class="title">create</span><span class="params">(@Part(<span class="string">"pictureName"</span>)</span> RequestBody pictureName,   </span></div><div class="line">@PartMap Map&lt;String, </div><div class="line">RequestBody&gt; params);</div></pre></td></tr></table></figure>
 <p>代码调用<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">RequestBody pictureNameBody = RequestBody.create(MediaType.parse(AppConstants.CONTENT_TYPE_FILE), <span class="string">"pictureName"</span>);</div><div class="line">File picture= <span class="keyword">new</span> File(path);</div><div class="line">RequestBody requestFile = RequestBody.create(MediaType.parse(AppConstants.CONTENT_TYPE_FILE), picture);</div><div class="line">Map&lt;String, RequestBody&gt; params = <span class="keyword">new</span> HashMap&lt;&gt;();</div><div class="line">params.put(<span class="string">"picture\"; filename=\""</span> + picture.getName() + <span class="string">""</span>, requestFile);</div><div class="line"><span class="comment">//调接口</span></div><div class="line">create(pictureNameBody, params);</div></pre></td></tr></table></figure></p>
 		 <!--广告-->
-		﻿<!--<div> 
+		﻿<div> 
+<b>由于多说和网易云跟帖评论服务相继关闭，来必力并不给力，因此本博客决定不再折腾评论，大家可以前往我的公众号留言交流！</b>
+
+</div>
+<!--
 <h1><b>联系我</b></h1>
 
 1、我的知识星球：更多分享只对您公开，￥99/永久。
@@ -516,9 +520,7 @@ border:2px solid #69c;
 <img src="http://7q5c2h.com1.z0.glb.clouddn.com/weixin.jpg"  style="margin-top: 20px; width: 40%; height: 40%"/> 
 <br>
 
-<b>由于多说和网易云跟帖评论服务相继关闭，本博客决定不再折腾评论，大家可以前往我的公众号留言交流，抱歉了！</b>
 
-</div>
 
 
 <!--
@@ -670,8 +672,6 @@ border:2px solid #69c;
 
           
   <div class="comments" id="comments">
-    
-      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTM2My81OTMx"></div>
     
   </div>
 
@@ -842,7 +842,7 @@ border:2px solid #69c;
         <div class="copyright">
   
   &copy;  2013 - 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -996,17 +996,6 @@ border:2px solid #69c;
 
 
 
-  
-    <script type="text/javascript">
-      (function(d, s) {
-        var j, e = d.getElementsByTagName(s)[0];
-        if (typeof LivereTower === 'function') { return; }
-        j = d.createElement(s);
-        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-        j.async = true;
-        e.parentNode.insertBefore(j, e);
-      })(document, 'script');
-    </script>
   
 
 

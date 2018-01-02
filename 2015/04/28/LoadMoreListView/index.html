@@ -471,7 +471,11 @@ border:2px solid #69c;
 <h1 id="load-more-footer-xml"><a href="#load-more-footer-xml" class="headerlink" title="load_more_footer.xml"></a>load_more_footer.xml</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span>?&gt;</div><div class="line">&lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"</div><div class="line">    xmlns:tools="http://schemas.android.com/tools"</div><div class="line">    android:layout_width="match_parent"</div><div class="line">    android:layout_height="wrap_content"</div><div class="line">    android:gravity="center"</div><div class="line">    android:orientation="horizontal" &gt;</div><div class="line"></div><div class="line">    &lt;ProgressBar</div><div class="line">        android:id="@+id/load_more_pb"</div><div class="line">        style="@android:style/Widget.ProgressBar.Small"</div><div class="line">        android:layout_width="wrap_content"</div><div class="line">        android:layout_height="wrap_content"</div><div class="line">        android:layout_marginRight="10dp" /&gt;</div><div class="line"></div><div class="line">    &lt;TextView</div><div class="line">        android:id="@+id/load_more_tv"</div><div class="line">        android:layout_width="wrap_content"</div><div class="line">        android:layout_height="wrap_content"</div><div class="line">        android:paddingBottom="5dp"</div><div class="line">        android:paddingTop="5dp"</div><div class="line">        android:text="正在加载..."</div><div class="line">        tools:ignore="HardcodedText" /&gt;</div><div class="line"></div><div class="line">&lt;/LinearLayout&gt;</div></pre></td></tr></table></figure>
 <h1 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">mListView.setOnLoadMoreListener(<span class="keyword">new</span> OnLoadMoreListener() &#123;</div><div class="line"></div><div class="line">			<span class="meta">@Override</span></div><div class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onLoadMore</span><span class="params">()</span> </span>&#123;</div><div class="line">				</div><div class="line">			&#125;</div><div class="line">		&#125;);</div></pre></td></tr></table></figure>
 		 <!--广告-->
-		﻿<!--<div> 
+		﻿<div> 
+<b>由于多说和网易云跟帖评论服务相继关闭，来必力并不给力，因此本博客决定不再折腾评论，大家可以前往我的公众号留言交流！</b>
+
+</div>
+<!--
 <h1><b>联系我</b></h1>
 
 1、我的知识星球：更多分享只对您公开，￥99/永久。
@@ -487,9 +491,7 @@ border:2px solid #69c;
 <img src="http://7q5c2h.com1.z0.glb.clouddn.com/weixin.jpg"  style="margin-top: 20px; width: 40%; height: 40%"/> 
 <br>
 
-<b>由于多说和网易云跟帖评论服务相继关闭，本博客决定不再折腾评论，大家可以前往我的公众号留言交流，抱歉了！</b>
 
-</div>
 
 
 <!--
@@ -581,8 +583,8 @@ border:2px solid #69c;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/04/28/CreatingCustomViews/" rel="next" title="Android Creating Custom Views">
-                <i class="fa fa-chevron-left"></i> Android Creating Custom Views
+              <a href="/2015/04/27/Split/" rel="next" title="Android字符串分割">
+                <i class="fa fa-chevron-left"></i> Android字符串分割
               </a>
             
           </div>
@@ -591,8 +593,8 @@ border:2px solid #69c;
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/04/30/ResResources/" rel="prev" title="android获取 res 中的资源">
-                android获取 res 中的资源 <i class="fa fa-chevron-right"></i>
+              <a href="/2015/04/28/CreatingCustomViews/" rel="prev" title="Android Creating Custom Views">
+                Android Creating Custom Views <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -641,8 +643,6 @@ border:2px solid #69c;
 
           
   <div class="comments" id="comments">
-    
-      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTM2My81OTMx"></div>
     
   </div>
 
@@ -813,7 +813,7 @@ border:2px solid #69c;
         <div class="copyright">
   
   &copy;  2013 - 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -967,17 +967,6 @@ border:2px solid #69c;
 
 
 
-  
-    <script type="text/javascript">
-      (function(d, s) {
-        var j, e = d.getElementsByTagName(s)[0];
-        if (typeof LivereTower === 'function') { return; }
-        j = d.createElement(s);
-        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-        j.async = true;
-        e.parentNode.insertBefore(j, e);
-      })(document, 'script');
-    </script>
   
 
 
