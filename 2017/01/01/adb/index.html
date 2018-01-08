@@ -69,7 +69,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="adb,">
+  <meta name="keywords" content="ADB,">
 
 
 
@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="拷贝文件Mac 不能像 Windows 一样，直接拷贝文件到手机，要想拷东西或看下SD卡东西还是有点束手无策，其实是用 Android adb命令行解决这个需求。 从电脑拷贝到 sd 卡命令格式： 1adb push /Users/wuxiaolong/Desktop/books.db /sdcard/ /Users/">
-<meta name="keywords" content="adb">
+<meta name="description" content="用了 MBP，一直有个问题，不能像 Windows 一样直接拷贝文件到手机 SD 卡上，Android ADB 好像可以直接拷贝，但由于忙，没有去详细了解，最近刚需，要解决，于是系列学习了 ADB 知识，发现新大陆，没想到 ADB 这么强大，以下是我记录了 ADB 较常用的命令行，还有很多值得您去深掘，去学习。  拷贝">
+<meta name="keywords" content="ADB">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android adb 命令行">
+<meta property="og:title" content="Android ADB 命令行">
 <meta property="og:url" content="http://wuxiaolong.me/2017/01/01/adb/index.html">
 <meta property="og:site_name" content="吴小龙同學">
-<meta property="og:description" content="拷贝文件Mac 不能像 Windows 一样，直接拷贝文件到手机，要想拷东西或看下SD卡东西还是有点束手无策，其实是用 Android adb命令行解决这个需求。 从电脑拷贝到 sd 卡命令格式： 1adb push /Users/wuxiaolong/Desktop/books.db /sdcard/ /Users/wuxiaolong/Desktop/books.db：电脑文件路径 /sdca">
+<meta property="og:description" content="用了 MBP，一直有个问题，不能像 Windows 一样直接拷贝文件到手机 SD 卡上，Android ADB 好像可以直接拷贝，但由于忙，没有去详细了解，最近刚需，要解决，于是系列学习了 ADB 知识，发现新大陆，没想到 ADB 这么强大，以下是我记录了 ADB 较常用的命令行，还有很多值得您去深掘，去学习。  拷贝文件Mac 不能像 Windows 一样，直接拷贝文件到手机，要想拷东西或看下">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-27T13:47:50.360Z">
+<meta property="og:updated_time" content="2018-01-08T01:26:10.980Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android adb 命令行">
-<meta name="twitter:description" content="拷贝文件Mac 不能像 Windows 一样，直接拷贝文件到手机，要想拷东西或看下SD卡东西还是有点束手无策，其实是用 Android adb命令行解决这个需求。 从电脑拷贝到 sd 卡命令格式： 1adb push /Users/wuxiaolong/Desktop/books.db /sdcard/ /Users/wuxiaolong/Desktop/books.db：电脑文件路径 /sdca">
+<meta name="twitter:title" content="Android ADB 命令行">
+<meta name="twitter:description" content="用了 MBP，一直有个问题，不能像 Windows 一样直接拷贝文件到手机 SD 卡上，Android ADB 好像可以直接拷贝，但由于忙，没有去详细了解，最近刚需，要解决，于是系列学习了 ADB 知识，发现新大陆，没想到 ADB 这么强大，以下是我记录了 ADB 较常用的命令行，还有很多值得您去深掘，去学习。  拷贝文件Mac 不能像 Windows 一样，直接拷贝文件到手机，要想拷东西或看下">
 
 
 
@@ -132,7 +132,7 @@
 
 
 
-  <title> Android adb 命令行 | 吴小龙同學 </title>
+  <title> Android ADB 命令行 | 吴小龙同學 </title>
 
   <style type="text/css">
   .div_right_bottom {
@@ -388,7 +388,7 @@ border:2px solid #69c;
             
             
               
-                Android adb 命令行
+                Android ADB 命令行
               
             
           </h1>
@@ -426,8 +426,8 @@ border:2px solid #69c;
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/adb/" itemprop="url" rel="index">
-                    <span itemprop="name">adb</span>
+                  <a href="/categories/ADB/" itemprop="url" rel="index">
+                    <span itemprop="name">ADB</span>
                   </a>
                 </span>
 
@@ -466,8 +466,11 @@ border:2px solid #69c;
       
 
       
-        <h1 id="拷贝文件"><a href="#拷贝文件" class="headerlink" title="拷贝文件"></a>拷贝文件</h1><p>Mac 不能像 Windows 一样，直接拷贝文件到手机，要想拷东西或看下SD卡东西还是有点束手无策，其实是用 Android adb命令行解决这个需求。</p>
-<h2 id="从电脑拷贝到-sd-卡"><a href="#从电脑拷贝到-sd-卡" class="headerlink" title="从电脑拷贝到 sd 卡"></a>从电脑拷贝到 sd 卡</h2><p>命令格式：</p>
+        <blockquote>
+<p>用了 MBP，一直有个问题，不能像 Windows 一样直接拷贝文件到手机 SD 卡上，Android ADB 好像可以直接拷贝，但由于忙，没有去详细了解，最近刚需，要解决，于是系列学习了 ADB 知识，发现新大陆，没想到 ADB 这么强大，以下是我记录了 ADB 较常用的命令行，还有很多值得您去深掘，去学习。</p>
+</blockquote>
+<h1 id="拷贝文件"><a href="#拷贝文件" class="headerlink" title="拷贝文件"></a>拷贝文件</h1><p>Mac 不能像 Windows 一样，直接拷贝文件到手机，要想拷东西或看下 SD 卡东西还是有点束手无策，其实是用 Android ADB 命令行解决这个需求。</p>
+<h2 id="从电脑拷贝到-SD-卡"><a href="#从电脑拷贝到-SD-卡" class="headerlink" title="从电脑拷贝到 SD 卡"></a>从电脑拷贝到 SD 卡</h2><p>命令格式：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb push /Users/wuxiaolong/Desktop/books.db /sdcard/</div></pre></td></tr></table></figure>
 <p>/Users/wuxiaolong/Desktop/books.db：电脑文件路径</p>
 <p>/sdcard/：拷贝到手机 SD 卡路径</p>
@@ -476,7 +479,7 @@ border:2px solid #69c;
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb pull /sdcard/books.db /Users/wuxiaolong/Desktop/</div></pre></td></tr></table></figure>
 <p>/sdcard/books.db：手机 SD 卡路径</p>
 <p>/Users/wuxiaolong/Desktop/：拷贝到电脑路径，可以省略，默认复制到用户目录。</p>
-<h1 id="指定目标设备"><a href="#指定目标设备" class="headerlink" title="指定目标设备"></a>指定目标设备</h1><p>如果电脑连接了多台设备，adb 命令行会报错，提示 error: failed to get feature set: more than one device/emulator。</p>
+<h1 id="指定目标设备"><a href="#指定目标设备" class="headerlink" title="指定目标设备"></a>指定目标设备</h1><p>如果电脑连接了多台设备，ADB 命令行会报错，提示 error: failed to get feature set: more than one device/emulator。</p>
 <p>命令格式：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb [-d|-e|-s &lt;serialNumber&gt;] &lt;<span class="built_in">command</span>&gt;</div></pre></td></tr></table></figure>
 <p>如果只有一个设备/模拟器连接时，可以省略掉 <code>[-d|-e|-s &lt;serialNumber&gt;]</code> 这一部分，直接使用 <code>adb &lt;command&gt;</code>。</p>
@@ -707,7 +710,7 @@ border:2px solid #69c;
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://wuxiaolong.me/2017/01/01/adb/" title="Android adb 命令行">http://wuxiaolong.me/2017/01/01/adb/</a>
+      <a href="http://wuxiaolong.me/2017/01/01/adb/" title="Android ADB 命令行">http://wuxiaolong.me/2017/01/01/adb/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -723,7 +726,7 @@ border:2px solid #69c;
       
         <div class="post-tags">
           
-            <a href="/tags/adb/" rel="tag"># adb</a>
+            <a href="/tags/ADB/" rel="tag"># ADB</a>
           
         </div>
       
@@ -863,7 +866,7 @@ border:2px solid #69c;
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">131</span>
+                <span class="site-state-item-count">132</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -943,7 +946,7 @@ border:2px solid #69c;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#拷贝文件"><span class="nav-number">1.</span> <span class="nav-text">拷贝文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#从电脑拷贝到-sd-卡"><span class="nav-number">1.1.</span> <span class="nav-text">从电脑拷贝到 sd 卡</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从-sd-卡拷贝到电脑"><span class="nav-number">1.2.</span> <span class="nav-text">从 sd 卡拷贝到电脑</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#指定目标设备"><span class="nav-number">2.</span> <span class="nav-text">指定目标设备</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装-APK"><span class="nav-number">3.</span> <span class="nav-text">安装 APK</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查看应用列表"><span class="nav-number">4.</span> <span class="nav-text">查看应用列表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#卸载应用"><span class="nav-number">5.</span> <span class="nav-text">卸载应用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他"><span class="nav-number">6.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#屏幕截图"><span class="nav-number">6.1.</span> <span class="nav-text">屏幕截图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看分辨率"><span class="nav-number">6.2.</span> <span class="nav-text">查看分辨率</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android-系统版本"><span class="nav-number">6.3.</span> <span class="nav-text">Android 系统版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看型号"><span class="nav-number">6.4.</span> <span class="nav-text">查看型号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清除应用数据与缓存"><span class="nav-number">6.5.</span> <span class="nav-text">清除应用数据与缓存</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">7.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#拷贝文件"><span class="nav-number">1.</span> <span class="nav-text">拷贝文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#从电脑拷贝到-SD-卡"><span class="nav-number">1.1.</span> <span class="nav-text">从电脑拷贝到 SD 卡</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从-sd-卡拷贝到电脑"><span class="nav-number">1.2.</span> <span class="nav-text">从 sd 卡拷贝到电脑</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#指定目标设备"><span class="nav-number">2.</span> <span class="nav-text">指定目标设备</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装-APK"><span class="nav-number">3.</span> <span class="nav-text">安装 APK</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查看应用列表"><span class="nav-number">4.</span> <span class="nav-text">查看应用列表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#卸载应用"><span class="nav-number">5.</span> <span class="nav-text">卸载应用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他"><span class="nav-number">6.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#屏幕截图"><span class="nav-number">6.1.</span> <span class="nav-text">屏幕截图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看分辨率"><span class="nav-number">6.2.</span> <span class="nav-text">查看分辨率</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android-系统版本"><span class="nav-number">6.3.</span> <span class="nav-text">Android 系统版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看型号"><span class="nav-number">6.4.</span> <span class="nav-text">查看型号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清除应用数据与缓存"><span class="nav-number">6.5.</span> <span class="nav-text">清除应用数据与缓存</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">7.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
