@@ -1,0 +1,1065 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Flutter,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="吴小龙同學" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="准备阶段下载 Flutter SDK新建 Flutter 文件夹，克隆 Flutter SDK：1git clone -b beta https://github.com/flutter/flutter.git">
+<meta name="keywords" content="Flutter">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flutter 初尝：从 Java 无缝过渡">
+<meta property="og:url" content="http://wuxiaolong.me/2018/03/08/Flutter/index.html">
+<meta property="og:site_name" content="吴小龙同學">
+<meta property="og:description" content="准备阶段下载 Flutter SDK新建 Flutter 文件夹，克隆 Flutter SDK：1git clone -b beta https://github.com/flutter/flutter.git">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/Flutter0.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/Flutter3.gif?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/Flutter1.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/Flutter2.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta property="og:updated_time" content="2018-03-08T09:10:06.956Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Flutter 初尝：从 Java 无缝过渡">
+<meta name="twitter:description" content="准备阶段下载 Flutter SDK新建 Flutter 文件夹，克隆 Flutter SDK：1git clone -b beta https://github.com/flutter/flutter.git">
+<meta name="twitter:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/Flutter0.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://wuxiaolong.me/2018/03/08/Flutter/">
+
+
+
+
+
+  <title> Flutter 初尝：从 Java 无缝过渡 | 吴小龙同學 </title>
+
+  <style type="text/css">
+  .div_right_bottom {
+  width: 200px;
+  top: 50%;
+  right: 0px;
+  position: fixed;
+  margin-top: -100px;
+  _position: absolute; /* position fixed for IE6 */
+/*
+右上角
+float:right;
+top:0;
+边框
+border:2px solid #69c;
+  right:0px;
+  bottom:0px;
+  z-index:0;
+*/
+
+}
+</style>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+  <div class="div_right_bottom" align="center">
+  <img src="http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_MrWuXiaolong.jpg">
+  微信公众号
+  </div>
+
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-105780265-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0e1dc2030f397dfa0d60ad22b374430d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">吴小龙同學</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">党要我帅，我不得不帅！</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-friendslinks">
+          <a href="/friendslinks/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-users"></i> <br>
+            
+            小伙伴
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-gitbook">
+          <a href="https://wuxiaolong.gitbooks.io/wuxiaolong/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br>
+            
+            GitBook
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input">
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'ywBn2eRCzfb494KCWJw3','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2018/03/08/Flutter/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吴小龙同學">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://7q5c2h.com1.z0.glb.clouddn.com/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴小龙同學">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Flutter 初尝：从 Java 无缝过渡
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-08T17:04:12+08:00">
+                2018-03-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Flutter/" itemprop="url" rel="index">
+                    <span itemprop="name">Flutter</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="准备阶段"><a href="#准备阶段" class="headerlink" title="准备阶段"></a>准备阶段</h1><h2 id="下载-Flutter-SDK"><a href="#下载-Flutter-SDK" class="headerlink" title="下载 Flutter SDK"></a>下载 Flutter SDK</h2><p>新建 Flutter 文件夹，克隆 Flutter SDK：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> -b beta https://github.com/flutter/flutter.git</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<h2 id="配置-Flutter-环境"><a href="#配置-Flutter-环境" class="headerlink" title="配置 Flutter 环境"></a>配置 Flutter 环境</h2><p>我是 Mac 系统，Flutter SDK 下载完后的路径：Users/wuxiaolong/Flutter/flutter/ 。</p>
+<h3 id="在命令行下，进入用户目录"><a href="#在命令行下，进入用户目录" class="headerlink" title="在命令行下，进入用户目录"></a>在命令行下，进入用户目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> <span class="variable">$HOME</span></div></pre></td></tr></table></figure>
+<h3 id="打开-bash-profile文件"><a href="#打开-bash-profile文件" class="headerlink" title="打开.bash_profile文件"></a>打开.bash_profile文件</h3><p>执行命令打开文件：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">open -e .bash_profile</div></pre></td></tr></table></figure></p>
+<p>打开文件后，添加 Flutter SDK 安装的路径：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> PATH=<span class="variable">$&#123;PATH&#125;</span>:/Users/wuxiaolong/Flutter/flutter/bin:<span class="variable">$PATH</span></div></pre></td></tr></table></figure></p>
+<h3 id="更新刚配置的环境变量"><a href="#更新刚配置的环境变量" class="headerlink" title="更新刚配置的环境变量"></a>更新刚配置的环境变量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">source</span> .bash_profile</div></pre></td></tr></table></figure>
+<h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><p>终端直接输入  flutter，没有提示该命令找不到，则配置成功。</p>
+<h2 id="flutter-doctor"><a href="#flutter-doctor" class="headerlink" title="flutter doctor"></a>flutter doctor</h2><p>命令行输入<code>flutter doctor</code>，安装 Futter 剩余依赖项。</p>
+<h2 id="安装-Flutter-和-Dart-插件"><a href="#安装-Flutter-和-Dart-插件" class="headerlink" title="安装 Flutter 和 Dart 插件"></a>安装 Flutter 和 Dart 插件</h2><p>启动 Android Studio，搜索 Flutter 插件并单击 install，系统提示您安装 Dart 插件，点击 Yes 安装即可。</p>
+<p><strong>提示</strong>：安装 Dart 插件可能会提示下载失败，多试几次。</p>
+<h2 id="第一个项目"><a href="#第一个项目" class="headerlink" title="第一个项目"></a>第一个项目</h2><p>Android Studio - File - New - New Flutter Project，等待创建成功后，运行效果如下：<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/Flutter0.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""></p>
+<h1 id="Dart-基本语法"><a href="#Dart-基本语法" class="headerlink" title="Dart 基本语法"></a>Dart 基本语法</h1><p>Flutter 开发语言是 Dart，这个语言相信我们做原生 Android 的都能看懂，我在学习过程，感觉这不就是 Java 嘛，我直接按照 Java 思维去写，完全没问题。</p>
+<ol>
+<li><p>基础数据类型有 int、double、bool、String、List（数组）、Map；</p>
+</li>
+<li><p>声明变量可以使用 var，也可以使用 const 和 final；</p>
+</li>
+<li><p>const 和 final 定义的都是常量，值不能改变，并且在声明的时候就必须初始化，这是可以省略 var 或者其他类型；</p>
+</li>
+<li><p>函数可以有可选参数；</p>
+</li>
+<li><p>if-else、for 循环、while 循环、switch-case、try-catch 等知识与 Java  类似；</p>
+</li>
+</ol>
+<p>更多详见官网：<a href="https://www.dartlang.org/" target="_blank" rel="noopener">https://www.dartlang.org/</a></p>
+<h1 id="练手"><a href="#练手" class="headerlink" title="练手"></a>练手</h1><p>这里使用了豆瓣电影的 API，功能很简单，就一个列表和详情。</p>
+<h2 id="效果预览"><a href="#效果预览" class="headerlink" title="效果预览"></a>效果预览</h2><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/Flutter3.gif?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""></p>
+<h2 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h2><p>学习新知识，第一步就是模仿，多看，多想，多实践，在这个过程我遇到一些问题：</p>
+<ol>
+<li><p>Flutter 怎么打印信息？<code>print(&#39;onclick&#39;);</code></p>
+</li>
+<li><p>Flutter 如何看报错信息？在 Android Studio 底栏 Run 非 LogCat；</p>
+</li>
+<li><p>网络请求怎么写？</p>
+</li>
+<li><p>接口数据如何解析的？</p>
+</li>
+<li><p>如何一进页面就请求接口？</p>
+</li>
+<li><p>网络图片怎么显示？</p>
+</li>
+<li><p>ListView 官网介绍的 Item 是通用的，如何定制？</p>
+</li>
+<li><p>跳转页面如何传参？传参后怎么用？</p>
+</li>
+</ol>
+<p>等等，遇到一个问题，消灭一个。</p>
+<h1 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h1><h2 id="源码地址"><a href="#源码地址" class="headerlink" title="源码地址"></a>源码地址</h2><p><a href="https://github.com/WuXiaolong/flutter_movie" target="_blank" rel="noopener">https://github.com/WuXiaolong/flutter_movie</a> ，该项目起始页面在 lib/main.dart，注意的点我也都加了注释，去吧，学习还是要靠自己，踏出第一步，实践起来。</p>
+<h2 id="如何导入-Flutter-项目"><a href="#如何导入-Flutter-项目" class="headerlink" title="如何导入 Flutter 项目"></a>如何导入 Flutter 项目</h2><h3 id="下载-Flutter-项目"><a href="#下载-Flutter-项目" class="headerlink" title="下载 Flutter 项目"></a>下载 Flutter 项目</h3><p>下载完 Flutter 项目，直接 Android Studio - Open。</p>
+<h3 id="配置-Flutter-SDK"><a href="#配置-Flutter-SDK" class="headerlink" title="配置 Flutter SDK"></a>配置 Flutter SDK</h3><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/Flutter1.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br>如图，点击 Open Flutter setting，点击下拉按钮，选择 Flutter SDK 路径，点击 OK，会自动配置 Dart SDK 路径。</p>
+<h3 id="pubspec-yaml-下载库"><a href="#pubspec-yaml-下载库" class="headerlink" title="pubspec.yaml 下载库"></a>pubspec.yaml 下载库</h3><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/Flutter2.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""><br>如图，点击 Packages get，下载项目用到的依赖库，编译完成应该就能正常运行了。</p>
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><ol>
+<li><p>还是被 Flutter 惊艳到了，重拾当初学习 Android 的热情，却一不小心，我的肩痛又开始了；</p>
+</li>
+<li><p>Flutter UI 全是代码写的，不是 XML，复杂的 UI 实现有难度；</p>
+</li>
+<li><p>Flutter 联想功能较弱，需要先导入相应的包，才有相应的类联想；</p>
+</li>
+<li><p>新建了一个 package，将 dart 文件拖入，相关联包的路径会相应修改，但是我改了package 名，就无法相应修改，bug？</p>
+</li>
+<li><p>Flutter，我感觉可以从 Java 实现无缝过度；</p>
+</li>
+<li><p>I’m a iOS Developer.</p>
+</li>
+<li><p>Flutter 开源库远没有原生的丰富，目前还是 Beta 版，还是很值得期待，我会持续关注学习，先就酱紫吧。</p>
+</li>
+</ol>
+<h1 id="相关阅读"><a href="#相关阅读" class="headerlink" title="相关阅读"></a>相关阅读</h1><p><a href="https://flutter.io/" target="_blank" rel="noopener">Flutter 官网</a></p>
+<p><a href="http://wuxiaolong.me/2017/07/19/mac-adb-gradlew/">Mac 配置 adb 环境、gradlew：command not found</a></p>
+<p><a href="https://github.com/CodemateLtd/FlutterMates" target="_blank" rel="noopener">FlutterMates</a></p>
+		 <!--广告-->
+		﻿<div> 
+<b>由于多说和网易云跟帖评论服务相继关闭，来必力并不给力，因此本博客决定不再折腾评论，欢迎大家可以前往我的公众号留言交流！</b>
+
+</div>
+<!--
+<h1><b>联系我</b></h1>
+
+1、我的知识星球：更多分享只对您公开，￥99/永久。
+<img src="http://7q5c2h.com1.z0.glb.clouddn.com/zhishixingqiu.jpeg" style="margin-top: 20px; width: 40%; height: 40%"/> 
+<br>
+
+
+2、我的微信公众号：吴小龙同学，欢迎关注交流~
+<img src="http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_wuxiaolong_travel.jpg"  style="margin-top: 20px; width: 40%; height: 40%"/> 
+<br>
+
+3、我的微信群，可以加我微信，拉你进群，加我时<b>请备注真名</b>。
+<img src="http://7q5c2h.com1.z0.glb.clouddn.com/weixin.jpg"  style="margin-top: 20px; width: 40%; height: 40%"/> 
+<br>
+
+
+
+
+<!--
+其实有 Disqus ……
+1、Android技术交流剩者为王④群：331553260。
+<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=d129018d31e801e676743da4b05a1063f88ae52ca0407579666545596bdb7a52"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="剩者为王④群" title="剩者为王④群"></a>
+<img src="http://7q5c2h.com1.z0.glb.clouddn.com/qun4.png"  style="margin-top: 20px; width: 40%; height: 40%"/> 
+-->
+
+
+<!--<div style="padding: 10px 0; margin: 20px auto; width: 99%; text-align: center;"> 
+<b>赞助商：<a href="https://shop240489162.taobao.com/">躲角落的猫咪</a></b>
+<br>
+<img src="http://7q5c2h.com1.z0.glb.clouddn.com/taobaoshop.png"/> 
+</div>
+
+-->  
+
+      
+	   
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center">
+    <div></div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赞赏</span>
+    </button>
+    <div id="QR" style="display: none">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://7q5c2h.com1.z0.glb.clouddn.com/WechatPay1024.jpeg" alt="吴小龙同學 WeChat Pay">
+          <p></p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      吴小龙同學
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://wuxiaolong.me/2018/03/08/Flutter/" title="Flutter 初尝：从 Java 无缝过渡">http://wuxiaolong.me/2018/03/08/Flutter/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Flutter/" rel="tag"># Flutter</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/15/AndroidIPC/" rel="next" title="Android 进程间通信">
+                <i class="fa fa-chevron-left"></i> Android 进程间通信
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+
+  </article> 
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="http://7q5c2h.com1.z0.glb.clouddn.com/avatar.jpg" alt="吴小龙同學">
+          <p class="site-author-name" itemprop="name">吴小龙同學</p>
+           
+              <p class="site-description motion-element" itemprop="description">我的微信公众号：吴小龙同学</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/index.html">
+                <span class="site-state-item-count">165</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">133</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://open.weixin.qq.com/qr/code/?username=MrWuXiaolong" target="_blank" title="WeChat">
+                  
+                    <i class="fa fa-fw fa-weixin"></i>
+                  
+                  WeChat
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/WuXiaolong" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2175011601" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="/qq/index.html" target="_blank" title="QQ">
+                  
+                    <i class="fa fa-fw fa-qq"></i>
+                  
+                  QQ
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#准备阶段"><span class="nav-number">1.</span> <span class="nav-text">准备阶段</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载-Flutter-SDK"><span class="nav-number">1.1.</span> <span class="nav-text">下载 Flutter SDK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置-Flutter-环境"><span class="nav-number">1.2.</span> <span class="nav-text">配置 Flutter 环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在命令行下，进入用户目录"><span class="nav-number">1.2.1.</span> <span class="nav-text">在命令行下，进入用户目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打开-bash-profile文件"><span class="nav-number">1.2.2.</span> <span class="nav-text">打开.bash_profile文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新刚配置的环境变量"><span class="nav-number">1.2.3.</span> <span class="nav-text">更新刚配置的环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#验证"><span class="nav-number">1.2.4.</span> <span class="nav-text">验证</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#flutter-doctor"><span class="nav-number">1.3.</span> <span class="nav-text">flutter doctor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-Flutter-和-Dart-插件"><span class="nav-number">1.4.</span> <span class="nav-text">安装 Flutter 和 Dart 插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第一个项目"><span class="nav-number">1.5.</span> <span class="nav-text">第一个项目</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Dart-基本语法"><span class="nav-number">2.</span> <span class="nav-text">Dart 基本语法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#练手"><span class="nav-number">3.</span> <span class="nav-text">练手</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#效果预览"><span class="nav-number">3.1.</span> <span class="nav-text">效果预览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遇到问题"><span class="nav-number">3.2.</span> <span class="nav-text">遇到问题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#源码"><span class="nav-number">4.</span> <span class="nav-text">源码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#源码地址"><span class="nav-number">4.1.</span> <span class="nav-text">源码地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何导入-Flutter-项目"><span class="nav-number">4.2.</span> <span class="nav-text">如何导入 Flutter 项目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载-Flutter-项目"><span class="nav-number">4.2.1.</span> <span class="nav-text">下载 Flutter 项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置-Flutter-SDK"><span class="nav-number">4.2.2.</span> <span class="nav-text">配置 Flutter SDK</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pubspec-yaml-下载库"><span class="nav-number">4.2.3.</span> <span class="nav-text">pubspec.yaml 下载库</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最后"><span class="nav-number">5.</span> <span class="nav-text">最后</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#相关阅读"><span class="nav-number">6.</span> <span class="nav-text">相关阅读</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">吴小龙同學</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+
+  <!--崩溃欺骗
+  <script type="text/javascript" src="/js/src/dytitle.js"></script>
+  -->
+
+</body>
+</html>
