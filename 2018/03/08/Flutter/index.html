@@ -87,22 +87,22 @@
 
 
 
-<meta name="description" content="准备阶段下载 Flutter SDK新建 Flutter 文件夹，克隆 Flutter SDK：1git clone -b beta https://github.com/flutter/flutter.git">
+<meta name="description" content="准备阶段下载 Flutter SDK如果不能科学上网，可以声明 PUB_HOSTED_URL 和 FLUTTER_STORAGE_BASE_URL 两个环境变量，执行如下两行命令，是为了让 Flutter 在安装过程中使用国内的镜像：12export PUB_HOSTED_URL=https://pub.flutter">
 <meta name="keywords" content="Flutter">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Flutter 初尝：从 Java 无缝过渡">
 <meta property="og:url" content="http://wuxiaolong.me/2018/03/08/Flutter/index.html">
 <meta property="og:site_name" content="吴小龙同學">
-<meta property="og:description" content="准备阶段下载 Flutter SDK新建 Flutter 文件夹，克隆 Flutter SDK：1git clone -b beta https://github.com/flutter/flutter.git">
+<meta property="og:description" content="准备阶段下载 Flutter SDK如果不能科学上网，可以声明 PUB_HOSTED_URL 和 FLUTTER_STORAGE_BASE_URL 两个环境变量，执行如下两行命令，是为了让 Flutter 在安装过程中使用国内的镜像：12export PUB_HOSTED_URL=https://pub.flutter-io.cnexport FLUTTER_STORAGE_BASE_URL=ht">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/Flutter0.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/Flutter3.gif?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/Flutter1.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
 <meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/Flutter2.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
-<meta property="og:updated_time" content="2018-03-08T09:10:06.956Z">
+<meta property="og:updated_time" content="2018-03-17T03:43:40.389Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Flutter 初尝：从 Java 无缝过渡">
-<meta name="twitter:description" content="准备阶段下载 Flutter SDK新建 Flutter 文件夹，克隆 Flutter SDK：1git clone -b beta https://github.com/flutter/flutter.git">
+<meta name="twitter:description" content="准备阶段下载 Flutter SDK如果不能科学上网，可以声明 PUB_HOSTED_URL 和 FLUTTER_STORAGE_BASE_URL 两个环境变量，执行如下两行命令，是为了让 Flutter 在安装过程中使用国内的镜像：12export PUB_HOSTED_URL=https://pub.flutter-io.cnexport FLUTTER_STORAGE_BASE_URL=ht">
 <meta name="twitter:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/Flutter0.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
 
 
@@ -471,12 +471,13 @@ border:2px solid #69c;
       
 
       
-        <h1 id="准备阶段"><a href="#准备阶段" class="headerlink" title="准备阶段"></a>准备阶段</h1><h2 id="下载-Flutter-SDK"><a href="#下载-Flutter-SDK" class="headerlink" title="下载 Flutter SDK"></a>下载 Flutter SDK</h2><p>新建 Flutter 文件夹，克隆 Flutter SDK：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> -b beta https://github.com/flutter/flutter.git</div></pre></td></tr></table></figure></p>
+        <h1 id="准备阶段"><a href="#准备阶段" class="headerlink" title="准备阶段"></a>准备阶段</h1><h2 id="下载-Flutter-SDK"><a href="#下载-Flutter-SDK" class="headerlink" title="下载 Flutter SDK"></a>下载 Flutter SDK</h2><p>如果不能科学上网，可以声明 PUB_HOSTED_URL 和 FLUTTER_STORAGE_BASE_URL 两个环境变量，执行如下两行命令，是为了让 Flutter 在安装过程中使用国内的镜像：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> PUB_HOSTED_URL=https://pub.flutter-io.cn</div><div class="line"><span class="built_in">export</span> FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn</div></pre></td></tr></table></figure></p>
+<p>新建 Flutter 文件夹，克隆 Flutter SDK：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> -b beta https://github.com/flutter/flutter.git</div></pre></td></tr></table></figure></p>
 <a id="more"></a>
 <h2 id="配置-Flutter-环境"><a href="#配置-Flutter-环境" class="headerlink" title="配置 Flutter 环境"></a>配置 Flutter 环境</h2><p>我是 Mac 系统，Flutter SDK 下载完后的路径：Users/wuxiaolong/Flutter/flutter/ 。</p>
 <h3 id="在命令行下，进入用户目录"><a href="#在命令行下，进入用户目录" class="headerlink" title="在命令行下，进入用户目录"></a>在命令行下，进入用户目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> <span class="variable">$HOME</span></div></pre></td></tr></table></figure>
 <h3 id="打开-bash-profile文件"><a href="#打开-bash-profile文件" class="headerlink" title="打开.bash_profile文件"></a>打开.bash_profile文件</h3><p>执行命令打开文件：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">open -e .bash_profile</div></pre></td></tr></table></figure></p>
-<p>打开文件后，添加 Flutter SDK 安装的路径：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> PATH=<span class="variable">$&#123;PATH&#125;</span>:/Users/wuxiaolong/Flutter/flutter/bin:<span class="variable">$PATH</span></div></pre></td></tr></table></figure></p>
+<p>打开文件后，添加 Flutter SDK 安装的路径：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> PATH=<span class="variable">$&#123;PATH&#125;</span>:/Users/wuxiaolong/Flutter/flutter/bin:<span class="variable">$PATH</span></div><div class="line">`</div></pre></td></tr></table></figure></p>
 <h3 id="更新刚配置的环境变量"><a href="#更新刚配置的环境变量" class="headerlink" title="更新刚配置的环境变量"></a>更新刚配置的环境变量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">source</span> .bash_profile</div></pre></td></tr></table></figure>
 <h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><p>终端直接输入  flutter，没有提示该命令找不到，则配置成功。</p>
 <h2 id="flutter-doctor"><a href="#flutter-doctor" class="headerlink" title="flutter doctor"></a>flutter doctor</h2><p>命令行输入<code>flutter doctor</code>，安装 Futter 剩余依赖项。</p>
@@ -665,6 +666,10 @@ border:2px solid #69c;
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/04/04/web2app/" rel="prev" title="Android 从 Web 唤起 APP">
+                Android 从 Web 唤起 APP <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -756,7 +761,7 @@ border:2px solid #69c;
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/index.html">
-                <span class="site-state-item-count">166</span>
+                <span class="site-state-item-count">167</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -767,7 +772,7 @@ border:2px solid #69c;
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-count">43</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -778,7 +783,7 @@ border:2px solid #69c;
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">133</span>
+                <span class="site-state-item-count">134</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
