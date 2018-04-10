@@ -477,11 +477,11 @@ border:2px solid #69c;
 <p>对应的activity_font_awesome.xml<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">&lt;LinearLayout xmlns:android=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">    xmlns:tools=<span class="string">"http://schemas.android.com/tools"</span></div><div class="line">    android:id=<span class="string">"@+id/icons_container"</span></div><div class="line">    android:layout_width=<span class="string">"match_parent"</span></div><div class="line">    android:layout_height=<span class="string">"match_parent"</span></div><div class="line">    android:paddingBottom=<span class="string">"@dimen/activity_vertical_margin"</span></div><div class="line">    android:paddingLeft=<span class="string">"@dimen/activity_horizontal_margin"</span></div><div class="line">    android:paddingRight=<span class="string">"@dimen/activity_horizontal_margin"</span></div><div class="line">    android:paddingTop=<span class="string">"@dimen/activity_vertical_margin"</span></div><div class="line">    tools:context=<span class="string">".MainActivity"</span>&gt;</div><div class="line"></div><div class="line">    &lt;TextView</div><div class="line">        android:layout_width="match_parent"</div><div class="line">        android:layout_height="wrap_content"</div><div class="line">        android:layout_weight="1"</div><div class="line">        android:gravity="center"</div><div class="line">        android:text="@string/fa_icon_areachart" /&gt;</div><div class="line"></div><div class="line">    &lt;TextView</div><div class="line">        android:layout_width="match_parent"</div><div class="line">        android:layout_height="wrap_content"</div><div class="line">        android:layout_weight="1"</div><div class="line">        android:gravity="center"</div><div class="line">        android:text="@string/fa_icon_piechart"</div><div class="line">        android:textColor="#9b59b6"</div><div class="line">        android:textSize="45sp" /&gt;</div><div class="line"></div><div class="line">    &lt;TextView</div><div class="line">        android:layout_width="match_parent"</div><div class="line">        android:layout_height="wrap_content"</div><div class="line">        android:layout_weight="1"</div><div class="line">        android:gravity="center"</div><div class="line">        android:text="@string/fa_icon_linechart" /&gt;</div><div class="line"></div><div class="line">&lt;/LinearLayout&gt;</div></pre></td></tr></table></figure></p>
 		 <!--广告-->
 		﻿<div> 
-<b>由于多说和网易云跟帖评论服务相继关闭，来必力并不给力，因此本博客决定不再折腾评论，欢迎大家可以前往我的公众号留言交流！</b>
-
+<img src="http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_WuXiaolong1.JPG"> 
 </div>
 <!--
 <h1><b>联系我</b></h1>
+<b>由于多说和网易云跟帖评论服务相继关闭，来必力并不给力，因此本博客决定不再折腾评论，欢迎大家可以前往我的公众号留言交流！</b>
 
 1、我的知识星球：更多分享只对您公开，￥99/永久。
 <img src="http://7q5c2h.com1.z0.glb.clouddn.com/zhishixingqiu.jpeg" style="margin-top: 20px; width: 40%; height: 40%"/> 
@@ -514,7 +514,7 @@ border:2px solid #69c;
 </div>
 
 -->  
-
+ 
       
 	   
     </div>
@@ -570,7 +570,8 @@ border:2px solid #69c;
 
       
     </div>
-
+     <!--评论-->
+    
     <footer class="post-footer">
       
         <div class="post-tags">
@@ -648,6 +649,9 @@ border:2px solid #69c;
 
           
   <div class="comments" id="comments">
+    
+      <div id="gitalk-container"></div>
+      <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
     
   </div>
 
@@ -977,6 +981,26 @@ border:2px solid #69c;
 
 
 
+
+
+  
+    
+      <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+      <script type="text/javascript">
+        const gitalk = new Gitalk({
+          clientID: 'ef1f4ac736abe340fb4c',
+          clientSecret: '5f00d99f154db6ba79e7d45ce2855eeb6b00038c',
+          repo: 'BlogComment',
+          owner: 'WuXiaolong',
+          admin: 'WuXiaolong'.split(','),
+          pagerDirection: '',
+          // facebook-like distraction free mode
+          distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+      </script>
+    
+  
 
 
   

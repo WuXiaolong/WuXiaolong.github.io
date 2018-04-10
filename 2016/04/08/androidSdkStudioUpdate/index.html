@@ -496,11 +496,11 @@ border:2px solid #69c;
 <p>笔者：重新打开Android SDK Manager，发现居然能在线更新 </p>
 		 <!--广告-->
 		﻿<div> 
-<b>由于多说和网易云跟帖评论服务相继关闭，来必力并不给力，因此本博客决定不再折腾评论，欢迎大家可以前往我的公众号留言交流！</b>
-
+<img src="http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_WuXiaolong1.JPG"> 
 </div>
 <!--
 <h1><b>联系我</b></h1>
+<b>由于多说和网易云跟帖评论服务相继关闭，来必力并不给力，因此本博客决定不再折腾评论，欢迎大家可以前往我的公众号留言交流！</b>
 
 1、我的知识星球：更多分享只对您公开，￥99/永久。
 <img src="http://7q5c2h.com1.z0.glb.clouddn.com/zhishixingqiu.jpeg" style="margin-top: 20px; width: 40%; height: 40%"/> 
@@ -533,7 +533,7 @@ border:2px solid #69c;
 </div>
 
 -->  
-
+ 
       
 	   
     </div>
@@ -589,7 +589,8 @@ border:2px solid #69c;
 
       
     </div>
-
+     <!--评论-->
+    
     <footer class="post-footer">
       
         <div class="post-tags">
@@ -669,6 +670,9 @@ border:2px solid #69c;
 
           
   <div class="comments" id="comments">
+    
+      <div id="gitalk-container"></div>
+      <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
     
   </div>
 
@@ -998,6 +1002,26 @@ border:2px solid #69c;
 
 
 
+
+
+  
+    
+      <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+      <script type="text/javascript">
+        const gitalk = new Gitalk({
+          clientID: 'ef1f4ac736abe340fb4c',
+          clientSecret: '5f00d99f154db6ba79e7d45ce2855eeb6b00038c',
+          repo: 'BlogComment',
+          owner: 'WuXiaolong',
+          admin: 'WuXiaolong'.split(','),
+          pagerDirection: '',
+          // facebook-like distraction free mode
+          distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+      </script>
+    
+  
 
 
   

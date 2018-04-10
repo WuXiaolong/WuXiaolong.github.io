@@ -487,11 +487,11 @@ border:2px solid #69c;
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">IconicsImageView icon = (IconicsImageView) findViewById(R.id.icon);</div><div class="line"> List&lt;String&gt; icons = <span class="keyword">new</span> ArrayList&lt;String&gt;();</div><div class="line">                       <span class="keyword">for</span> (ITypeface font : Iconics.getRegisteredFonts()) &#123;</div><div class="line">                           Log.d(<span class="string">"wxl"</span>, <span class="string">"FontName="</span> + font.getFontName());</div><div class="line">                           <span class="keyword">if</span> (font.getFontName().equalsIgnoreCase(<span class="string">"FontAwesome"</span>)) &#123;</div><div class="line">                               <span class="keyword">for</span> (String icon : font.getIcons()) &#123;</div><div class="line">                                   Log.d(<span class="string">"wxl"</span>, <span class="string">"getIcons="</span> + icon);</div><div class="line">                                   icons.add(icon);</div><div class="line">                               &#125;</div><div class="line">                           &#125;</div><div class="line">                       &#125;</div><div class="line"> icon.setIcon(icons.get(<span class="number">0</span>));</div></pre></td></tr></table></figure>
 		 <!--广告-->
 		﻿<div> 
-<b>由于多说和网易云跟帖评论服务相继关闭，来必力并不给力，因此本博客决定不再折腾评论，欢迎大家可以前往我的公众号留言交流！</b>
-
+<img src="http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_WuXiaolong1.JPG"> 
 </div>
 <!--
 <h1><b>联系我</b></h1>
+<b>由于多说和网易云跟帖评论服务相继关闭，来必力并不给力，因此本博客决定不再折腾评论，欢迎大家可以前往我的公众号留言交流！</b>
 
 1、我的知识星球：更多分享只对您公开，￥99/永久。
 <img src="http://7q5c2h.com1.z0.glb.clouddn.com/zhishixingqiu.jpeg" style="margin-top: 20px; width: 40%; height: 40%"/> 
@@ -524,7 +524,7 @@ border:2px solid #69c;
 </div>
 
 -->  
-
+ 
       
 	   
     </div>
@@ -580,7 +580,8 @@ border:2px solid #69c;
 
       
     </div>
-
+     <!--评论-->
+    
     <footer class="post-footer">
       
         <div class="post-tags">
@@ -658,6 +659,9 @@ border:2px solid #69c;
 
           
   <div class="comments" id="comments">
+    
+      <div id="gitalk-container"></div>
+      <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
     
   </div>
 
@@ -962,6 +966,26 @@ border:2px solid #69c;
 
 
 
+
+
+  
+    
+      <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+      <script type="text/javascript">
+        const gitalk = new Gitalk({
+          clientID: 'ef1f4ac736abe340fb4c',
+          clientSecret: '5f00d99f154db6ba79e7d45ce2855eeb6b00038c',
+          repo: 'BlogComment',
+          owner: 'WuXiaolong',
+          admin: 'WuXiaolong'.split(','),
+          pagerDirection: '',
+          // facebook-like distraction free mode
+          distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+      </script>
+    
+  
 
 
   

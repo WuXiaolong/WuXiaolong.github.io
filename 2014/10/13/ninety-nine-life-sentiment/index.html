@@ -565,11 +565,11 @@ border:2px solid #69c;
 <h2 id="《去掉不幸的祸根》"><a href="#《去掉不幸的祸根》" class="headerlink" title="《去掉不幸的祸根》"></a>《去掉不幸的祸根》</h2><p>　　在尘世中胡乱寻找幸福的人，<br>　　是世界上最不幸之人，<br>　　不要盲目比较，快乐长在；<br>　　不要丧失自我，自信长在；<br>　　不要乞讨幸福，自尊长在；<br>　　不要贪求过多，知足长乐；<br>　　不要虚荣心太强，悠闲自得；<br>　　不要怀疑一切，真情长在；<br>　　不要复杂生活，欢乐常伴；<br>　　不要仇视社会，和睦共处。<br>　　每日提醒：幸福就在自己的手中。<br>　　人生顿悟：不幸多是自找的。</p>
 		 <!--广告-->
 		﻿<div> 
-<b>由于多说和网易云跟帖评论服务相继关闭，来必力并不给力，因此本博客决定不再折腾评论，欢迎大家可以前往我的公众号留言交流！</b>
-
+<img src="http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_WuXiaolong1.JPG"> 
 </div>
 <!--
 <h1><b>联系我</b></h1>
+<b>由于多说和网易云跟帖评论服务相继关闭，来必力并不给力，因此本博客决定不再折腾评论，欢迎大家可以前往我的公众号留言交流！</b>
 
 1、我的知识星球：更多分享只对您公开，￥99/永久。
 <img src="http://7q5c2h.com1.z0.glb.clouddn.com/zhishixingqiu.jpeg" style="margin-top: 20px; width: 40%; height: 40%"/> 
@@ -602,7 +602,7 @@ border:2px solid #69c;
 </div>
 
 -->  
-
+ 
       
 	   
     </div>
@@ -658,7 +658,8 @@ border:2px solid #69c;
 
       
     </div>
-
+     <!--评论-->
+    
     <footer class="post-footer">
       
         <div class="post-tags">
@@ -686,8 +687,8 @@ border:2px solid #69c;
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2014/10/21/Android-Studio-shortcut-keys-arranged-like-Eclipse/" rel="prev" title="Android Studio快捷键设置成跟Eclipse一样">
-                Android Studio快捷键设置成跟Eclipse一样 <i class="fa fa-chevron-right"></i>
+              <a href="/2014/10/21/Android-Studio-Genymotion/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -736,6 +737,9 @@ border:2px solid #69c;
 
           
   <div class="comments" id="comments">
+    
+      <div id="gitalk-container"></div>
+      <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
     
   </div>
 
@@ -1065,6 +1069,26 @@ border:2px solid #69c;
 
 
 
+
+
+  
+    
+      <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+      <script type="text/javascript">
+        const gitalk = new Gitalk({
+          clientID: 'ef1f4ac736abe340fb4c',
+          clientSecret: '5f00d99f154db6ba79e7d45ce2855eeb6b00038c',
+          repo: 'BlogComment',
+          owner: 'WuXiaolong',
+          admin: 'WuXiaolong'.split(','),
+          pagerDirection: '',
+          // facebook-like distraction free mode
+          distractionFreeMode: false
+        })
+        gitalk.render('gitalk-container')
+      </script>
+    
+  
 
 
   
