@@ -479,11 +479,8 @@ border:2px solid #69c;
 <p>调用：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> BannerLayout bannerView;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line">        bannerView = (BannerLayout) findViewById(R.id.bannerView);</div><div class="line">        List&lt;Object&gt; bannerList = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">        bannerList.add(R.mipmap.horizontal_default);</div><div class="line">        bannerList.add(<span class="string">"http://pic1.win4000.com/wallpaper/5/598161750eddb.jpg"</span>);</div><div class="line">        bannerList.add(<span class="string">"http://pic1.win4000.com/wallpaper/4/597efb5b6aae8.jpg"</span>);</div><div class="line">        bannerView.setBannerPointSize(<span class="number">10</span>);</div><div class="line">        bannerView.setBannerPointGravity(Gravity.CENTER);</div><div class="line">        bannerView.setBannerPointDrawableSelected(R.drawable.gray_radius);</div><div class="line">        bannerView.setBannerPointDrawableUnselected(R.mipmap.point01);</div><div class="line">        bannerView.setBannerDelaySecond(<span class="number">5</span>);</div><div class="line">        <span class="comment">//banner 设置方法完毕时最后调用 start 方法</span></div><div class="line">        bannerView.start(bannerList);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onStop</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onStop();</div><div class="line">        bannerView.bannerShutdown();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>如果以上还满足不了你的需求，可以使用 GitHub上的库 <a href="https://github.com/youth5201314/banner" target="_blank" rel="noopener">banner</a>，它丰富了 pointLayout，可能是文字，它还依赖了<a href="https://github.com/ToxicBakery/ViewPagerTransforms" target="_blank" rel="noopener">ViewPagerTransforms</a>，因此 ViewPager 切换有各种炫酷效果，不过我觉得有些多余，主要还是轮播。</p>
 		 <!--广告-->
-		﻿<div> 
-<h1>微信公众号</h1>
-我的微信公众号：吴小龙同学，欢迎关注交流~
-<img src="http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_WuXiaolong1.JPG"> 
-</div>
+		﻿<img src="http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_WuXiaolong1.JPG"> 
+
 <!--
 <h1><b>联系我</b></h1>
 <b>由于多说和网易云跟帖评论服务相继关闭，来必力并不给力，因此本博客决定不再折腾评论，欢迎大家可以前往我的公众号留言交流！</b>
@@ -542,7 +539,7 @@ border:2px solid #69c;
     <div id="QR" style="display: none">
       
         <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="http://7q5c2h.com1.z0.glb.clouddn.com/WechatPay1024.jpeg" alt="吴小龙同學 WeChat Pay">
+          <img id="wechat_qr" src="http://7q5c2h.com1.z0.glb.clouddn.com/WechatZSM.JPG" alt="吴小龙同學 WeChat Pay">
           <p></p>
         </div>
       

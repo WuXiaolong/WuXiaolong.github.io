@@ -365,7 +365,7 @@ border:2px solid #69c;
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2015/04/23/weiyan/">
+    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2015/04/23/CanvasToPhoto/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴小龙同學">
@@ -387,8 +387,8 @@ border:2px solid #69c;
             
               
                 
-                <a class="post-title-link" href="/2015/04/23/weiyan/" itemprop="url">
-                  微言
+                <a class="post-title-link" href="/2015/04/23/CanvasToPhoto/" itemprop="url">
+                  Android之Canvas中内容保存为图片
                 </a>
               
             
@@ -427,8 +427,8 @@ border:2px solid #69c;
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/App/" itemprop="url" rel="index">
-                    <span itemprop="name">App</span>
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
                   </a>
                 </span>
 
@@ -463,17 +463,13 @@ border:2px solid #69c;
 
       
         
-          <blockquote>
-<p>微言算我第一个个人App，当初的初衷，想通过这个App达到练手，并熟悉Android项目的创建到发布上线的整个流程。<br>现在我想达到了预期甚至超过了，至今我还在维护这个项目。<br>至于做成什么样子的应用，一开始根本不知道，更不知道“产品”，主观意识做一款励志的，<br>后来认知到产品概念，想把微言做的更好，而不是纯粹地练手，于是形成了现在这个样子的APP(<a href="http://app.mi.com/detail/25323" target="_blank" rel="noopener">效果预览</a>)。<br>其实其中好多功能不是我凭空想出来的，是用户反馈的。<br>PS:万事开头难，没有行动之前，什么都觉得难！其实没想象的那么难，选准方向，勇往直前吧。</p>
-</blockquote>
-<h2 id="效果预览"><a href="#效果预览" class="headerlink" title="效果预览"></a>效果预览</h2><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/weiyanScreenshots.gif" alt=""></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2015/04/23/weiyan/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">Bitmap bm = Bitmap.createBitmap(<span class="number">320</span>, <span class="number">480</span>, Config.ARGB_8888);  </div><div class="line">        Canvas canvas = <span class="keyword">new</span> Canvas(bm);  </div><div class="line">        Paint p = <span class="keyword">new</span> Paint();  </div><div class="line">        canvas.drawRect(<span class="number">50</span>, <span class="number">50</span>, <span class="number">200</span>, <span class="number">200</span>, p);  </div><div class="line">        canvas.save(Canvas.ALL_SAVE_FLAG );  </div><div class="line">        canvas.restore();  </div><div class="line">          </div><div class="line">        File f = <span class="keyword">new</span> File(<span class="string">"/sdcard/0.png"</span>);  </div><div class="line">        FileOutputStream fos = <span class="keyword">null</span>;  </div><div class="line">        <span class="keyword">try</span> &#123;  </div><div class="line">            fos = <span class="keyword">new</span> FileOutputStream(f);  </div><div class="line">            bm.compress(Bitmap.CompressFormat.PNG, <span class="number">50</span>, fos);  </div><div class="line">        &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;  </div><div class="line">            <span class="comment">// TODO Auto-generated catch block  </span></div><div class="line">            e.printStackTrace();  </div><div class="line">        &#125;  </div><div class="line">        <span class="comment">// 其次把文件插入到系统图库</span></div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        MediaStore.Images.Media.insertImage(context.getContentResolver(),</div><div class="line">				file.getAbsolutePath(), fileName, <span class="keyword">null</span>);</div><div class="line">    &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</div><div class="line">        e.printStackTrace();</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 最后通知图库更新</span></div><div class="line">    context.sendBroadcast(<span class="keyword">new</span> Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.parse(<span class="string">"file://"</span> + path)));</div></pre></td></tr></table></figure>
+<p>这样就把Canvas中的内容保存成了sd卡上的一个png图片。简单说一下原理，自己create一个bitmap，然后让Canvas通过这个bitmap创建一个实例，然后在该canvas上绘制的内容都会画<br>在该bitmap上，保存Canvas的图层，然后把bitmap写到sd卡上的文件。注意：要在AndroidManifest.xml中添加在sd卡上读写文件的权限</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 在SDCard中创建与删除文件权限 --&gt;     </div><div class="line">&lt;uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/&gt;     </div><div class="line">&lt;!-- 往SDCard写入数据权限 --&gt;     </div><div class="line">&lt;uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/&gt;</div></pre></td></tr></table></figure>
+<p>Canvas加入图片</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Canvas canvas;</div><div class="line">Bitmap bmp = BitmapFactory.decodeResource(getResources(), R.drawable.pic180);  </div><div class="line">            canvas.drawColor(Color.BLACK);  </div><div class="line">            canvas.drawBitmap(bmp, <span class="number">10</span>, <span class="number">10</span>, <span class="keyword">null</span>);</div></pre></td></tr></table></figure>
+          
         
       
 	   
@@ -669,7 +665,7 @@ border:2px solid #69c;
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2015/04/23/CanvasToPhoto/">
+    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2015/04/23/weiyan/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴小龙同學">
@@ -691,8 +687,8 @@ border:2px solid #69c;
             
               
                 
-                <a class="post-title-link" href="/2015/04/23/CanvasToPhoto/" itemprop="url">
-                  Android之Canvas中内容保存为图片
+                <a class="post-title-link" href="/2015/04/23/weiyan/" itemprop="url">
+                  微言
                 </a>
               
             
@@ -731,8 +727,8 @@ border:2px solid #69c;
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
+                  <a href="/categories/App/" itemprop="url" rel="index">
+                    <span itemprop="name">App</span>
                   </a>
                 </span>
 
@@ -767,13 +763,17 @@ border:2px solid #69c;
 
       
         
-          
-            <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">Bitmap bm = Bitmap.createBitmap(<span class="number">320</span>, <span class="number">480</span>, Config.ARGB_8888);  </div><div class="line">        Canvas canvas = <span class="keyword">new</span> Canvas(bm);  </div><div class="line">        Paint p = <span class="keyword">new</span> Paint();  </div><div class="line">        canvas.drawRect(<span class="number">50</span>, <span class="number">50</span>, <span class="number">200</span>, <span class="number">200</span>, p);  </div><div class="line">        canvas.save(Canvas.ALL_SAVE_FLAG );  </div><div class="line">        canvas.restore();  </div><div class="line">          </div><div class="line">        File f = <span class="keyword">new</span> File(<span class="string">"/sdcard/0.png"</span>);  </div><div class="line">        FileOutputStream fos = <span class="keyword">null</span>;  </div><div class="line">        <span class="keyword">try</span> &#123;  </div><div class="line">            fos = <span class="keyword">new</span> FileOutputStream(f);  </div><div class="line">            bm.compress(Bitmap.CompressFormat.PNG, <span class="number">50</span>, fos);  </div><div class="line">        &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;  </div><div class="line">            <span class="comment">// TODO Auto-generated catch block  </span></div><div class="line">            e.printStackTrace();  </div><div class="line">        &#125;  </div><div class="line">        <span class="comment">// 其次把文件插入到系统图库</span></div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        MediaStore.Images.Media.insertImage(context.getContentResolver(),</div><div class="line">				file.getAbsolutePath(), fileName, <span class="keyword">null</span>);</div><div class="line">    &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</div><div class="line">        e.printStackTrace();</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 最后通知图库更新</span></div><div class="line">    context.sendBroadcast(<span class="keyword">new</span> Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.parse(<span class="string">"file://"</span> + path)));</div></pre></td></tr></table></figure>
-<p>这样就把Canvas中的内容保存成了sd卡上的一个png图片。简单说一下原理，自己create一个bitmap，然后让Canvas通过这个bitmap创建一个实例，然后在该canvas上绘制的内容都会画<br>在该bitmap上，保存Canvas的图层，然后把bitmap写到sd卡上的文件。注意：要在AndroidManifest.xml中添加在sd卡上读写文件的权限</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 在SDCard中创建与删除文件权限 --&gt;     </div><div class="line">&lt;uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/&gt;     </div><div class="line">&lt;!-- 往SDCard写入数据权限 --&gt;     </div><div class="line">&lt;uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/&gt;</div></pre></td></tr></table></figure>
-<p>Canvas加入图片</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Canvas canvas;</div><div class="line">Bitmap bmp = BitmapFactory.decodeResource(getResources(), R.drawable.pic180);  </div><div class="line">            canvas.drawColor(Color.BLACK);  </div><div class="line">            canvas.drawBitmap(bmp, <span class="number">10</span>, <span class="number">10</span>, <span class="keyword">null</span>);</div></pre></td></tr></table></figure>
-          
+          <blockquote>
+<p>微言算我第一个个人App，当初的初衷，想通过这个App达到练手，并熟悉Android项目的创建到发布上线的整个流程。<br>现在我想达到了预期甚至超过了，至今我还在维护这个项目。<br>至于做成什么样子的应用，一开始根本不知道，更不知道“产品”，主观意识做一款励志的，<br>后来认知到产品概念，想把微言做的更好，而不是纯粹地练手，于是形成了现在这个样子的APP(<a href="http://app.mi.com/detail/25323" target="_blank" rel="noopener">效果预览</a>)。<br>其实其中好多功能不是我凭空想出来的，是用户反馈的。<br>PS:万事开头难，没有行动之前，什么都觉得难！其实没想象的那么难，选准方向，勇往直前吧。</p>
+</blockquote>
+<h2 id="效果预览"><a href="#效果预览" class="headerlink" title="效果预览"></a>效果预览</h2><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/weiyanScreenshots.gif" alt=""></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/04/23/weiyan/" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
 	   
