@@ -365,7 +365,7 @@ border:2px solid #69c;
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2013/07/23/how-to-prevent-the-APK-program-by-decompile/">
+    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2013/07/23/screen-adaptation/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴小龙同學">
@@ -387,8 +387,8 @@ border:2px solid #69c;
             
               
                 
-                <a class="post-title-link" href="/2013/07/23/how-to-prevent-the-APK-program-by-decompile/" itemprop="url">
-                  Android如何防止apk程序被反编译
+                <a class="post-title-link" href="/2013/07/23/screen-adaptation/" itemprop="url">
+                  Android屏幕适配不同的资源图片、布局
                 </a>
               
             
@@ -463,10 +463,16 @@ border:2px solid #69c;
 
       
         
-          <p>作为Android应用开发者，不得不面对一个尴尬的局面，就是自己辛辛苦苦开发的应用可以被别人很轻易的就反编译出来。Google似乎也发现了这个问题，从SDK2.3开始我们可以看到在android-sdk-windows\tools\下面多了一个proguard文件夹。proguard是一个java代码混淆的工具，通过proguard，别人即使反编译你的apk包，也只会看到一些让人很难看懂的代码，从而达到保护代码的作用。新建项目都会有以下两个文件：<br><img src="http://wuxiaolong.qiniudn.com/2013-07-18-mobile-phone-information-acquisition-1.png" alt=""><br>project.properties文件“proguard.config=${sdk.dir}/tools/proguard/proguard-android.txt:proguard-project.txt”注释放开。<br><img src="http://wuxiaolong.qiniudn.com/2013-07-18-mobile-phone-information-acquisition-2.png" alt=""><br>然后在proguard-project.txt文件里做混淆，例如：</p>
+          <p>在Android 2.1版本之前，存放资源图片的文件夹名称为drawable，应用程序用到的所有的资源图片都放在其中，所以很难解决不同屏幕大小的图片适配问题。</p>
+<p>1、资源图片</p>
+<p>自android 2.1版本开始，存放资源图片的文件夹由原来的一个drawable文件夹变成了drawable-hdpi、drawable-mdpi和drawable-ldpi，这是为了支持不同终端设备的不同分辨率。</p>
+<p>drawable-hdpi、drawable-mdpi、drawable-ldpi的区别：</p>
+<p>（1）drawable-hdpi里面存放高分辨率的图片，如WVGA(480x800)，FWVGA(480x854)</p>
+<p>（2）drawable-mdpi里面存放中等分辨率的图片，如(320x480)</p>
+<p>（3）drawable-ldpi里面存放低分辨率的图片，如QVGA(240x320)</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2013/07/23/how-to-prevent-the-APK-program-by-decompile/" rel="contents">
+            <a class="btn" href="/2013/07/23/screen-adaptation/" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
