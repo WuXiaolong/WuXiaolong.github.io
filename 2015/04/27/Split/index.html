@@ -439,6 +439,16 @@ border:2px solid #69c;
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/04/27/Split/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/04/27/Split/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -586,8 +596,8 @@ border:2px solid #69c;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/04/23/LayoutInflater/" rel="next" title="Android之LayoutInflate">
-                <i class="fa fa-chevron-left"></i> Android之LayoutInflate
+              <a href="/2015/04/23/CanvasToPhoto/" rel="next" title="Android之Canvas中内容保存为图片">
+                <i class="fa fa-chevron-left"></i> Android之Canvas中内容保存为图片
               </a>
             
           </div>
@@ -596,8 +606,8 @@ border:2px solid #69c;
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/04/28/LoadMoreListView/" rel="prev" title="Android之LoadMoreListView">
-                Android之LoadMoreListView <i class="fa fa-chevron-right"></i>
+              <a href="/2015/04/28/CreatingCustomViews/" rel="prev" title="Android Creating Custom Views">
+                Android Creating Custom Views <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -646,6 +656,13 @@ border:2px solid #69c;
 
           
   <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
     
   </div>
 
@@ -924,28 +941,41 @@ border:2px solid #69c;
 
   
 
+    <script type="text/javascript">
+      var disqus_shortname = 'WuXiaolong';
+      var disqus_identifier = '2015/04/27/Split/';
+
+      var disqus_title = "Android字符串分割";
 
 
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
 
-	
+      run_disqus_script('count.js');
 
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
+      
 
-
-
-
+    </script>
   
 
 
 
 
 
-  
 
 
-
-
-
-  
 
 
 
