@@ -160,7 +160,7 @@ border:2px solid #69c;
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
   <div class="div_right_bottom" align="center">
-  <img src="http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_MrWuXiaolong.jpg">
+  <img src="https://open.weixin.qq.com/qr/code?username=MrWuXiaolong">
   微信公众号
   </div>
 
@@ -372,7 +372,7 @@ border:2px solid #69c;
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴小龙同學">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://7q5c2h.com1.z0.glb.clouddn.com/avatar.jpg">
+      <meta itemprop="image" content="https://open.weixin.qq.com/qr/code?username=MrWuXiaolong">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -490,7 +490,7 @@ border:2px solid #69c;
 <p>MainActivity<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">public class MainActivity extends AppCompatActivity implements View.OnClickListener, XMPPClickListener &#123;</div><div class="line">    private XMPPService mXMPPService;</div><div class="line">    private XMPPHandler mXMPPHandler = new XMPPHandler();</div><div class="line">    private ProgressDialog mProgressDialog;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</div><div class="line">        super.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line">        mXMPPService = new XMPPService(mXMPPHandler);</div><div class="line">        mXMPPHandler.setXMPPClickListener(this);</div><div class="line">        mXMPPService.initXMPPTCPConnection();</div><div class="line">        mProgressDialog = new ProgressDialog(MainActivity.this);</div><div class="line">        mProgressDialog.setMessage(&quot;加载中&quot;);</div><div class="line">        findViewById(R.id.connect).setOnClickListener(this);</div><div class="line">    &#125;</div><div class="line">    @Override</div><div class="line">    public void onClick(View v) &#123;</div><div class="line">        progressDialogShow();</div><div class="line">        switch (v.getId()) &#123;</div><div class="line">            case R.id.connect:</div><div class="line">                mXMPPService.connect();</div><div class="line">                break;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void connect(String msg) &#123;</div><div class="line">        toastShow(msg);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    private void toastShow(CharSequence text) &#123;</div><div class="line">        progressDialogDismiss();</div><div class="line">        Toast.makeText(MainActivity.this, text, Toast.LENGTH_LONG).show();</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    private void progressDialogShow() &#123;</div><div class="line"></div><div class="line">        mProgressDialog.show();</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    private void progressDialogDismiss() &#123;</div><div class="line">        if (mProgressDialog.isShowing()) mProgressDialog.dismiss();</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h1 id="源码地址"><a href="#源码地址" class="headerlink" title="源码地址"></a>源码地址</h1><p><a href="https://github.com/WuXiaolong/WoChat" target="_blank" rel="noopener">https://github.com/WuXiaolong/WoChat</a></p>
 		 <!--广告-->
-		﻿<img src="http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_WuXiaolong1.JPG"> 
+		﻿<img src="http://wuxiaolong.github.io/images/qrcode_WuXiaolong1.JPG"> 
 
 <!--
 <h1><b>联系我</b></h1>
@@ -550,7 +550,7 @@ border:2px solid #69c;
     <div id="QR" style="display: none">
       
         <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="http://7q5c2h.com1.z0.glb.clouddn.com/WechatZSM.JPG" alt="吴小龙同學 WeChat Pay">
+          <img id="wechat_qr" src="http://wuxiaolong.github.io/images/WechatZSM.JPG" alt="吴小龙同學 WeChat Pay">
           <p></p>
         </div>
       
@@ -707,7 +707,7 @@ border:2px solid #69c;
 
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image" src="http://7q5c2h.com1.z0.glb.clouddn.com/avatar.jpg" alt="吴小龙同學">
+          <img class="site-author-image" itemprop="image" src="https://open.weixin.qq.com/qr/code?username=MrWuXiaolong" alt="吴小龙同學">
           <p class="site-author-name" itemprop="name">吴小龙同學</p>
            
               <p class="site-description motion-element" itemprop="description">我的微信公众号：吴小龙同学</p>

@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://wuxiaolong.me/2018/03/08/Flutter/</loc>
+        <lastmod>2018-10-14T03:38:24.062Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://wuxiaolong.me/2017/12/27/AndroidNDK/</loc>
         <lastmod>2018-10-14T03:22:03.041Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -25,14 +33,6 @@
     <url>
         <loc>http://wuxiaolong.me/2018/02/25/PythonCrawler2/</loc>
         <lastmod>2018-10-14T03:18:57.590Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://wuxiaolong.me/2018/03/08/Flutter/</loc>
-        <lastmod>2018-10-14T03:11:49.197Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -1015,7 +1015,7 @@
     </url>
 
     <url>
-        <loc>http://wuxiaolong.me/2015/08/10/Drawable-to-Bitmap/</loc>
+        <loc>http://wuxiaolong.me/2013/11/22/Export-aborted-because-fatal-lint-errors-were-found/</loc>
         <lastmod>2016-08-25T11:38:54.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1023,7 +1023,7 @@
     </url>
 
     <url>
-        <loc>http://wuxiaolong.me/2013/11/22/Export-aborted-because-fatal-lint-errors-were-found/</loc>
+        <loc>http://wuxiaolong.me/2015/08/10/Drawable-to-Bitmap/</loc>
         <lastmod>2016-08-25T11:38:54.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1039,7 +1039,7 @@
     </url>
 
     <url>
-        <loc>http://wuxiaolong.me/2015/05/28/LayoutParams/</loc>
+        <loc>http://wuxiaolong.me/2015/04/23/LayoutInflater/</loc>
         <lastmod>2016-08-25T11:38:54.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1047,7 +1047,7 @@
     </url>
 
     <url>
-        <loc>http://wuxiaolong.me/2015/04/23/LayoutInflater/</loc>
+        <loc>http://wuxiaolong.me/2015/05/28/LayoutParams/</loc>
         <lastmod>2016-08-25T11:38:54.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1175,14 +1175,6 @@
     </url>
 
     <url>
-        <loc>http://wuxiaolong.me/2015/11/09/dashishuo/</loc>
-        <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>http://wuxiaolong.me/2014/06/30/custom-debug-keystore/</loc>
         <lastmod>2016-08-25T11:38:54.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -1192,6 +1184,14 @@
 
     <url>
         <loc>http://wuxiaolong.me/2015/08/29/contactIndex/</loc>
+        <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/2015/11/09/dashishuo/</loc>
         <lastmod>2016-08-25T11:38:54.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1311,7 +1311,7 @@
     </url>
 
     <url>
-        <loc>http://wuxiaolong.me/2015/11/02/service/</loc>
+        <loc>http://wuxiaolong.me/2015/01/21/sdk-update/</loc>
         <lastmod>2016-08-25T11:38:54.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1319,7 +1319,7 @@
     </url>
 
     <url>
-        <loc>http://wuxiaolong.me/2015/01/21/sdk-update/</loc>
+        <loc>http://wuxiaolong.me/2015/11/02/service/</loc>
         <lastmod>2016-08-25T11:38:54.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>

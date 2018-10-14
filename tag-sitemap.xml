@@ -58,14 +58,14 @@
     </url>
 
     <url>
-        <loc>http://wuxiaolong.me/tags/LayoutParams/</loc>
+        <loc>http://wuxiaolong.me/tags/LayoutInflate/</loc>
         <lastmod>2016-08-25T11:38:54.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://wuxiaolong.me/tags/LayoutInflate/</loc>
+        <loc>http://wuxiaolong.me/tags/LayoutParams/</loc>
         <lastmod>2016-08-25T11:38:54.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -905,13 +905,6 @@
     </url>
 
     <url>
-        <loc>http://wuxiaolong.me/tags/Flutter/</loc>
-        <lastmod>2018-10-14T03:11:49.197Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://wuxiaolong.me/tags/Python/</loc>
         <lastmod>2018-10-14T03:18:57.590Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -928,6 +921,13 @@
     <url>
         <loc>http://wuxiaolong.me/tags/NDK/</loc>
         <lastmod>2018-10-14T03:22:03.041Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.me/tags/Flutter/</loc>
+        <lastmod>2018-10-14T03:38:24.062Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

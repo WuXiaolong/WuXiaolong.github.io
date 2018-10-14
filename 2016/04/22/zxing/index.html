@@ -164,7 +164,7 @@ border:2px solid #69c;
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
   <div class="div_right_bottom" align="center">
-  <img src="http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_MrWuXiaolong.jpg">
+  <img src="https://open.weixin.qq.com/qr/code?username=MrWuXiaolong">
   微信公众号
   </div>
 
@@ -376,7 +376,7 @@ border:2px solid #69c;
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴小龙同學">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://7q5c2h.com1.z0.glb.clouddn.com/avatar.jpg">
+      <meta itemprop="image" content="https://open.weixin.qq.com/qr/code?username=MrWuXiaolong">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -504,7 +504,7 @@ border:2px solid #69c;
 <h2 id="生成二维码-1"><a href="#生成二维码-1" class="headerlink" title="生成二维码"></a>生成二维码</h2><p>只需要以下核心代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Bitmap <span class="title">encodeAsBitmap</span><span class="params">(String contents, <span class="keyword">int</span> dimension)</span> <span class="keyword">throws</span> WriterException </span>&#123;</div><div class="line"></div><div class="line">        String contentsToEncode = contents;</div><div class="line">        <span class="keyword">if</span> (contentsToEncode == <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">        &#125;</div><div class="line">        Map&lt;EncodeHintType, Object&gt; hints = <span class="keyword">null</span>;</div><div class="line">        String encoding = guessAppropriateEncoding(contentsToEncode);</div><div class="line">        <span class="keyword">if</span> (encoding != <span class="keyword">null</span>) &#123;</div><div class="line">            hints = <span class="keyword">new</span> EnumMap&lt;&gt;(EncodeHintType.class);</div><div class="line">            hints.put(EncodeHintType.CHARACTER_SET, encoding);</div><div class="line">        &#125;</div><div class="line">        BitMatrix result;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            result = <span class="keyword">new</span> MultiFormatWriter().encode(contentsToEncode, BarcodeFormat.QR_CODE, dimension, dimension, hints);</div><div class="line">        &#125; <span class="keyword">catch</span> (IllegalArgumentException iae) &#123;</div><div class="line">            <span class="comment">// Unsupported format</span></div><div class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">int</span> width = result.getWidth();</div><div class="line">        <span class="keyword">int</span> height = result.getHeight();</div><div class="line">        <span class="keyword">int</span>[] pixels = <span class="keyword">new</span> <span class="keyword">int</span>[width * height];</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> y = <span class="number">0</span>; y &lt; height; y++) &#123;</div><div class="line">            <span class="keyword">int</span> offset = y * width;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">0</span>; x &lt; width; x++) &#123;</div><div class="line">                pixels[offset + x] = result.get(x, y) ? BLACK : WHITE;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);</div><div class="line">        bitmap.setPixels(pixels, <span class="number">0</span>, width, <span class="number">0</span>, <span class="number">0</span>, width, height);</div><div class="line">        <span class="keyword">return</span> bitmap;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> String <span class="title">guessAppropriateEncoding</span><span class="params">(CharSequence contents)</span> </span>&#123;</div><div class="line">        <span class="comment">// Very crude at the moment</span></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; contents.length(); i++) &#123;</div><div class="line">            <span class="keyword">if</span> (contents.charAt(i) &gt; <span class="number">0xFF</span>) &#123;</div><div class="line">                <span class="keyword">return</span> <span class="string">"UTF-8"</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
 <h1 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h1><p>官方的例子和我自己的抽离出的代码都上传github了，地址：<a href="https://github.com/WuXiaolong/zxingSample" target="_blank" rel="noopener">https://github.com/WuXiaolong/zxingSample</a></p>
 		 <!--广告-->
-		﻿<img src="http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_WuXiaolong1.JPG"> 
+		﻿<img src="http://wuxiaolong.github.io/images/qrcode_WuXiaolong1.JPG"> 
 
 <!--
 <h1><b>联系我</b></h1>
@@ -564,7 +564,7 @@ border:2px solid #69c;
     <div id="QR" style="display: none">
       
         <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="http://7q5c2h.com1.z0.glb.clouddn.com/WechatZSM.JPG" alt="吴小龙同學 WeChat Pay">
+          <img id="wechat_qr" src="http://wuxiaolong.github.io/images/WechatZSM.JPG" alt="吴小龙同學 WeChat Pay">
           <p></p>
         </div>
       
@@ -717,7 +717,7 @@ border:2px solid #69c;
 
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image" src="http://7q5c2h.com1.z0.glb.clouddn.com/avatar.jpg" alt="吴小龙同學">
+          <img class="site-author-image" itemprop="image" src="https://open.weixin.qq.com/qr/code?username=MrWuXiaolong" alt="吴小龙同學">
           <p class="site-author-name" itemprop="name">吴小龙同學</p>
            
               <p class="site-description motion-element" itemprop="description">我的微信公众号：吴小龙同学</p>
