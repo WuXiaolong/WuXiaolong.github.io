@@ -95,12 +95,12 @@
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="漏洞百出轮播图是 Android 常用功能之一，效果大概是这样的：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/banner.png?imageView2/0/format/png/q/75|watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5a6L5L2T/fontsize/1200/fill/IzIxOTZGMw==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim">
-<meta property="og:updated_time" content="2017-12-04T07:33:17.765Z">
+<meta property="og:image" content="http://wuxiaolong.github.io/images/banner.png">
+<meta property="og:updated_time" content="2018-10-15T13:49:13.551Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 轮播图从 0 到 1">
 <meta name="twitter:description" content="漏洞百出轮播图是 Android 常用功能之一，效果大概是这样的：">
-<meta name="twitter:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/banner.png?imageView2/0/format/png/q/75|watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5a6L5L2T/fontsize/1200/fill/IzIxOTZGMw==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim">
+<meta name="twitter:image" content="http://wuxiaolong.github.io/images/banner.png">
 
 
 
@@ -478,7 +478,7 @@ border:2px solid #69c;
       
 
       
-        <h1 id="漏洞百出"><a href="#漏洞百出" class="headerlink" title="漏洞百出"></a>漏洞百出</h1><p>轮播图是 Android 常用功能之一，效果大概是这样的：<br><a id="more"></a><br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/banner.png?imageView2/0/format/png/q/75|watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5a6L5L2T/fontsize/1200/fill/IzIxOTZGMw==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim" alt=""></p>
+        <h1 id="漏洞百出"><a href="#漏洞百出" class="headerlink" title="漏洞百出"></a>漏洞百出</h1><p>轮播图是 Android 常用功能之一，效果大概是这样的：<br><a id="more"></a><br><img src="http://wuxiaolong.github.io/images/banner.png" alt=""></p>
 <p>之前我封装写了一个，基本达到了要求，是继承了 Fragment（当时脑袋肯定锈掉了），里面 Viewpager add Fragment，这次项目多处有轮播图，发现之前封装的不够用，简直漏洞百出：<br>1、比如底部 point 的位置，之前固定在中间，现在可能要放在右下角，point 最好也能动态改图片；<br>2、现在项目跟微信一样，底部 tab 切换，中间是 Fragment 替换，发现轮播图有问题，Fragment A 循环的 point 的 positoin 居然影响到了 Fragment B，照理，这是两个 BannerFragment，不会影响的啊，报以下错误：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java.lang.IllegalStateException: The application's PagerAdapter changed the adapter's contents without calling PagerAdapter#notifyDataSetChanged!</div></pre></td></tr></table></figure></p>
 <p>经过排查，找到了原因，因为 Viewpager add Fragment 我全部放在一个类，因此：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;Object&gt; bannerList = <span class="keyword">new</span> ArrayList&lt;&gt;();</div></pre></td></tr></table></figure></p>
 <p>这里 static 坏事了，之前一个 banner 没有暴露出来。<br>3、继承了 Fragment，引用比较麻烦，Fragment 有两者引用方法，xml 和代码，两者方式 addData 却报错；<br>4、banner 没有写点击回调。</p>
