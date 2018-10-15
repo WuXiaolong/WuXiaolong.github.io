@@ -510,7 +510,8 @@ border:2px solid #69c;
 <h2 id="传文件-多个"><a href="#传文件-多个" class="headerlink" title="传文件-多个"></a>传文件-多个</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Multipart</span></div><div class="line"><span class="meta">@POST</span>(<span class="string">"v1/create"</span>)</div><div class="line"><span class="function">Call&lt;ResponseBody&gt; <span class="title">create</span><span class="params">(@Part(<span class="string">"pictureName"</span>)</span> RequestBody pictureName,   </span></div><div class="line">@PartMap Map&lt;String, </div><div class="line">RequestBody&gt; params);</div></pre></td></tr></table></figure>
 <p>代码调用<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">RequestBody pictureNameBody = RequestBody.create(MediaType.parse(AppConstants.CONTENT_TYPE_FILE), <span class="string">"pictureName"</span>);</div><div class="line">File picture= <span class="keyword">new</span> File(path);</div><div class="line">RequestBody requestFile = RequestBody.create(MediaType.parse(AppConstants.CONTENT_TYPE_FILE), picture);</div><div class="line">Map&lt;String, RequestBody&gt; params = <span class="keyword">new</span> HashMap&lt;&gt;();</div><div class="line">params.put(<span class="string">"picture\"; filename=\""</span> + picture.getName() + <span class="string">""</span>, requestFile);</div><div class="line"><span class="comment">//调接口</span></div><div class="line">create(pictureNameBody, params);</div></pre></td></tr></table></figure></p>
 		 <!--广告-->
-		﻿<img src="http://wuxiaolong.github.io/images/qrcode_WuXiaolong1.png"> 
+		﻿<h1>联系作者<h1>
+我的微信公众号：吴小龙同学，欢迎关注交流~
 <img src="https://open.weixin.qq.com/qr/code?username=MrWuXiaolong">
 <!--
 <h1><b>联系我</b></h1>
@@ -550,7 +551,7 @@ border:2px solid #69c;
  
       
 	   
-    </div>
+    </h1></h1></div>
 
     <div>
       
@@ -734,7 +735,7 @@ border:2px solid #69c;
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/index.html">
-                <span class="site-state-item-count">169</span>
+                <span class="site-state-item-count">166</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
