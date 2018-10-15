@@ -537,7 +537,7 @@ border:2px solid #69c;
 <p>addSubscription方法可以放到父类：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">private CompositeSubscription mCompositeSubscription;</div><div class="line"></div><div class="line">   public void addSubscription(Subscription subscription) &#123;</div><div class="line">       if (this.mCompositeSubscription == null) &#123;</div><div class="line">           this.mCompositeSubscription = new CompositeSubscription();</div><div class="line">       &#125;</div><div class="line"></div><div class="line">       this.mCompositeSubscription.add(subscription);</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   @Override</div><div class="line">   protected void onDestroy() &#123;</div><div class="line">       super.onDestroy();</div><div class="line">       if (this.mCompositeSubscription != null) &#123;</div><div class="line">           this.mCompositeSubscription.unsubscribe();</div><div class="line">       &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure></p>
 <h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><a href="http://rxjava.yuxingxin.com/" target="_blank" rel="noopener">RxJava Essentials CN</a><br><a href="https://mcxiaoke.gitbooks.io/rxdocs/content/" target="_blank" rel="noopener">ReactiveX文档中文翻译</a><br><a href="http://gank.io/post/560e15be2dca930e00da1083" target="_blank" rel="noopener">给 Android 开发者的 RxJava 详解</a></p>
 		 <!--广告-->
-		﻿<h1>联系作者<h1>
+		﻿<h1>联系作者</h1>
 我的微信公众号：吴小龙同学，欢迎关注交流~
 <img src="https://open.weixin.qq.com/qr/code?username=MrWuXiaolong">
 <!--
@@ -578,7 +578,7 @@ border:2px solid #69c;
  
       
 	   
-    </h1></h1></div>
+    </div>
 
     <div>
       
