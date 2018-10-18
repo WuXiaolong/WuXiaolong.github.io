@@ -95,12 +95,12 @@
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="系列博客 Gradle for Android（一）基本配置、依赖管理Gradle for Android（二）全局设置、自定义BuildConfig、混淆  多渠道打包国内有太多Android App市场，每次发版几十个渠道包。还好Android Gradle给我们提供了productFlavors，我们可以对生成的APK包进行定制。123456789productFlavors &amp;#123;/">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/gradle4android3.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
-<meta property="og:updated_time" content="2017-08-07T13:23:45.000Z">
+<meta property="og:image" content="http://wuxiaolong.github.io/images/gradle4android3.png">
+<meta property="og:updated_time" content="2018-10-18T13:34:45.681Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gradle for Android（三）多渠道打包、配置签名信息">
 <meta name="twitter:description" content="系列博客 Gradle for Android（一）基本配置、依赖管理Gradle for Android（二）全局设置、自定义BuildConfig、混淆  多渠道打包国内有太多Android App市场，每次发版几十个渠道包。还好Android Gradle给我们提供了productFlavors，我们可以对生成的APK包进行定制。123456789productFlavors &amp;#123;/">
-<meta name="twitter:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/gradle4android3.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10">
+<meta name="twitter:image" content="http://wuxiaolong.github.io/images/gradle4android3.png">
 
 
 
@@ -495,7 +495,7 @@ border:2px solid #69c;
 <h2 id="通过命令行签名"><a href="#通过命令行签名" class="headerlink" title="通过命令行签名"></a>通过命令行签名</h2><p>如上那样配置签名信息<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">android &#123;  </div><div class="line">    signingConfigs &#123;  </div><div class="line">        release &#123;  </div><div class="line">            <span class="function">storeFile <span class="title">file</span><span class="params">(<span class="string">"WuXiaolong.jks"</span>)</span></span></div><div class="line">            storePassword 'android'</div><div class="line">            keyAlias 'android'</div><div class="line">            keyPassword 'android'</div><div class="line">        &#125;          </div><div class="line">    &#125;  </div><div class="line">	buildTypes &#123;</div><div class="line">        release &#123;</div><div class="line">            <span class="function">minifyEnabled <span class="keyword">false</span></span></div><div class="line">            proguardFiles <span class="title">getDefaultProguardFile</span><span class="params">(<span class="string">'proguard-android.txt'</span>)</span>, 'proguard-rules.pro'</div><div class="line">            signingConfig signingConfigs.release</div><div class="line">        &#125;      </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>先”build-clean Project”，然后Terminal输入命名行：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gradlew assembleRelease</div></pre></td></tr></table></figure></p>
 <p>打印信息如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">E:\AndroidStudioProjects\Gradle4Android&gt;gradlew assembleRelease</div><div class="line">:app:preBuild UP-TO-DATE                                                             </div><div class="line">:app:preReleaseBuild UP-TO-DATE     </div><div class="line">:app:checkReleaseManifest                  </div><div class="line"><span class="comment">//省略部分               </span></div><div class="line">:app:packageRelease                 </div><div class="line">:app:zipalignRelease                 </div><div class="line">:app:assembleRelease                 </div><div class="line">               </div><div class="line">BUILD SUCCESSFUL</div></pre></td></tr></table></figure></p>
-<p>OK，打包成功的apk路径如：E:\AndroidStudioProjects\Gradle4Android\app\build\outputs\apk\app-release.apk<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/gradle4android3.png?watermark/2/text/5ZC05bCP6b6Z5ZCM5a24/font/5qW35L2T/fontsize/500/fill/I0VGRUZFRg==/dissolve/100/gravity/SouthEast/dx/10/dy/10" alt=""></p>
+<p>OK，打包成功的apk路径如：E:\AndroidStudioProjects\Gradle4Android\app\build\outputs\apk\app-release.apk<br><img src="http://wuxiaolong.github.io/images/gradle4android3.png" alt=""></p>
 <h1 id="完整配置"><a href="#完整配置" class="headerlink" title="完整配置"></a>完整配置</h1><p><a href="https://github.com/WuXiaolong/Gradle4Android" target="_blank" rel="noopener">https://github.com/WuXiaolong/Gradle4Android</a></p>
 <h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p><a href="https://segmentfault.com/a/1190000004229002" target="_blank" rel="noopener">Gradle for Android 第一篇( 从 Gradle 和 AS 开始 )</a><br><a href="http://www.flysnow.org/2015/03/30/manage-your-android-project-with-gradle.html" target="_blank" rel="noopener">使用Gradle管理你的Android Studio工程</a></p>
 		 <!--广告-->
@@ -622,8 +622,8 @@ border:2px solid #69c;
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/04/05/zhuangbi/" rel="prev" title="不忘初心，方得始终">
-                不忘初心，方得始终 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/04/07/rxbus/" rel="prev" title="RxBus">
+                RxBus <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -724,7 +724,7 @@ border:2px solid #69c;
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/index.html">
-                <span class="site-state-item-count">166</span>
+                <span class="site-state-item-count">163</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

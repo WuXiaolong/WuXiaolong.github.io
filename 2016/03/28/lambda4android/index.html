@@ -95,13 +95,13 @@
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="Lambda，是我去年学习RxJava时知道的，它让代码看起来更加简洁，但个人认为代码的可读性差了很多，因此一直没有去深入学习。  什么是lambdalambda是一种匿名表达式，retrolambda使得Android能使用lambda特性，举个例子：123456view.setOnClickListener(new View.OnClickListener() &amp;#123;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/lambda4android1.png">
-<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/lambda4android2.png">
-<meta property="og:updated_time" content="2017-03-14T13:45:38.000Z">
+<meta property="og:image" content="http://wuxiaolong.github.io/images/lambda4android1.png">
+<meta property="og:image" content="http://wuxiaolong.github.io/images/lambda4android2.png">
+<meta property="og:updated_time" content="2018-10-18T13:34:38.230Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lambda for Android">
 <meta name="twitter:description" content="Lambda，是我去年学习RxJava时知道的，它让代码看起来更加简洁，但个人认为代码的可读性差了很多，因此一直没有去深入学习。  什么是lambdalambda是一种匿名表达式，retrolambda使得Android能使用lambda特性，举个例子：123456view.setOnClickListener(new View.OnClickListener() &amp;#123;">
-<meta name="twitter:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/lambda4android1.png">
+<meta name="twitter:image" content="http://wuxiaolong.github.io/images/lambda4android1.png">
 
 
 
@@ -495,7 +495,7 @@ border:2px solid #69c;
 <li>app/build.gradle </li>
 </ol>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">apply plugin: <span class="string">'com.android.application'</span></div><div class="line">apply plugin: <span class="string">'me.tatarka.retrolambda'</span><span class="comment">//加上这句加,入plugin声明</span></div><div class="line">android &#123;</div><div class="line">	……</div><div class="line">    compileOptions &#123;<span class="comment">//使用JAVA8语法解析</span></div><div class="line">        sourceCompatibility JavaVersion.VERSION_1_8</div><div class="line">        targetCompatibility JavaVersion.VERSION_1_8</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">retrolambda &#123;<span class="comment">//指定将源码编译的级别，使用下列代码，会将代码编译到兼容1.6的字节码格式</span></div><div class="line">    javaVersion JavaVersion.VERSION_1_6</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="Android-Studio自动生成lambda"><a href="#Android-Studio自动生成lambda" class="headerlink" title="Android Studio自动生成lambda"></a>Android Studio自动生成lambda</h1><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/lambda4android1.png" alt=""><br>当配置Retrolambda成功后，Android Studio会有提示，按Alt+Enter键<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/lambda4android2.png" alt=""><br>点击替换，这样就能自动生成，使用lambda了。到这里我就可以洗洗睡了，也很晚了，但为什么可以这样写呢，还是来简单了解lambda语法吧。</p>
+<h1 id="Android-Studio自动生成lambda"><a href="#Android-Studio自动生成lambda" class="headerlink" title="Android Studio自动生成lambda"></a>Android Studio自动生成lambda</h1><p><img src="http://wuxiaolong.github.io/images/lambda4android1.png" alt=""><br>当配置Retrolambda成功后，Android Studio会有提示，按Alt+Enter键<br><img src="http://wuxiaolong.github.io/images/lambda4android2.png" alt=""><br>点击替换，这样就能自动生成，使用lambda了。到这里我就可以洗洗睡了，也很晚了，但为什么可以这样写呢，还是来简单了解lambda语法吧。</p>
 <h1 id="lambda语法简介"><a href="#lambda语法简介" class="headerlink" title="lambda语法简介"></a>lambda语法简介</h1><p>基本格式<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">input -&gt; body</div></pre></td></tr></table></figure></p>
 <h2 id="intput种类"><a href="#intput种类" class="headerlink" title="intput种类"></a>intput种类</h2><ul>
 <li>无输入 void<br>() -&gt; body</li>
@@ -755,7 +755,7 @@ border:2px solid #69c;
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/index.html">
-                <span class="site-state-item-count">166</span>
+                <span class="site-state-item-count">163</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
