@@ -95,19 +95,19 @@
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="OpenFireOpenFire 是采用Java开发的基于XMPP（Jabber）协议，开源实时协作（RTC）服务器。Smack 是用 Java编 写的XMPP客户端代码库，是 spark 的核心开源界总是有许多有趣的东东，这三个合起来就是一个完整的XMPP IM 实现。OpenFire ——服务器端Spark——客户端Smack——XMPP 传输协议的实现">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://wuxiaolong.qiniudn.com/2015-01-14-xchat-0.png">
-<meta property="og:image" content="http://wuxiaolong.qiniudn.com/2015-01-14-xchat-1.png">
-<meta property="og:image" content="http://wuxiaolong.qiniudn.com/2015-01-14-xchat-2.png">
-<meta property="og:image" content="http://wuxiaolong.qiniudn.com/2015-01-14-xchat-3.png">
-<meta property="og:image" content="http://wuxiaolong.qiniudn.com/2015-01-14-xchat-4.png">
-<meta property="og:image" content="http://wuxiaolong.qiniudn.com/2015-01-14-xchat-5.png">
-<meta property="og:image" content="http://wuxiaolong.qiniudn.com/2015-01-14-xchat-6.png">
-<meta property="og:image" content="http://wuxiaolong.qiniudn.com/2015-01-14-xchat-7.png">
-<meta property="og:updated_time" content="2016-12-20T13:02:02.000Z">
+<meta property="og:image" content="http://wuxiaolong.github.io/images/2015-01-14-xchat-0.png">
+<meta property="og:image" content="http://wuxiaolong.github.io/images/2015-01-14-xchat-1.png">
+<meta property="og:image" content="http://wuxiaolong.github.io/images/2015-01-14-xchat-2.png">
+<meta property="og:image" content="http://wuxiaolong.github.io/images/2015-01-14-xchat-3.png">
+<meta property="og:image" content="http://wuxiaolong.github.io/images/2015-01-14-xchat-4.png">
+<meta property="og:image" content="http://wuxiaolong.github.io/images/2015-01-14-xchat-5.png">
+<meta property="og:image" content="http://wuxiaolong.github.io/images/2015-01-14-xchat-6.png">
+<meta property="og:image" content="http://wuxiaolong.github.io/images/2015-01-14-xchat-7.png">
+<meta property="og:updated_time" content="2018-10-21T05:24:27.721Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android基于XMPP开发（一）【openfire服务器配置】">
 <meta name="twitter:description" content="OpenFireOpenFire 是采用Java开发的基于XMPP（Jabber）协议，开源实时协作（RTC）服务器。Smack 是用 Java编 写的XMPP客户端代码库，是 spark 的核心开源界总是有许多有趣的东东，这三个合起来就是一个完整的XMPP IM 实现。OpenFire ——服务器端Spark——客户端Smack——XMPP 传输协议的实现">
-<meta name="twitter:image" content="http://wuxiaolong.qiniudn.com/2015-01-14-xchat-0.png">
+<meta name="twitter:image" content="http://wuxiaolong.github.io/images/2015-01-14-xchat-0.png">
 
 
 
@@ -486,22 +486,22 @@ border:2px solid #69c;
 
       
         <h1 id="OpenFire"><a href="#OpenFire" class="headerlink" title="OpenFire"></a>OpenFire</h1><p>OpenFire 是采用Java开发的基于XMPP（Jabber）协议，开源实时协作（RTC）服务器。<br>Smack 是用 Java编 写的XMPP客户端代码库，是 spark 的核心<br>开源界总是有许多有趣的东东，这三个合起来就是一个完整的XMPP IM 实现。<br>OpenFire ——服务器端<br>Spark——客户端<br>Smack——XMPP 传输协议的实现<br><a id="more"></a><br>三者都是基于Java 语言的实现，其中XMPP是一个协议，协议是需要实现的，Smack起到的就是这样的一个作用。<br>OpenFire 是基于XMPP 协议的IM 的服务器端的实现，虽然当两个用户连接后，可以通过点对点的方式来发送消息，但是用户还是需要连接到服务器来获取一些连接信息和通信信息的，所以服务器端是必须要实现的。<br>Spark 提供了客户端一个基本的实现，并提出了一个很好的插件架构，这对于开发者来说不能不说是一个福音。我强烈建议基于插件方式来实现你新增加的功能，而不是去改它的源代码，这样有利于你项目架构，把原始项目的影响降到最低。<br>Smack 是一个XMPP 协议的Java 实现，提供一套可扩展的API，不过有些时候，你还是不得不使用自己定制发送的XML 文件内容的方式来实现自己的功能。</p>
-<p> 三者之间的关系：<br><img src="http://wuxiaolong.qiniudn.com/2015-01-14-xchat-0.png" alt=""><br>从上图可知，Client 端和Server端都可以通过插件的方式来进行扩展，Smack是二者传递数据的媒介。<br>以上介绍来源网络。</p>
+<p> 三者之间的关系：<br><img src="http://wuxiaolong.github.io/images/2015-01-14-xchat-0.png" alt=""><br>从上图可知，Client 端和Server端都可以通过插件的方式来进行扩展，Smack是二者传递数据的媒介。<br>以上介绍来源网络。</p>
 <h1 id="配置本地服务器"><a href="#配置本地服务器" class="headerlink" title="配置本地服务器"></a>配置本地服务器</h1><h2 id="openfire下载"><a href="#openfire下载" class="headerlink" title="openfire下载"></a>openfire下载</h2><p><a href="http://www.igniterealtime.org/downloads/index.jsp" target="_blank" rel="noopener">点击下载</a></p>
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><ul>
-<li><p>1、选择中文，continue<br><img src="http://wuxiaolong.qiniudn.com/2015-01-14-xchat-1.png" alt=""></p>
+<li><p>1、选择中文，continue<br><img src="http://wuxiaolong.github.io/images/2015-01-14-xchat-1.png" alt=""></p>
 </li>
-<li><p>2、默认继续<br><img src="http://wuxiaolong.qiniudn.com/2015-01-14-xchat-2.png" alt=""></p>
+<li><p>2、默认继续<br><img src="http://wuxiaolong.github.io/images/2015-01-14-xchat-2.png" alt=""></p>
 </li>
-<li><p>3、默认继续<br><img src="http://wuxiaolong.qiniudn.com/2015-01-14-xchat-3.png" alt=""></p>
+<li><p>3、默认继续<br><img src="http://wuxiaolong.github.io/images/2015-01-14-xchat-3.png" alt=""></p>
 </li>
-<li><p>4、本教程数据库MySQL，此步之前先建数据库名为openfire，数据库驱动选项选择MySQL，OK。这里数据库URL替换如图所示，继续<br><img src="http://wuxiaolong.qiniudn.com/2015-01-14-xchat-4.png" alt=""></p>
+<li><p>4、本教程数据库MySQL，此步之前先建数据库名为openfire，数据库驱动选项选择MySQL，OK。这里数据库URL替换如图所示，继续<br><img src="http://wuxiaolong.github.io/images/2015-01-14-xchat-4.png" alt=""></p>
 </li>
-<li><p>5、默认继续<br><img src="http://wuxiaolong.qiniudn.com/2015-01-14-xchat-5.png" alt=""></p>
+<li><p>5、默认继续<br><img src="http://wuxiaolong.github.io/images/2015-01-14-xchat-5.png" alt=""></p>
 </li>
-<li><p>6、填写密码，用户名admin，不然密码默认admin<br><img src="http://wuxiaolong.qiniudn.com/2015-01-14-xchat-6.png" alt=""></p>
+<li><p>6、填写密码，用户名admin，不然密码默认admin<br><img src="http://wuxiaolong.github.io/images/2015-01-14-xchat-6.png" alt=""></p>
 </li>
-<li><p>7、登录后台即可<br><img src="http://wuxiaolong.qiniudn.com/2015-01-14-xchat-7.png" alt=""></p>
+<li><p>7、登录后台即可<br><img src="http://wuxiaolong.github.io/images/2015-01-14-xchat-7.png" alt=""></p>
 </li>
 </ul>
 <p>这样openfire配置到此完成。</p>
@@ -737,7 +737,7 @@ border:2px solid #69c;
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/index.html">
-                <span class="site-state-item-count">163</span>
+                <span class="site-state-item-count">162</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
