@@ -95,13 +95,13 @@
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="123dependencies &amp;#123;  compile &apos;com.wuxiaolong.pullloadmorerecyclerview:library:1.0.4&apos;&amp;#125; build.gradle文件中只写上如上一行，就能在Android Studio中引入你的library到项目中，这样岂不是酷比了。之前github上分享一个简单的库，这两天花了点时间研究了下，如何也能这样一行就">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/includeMyPackage.png">
-<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/jcenterApproved.png">
-<meta property="og:updated_time" content="2017-08-06T13:19:47.000Z">
+<meta property="og:image" content="http://wuxiaolong.me/images/includeMyPackage.png">
+<meta property="og:image" content="http://wuxiaolong.me/images/jcenterApproved.png">
+<meta property="og:updated_time" content="2018-10-28T06:44:24.067Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android library分享到jcenter">
 <meta name="twitter:description" content="123dependencies &amp;#123;  compile &apos;com.wuxiaolong.pullloadmorerecyclerview:library:1.0.4&apos;&amp;#125; build.gradle文件中只写上如上一行，就能在Android Studio中引入你的library到项目中，这样岂不是酷比了。之前github上分享一个简单的库，这两天花了点时间研究了下，如何也能这样一行就">
-<meta name="twitter:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/includeMyPackage.png">
+<meta name="twitter:image" content="http://wuxiaolong.me/images/includeMyPackage.png">
 
 
 
@@ -487,7 +487,7 @@ border:2px solid #69c;
 <p>如果没有什么问题，会显示：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">BUILD SUCCESSFUL</div></pre></td></tr></table></figure></p>
 <p>上传编译的文件到bintray，使用如下的命令：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gradlew bintrayUpload</div></pre></td></tr></table></figure></p>
 <p>如果显示如下说明成功了！<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">BUILD SUCCESSFUL</div></pre></td></tr></table></figure></p>
-<p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/includeMyPackage.png" alt=""><br>上传完成即可在Bintray网站上找到你的Repo，我们需要完成最后一步工作，申请你的Repo添加到JCenter。可以进入<a href="https://bintray.com/bintray/jcenter" target="_blank" rel="noopener">这个页面</a>，点击Include My Package，输入你的项目名字，点击匹配到的项目，直接send即可，然后就等管理员批准了。<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/jcenterApproved.png" alt=""><br>如上，网站上会给你一条通过信息，然后就OK了，大功告成。</p>
+<p><img src="http://wuxiaolong.me/images/includeMyPackage.png" alt=""><br>上传完成即可在Bintray网站上找到你的Repo，我们需要完成最后一步工作，申请你的Repo添加到JCenter。可以进入<a href="https://bintray.com/bintray/jcenter" target="_blank" rel="noopener">这个页面</a>，点击Include My Package，输入你的项目名字，点击匹配到的项目，直接send即可，然后就等管理员批准了。<br><img src="http://wuxiaolong.me/images/jcenterApproved.png" alt=""><br>如上，网站上会给你一条通过信息，然后就OK了，大功告成。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile <span class="string">'com.wuxiaolong.pullloadmorerecyclerview:library:1.0.4'</span></div></pre></td></tr></table></figure>
 <p>一般来说，我们需要知道library的字符串形式，包含3部分<br>GROUP_ID:ARTIFACT_ID:VERSION<br>上面的例子中，GROUP_ID是com.wuxiaolong.pullloadmorerecyclerview ，即配置library中group的值；ARTIFACT_ID是library，配置library中没有写到，是library项目的名字；VERSION是1.0.4。<br>查看bintray上库：<br><a href="http://jcenter.bintray.com/com/wuxiaolong/" target="_blank" rel="noopener">http://jcenter.bintray.com/com/wuxiaolong/</a></p>
 <h1 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h1><p><a href="http://wuxiaolong.me/about/">点击查看</a></p>

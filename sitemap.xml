@@ -2,6 +2,55 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://wuxiaolong.me/2015/11/12/jcenter/</loc>
+    
+    <lastmod>2018-10-28T06:44:24.067Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wuxiaolong.me/2015/11/16/LinearGradientTextView/</loc>
+    
+    <lastmod>2018-10-28T06:43:57.962Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wuxiaolong.me/2015/11/17/CoordinatorLayout/</loc>
+    
+    <lastmod>2018-10-28T06:43:16.741Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wuxiaolong.me/2015/12/19/MotionEvent/</loc>
+    
+    <lastmod>2018-10-28T06:40:14.536Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wuxiaolong.me/2016/01/15/retrofit/</loc>
+    
+    <lastmod>2018-10-28T06:39:03.777Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wuxiaolong.me/2016/02/04/RuntimePermission/</loc>
+    
+    <lastmod>2018-10-28T06:38:38.025Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wuxiaolong.me/2016/03/17/GenymotionErrors/</loc>
+    
+    <lastmod>2018-10-28T06:33:12.334Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://wuxiaolong.me/2016/06/12/mvpRetrofitRxjava/</loc>
     
     <lastmod>2018-10-28T06:13:41.449Z</lastmod>
@@ -268,13 +317,6 @@
   </url>
   
   <url>
-    <loc>http://wuxiaolong.me/2015/11/16/LinearGradientTextView/</loc>
-    
-    <lastmod>2018-10-21T05:46:54.851Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://wuxiaolong.me/2015/11/17/NavigationView/</loc>
     
     <lastmod>2018-10-21T05:46:24.102Z</lastmod>
@@ -327,13 +369,6 @@
     <loc>http://wuxiaolong.me/2016/03/13/MyCodeHobby/</loc>
     
     <lastmod>2018-10-21T05:13:07.330Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wuxiaolong.me/2016/03/17/GenymotionErrors/</loc>
-    
-    <lastmod>2018-10-18T13:35:53.846Z</lastmod>
     
   </url>
   
@@ -548,13 +583,6 @@
   </url>
   
   <url>
-    <loc>http://wuxiaolong.me/2016/02/04/RuntimePermission/</loc>
-    
-    <lastmod>2018-03-02T08:22:35.338Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://wuxiaolong.me/2018/01/02/2018key/</loc>
     
     <lastmod>2018-01-25T00:54:56.501Z</lastmod>
@@ -607,20 +635,6 @@
     <loc>http://wuxiaolong.me/2016/01/01/CustomView/</loc>
     
     <lastmod>2017-09-19T13:31:41.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wuxiaolong.me/2015/11/17/CoordinatorLayout/</loc>
-    
-    <lastmod>2017-09-13T02:31:03.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wuxiaolong.me/2015/11/12/jcenter/</loc>
-    
-    <lastmod>2017-08-06T13:19:47.000Z</lastmod>
     
   </url>
   
@@ -691,13 +705,6 @@
     <loc>http://wuxiaolong.me/qq/index.html</loc>
     
     <lastmod>2017-03-14T14:01:02.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wuxiaolong.me/2016/01/15/retrofit/</loc>
-    
-    <lastmod>2017-03-14T13:47:08.000Z</lastmod>
     
   </url>
   
@@ -835,13 +842,6 @@
   </url>
   
   <url>
-    <loc>http://wuxiaolong.me/2015/12/19/MotionEvent/</loc>
-    
-    <lastmod>2016-12-20T13:08:24.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://wuxiaolong.me/2015/12/21/fragmentToolbar/</loc>
     
     <lastmod>2016-12-20T13:07:50.000Z</lastmod>
@@ -891,21 +891,28 @@
   </url>
   
   <url>
+    <loc>http://wuxiaolong.me/2015/04/30/ResResources/</loc>
+    
+    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wuxiaolong.me/2015/04/17/CustomToast/</loc>
+    
+    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wuxiaolong.me/2014/06/30/custom-debug-keystore/</loc>
+    
+    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://wuxiaolong.me/2014/09/15/qinziyouwan/</loc>
-    
-    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wuxiaolong.me/2013/06/14/android-developers-should-keep-the-following-characteristics/</loc>
-    
-    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wuxiaolong.me/2015/01/13/Context-Activity/</loc>
     
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     
@@ -919,42 +926,35 @@
   </url>
   
   <url>
-    <loc>http://wuxiaolong.me/2015/05/28/LayoutParams/</loc>
+    <loc>http://wuxiaolong.me/2015/01/13/Context-Activity/</loc>
     
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://wuxiaolong.me/2015/04/23/LayoutInflater/</loc>
+    <loc>http://wuxiaolong.me/2015/08/04/TodayEmotion/</loc>
     
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://wuxiaolong.me/2015/04/30/ResResources/</loc>
+    <loc>http://wuxiaolong.me/2013/06/15/goufangche/</loc>
     
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://wuxiaolong.me/2015/04/21/SqliteSample/</loc>
+    <loc>http://wuxiaolong.me/2013/06/14/android-developers-should-keep-the-following-characteristics/</loc>
     
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://wuxiaolong.me/2015/07/27/SaveImageToGallery/</loc>
-    
-    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wuxiaolong.me/2014/11/24/lock-screen-video/</loc>
+    <loc>http://wuxiaolong.me/2015/04/27/Split/</loc>
     
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     
@@ -982,7 +982,77 @@
   </url>
   
   <url>
+    <loc>http://wuxiaolong.me/2015/04/21/SqliteSample/</loc>
+    
+    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://wuxiaolong.me/2014/04/15/shengmingzhiyuan/</loc>
+    
+    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wuxiaolong.me/2015/06/10/checkPermission/</loc>
+    
+    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wuxiaolong.me/2015/05/28/LayoutParams/</loc>
+    
+    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wuxiaolong.me/2014/11/09/AndroidSamples/</loc>
+    
+    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wuxiaolong.me/2013/12/15/weilian/</loc>
+    
+    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wuxiaolong.me/2015/04/23/weiyan/</loc>
+    
+    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wuxiaolong.me/2015/07/24/AndroidDeveloperSurvey/</loc>
+    
+    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wuxiaolong.me/2015/04/23/LayoutInflater/</loc>
+    
+    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wuxiaolong.me/2014/11/24/lock-screen-video/</loc>
+    
+    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wuxiaolong.me/2015/07/27/SaveImageToGallery/</loc>
     
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     
@@ -1003,35 +1073,7 @@
   </url>
   
   <url>
-    <loc>http://wuxiaolong.me/2015/04/17/CustomToast/</loc>
-    
-    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wuxiaolong.me/2013/12/15/weilian/</loc>
-    
-    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wuxiaolong.me/2014/11/09/AndroidSamples/</loc>
-    
-    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wuxiaolong.me/2015/07/24/AndroidDeveloperSurvey/</loc>
-    
-    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wuxiaolong.me/2015/04/23/weiyan/</loc>
+    <loc>http://wuxiaolong.me/2014/12/25/mobile/</loc>
     
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     
@@ -1045,49 +1087,7 @@
   </url>
   
   <url>
-    <loc>http://wuxiaolong.me/2013/06/15/goufangche/</loc>
-    
-    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wuxiaolong.me/2015/08/04/TodayEmotion/</loc>
-    
-    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wuxiaolong.me/2014/06/30/custom-debug-keystore/</loc>
-    
-    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wuxiaolong.me/2014/12/25/mobile/</loc>
-    
-    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://wuxiaolong.me/2013/07/18/mobile-phone-information-acquisition/</loc>
-    
-    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wuxiaolong.me/2015/04/27/Split/</loc>
-    
-    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wuxiaolong.me/2015/06/10/checkPermission/</loc>
     
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     
