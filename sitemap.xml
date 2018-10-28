@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://wuxiaolong.me/2015/07/31/build-blog-by-hexo/</loc>
+    
+    <lastmod>2018-10-28T08:06:27.742Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://wuxiaolong.me/2013/11/22/Export-aborted-because-fatal-lint-errors-were-found/</loc>
     
     <lastmod>2018-10-28T07:50:34.357Z</lastmod>
@@ -26,13 +33,6 @@
     <loc>http://wuxiaolong.me/2014/11/24/lock-screen-video/</loc>
     
     <lastmod>2018-10-28T07:42:58.701Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wuxiaolong.me/2015/07/31/build-blog-by-hexo/</loc>
-    
-    <lastmod>2018-10-28T07:16:52.902Z</lastmod>
     
   </url>
   
@@ -884,84 +884,7 @@
   </url>
   
   <url>
-    <loc>http://wuxiaolong.me/2015/04/21/SqliteSample/</loc>
-    
-    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wuxiaolong.me/2015/04/27/Split/</loc>
-    
-    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wuxiaolong.me/2015/04/17/CustomToast/</loc>
-    
-    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wuxiaolong.me/2014/06/30/custom-debug-keystore/</loc>
-    
-    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wuxiaolong.me/2015/01/13/Context-Activity/</loc>
-    
-    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wuxiaolong.me/2015/04/23/CanvasToPhoto/</loc>
-    
-    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wuxiaolong.me/2015/06/10/checkPermission/</loc>
-    
-    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wuxiaolong.me/2015/05/28/LayoutParams/</loc>
-    
-    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://wuxiaolong.me/2015/07/29/AppInfo/</loc>
-    
-    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wuxiaolong.me/2013/03/02/methods-SQLite-were-randomly-selected-for-the-N/</loc>
-    
-    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wuxiaolong.me/2014/06/24/java-lang-IllegalStateException-Fragment-not-attached-to-Activity/</loc>
-    
-    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wuxiaolong.me/2014/11/09/AndroidSamples/</loc>
     
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     
@@ -975,21 +898,7 @@
   </url>
   
   <url>
-    <loc>http://wuxiaolong.me/2015/07/24/AndroidDeveloperSurvey/</loc>
-    
-    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wuxiaolong.me/2013/06/14/android-developers-should-keep-the-following-characteristics/</loc>
-    
-    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wuxiaolong.me/2015/07/27/SaveImageToGallery/</loc>
+    <loc>http://wuxiaolong.me/2015/05/28/LayoutParams/</loc>
     
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     
@@ -1003,7 +912,14 @@
   </url>
   
   <url>
-    <loc>http://wuxiaolong.me/2014/10/13/ninety-nine-life-sentiment/</loc>
+    <loc>http://wuxiaolong.me/2015/04/17/CustomToast/</loc>
+    
+    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wuxiaolong.me/2015/01/13/Context-Activity/</loc>
     
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     
@@ -1011,6 +927,90 @@
   
   <url>
     <loc>http://wuxiaolong.me/2015/04/30/ResResources/</loc>
+    
+    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wuxiaolong.me/2014/10/13/ninety-nine-life-sentiment/</loc>
+    
+    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wuxiaolong.me/2015/04/23/CanvasToPhoto/</loc>
+    
+    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wuxiaolong.me/2014/06/24/java-lang-IllegalStateException-Fragment-not-attached-to-Activity/</loc>
+    
+    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wuxiaolong.me/2014/06/30/custom-debug-keystore/</loc>
+    
+    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wuxiaolong.me/2015/07/27/SaveImageToGallery/</loc>
+    
+    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wuxiaolong.me/2015/04/27/Split/</loc>
+    
+    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wuxiaolong.me/2014/11/09/AndroidSamples/</loc>
+    
+    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wuxiaolong.me/2015/07/24/AndroidDeveloperSurvey/</loc>
+    
+    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wuxiaolong.me/2015/04/21/SqliteSample/</loc>
+    
+    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wuxiaolong.me/2013/03/02/methods-SQLite-were-randomly-selected-for-the-N/</loc>
+    
+    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wuxiaolong.me/2013/06/14/android-developers-should-keep-the-following-characteristics/</loc>
+    
+    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wuxiaolong.me/2015/06/10/checkPermission/</loc>
     
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     
