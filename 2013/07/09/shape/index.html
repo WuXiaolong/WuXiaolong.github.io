@@ -95,13 +95,13 @@
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="除了使用drawable这样的图片外，随着图片资源增多，程序也越来越大，今天我们自定义图形shape的方法。 123456789101112131415161718192021&amp;lt;shape&amp;gt;           &amp;lt;!-- 实心 --&amp;gt;           &amp;lt;solid android:color=&quot;#ff9d77&quot;/&amp;gt;           &amp;lt;!-- 渐变">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://wuxiaolong.qiniudn.com/2013-07-09-shape-1.png">
-<meta property="og:image" content="http://wuxiaolong.qiniudn.com/2013-07-09-shape-2.png">
-<meta property="og:updated_time" content="2016-08-25T11:38:54.000Z">
+<meta property="og:image" content="http://wuxiaolong.github.io/images/2013-07-09-shape-1.png">
+<meta property="og:image" content="http://wuxiaolong.github.io/images/2013-07-09-shape-2.png">
+<meta property="og:updated_time" content="2018-10-23T14:23:31.391Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android之美化控件Shape">
 <meta name="twitter:description" content="除了使用drawable这样的图片外，随着图片资源增多，程序也越来越大，今天我们自定义图形shape的方法。 123456789101112131415161718192021&amp;lt;shape&amp;gt;           &amp;lt;!-- 实心 --&amp;gt;           &amp;lt;solid android:color=&quot;#ff9d77&quot;/&amp;gt;           &amp;lt;!-- 渐变">
-<meta name="twitter:image" content="http://wuxiaolong.qiniudn.com/2013-07-09-shape-1.png">
+<meta name="twitter:image" content="http://wuxiaolong.github.io/images/2013-07-09-shape-1.png">
 
 
 
@@ -375,7 +375,7 @@ border:2px solid #69c;
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴小龙同學">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://open.weixin.qq.com/qr/code?username=MrWuXiaolong">
+      <meta itemprop="image" content="/images/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -458,11 +458,6 @@ border:2px solid #69c;
           
 
           
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
-            </span>
-          
 
           
 
@@ -499,7 +494,7 @@ border:2px solid #69c;
 </ul>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line">&lt;selector</div><div class="line">    xmlns:android="http://schemas.android.com/apk/res/android"&gt;</div><div class="line">    &lt;item android:state_pressed="true" &gt;</div><div class="line">        &lt;shape&gt;</div><div class="line">            &lt;gradient</div><div class="line">                android:startColor="#ff8c00"</div><div class="line">                android:endColor="#FFFFFF"</div><div class="line">                android:angle="270" /&gt;</div><div class="line">            &lt;stroke</div><div class="line">                android:width="2dp"</div><div class="line">                android:color="#dcdcdc" /&gt;</div><div class="line">            &lt;corners</div><div class="line">                android:radius="10dp" /&gt;</div><div class="line">            &lt;padding</div><div class="line">                android:left="10dp"</div><div class="line">                android:top="10dp"</div><div class="line">                android:right="10dp"</div><div class="line">                android:bottom="10dp" /&gt;</div><div class="line">        &lt;/shape&gt;</div><div class="line">    &lt;/item&gt;</div><div class="line"></div><div class="line">    &lt;item android:state_focused="true" &gt;</div><div class="line">        &lt;shape&gt;</div><div class="line">            &lt;gradient</div><div class="line">                android:startColor="#ffc2b7"</div><div class="line">                android:endColor="#ffc2b7"</div><div class="line">                android:angle="270" /&gt;</div><div class="line">            &lt;stroke</div><div class="line">                android:width="2dp"</div><div class="line">                android:color="#dcdcdc" /&gt;</div><div class="line">            &lt;corners</div><div class="line">                android:radius="10dp" /&gt;</div><div class="line">            &lt;padding</div><div class="line">                android:left="10dp"</div><div class="line">                android:top="10dp"</div><div class="line">                android:right="10dp"</div><div class="line">                android:bottom="10dp" /&gt;</div><div class="line">        &lt;/shape&gt;</div><div class="line">    &lt;/item&gt;</div><div class="line"></div><div class="line">    &lt;item&gt;       </div><div class="line">        &lt;shape&gt;</div><div class="line">            &lt;gradient</div><div class="line">                android:startColor="#ff9d77"</div><div class="line">                android:endColor="#ff9d77"</div><div class="line">                android:angle="270" /&gt;</div><div class="line">            &lt;stroke</div><div class="line">                android:width="2dp"</div><div class="line">                android:color="#fad3cf" /&gt;</div><div class="line">            &lt;corners</div><div class="line">                android:radius="10dp" /&gt;</div><div class="line">            &lt;padding</div><div class="line">                android:left="10dp"</div><div class="line">                android:top="10dp"</div><div class="line">                android:right="10dp"</div><div class="line">                android:bottom="10dp" /&gt;</div><div class="line">        &lt;/shape&gt;</div><div class="line">    &lt;/item&gt;</div><div class="line">&lt;/selector&gt;</div></pre></td></tr></table></figure>
 <p>以上几个item的区别主要是体现在state_pressed按下或state_focused获得焦点时，当当来判断显示什么类型，而没有state_xxx属性的item可以看作是常规状态下。</p>
-<p>常规状态效果图：<br><img src="http://wuxiaolong.qiniudn.com/2013-07-09-shape-1.png" alt="常规状态效果图"><br>state_pressed按下或state_focused获得焦点：<br><img src="http://wuxiaolong.qiniudn.com/2013-07-09-shape-2.png" alt="常规状态效果图"></p>
+<p>常规状态效果图：<br><img src="http://wuxiaolong.github.io/images/2013-07-09-shape-1.png" alt="常规状态效果图"><br>state_pressed按下或state_focused获得焦点：<br><img src="http://wuxiaolong.github.io/images/2013-07-09-shape-2.png" alt="常规状态效果图"></p>
 		 <!--广告-->
 		﻿<h1>联系作者</h1>
 我的微信公众号：吴小龙同学，欢迎关注交流~
@@ -706,7 +701,7 @@ border:2px solid #69c;
 
       <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image" src="https://open.weixin.qq.com/qr/code?username=MrWuXiaolong" alt="吴小龙同學">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="吴小龙同學">
           <p class="site-author-name" itemprop="name">吴小龙同學</p>
            
               <p class="site-description motion-element" itemprop="description">我的微信公众号：吴小龙同学</p>
@@ -717,7 +712,7 @@ border:2px solid #69c;
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/index.html">
-                <span class="site-state-item-count">154</span>
+                <span class="site-state-item-count">152</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -739,7 +734,7 @@ border:2px solid #69c;
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">129</span>
+                <span class="site-state-item-count">128</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -847,26 +842,6 @@ border:2px solid #69c;
 
 
         
-<div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="site-uv">
-      <i class="fa fa-user"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      
-    </span>
-  
-
-  
-    <span class="site-pv">
-      <i class="fa fa-eye"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      
-    </span>
-  
-</div>
-
 
         
       </div>

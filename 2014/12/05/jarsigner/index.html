@@ -95,14 +95,14 @@
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="发布过Android应用的朋友们应该都知道，Android APK的发布是必需要签名，本签名指南演示如何使用WoSign安卓代码签名证书，签名安卓 .apk 程序。 签名证书制作证书，证书文件名：android.keystore, 证书别名：android.keystore 安装签名环境JDK包签名工具包可以在JDK官方网站下载：http://www.oracle.com/technetwork/">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/2014-12-05-jarsigner-0.png">
-<meta property="og:image" content="http://wuxiaolong.qiniudn.com/2014-12-05-jarsigner-1.png">
-<meta property="og:image" content="http://wuxiaolong.qiniudn.com/2014-12-05-jarsigner-2.png">
-<meta property="og:updated_time" content="2016-12-20T14:07:44.000Z">
+<meta property="og:image" content="http://wuxiaolong.github.io/images/2014-12-05-jarsigner-0.png">
+<meta property="og:image" content="http://wuxiaolong.github.io/images/2014-12-05-jarsigner-1.png">
+<meta property="og:image" content="http://wuxiaolong.github.io/images/2014-12-05-jarsigner-2.png">
+<meta property="og:updated_time" content="2018-10-23T14:09:54.254Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jarsigner签名安卓Apk程序">
 <meta name="twitter:description" content="发布过Android应用的朋友们应该都知道，Android APK的发布是必需要签名，本签名指南演示如何使用WoSign安卓代码签名证书，签名安卓 .apk 程序。 签名证书制作证书，证书文件名：android.keystore, 证书别名：android.keystore 安装签名环境JDK包签名工具包可以在JDK官方网站下载：http://www.oracle.com/technetwork/">
-<meta name="twitter:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/2014-12-05-jarsigner-0.png">
+<meta name="twitter:image" content="http://wuxiaolong.github.io/images/2014-12-05-jarsigner-0.png">
 
 
 
@@ -376,7 +376,7 @@ border:2px solid #69c;
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴小龙同學">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://open.weixin.qq.com/qr/code?username=MrWuXiaolong">
+      <meta itemprop="image" content="/images/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -459,11 +459,6 @@ border:2px solid #69c;
           
 
           
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
-            </span>
-          
 
           
 
@@ -490,10 +485,10 @@ border:2px solid #69c;
 <p>1）jarsigner是工具名称，-verbose表示将签名过程中的详细信息打印出来，显示在dos窗口中；</p>
 <p>2）-keystore android.keystore 表示签名所使用的数字证书和所在位置，这里没有写路径，表示在当前目录下；</p>
 <p>3）-signedjar Last_gongs_sign.apk Before_sign.apk 表示给 Before_sign.apk文件签名，签名后的文件名称为Last_gongs_sign.apk；</p>
-<p>4）最后面的android.keystore 表示证书的别名<br><img src="http://7q5c2h.com1.z0.glb.clouddn.com/2014-12-05-jarsigner-0.png" alt=""></p>
-<p><img src="http://wuxiaolong.qiniudn.com/2014-12-05-jarsigner-1.png" alt=""><br>如上图所示，签名成功。</p>
+<p>4）最后面的android.keystore 表示证书的别名<br><img src="http://wuxiaolong.github.io/images/2014-12-05-jarsigner-0.png" alt=""></p>
+<p><img src="http://wuxiaolong.github.io/images/2014-12-05-jarsigner-1.png" alt=""><br>如上图所示，签名成功。</p>
 <h2 id="验证签名"><a href="#验证签名" class="headerlink" title="验证签名"></a>验证签名</h2><p>使用命令验证已经签名的apk文件：jarsigner –verify Last_gongs_sign.apk</p>
-<p><img src="http://wuxiaolong.qiniudn.com/2014-12-05-jarsigner-2.png" alt=""></p>
+<p><img src="http://wuxiaolong.github.io/images/2014-12-05-jarsigner-2.png" alt=""></p>
 <p>如果想要知道更多明细, 你可以尝试如下几个命令:</p>
 <pre><code>jarsigner -verify -verbose Last_gongs_sign.apk                                            
 </code></pre><p>或<br>    jarsigner -verify -verbose -certs Last_gongs_sign.apk  </p>
@@ -716,7 +711,7 @@ border:2px solid #69c;
 
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image" src="https://open.weixin.qq.com/qr/code?username=MrWuXiaolong" alt="吴小龙同學">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="吴小龙同學">
           <p class="site-author-name" itemprop="name">吴小龙同學</p>
            
               <p class="site-description motion-element" itemprop="description">我的微信公众号：吴小龙同学</p>
@@ -727,7 +722,7 @@ border:2px solid #69c;
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/index.html">
-                <span class="site-state-item-count">154</span>
+                <span class="site-state-item-count">152</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -749,7 +744,7 @@ border:2px solid #69c;
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">129</span>
+                <span class="site-state-item-count">128</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -873,26 +868,6 @@ border:2px solid #69c;
 
 
         
-<div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="site-uv">
-      <i class="fa fa-user"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      
-    </span>
-  
-
-  
-    <span class="site-pv">
-      <i class="fa fa-eye"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      
-    </span>
-  
-</div>
-
 
         
       </div>

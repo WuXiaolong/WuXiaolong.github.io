@@ -87,21 +87,18 @@
 
 
 
-<meta name="description" content="微言App中有个阅读量的功能，是直接将用户的阅读量保存在SD卡上，我封装成了工具类。  效果预览">
+<meta name="description" content="微言App中有个阅读量的功能，是直接将用户的阅读量保存在SD卡上，我封装成了工具类。  需要权限1&amp;lt;uses-permission android:name=&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot; /&amp;gt; ReadUtil.j">
 <meta name="keywords" content="Android,SQLite,WeiYan">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Saving Data-Saving Files">
 <meta property="og:url" content="http://wuxiaolong.me/2015/07/13/SavingFiles/index.html">
 <meta property="og:site_name" content="吴小龙同學">
-<meta property="og:description" content="微言App中有个阅读量的功能，是直接将用户的阅读量保存在SD卡上，我封装成了工具类。  效果预览">
+<meta property="og:description" content="微言App中有个阅读量的功能，是直接将用户的阅读量保存在SD卡上，我封装成了工具类。  需要权限1&amp;lt;uses-permission android:name=&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot; /&amp;gt; ReadUtil.java123456789101112131415161718192021222324252627282930313">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/weiyanAppScreenshots.gif">
-<meta property="og:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/weiyanAppDownload.png">
-<meta property="og:updated_time" content="2016-08-25T11:38:54.000Z">
+<meta property="og:updated_time" content="2018-10-23T14:01:12.312Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Saving Data-Saving Files">
-<meta name="twitter:description" content="微言App中有个阅读量的功能，是直接将用户的阅读量保存在SD卡上，我封装成了工具类。  效果预览">
-<meta name="twitter:image" content="http://7q5c2h.com1.z0.glb.clouddn.com/weiyanAppScreenshots.gif">
+<meta name="twitter:description" content="微言App中有个阅读量的功能，是直接将用户的阅读量保存在SD卡上，我封装成了工具类。  需要权限1&amp;lt;uses-permission android:name=&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot; /&amp;gt; ReadUtil.java123456789101112131415161718192021222324252627282930313">
 
 
 
@@ -375,7 +372,7 @@ border:2px solid #69c;
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴小龙同學">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://open.weixin.qq.com/qr/code?username=MrWuXiaolong">
+      <meta itemprop="image" content="/images/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -458,11 +455,6 @@ border:2px solid #69c;
           
 
           
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
-            </span>
-          
 
           
 
@@ -482,9 +474,6 @@ border:2px solid #69c;
         <blockquote>
 <p>微言App中有个阅读量的功能，是直接将用户的阅读量保存在SD卡上，我封装成了工具类。</p>
 </blockquote>
-<h2 id="效果预览"><a href="#效果预览" class="headerlink" title="效果预览"></a>效果预览</h2><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/weiyanAppScreenshots.gif" alt=""></p>
-<a id="more"></a>
-<h2 id="实例APK"><a href="#实例APK" class="headerlink" title="实例APK"></a>实例APK</h2><p><img src="http://7q5c2h.com1.z0.glb.clouddn.com/weiyanAppDownload.png" alt=""></p>
 <h2 id="需要权限"><a href="#需要权限" class="headerlink" title="需要权限"></a>需要权限</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;uses-permission android:name=<span class="string">"android.permission.WRITE_EXTERNAL_STORAGE"</span> /&gt;</div></pre></td></tr></table></figure>
 <h2 id="ReadUtil-java"><a href="#ReadUtil-java" class="headerlink" title="ReadUtil.java"></a>ReadUtil.java</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReadUtil</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> File SDCardDir = Environment.getExternalStorageDirectory(); <span class="comment">//获取SDCard目录</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String SD_ROOT_NAME = <span class="string">"WeiYan/"</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String SD_FILE_NAME = <span class="string">"reading"</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">saveToFile</span><span class="params">(<span class="keyword">int</span> readTotal)</span> </span>&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="comment">// 判断SD卡是否存在，并且是否具有读写权限</span></div><div class="line">            <span class="keyword">if</span> (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) &#123;</div><div class="line">                File saveFile = <span class="keyword">new</span> File(SDCardDir + File.separator + SD_ROOT_NAME, SD_FILE_NAME);</div><div class="line">                <span class="keyword">if</span> (!saveFile.getParentFile().exists()) &#123;</div><div class="line">                    saveFile.getParentFile().mkdirs();</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">int</span> nowReadingTotal = getReadedTotal() + readTotal;</div><div class="line">                String readedTotal = nowReadingTotal + <span class="string">""</span>;</div><div class="line">                FileOutputStream outStream = <span class="keyword">new</span> FileOutputStream(saveFile);</div><div class="line">                outStream.write(readedTotal.getBytes());</div><div class="line">                outStream.close();</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">getReadedTotal</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> readedTotal = <span class="number">0</span>;</div><div class="line">        File file = <span class="keyword">new</span> File(SDCardDir + File.separator + SD_ROOT_NAME, SD_FILE_NAME);</div><div class="line">        <span class="keyword">if</span> (file.exists() &amp;&amp; file.isFile()) &#123;</div><div class="line">            StringBuffer stringBuffer = <span class="keyword">new</span> StringBuffer();</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                BufferedReader bufferedReader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(<span class="keyword">new</span> FileInputStream(file), <span class="string">"UTF-8"</span>));</div><div class="line">                <span class="keyword">int</span> c;</div><div class="line">                <span class="keyword">while</span> ((c = bufferedReader.read()) != -<span class="number">1</span>) &#123;</div><div class="line">                    stringBuffer.append((<span class="keyword">char</span>) c);</div><div class="line">                &#125;</div><div class="line">                bufferedReader.close();</div><div class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">                e.printStackTrace();</div><div class="line">            &#125;</div><div class="line">            String result = stringBuffer.toString();</div><div class="line">            readedTotal = Integer.parseInt(result);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> readedTotal;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="如何调用"><a href="#如何调用" class="headerlink" title="如何调用"></a>如何调用</h2><h3 id="读取数据"><a href="#读取数据" class="headerlink" title="读取数据"></a>读取数据</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ReadUtil.getReadedTotal()</div></pre></td></tr></table></figure>
@@ -708,7 +697,7 @@ border:2px solid #69c;
 
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image" src="https://open.weixin.qq.com/qr/code?username=MrWuXiaolong" alt="吴小龙同學">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="吴小龙同學">
           <p class="site-author-name" itemprop="name">吴小龙同學</p>
            
               <p class="site-description motion-element" itemprop="description">我的微信公众号：吴小龙同学</p>
@@ -719,7 +708,7 @@ border:2px solid #69c;
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/index.html">
-                <span class="site-state-item-count">154</span>
+                <span class="site-state-item-count">152</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -741,7 +730,7 @@ border:2px solid #69c;
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">129</span>
+                <span class="site-state-item-count">128</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -821,7 +810,7 @@ border:2px solid #69c;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#效果预览"><span class="nav-number">1.</span> <span class="nav-text">效果预览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例APK"><span class="nav-number">2.</span> <span class="nav-text">实例APK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#需要权限"><span class="nav-number">3.</span> <span class="nav-text">需要权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ReadUtil-java"><span class="nav-number">4.</span> <span class="nav-text">ReadUtil.java</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何调用"><span class="nav-number">5.</span> <span class="nav-text">如何调用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#读取数据"><span class="nav-number">5.1.</span> <span class="nav-text">读取数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#保存阅读量"><span class="nav-number">5.2.</span> <span class="nav-text">保存阅读量</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#需要权限"><span class="nav-number">1.</span> <span class="nav-text">需要权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ReadUtil-java"><span class="nav-number">2.</span> <span class="nav-text">ReadUtil.java</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何调用"><span class="nav-number">3.</span> <span class="nav-text">如何调用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#读取数据"><span class="nav-number">3.1.</span> <span class="nav-text">读取数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#保存阅读量"><span class="nav-number">3.2.</span> <span class="nav-text">保存阅读量</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -865,26 +854,6 @@ border:2px solid #69c;
 
 
         
-<div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="site-uv">
-      <i class="fa fa-user"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      
-    </span>
-  
-
-  
-    <span class="site-pv">
-      <i class="fa fa-eye"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      
-    </span>
-  
-</div>
-
 
         
       </div>
