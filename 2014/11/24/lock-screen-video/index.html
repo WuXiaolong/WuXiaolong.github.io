@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="###一、锁屏T_T被整哭了，我明知道锁屏走了onDestroy()方法，没有着手这个，反而去监听锁屏，还是太菜，基础不牢。 看日志发现，主Activity先onDestroy()了，随即又onCreate()，原因如下： 视频本身是横屏，手机界面是竖屏，锁屏操作存在一个横屏转竖屏的过程，这个过程如果不加android">
+<meta name="description" content="一、锁屏T_T被整哭了，我明知道锁屏走了onDestroy()方法，没有着手这个，反而去监听锁屏，还是太菜，基础不牢。 看日志发现，主Activity先onDestroy()了，随即又onCreate()，原因如下： 视频本身是横屏，手机界面是竖屏，锁屏操作存在一个横屏转竖屏的过程，这个过程如果不加android:co">
 <meta name="keywords" content="Android,Video">
 <meta property="og:type" content="article">
 <meta property="og:title" content="解决Android视频锁屏还在继续播放">
 <meta property="og:url" content="http://wuxiaolong.me/2014/11/24/lock-screen-video/index.html">
 <meta property="og:site_name" content="吴小龙同學">
-<meta property="og:description" content="###一、锁屏T_T被整哭了，我明知道锁屏走了onDestroy()方法，没有着手这个，反而去监听锁屏，还是太菜，基础不牢。 看日志发现，主Activity先onDestroy()了，随即又onCreate()，原因如下： 视频本身是横屏，手机界面是竖屏，锁屏操作存在一个横屏转竖屏的过程，这个过程如果不加android:configChanges=”orientation”,Activity会自动">
+<meta property="og:description" content="一、锁屏T_T被整哭了，我明知道锁屏走了onDestroy()方法，没有着手这个，反而去监听锁屏，还是太菜，基础不牢。 看日志发现，主Activity先onDestroy()了，随即又onCreate()，原因如下： 视频本身是横屏，手机界面是竖屏，锁屏操作存在一个横屏转竖屏的过程，这个过程如果不加android:configChanges=”orientation”,Activity会自动重新走">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2016-08-25T11:38:54.000Z">
+<meta property="og:updated_time" content="2018-10-28T07:42:58.701Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="解决Android视频锁屏还在继续播放">
-<meta name="twitter:description" content="###一、锁屏T_T被整哭了，我明知道锁屏走了onDestroy()方法，没有着手这个，反而去监听锁屏，还是太菜，基础不牢。 看日志发现，主Activity先onDestroy()了，随即又onCreate()，原因如下： 视频本身是横屏，手机界面是竖屏，锁屏操作存在一个横屏转竖屏的过程，这个过程如果不加android:configChanges=”orientation”,Activity会自动">
+<meta name="twitter:description" content="一、锁屏T_T被整哭了，我明知道锁屏走了onDestroy()方法，没有着手这个，反而去监听锁屏，还是太菜，基础不牢。 看日志发现，主Activity先onDestroy()了，随即又onCreate()，原因如下： 视频本身是横屏，手机界面是竖屏，锁屏操作存在一个横屏转竖屏的过程，这个过程如果不加android:configChanges=”orientation”,Activity会自动重新走">
 
 
 
@@ -471,14 +471,13 @@ border:2px solid #69c;
       
 
       
-        <p>###一、锁屏<br>T_T被整哭了，我明知道锁屏走了onDestroy()方法，没有着手这个，反而去监听锁屏，还是<code>太菜</code>，<code>基础不牢</code>。</p>
+        <h3 id="一、锁屏"><a href="#一、锁屏" class="headerlink" title="一、锁屏"></a>一、锁屏</h3><p>T_T被整哭了，我明知道锁屏走了onDestroy()方法，没有着手这个，反而去监听锁屏，还是<code>太菜</code>，<code>基础不牢</code>。</p>
 <p>看日志发现，主Activity先onDestroy()了，随即又onCreate()，原因如下：</p>
 <p>视频本身是横屏，手机界面是竖屏，锁屏操作存在一个横屏转竖屏的过程，这个过程如果不加android:configChanges=”orientation”,<br>Activity会自动重新走一遍它的生命周期，即先销毁再重新创建，加上后只会调用onConfigurationChanged。<code>哎，我知道这个，怎么没有想到这点啊</code>。</p>
 <p>另外如果你的target &gt; 13时，还必须得加上“ScreenSize”。</p>
 <a id="more"></a>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;activity</div><div class="line"> android:name="com.xiaomolong.ufosay.ui.VideoPlayActivity"</div><div class="line"> android:configChanges="keyboardHidden|orientation|screenSize"</div><div class="line"> android:label="PlayingActivity"</div><div class="line"> android:screenOrientation="landscape"</div><div class="line"> android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen" &gt;</div><div class="line"> &lt;/activity&gt;</div></pre></td></tr></table></figure>
-<p>###二、记录视频进度</p>
-<p>视频播放点击Home建和锁屏时需要保存播放的进度，因此有必要了解下onSaveInstanceState和onRestoreInstanceState触发的时机</p>
+<h3 id="二、记录视频进度"><a href="#二、记录视频进度" class="headerlink" title="二、记录视频进度"></a>二、记录视频进度</h3><p>视频播放点击Home建和锁屏时需要保存播放的进度，因此有必要了解下onSaveInstanceState和onRestoreInstanceState触发的时机</p>
 <ul>
 <li>1、onSaveInstanceState</li>
 </ul>
@@ -495,8 +494,7 @@ border:2px solid #69c;
 <p>onRestoreInstanceState被调用的前提是，activity A“确实”被系统销毁了，而如果仅仅是停留在有这种可能性的情况下，则该方法不会被调用，例如，当正在显示activity A的时候，用户按下HOME键回到主界面，然后用户紧接着又返回到activity A，这种情况下activity A一般不会因为内存的原因被系统销毁，故activity A的onRestoreInstanceState方法不会被执行</p>
 <p>另外，onRestoreInstanceState的bundle参数也会传递到onCreate方法中，你也可以选择在onCreate方法中做数据还原。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"> <span class="comment">/**</span></div><div class="line"> * 记录播放位置</div><div class="line"> */</div><div class="line"><span class="keyword">private</span> <span class="keyword">int</span> mLastPos = <span class="number">0</span>;</div><div class="line"> <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">	<span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">	setContentView(R.layout.video_play);</div><div class="line">	<span class="keyword">if</span> (savedInstanceState != <span class="keyword">null</span>) &#123;</div><div class="line">	mLastPos = savedInstanceState.getInt(<span class="string">"LastPosition"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onRestoreInstanceState</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">	<span class="keyword">super</span>.onRestoreInstanceState(savedInstanceState);</div><div class="line">	Log.d(<span class="string">"wxl"</span>, <span class="string">"onRestoreInstanceState start"</span>);</div><div class="line">	<span class="keyword">if</span> (savedInstanceState != <span class="keyword">null</span>) &#123;</div><div class="line">		mLastPos = savedInstanceState.getInt(<span class="string">"LastPosition"</span>);</div><div class="line">		Log.d(<span class="string">"wxl"</span>, <span class="string">"onRestoreInstanceState "</span> + mLastPos);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onSaveInstanceState</span><span class="params">(Bundle outState)</span> </span>&#123;</div><div class="line">	<span class="keyword">super</span>.onSaveInstanceState(outState);</div><div class="line">	Log.d(<span class="string">"wxl"</span>, <span class="string">"onSaveInstanceState start"</span>);</div><div class="line">	outState.putInt(<span class="string">"LastPosition"</span>, mLastPos);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>###三、附录</p>
-<p><a href="http://blog.csdn.net/terrantian/article/details/18670381" target="_blank" rel="noopener">Android锁屏后主Activity的onDestroy方法被调用</a></p>
+<h3 id="三、附录"><a href="#三、附录" class="headerlink" title="三、附录"></a>三、附录</h3><p><a href="http://blog.csdn.net/terrantian/article/details/18670381" target="_blank" rel="noopener">Android锁屏后主Activity的onDestroy方法被调用</a></p>
 <p><a href="http://android.blog.51cto.com/268543/634646/" target="_blank" rel="noopener">onSaveInstanceState和onRestoreInstanceState触发的时机</a></p>
 <p><a href="http://www.cnblogs.com/a284628487/p/3345317.html" target="_blank" rel="noopener">Android 监听屏幕锁屏,用户解锁</a></p>
 		 <!--广告-->
@@ -704,8 +702,17 @@ border:2px solid #69c;
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="吴小龙同學">
           <p class="site-author-name" itemprop="name">吴小龙同學</p>
@@ -718,7 +725,7 @@ border:2px solid #69c;
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/index.html">
-                <span class="site-state-item-count">151</span>
+                <span class="site-state-item-count">140</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -740,7 +747,7 @@ border:2px solid #69c;
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">128</span>
+                <span class="site-state-item-count">123</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -810,6 +817,22 @@ border:2px solid #69c;
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、锁屏"><span class="nav-number">1.</span> <span class="nav-text">一、锁屏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、记录视频进度"><span class="nav-number">2.</span> <span class="nav-text">二、记录视频进度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、附录"><span class="nav-number">3.</span> <span class="nav-text">三、附录</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

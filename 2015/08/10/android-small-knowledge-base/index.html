@@ -95,15 +95,15 @@
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="这份是我工作以来，总结的小知识库，有些知识点现在看来太LOW了，把还觉得有用的分享出来！">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://wuxiaolong.github.io/images/AlertDialog.jpg">
-<meta property="og:image" content="http://wuxiaolong.github.io/images/changelist1.jpg">
-<meta property="og:image" content="http://wuxiaolong.github.io/images/changelist2.jpg">
+<meta property="og:image" content="http://wuxiaolong.github.io/images/AlertDialog.png">
+<meta property="og:image" content="http://wuxiaolong.github.io/images/changelist1.png">
+<meta property="og:image" content="http://wuxiaolong.github.io/images/changelist2.png">
 <meta property="og:image" content="http://i.stack.imgur.com/2KSyU.png">
-<meta property="og:updated_time" content="2018-10-23T13:48:28.338Z">
+<meta property="og:updated_time" content="2018-10-28T07:07:45.381Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android小知识库">
 <meta name="twitter:description" content="这份是我工作以来，总结的小知识库，有些知识点现在看来太LOW了，把还觉得有用的分享出来！">
-<meta name="twitter:image" content="http://wuxiaolong.github.io/images/AlertDialog.jpg">
+<meta name="twitter:image" content="http://wuxiaolong.github.io/images/AlertDialog.png">
 
 
 
@@ -481,10 +481,10 @@ border:2px solid #69c;
 </blockquote>
 <a id="more"></a>
 <h1 id="Android-6-0-Dialog-text-doesn’t-appear"><a href="#Android-6-0-Dialog-text-doesn’t-appear" class="headerlink" title="Android 6.0 Dialog text doesn’t appear"></a>Android 6.0 Dialog text doesn’t appear</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">AlertDialog.Builder builder = new AlertDialog.Builder(this);</div><div class="line">builder.setTitle(&quot;退出登录&quot;);</div><div class="line">builder.setMessage(&quot;您确定要退出登录吗？&quot;);</div><div class="line">builder.setNegativeButton(&quot;取消&quot;, null);</div><div class="line">builder.setPositiveButton(&quot;确定&quot;, new DialogInterface.OnClickListener() &#123;</div><div class="line">    @Override</div><div class="line">    public void onClick(DialogInterface dialog, int which) &#123;</div><div class="line">        HashMap&lt;String, String&gt; params = new HashMap&lt;String, String&gt;();</div><div class="line">        postData(API.LOGOUT, params, false, new ResponseCallBack&lt;String&gt;(Settingctivity.this) &#123;</div><div class="line">            @Override</div><div class="line">            public void onSuccessResponse(String bean, String msg) &#123;</div><div class="line">               </div><div class="line">            &#125;</div><div class="line">            @Override</div><div class="line">            public void onFailResponse(String msg) &#123;</div><div class="line">               </div><div class="line">            &#125;</div><div class="line">        &#125;, null, null, true);</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">builder.create().show();</div></pre></td></tr></table></figure>
-<p>正常这样是没问题，但是在Android 6.0发现文本不显示，如图：<br><img src="http://wuxiaolong.github.io/images/AlertDialog.jpg" alt=""></p>
+<p>正常这样是没问题，但是在Android 6.0发现文本不显示，如图：<br><img src="http://wuxiaolong.github.io/images/AlertDialog.png" alt=""></p>
 <p>解决方案:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * http://stackoverflow.com/questions/33228454/android-6-0-dialog-text-doesnt-appear</div><div class="line"> *</div><div class="line"> * @param context</div><div class="line"> * @return</div><div class="line"> */</div><div class="line">public static AlertDialog.Builder alertDialogBuilder(Context context) &#123;</div><div class="line">    AlertDialog.Builder builder;</div><div class="line">    if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.LOLLIPOP) &#123;</div><div class="line">        builder = new AlertDialog.Builder(context, android.R.style.Theme_Material_Light_Dialog_Alert);</div><div class="line">    &#125; else &#123;</div><div class="line">        builder = new AlertDialog.Builder(context);</div><div class="line">    &#125;</div><div class="line">    return builder;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>然后初始化<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AlertDialog.Builder builder = alertDialogBuilder(this);</div></pre></td></tr></table></figure></p>
-<h1 id="android-studio-svn-commit-changelist-delete"><a href="#android-studio-svn-commit-changelist-delete" class="headerlink" title="android studio svn commit changelist delete"></a>android studio svn commit changelist delete</h1><p>如图，强迫症犯了，就想删掉<br><img src="http://wuxiaolong.github.io/images/changelist1.jpg" alt=""><br>解决方案：<br><img src="http://wuxiaolong.github.io/images/changelist2.jpg" alt=""></p>
+<h1 id="android-studio-svn-commit-changelist-delete"><a href="#android-studio-svn-commit-changelist-delete" class="headerlink" title="android studio svn commit changelist delete"></a>android studio svn commit changelist delete</h1><p>如图，强迫症犯了，就想删掉<br><img src="http://wuxiaolong.github.io/images/changelist1.png" alt=""><br>解决方案：<br><img src="http://wuxiaolong.github.io/images/changelist2.png" alt=""></p>
 <h1 id="Android-Activity做成对话框效果"><a href="#Android-Activity做成对话框效果" class="headerlink" title="Android Activity做成对话框效果"></a>Android Activity做成对话框效果</h1><p>设置透明主题<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar"&gt;</div><div class="line">    &lt;!-- Customize your theme here. --&gt;</div><div class="line">    &lt;item name="colorPrimary"&gt;@color/colorPrimary&lt;/item&gt;</div><div class="line">    &lt;item name="colorPrimaryDark"&gt;@color/colorPrimaryDark&lt;/item&gt;</div><div class="line">    &lt;item name="colorAccent"&gt;@color/colorAccent&lt;/item&gt;    </div><div class="line">&lt;/style&gt;</div><div class="line">&lt;style name="ActivityDialog" parent="AppTheme"&gt;</div><div class="line">    &lt;!--透明主题android:theme="@android:style/Theme.Translucent"--&gt;</div><div class="line">    &lt;item name="android:windowBackground"&gt;@color/transparent&lt;/item&gt;</div><div class="line">    &lt;item name="android:colorBackgroundCacheHint"&gt;@null&lt;/item&gt;</div><div class="line">    &lt;item name="android:windowIsTranslucent"&gt;true&lt;/item&gt;</div><div class="line">    &lt;item name="android:windowAnimationStyle"&gt;@android:style/Animation&lt;/item&gt;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure></p>
 <p>颜色值<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;color name="transparent"&gt;#9000&lt;/color&gt;</div></pre></td></tr></table></figure></p>
 <p>主题引用<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"> &lt;activity</div><div class="line">    android:name=".views.activitys.useraddress.ActivityDialogActivity"</div><div class="line">    android:screenOrientation="portrait"</div><div class="line">    android:theme="@style/ActivityDialog"&gt;</div><div class="line">&lt;/activity&gt;</div></pre></td></tr></table></figure></p>
@@ -738,8 +738,8 @@ border:2px solid #69c;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/08/04/TodayEmotion/" rel="next" title="今日情感">
-                <i class="fa fa-chevron-left"></i> 今日情感
+              <a href="/2015/08/03/Palette/" rel="next" title="Android Lollipop新特性-Palette">
+                <i class="fa fa-chevron-left"></i> Android Lollipop新特性-Palette
               </a>
             
           </div>
@@ -850,7 +850,7 @@ border:2px solid #69c;
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/index.html">
-                <span class="site-state-item-count">151</span>
+                <span class="site-state-item-count">140</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -872,7 +872,7 @@ border:2px solid #69c;
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">128</span>
+                <span class="site-state-item-count">123</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
