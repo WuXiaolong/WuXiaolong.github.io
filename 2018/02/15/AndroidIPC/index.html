@@ -95,14 +95,14 @@
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="什么鬼！单例居然失效了，一个地方设置值，另个地方居然取不到，这怎么可能？没道理啊！排查半天，发现这两就不在一个进程里，才恍然大悟……  什么是进程按照操作系统中的描述：进程一般指一个执行单元，在 PC 和移动设备上指一个程序或者一个应用。 为什么要使用多进程我们都知道，系统为 APP 每个进程分配的内存是有限的，如果想获取更多内存分配，可以使用多进程，将一些看不见的服务、比较独立而又相当占用内存">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://wuxiaolong.github.io/images/AndroidProcess2.png">
-<meta property="og:image" content="http://wuxiaolong.github.io/images/AndroidProcess3.png">
-<meta property="og:image" content="http://wuxiaolong.github.io/images/AndroidProcess1.png">
-<meta property="og:updated_time" content="2018-10-14T03:18:59.802Z">
+<meta property="og:image" content="http://wuxiaolong.me/images/AndroidProcess2.png">
+<meta property="og:image" content="http://wuxiaolong.me/images/AndroidProcess3.png">
+<meta property="og:image" content="http://wuxiaolong.me/images/AndroidProcess1.png">
+<meta property="og:updated_time" content="2018-10-28T08:31:39.664Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 进程间通信">
 <meta name="twitter:description" content="什么鬼！单例居然失效了，一个地方设置值，另个地方居然取不到，这怎么可能？没道理啊！排查半天，发现这两就不在一个进程里，才恍然大悟……  什么是进程按照操作系统中的描述：进程一般指一个执行单元，在 PC 和移动设备上指一个程序或者一个应用。 为什么要使用多进程我们都知道，系统为 APP 每个进程分配的内存是有限的，如果想获取更多内存分配，可以使用多进程，将一些看不见的服务、比较独立而又相当占用内存">
-<meta name="twitter:image" content="http://wuxiaolong.github.io/images/AndroidProcess2.png">
+<meta name="twitter:image" content="http://wuxiaolong.me/images/AndroidProcess2.png">
 
 
 
@@ -480,11 +480,11 @@ border:2px solid #69c;
 </blockquote>
 <h1 id="什么是进程"><a href="#什么是进程" class="headerlink" title="什么是进程"></a>什么是进程</h1><p>按照操作系统中的描述：进程一般指一个执行单元，在 PC 和移动设备上指一个程序或者一个应用。</p>
 <h1 id="为什么要使用多进程"><a href="#为什么要使用多进程" class="headerlink" title="为什么要使用多进程"></a>为什么要使用多进程</h1><p>我们都知道，系统为 APP 每个进程分配的内存是有限的，如果想获取更多内存分配，可以使用多进程，将一些看不见的服务、比较独立而又相当占用内存的功能运行在另外一个进程当中。<br><a id="more"></a></p>
-<h1 id="目录结构预览"><a href="#目录结构预览" class="headerlink" title="目录结构预览"></a>目录结构预览</h1><p>先放出最终实践后的目录结构，有个大概印象，后面一一介绍。<br><img src="http://wuxiaolong.github.io/images/AndroidProcess2.png" alt=""></p>
-<p><img src="http://wuxiaolong.github.io/images/AndroidProcess3.png" alt=""></p>
+<h1 id="目录结构预览"><a href="#目录结构预览" class="headerlink" title="目录结构预览"></a>目录结构预览</h1><p>先放出最终实践后的目录结构，有个大概印象，后面一一介绍。<br><img src="http://wuxiaolong.me/images/AndroidProcess2.png" alt=""></p>
+<p><img src="http://wuxiaolong.me/images/AndroidProcess3.png" alt=""></p>
 <h1 id="如何使用多进程"><a href="#如何使用多进程" class="headerlink" title="如何使用多进程"></a>如何使用多进程</h1><p>AndroidManifest.xml 清单文件中注册 Activity、Service 等四大组件时，指定 android:process 属性即可开启多进程，如：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;activity</div><div class="line">    android:name=<span class="string">".Process1Activity"</span></div><div class="line">    android:process=<span class="string">":process1"</span> /&gt;</div><div class="line">&lt;activity</div><div class="line">    android:name=<span class="string">".Process2Activity"</span></div><div class="line">    android:process=<span class="string">"com.wuxiaolong.androidprocesssample.process2"</span> /&gt;</div></pre></td></tr></table></figure>
-<p><img src="http://wuxiaolong.github.io/images/AndroidProcess1.png" alt=""><br><strong>说明</strong>：</p>
+<p><img src="http://wuxiaolong.me/images/AndroidProcess1.png" alt=""><br><strong>说明</strong>：</p>
 <p>1、<code>com.wuxiaolong.androidprocesssample</code>，主进程，默认的是应用包名；</p>
 <p>2、<code>android:process=&quot;:process1&quot;</code>，“：”开头，是简写，完整进程名包名 + <code>:process1</code>；</p>
 <p>3、<code>android:process=&quot;com.wuxiaolong.androidprocesssample.process2&quot;</code>，以小写字母开头的，属于全局进程，其他应用可以通过 ShareUID 进行数据共享；</p>
@@ -765,7 +765,7 @@ border:2px solid #69c;
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/index.html">
-                <span class="site-state-item-count">140</span>
+                <span class="site-state-item-count">139</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

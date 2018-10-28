@@ -95,14 +95,14 @@
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="作为Android应用开发者，不得不面对一个尴尬的局面，就是自己辛辛苦苦开发的应用可以被别人很轻易的就反编译出来。Google似乎也发现了这个问题，从SDK2.3开始我们可以看到在android-sdk-windows\tools\下面多了一个proguard文件夹。proguard是一个java代码混淆的工具，通过proguard，别人即使反编译你的apk包，也只会看到一些让人很难看懂的代码，从">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://wuxiaolong.github.io/images/2013-07-18-mobile-phone-information-acquisition-1.png">
-<meta property="og:image" content="http://wuxiaolong.github.io/images/2013-07-18-mobile-phone-information-acquisition-2.png">
-<meta property="og:image" content="http://wuxiaolong.github.io/images/2013-07-18-mobile-phone-information-acquisition-3.png">
-<meta property="og:updated_time" content="2018-10-23T14:22:04.659Z">
+<meta property="og:image" content="http://wuxiaolong.me/images/2013-07-18-mobile-phone-information-acquisition-1.png">
+<meta property="og:image" content="http://wuxiaolong.me/images/2013-07-18-mobile-phone-information-acquisition-2.png">
+<meta property="og:image" content="http://wuxiaolong.me/images/2013-07-18-mobile-phone-information-acquisition-3.png">
+<meta property="og:updated_time" content="2018-10-28T08:31:39.693Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android如何防止apk程序被反编译">
 <meta name="twitter:description" content="作为Android应用开发者，不得不面对一个尴尬的局面，就是自己辛辛苦苦开发的应用可以被别人很轻易的就反编译出来。Google似乎也发现了这个问题，从SDK2.3开始我们可以看到在android-sdk-windows\tools\下面多了一个proguard文件夹。proguard是一个java代码混淆的工具，通过proguard，别人即使反编译你的apk包，也只会看到一些让人很难看懂的代码，从">
-<meta name="twitter:image" content="http://wuxiaolong.github.io/images/2013-07-18-mobile-phone-information-acquisition-1.png">
+<meta name="twitter:image" content="http://wuxiaolong.me/images/2013-07-18-mobile-phone-information-acquisition-1.png">
 
 
 
@@ -475,12 +475,12 @@ border:2px solid #69c;
       
 
       
-        <p>作为Android应用开发者，不得不面对一个尴尬的局面，就是自己辛辛苦苦开发的应用可以被别人很轻易的就反编译出来。Google似乎也发现了这个问题，从SDK2.3开始我们可以看到在android-sdk-windows\tools\下面多了一个proguard文件夹。proguard是一个java代码混淆的工具，通过proguard，别人即使反编译你的apk包，也只会看到一些让人很难看懂的代码，从而达到保护代码的作用。新建项目都会有以下两个文件：<br><img src="http://wuxiaolong.github.io/images/2013-07-18-mobile-phone-information-acquisition-1.png" alt=""><br>project.properties文件“proguard.config=${sdk.dir}/tools/proguard/proguard-android.txt:proguard-project.txt”注释放开。<br><img src="http://wuxiaolong.github.io/images/2013-07-18-mobile-phone-information-acquisition-2.png" alt=""><br>然后在proguard-project.txt文件里做混淆，例如：</p>
+        <p>作为Android应用开发者，不得不面对一个尴尬的局面，就是自己辛辛苦苦开发的应用可以被别人很轻易的就反编译出来。Google似乎也发现了这个问题，从SDK2.3开始我们可以看到在android-sdk-windows\tools\下面多了一个proguard文件夹。proguard是一个java代码混淆的工具，通过proguard，别人即使反编译你的apk包，也只会看到一些让人很难看懂的代码，从而达到保护代码的作用。新建项目都会有以下两个文件：<br><img src="http://wuxiaolong.me/images/2013-07-18-mobile-phone-information-acquisition-1.png" alt=""><br>project.properties文件“proguard.config=${sdk.dir}/tools/proguard/proguard-android.txt:proguard-project.txt”注释放开。<br><img src="http://wuxiaolong.me/images/2013-07-18-mobile-phone-information-acquisition-2.png" alt=""><br>然后在proguard-project.txt文件里做混淆，例如：</p>
 <a id="more"></a>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#---------------Begin: support-v4包 ----------</div><div class="line">-libraryjars   libs/android-support-v4.jar</div><div class="line">-dontwarn android.support.v4.**  #打包时忽略以下类的警告  </div><div class="line">-keep class android.support.v4.** &#123; *; &#125;  </div><div class="line">-keep interface android.support.v4.app.** &#123; *; &#125;  </div><div class="line">-keep public class * extends android.support.v4.**  </div><div class="line">#-keep public class * extends android.app.Fragment</div><div class="line">#---------------End: support-v4包 ----------</div></pre></td></tr></table></figure>
 <p>以上是混淆了support-v4包，如果混淆其他的jar，举一反三。<br>比如A.jar，它的包名是a.b.c.d。然后做混淆就如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-keep <span class="class"><span class="keyword">class</span> <span class="title">a</span>.<span class="title">b</span>.<span class="title">c</span>.<span class="title">d</span>.** </span>&#123; *; &#125;</div></pre></td></tr></table></figure>
-<p>正常的编译签名后就可以防止代码被反编译了。反编译经过代码混淆的apk得到的代码应该类似于下面的效果，是很难看懂的：<br><img src="http://wuxiaolong.github.io/images/2013-07-18-mobile-phone-information-acquisition-3.png" alt=""></p>
+<p>正常的编译签名后就可以防止代码被反编译了。反编译经过代码混淆的apk得到的代码应该类似于下面的效果，是很难看懂的：<br><img src="http://wuxiaolong.me/images/2013-07-18-mobile-phone-information-acquisition-3.png" alt=""></p>
 		 <!--广告-->
 		﻿<h1>联系作者</h1>
 我的微信公众号：吴小龙同学，欢迎关注交流~
@@ -698,7 +698,7 @@ border:2px solid #69c;
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/index.html">
-                <span class="site-state-item-count">140</span>
+                <span class="site-state-item-count">139</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

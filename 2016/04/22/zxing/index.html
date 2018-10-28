@@ -95,14 +95,14 @@
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="二维码一般在项目都会用到，今天分享下我开发二维码的一些心得。  zxing介绍github地址：https://github.com/zxing/zxing">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://wuxiaolong.github.io/images/zxing1.png">
-<meta property="og:image" content="http://wuxiaolong.github.io/images/zxing2.png">
-<meta property="og:image" content="http://wuxiaolong.github.io/images/zxing3.png">
-<meta property="og:updated_time" content="2018-10-18T13:29:57.829Z">
+<meta property="og:image" content="http://wuxiaolong.me/images/zxing1.png">
+<meta property="og:image" content="http://wuxiaolong.me/images/zxing2.png">
+<meta property="og:image" content="http://wuxiaolong.me/images/zxing3.png">
+<meta property="og:updated_time" content="2018-10-28T08:31:39.721Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android zxing">
 <meta name="twitter:description" content="二维码一般在项目都会用到，今天分享下我开发二维码的一些心得。  zxing介绍github地址：https://github.com/zxing/zxing">
-<meta name="twitter:image" content="http://wuxiaolong.github.io/images/zxing1.png">
+<meta name="twitter:image" content="http://wuxiaolong.me/images/zxing1.png">
 
 
 
@@ -478,7 +478,7 @@ border:2px solid #69c;
         <blockquote>
 <p>二维码一般在项目都会用到，今天分享下我开发二维码的一些心得。</p>
 </blockquote>
-<h1 id="zxing介绍"><a href="#zxing介绍" class="headerlink" title="zxing介绍"></a>zxing介绍</h1><p>github地址：<a href="https://github.com/zxing/zxing" target="_blank" rel="noopener">https://github.com/zxing/zxing</a><br><img src="http://wuxiaolong.github.io/images/zxing1.png" alt=""><br><a id="more"></a><br>代码很多，官方演示的例子在文件android，一个较为完整的app，导入Android studio，发现少了CameraConfigurationUtils，这个类在文件android-core下。官方效果图：<br><img src="http://wuxiaolong.github.io/images/zxing2.png" alt=""><br>但是实际开发只需要扫码和生成二维码两个功能就夠了，因此我做了抽离删减，最终我的效果图：<br><img src="http://wuxiaolong.github.io/images/zxing3.png" alt=""></p>
+<h1 id="zxing介绍"><a href="#zxing介绍" class="headerlink" title="zxing介绍"></a>zxing介绍</h1><p>github地址：<a href="https://github.com/zxing/zxing" target="_blank" rel="noopener">https://github.com/zxing/zxing</a><br><img src="http://wuxiaolong.me/images/zxing1.png" alt=""><br><a id="more"></a><br>代码很多，官方演示的例子在文件android，一个较为完整的app，导入Android studio，发现少了CameraConfigurationUtils，这个类在文件android-core下。官方效果图：<br><img src="http://wuxiaolong.me/images/zxing2.png" alt=""><br>但是实际开发只需要扫码和生成二维码两个功能就夠了，因此我做了抽离删减，最终我的效果图：<br><img src="http://wuxiaolong.me/images/zxing3.png" alt=""></p>
 <h1 id="zxing使用"><a href="#zxing使用" class="headerlink" title="zxing使用"></a>zxing使用</h1><h2 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile <span class="string">'com.google.zxing:core:3.2.1'</span></div></pre></td></tr></table></figure>
 <h2 id="扫描二维码"><a href="#扫描二维码" class="headerlink" title="扫描二维码"></a>扫描二维码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">case</span> R.id.qrcode_dencode: <span class="comment">//扫描</span></div><div class="line">intent = <span class="keyword">new</span> Intent(MainActivity.<span class="keyword">this</span>, CaptureActivity.class);</div><div class="line">startActivityForResult(intent, REQUEST_CODE);</div><div class="line"><span class="keyword">break</span>;</div></pre></td></tr></table></figure>
 <p>回调：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onActivityResult</span><span class="params">(<span class="keyword">int</span> requestCode, <span class="keyword">int</span> resultCode, Intent data)</span> </span>&#123;</div><div class="line">       <span class="keyword">super</span>.onActivityResult(requestCode, resultCode, data);</div><div class="line">       <span class="keyword">if</span> (resultCode == RESULT_OK) &#123; <span class="comment">//RESULT_OK = -1</span></div><div class="line">           Bundle bundle = data.getExtras();</div><div class="line">           String scanResult = bundle.getString(<span class="string">"result"</span>);</div><div class="line">           Toast.makeText(MainActivity.<span class="keyword">this</span>, scanResult, Toast.LENGTH_LONG).show();</div><div class="line">       &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure></p>
@@ -724,7 +724,7 @@ border:2px solid #69c;
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/index.html">
-                <span class="site-state-item-count">140</span>
+                <span class="site-state-item-count">139</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

@@ -95,17 +95,17 @@
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="新公司有些项目是用的 Git，以前公司都是 svn，为了练手 Git，我个人 APP  用到了，但是仅简单的 git pull/push 的使用，并未用到 Git 精髓，只有当项目中用到，才会紧迫去全面学习，所以说，在项目中进步是最快的。  开发场景：远程有主分支 master，提供用户使用的正式的稳定的版本；开发分支 dev，用于日常开发。dev 们可以在本地任意创建自己的 Local Bra">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://wuxiaolong.github.io/images/gitBranch0.png">
-<meta property="og:image" content="http://wuxiaolong.github.io/images/gitBranch3.png">
-<meta property="og:image" content="http://wuxiaolong.github.io/images/gitBranch4.png">
-<meta property="og:image" content="http://wuxiaolong.github.io/images/gitBranch5.png">
-<meta property="og:image" content="http://wuxiaolong.github.io/images/gitBranch6.png">
-<meta property="og:image" content="http://wuxiaolong.github.io/images/gitBranch7.png">
-<meta property="og:updated_time" content="2018-10-15T14:09:17.533Z">
+<meta property="og:image" content="http://wuxiaolong.me/images/gitBranch0.png">
+<meta property="og:image" content="http://wuxiaolong.me/images/gitBranch3.png">
+<meta property="og:image" content="http://wuxiaolong.me/images/gitBranch4.png">
+<meta property="og:image" content="http://wuxiaolong.me/images/gitBranch5.png">
+<meta property="og:image" content="http://wuxiaolong.me/images/gitBranch6.png">
+<meta property="og:image" content="http://wuxiaolong.me/images/gitBranch7.png">
+<meta property="og:updated_time" content="2018-10-28T08:31:39.688Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android Studio Git 分支实践">
 <meta name="twitter:description" content="新公司有些项目是用的 Git，以前公司都是 svn，为了练手 Git，我个人 APP  用到了，但是仅简单的 git pull/push 的使用，并未用到 Git 精髓，只有当项目中用到，才会紧迫去全面学习，所以说，在项目中进步是最快的。  开发场景：远程有主分支 master，提供用户使用的正式的稳定的版本；开发分支 dev，用于日常开发。dev 们可以在本地任意创建自己的 Local Bra">
-<meta name="twitter:image" content="http://wuxiaolong.github.io/images/gitBranch0.png">
+<meta name="twitter:image" content="http://wuxiaolong.me/images/gitBranch0.png">
 
 
 
@@ -530,16 +530,16 @@ border:2px solid #69c;
 <p>或者<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push origin :dev</div></pre></td></tr></table></figure></p>
 <p>远程分支 dev 将被删除。</p>
 <h1 id="Android-Studio-实践"><a href="#Android-Studio-实践" class="headerlink" title="Android Studio 实践"></a>Android Studio 实践</h1><p>毕竟我们开发工具是 Android Studio，知道 Android  Studio 进行分支开发是必要的。</p>
-<h2 id="查看当前分支"><a href="#查看当前分支" class="headerlink" title="查看当前分支"></a>查看当前分支</h2><p><img src="http://wuxiaolong.github.io/images/gitBranch0.png" alt=""></p>
+<h2 id="查看当前分支"><a href="#查看当前分支" class="headerlink" title="查看当前分支"></a>查看当前分支</h2><p><img src="http://wuxiaolong.me/images/gitBranch0.png" alt=""></p>
 <p>这个分支指的当然是本地的，默认 master。</p>
-<h2 id="创建本地-dev1-分支-1"><a href="#创建本地-dev1-分支-1" class="headerlink" title="创建本地 dev1 分支"></a>创建本地 dev1 分支</h2><p><img src="http://wuxiaolong.github.io/images/gitBranch3.png" alt=""></p>
-<p><img src="http://wuxiaolong.github.io/images/gitBranch4.png" alt=""></p>
+<h2 id="创建本地-dev1-分支-1"><a href="#创建本地-dev1-分支-1" class="headerlink" title="创建本地 dev1 分支"></a>创建本地 dev1 分支</h2><p><img src="http://wuxiaolong.me/images/gitBranch3.png" alt=""></p>
+<p><img src="http://wuxiaolong.me/images/gitBranch4.png" alt=""></p>
 <p>以 origin/master 为基础 checkout 本地分支 dev1。</p>
-<h2 id="合并到本地-master-分支-1"><a href="#合并到本地-master-分支-1" class="headerlink" title="合并到本地 master 分支"></a>合并到本地 master 分支</h2><p>同样修改 README.md 文件，add，commit，然后切换到 master 分支：<br><img src="http://wuxiaolong.github.io/images/gitBranch5.png" alt=""></p>
-<p>然后合并本地分支 dev1 到本地 master 分支：<br><img src="http://wuxiaolong.github.io/images/gitBranch6.png" alt=""></p>
+<h2 id="合并到本地-master-分支-1"><a href="#合并到本地-master-分支-1" class="headerlink" title="合并到本地 master 分支"></a>合并到本地 master 分支</h2><p>同样修改 README.md 文件，add，commit，然后切换到 master 分支：<br><img src="http://wuxiaolong.me/images/gitBranch5.png" alt=""></p>
+<p>然后合并本地分支 dev1 到本地 master 分支：<br><img src="http://wuxiaolong.me/images/gitBranch6.png" alt=""></p>
 <p>再 push master 分支就 OK 了。</p>
 <h2 id="删除本地分支-1"><a href="#删除本地分支-1" class="headerlink" title="删除本地分支"></a>删除本地分支</h2><p>如上图，有个 Delete 按钮，点击直接干掉。</p>
-<h2 id="创建远程分支-dev-1"><a href="#创建远程分支-dev-1" class="headerlink" title="创建远程分支 dev"></a>创建远程分支 dev</h2><p>直接提交，我们会发现是提交到远程 master 上，这里我们可以修改：<br><img src="http://wuxiaolong.github.io/images/gitBranch7.png" alt=""><br>改成 dev，点击 Enter，然后 Push，这样远程就有了分支 dev。</p>
+<h2 id="创建远程分支-dev-1"><a href="#创建远程分支-dev-1" class="headerlink" title="创建远程分支 dev"></a>创建远程分支 dev</h2><p>直接提交，我们会发现是提交到远程 master 上，这里我们可以修改：<br><img src="http://wuxiaolong.me/images/gitBranch7.png" alt=""><br>改成 dev，点击 Enter，然后 Push，这样远程就有了分支 dev。</p>
 <h2 id="查看跟踪远程分支"><a href="#查看跟踪远程分支" class="headerlink" title="查看跟踪远程分支"></a>查看跟踪远程分支</h2><p>如上图可以查看跟踪关系，也可以手动修改。</p>
 <h2 id="合并远程分支-1"><a href="#合并远程分支-1" class="headerlink" title="合并远程分支"></a>合并远程分支</h2><p>修改 README.md 文件，add，commit，分别提交到远程 dev 和 master 即可，是不是比命令行简单多了啊。</p>
 <h2 id="删除远程分支-1"><a href="#删除远程分支-1" class="headerlink" title="删除远程分支"></a>删除远程分支</h2><p>点击 origin/dev，直接删除就好了。</p>
@@ -780,7 +780,7 @@ border:2px solid #69c;
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/index.html">
-                <span class="site-state-item-count">140</span>
+                <span class="site-state-item-count">139</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

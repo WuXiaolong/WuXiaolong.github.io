@@ -95,17 +95,17 @@
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="为什么优化卡顿现象，由于复杂的布局或界面过度绘制未能在每帧16ms内完成导致的。 复杂的布局Android系统每隔16ms发出VSYNC信号，触发对UI进行渲染，要每次渲染都成功，这样就必须达到流畅的画面所需要的60fps，否则会发生丢帧的现象，丢帧越多，用户明确感到卡顿。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://wuxiaolong.github.io/images/rendering6.png">
-<meta property="og:image" content="http://wuxiaolong.github.io/images/rendering4.png">
-<meta property="og:image" content="http://wuxiaolong.github.io/images/rendering1.png">
-<meta property="og:image" content="http://wuxiaolong.github.io/images/rendering2.png">
-<meta property="og:image" content="http://wuxiaolong.github.io/images/rendering3.png">
-<meta property="og:image" content="http://wuxiaolong.github.io/images/rendering7.png">
-<meta property="og:updated_time" content="2018-10-15T14:30:06.713Z">
+<meta property="og:image" content="http://wuxiaolong.me/images/rendering6.png">
+<meta property="og:image" content="http://wuxiaolong.me/images/rendering4.png">
+<meta property="og:image" content="http://wuxiaolong.me/images/rendering1.png">
+<meta property="og:image" content="http://wuxiaolong.me/images/rendering2.png">
+<meta property="og:image" content="http://wuxiaolong.me/images/rendering3.png">
+<meta property="og:image" content="http://wuxiaolong.me/images/rendering7.png">
+<meta property="og:updated_time" content="2018-10-28T08:31:39.712Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 渲染优化">
 <meta name="twitter:description" content="为什么优化卡顿现象，由于复杂的布局或界面过度绘制未能在每帧16ms内完成导致的。 复杂的布局Android系统每隔16ms发出VSYNC信号，触发对UI进行渲染，要每次渲染都成功，这样就必须达到流畅的画面所需要的60fps，否则会发生丢帧的现象，丢帧越多，用户明确感到卡顿。">
-<meta name="twitter:image" content="http://wuxiaolong.github.io/images/rendering6.png">
+<meta name="twitter:image" content="http://wuxiaolong.me/images/rendering6.png">
 
 
 
@@ -482,11 +482,11 @@ border:2px solid #69c;
 <h2 id="复杂的布局"><a href="#复杂的布局" class="headerlink" title="复杂的布局"></a>复杂的布局</h2><p>Android系统每隔16ms发出VSYNC信号，触发对UI进行渲染，要每次渲染都成功，这样就必须达到流畅的画面所需要的60fps，否则会发生丢帧的现象，丢帧越多，用户明确感到卡顿。<br><a id="more"></a><br><strong>补充：</strong><br>1、fps，每秒显示帧数，帧率测量单位（frames per second）;<br>2、为什么是60fps（16ms=1000/60）？因为人眼与大脑之间的协作无法感知超过60fps的画面更新。</p>
 <h2 id="过度绘制"><a href="#过度绘制" class="headerlink" title="过度绘制"></a>过度绘制</h2><p>Overdraw（过度绘制）是指系统在单个渲染帧中多次绘制屏幕上的像素。例如，如果我们有一堆堆叠的UI卡，不可见的UI也在做绘制的操作，这样会浪费大量的CPU和GPU资源。</p>
 <p><strong>补充：</strong><br>渲染操作通常依赖于两个核心组件：CPU与GPU。CPU负责包括Measure，Layout，Record，Execute的计算操作，GPU负责Rasterization(栅格化)操作。</p>
-<h1 id="如何检测"><a href="#如何检测" class="headerlink" title="如何检测"></a>如何检测</h1><h2 id="Show-GPU-Overdraw"><a href="#Show-GPU-Overdraw" class="headerlink" title="Show GPU Overdraw"></a>Show GPU Overdraw</h2><p>打开Show GPU Overdraw选项进行观察是否存在过度绘制。<br><strong>步骤：</strong><br>设置 -&gt; 开发者选项 -&gt; 调试GPU过度绘制 -&gt;显示过度绘制区域。<br>对比一张Overdraw的参考图，分别有蓝色，淡绿，淡红，深红代表了4种不同程度的Overdraw情况：<br><img src="http://wuxiaolong.github.io/images/rendering6.png" alt=""><br>蓝色： 意味着overdraw 1倍，像素绘制了两次；<br>绿色： 意味着overdraw 2倍，像素绘制了三次；<br>淡红： 意味着overdraw 3倍，像素绘制了四次；<br>深红： 意味着overdraw 4倍，像素绘制了五次或者更多。</p>
+<h1 id="如何检测"><a href="#如何检测" class="headerlink" title="如何检测"></a>如何检测</h1><h2 id="Show-GPU-Overdraw"><a href="#Show-GPU-Overdraw" class="headerlink" title="Show GPU Overdraw"></a>Show GPU Overdraw</h2><p>打开Show GPU Overdraw选项进行观察是否存在过度绘制。<br><strong>步骤：</strong><br>设置 -&gt; 开发者选项 -&gt; 调试GPU过度绘制 -&gt;显示过度绘制区域。<br>对比一张Overdraw的参考图，分别有蓝色，淡绿，淡红，深红代表了4种不同程度的Overdraw情况：<br><img src="http://wuxiaolong.me/images/rendering6.png" alt=""><br>蓝色： 意味着overdraw 1倍，像素绘制了两次；<br>绿色： 意味着overdraw 2倍，像素绘制了三次；<br>淡红： 意味着overdraw 3倍，像素绘制了四次；<br>深红： 意味着overdraw 4倍，像素绘制了五次或者更多。</p>
 <p>我们的目标就是尽量减少红色Overdraw，看到更多的蓝色区域。</p>
-<h2 id="Profile-GPU-Rendering"><a href="#Profile-GPU-Rendering" class="headerlink" title="Profile GPU Rendering"></a>Profile GPU Rendering</h2><p>打开Profile GPU Rendering，显示每帧画面所需要渲染的时间。<br><strong>步骤：</strong><br>设置 -&gt; 开发者选项 -&gt; GPU呈现模式分析  -&gt; 在屏幕上显示为条形图<br><img src="http://wuxiaolong.github.io/images/rendering4.png" alt=""><br>界面上会滚动显示垂直的柱状图来表示每帧画面所需要渲染的时间，柱状图越高表示花费的渲染时间越长。中间有一根绿色的横线，代表16ms，我们需要确保每一帧花费的总时间都低于这条横线，这样才能够避免出现卡顿的问题。</p>
-<h2 id="Hierarchy-Viewer"><a href="#Hierarchy-Viewer" class="headerlink" title="Hierarchy Viewer"></a>Hierarchy Viewer</h2><p>用Hierarchy Viewer工具检查Activity中的布局是否过于复杂<br><strong>步骤：</strong><br>Tools -&gt; Android -&gt; Android Device Monitor。<br><img src="http://wuxiaolong.github.io/images/rendering1.png" alt=""></p>
-<p><strong>打开Hierarchy Viewe：</strong><br>启动Android Device Monitor成功之后，在新的的窗口中点击切换视图图标，选择Hierarchy Viewe：<br><img src="http://wuxiaolong.github.io/images/rendering2.png" alt=""><br><strong>使用Hierarchy Viewer：</strong><br><img src="http://wuxiaolong.github.io/images/rendering3.png" alt=""><br>其实中带有红色或黄色的点代表速度较慢的View。</p>
+<h2 id="Profile-GPU-Rendering"><a href="#Profile-GPU-Rendering" class="headerlink" title="Profile GPU Rendering"></a>Profile GPU Rendering</h2><p>打开Profile GPU Rendering，显示每帧画面所需要渲染的时间。<br><strong>步骤：</strong><br>设置 -&gt; 开发者选项 -&gt; GPU呈现模式分析  -&gt; 在屏幕上显示为条形图<br><img src="http://wuxiaolong.me/images/rendering4.png" alt=""><br>界面上会滚动显示垂直的柱状图来表示每帧画面所需要渲染的时间，柱状图越高表示花费的渲染时间越长。中间有一根绿色的横线，代表16ms，我们需要确保每一帧花费的总时间都低于这条横线，这样才能够避免出现卡顿的问题。</p>
+<h2 id="Hierarchy-Viewer"><a href="#Hierarchy-Viewer" class="headerlink" title="Hierarchy Viewer"></a>Hierarchy Viewer</h2><p>用Hierarchy Viewer工具检查Activity中的布局是否过于复杂<br><strong>步骤：</strong><br>Tools -&gt; Android -&gt; Android Device Monitor。<br><img src="http://wuxiaolong.me/images/rendering1.png" alt=""></p>
+<p><strong>打开Hierarchy Viewe：</strong><br>启动Android Device Monitor成功之后，在新的的窗口中点击切换视图图标，选择Hierarchy Viewe：<br><img src="http://wuxiaolong.me/images/rendering2.png" alt=""><br><strong>使用Hierarchy Viewer：</strong><br><img src="http://wuxiaolong.me/images/rendering3.png" alt=""><br>其实中带有红色或黄色的点代表速度较慢的View。</p>
 <p><strong>友情提示：</strong><br>APP先运行起来再使用Android Device Monitor，建议用模拟器，手机可能读不到内容。</p>
 <h2 id="TraceView"><a href="#TraceView" class="headerlink" title="TraceView"></a>TraceView</h2><p>使用TraceView来观察CPU执行情况，使用详见：<a href="http://jishu.y5y.com.cn/axi295309066/article/details/52872912" target="_blank" rel="noopener">性能分析工具 Android TraceView</a>。</p>
 <h1 id="优化方案"><a href="#优化方案" class="headerlink" title="优化方案"></a>优化方案</h1><h2 id="删除不必要的布局背景"><a href="#删除不必要的布局背景" class="headerlink" title="删除不必要的布局背景"></a>删除不必要的布局背景</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line">&lt;LinearLayout</div><div class="line">    xmlns:android="http://schemas.android.com/apk/res/android"</div><div class="line">    android:layout_width="match_parent"</div><div class="line">    android:layout_height="match_parent"</div><div class="line">    android:background="?attr/backgroundColor"</div><div class="line">    android:orientation="vertical"&gt;</div><div class="line"></div><div class="line">    &lt;com.wuxiaolong.pullloadmorerecyclerview.PullLoadMoreRecyclerView</div><div class="line">        android:id="@+id/pullLoadMoreRecyclerView"</div><div class="line">        android:layout_width="match_parent"</div><div class="line">        android:layout_height="match_parent"/&gt;</div><div class="line">&lt;/LinearLayout&gt;</div></pre></td></tr></table></figure>
@@ -496,7 +496,7 @@ border:2px solid #69c;
 <h2 id="使用include、merge、ViewStub"><a href="#使用include、merge、ViewStub" class="headerlink" title="使用include、merge、ViewStub"></a>使用include、merge、ViewStub</h2><p>1、include布局重用；<br>2、merge减少视图层级；<br>3、ViewStub标签是当你需要时才会加载<br>详细介绍见：<a href="http://blog.csdn.net/xyz_lmn/article/details/14524567" target="_blank" rel="noopener">Android抽象布局——include、merge 、ViewStub</a></p>
 <h2 id="自定义组件的onDraw"><a href="#自定义组件的onDraw" class="headerlink" title="自定义组件的onDraw()"></a>自定义组件的onDraw()</h2><p>1、避免大量创建临时对象，比如String，以免频繁触发GC；<br>2、考虑使用canvas.clipRect()绘制需要被绘制的区域。</p>
 <h2 id="ListView"><a href="#ListView" class="headerlink" title="ListView"></a>ListView</h2><p>1、考虑使用ViewHolder；<br>2、或者RecycleView来代替</p>
-<h2 id="Lint"><a href="#Lint" class="headerlink" title="Lint"></a>Lint</h2><p>Lint是一个代码扫描工具，能够帮助我们识别代码结构存在的问题。在布局文件上运行lint工具来搜索可能的视图层次结构优化是一种很好的做法。<br>步骤：Android Studio，Analyze -&gt; Inspect Code。<br>布局信息将显示在Android&gt; Lint&gt; Performance下：<br><img src="http://wuxiaolong.github.io/images/rendering7.png" alt=""><br>要查看更多详细信息，您可以单击每个项目来展开它，并在屏幕右侧的窗格中查看更多信息。<br>lint规则：</p>
+<h2 id="Lint"><a href="#Lint" class="headerlink" title="Lint"></a>Lint</h2><p>Lint是一个代码扫描工具，能够帮助我们识别代码结构存在的问题。在布局文件上运行lint工具来搜索可能的视图层次结构优化是一种很好的做法。<br>步骤：Android Studio，Analyze -&gt; Inspect Code。<br>布局信息将显示在Android&gt; Lint&gt; Performance下：<br><img src="http://wuxiaolong.me/images/rendering7.png" alt=""><br>要查看更多详细信息，您可以单击每个项目来展开它，并在屏幕右侧的窗格中查看更多信息。<br>lint规则：</p>
 <ul>
 <li>Use compound drawables - A LinearLayout which contains an ImageView and a TextView can be more efficiently handled as a compound drawable.</li>
 <li>Merge root frame - If a FrameLayout is the root of a layout and does not provide background or padding etc, it can be replaced with a merge tag which is slightly more efficient.</li>
@@ -735,7 +735,7 @@ border:2px solid #69c;
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/index.html">
-                <span class="site-state-item-count">140</span>
+                <span class="site-state-item-count">139</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
