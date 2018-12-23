@@ -365,6 +365,160 @@ border:2px solid #69c;
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2015/07/27/SaveImageToGallery/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吴小龙同學">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴小龙同學">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/07/27/SaveImageToGallery/" itemprop="url">
+                  Android保存图片并显示系统图库
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-07-27T00:00:00+08:00">
+                2015-07-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/07/27/SaveImageToGallery/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/27/SaveImageToGallery/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">   * 0 保存失败；</div><div class="line">   * 1 保存成功；</div><div class="line">   * 2 已经存在</div><div class="line">   */</div><div class="line"></div><div class="line">  <span class="class"><span class="keyword">class</span> <span class="title">SaveImageToGalleryTask</span> <span class="keyword">extends</span> <span class="title">AsyncTask</span>&lt;<span class="title">Objects</span>, <span class="title">Objects</span>, <span class="title">Integer</span>&gt; </span>&#123;</div><div class="line">      <span class="meta">@Override</span></div><div class="line">      <span class="function"><span class="keyword">protected</span> Integer <span class="title">doInBackground</span><span class="params">(Objects... params)</span> </span>&#123;</div><div class="line">          Bitmap bitmap = <span class="keyword">null</span>;</div><div class="line">        </div><div class="line">          <span class="keyword">try</span> &#123;</div><div class="line">            </div><div class="line">              bitmap = Picasso.with(GirlImageDetailActivity.<span class="keyword">this</span>).load(<span class="string">"图片URL"</span>).get();</div><div class="line">          &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">              e.printStackTrace();</div><div class="line">          &#125;</div><div class="line">          <span class="keyword">if</span> (bitmap == <span class="keyword">null</span>) &#123;</div><div class="line">              <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">          &#125;</div><div class="line">          File appDir = <span class="keyword">new</span> File(Environment.getExternalStorageDirectory(), <span class="string">"hua"</span>);</div><div class="line">          <span class="keyword">if</span> (!appDir.exists()) &#123;</div><div class="line">              appDir.mkdir();</div><div class="line">          &#125;</div><div class="line">          <span class="keyword">final</span> String fileName = <span class="string">"图片名字"</span>+ <span class="string">".png"</span>;</div><div class="line">          File file = <span class="keyword">new</span> File(appDir, fileName);</div><div class="line">          <span class="keyword">if</span> (file.exists()) &#123;</div><div class="line">              <span class="keyword">return</span> <span class="number">2</span>;</div><div class="line">          &#125; <span class="keyword">else</span> &#123;</div><div class="line">              <span class="keyword">try</span> &#123;</div><div class="line">                  FileOutputStream fileOutputStream = <span class="keyword">new</span> FileOutputStream(file);</div><div class="line">                  bitmap.compress(Bitmap.CompressFormat.PNG, <span class="number">100</span>, fileOutputStream);</div><div class="line">                  fileOutputStream.flush();</div><div class="line">                  fileOutputStream.close();</div><div class="line"></div><div class="line">                  <span class="comment">// 其次把文件插入到系统图库</span></div><div class="line">                  MediaStore.Images.Media.insertImage(GirlImageDetailActivity.<span class="keyword">this</span>.getContentResolver(), file.getAbsolutePath(), fileName, <span class="keyword">null</span>);</div><div class="line"></div><div class="line">                  <span class="comment">// 最后通知图库更新</span></div><div class="line">                  Intent intent = <span class="keyword">new</span> Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.parse(<span class="string">"file://"</span> + file.getAbsolutePath()));</div><div class="line">                  sendBroadcast(intent);</div><div class="line">                  <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">              &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">                  e.printStackTrace();</div><div class="line">                  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">              &#125;</div><div class="line"></div><div class="line">          &#125;</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      <span class="meta">@Override</span></div><div class="line">      <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPostExecute</span><span class="params">(Integer integer)</span> </span>&#123;</div><div class="line">          <span class="keyword">super</span>.onPostExecute(integer);</div><div class="line">          <span class="keyword">switch</span> (integer) &#123;</div><div class="line">              <span class="keyword">case</span> <span class="number">0</span>:</div><div class="line">                  Snackbar.make(detailLayout, <span class="string">"保存失败"</span>, Snackbar.LENGTH_SHORT).show();</div><div class="line">                  <span class="keyword">break</span>;</div><div class="line">              <span class="keyword">case</span> <span class="number">1</span>:</div><div class="line">                  File appDir = <span class="keyword">new</span> File(Environment.getExternalStorageDirectory(), <span class="string">"hua"</span>);</div><div class="line">                  Snackbar.make(detailLayout, <span class="string">"成功保存至"</span> + appDir.getAbsolutePath(), Snackbar.LENGTH_SHORT).show();</div><div class="line">                  <span class="keyword">break</span>;</div><div class="line">              <span class="keyword">case</span> <span class="number">2</span>:</div><div class="line">                  Snackbar.make(detailLayout, <span class="string">"图片已经存在"</span>, Snackbar.LENGTH_SHORT).show();</div><div class="line">                  <span class="keyword">break</span>;</div><div class="line">          &#125;</div><div class="line">      &#125;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+          
+        
+      
+	   
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+     <!--评论-->
+    
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+
+  </article> 
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2015/07/24/PullLoadMoreRecyclerView/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1810,164 +1964,6 @@ border:2px solid #69c;
   </article> 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2015/05/12/AdFund/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="吴小龙同學">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吴小龙同學">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/05/12/AdFund/" itemprop="url">
-                  广告基金
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-05-12T00:00:00+08:00">
-                2015-05-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Life/" itemprop="url" rel="index">
-                    <span itemprop="name">Life</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2015/05/12/AdFund/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/05/12/AdFund/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>我很想买mac，但是暂时经济紧张，于是心里想，今年我的广告费什么时候攒够了，就买。求赞助，求包养T_T</p>
-</blockquote>
-<p><img src="http://wuxiaolong.me/images/AdFund1.png" alt=""><br><img src="http://wuxiaolong.me/images/AdFund2.png" alt="收益截图"></p>
-<p>广告总收益：22563.65+1933.53=24497.18（另外还有芒果聚合、点乐积分、多盟，都太少了，这里不计）</p>
-          
-        
-      
-	   
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-     <!--评论-->
-    
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-
-  </article> 
-
-    
   </section>
 
   
@@ -2015,7 +2011,7 @@ border:2px solid #69c;
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/index.html">
-                <span class="site-state-item-count">139</span>
+                <span class="site-state-item-count">140</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
