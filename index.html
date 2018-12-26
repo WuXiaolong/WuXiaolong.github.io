@@ -633,9 +633,9 @@ border:2px solid #69c;
       
         
           <p>网上关于这块大部分教程都是无效的，因为墙的缘故，无法使用官方提供的下载链接，我这里使用了<a href="https://mirrors.tuna.tsinghua.edu.cn/help/AOSP/" target="_blank" rel="noopener">清华大学的镜像</a>，是能够顺利将 AOSP 下载下来。如果你还没有安装 Ubuntu，请看《<a href="https://mp.weixin.qq.com/s/Z4vJoAhuiXbkbsFUHULzQg" target="_blank" rel="noopener">VirtualBox 安装 Ubuntu</a>》。</p>
-<h1 id="下载-repo"><a href="#下载-repo" class="headerlink" title="下载 repo"></a>下载 repo</h1><p>Repo 是一款工具，可让您在 Android 环境中更轻松地使用 Git，首先需要安装 Git：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install git</div></pre></td></tr></table></figure></p>
+<h1 id="下载-repo"><a href="#下载-repo" class="headerlink" title="下载 repo"></a>下载 repo</h1><p>Repo 是一款工具，可让您在 Android 环境中更轻松地使用 Git，首先需要安装 Git：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install git</div></pre></td></tr></table></figure></p>
 <p>创建 bin，并加入 path：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mkdir ~/bin</div><div class="line">PATH=~/bin:$PATH</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mkdir ~/bin</div><div class="line">PATH=~/bin:<span class="variable">$PATH</span></div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/07/07/AOSP1/" rel="contents">
