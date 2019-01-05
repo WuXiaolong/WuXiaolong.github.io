@@ -1,18 +1,25 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
 
-<html class="theme-next pisces" lang="zh-Hans">
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2">
+<meta name="theme-color" content="#222">
 
 
 
@@ -28,90 +35,51 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
 
 
 
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
-
-
-  <meta name="keywords" content="Hexo, NexT">
 
 
 
 
 
-  <link rel="alternate" href="/atom.xml" title="吴小龙同學" type="application/atom+xml">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/avatar.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/avatar.png?v=6.7.0" color="#222">
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
 
 
 
-
-
-
-<meta name="description" content="我的微信公众号：吴小龙同学">
-<meta property="og:type" content="website">
-<meta property="og:title" content="吴小龙同學">
-<meta property="og:url" content="http://wuxiaolong.me/page/7/index.html">
-<meta property="og:site_name" content="吴小龙同學">
-<meta property="og:description" content="我的微信公众号：吴小龙同学">
-<meta property="og:locale" content="zh-Hans">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="吴小龙同學">
-<meta name="twitter:description" content="我的微信公众号：吴小龙同学">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
+<script id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
-    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
-    fancybox: true,
-    motion: false,
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
+    scheme: 'Gemini',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -121,6 +89,21 @@
     }
   };
 </script>
+  <meta name="description" content="我的微信公众号：吴小龙同学">
+<meta property="og:type" content="website">
+<meta property="og:title" content="吴小龙同學">
+<meta property="og:url" content="http://wuxiaolong.me/page/7/index.html">
+<meta property="og:site_name" content="吴小龙同學">
+<meta property="og:description" content="我的微信公众号：吴小龙同学">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="吴小龙同學">
+<meta name="twitter:description" content="我的微信公众号：吴小龙同学">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="吴小龙同學" type="application/atom+xml">
+
 
 
 
@@ -128,56 +111,29 @@
 
 
 
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
-
-  <title> 吴小龙同學 </title>
-
-  <style type="text/css">
-  .div_right_bottom {
-  width: 200px;
-  top: 50%;
-  right: 0px;
-  position: fixed;
-  margin-top: -100px;
-  _position: absolute; /* position fixed for IE6 */
-/*
-右上角
-float:right;
-top:0;
-边框
-border:2px solid #69c;
-  right:0px;
-  bottom:0px;
-  z-index:0;
-*/
-
-}
-</style>
-
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-  <div class="div_right_bottom" align="center">
-  <img src="https://open.weixin.qq.com/qr/code?username=MrWuXiaolong">
-  微信公众号
-  </div>
-
+  <title>吴小龙同學</title>
   
 
 
 
 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-105780265-1', 'auto');
-  ga('send', 'pageview');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-105780265-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-105780265-1');
+  </script>
 
 
-  <script type="text/javascript">
+
+  <script>
     var _hmt = _hmt || [];
     (function() {
       var hm = document.createElement("script");
@@ -193,8 +149,33 @@ border:2px solid #69c;
 
 
 
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
 
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
 
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -216,13 +197,16 @@ border:2px solid #69c;
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
       
         <p class="site-subtitle">党要我帅，我不得不帅！</p>
       
+    
+    
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -230,96 +214,144 @@ border:2px solid #69c;
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
-            
-            首页
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/index.html" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
-            
-            分类
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/index.html" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
-            
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/index.html" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
-            
-            标签
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-friendslinks">
-          <a href="/friendslinks/index.html" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-users"></i> <br>
-            
-            小伙伴
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-gitbook">
-          <a href="https://wuxiaolong.gitbooks.io/wuxiaolong/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-book"></i> <br>
-            
-            GitBook
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about/index.html" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
-            
-            关于
-          </a>
-        </li>
-      
+          
+          <li class="menu-item menu-item-home">
 
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-friendslinks">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/friendslinks/index.html" rel="section"><i class="menu-item-icon fa fa-fw fa-users"></i> <br>小伙伴</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-gitbook">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="https://wuxiaolong.gitbooks.io/wuxiaolong/" rel="noopener" target="_blank"><i class="menu-item-icon fa fa-fw fa-book"></i> <br>GitBook</a>
+
+  </li>
+
+      
       
         <li class="menu-item menu-item-search">
           
             <a href="javascript:;" class="st-search-show-outputs">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
-            
-            搜索
-          </a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
         </li>
       
     </ul>
+  
+
   
 
   
@@ -329,7 +361,7 @@ border:2px solid #69c;
   <input type="text" id="st-search-input" class="st-search-input st-default-search-input">
 </form>
 
-<script type="text/javascript">
+<script>
   (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
     (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
     e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
@@ -346,12 +378,22 @@ border:2px solid #69c;
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    <a href="https://github.com/WuXiaolong" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
+          
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
@@ -364,12 +406,18 @@ border:2px solid #69c;
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2016/03/01/xmpp3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴小龙同學">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="我的微信公众号：吴小龙同学">
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
@@ -383,13 +431,9 @@ border:2px solid #69c;
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2016/03/01/xmpp3/" itemprop="url">
-                  Android基于XMPP开发（三）【注册、登录、修改密码、修改头像】
-                </a>
+                
+                <a href="/2016/03/01/xmpp3/" class="post-title-link" itemprop="url">Android基于XMPP开发（三）【注册、登录、修改密码、修改头像】</a>
               
             
           </h1>
@@ -397,6 +441,11 @@ border:2px solid #69c;
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -404,13 +453,30 @@ border:2px solid #69c;
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-01T19:46:13+08:00">
-                2016-03-01
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2016-03-01 19:46:13" itemprop="dateCreated datePublished" datetime="2016-03-01T19:46:13+08:00">2016-03-01</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2016-12-20 21:02:24" itemprop="dateModified" datetime="2016-12-20T21:02:24+08:00">2016-12-20</time>
+              
             
           </span>
 
@@ -426,11 +492,7 @@ border:2px solid #69c;
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/XMPP/" itemprop="url" rel="index">
-                    <span itemprop="name">XMPP</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/XMPP/" itemprop="url" rel="index"><span itemprop="name">XMPP</span></a></span>
 
                 
                 
@@ -446,6 +508,7 @@ border:2px solid #69c;
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2016/03/01/xmpp3/#comments" itemprop="discussionUrl">
+                
                   <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/03/01/xmpp3/" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -465,7 +528,9 @@ border:2px solid #69c;
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -478,30 +543,33 @@ border:2px solid #69c;
 </blockquote>
 <p>本篇将涉及常用的账号管理，包括：注册、登录、修改密码、修改头像。<br>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/03/01/xmpp3/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2016/03/01/xmpp3/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
-	   
     </p></div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-     <!--评论-->
     
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
     <footer class="post-footer">
       
 
@@ -514,8 +582,12 @@ border:2px solid #69c;
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
+  </article>
 
-  </article> 
 
     
       
@@ -526,12 +598,18 @@ border:2px solid #69c;
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2016/02/25/xmpp2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴小龙同學">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="我的微信公众号：吴小龙同学">
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
@@ -545,13 +623,9 @@ border:2px solid #69c;
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2016/02/25/xmpp2/" itemprop="url">
-                  Android基于XMPP开发（二）【连接服务器】
-                </a>
+                
+                <a href="/2016/02/25/xmpp2/" class="post-title-link" itemprop="url">Android基于XMPP开发（二）【连接服务器】</a>
               
             
           </h1>
@@ -559,6 +633,11 @@ border:2px solid #69c;
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -566,13 +645,30 @@ border:2px solid #69c;
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-02-25T19:34:53+08:00">
-                2016-02-25
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2016-02-25 19:34:53" itemprop="dateCreated datePublished" datetime="2016-02-25T19:34:53+08:00">2016-02-25</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2016-12-20 21:02:14" itemprop="dateModified" datetime="2016-12-20T21:02:14+08:00">2016-12-20</time>
+              
             
           </span>
 
@@ -588,11 +684,7 @@ border:2px solid #69c;
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/XMPP/" itemprop="url" rel="index">
-                    <span itemprop="name">XMPP</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/XMPP/" itemprop="url" rel="index"><span itemprop="name">XMPP</span></a></span>
 
                 
                 
@@ -608,6 +700,7 @@ border:2px solid #69c;
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2016/02/25/xmpp2/#comments" itemprop="discussionUrl">
+                
                   <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/02/25/xmpp2/" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -627,7 +720,9 @@ border:2px solid #69c;
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -640,30 +735,33 @@ border:2px solid #69c;
 </blockquote>
 <h1 id="准备阶段"><a href="#准备阶段" class="headerlink" title="准备阶段"></a>准备阶段</h1><p>砍柴不误磨刀工，欲XMPP开发，先引入Smack，具体见<a href="https://github.com/igniterealtime/Smack" target="_blank" rel="noopener">https://github.com/igniterealtime/Smack</a>，引入方式如下：<br>app/build.gradle<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">repositories &#123;</div><div class="line">    maven &#123;</div><div class="line">        url &apos;https://oss.sonatype.org/content/repositories/snapshots&apos;</div><div class="line">    &#125;</div><div class="line">    mavenCentral()</div><div class="line">&#125;</div><div class="line">dependencies &#123;</div><div class="line">compile &quot;org.igniterealtime.smack:smack-android-extensions:4.1.6&quot;</div><div class="line">compile &apos;org.igniterealtime.smack:smack-tcp:4.1.6&apos;</div><div class="line">compile &apos;org.igniterealtime.smack:smack-experimental:4.1.6&apos;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/02/25/xmpp2/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2016/02/25/xmpp2/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
-	   
     </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-     <!--评论-->
     
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
     <footer class="post-footer">
       
 
@@ -676,8 +774,12 @@ border:2px solid #69c;
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
+  </article>
 
-  </article> 
 
     
       
@@ -688,12 +790,18 @@ border:2px solid #69c;
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2016/02/24/xmpp1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴小龙同學">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="我的微信公众号：吴小龙同学">
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
@@ -707,13 +815,9 @@ border:2px solid #69c;
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2016/02/24/xmpp1/" itemprop="url">
-                  Android基于XMPP开发（一）【openfire服务器配置】
-                </a>
+                
+                <a href="/2016/02/24/xmpp1/" class="post-title-link" itemprop="url">Android基于XMPP开发（一）【openfire服务器配置】</a>
               
             
           </h1>
@@ -721,6 +825,11 @@ border:2px solid #69c;
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -728,13 +837,30 @@ border:2px solid #69c;
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-02-24T18:58:28+08:00">
-                2016-02-24
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2016-02-24 18:58:28" itemprop="dateCreated datePublished" datetime="2016-02-24T18:58:28+08:00">2016-02-24</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-28 16:31:39" itemprop="dateModified" datetime="2018-10-28T16:31:39+08:00">2018-10-28</time>
+              
             
           </span>
 
@@ -750,11 +876,7 @@ border:2px solid #69c;
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/XMPP/" itemprop="url" rel="index">
-                    <span itemprop="name">XMPP</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/XMPP/" itemprop="url" rel="index"><span itemprop="name">XMPP</span></a></span>
 
                 
                 
@@ -770,6 +892,7 @@ border:2px solid #69c;
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2016/02/24/xmpp1/#comments" itemprop="discussionUrl">
+                
                   <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/02/24/xmpp1/" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -789,7 +912,9 @@ border:2px solid #69c;
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -799,30 +924,33 @@ border:2px solid #69c;
         
           <h1 id="OpenFire"><a href="#OpenFire" class="headerlink" title="OpenFire"></a>OpenFire</h1><p>OpenFire 是采用Java开发的基于XMPP（Jabber）协议，开源实时协作（RTC）服务器。<br>Smack 是用 Java编 写的XMPP客户端代码库，是 spark 的核心<br>开源界总是有许多有趣的东东，这三个合起来就是一个完整的XMPP IM 实现。<br>OpenFire ——服务器端<br>Spark——客户端<br>Smack——XMPP 传输协议的实现<br>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/02/24/xmpp1/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2016/02/24/xmpp1/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
-	   
     </p></div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-     <!--评论-->
     
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
     <footer class="post-footer">
       
 
@@ -835,8 +963,12 @@ border:2px solid #69c;
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
+  </article>
 
-  </article> 
 
     
       
@@ -847,12 +979,18 @@ border:2px solid #69c;
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2016/02/04/RuntimePermission/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴小龙同學">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="我的微信公众号：吴小龙同学">
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
@@ -866,13 +1004,9 @@ border:2px solid #69c;
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2016/02/04/RuntimePermission/" itemprop="url">
-                  Android 6.0 RuntimePermission
-                </a>
+                
+                <a href="/2016/02/04/RuntimePermission/" class="post-title-link" itemprop="url">Android 6.0 RuntimePermission</a>
               
             
           </h1>
@@ -880,6 +1014,11 @@ border:2px solid #69c;
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -887,13 +1026,30 @@ border:2px solid #69c;
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-02-04T11:40:57+08:00">
-                2016-02-04
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2016-02-04 11:40:57" itemprop="dateCreated datePublished" datetime="2016-02-04T11:40:57+08:00">2016-02-04</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-28 14:38:38" itemprop="dateModified" datetime="2018-10-28T14:38:38+08:00">2018-10-28</time>
+              
             
           </span>
 
@@ -909,11 +1065,7 @@ border:2px solid #69c;
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/RuntimePermission/" itemprop="url" rel="index">
-                    <span itemprop="name">RuntimePermission</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/RuntimePermission/" itemprop="url" rel="index"><span itemprop="name">RuntimePermission</span></a></span>
 
                 
                 
@@ -929,6 +1081,7 @@ border:2px solid #69c;
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2016/02/04/RuntimePermission/#comments" itemprop="discussionUrl">
+                
                   <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/02/04/RuntimePermission/" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -948,7 +1101,9 @@ border:2px solid #69c;
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -959,30 +1114,33 @@ border:2px solid #69c;
           <p>Android 6.0 棉花糖，app将不会在安装的时候授予权限，取而代之的是，app不得不在运行时一个一个询问用户授予权限。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">android &#123;</div><div class="line">    compileSdkVersion <span class="number">23</span></div><div class="line">    ...</div><div class="line">  </div><div class="line">    defaultConfig &#123;</div><div class="line">        ...</div><div class="line">        targetSdkVersion <span class="number">23</span></div><div class="line">        ...</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/02/04/RuntimePermission/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2016/02/04/RuntimePermission/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
-	   
     </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-     <!--评论-->
     
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
     <footer class="post-footer">
       
 
@@ -995,8 +1153,12 @@ border:2px solid #69c;
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
+  </article>
 
-  </article> 
 
     
       
@@ -1007,12 +1169,18 @@ border:2px solid #69c;
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2016/01/18/rxjava/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴小龙同學">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="我的微信公众号：吴小龙同学">
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
@@ -1026,13 +1194,9 @@ border:2px solid #69c;
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2016/01/18/rxjava/" itemprop="url">
-                  RxJava
-                </a>
+                
+                <a href="/2016/01/18/rxjava/" class="post-title-link" itemprop="url">RxJava</a>
               
             
           </h1>
@@ -1040,6 +1204,11 @@ border:2px solid #69c;
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1047,13 +1216,30 @@ border:2px solid #69c;
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-01-18T15:50:14+08:00">
-                2016-01-18
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2016-01-18 15:50:14" itemprop="dateCreated datePublished" datetime="2016-01-18T15:50:14+08:00">2016-01-18</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2016-12-20 21:04:52" itemprop="dateModified" datetime="2016-12-20T21:04:52+08:00">2016-12-20</time>
+              
             
           </span>
 
@@ -1069,11 +1255,7 @@ border:2px solid #69c;
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/RxJava/" itemprop="url" rel="index">
-                    <span itemprop="name">RxJava</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/RxJava/" itemprop="url" rel="index"><span itemprop="name">RxJava</span></a></span>
 
                 
                 
@@ -1089,6 +1271,7 @@ border:2px solid #69c;
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2016/01/18/rxjava/#comments" itemprop="discussionUrl">
+                
                   <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/01/18/rxjava/" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -1108,7 +1291,9 @@ border:2px solid #69c;
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1118,30 +1303,33 @@ border:2px solid #69c;
         
           <h1 id="RxJava是什么"><a href="#RxJava是什么" class="headerlink" title="RxJava是什么"></a>RxJava是什么</h1><p>a library for composing asynchronous and event-based programs using observable sequences for the Java VM（一个对于构成使用的Java虚拟机观察序列异步和基于事件的程序库）。<br>github：<a href="https://github.com/ReactiveX/RxJava" target="_blank" rel="noopener">https://github.com/ReactiveX/RxJava</a><br>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/01/18/rxjava/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2016/01/18/rxjava/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
-	   
     </p></div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-     <!--评论-->
     
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
     <footer class="post-footer">
       
 
@@ -1154,8 +1342,12 @@ border:2px solid #69c;
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
+  </article>
 
-  </article> 
 
     
       
@@ -1166,12 +1358,18 @@ border:2px solid #69c;
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2016/01/15/retrofit/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴小龙同學">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="我的微信公众号：吴小龙同学">
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
@@ -1185,13 +1383,9 @@ border:2px solid #69c;
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2016/01/15/retrofit/" itemprop="url">
-                  Android Retrofit 2.0使用
-                </a>
+                
+                <a href="/2016/01/15/retrofit/" class="post-title-link" itemprop="url">Android Retrofit 2.0使用</a>
               
             
           </h1>
@@ -1199,6 +1393,11 @@ border:2px solid #69c;
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1206,13 +1405,30 @@ border:2px solid #69c;
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-01-15T11:23:25+08:00">
-                2016-01-15
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2016-01-15 11:23:25" itemprop="dateCreated datePublished" datetime="2016-01-15T11:23:25+08:00">2016-01-15</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-28 14:39:03" itemprop="dateModified" datetime="2018-10-28T14:39:03+08:00">2018-10-28</time>
+              
             
           </span>
 
@@ -1228,11 +1444,7 @@ border:2px solid #69c;
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Retrofit/" itemprop="url" rel="index">
-                    <span itemprop="name">Retrofit</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Retrofit/" itemprop="url" rel="index"><span itemprop="name">Retrofit</span></a></span>
 
                 
                 
@@ -1248,6 +1460,7 @@ border:2px solid #69c;
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2016/01/15/retrofit/#comments" itemprop="discussionUrl">
+                
                   <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/01/15/retrofit/" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -1267,7 +1480,9 @@ border:2px solid #69c;
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1287,30 +1502,33 @@ border:2px solid #69c;
 <h2 id="移除请求"><a href="#移除请求" class="headerlink" title="移除请求"></a>移除请求</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">call.cancel();</div></pre></td></tr></table></figure>
 <h1 id="接口参数"><a href="#接口参数" class="headerlink" title="接口参数"></a>接口参数</h1><h2 id="Path"><a href="#Path" class="headerlink" title="Path"></a>Path</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"> <span class="comment">/**</span></div><div class="line"> * Call&lt;T&gt; get();必须是这种形式,这是2.0之后的新形式</div><div class="line"> * 如果不需要转换成Json数据,可以用了ResponseBody;</div><div class="line"> * 你也可以使用Call&lt;GsonBean&gt; get();这样的话,需要添加Gson转换器</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ApiStores</span> </span>&#123;</div><div class="line">    <span class="meta">@GET</span>(<span class="string">"adat/sk/&#123;cityId&#125;.html"</span>)</div><div class="line">    <span class="function">Call&lt;ResponseBody&gt; <span class="title">getWeather</span><span class="params">(@Path(<span class="string">"cityId"</span>)</span> String cityId)</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/01/15/retrofit/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2016/01/15/retrofit/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
-	   
     </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-     <!--评论-->
     
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
     <footer class="post-footer">
       
 
@@ -1323,8 +1541,12 @@ border:2px solid #69c;
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
+  </article>
 
-  </article> 
 
     
       
@@ -1335,12 +1557,18 @@ border:2px solid #69c;
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2016/01/01/CustomView/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴小龙同學">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="我的微信公众号：吴小龙同学">
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
@@ -1354,13 +1582,9 @@ border:2px solid #69c;
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2016/01/01/CustomView/" itemprop="url">
-                  Android CustomView
-                </a>
+                
+                <a href="/2016/01/01/CustomView/" class="post-title-link" itemprop="url">Android CustomView</a>
               
             
           </h1>
@@ -1368,6 +1592,11 @@ border:2px solid #69c;
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1375,13 +1604,30 @@ border:2px solid #69c;
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-01-01T15:40:16+08:00">
-                2016-01-01
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2016-01-01 15:40:16" itemprop="dateCreated datePublished" datetime="2016-01-01T15:40:16+08:00">2016-01-01</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-09-19 21:31:41" itemprop="dateModified" datetime="2017-09-19T21:31:41+08:00">2017-09-19</time>
+              
             
           </span>
 
@@ -1397,11 +1643,7 @@ border:2px solid #69c;
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CustomView/" itemprop="url" rel="index">
-                    <span itemprop="name">CustomView</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/CustomView/" itemprop="url" rel="index"><span itemprop="name">CustomView</span></a></span>
 
                 
                 
@@ -1417,6 +1659,7 @@ border:2px solid #69c;
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2016/01/01/CustomView/#comments" itemprop="discussionUrl">
+                
                   <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/01/01/CustomView/" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -1436,7 +1679,9 @@ border:2px solid #69c;
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1446,30 +1691,33 @@ border:2px solid #69c;
         
           <h1 id="View工作流程"><a href="#View工作流程" class="headerlink" title="View工作流程"></a>View工作流程</h1><p>View工作流程主要指measure、layout、draw这三个流程，即测量、布局和绘制，其中measure确定View的自身的宽高，layout确定View在父容器放置的位置，draw将View绘制到屏幕上。</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/01/01/CustomView/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2016/01/01/CustomView/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
-	   
     </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-     <!--评论-->
     
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
     <footer class="post-footer">
       
 
@@ -1482,8 +1730,12 @@ border:2px solid #69c;
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
+  </article>
 
-  </article> 
 
     
       
@@ -1494,12 +1746,18 @@ border:2px solid #69c;
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2015/12/27/2016key/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴小龙同學">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="我的微信公众号：吴小龙同学">
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
@@ -1513,13 +1771,9 @@ border:2px solid #69c;
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2015/12/27/2016key/" itemprop="url">
-                  2016关键字
-                </a>
+                
+                <a href="/2015/12/27/2016key/" class="post-title-link" itemprop="url">2016关键字</a>
               
             
           </h1>
@@ -1527,6 +1781,11 @@ border:2px solid #69c;
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1534,13 +1793,30 @@ border:2px solid #69c;
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-12-27T17:43:42+08:00">
-                2015-12-27
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2015-12-27 17:43:42" itemprop="dateCreated datePublished" datetime="2015-12-27T17:43:42+08:00">2015-12-27</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-01-02 21:13:10" itemprop="dateModified" datetime="2018-01-02T21:13:10+08:00">2018-01-02</time>
+              
             
           </span>
 
@@ -1556,11 +1832,7 @@ border:2px solid #69c;
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Life/" itemprop="url" rel="index">
-                    <span itemprop="name">Life</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Life/" itemprop="url" rel="index"><span itemprop="name">Life</span></a></span>
 
                 
                 
@@ -1576,6 +1848,7 @@ border:2px solid #69c;
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2015/12/27/2016key/#comments" itemprop="discussionUrl">
+                
                   <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/12/27/2016key/" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -1595,7 +1868,9 @@ border:2px solid #69c;
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1607,30 +1882,33 @@ border:2px solid #69c;
 <p>生活方面，顺利结婚，整个过程，只能用两个字形容：虐心，这种心情恐怕只有过来人才知道。工作方面属于迷茫，不知道该干嘛。技术感觉也遇到了瓶颈，是要转IOS？于是swift尝鲜，入门做了个简单的demo就停止了；还是继续加深Android，却不知道该从何入手。直到最近明确了方向，我要向高级程序员进阶。</p>
 <p>这一年，整体是不开心，但还是有收获的，拥有了属于自己的<a href="http://wuxiaolong.me/2015/07/31/build-blog-by-hexo/">技术博客</a>，第一时间学习了很多Android刚出来的新的东西：<a href="http://wuxiaolong.me/2015/11/25/WeWin/">Android studio</a>、<a href="http://wuxiaolong.me/2015/09/15/RecyclerViewCardView/">RecyclerView</a>、<a href="https://github.com/WuXiaolong/DesignSupportLibrarySample" target="_blank" rel="noopener">DesignSupportLibrary</a>、<a href="http://wuxiaolong.me/2015/09/23/AndroidMVPSample/">MVP模式</a>等，下面开始展望16年。<br>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2015/12/27/2016key/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2015/12/27/2016key/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
-	   
     </p></div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-     <!--评论-->
     
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
     <footer class="post-footer">
       
 
@@ -1643,8 +1921,12 @@ border:2px solid #69c;
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
+  </article>
 
-  </article> 
 
     
       
@@ -1655,12 +1937,18 @@ border:2px solid #69c;
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2015/12/21/fragmentToolbar/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴小龙同學">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="我的微信公众号：吴小龙同学">
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
@@ -1674,13 +1962,9 @@ border:2px solid #69c;
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2015/12/21/fragmentToolbar/" itemprop="url">
-                  Android Fragment使用Toolbar
-                </a>
+                
+                <a href="/2015/12/21/fragmentToolbar/" class="post-title-link" itemprop="url">Android Fragment使用Toolbar</a>
               
             
           </h1>
@@ -1688,6 +1972,11 @@ border:2px solid #69c;
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1695,13 +1984,30 @@ border:2px solid #69c;
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-12-21T10:34:49+08:00">
-                2015-12-21
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2015-12-21 10:34:49" itemprop="dateCreated datePublished" datetime="2015-12-21T10:34:49+08:00">2015-12-21</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2016-12-20 21:07:50" itemprop="dateModified" datetime="2016-12-20T21:07:50+08:00">2016-12-20</time>
+              
             
           </span>
 
@@ -1717,11 +2023,7 @@ border:2px solid #69c;
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Toolbar/" itemprop="url" rel="index">
-                    <span itemprop="name">Toolbar</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Toolbar/" itemprop="url" rel="index"><span itemprop="name">Toolbar</span></a></span>
 
                 
                 
@@ -1737,6 +2039,7 @@ border:2px solid #69c;
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2015/12/21/fragmentToolbar/#comments" itemprop="discussionUrl">
+                
                   <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/12/21/fragmentToolbar/" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -1756,7 +2059,9 @@ border:2px solid #69c;
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1767,30 +2072,33 @@ border:2px solid #69c;
           <h1 id="Activity使用Toolbar"><a href="#Activity使用Toolbar" class="headerlink" title="Activity使用Toolbar"></a>Activity使用Toolbar</h1><p>一般在Activity里使用Toolbar如下：<br>toolbar.xml<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span>?&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">android.support.v7.widget.Toolbar</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span></div><div class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/toolbar"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">    <span class="attr">android:background</span>=<span class="string">"?attr/colorPrimary"</span></div><div class="line">    <span class="attr">android:minHeight</span>=<span class="string">"?actionBarSize"</span>&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">android.support.v7.widget.Toolbar</span>&gt;</span></div></pre></td></tr></table></figure></p>
 <p>xml调用：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;include</div><div class="line">     layout=<span class="string">"@layout/toolbar"</span> /&gt;</div></pre></td></tr></table></figure></p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2015/12/21/fragmentToolbar/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2015/12/21/fragmentToolbar/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
-	   
     </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-     <!--评论-->
     
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
     <footer class="post-footer">
       
 
@@ -1803,8 +2111,12 @@ border:2px solid #69c;
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
+  </article>
 
-  </article> 
 
     
       
@@ -1815,12 +2127,18 @@ border:2px solid #69c;
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2015/12/19/MotionEvent/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴小龙同學">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="我的微信公众号：吴小龙同学">
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
@@ -1834,13 +2152,9 @@ border:2px solid #69c;
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2015/12/19/MotionEvent/" itemprop="url">
-                  Android事件传递机制分析
-                </a>
+                
+                <a href="/2015/12/19/MotionEvent/" class="post-title-link" itemprop="url">Android事件传递机制分析</a>
               
             
           </h1>
@@ -1848,6 +2162,11 @@ border:2px solid #69c;
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1855,13 +2174,30 @@ border:2px solid #69c;
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-12-19T16:17:02+08:00">
-                2015-12-19
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2015-12-19 16:17:02" itemprop="dateCreated datePublished" datetime="2015-12-19T16:17:02+08:00">2015-12-19</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-28 14:40:14" itemprop="dateModified" datetime="2018-10-28T14:40:14+08:00">2018-10-28</time>
+              
             
           </span>
 
@@ -1877,11 +2213,7 @@ border:2px solid #69c;
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CustomView/" itemprop="url" rel="index">
-                    <span itemprop="name">CustomView</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/CustomView/" itemprop="url" rel="index"><span itemprop="name">CustomView</span></a></span>
 
                 
                 
@@ -1897,6 +2229,7 @@ border:2px solid #69c;
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2015/12/19/MotionEvent/#comments" itemprop="discussionUrl">
+                
                   <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/12/19/MotionEvent/" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -1916,7 +2249,9 @@ border:2px solid #69c;
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1926,30 +2261,33 @@ border:2px solid #69c;
         
           <h1 id="准备阶段"><a href="#准备阶段" class="headerlink" title="准备阶段"></a>准备阶段</h1><p>为了方便了解整个事件传递的机制，我们设计一个场景：<br><img src="http://wuxiaolong.me/images/MotionEvent.png" alt=""><br>角色：<br>一个经理：MotionEventViewGroupA，最外层的ViewGroupA；<br>一个组长：MotionEventViewGroupB，中间的ViewGroupB；<br>一个你：MotionEventViewC，最底层的码农。<br>模拟：<br>经理分派任务，下属处理这个任务的过程。<br>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2015/12/19/MotionEvent/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2015/12/19/MotionEvent/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
-	   
     </p></div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-     <!--评论-->
     
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
     <footer class="post-footer">
       
 
@@ -1962,23 +2300,24 @@ border:2px solid #69c;
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
+  </article>
 
-  </article> 
 
     
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
 
           </div>
-          
-
-
           
 
         </div>
@@ -1994,116 +2333,469 @@ border:2px solid #69c;
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
 
       
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="吴小龙同學">
-          <p class="site-author-name" itemprop="name">吴小龙同學</p>
-           
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="吴小龙同學">
+            
+              <p class="site-author-name" itemprop="name">吴小龙同學</p>
               <p class="site-description motion-element" itemprop="description">我的微信公众号：吴小龙同学</p>
-          
-        </div>
-        <nav class="site-state motion-element">
-
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/archives/index.html">
-                <span class="site-state-item-count">142</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-categories">
-              <a href="/categories/index.html">
-                <span class="site-state-item-count">44</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/tags/index.html">
-                <span class="site-state-item-count">123</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-          <div class="feed-link motion-element">
-            <a href="/atom.xml" rel="alternate">
-              <i class="fa fa-rss"></i>
-              RSS
-            </a>
           </div>
-        
 
-        <div class="links-of-author motion-element">
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">142</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">41</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">112</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://open.weixin.qq.com/qr/code?username=MrWuXiaolong" title="WeChat &rarr; https://open.weixin.qq.com/qr/code?username=MrWuXiaolong" rel="noopener" target="_blank"><i class="fa fa-fw fa-weixin"></i>WeChat</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/WuXiaolong" title="GitHub &rarr; https://github.com/WuXiaolong" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.zhihu.com/people/wuxiaolong.me" title="知乎 &rarr; https://www.zhihu.com/people/wuxiaolong.me" rel="noopener" target="_blank"><i class="fa fa-fw fa-book"></i>知乎</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="http://weibo.com/u/2175011601" title="Weibo &rarr; http://weibo.com/u/2175011601" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
           
             
-              <span class="links-of-author-item">
-                <a href="https://open.weixin.qq.com/qr/code?username=MrWuXiaolong" target="_blank" title="WeChat">
-                  
-                    <i class="fa fa-fw fa-weixin"></i>
-                  
-                  WeChat
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/WuXiaolong" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  GitHub
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="https://www.zhihu.com/people/wuxiaolong.me" target="_blank" title="知乎">
-                  
-                    <i class="fa fa-fw fa-book"></i>
-                  
-                  知乎
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://weibo.com/u/2175011601" target="_blank" title="微博">
-                  
-                    <i class="fa fa-fw fa-weibo"></i>
-                  
-                  微博
-                </a>
-              </span>
-            
           
+          
+
         </div>
-
-        
-        
-
-        
-        
-
-        
-
-
-      </section>
+      </div>
 
       
 
@@ -2119,30 +2811,53 @@ border:2px solid #69c;
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">
-  
-  &copy;  2013 - 
-  <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
+        <div class="copyright">&copy; 2013 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">吴小龙同學</span>
+
+  
+
+  
 </div>
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
-
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
-  </a>
-</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.4.2</div>
 
 
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.7.0</div>
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
 
         
       </div>
@@ -2155,11 +2870,16 @@ border:2px solid #69c;
       </div>
     
 
+    
+
+    
+
+    
   </div>
 
   
 
-<script type="text/javascript">
+<script>
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
   }
@@ -2173,84 +2893,67 @@ border:2px solid #69c;
 
 
 
-  
 
 
 
 
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
-  
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+
+
 
 
 
   
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
-
-
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
-
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
 
   
 
 
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
 
   
 
-    <script type="text/javascript">
-      var disqus_shortname = 'WuXiaolong';
-      var disqus_identifier = 'page/7/index.html';
-
-      var disqus_title = "";
+  
 
 
-      function run_disqus_script(disqus_script) {
-        var dsq = document.createElement('script');
-        dsq.type = 'text/javascript';
-        dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-      }
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
 
-      run_disqus_script('count.js');
 
-      
 
-    </script>
+  
+
+  
+    <script id="dsq-count-scr" src="https://WuXiaolong.disqus.com/count.js" async></script>
+  
+
   
 
 
@@ -2268,9 +2971,6 @@ border:2px solid #69c;
   
 
 
-  
-
-
 
 
 
@@ -2282,10 +2982,23 @@ border:2px solid #69c;
 
   
 
+  
 
-  <!--崩溃欺骗
-  <script type="text/javascript" src="/js/src/dytitle.js"></script>
-  -->
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 
 </body>
 </html>

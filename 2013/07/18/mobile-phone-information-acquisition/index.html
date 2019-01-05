@@ -1,18 +1,25 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
 
-<html class="theme-next pisces" lang="zh-Hans">
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2">
+<meta name="theme-color" content="#222">
 
 
 
@@ -28,92 +35,51 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
 
 
 
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
-
-
-  <meta name="keywords" content="Android,">
 
 
 
 
 
-  <link rel="alternate" href="/atom.xml" title="吴小龙同學" type="application/atom+xml">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/avatar.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/avatar.png?v=6.7.0" color="#222">
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
 
 
 
-
-
-
-<meta name="description" content="android获取手机信息（号码，内存，CPU，分辨率，MAC，IP，SD卡，IMEI,经纬度，信号强度等等）">
-<meta name="keywords" content="Android">
-<meta property="og:type" content="article">
-<meta property="og:title" content="android之获取手机信息">
-<meta property="og:url" content="http://wuxiaolong.me/2013/07/18/mobile-phone-information-acquisition/index.html">
-<meta property="og:site_name" content="吴小龙同學">
-<meta property="og:description" content="android获取手机信息（号码，内存，CPU，分辨率，MAC，IP，SD卡，IMEI,经纬度，信号强度等等）">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2016-08-25T11:38:54.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="android之获取手机信息">
-<meta name="twitter:description" content="android获取手机信息（号码，内存，CPU，分辨率，MAC，IP，SD卡，IMEI,经纬度，信号强度等等）">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
+<script id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
-    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
-    fancybox: true,
-    motion: false,
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
+    scheme: 'Gemini',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -123,6 +89,23 @@
     }
   };
 </script>
+  <meta name="description" content="android获取手机信息（号码，内存，CPU，分辨率，MAC，IP，SD卡，IMEI,经纬度，信号强度等等）">
+<meta name="keywords" content="Android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="android之获取手机信息">
+<meta property="og:url" content="http://wuxiaolong.me/2013/07/18/mobile-phone-information-acquisition/index.html">
+<meta property="og:site_name" content="吴小龙同學">
+<meta property="og:description" content="android获取手机信息（号码，内存，CPU，分辨率，MAC，IP，SD卡，IMEI,经纬度，信号强度等等）">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2016-08-25T11:38:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="android之获取手机信息">
+<meta name="twitter:description" content="android获取手机信息（号码，内存，CPU，分辨率，MAC，IP，SD卡，IMEI,经纬度，信号强度等等）">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="吴小龙同學" type="application/atom+xml">
+
 
 
 
@@ -130,56 +113,29 @@
 
 
 
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
-
-  <title> android之获取手机信息 | 吴小龙同學 </title>
-
-  <style type="text/css">
-  .div_right_bottom {
-  width: 200px;
-  top: 50%;
-  right: 0px;
-  position: fixed;
-  margin-top: -100px;
-  _position: absolute; /* position fixed for IE6 */
-/*
-右上角
-float:right;
-top:0;
-边框
-border:2px solid #69c;
-  right:0px;
-  bottom:0px;
-  z-index:0;
-*/
-
-}
-</style>
-
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-  <div class="div_right_bottom" align="center">
-  <img src="https://open.weixin.qq.com/qr/code?username=MrWuXiaolong">
-  微信公众号
-  </div>
-
+  <title>android之获取手机信息 | 吴小龙同學</title>
   
 
 
 
 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-105780265-1', 'auto');
-  ga('send', 'pageview');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-105780265-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-105780265-1');
+  </script>
 
 
-  <script type="text/javascript">
+
+  <script>
     var _hmt = _hmt || [];
     (function() {
       var hm = document.createElement("script");
@@ -195,8 +151,33 @@ border:2px solid #69c;
 
 
 
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
 
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
 
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -218,13 +199,16 @@ border:2px solid #69c;
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
       
         <p class="site-subtitle">党要我帅，我不得不帅！</p>
       
+    
+    
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -232,96 +216,144 @@ border:2px solid #69c;
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
-            
-            首页
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/index.html" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
-            
-            分类
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/index.html" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
-            
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/index.html" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
-            
-            标签
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-friendslinks">
-          <a href="/friendslinks/index.html" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-users"></i> <br>
-            
-            小伙伴
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-gitbook">
-          <a href="https://wuxiaolong.gitbooks.io/wuxiaolong/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-book"></i> <br>
-            
-            GitBook
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about/index.html" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
-            
-            关于
-          </a>
-        </li>
-      
+          
+          <li class="menu-item menu-item-home">
 
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-friendslinks">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/friendslinks/index.html" rel="section"><i class="menu-item-icon fa fa-fw fa-users"></i> <br>小伙伴</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-gitbook">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="https://wuxiaolong.gitbooks.io/wuxiaolong/" rel="noopener" target="_blank"><i class="menu-item-icon fa fa-fw fa-book"></i> <br>GitBook</a>
+
+  </li>
+
+      
       
         <li class="menu-item menu-item-search">
           
             <a href="javascript:;" class="st-search-show-outputs">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
-            
-            搜索
-          </a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
         </li>
       
     </ul>
+  
+
   
 
   
@@ -331,7 +363,7 @@ border:2px solid #69c;
   <input type="text" id="st-search-input" class="st-search-input st-default-search-input">
 </form>
 
-<script type="text/javascript">
+<script>
   (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
     (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
     e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
@@ -348,12 +380,22 @@ border:2px solid #69c;
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    <a href="https://github.com/WuXiaolong" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
+          
           <div id="content" class="content">
             
 
@@ -366,12 +408,18 @@ border:2px solid #69c;
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2013/07/18/mobile-phone-information-acquisition/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴小龙同學">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="我的微信公众号：吴小龙同学">
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
@@ -384,11 +432,8 @@ border:2px solid #69c;
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                android之获取手机信息
+          <h1 class="post-title" itemprop="name headline">android之获取手机信息
+
               
             
           </h1>
@@ -396,6 +441,11 @@ border:2px solid #69c;
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -403,13 +453,30 @@ border:2px solid #69c;
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2013-07-18T00:00:00+08:00">
-                2013-07-18
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2013-07-18 00:00:00" itemprop="dateCreated datePublished" datetime="2013-07-18T00:00:00+08:00">2013-07-18</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2016-08-25 19:38:54" itemprop="dateModified" datetime="2016-08-25T19:38:54+08:00">2016-08-25</time>
+              
             
           </span>
 
@@ -425,11 +492,7 @@ border:2px solid #69c;
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a></span>
 
                 
                 
@@ -445,6 +508,7 @@ border:2px solid #69c;
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2013/07/18/mobile-phone-information-acquisition/#comments" itemprop="discussionUrl">
+                
                   <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2013/07/18/mobile-phone-information-acquisition/" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -455,6 +519,13 @@ border:2px solid #69c;
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
 
           
 
@@ -464,7 +535,9 @@ border:2px solid #69c;
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -474,8 +547,8 @@ border:2px solid #69c;
         <p>android获取手机信息（号码，内存，CPU，分辨率，MAC，IP，SD卡，IMEI,经纬度，信号强度等等）</p>
 <a id="more"></a>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div><div class="line">253</div><div class="line">254</div><div class="line">255</div><div class="line">256</div><div class="line">257</div><div class="line">258</div><div class="line">259</div><div class="line">260</div><div class="line">261</div><div class="line">262</div><div class="line">263</div><div class="line">264</div><div class="line">265</div><div class="line">266</div><div class="line">267</div><div class="line">268</div><div class="line">269</div><div class="line">270</div><div class="line">271</div><div class="line">272</div><div class="line">273</div><div class="line">274</div><div class="line">275</div><div class="line">276</div><div class="line">277</div><div class="line">278</div><div class="line">279</div><div class="line">280</div><div class="line">281</div><div class="line">282</div><div class="line">283</div><div class="line">284</div><div class="line">285</div><div class="line">286</div><div class="line">287</div><div class="line">288</div><div class="line">289</div><div class="line">290</div><div class="line">291</div><div class="line">292</div><div class="line">293</div><div class="line">294</div><div class="line">295</div><div class="line">296</div><div class="line">297</div><div class="line">298</div><div class="line">299</div><div class="line">300</div><div class="line">301</div><div class="line">302</div><div class="line">303</div><div class="line">304</div><div class="line">305</div><div class="line">306</div><div class="line">307</div><div class="line">308</div><div class="line">309</div><div class="line">310</div><div class="line">311</div><div class="line">312</div><div class="line">313</div><div class="line">314</div><div class="line">315</div><div class="line">316</div><div class="line">317</div><div class="line">318</div><div class="line">319</div><div class="line">320</div><div class="line">321</div><div class="line">322</div><div class="line">323</div><div class="line">324</div><div class="line">325</div><div class="line">326</div><div class="line">327</div><div class="line">328</div><div class="line">329</div><div class="line">330</div><div class="line">331</div><div class="line">332</div><div class="line">333</div><div class="line">334</div><div class="line">335</div><div class="line">336</div><div class="line">337</div><div class="line">338</div><div class="line">339</div><div class="line">340</div><div class="line">341</div><div class="line">342</div><div class="line">343</div><div class="line">344</div><div class="line">345</div><div class="line">346</div><div class="line">347</div><div class="line">348</div><div class="line">349</div><div class="line">350</div><div class="line">351</div><div class="line">352</div><div class="line">353</div><div class="line">354</div><div class="line">355</div><div class="line">356</div><div class="line">357</div><div class="line">358</div><div class="line">359</div><div class="line">360</div><div class="line">361</div><div class="line">362</div><div class="line">363</div><div class="line">364</div><div class="line">365</div><div class="line">366</div><div class="line">367</div><div class="line">368</div><div class="line">369</div><div class="line">370</div><div class="line">371</div><div class="line">372</div><div class="line">373</div><div class="line">374</div><div class="line">375</div><div class="line">376</div><div class="line">377</div><div class="line">378</div><div class="line">379</div><div class="line">380</div><div class="line">381</div><div class="line">382</div><div class="line">383</div><div class="line">384</div><div class="line">385</div><div class="line">386</div><div class="line">387</div><div class="line">388</div><div class="line">389</div><div class="line">390</div><div class="line">391</div><div class="line">392</div><div class="line">393</div><div class="line">394</div><div class="line">395</div><div class="line">396</div><div class="line">397</div><div class="line">398</div><div class="line">399</div><div class="line">400</div><div class="line">401</div><div class="line">402</div><div class="line">403</div><div class="line">404</div><div class="line">405</div><div class="line">406</div><div class="line">407</div><div class="line">408</div><div class="line">409</div><div class="line">410</div><div class="line">411</div><div class="line">412</div><div class="line">413</div><div class="line">414</div><div class="line">415</div><div class="line">416</div><div class="line">417</div><div class="line">418</div><div class="line">419</div><div class="line">420</div><div class="line">421</div><div class="line">422</div><div class="line">423</div><div class="line">424</div><div class="line">425</div><div class="line">426</div><div class="line">427</div><div class="line">428</div><div class="line">429</div><div class="line">430</div><div class="line">431</div><div class="line">432</div><div class="line">433</div><div class="line">434</div><div class="line">435</div><div class="line">436</div><div class="line">437</div><div class="line">438</div><div class="line">439</div><div class="line">440</div><div class="line">441</div><div class="line">442</div><div class="line">443</div><div class="line">444</div><div class="line">445</div><div class="line">446</div><div class="line">447</div><div class="line">448</div><div class="line">449</div><div class="line">450</div><div class="line">451</div><div class="line">452</div><div class="line">453</div><div class="line">454</div><div class="line">455</div><div class="line">456</div><div class="line">457</div><div class="line">458</div><div class="line">459</div><div class="line">460</div><div class="line">461</div><div class="line">462</div><div class="line">463</div><div class="line">464</div><div class="line">465</div><div class="line">466</div><div class="line">467</div><div class="line">468</div><div class="line">469</div><div class="line">470</div><div class="line">471</div><div class="line">472</div><div class="line">473</div><div class="line">474</div><div class="line">475</div><div class="line">476</div><div class="line">477</div><div class="line">478</div><div class="line">479</div><div class="line">480</div><div class="line">481</div><div class="line">482</div><div class="line">483</div><div class="line">484</div><div class="line">485</div><div class="line">486</div><div class="line">487</div><div class="line">488</div><div class="line">489</div><div class="line">490</div><div class="line">491</div><div class="line">492</div><div class="line">493</div><div class="line">494</div><div class="line">495</div><div class="line">496</div><div class="line">497</div><div class="line">498</div><div class="line">499</div><div class="line">500</div><div class="line">501</div><div class="line">502</div><div class="line">503</div><div class="line">504</div><div class="line">505</div><div class="line">506</div><div class="line">507</div><div class="line">508</div><div class="line">509</div><div class="line">510</div><div class="line">511</div><div class="line">512</div><div class="line">513</div><div class="line">514</div><div class="line">515</div><div class="line">516</div><div class="line">517</div><div class="line">518</div><div class="line">519</div><div class="line">520</div><div class="line">521</div><div class="line">522</div><div class="line">523</div><div class="line">524</div><div class="line">525</div><div class="line">526</div><div class="line">527</div><div class="line">528</div><div class="line">529</div><div class="line">530</div><div class="line">531</div><div class="line">532</div><div class="line">533</div><div class="line">534</div><div class="line">535</div><div class="line">536</div><div class="line">537</div><div class="line">538</div><div class="line">539</div><div class="line">540</div><div class="line">541</div><div class="line">542</div><div class="line">543</div><div class="line">544</div><div class="line">545</div><div class="line">546</div><div class="line">547</div><div class="line">548</div><div class="line">549</div><div class="line">550</div><div class="line">551</div><div class="line">552</div><div class="line">553</div><div class="line">554</div><div class="line">555</div><div class="line">556</div><div class="line">557</div><div class="line">558</div><div class="line">559</div><div class="line">560</div><div class="line">561</div><div class="line">562</div><div class="line">563</div><div class="line">564</div><div class="line">565</div><div class="line">566</div><div class="line">567</div><div class="line">568</div><div class="line">569</div><div class="line">570</div><div class="line">571</div><div class="line">572</div><div class="line">573</div><div class="line">574</div><div class="line">575</div><div class="line">576</div><div class="line">577</div><div class="line">578</div><div class="line">579</div><div class="line">580</div><div class="line">581</div><div class="line">582</div><div class="line">583</div><div class="line">584</div><div class="line">585</div><div class="line">586</div><div class="line">587</div><div class="line">588</div><div class="line">589</div><div class="line">590</div><div class="line">591</div><div class="line">592</div><div class="line">593</div><div class="line">594</div><div class="line">595</div><div class="line">596</div><div class="line">597</div><div class="line">598</div><div class="line">599</div><div class="line">600</div><div class="line">601</div><div class="line">602</div><div class="line">603</div><div class="line">604</div><div class="line">605</div><div class="line">606</div><div class="line">607</div><div class="line">608</div><div class="line">609</div><div class="line">610</div><div class="line">611</div><div class="line">612</div><div class="line">613</div><div class="line">614</div><div class="line">615</div><div class="line">616</div><div class="line">617</div><div class="line">618</div><div class="line">619</div><div class="line">620</div><div class="line">621</div><div class="line">622</div><div class="line">623</div><div class="line">624</div><div class="line">625</div><div class="line">626</div><div class="line">627</div><div class="line">628</div><div class="line">629</div><div class="line">630</div><div class="line">631</div><div class="line">632</div><div class="line">633</div><div class="line">634</div><div class="line">635</div><div class="line">636</div><div class="line">637</div><div class="line">638</div><div class="line">639</div><div class="line">640</div><div class="line">641</div><div class="line">642</div><div class="line">643</div><div class="line">644</div><div class="line">645</div><div class="line">646</div><div class="line">647</div><div class="line">648</div><div class="line">649</div><div class="line">650</div><div class="line">651</div><div class="line">652</div><div class="line">653</div><div class="line">654</div><div class="line">655</div><div class="line">656</div><div class="line">657</div><div class="line">658</div><div class="line">659</div><div class="line">660</div><div class="line">661</div><div class="line">662</div><div class="line">663</div><div class="line">664</div><div class="line">665</div><div class="line">666</div><div class="line">667</div><div class="line">668</div><div class="line">669</div><div class="line">670</div><div class="line">671</div><div class="line">672</div><div class="line">673</div><div class="line">674</div><div class="line">675</div><div class="line">676</div><div class="line">677</div><div class="line">678</div><div class="line">679</div><div class="line">680</div><div class="line">681</div><div class="line">682</div><div class="line">683</div><div class="line">684</div><div class="line">685</div><div class="line">686</div><div class="line">687</div><div class="line">688</div><div class="line">689</div><div class="line">690</div><div class="line">691</div><div class="line">692</div><div class="line">693</div><div class="line">694</div><div class="line">695</div><div class="line">696</div><div class="line">697</div><div class="line">698</div><div class="line">699</div><div class="line">700</div><div class="line">701</div><div class="line">702</div><div class="line">703</div><div class="line">704</div><div class="line">705</div><div class="line">706</div><div class="line">707</div><div class="line">708</div><div class="line">709</div><div class="line">710</div><div class="line">711</div><div class="line">712</div><div class="line">713</div><div class="line">714</div><div class="line">715</div><div class="line">716</div><div class="line">717</div><div class="line">718</div><div class="line">719</div><div class="line">720</div><div class="line">721</div><div class="line">722</div><div class="line">723</div><div class="line">724</div><div class="line">725</div><div class="line">726</div><div class="line">727</div><div class="line">728</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.android.xiaomolong.example.apkdemo;	</div><div class="line"><span class="keyword">import</span> java.io.BufferedReader;</div><div class="line"><span class="keyword">import</span> java.io.File;</div><div class="line"><span class="keyword">import</span> java.io.FileReader;</div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"><span class="keyword">import</span> java.io.InputStream;</div><div class="line"><span class="keyword">import</span> java.io.InputStreamReader;</div><div class="line"><span class="keyword">import</span> java.net.HttpURLConnection;</div><div class="line"><span class="keyword">import</span> java.net.InetAddress;</div><div class="line"><span class="keyword">import</span> java.net.MalformedURLException;</div><div class="line"><span class="keyword">import</span> java.net.NetworkInterface;</div><div class="line"><span class="keyword">import</span> java.net.SocketException;</div><div class="line"><span class="keyword">import</span> java.net.URL;</div><div class="line"><span class="keyword">import</span> java.net.URLConnection;</div><div class="line"><span class="keyword">import</span> java.util.Enumeration;</div><div class="line"><span class="keyword">import</span> java.util.List;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.app.Activity;</div><div class="line"><span class="keyword">import</span> android.app.ActivityManager;</div><div class="line"><span class="keyword">import</span> android.app.ActivityManager.MemoryInfo;</div><div class="line"><span class="keyword">import</span> android.app.AlertDialog;</div><div class="line"><span class="keyword">import</span> android.content.Context;</div><div class="line"><span class="keyword">import</span> android.content.DialogInterface;</div><div class="line"><span class="keyword">import</span> android.location.Criteria;</div><div class="line"><span class="keyword">import</span> android.location.Location;</div><div class="line"><span class="keyword">import</span> android.location.LocationListener;</div><div class="line"><span class="keyword">import</span> android.location.LocationManager;</div><div class="line"><span class="keyword">import</span> android.net.ConnectivityManager;</div><div class="line"><span class="keyword">import</span> android.net.NetworkInfo;</div><div class="line"><span class="keyword">import</span> android.net.wifi.WifiInfo;</div><div class="line"><span class="keyword">import</span> android.net.wifi.WifiManager;</div><div class="line"><span class="keyword">import</span> android.os.Bundle;</div><div class="line"><span class="keyword">import</span> android.os.Environment;</div><div class="line"><span class="keyword">import</span> android.os.StatFs;</div><div class="line"><span class="keyword">import</span> android.telephony.CellLocation;</div><div class="line"><span class="keyword">import</span> android.telephony.NeighboringCellInfo;</div><div class="line"><span class="keyword">import</span> android.telephony.PhoneStateListener;</div><div class="line"><span class="keyword">import</span> android.telephony.ServiceState;</div><div class="line"><span class="keyword">import</span> android.telephony.SignalStrength;</div><div class="line"><span class="keyword">import</span> android.telephony.TelephonyManager;</div><div class="line"><span class="keyword">import</span> android.telephony.cdma.CdmaCellLocation;</div><div class="line"><span class="keyword">import</span> android.telephony.gsm.GsmCellLocation;</div><div class="line"><span class="keyword">import</span> android.text.format.Formatter;</div><div class="line"><span class="keyword">import</span> android.util.DisplayMetrics;</div><div class="line"><span class="keyword">import</span> android.util.Log;</div><div class="line"><span class="keyword">import</span> android.view.Gravity;</div><div class="line"><span class="keyword">import</span> android.view.WindowManager;</div><div class="line"><span class="keyword">import</span> android.widget.Toast;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * </div><div class="line"> * <span class="doctag">@author</span> 小尛龙</div><div class="line"> * </div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">                <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">                setContentView(R.layout.activity_main);</div><div class="line"></div><div class="line">                Log.d(<span class="string">"wxl"</span>, getSystemMemory());</div><div class="line"></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// 获取Android手机中SD卡存储信息 获取剩余空间</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getSDCardInfo</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="comment">// 在manifest.xml文件中要添加</span></div><div class="line">                <span class="comment">/*</span></div><div class="line">                 * &lt;uses-permission</div><div class="line">                 * android:name="android.permission.WRITE_EXTERNAL_STORAGE"&gt;</div><div class="line">                 * &lt;/uses-permission&gt;</div><div class="line">                 */</div><div class="line">                <span class="comment">// 需要判断手机上面SD卡是否插好，如果有SD卡的情况下，我们才可以访问得到并获取到它的相关信息，当然以下这个语句需要用if做判断</span></div><div class="line">                <span class="keyword">if</span> (Environment.getExternalStorageState().equals(</div><div class="line">                                Environment.MEDIA_MOUNTED)) &#123;</div><div class="line">                        <span class="comment">// 取得sdcard文件路径</span></div><div class="line">                        File path = Environment.getExternalStorageDirectory();</div><div class="line">                        StatFs statfs = <span class="keyword">new</span> StatFs(path.getPath());</div><div class="line">                        <span class="comment">// 获取block的SIZE</span></div><div class="line">                        <span class="keyword">long</span> blocSize = statfs.getBlockSize();</div><div class="line">                        <span class="comment">// 获取BLOCK数量</span></div><div class="line">                        <span class="keyword">long</span> totalBlocks = statfs.getBlockCount();</div><div class="line">                        <span class="comment">// 空闲的Block的数量</span></div><div class="line">                        <span class="keyword">long</span> availaBlock = statfs.getAvailableBlocks();</div><div class="line">                        <span class="comment">// 计算总空间大小和空闲的空间大小</span></div><div class="line">                        <span class="comment">// 存储空间大小跟空闲的存储空间大小就被计算出来了。</span></div><div class="line">                        <span class="keyword">long</span> availableSize = blocSize * availaBlock;</div><div class="line">                        <span class="comment">// (availableBlocks * blockSize)/1024 KIB 单位</span></div><div class="line">                        <span class="comment">// (availableBlocks * blockSize)/1024 /1024 MIB单位</span></div><div class="line">                        <span class="keyword">long</span> allSize = blocSize * totalBlocks;</div><div class="line">                &#125;</div><div class="line"></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// 获取手机ip method-1</span></div><div class="line">        <span class="function"><span class="keyword">public</span> String <span class="title">getLocalIpAddress</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="keyword">try</span> &#123;</div><div class="line">                        <span class="keyword">for</span> (Enumeration&lt;NetworkInterface&gt; en = NetworkInterface</div><div class="line">                                        .getNetworkInterfaces(); en.hasMoreElements();) &#123;</div><div class="line">                                NetworkInterface intf = en.nextElement();</div><div class="line">                                <span class="keyword">for</span> (Enumeration&lt;InetAddress&gt; enumIpAddr = intf</div><div class="line">                                                .getInetAddresses(); enumIpAddr.hasMoreElements();) &#123;</div><div class="line">                                        InetAddress inetAddress = enumIpAddr.nextElement();</div><div class="line">                                        <span class="keyword">if</span> (!inetAddress.isLoopbackAddress()) &#123;</div><div class="line">                                                Toast.makeText(<span class="keyword">this</span>,</div><div class="line">                                                                inetAddress.getHostAddress().toString(), <span class="number">3000</span>)</div><div class="line">                                                                .show();</div><div class="line">                                                <span class="keyword">return</span> inetAddress.getHostAddress().toString();</div><div class="line">                                        &#125;</div><div class="line">                                &#125;</div><div class="line">                        &#125;</div><div class="line">                &#125; <span class="keyword">catch</span> (SocketException ex) &#123;</div><div class="line">                        ex.printStackTrace();</div><div class="line">                        <span class="comment">// Log.e("ifo", ex.toString());</span></div><div class="line">                &#125;</div><div class="line">                <span class="keyword">return</span> <span class="string">""</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// 需要权限</span></div><div class="line">        <span class="comment">// &lt;uses-permission</span></div><div class="line">        <span class="comment">// android:name="android.permission.ACCESS_WIFI_STATE"&gt;&lt;/uses-permission&gt;</span></div><div class="line">        <span class="comment">// &lt;uses-permission</span></div><div class="line">        <span class="comment">// android:name="android.permission.INTERNET"&gt;&lt;/uses-permission&gt;</span></div><div class="line"></div><div class="line">        <span class="comment">// 获取手机ip method-2</span></div><div class="line">        <span class="comment">// 首先设置用户权限</span></div><div class="line">        <span class="comment">// &lt;uses-permission</span></div><div class="line">        <span class="comment">// android:name="android.permission.ACCESS_WIFI_STATE"&gt;&lt;/uses-permission&gt;</span></div><div class="line">        <span class="comment">// &lt;uses-permission</span></div><div class="line">        <span class="comment">// android:name="android.permission.CHANGE_WIFI_STATE"&gt;&lt;/uses-permission&gt;</span></div><div class="line">        <span class="comment">// &lt;uses-permission</span></div><div class="line">        <span class="comment">// android:name="android.permission.WAKE_LOCK"&gt;&lt;/uses-permission&gt;</span></div><div class="line">        <span class="function"><span class="keyword">public</span> String <span class="title">getLocalIpAddress2</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="comment">// 获取wifi服务</span></div><div class="line">                WifiManager wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);</div><div class="line">                <span class="comment">// 判断wifi是否开启</span></div><div class="line">                <span class="keyword">if</span> (!wifiManager.isWifiEnabled()) &#123;</div><div class="line">                        wifiManager.setWifiEnabled(<span class="keyword">true</span>);</div><div class="line">                &#125;</div><div class="line">                WifiInfo wifiInfo = wifiManager.getConnectionInfo();</div><div class="line">                <span class="keyword">int</span> ipAddress = wifiInfo.getIpAddress();</div><div class="line">                String ip = intToIp(ipAddress);</div><div class="line">                <span class="keyword">return</span> ip;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">private</span> String <span class="title">intToIp</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</div><div class="line">                <span class="keyword">return</span> (i &amp; <span class="number">0xFF</span>) + <span class="string">"."</span> + ((i &gt;&gt; <span class="number">8</span>) &amp; <span class="number">0xFF</span>) + <span class="string">"."</span> + ((i &gt;&gt; <span class="number">16</span>) &amp; <span class="number">0xFF</span>)</div><div class="line">                                + <span class="string">"."</span> + (i &gt;&gt; <span class="number">24</span> &amp; <span class="number">0xFF</span>);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// 查看本机外网IP</span></div><div class="line">        <span class="comment">/*</span></div><div class="line">         * 该方法需要设备支持上网 查看</div><div class="line">         * System.out.println((GetNetIp("http://fw.qq.com/ipaddress"))); 加权限</div><div class="line">         * &lt;uses-permission</div><div class="line">         * android:name="android.permission.INTERNET"&gt;&lt;/uses-permission&gt;</div><div class="line">         * 通过获取http://fw.qq.com/ipaddress网页取得外网IP 这里有几个查看IP的网址然后提取IP试试。</div><div class="line">         * http://ip168.com/ http://www.cmyip.com/ http://city.ip138.com/ip2city.asp</div><div class="line">         */</div><div class="line">        <span class="function"><span class="keyword">public</span> String <span class="title">GetNetIp</span><span class="params">(String ipaddr)</span> </span>&#123;</div><div class="line">                URL infoUrl = <span class="keyword">null</span>;</div><div class="line">                InputStream inStream = <span class="keyword">null</span>;</div><div class="line">                <span class="keyword">try</span> &#123;</div><div class="line">                        infoUrl = <span class="keyword">new</span> URL(ipaddr);</div><div class="line">                        URLConnection connection = infoUrl.openConnection();</div><div class="line">                        HttpURLConnection httpConnection = (HttpURLConnection) connection;</div><div class="line">                        <span class="keyword">int</span> responseCode = httpConnection.getResponseCode();</div><div class="line">                        <span class="keyword">if</span> (responseCode == HttpURLConnection.HTTP_OK) &#123;</div><div class="line">                                inStream = httpConnection.getInputStream();</div><div class="line">                                BufferedReader reader = <span class="keyword">new</span> BufferedReader(</div><div class="line">                                                <span class="keyword">new</span> InputStreamReader(inStream, <span class="string">"utf-8"</span>));</div><div class="line">                                StringBuilder strber = <span class="keyword">new</span> StringBuilder();</div><div class="line">                                String line = <span class="keyword">null</span>;</div><div class="line">                                <span class="keyword">while</span> ((line = reader.readLine()) != <span class="keyword">null</span>)</div><div class="line">                                        strber.append(line + <span class="string">"\n"</span>);</div><div class="line">                                inStream.close();</div><div class="line">                                <span class="keyword">return</span> strber.toString();</div><div class="line">                        &#125;</div><div class="line">                &#125; <span class="keyword">catch</span> (MalformedURLException e) &#123;</div><div class="line">                        <span class="comment">// TODO Auto-generated catch block</span></div><div class="line">                        e.printStackTrace();</div><div class="line">                &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">                        <span class="comment">// TODO Auto-generated catch block</span></div><div class="line">                        e.printStackTrace();</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">return</span> <span class="string">""</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// 获取手机MAC地址</span></div><div class="line">        <span class="function"><span class="keyword">private</span> String <span class="title">getMacAddress</span><span class="params">()</span> </span>&#123;</div><div class="line">                String result = <span class="string">""</span>;</div><div class="line">                WifiManager wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);</div><div class="line">                WifiInfo wifiInfo = wifiManager.getConnectionInfo();</div><div class="line">                result = wifiInfo.getMacAddress();</div><div class="line">                <span class="comment">// Log.i(TAG, "macAdd:" + result);</span></div><div class="line">                <span class="keyword">return</span> result;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// 获取手机屏幕高度</span></div><div class="line">        <span class="function"><span class="keyword">private</span> String <span class="title">getWeithAndHeight</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="comment">// 这种方式在service中无法使用，</span></div><div class="line">                DisplayMetrics dm = <span class="keyword">new</span> DisplayMetrics();</div><div class="line">                getWindowManager().getDefaultDisplay().getMetrics(dm);</div><div class="line">                <span class="keyword">int</span> width = dm.widthPixels; <span class="comment">// 宽</span></div><div class="line">                <span class="keyword">int</span> height = dm.heightPixels; <span class="comment">// 高</span></div><div class="line">                <span class="keyword">float</span> density = dm.density; <span class="comment">// 屏幕密度（0.75 / 1.0 / 1.5）</span></div><div class="line">                <span class="keyword">int</span> densityDpi = dm.densityDpi; <span class="comment">// 屏幕密度DPI（120 / 160 / 240）</span></div><div class="line">                <span class="comment">// 在service中也能得到高和宽</span></div><div class="line">                WindowManager mWindowManager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);</div><div class="line">                width = mWindowManager.getDefaultDisplay().getWidth();</div><div class="line">                height = mWindowManager.getDefaultDisplay().getHeight();</div><div class="line"></div><div class="line">                <span class="comment">// 居中显示Toast</span></div><div class="line">                Toast msg = Toast.makeText(<span class="keyword">this</span>, <span class="string">"宽="</span> + width + <span class="string">"   高="</span> + height,</div><div class="line">                                Toast.LENGTH_LONG);</div><div class="line">                msg.setGravity(Gravity.CENTER, msg.getXOffset() / <span class="number">2</span>,</div><div class="line">                                msg.getYOffset() / <span class="number">2</span>);</div><div class="line">                msg.show();</div><div class="line">                <span class="keyword">return</span> <span class="string">"(像素)宽:"</span> + width + <span class="string">"\n"</span> + <span class="string">"(像素)高:"</span> + height + <span class="string">"\n"</span></div><div class="line">                                + <span class="string">"屏幕密度（0.75 / 1.0 / 1.5）:"</span> + density + <span class="string">"\n"</span></div><div class="line">                                + <span class="string">"屏幕密度DPI（120 / 160 / 240）:"</span> + densityDpi + <span class="string">"\n"</span>;</div><div class="line">                <span class="comment">/*</span></div><div class="line">                 * 下面的代码即可获取屏幕的尺寸。 在一个Activity的onCreate方法中，写入如下代码： DisplayMetrics metric</div><div class="line">                 * = new DisplayMetrics();</div><div class="line">                 * getWindowManager().getDefaultDisplay().getMetrics(metric); int width</div><div class="line">                 * = metric.widthPixels; // 屏幕宽度（像素） int height = metric.heightPixels;</div><div class="line">                 * // 屏幕高度（像素） float density = metric.density; // 屏幕密度（0.75 / 1.0 / 1.5）</div><div class="line">                 * int densityDpi = metric.densityDpi; // 屏幕密度DPI（120 / 160 / 240）</div><div class="line">                 * </div><div class="line">                 * 但是，需要注意的是，在一个低密度的小屏手机上，仅靠上面的代码是不能获取正确的尺寸的。</div><div class="line">                 * 比如说，一部240x320像素的低密度手机，如果运行上述代码，获取到的屏幕尺寸是320x427。</div><div class="line">                 * 因此，研究之后发现，若没有设定多分辨率支持的话</div><div class="line">                 * ，Android系统会将240x320的低密度（120）尺寸转换为中等密度（160）对应的尺寸，</div><div class="line">                 * 这样的话就大大影响了程序的编码。所以，需要在工程的AndroidManifest</div><div class="line">                 * .xml文件中，加入supports-screens节点，具体的内容如下： &lt;supports-screens</div><div class="line">                 * android:smallScreens="true" android:normalScreens="true"</div><div class="line">                 * android:largeScreens="true" android:resizeable="true"</div><div class="line">                 * android:anyDensity="true" /&gt;</div><div class="line">                 * 这样的话，当前的Android程序就支持了多种分辨率，那么就可以得到正确的物理尺寸了。</div><div class="line">                 */</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// 获取手机经纬度</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getLocation</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="comment">// 1. 创建一个 LocationManager对象。</span></div><div class="line">                LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);</div><div class="line">                <span class="comment">// 2. 创建一个 LocationListener对象。</span></div><div class="line">                LocationListener myGPSListener = <span class="keyword">new</span> LocationListener() &#123;</div><div class="line">                        <span class="comment">// 一旦Location发生改变就会调用这个方法</span></div><div class="line">                        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onLocationChanged</span><span class="params">(Location location)</span> </span>&#123;</div><div class="line">                                <span class="keyword">double</span> latitude = location.getLatitude();</div><div class="line">                                <span class="keyword">double</span> longitude = location.getLongitude();</div><div class="line">                        &#125;</div><div class="line"></div><div class="line">                        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onStatusChanged</span><span class="params">(String provider, <span class="keyword">int</span> status,</span></span></div><div class="line">                                        Bundle extras) &#123;</div><div class="line">                        &#125;</div><div class="line"></div><div class="line">                        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onProviderEnabled</span><span class="params">(String provider)</span> </span>&#123;</div><div class="line">                        &#125;</div><div class="line"></div><div class="line">                        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onProviderDisabled</span><span class="params">(String provider)</span> </span>&#123;</div><div class="line">                        &#125;</div><div class="line">                &#125;;</div><div class="line">                <span class="comment">// 3.向LocationManager 注册一个LocationListener。</span></div><div class="line">                Criteria criteria = <span class="keyword">new</span> Criteria();</div><div class="line">                criteria.setAccuracy(Criteria.ACCURACY_COARSE);</div><div class="line">                criteria.setAltitudeRequired(<span class="keyword">false</span>);</div><div class="line">                criteria.setCostAllowed(<span class="keyword">true</span>);</div><div class="line">                criteria.setPowerRequirement(Criteria.POWER_LOW);</div><div class="line">                String provider = locationManager.getBestProvider(criteria, <span class="keyword">true</span>); <span class="comment">// 根据Criteria</span></div><div class="line">                                                                                                                                                        <span class="comment">// 的设置获取一个最佳的Provider</span></div><div class="line">                locationManager</div><div class="line">                                .requestLocationUpdates(provider, <span class="number">5000</span>, <span class="number">0</span>, myGPSListener);</div><div class="line">                <span class="comment">// 4.移除LocationManager 注册的 LocationListener。</span></div><div class="line">                locationManager.removeUpdates(myGPSListener);</div><div class="line"></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// 当前网络是否连接</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isNetConnecting</span><span class="params">()</span> </span>&#123;</div><div class="line">                ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);</div><div class="line">                NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();</div><div class="line">                <span class="keyword">if</span> (networkInfo == <span class="keyword">null</span> || !networkInfo.isConnected()) &#123;</div><div class="line">                        <span class="comment">// info.setConnected(false);</span></div><div class="line">                        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                        <span class="comment">// info.setConnected(true);</span></div><div class="line">                        <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">                &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// 获取信号强度</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getPhoneState</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="comment">// 1. 创建telephonyManager 对象。</span></div><div class="line">                TelephonyManager telephonyManager = (TelephonyManager) <span class="comment">/* context. */</span>getSystemService(Context.TELEPHONY_SERVICE);</div><div class="line">                <span class="comment">// 2. 创建PhoneStateListener 对象</span></div><div class="line">                PhoneStateListener MyPhoneListener = <span class="keyword">new</span> PhoneStateListener() &#123;</div><div class="line">                        <span class="meta">@Override</span></div><div class="line">                        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCellLocationChanged</span><span class="params">(CellLocation location)</span> </span>&#123;</div><div class="line">                                <span class="keyword">if</span> (location <span class="keyword">instanceof</span> GsmCellLocation) &#123;<span class="comment">// gsm网络</span></div><div class="line">                                        <span class="keyword">int</span> CID = ((GsmCellLocation) location).getCid();</div><div class="line">                                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (location <span class="keyword">instanceof</span> CdmaCellLocation) &#123;<span class="comment">// 其他CDMA等网络</span></div><div class="line">                                        <span class="keyword">int</span> ID = ((CdmaCellLocation) location).getBaseStationId();</div><div class="line">                                &#125;</div><div class="line">                        &#125;</div><div class="line"></div><div class="line">                        <span class="meta">@Override</span></div><div class="line">                        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onServiceStateChanged</span><span class="params">(ServiceState serviceState)</span> </span>&#123;</div><div class="line">                                <span class="keyword">super</span>.onServiceStateChanged(serviceState);</div><div class="line">                        &#125;</div><div class="line"></div><div class="line">                        <span class="meta">@Override</span></div><div class="line">                        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSignalStrengthsChanged</span><span class="params">(SignalStrength signalStrength)</span> </span>&#123;</div><div class="line">                                <span class="keyword">int</span> asu = signalStrength.getGsmSignalStrength();</div><div class="line">                                <span class="keyword">int</span> dbm = -<span class="number">113</span> + <span class="number">2</span> * asu; <span class="comment">// 信号强度</span></div><div class="line">                                <span class="keyword">super</span>.onSignalStrengthsChanged(signalStrength);</div><div class="line">                        &#125;</div><div class="line">                &#125;;</div><div class="line">                <span class="comment">// 3. 监听信号改变</span></div><div class="line">                telephonyManager.listen(MyPhoneListener,</div><div class="line">                                PhoneStateListener.LISTEN_SIGNAL_STRENGTHS);</div><div class="line"></div><div class="line">                <span class="comment">/*</span></div><div class="line">                 * 可能需要的权限 &lt;uses-permission</div><div class="line">                 * android:name="android.permission.WAKE_LOCK"&gt;&lt;/uses-permission&gt;</div><div class="line">                 * &lt;uses-permission</div><div class="line">                 * android:name="android.permission.ACCESS_COARSE_LOCATION"/&gt;</div><div class="line">                 * &lt;uses-permission</div><div class="line">                 * android:name="android.permission.ACCESS_FINE_LOCATION"/&gt;</div><div class="line">                 * &lt;uses-permission android:name="android.permission.READ_PHONE_STATE"</div><div class="line">                 * /&gt; &lt;uses-permission</div><div class="line">                 * android:name="android.permission.ACCESS_NETWORK_STATE" /&gt;</div><div class="line">                 */</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// 获取手机可用内存和总内存</span></div><div class="line">        <span class="function"><span class="keyword">private</span> String <span class="title">getSystemMemory</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="comment">/*</span></div><div class="line">                 * 在Android开发中，有时候我们想获取手机的一些硬件信息，比如android手机的总内存和可用内存大小。这个该如何实现呢？</div><div class="line">                 * 通过读取文件"/proc/meminfo"</div><div class="line">                 * 的信息能够获取手机Memory的总量，而通过ActivityManager.getMemoryInfo</div><div class="line">                 * (ActivityManager.MemoryInfo)方法可以获取当前的可用Memory量。</div><div class="line">                 * "/proc/meminfo"文件记录了android手机的一些内存信息</div><div class="line">                 * ，在命令行窗口里输入"adb shell"，进入shell环境，输入</div><div class="line">                 * "cat /proc/meminfo"即可在命令行里显示meminfo文件的内容，具体如下所示。</div><div class="line">                 * </div><div class="line">                 * C:\Users\Figo&gt;adb shell # cat /proc/meminfo cat /proc/meminfo</div><div class="line">                 * MemTotal: 94096 kB MemFree: 1684 kB Buffers: 16 kB Cached: 27160 kB</div><div class="line">                 * SwapCached: 0 kB Active: 35392 kB Inactive: 44180 kB Active(anon):</div><div class="line">                 * 26540 kB Inactive(anon): 28244 kB Active(file): 8852 kB</div><div class="line">                 * Inactive(file): 15936 kB Unevictable: 280 kB Mlocked: 0 kB *</div><div class="line">                 * SwapTotal: 0 kB SwapFree: 0 kB Dirty: 0 kB Writeback: 0 kB AnonPages:</div><div class="line">                 * 52688 kB Mapped: 17960 kB Slab: 3816 kB SReclaimable: 936 kB</div><div class="line">                 * SUnreclaim: 2880 kB PageTables: 5260 kB NFS_Unstable: 0 kB Bounce: 0</div><div class="line">                 * kB WritebackTmp: 0 kB CommitLimit: 47048 kB Committed_AS: 1483784 kB</div><div class="line">                 * VmallocTotal: 876544 kB VmallocUsed: 15456 kB VmallocChunk: 829444 kB</div><div class="line">                 * #</div><div class="line">                 * </div><div class="line">                 * 下面先对"/proc/meminfo"文件里列出的字段进行粗略解释： MemTotal: 所有可用RAM大小。 MemFree:</div><div class="line">                 * LowFree与HighFree的总和，被系统留着未使用的内存。 Buffers: 用来给文件做缓冲大小。 Cached:</div><div class="line">                 * 被高速缓冲存储器（cache memory）用的内存的大小（等于diskcache minus SwapCache）。</div><div class="line">                 * SwapCached:被高速缓冲存储器（cache</div><div class="line">                 * memory）用的交换空间的大小。已经被交换出来的内存，仍然被存放在swapfile中，</div><div class="line">                 * 用来在需要的时候很快的被替换而不需要再次打开I/O端口。 Active:</div><div class="line">                 * 在活跃使用中的缓冲或高速缓冲存储器页面文件的大小，除非非常必要，否则不会被移作他用。 Inactive:</div><div class="line">                 * 在不经常使用中的缓冲或高速缓冲存储器页面文件的大小，可能被用于其他途径。 SwapTotal: 交换空间的总大小。 SwapFree:</div><div class="line">                 * 未被使用交换空间的大小。 Dirty: 等待被写回到磁盘的内存大小。 Writeback: 正在被写回到磁盘的内存大小。</div><div class="line">                 * AnonPages：未映射页的内存大小。 Mapped: 设备和文件等映射的大小。 Slab:</div><div class="line">                 * 内核数据结构缓存的大小，可以减少申请和释放内存带来的消耗。 SReclaimable:可收回Slab的大小。</div><div class="line">                 * SUnreclaim：不可收回Slab的大小（SUnreclaim+SReclaimable＝Slab）。</div><div class="line">                 * PageTables：管理内存分页页面的索引表的大小。 NFS_Unstable:不稳定页表的大小。</div><div class="line">                 * 要获取android手机总内存大小，只需读取"/proc/meminfo"文件的第1行，并进行简单的字符串处理即可。</div><div class="line">                 */</div><div class="line">                String availMemory = getAvailMemory();</div><div class="line">                String totalMemory = getTotalMemory();</div><div class="line">                <span class="keyword">return</span> <span class="string">"可用内存="</span> + availMemory + <span class="string">"\n"</span> + <span class="string">"总内存="</span> + totalMemory;</div><div class="line"></div><div class="line">        &#125;<span class="comment">// 手机的内存信息主要在/proc/meminfo文件中，其中第一行是总内存，而剩余内存可通过ActivityManager.MemoryInfo得到。</span></div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">private</span> String <span class="title">getAvailMemory</span><span class="params">()</span> </span>&#123;<span class="comment">// 获取android当前可用内存大小</span></div><div class="line">                ActivityManager am = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);</div><div class="line">                MemoryInfo mi = <span class="keyword">new</span> MemoryInfo();</div><div class="line">                am.getMemoryInfo(mi);</div><div class="line">                <span class="comment">// mi.availMem; 当前系统的可用内存</span></div><div class="line">                <span class="keyword">return</span> Formatter.formatFileSize(getBaseContext(), mi.availMem);<span class="comment">// 将获取的内存大小规格化</span></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">private</span> String <span class="title">getTotalMemory</span><span class="params">()</span> </span>&#123;</div><div class="line">                String str1 = <span class="string">"/proc/meminfo"</span>;<span class="comment">// 系统内存信息文件</span></div><div class="line">                String str2;</div><div class="line">                String[] arrayOfString;</div><div class="line">                <span class="keyword">long</span> initial_memory = <span class="number">0</span>;</div><div class="line">                <span class="keyword">try</span> &#123;</div><div class="line">                        FileReader localFileReader = <span class="keyword">new</span> FileReader(str1);</div><div class="line">                        BufferedReader localBufferedReader = <span class="keyword">new</span> BufferedReader(</div><div class="line">                                        localFileReader, <span class="number">8192</span>);</div><div class="line">                        str2 = localBufferedReader.readLine();<span class="comment">// 读取meminfo第一行，系统总内存大小</span></div><div class="line"></div><div class="line">                        arrayOfString = str2.split(<span class="string">"\\s+"</span>);</div><div class="line">                        <span class="keyword">for</span> (String num : arrayOfString) &#123;</div><div class="line">                                Log.i(str2, num + <span class="string">"\t"</span>);</div><div class="line">                        &#125;</div><div class="line"></div><div class="line">                        initial_memory = Integer.valueOf(arrayOfString[<span class="number">1</span>]).intValue() * <span class="number">1024</span>;<span class="comment">// 获得系统总内存，单位是KB，乘以1024转换为Byte</span></div><div class="line">                        localBufferedReader.close();</div><div class="line"></div><div class="line">                &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">return</span> Formatter.formatFileSize(getBaseContext(), initial_memory);<span class="comment">// Byte转换为KB或者MB，内存大小规格化</span></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// 获取手机CPU信息</span></div><div class="line">        <span class="function"><span class="keyword">private</span> String <span class="title">getCpuInfo</span><span class="params">()</span> </span>&#123;</div><div class="line">                String str1 = <span class="string">"/proc/cpuinfo"</span>;</div><div class="line">                String str2 = <span class="string">""</span>;</div><div class="line">                String[] cpuInfo = &#123; <span class="string">""</span>, <span class="string">""</span> &#125;; <span class="comment">// 1-cpu型号 //2-cpu频率</span></div><div class="line">                String[] arrayOfString;</div><div class="line">                <span class="keyword">try</span> &#123;</div><div class="line">                        FileReader fr = <span class="keyword">new</span> FileReader(str1);</div><div class="line">                        BufferedReader localBufferedReader = <span class="keyword">new</span> BufferedReader(fr, <span class="number">8192</span>);</div><div class="line">                        str2 = localBufferedReader.readLine();</div><div class="line">                        arrayOfString = str2.split(<span class="string">"\\s+"</span>);</div><div class="line">                        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; arrayOfString.length; i++) &#123;</div><div class="line">                                cpuInfo[<span class="number">0</span>] = cpuInfo[<span class="number">0</span>] + arrayOfString[i] + <span class="string">" "</span>;</div><div class="line">                        &#125;</div><div class="line">                        str2 = localBufferedReader.readLine();</div><div class="line">                        arrayOfString = str2.split(<span class="string">"\\s+"</span>);</div><div class="line">                        cpuInfo[<span class="number">1</span>] += arrayOfString[<span class="number">2</span>];</div><div class="line">                        localBufferedReader.close();</div><div class="line">                &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">                &#125;</div><div class="line">                <span class="comment">// Log.i(TAG, "cpuinfo:" + cpuInfo[0] + " " + cpuInfo[1]);</span></div><div class="line">                <span class="keyword">return</span> <span class="string">"1-cpu型号:"</span> + cpuInfo[<span class="number">0</span>] + <span class="string">"2-cpu频率:"</span> + cpuInfo[<span class="number">1</span>];</div><div class="line">        &#125;<span class="comment">// 和内存信息同理，cpu信息可通过读取/proc/cpuinfo文件来得到，其中第一行为cpu型号，第二行为cpu频率。</span></div><div class="line"></div><div class="line">        <span class="comment">/*</span></div><div class="line">         * 一、Android 获取手机中已安装apk文件信息(PackageInfo、ResolveInfo)(应用图片、应用名、包名等)</div><div class="line">         * 1、通过PackageManager可获取手机端已安装的apk文件的信息，具体代码如下: PackageManager</div><div class="line">         * packageManager = this.getPackageManager(); List&lt;PackageInfo&gt;</div><div class="line">         * packageInfoList = packageManager.getInstalledPackages(0);</div><div class="line">         * 通过上述方法，可得到手机中安装的所有应用程序，包括手动安装的apk包的信息、、系统预装的应用软件的信息，要区分这两类软件可使用以下方法:</div><div class="line">         * （a）从packageInfoList获取的packageInfo</div><div class="line">         * ，再通过packageInfo.applicationInfo获取applicationInfo。</div><div class="line">         * （b）判断(applicationInfo.flags &amp;</div><div class="line">         * ApplicationInfo.FLAG_SYSTEM)的值，该值大于0时，表示获取的应用为系统预装的应用，反之则为手动安装的应用。</div><div class="line">         * (1)获取应用的代码: public static List&lt;PackageInfo&gt; getAllApps(Context context) &#123;</div><div class="line">         * List&lt;PackageInfo&gt; apps = new ArrayList&lt;PackageInfo&gt;(); PackageManager</div><div class="line">         * pManager = context.getPackageManager(); //获取手机内所有应用 List&lt;PackageInfo&gt;</div><div class="line">         * paklist = pManager.getInstalledPackages(0); for (int i = 0; i &lt;</div><div class="line">         * paklist.size(); i++) &#123; PackageInfo pak = (PackageInfo) paklist.get(i);</div><div class="line">         * //判断是否为非系统预装的应用程序 if ((pak.applicationInfo.flags &amp;</div><div class="line">         * pak.applicationInfo.FLAG_SYSTEM) &lt;= 0) &#123; apps.add(pak); &#125; &#125; return apps;</div><div class="line">         * &#125; (2)、获取图片、应用名、包名: PackageManager pManager =</div><div class="line">         * MessageSendActivity.this.getPackageManager(); List&lt;PackageInfo&gt; appList =</div><div class="line">         * Utils.getAllApps(MessageSendActivity.this); for(int</div><div class="line">         * i=0;i&lt;appList.size();i++) &#123; PackageInfo pinfo = appList.get(i); shareItem</div><div class="line">         * = new ShareItemInfo();</div><div class="line">         * shareItem.setIcon(pManager.getApplicationIcon(pinfo.applicationInfo));</div><div class="line">         * shareItem</div><div class="line">         * .setLabel(pManager.getApplicationLabel(pinfo.applicationInfo).toString</div><div class="line">         * ()); shareItem.setPackageName(pinfo.applicationInfo.packageName); &#125;</div><div class="line">         * 其中ShareItemInfo 类自己写的，各位可以忽略 (3)获取支持分享的应用的代码： public static</div><div class="line">         * List&lt;ResolveInfo&gt; getShareApps(Context context)&#123; List&lt;ResolveInfo&gt; mApps</div><div class="line">         * = new ArrayList&lt;ResolveInfo&gt;(); Intent intent=new</div><div class="line">         * Intent(Intent.ACTION_SEND,null);</div><div class="line">         * intent.addCategory(Intent.CATEGORY_DEFAULT);</div><div class="line">         * intent.setType("text/plain"); PackageManager pManager =</div><div class="line">         * context.getPackageManager(); mApps =</div><div class="line">         * pManager.queryIntentActivities(intent</div><div class="line">         * ,PackageManager.COMPONENT_ENABLED_STATE_DEFAULT); return mApps; &#125;</div><div class="line">         * 由于该方法，返回的并不是PackageInfo 对象。而是ResolveInfo。因此获取图片、应用名、包名的方法不一样，如下：</div><div class="line">         * PackageManager pManager = MessageSendActivity.this.getPackageManager();</div><div class="line">         * List&lt;ResolveInfo&gt; resolveList =</div><div class="line">         * Utils.getShareApps(MessageSendActivity.this); for(int</div><div class="line">         * i=0;i&lt;resolveList.size();i++) &#123; ResolveInfo resolve = resolveList.get(i);</div><div class="line">         * ShareItemInfo shareItem = new ShareItemInfo(); //set Icon</div><div class="line">         * shareItem.setIcon(resolve.loadIcon(pManager)); //set Application Name</div><div class="line">         * shareItem.setLabel(resolve.loadLabel(pManager).toString()); //set Package</div><div class="line">         * Name shareItem.setPackageName(resolve.activityInfo.packageName); &#125; 总结： 通过</div><div class="line">         * PackageInfo 获取具体信息方法： 包名获取方法：packageInfo.packageName</div><div class="line">         * icon获取获取方法：packageManager.getApplicationIcon(applicationInfo)</div><div class="line">         * 应用名称获取方法：packageManager.getApplicationLabel(applicationInfo)</div><div class="line">         * 使用权限获取方法：packageManager</div><div class="line">         * .getPackageInfo(packageName,PackageManager.GET_PERMISSIONS)</div><div class="line">         * .requestedPermissions 通过 ResolveInfo 获取具体信息方法：</div><div class="line">         * 包名获取方法：resolve.activityInfo.packageName</div><div class="line">         * icon获取获取方法：resolve.loadIcon(packageManager)</div><div class="line">         * 应用名称获取方法：resolve.loadLabel(packageManager).toString()</div><div class="line">         */</div><div class="line">        <span class="function"><span class="keyword">public</span> String <span class="title">getSimCardInfo</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="comment">// 在manifest.xml文件中要添加</span></div><div class="line">                <span class="comment">// &lt;uses-permission android:name="android.permission.READ_PHONE_STATE"/&gt;</span></div><div class="line">                <span class="comment">/*</span></div><div class="line">                 * TelephonyManager类主要提供了一系列用于访问与手机通讯相关的状态和信息的get方法。其中包括手机SIM的状态和信息</div><div class="line">                 * 、电信网络的状态及手机用户的信息。</div><div class="line">                 * 在应用程序中可以使用这些get方法获取相关数据。TelephonyManager类的对象可以通过Context</div><div class="line">                 * .getSystemService(Context.TELEPHONY_SERVICE)</div><div class="line">                 * 方法来获得，需要注意的是有些通讯信息的获取对应用程序的权限有一定的限制</div><div class="line">                 * ，在开发的时候需要为其添加相应的权限。以下列出TelephonyManager类所有方法及说明：</div><div class="line">                 * TelephonyManager提供设备上获取通讯服务信息的入口。 应用程序可以使用这个类方法确定的电信服务商和国家</div><div class="line">                 * 以及某些类型的用户访问信息。 应用程序也可以注册一个监听器到电话收状态的变化。不需要直接实例化这个类</div><div class="line">                 * 使用Context.getSystemService (Context.TELEPHONY_SERVICE)来获取这个类的实例。</div><div class="line">                 */</div><div class="line"></div><div class="line">                <span class="comment">// 解释：</span></div><div class="line">                <span class="comment">// IMSI是国际移动用户识别码的简称(International Mobile Subscriber Identity)</span></div><div class="line">                <span class="comment">// IMSI共有15位，其结构如下：</span></div><div class="line">                <span class="comment">// MCC+MNC+MIN</span></div><div class="line">                <span class="comment">// MCC：Mobile Country Code，移动国家码，共3位，中国为460;</span></div><div class="line">                <span class="comment">// MNC:Mobile NetworkCode，移动网络码，共2位</span></div><div class="line">                <span class="comment">// 在中国，移动的代码为电00和02，联通的代码为01，电信的代码为03</span></div><div class="line">                <span class="comment">// 合起来就是（也是Android手机中APN配置文件中的代码）：</span></div><div class="line">                <span class="comment">// 中国移动：46000 46002</span></div><div class="line">                <span class="comment">// 中国联通：46001</span></div><div class="line">                <span class="comment">// 中国电信：46003</span></div><div class="line">                <span class="comment">// 举例，一个典型的IMSI号码为460030912121001</span></div><div class="line"></div><div class="line">                <span class="comment">// IMEI是International Mobile Equipment Identity （国际移动设备标识）的简称</span></div><div class="line">                <span class="comment">// IMEI由15位数字组成的”电子串号”，它与每台手机一一对应，而且该码是全世界唯一的</span></div><div class="line">                <span class="comment">// 其组成为：</span></div><div class="line">                <span class="comment">// 1. 前6位数(TAC)是”型号核准号码”，一般代表机型</span></div><div class="line">                <span class="comment">// 2. 接着的2位数(FAC)是”最后装配号”，一般代表产地</span></div><div class="line">                <span class="comment">// 3. 之后的6位数(SNR)是”串号”，一般代表生产顺序号</span></div><div class="line">                <span class="comment">// 4. 最后1位数(SP)通常是”0″，为检验码，目前暂备用</span></div><div class="line"></div><div class="line">                TelephonyManager tm = (TelephonyManager) <span class="keyword">this</span></div><div class="line">                                .getSystemService(TELEPHONY_SERVICE);</div><div class="line">                <span class="comment">/*</span></div><div class="line">                 * 电话状态： 1.tm.CALL_STATE_IDLE=0 无活动，无任何状态时 2.tm.CALL_STATE_RINGING=1</div><div class="line">                 * 响铃，电话进来时 3.tm.CALL_STATE_OFFHOOK=2 摘机</div><div class="line">                 */</div><div class="line">                tm.getCallState();<span class="comment">// int</span></div><div class="line"></div><div class="line">                <span class="comment">/*</span></div><div class="line">                 * 电话方位：</div><div class="line">                 */</div><div class="line">                <span class="comment">// 返回当前移动终端的位置</span></div><div class="line">                CellLocation location = tm.getCellLocation();</div><div class="line">                <span class="comment">// 请求位置更新，如果更新将产生广播，接收对象为注册LISTEN_CELL_LOCATION的对象，需要的permission名称为</span></div><div class="line">                <span class="comment">// ACCESS_COARSE_LOCATION。</span></div><div class="line">                location.requestLocationUpdate();</div><div class="line"></div><div class="line">                <span class="comment">/**</span></div><div class="line">                 * 获取数据活动状态</div><div class="line">                 * </div><div class="line">                 * DATA_ACTIVITY_IN 数据连接状态：活动，正在接受数据 DATA_ACTIVITY_OUT 数据连接状态：活动，正在发送数据</div><div class="line">                 * DATA_ACTIVITY_INOUT 数据连接状态：活动，正在接受和发送数据 DATA_ACTIVITY_NONE</div><div class="line">                 * 数据连接状态：活动，但无数据发送和接受</div><div class="line">                 */</div><div class="line">                tm.getDataActivity();</div><div class="line"></div><div class="line">                <span class="comment">/**</span></div><div class="line">                 * 获取数据连接状态</div><div class="line">                 * </div><div class="line">                 * DATA_CONNECTED 数据连接状态：已连接 DATA_CONNECTING 数据连接状态：正在连接</div><div class="line">                 * DATA_DISCONNECTED 数据连接状态：断开 DATA_SUSPENDED 数据连接状态：暂停</div><div class="line">                 */</div><div class="line">                tm.getDataState();</div><div class="line"></div><div class="line">                <span class="comment">/**</span></div><div class="line">                 * 返回当前移动终端的唯一标识，设备ID</div><div class="line">                 * </div><div class="line">                 * 如果是GSM网络，返回IMEI；如果是CDMA网络，返回MEID Return null if device ID is not</div><div class="line">                 * available.</div><div class="line">                 */</div><div class="line">                String Imei = tm.getDeviceId();<span class="comment">// String</span></div><div class="line"></div><div class="line">                <span class="comment">/*</span></div><div class="line">                 * 返回移动终端的软件版本，例如：GSM手机的IMEI/SV码。 设备的软件版本号： 例如：the IMEI/SV(software</div><div class="line">                 * version) for GSM phones. Return null if the software version is not</div><div class="line">                 * available.</div><div class="line">                 */</div><div class="line">                tm.getDeviceSoftwareVersion();<span class="comment">// String</span></div><div class="line"></div><div class="line">                <span class="comment">/*</span></div><div class="line">                 * 手机号： GSM手机的 MSISDN. Return null if it is unavailable.</div><div class="line">                 */</div><div class="line">                String phoneNum = tm.getLine1Number();<span class="comment">// String</span></div><div class="line"></div><div class="line">                <span class="comment">/*</span></div><div class="line">                 * 获取ISO标准的国家码，即国际长途区号。 注意：仅当用户已在网络注册后有效。 在CDMA网络中结果也许不可靠。</div><div class="line">                 */</div><div class="line">                tm.getNetworkCountryIso();<span class="comment">// String</span></div><div class="line"></div><div class="line">                <span class="comment">/*</span></div><div class="line">                 * MCC+MNC(mobile country code + mobile network code) 注意：仅当用户已在网络注册时有效。</div><div class="line">                 * 在CDMA网络中结果也许不可靠。</div><div class="line">                 */</div><div class="line">                tm.getNetworkOperator();<span class="comment">// String</span></div><div class="line"></div><div class="line">                <span class="comment">/*</span></div><div class="line">                 * 按照字母次序的current registered operator(当前已注册的用户)的名字 注意：仅当用户已在网络注册时有效。</div><div class="line">                 * 在CDMA网络中结果也许不可靠。</div><div class="line">                 */</div><div class="line"></div><div class="line">                tm.getNetworkOperatorName();<span class="comment">// String</span></div><div class="line"></div><div class="line">                <span class="comment">/*</span></div><div class="line">                 * 当前使用的网络类型： 例如： NETWORK_TYPE_UNKNOWN 网络类型未知 0 NETWORK_TYPE_GPRS GPRS网络</div><div class="line">                 * 1 NETWORK_TYPE_EDGE EDGE网络 2 NETWORK_TYPE_UMTS UMTS网络 3</div><div class="line">                 * NETWORK_TYPE_HSDPA HSDPA网络 8 NETWORK_TYPE_HSUPA HSUPA网络 9</div><div class="line">                 * NETWORK_TYPE_HSPA HSPA网络 10 NETWORK_TYPE_CDMA CDMA网络,IS95A 或 IS95B. 4</div><div class="line">                 * NETWORK_TYPE_EVDO_0 EVDO网络, revision 0. 5 NETWORK_TYPE_EVDO_A EVDO网络,</div><div class="line">                 * revision A. 6 NETWORK_TYPE_1xRTT 1xRTT网络 7</div><div class="line">                 */</div><div class="line">                tm.getNetworkType();<span class="comment">// int</span></div><div class="line"></div><div class="line">                <span class="comment">/*</span></div><div class="line">                 * 手机类型： 例如： PHONE_TYPE_NONE 无信号 PHONE_TYPE_GSM GSM信号 PHONE_TYPE_CDMA</div><div class="line">                 * CDMA信号</div><div class="line">                 */</div><div class="line">                tm.getPhoneType();<span class="comment">// int</span></div><div class="line"></div><div class="line">                <span class="comment">/*</span></div><div class="line">                 * Returns the ISO country code equivalent for the SIM provider's</div><div class="line">                 * country code. 获取ISO国家码，相当于提供SIM卡的国家码。</div><div class="line">                 */</div><div class="line">                tm.getSimCountryIso();<span class="comment">// String</span></div><div class="line"></div><div class="line">                <span class="comment">/*</span></div><div class="line">                 * Returns the MCC+MNC (mobile country code + mobile network code) of</div><div class="line">                 * the provider of the SIM. 5 or 6 decimal digits.</div><div class="line">                 * 获取SIM卡提供的移动国家码和移动网络码.5或6位的十进制数字. SIM卡的状态必须是</div><div class="line">                 * SIM_STATE_READY(使用getSimState()判断).</div><div class="line">                 */</div><div class="line">                tm.getSimOperator();<span class="comment">// String</span></div><div class="line"></div><div class="line">                <span class="comment">/*</span></div><div class="line">                 * 服务商名称： 例如：中国移动、联通 SIM卡的状态必须是 SIM_STATE_READY(使用getSimState()判断).</div><div class="line">                 */</div><div class="line">                tm.getSimOperatorName();<span class="comment">// String</span></div><div class="line"></div><div class="line">                <span class="comment">/*</span></div><div class="line">                 * SIM卡的序列号： 需要权限：READ_PHONE_STATE</div><div class="line">                 */</div><div class="line">                tm.getSimSerialNumber();<span class="comment">// String</span></div><div class="line"></div><div class="line">                <span class="comment">/*</span></div><div class="line">                 * SIM的状态信息： SIM_STATE_UNKNOWN 未知状态 0 SIM_STATE_ABSENT 没插卡 1</div><div class="line">                 * SIM_STATE_PIN_REQUIRED 锁定状态，需要用户的PIN码解锁 2 SIM_STATE_PUK_REQUIRED</div><div class="line">                 * 锁定状态，需要用户的PUK码解锁 3 SIM_STATE_NETWORK_LOCKED 锁定状态，需要网络的PIN码解锁 4</div><div class="line">                 * SIM_STATE_READY 就绪状态 5</div><div class="line">                 */</div><div class="line">                tm.getSimState();<span class="comment">// int</span></div><div class="line"></div><div class="line">                <span class="comment">/*</span></div><div class="line">                 * 唯一的用户ID： 例如：IMSI(国际移动用户识别码) for a GSM phone. 需要权限：READ_PHONE_STATE</div><div class="line">                 */</div><div class="line">                tm.getSubscriberId();<span class="comment">// String</span></div><div class="line"></div><div class="line">                <span class="comment">/*</span></div><div class="line">                 * 取得和语音邮件相关的标签，即为识别符 需要权限：READ_PHONE_STATE</div><div class="line">                 */</div><div class="line"></div><div class="line">                tm.getVoiceMailAlphaTag();<span class="comment">// String</span></div><div class="line"></div><div class="line">                <span class="comment">/*</span></div><div class="line">                 * 获取语音邮件号码： 需要权限：READ_PHONE_STATE</div><div class="line">                 */</div><div class="line">                tm.getVoiceMailNumber();<span class="comment">// String</span></div><div class="line"></div><div class="line">                <span class="comment">/*</span></div><div class="line">                 * ICC卡是否存在</div><div class="line">                 */</div><div class="line">                tm.hasIccCard();<span class="comment">// boolean</span></div><div class="line"></div><div class="line">                <span class="comment">/*</span></div><div class="line">                 * 是否漫游: (在GSM用途下)</div><div class="line">                 */</div><div class="line">                tm.isNetworkRoaming();<span class="comment">//</span></div><div class="line"></div><div class="line">                String ProvidersName = <span class="keyword">null</span>;</div><div class="line">                <span class="comment">// 返回唯一的用户ID;就是这张卡的编号神马的</span></div><div class="line">                String IMSI = tm.getSubscriberId(); <span class="comment">// 国际移动用户识别码</span></div><div class="line">                <span class="comment">// IMSI号前面3位460是国家，紧接着后面2位00 02是中国移动，01是中国联通，03是中国电信。</span></div><div class="line">                System.out.println(IMSI);</div><div class="line">                <span class="keyword">if</span> (IMSI.startsWith(<span class="string">"46000"</span>) || IMSI.startsWith(<span class="string">"46002"</span>)) &#123;</div><div class="line">                        ProvidersName = <span class="string">"中国移动"</span>;</div><div class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (IMSI.startsWith(<span class="string">"46001"</span>)) &#123;</div><div class="line"></div><div class="line">                        ProvidersName = <span class="string">"中国联通"</span>;</div><div class="line"></div><div class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (IMSI.startsWith(<span class="string">"46003"</span>)) &#123;</div><div class="line"></div><div class="line">                        ProvidersName = <span class="string">"中国电信"</span>;</div><div class="line"></div><div class="line">                &#125;</div><div class="line">                <span class="comment">// 返回当前移动终端附近移动终端的信息</span></div><div class="line">                <span class="comment">/*</span></div><div class="line">                 * 附近的电话的信息: 类型：List&lt;NeighboringCellInfo&gt;</div><div class="line">                 * 需要权限：android.Manifest.permission#ACCESS_COARSE_UPDATES</div><div class="line">                 */</div><div class="line">                List&lt;NeighboringCellInfo&gt; infos = tm.getNeighboringCellInfo();</div><div class="line">                <span class="keyword">for</span> (NeighboringCellInfo info : infos) &#123;</div><div class="line">                        <span class="comment">// 获取邻居小区号</span></div><div class="line">                        <span class="keyword">int</span> cid = info.getCid();</div><div class="line">                        <span class="comment">// 获取邻居小区LAC，LAC:</span></div><div class="line">                        <span class="comment">// 位置区域码。为了确定移动台的位置，每个GSM/PLMN的覆盖区都被划分成许多位置区，LAC则用于标识不同的位置区。</span></div><div class="line">                        info.getLac();</div><div class="line">                        info.getNetworkType();</div><div class="line">                        info.getPsc();</div><div class="line">                        <span class="comment">// 获取邻居小区信号强度</span></div><div class="line">                        info.getRssi();</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">return</span> <span class="string">"手机号码:"</span> + phoneNum + <span class="string">"\n"</span> + <span class="string">"服务商："</span> + ProvidersName + <span class="string">"\n"</span></div><div class="line">                                + <span class="string">"IMEI："</span> + Imei;</div><div class="line"></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// 显示信息对话框</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showDialog</span><span class="params">(String title, String info)</span> </span>&#123;</div><div class="line">                AlertDialog dialog = <span class="keyword">new</span> AlertDialog.Builder(<span class="keyword">this</span>)</div><div class="line">                                .setTitle(title)</div><div class="line">                                .setMessage(info)</div><div class="line">                                .setPositiveButton(<span class="string">"close"</span>,</div><div class="line">                                                <span class="keyword">new</span> DialogInterface.OnClickListener() &#123;</div><div class="line">                                                        <span class="meta">@Override</span></div><div class="line">                                                        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog,</span></span></div><div class="line">                                                                        <span class="keyword">int</span> which) &#123;</div><div class="line">                                                                dialog.cancel();</div><div class="line">                                                                dialog = <span class="keyword">null</span>;</div><div class="line">                                                        &#125;</div><div class="line">                                                &#125;).create();</div><div class="line">                dialog.show();</div><div class="line">        &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-		 <!--广告-->
-		﻿<h1>联系作者</h1>
+         <!--广告-->
+    ﻿<h1>联系作者</h1>
 我的微信公众号：吴小龙同学，欢迎关注交流~
 <img src="https://open.weixin.qq.com/qr/code?username=MrWuXiaolong">
 <!--
@@ -513,48 +586,24 @@ border:2px solid #69c;
 </div>
 
 -->  
- 
-      
-	   
-    </div>
-
-    <div>
-      
-        
-
       
     </div>
 
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-  <ul class="post-copyright">
-    <li class="post-copyright-author">
-      <strong>本文作者：</strong>
-      吴小龙同學
-    </li>
-    <li class="post-copyright-link">
-      <strong>本文链接：</strong>
-      <a href="http://wuxiaolong.me/2013/07/18/mobile-phone-information-acquisition/" title="android之获取手机信息">http://wuxiaolong.me/2013/07/18/mobile-phone-information-acquisition/</a>
-    </li>
-    <li class="post-copyright-license">
-      <strong>版权声明： </strong>
-      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
-    </li>
-  </ul>
-
-
-      
-    </div>
-     <!--评论-->
     
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
     <footer class="post-footer">
       
         <div class="post-tags">
@@ -565,7 +614,7 @@ border:2px solid #69c;
       
 
       
-        
+      
       
 
       
@@ -593,54 +642,28 @@ border:2px solid #69c;
       
       
     </footer>
+  </div>
+  
+  
+  
+  </article>
 
-  </article> 
 
-
-    <div class="post-spread">
-      
-        <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-  <a class="jiathis_button_tsina"></a>
-  <a class="jiathis_button_tqq"></a>
-  <a class="jiathis_button_weixin"></a>
-  <a class="jiathis_button_cqq"></a>
-  <a class="jiathis_button_douban"></a>
-  <a class="jiathis_button_renren"></a>
-  <a class="jiathis_button_qzone"></a>
-  <a class="jiathis_button_kaixin001"></a>
-  <a class="jiathis_button_copy"></a>
-  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-  <a class="jiathis_counter_style"></a>
-</div>
-<script type="text/javascript">
-  var jiathis_config={
-    hideMore:false
-  }
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-      
-    </div>
   </div>
 
 
           </div>
           
 
-
-          
-  <div class="comments" id="comments">
-    
+  
+    <div class="comments" id="comments">
       <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
       </div>
-    
-  </div>
+    </div>
+
+  
+
 
 
         </div>
@@ -656,116 +679,469 @@ border:2px solid #69c;
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
 
       
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="吴小龙同學">
-          <p class="site-author-name" itemprop="name">吴小龙同學</p>
-           
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="吴小龙同學">
+            
+              <p class="site-author-name" itemprop="name">吴小龙同學</p>
               <p class="site-description motion-element" itemprop="description">我的微信公众号：吴小龙同学</p>
-          
-        </div>
-        <nav class="site-state motion-element">
-
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/archives/index.html">
-                <span class="site-state-item-count">142</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-categories">
-              <a href="/categories/index.html">
-                <span class="site-state-item-count">44</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/tags/index.html">
-                <span class="site-state-item-count">123</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-          <div class="feed-link motion-element">
-            <a href="/atom.xml" rel="alternate">
-              <i class="fa fa-rss"></i>
-              RSS
-            </a>
           </div>
-        
 
-        <div class="links-of-author motion-element">
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">142</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">41</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">112</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://open.weixin.qq.com/qr/code?username=MrWuXiaolong" title="WeChat &rarr; https://open.weixin.qq.com/qr/code?username=MrWuXiaolong" rel="noopener" target="_blank"><i class="fa fa-fw fa-weixin"></i>WeChat</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/WuXiaolong" title="GitHub &rarr; https://github.com/WuXiaolong" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.zhihu.com/people/wuxiaolong.me" title="知乎 &rarr; https://www.zhihu.com/people/wuxiaolong.me" rel="noopener" target="_blank"><i class="fa fa-fw fa-book"></i>知乎</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="http://weibo.com/u/2175011601" title="Weibo &rarr; http://weibo.com/u/2175011601" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
           
             
-              <span class="links-of-author-item">
-                <a href="https://open.weixin.qq.com/qr/code?username=MrWuXiaolong" target="_blank" title="WeChat">
-                  
-                    <i class="fa fa-fw fa-weixin"></i>
-                  
-                  WeChat
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/WuXiaolong" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  GitHub
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="https://www.zhihu.com/people/wuxiaolong.me" target="_blank" title="知乎">
-                  
-                    <i class="fa fa-fw fa-book"></i>
-                  
-                  知乎
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://weibo.com/u/2175011601" target="_blank" title="微博">
-                  
-                    <i class="fa fa-fw fa-weibo"></i>
-                  
-                  微博
-                </a>
-              </span>
-            
           
+          
+
         </div>
-
-        
-        
-
-        
-        
-
-        
-
-
-      </section>
+      </div>
 
       
 
@@ -781,30 +1157,53 @@ border:2px solid #69c;
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">
-  
-  &copy;  2013 - 
-  <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
+        <div class="copyright">&copy; 2013 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">吴小龙同學</span>
+
+  
+
+  
 </div>
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
-
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
-  </a>
-</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.4.2</div>
 
 
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.7.0</div>
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
 
         
       </div>
@@ -817,11 +1216,16 @@ border:2px solid #69c;
       </div>
     
 
+    
+
+    
+
+    
   </div>
 
   
 
-<script type="text/javascript">
+<script>
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
   }
@@ -835,94 +1239,87 @@ border:2px solid #69c;
 
 
 
-  
 
 
 
 
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
-  
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+
+
 
 
 
   
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
-
-
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
 
 
 
   
 
 
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
 
   
 
-    <script type="text/javascript">
-      var disqus_shortname = 'WuXiaolong';
-      var disqus_identifier = '2013/07/18/mobile-phone-information-acquisition/';
+  
+    <script id="dsq-count-scr" src="https://WuXiaolong.disqus.com/count.js" async></script>
+  
 
-      var disqus_title = "android之获取手机信息";
-
-
-      function run_disqus_script(disqus_script) {
-        var dsq = document.createElement('script');
-        dsq.type = 'text/javascript';
-        dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-      }
-
-      run_disqus_script('count.js');
-
-      
-        var disqus_config = function () {
-            this.page.url = disqus_url;
-            this.page.identifier = disqus_identifier;
-            this.page.title = disqus_title;
+  
+    <script>
+      var disqus_config = function () {
+        this.page.url = "http://wuxiaolong.me/2013/07/18/mobile-phone-information-acquisition/";
+        this.page.identifier = "2013/07/18/mobile-phone-information-acquisition/";
+        this.page.title = 'android之获取手机信息';
         };
-        run_disqus_script('embed.js');
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://WuXiaolong.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
       
-
+        loadComments();
+      
     </script>
   
 
@@ -941,9 +1338,6 @@ border:2px solid #69c;
   
 
 
-  
-
-
 
 
 
@@ -955,10 +1349,23 @@ border:2px solid #69c;
 
   
 
+  
 
-  <!--崩溃欺骗
-  <script type="text/javascript" src="/js/src/dytitle.js"></script>
-  -->
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 
 </body>
 </html>

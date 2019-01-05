@@ -1,18 +1,25 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
 
-<html class="theme-next pisces" lang="zh-Hans">
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2">
+<meta name="theme-color" content="#222">
 
 
 
@@ -28,90 +35,51 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
 
 
 
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
-
-
-  <meta name="keywords" content="Hexo, NexT">
 
 
 
 
 
-  <link rel="alternate" href="/atom.xml" title="吴小龙同學" type="application/atom+xml">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/avatar.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/avatar.png?v=6.7.0" color="#222">
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
 
 
 
-
-
-
-<meta name="description" content="我的微信公众号：吴小龙同学">
-<meta property="og:type" content="website">
-<meta property="og:title" content="吴小龙同學">
-<meta property="og:url" content="http://wuxiaolong.me/page/2/index.html">
-<meta property="og:site_name" content="吴小龙同學">
-<meta property="og:description" content="我的微信公众号：吴小龙同学">
-<meta property="og:locale" content="zh-Hans">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="吴小龙同學">
-<meta name="twitter:description" content="我的微信公众号：吴小龙同学">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
+<script id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
-    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
-    fancybox: true,
-    motion: false,
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
+    scheme: 'Gemini',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -121,6 +89,21 @@
     }
   };
 </script>
+  <meta name="description" content="我的微信公众号：吴小龙同学">
+<meta property="og:type" content="website">
+<meta property="og:title" content="吴小龙同學">
+<meta property="og:url" content="http://wuxiaolong.me/page/2/index.html">
+<meta property="og:site_name" content="吴小龙同學">
+<meta property="og:description" content="我的微信公众号：吴小龙同学">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="吴小龙同學">
+<meta name="twitter:description" content="我的微信公众号：吴小龙同学">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="吴小龙同學" type="application/atom+xml">
+
 
 
 
@@ -128,56 +111,29 @@
 
 
 
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
-
-  <title> 吴小龙同學 </title>
-
-  <style type="text/css">
-  .div_right_bottom {
-  width: 200px;
-  top: 50%;
-  right: 0px;
-  position: fixed;
-  margin-top: -100px;
-  _position: absolute; /* position fixed for IE6 */
-/*
-右上角
-float:right;
-top:0;
-边框
-border:2px solid #69c;
-  right:0px;
-  bottom:0px;
-  z-index:0;
-*/
-
-}
-</style>
-
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-  <div class="div_right_bottom" align="center">
-  <img src="https://open.weixin.qq.com/qr/code?username=MrWuXiaolong">
-  微信公众号
-  </div>
-
+  <title>吴小龙同學</title>
   
 
 
 
 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-105780265-1', 'auto');
-  ga('send', 'pageview');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-105780265-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-105780265-1');
+  </script>
 
 
-  <script type="text/javascript">
+
+  <script>
     var _hmt = _hmt || [];
     (function() {
       var hm = document.createElement("script");
@@ -193,8 +149,33 @@ border:2px solid #69c;
 
 
 
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
 
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
 
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -216,13 +197,16 @@ border:2px solid #69c;
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
       
         <p class="site-subtitle">党要我帅，我不得不帅！</p>
       
+    
+    
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -230,96 +214,144 @@ border:2px solid #69c;
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
-            
-            首页
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/index.html" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
-            
-            分类
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/index.html" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
-            
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/index.html" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
-            
-            标签
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-friendslinks">
-          <a href="/friendslinks/index.html" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-users"></i> <br>
-            
-            小伙伴
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-gitbook">
-          <a href="https://wuxiaolong.gitbooks.io/wuxiaolong/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-book"></i> <br>
-            
-            GitBook
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about/index.html" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
-            
-            关于
-          </a>
-        </li>
-      
+          
+          <li class="menu-item menu-item-home">
 
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-friendslinks">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/friendslinks/index.html" rel="section"><i class="menu-item-icon fa fa-fw fa-users"></i> <br>小伙伴</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-gitbook">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="https://wuxiaolong.gitbooks.io/wuxiaolong/" rel="noopener" target="_blank"><i class="menu-item-icon fa fa-fw fa-book"></i> <br>GitBook</a>
+
+  </li>
+
+      
       
         <li class="menu-item menu-item-search">
           
             <a href="javascript:;" class="st-search-show-outputs">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
-            
-            搜索
-          </a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
         </li>
       
     </ul>
+  
+
   
 
   
@@ -329,7 +361,7 @@ border:2px solid #69c;
   <input type="text" id="st-search-input" class="st-search-input st-default-search-input">
 </form>
 
-<script type="text/javascript">
+<script>
   (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
     (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
     e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
@@ -346,12 +378,22 @@ border:2px solid #69c;
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    <a href="https://github.com/WuXiaolong" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
+          
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
@@ -364,12 +406,18 @@ border:2px solid #69c;
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2017/12/27/AndroidNDK/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴小龙同學">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="我的微信公众号：吴小龙同学">
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
@@ -383,13 +431,9 @@ border:2px solid #69c;
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/12/27/AndroidNDK/" itemprop="url">
-                  Android NDK 入门与实践
-                </a>
+                
+                <a href="/2017/12/27/AndroidNDK/" class="post-title-link" itemprop="url">Android NDK 入门与实践</a>
               
             
           </h1>
@@ -397,6 +441,11 @@ border:2px solid #69c;
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -404,13 +453,30 @@ border:2px solid #69c;
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-27T17:30:26+08:00">
-                2017-12-27
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-12-27 17:30:26" itemprop="dateCreated datePublished" datetime="2017-12-27T17:30:26+08:00">2017-12-27</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-28 16:31:39" itemprop="dateModified" datetime="2018-10-28T16:31:39+08:00">2018-10-28</time>
+              
             
           </span>
 
@@ -426,11 +492,7 @@ border:2px solid #69c;
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/NDK/" itemprop="url" rel="index">
-                    <span itemprop="name">NDK</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/NDK/" itemprop="url" rel="index"><span itemprop="name">NDK</span></a></span>
 
                 
                 
@@ -446,6 +508,7 @@ border:2px solid #69c;
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2017/12/27/AndroidNDK/#comments" itemprop="discussionUrl">
+                
                   <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/27/AndroidNDK/" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -465,7 +528,9 @@ border:2px solid #69c;
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -478,30 +543,33 @@ border:2px solid #69c;
 <p>2、增加反编译的难度；</p>
 <p>3、提高性能。<br>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/27/AndroidNDK/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/12/27/AndroidNDK/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
-	   
     </p></div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-     <!--评论-->
     
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
     <footer class="post-footer">
       
 
@@ -514,8 +582,12 @@ border:2px solid #69c;
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
+  </article>
 
-  </article> 
 
     
       
@@ -526,12 +598,18 @@ border:2px solid #69c;
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2017/12/10/PythonCrawler1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴小龙同學">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="我的微信公众号：吴小龙同学">
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
@@ -545,13 +623,9 @@ border:2px solid #69c;
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/12/10/PythonCrawler1/" itemprop="url">
-                  Python 爬虫实战（一）：使用 requests 和 BeautifulSoup
-                </a>
+                
+                <a href="/2017/12/10/PythonCrawler1/" class="post-title-link" itemprop="url">Python 爬虫实战（一）：使用 requests 和 BeautifulSoup</a>
               
             
           </h1>
@@ -559,6 +633,11 @@ border:2px solid #69c;
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -566,13 +645,30 @@ border:2px solid #69c;
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-10T13:33:59+08:00">
-                2017-12-10
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-12-10 13:33:59" itemprop="dateCreated datePublished" datetime="2017-12-10T13:33:59+08:00">2017-12-10</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-28 11:40:44" itemprop="dateModified" datetime="2018-10-28T11:40:44+08:00">2018-10-28</time>
+              
             
           </span>
 
@@ -588,11 +684,7 @@ border:2px solid #69c;
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a></span>
 
                 
                 
@@ -608,6 +700,7 @@ border:2px solid #69c;
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2017/12/10/PythonCrawler1/#comments" itemprop="discussionUrl">
+                
                   <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/10/PythonCrawler1/" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -627,7 +720,9 @@ border:2px solid #69c;
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -638,30 +733,33 @@ border:2px solid #69c;
           <h1 id="Python-基础"><a href="#Python-基础" class="headerlink" title="Python 基础"></a>Python 基础</h1><p>我之前写的《<a href="https://mp.weixin.qq.com/s/ZkOXwR3sjuUWiXTCYkbasA" target="_blank" rel="noopener">Python 3 极简教程.pdf</a>》，适合有点编程基础的快速入门，通过该系列文章学习，能够独立完成接口的编写，写写小东西没问题。</p>
 <h1 id="requests"><a href="#requests" class="headerlink" title="requests"></a>requests</h1><p>requests，Python HTTP 请求库，相当于 Android 的 Retrofit，它的功能包括 Keep-Alive 和连接池、Cookie 持久化、内容自动解压、HTTP 代理、SSL 认证、连接超时、Session 等很多特性，同时兼容 Python2 和 Python3，GitHub：<a href="https://github.com/requests/requests" target="_blank" rel="noopener">https://github.com/requests/requests</a> 。<br>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/10/PythonCrawler1/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/12/10/PythonCrawler1/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
-	   
     </p></div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-     <!--评论-->
     
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
     <footer class="post-footer">
       
 
@@ -674,8 +772,12 @@ border:2px solid #69c;
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
+  </article>
 
-  </article> 
 
     
       
@@ -686,12 +788,18 @@ border:2px solid #69c;
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2017/11/04/AndroidStudio3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴小龙同學">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="我的微信公众号：吴小龙同学">
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
@@ -705,13 +813,9 @@ border:2px solid #69c;
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/11/04/AndroidStudio3/" itemprop="url">
-                  Android Studio 3.0 升级一些坑
-                </a>
+                
+                <a href="/2017/11/04/AndroidStudio3/" class="post-title-link" itemprop="url">Android Studio 3.0 升级一些坑</a>
               
             
           </h1>
@@ -719,6 +823,11 @@ border:2px solid #69c;
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -726,13 +835,30 @@ border:2px solid #69c;
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-04T23:40:07+08:00">
-                2017-11-04
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-11-04 23:40:07" itemprop="dateCreated datePublished" datetime="2017-11-04T23:40:07+08:00">2017-11-04</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-28 16:31:39" itemprop="dateModified" datetime="2018-10-28T16:31:39+08:00">2018-10-28</time>
+              
             
           </span>
 
@@ -748,11 +874,7 @@ border:2px solid #69c;
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android-Studio/" itemprop="url" rel="index">
-                    <span itemprop="name">Android Studio</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Android-Studio/" itemprop="url" rel="index"><span itemprop="name">Android Studio</span></a></span>
 
                 
                 
@@ -768,6 +890,7 @@ border:2px solid #69c;
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2017/11/04/AndroidStudio3/#comments" itemprop="discussionUrl">
+                
                   <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/11/04/AndroidStudio3/" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -787,7 +910,9 @@ border:2px solid #69c;
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -800,30 +925,33 @@ border:2px solid #69c;
 </blockquote>
 <h1 id="Android-Studio-3-0"><a href="#Android-Studio-3-0" class="headerlink" title="Android Studio 3.0"></a>Android Studio 3.0</h1><p>官方更新日志：<a href="https://developer.android.google.cn/studio/releases/index.html" target="_blank" rel="noopener">https://developer.android.google.cn/studio/releases/index.html</a> ，我截图了，用的 Chrome 自带翻译功能，有些翻译不到位，但比我这半吊子英语看省事多了。<br>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/04/AndroidStudio3/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/11/04/AndroidStudio3/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
-	   
     </p></div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-     <!--评论-->
     
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
     <footer class="post-footer">
       
 
@@ -836,8 +964,12 @@ border:2px solid #69c;
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
+  </article>
 
-  </article> 
 
     
       
@@ -848,12 +980,18 @@ border:2px solid #69c;
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2017/09/05/GitBookGuide/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴小龙同學">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="我的微信公众号：吴小龙同学">
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
@@ -867,13 +1005,9 @@ border:2px solid #69c;
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/09/05/GitBookGuide/" itemprop="url">
-                  GitBook 使用
-                </a>
+                
+                <a href="/2017/09/05/GitBookGuide/" class="post-title-link" itemprop="url">GitBook 使用</a>
               
             
           </h1>
@@ -881,6 +1015,11 @@ border:2px solid #69c;
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -888,13 +1027,30 @@ border:2px solid #69c;
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-05T10:54:17+08:00">
-                2017-09-05
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-09-05 10:54:17" itemprop="dateCreated datePublished" datetime="2017-09-05T10:54:17+08:00">2017-09-05</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-28 16:31:39" itemprop="dateModified" datetime="2018-10-28T16:31:39+08:00">2018-10-28</time>
+              
             
           </span>
 
@@ -910,11 +1066,7 @@ border:2px solid #69c;
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/GitBook/" itemprop="url" rel="index">
-                    <span itemprop="name">GitBook</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/GitBook/" itemprop="url" rel="index"><span itemprop="name">GitBook</span></a></span>
 
                 
                 
@@ -930,6 +1082,7 @@ border:2px solid #69c;
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2017/09/05/GitBookGuide/#comments" itemprop="discussionUrl">
+                
                   <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/09/05/GitBookGuide/" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -949,7 +1102,9 @@ border:2px solid #69c;
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -962,30 +1117,33 @@ border:2px solid #69c;
 </blockquote>
 <h1 id="安装-Node-js"><a href="#安装-Node-js" class="headerlink" title="安装 Node.js"></a>安装 Node.js</h1><p>GitBook 是基于 Node.js 的命令行工具，下载安装 <a href="http://nodejs.org/" target="_blank" rel="noopener">Node.js</a>。<br>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/09/05/GitBookGuide/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/09/05/GitBookGuide/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
-	   
     </p></div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-     <!--评论-->
     
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
     <footer class="post-footer">
       
 
@@ -998,8 +1156,12 @@ border:2px solid #69c;
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
+  </article>
 
-  </article> 
 
     
       
@@ -1010,12 +1172,18 @@ border:2px solid #69c;
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2017/08/27/banner/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴小龙同學">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="我的微信公众号：吴小龙同学">
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
@@ -1029,13 +1197,9 @@ border:2px solid #69c;
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/08/27/banner/" itemprop="url">
-                  Android 轮播图从 0 到 1
-                </a>
+                
+                <a href="/2017/08/27/banner/" class="post-title-link" itemprop="url">Android 轮播图从 0 到 1</a>
               
             
           </h1>
@@ -1043,6 +1207,11 @@ border:2px solid #69c;
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1050,13 +1219,30 @@ border:2px solid #69c;
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-27T20:48:07+08:00">
-                2017-08-27
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-08-27 20:48:07" itemprop="dateCreated datePublished" datetime="2017-08-27T20:48:07+08:00">2017-08-27</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-28 16:31:39" itemprop="dateModified" datetime="2018-10-28T16:31:39+08:00">2018-10-28</time>
+              
             
           </span>
 
@@ -1072,11 +1258,7 @@ border:2px solid #69c;
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Banner/" itemprop="url" rel="index">
-                    <span itemprop="name">Banner</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Banner/" itemprop="url" rel="index"><span itemprop="name">Banner</span></a></span>
 
                 
                 
@@ -1092,6 +1274,7 @@ border:2px solid #69c;
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2017/08/27/banner/#comments" itemprop="discussionUrl">
+                
                   <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/08/27/banner/" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -1111,7 +1294,9 @@ border:2px solid #69c;
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1121,30 +1306,33 @@ border:2px solid #69c;
         
           <h1 id="漏洞百出"><a href="#漏洞百出" class="headerlink" title="漏洞百出"></a>漏洞百出</h1><p>轮播图是 Android 常用功能之一，效果大概是这样的：<br>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/27/banner/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/08/27/banner/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
-	   
     </p></div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-     <!--评论-->
     
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
     <footer class="post-footer">
       
 
@@ -1157,8 +1345,12 @@ border:2px solid #69c;
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
+  </article>
 
-  </article> 
 
     
       
@@ -1169,12 +1361,18 @@ border:2px solid #69c;
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2017/08/01/ModularExploree/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴小龙同學">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="我的微信公众号：吴小龙同学">
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
@@ -1188,13 +1386,9 @@ border:2px solid #69c;
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/08/01/ModularExploree/" itemprop="url">
-                  Android 组件化探索与思考
-                </a>
+                
+                <a href="/2017/08/01/ModularExploree/" class="post-title-link" itemprop="url">Android 组件化探索与思考</a>
               
             
           </h1>
@@ -1202,6 +1396,11 @@ border:2px solid #69c;
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1209,13 +1408,30 @@ border:2px solid #69c;
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-01T12:39:55+08:00">
-                2017-08-01
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-08-01 12:39:55" itemprop="dateCreated datePublished" datetime="2017-08-01T12:39:55+08:00">2017-08-01</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-28 16:31:39" itemprop="dateModified" datetime="2018-10-28T16:31:39+08:00">2018-10-28</time>
+              
             
           </span>
 
@@ -1231,11 +1447,7 @@ border:2px solid #69c;
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Modular/" itemprop="url" rel="index">
-                    <span itemprop="name">Modular</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Modular/" itemprop="url" rel="index"><span itemprop="name">Modular</span></a></span>
 
                 
                 
@@ -1251,6 +1463,7 @@ border:2px solid #69c;
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2017/08/01/ModularExploree/#comments" itemprop="discussionUrl">
+                
                   <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/08/01/ModularExploree/" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -1270,7 +1483,9 @@ border:2px solid #69c;
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1280,30 +1495,33 @@ border:2px solid #69c;
         
           <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>开发中，我习惯性会把一个模块的功能放在一个包下，便于查找，但烦于耦合性太高，后期维护太费劲，因此对项目进行组件化拆分势在必行。组件化好处：便于开发，团队成员只关注自己的开发的小模块，降低耦合性，后期维护方便等。相当于先有很多小组件，各自开发，最后组装，成一个 app。<br>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/01/ModularExploree/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/08/01/ModularExploree/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
-	   
     </p></div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-     <!--评论-->
     
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
     <footer class="post-footer">
       
 
@@ -1316,8 +1534,12 @@ border:2px solid #69c;
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
+  </article>
 
-  </article> 
 
     
       
@@ -1328,12 +1550,18 @@ border:2px solid #69c;
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2017/07/19/mac-adb-gradlew/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴小龙同學">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="我的微信公众号：吴小龙同学">
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
@@ -1347,13 +1575,9 @@ border:2px solid #69c;
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/07/19/mac-adb-gradlew/" itemprop="url">
-                  Mac 配置 adb 环境、gradlew：command not found
-                </a>
+                
+                <a href="/2017/07/19/mac-adb-gradlew/" class="post-title-link" itemprop="url">Mac 配置 adb 环境、gradlew：command not found</a>
               
             
           </h1>
@@ -1361,6 +1585,11 @@ border:2px solid #69c;
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1368,13 +1597,30 @@ border:2px solid #69c;
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-19T20:17:30+08:00">
-                2017-07-19
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-07-19 20:17:30" itemprop="dateCreated datePublished" datetime="2017-07-19T20:17:30+08:00">2017-07-19</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-12-04 14:44:22" itemprop="dateModified" datetime="2017-12-04T14:44:22+08:00">2017-12-04</time>
+              
             
           </span>
 
@@ -1390,11 +1636,7 @@ border:2px solid #69c;
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Mac/" itemprop="url" rel="index">
-                    <span itemprop="name">Mac</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Mac/" itemprop="url" rel="index"><span itemprop="name">Mac</span></a></span>
 
                 
                 
@@ -1410,6 +1652,7 @@ border:2px solid #69c;
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2017/07/19/mac-adb-gradlew/#comments" itemprop="discussionUrl">
+                
                   <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/07/19/mac-adb-gradlew/" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -1429,7 +1672,9 @@ border:2px solid #69c;
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1441,30 +1686,33 @@ border:2px solid #69c;
 <p>今年 6 月 15 日，我痛下决心，买了心仪已久的 MacBook Pro，《<a href="http://mp.weixin.qq.com/s/AXobpEbNEbhLLGzeQTrrrg" target="_blank" rel="noopener">2017 款 MacBook Pro 初体验</a>》，Mac 小白，这篇文章是踩坑后的记录，也将持续记录，好记忆真不如烂笔头，现在会设置了，一个月过后呢，而且我年纪也大了。</p>
 </blockquote>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/19/mac-adb-gradlew/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/07/19/mac-adb-gradlew/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
-	   
     </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-     <!--评论-->
     
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
     <footer class="post-footer">
       
 
@@ -1477,8 +1725,12 @@ border:2px solid #69c;
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
+  </article>
 
-  </article> 
 
     
       
@@ -1489,12 +1741,18 @@ border:2px solid #69c;
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2017/06/03/kotlin4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴小龙同學">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="我的微信公众号：吴小龙同学">
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
@@ -1508,13 +1766,9 @@ border:2px solid #69c;
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/06/03/kotlin4/" itemprop="url">
-                  Kotlin for Android（四）Retrofit + RxJava
-                </a>
+                
+                <a href="/2017/06/03/kotlin4/" class="post-title-link" itemprop="url">Kotlin for Android（四）Retrofit + RxJava</a>
               
             
           </h1>
@@ -1522,6 +1776,11 @@ border:2px solid #69c;
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1529,13 +1788,18 @@ border:2px solid #69c;
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-03T22:14:11+08:00">
-                2017-06-03
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-06-03 22:14:11 / 修改时间：22:48:02" itemprop="dateCreated datePublished" datetime="2017-06-03T22:14:11+08:00">2017-06-03</time>
             
 
             
+              
 
+              
             
           </span>
 
@@ -1551,11 +1815,7 @@ border:2px solid #69c;
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Kotlin/" itemprop="url" rel="index">
-                    <span itemprop="name">Kotlin</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Kotlin/" itemprop="url" rel="index"><span itemprop="name">Kotlin</span></a></span>
 
                 
                 
@@ -1571,6 +1831,7 @@ border:2px solid #69c;
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2017/06/03/kotlin4/#comments" itemprop="discussionUrl">
+                
                   <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/06/03/kotlin4/" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -1590,7 +1851,9 @@ border:2px solid #69c;
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1602,30 +1865,33 @@ border:2px solid #69c;
 <p>如果您之前学习 Android MVP ，很可能是从 AndroidMVPSample<br>(<a href="https://github.com/WuXiaolong/AndroidMVPSample" target="_blank" rel="noopener">https://github.com/WuXiaolong/AndroidMVPSample</a> )开始的，此Sample最初是 Android MVP 示例，后来融合 Retrofit 和 RxJava，分别演示了普通写法(Retrofit)、普通写法(Retrofit+Rxjava)、MVP+Retrofit+Rxjava，跟它一样，我写了 Kotlin 版 Retrofit +RxJava 来练手，还是以天气示例。</p>
 </blockquote>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/06/03/kotlin4/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/06/03/kotlin4/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
-	   
     </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-     <!--评论-->
     
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
     <footer class="post-footer">
       
 
@@ -1638,8 +1904,12 @@ border:2px solid #69c;
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
+  </article>
 
-  </article> 
 
     
       
@@ -1650,12 +1920,18 @@ border:2px solid #69c;
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2017/06/01/kotlin3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴小龙同學">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="我的微信公众号：吴小龙同学">
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
@@ -1669,13 +1945,9 @@ border:2px solid #69c;
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/06/01/kotlin3/" itemprop="url">
-                  Kotlin for Android（三）类和对象
-                </a>
+                
+                <a href="/2017/06/01/kotlin3/" class="post-title-link" itemprop="url">Kotlin for Android（三）类和对象</a>
               
             
           </h1>
@@ -1683,6 +1955,11 @@ border:2px solid #69c;
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1690,13 +1967,18 @@ border:2px solid #69c;
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-01T22:40:28+08:00">
-                2017-06-01
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-06-01 22:40:28 / 修改时间：16:26:26" itemprop="dateCreated datePublished" datetime="2017-06-01T22:40:28+08:00">2017-06-01</time>
             
 
             
+              
 
+              
             
           </span>
 
@@ -1712,11 +1994,7 @@ border:2px solid #69c;
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Kotlin/" itemprop="url" rel="index">
-                    <span itemprop="name">Kotlin</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Kotlin/" itemprop="url" rel="index"><span itemprop="name">Kotlin</span></a></span>
 
                 
                 
@@ -1732,6 +2010,7 @@ border:2px solid #69c;
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2017/06/01/kotlin3/#comments" itemprop="discussionUrl">
+                
                   <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/06/01/kotlin3/" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -1751,7 +2030,9 @@ border:2px solid #69c;
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1764,30 +2045,33 @@ border:2px solid #69c;
 </blockquote>
 <h1 id="类"><a href="#类" class="headerlink" title="类"></a>类</h1><p>使用 <strong>class</strong> 关键字声明类。<br>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/06/01/kotlin3/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/06/01/kotlin3/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
-	   
     </p></div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-     <!--评论-->
     
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
     <footer class="post-footer">
       
 
@@ -1800,8 +2084,12 @@ border:2px solid #69c;
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
+  </article>
 
-  </article> 
 
     
       
@@ -1812,12 +2100,18 @@ border:2px solid #69c;
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2017/05/23/kotlin2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴小龙同學">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="我的微信公众号：吴小龙同学">
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
@@ -1831,13 +2125,9 @@ border:2px solid #69c;
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/05/23/kotlin2/" itemprop="url">
-                  Kotlin for Android（二）基础语法
-                </a>
+                
+                <a href="/2017/05/23/kotlin2/" class="post-title-link" itemprop="url">Kotlin for Android（二）基础语法</a>
               
             
           </h1>
@@ -1845,6 +2135,11 @@ border:2px solid #69c;
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1852,13 +2147,30 @@ border:2px solid #69c;
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-23T20:29:54+08:00">
-                2017-05-23
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-05-23 20:29:54" itemprop="dateCreated datePublished" datetime="2017-05-23T20:29:54+08:00">2017-05-23</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-06-01 16:03:34" itemprop="dateModified" datetime="2017-06-01T16:03:34+08:00">2017-06-01</time>
+              
             
           </span>
 
@@ -1874,11 +2186,7 @@ border:2px solid #69c;
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Kotlin/" itemprop="url" rel="index">
-                    <span itemprop="name">Kotlin</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Kotlin/" itemprop="url" rel="index"><span itemprop="name">Kotlin</span></a></span>
 
                 
                 
@@ -1894,6 +2202,7 @@ border:2px solid #69c;
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2017/05/23/kotlin2/#comments" itemprop="discussionUrl">
+                
                   <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/05/23/kotlin2/" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -1913,7 +2222,9 @@ border:2px solid #69c;
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1926,30 +2237,33 @@ border:2px solid #69c;
 </blockquote>
 <h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><p>变量有可变和不可变，可以用 var 和 val 声明。<br>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/05/23/kotlin2/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/05/23/kotlin2/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
-	   
     </p></div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-     <!--评论-->
     
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
     <footer class="post-footer">
       
 
@@ -1962,23 +2276,24 @@ border:2px solid #69c;
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
+  </article>
 
-  </article> 
 
     
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
 
           </div>
-          
-
-
           
 
         </div>
@@ -1994,116 +2309,469 @@ border:2px solid #69c;
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
 
       
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="吴小龙同學">
-          <p class="site-author-name" itemprop="name">吴小龙同學</p>
-           
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="吴小龙同學">
+            
+              <p class="site-author-name" itemprop="name">吴小龙同學</p>
               <p class="site-description motion-element" itemprop="description">我的微信公众号：吴小龙同学</p>
-          
-        </div>
-        <nav class="site-state motion-element">
-
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/archives/index.html">
-                <span class="site-state-item-count">142</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-categories">
-              <a href="/categories/index.html">
-                <span class="site-state-item-count">44</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/tags/index.html">
-                <span class="site-state-item-count">123</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-          <div class="feed-link motion-element">
-            <a href="/atom.xml" rel="alternate">
-              <i class="fa fa-rss"></i>
-              RSS
-            </a>
           </div>
-        
 
-        <div class="links-of-author motion-element">
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">142</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">41</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">112</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://open.weixin.qq.com/qr/code?username=MrWuXiaolong" title="WeChat &rarr; https://open.weixin.qq.com/qr/code?username=MrWuXiaolong" rel="noopener" target="_blank"><i class="fa fa-fw fa-weixin"></i>WeChat</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/WuXiaolong" title="GitHub &rarr; https://github.com/WuXiaolong" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.zhihu.com/people/wuxiaolong.me" title="知乎 &rarr; https://www.zhihu.com/people/wuxiaolong.me" rel="noopener" target="_blank"><i class="fa fa-fw fa-book"></i>知乎</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="http://weibo.com/u/2175011601" title="Weibo &rarr; http://weibo.com/u/2175011601" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
           
             
-              <span class="links-of-author-item">
-                <a href="https://open.weixin.qq.com/qr/code?username=MrWuXiaolong" target="_blank" title="WeChat">
-                  
-                    <i class="fa fa-fw fa-weixin"></i>
-                  
-                  WeChat
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/WuXiaolong" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  GitHub
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="https://www.zhihu.com/people/wuxiaolong.me" target="_blank" title="知乎">
-                  
-                    <i class="fa fa-fw fa-book"></i>
-                  
-                  知乎
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://weibo.com/u/2175011601" target="_blank" title="微博">
-                  
-                    <i class="fa fa-fw fa-weibo"></i>
-                  
-                  微博
-                </a>
-              </span>
-            
           
+          
+
         </div>
-
-        
-        
-
-        
-        
-
-        
-
-
-      </section>
+      </div>
 
       
 
@@ -2119,30 +2787,53 @@ border:2px solid #69c;
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">
-  
-  &copy;  2013 - 
-  <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
+        <div class="copyright">&copy; 2013 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">吴小龙同學</span>
+
+  
+
+  
 </div>
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
-
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
-  </a>
-</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.4.2</div>
 
 
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.7.0</div>
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
 
         
       </div>
@@ -2155,11 +2846,16 @@ border:2px solid #69c;
       </div>
     
 
+    
+
+    
+
+    
   </div>
 
   
 
-<script type="text/javascript">
+<script>
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
   }
@@ -2173,84 +2869,67 @@ border:2px solid #69c;
 
 
 
-  
 
 
 
 
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
-  
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+
+
 
 
 
   
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
-
-
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
-
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
 
   
 
 
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
 
   
 
-    <script type="text/javascript">
-      var disqus_shortname = 'WuXiaolong';
-      var disqus_identifier = 'page/2/index.html';
-
-      var disqus_title = "";
+  
 
 
-      function run_disqus_script(disqus_script) {
-        var dsq = document.createElement('script');
-        dsq.type = 'text/javascript';
-        dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-      }
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
 
-      run_disqus_script('count.js');
 
-      
 
-    </script>
+  
+
+  
+    <script id="dsq-count-scr" src="https://WuXiaolong.disqus.com/count.js" async></script>
+  
+
   
 
 
@@ -2268,9 +2947,6 @@ border:2px solid #69c;
   
 
 
-  
-
-
 
 
 
@@ -2282,10 +2958,23 @@ border:2px solid #69c;
 
   
 
+  
 
-  <!--崩溃欺骗
-  <script type="text/javascript" src="/js/src/dytitle.js"></script>
-  -->
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 
 </body>
 </html>
