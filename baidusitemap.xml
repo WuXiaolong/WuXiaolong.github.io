@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://wuxiaolong.me/2018/08/15/AOSP3/</loc>
+    <lastmod>2019-01-05T02:56:19.613Z</lastmod>
+    <data>
+        <display>
+        <title>Android Studio 导入源码</title>
+        <pubTime>2018-08-15T02:24:22.000Z</pubTime>
+        
+        <tag>AOSP</tag>
+         
+         
+           
+             
+              <breadCrumb title="AOSP" url="http://wuxiaolong.me/categories/AOSP/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://wuxiaolong.me/2018/07/25/AOSP2/</loc>
     <lastmod>2019-01-05T01:45:11.615Z</lastmod>
     <data>
@@ -175,9 +195,9 @@
         
         <tag>XMPP</tag>
          
-        <tag>openfire</tag>
-         
         <tag>Smack</tag>
+         
+        <tag>openfire</tag>
          
          
            
@@ -644,26 +664,6 @@
 
     
   <url>
-    <loc>http://wuxiaolong.me/2017/08/01/ModularExploree/</loc>
-    <lastmod>2018-10-28T08:31:39.698Z</lastmod>
-    <data>
-        <display>
-        <title>Android 组件化探索与思考</title>
-        <pubTime>2017-08-01T04:39:55.000Z</pubTime>
-        
-        <tag>Modular</tag>
-         
-         
-           
-             
-              <breadCrumb title="Modular" url="http://wuxiaolong.me/categories/Modular/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://wuxiaolong.me/2015/11/16/LinearGradientTextView/</loc>
     <lastmod>2018-10-28T08:31:39.698Z</lastmod>
     <data>
@@ -679,6 +679,26 @@
            
              
               <breadCrumb title="Android" url="http://wuxiaolong.me/categories/Android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://wuxiaolong.me/2017/08/01/ModularExploree/</loc>
+    <lastmod>2018-10-28T08:31:39.698Z</lastmod>
+    <data>
+        <display>
+        <title>Android 组件化探索与思考</title>
+        <pubTime>2017-08-01T04:39:55.000Z</pubTime>
+        
+        <tag>Modular</tag>
+         
+         
+           
+             
+              <breadCrumb title="Modular" url="http://wuxiaolong.me/categories/Modular/"/>
           
         </display>
     </data>
@@ -2429,9 +2449,9 @@
         
         <tag>XMPP</tag>
          
-        <tag>openfire</tag>
-         
         <tag>Smack</tag>
+         
+        <tag>openfire</tag>
          
          
            
@@ -2453,9 +2473,9 @@
         
         <tag>XMPP</tag>
          
-        <tag>openfire</tag>
-         
         <tag>Smack</tag>
+         
+        <tag>openfire</tag>
          
          
            
@@ -2508,98 +2528,16 @@
 
     
   <url>
-    <loc>http://wuxiaolong.me/2015/06/10/checkPermission/</loc>
+    <loc>http://wuxiaolong.me/2015/04/21/SqliteSample/</loc>
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     <data>
         <display>
-        <title>Android判断权限被限制</title>
-        <pubTime>2015-06-09T16:00:00.000Z</pubTime>
+        <title>Android之SqliteSample</title>
+        <pubTime>2015-04-20T16:00:00.000Z</pubTime>
         
         <tag>Android</tag>
          
-        <tag>Permission</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="http://wuxiaolong.me/categories/Android/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://wuxiaolong.me/2015/01/13/Context-Activity/</loc>
-    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android下Context、Activity、Application之间有什么区别</title>
-        <pubTime>2015-01-12T16:00:00.000Z</pubTime>
-        
-        <tag>Android</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="http://wuxiaolong.me/categories/Android/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://wuxiaolong.me/2015/07/27/SaveImageToGallery/</loc>
-    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android保存图片并显示系统图库</title>
-        <pubTime>2015-07-26T16:00:00.000Z</pubTime>
-        
-        <tag>Android</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="http://wuxiaolong.me/categories/Android/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://wuxiaolong.me/2015/04/23/CanvasToPhoto/</loc>
-    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android之Canvas中内容保存为图片</title>
-        <pubTime>2015-04-22T16:00:00.000Z</pubTime>
-        
-        <tag>Android</tag>
-         
-        <tag>Canvas</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="http://wuxiaolong.me/categories/Android/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://wuxiaolong.me/2015/07/29/AppInfo/</loc>
-    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android获取手机已安装apk文件信息</title>
-        <pubTime>2015-07-28T16:00:00.000Z</pubTime>
-        
-        <tag>Android</tag>
+        <tag>Sqlite</tag>
          
          
            
@@ -2656,12 +2594,34 @@
 
     
   <url>
-    <loc>http://wuxiaolong.me/2013/06/14/android-developers-should-keep-the-following-characteristics/</loc>
+    <loc>http://wuxiaolong.me/2015/04/23/CanvasToPhoto/</loc>
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     <data>
         <display>
-        <title>Android开发者应该保持以下特质</title>
-        <pubTime>2013-06-13T16:00:00.000Z</pubTime>
+        <title>Android之Canvas中内容保存为图片</title>
+        <pubTime>2015-04-22T16:00:00.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+        <tag>Canvas</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="http://wuxiaolong.me/categories/Android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://wuxiaolong.me/2015/07/29/AppInfo/</loc>
+    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android获取手机已安装apk文件信息</title>
+        <pubTime>2015-07-28T16:00:00.000Z</pubTime>
         
         <tag>Android</tag>
          
@@ -2676,14 +2636,16 @@
 
     
   <url>
-    <loc>http://wuxiaolong.me/2014/11/09/AndroidSamples/</loc>
+    <loc>http://wuxiaolong.me/2015/06/10/checkPermission/</loc>
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     <data>
         <display>
-        <title>Android实战Samples</title>
-        <pubTime>2014-11-08T16:00:00.000Z</pubTime>
+        <title>Android判断权限被限制</title>
+        <pubTime>2015-06-09T16:00:00.000Z</pubTime>
         
         <tag>Android</tag>
+         
+        <tag>Permission</tag>
          
          
            
@@ -2738,36 +2700,14 @@
 
     
   <url>
-    <loc>http://wuxiaolong.me/2014/06/30/custom-debug-keystore/</loc>
+    <loc>http://wuxiaolong.me/2014/11/09/AndroidSamples/</loc>
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     <data>
         <display>
-        <title>Eclipse ADT的Custom debug keystore所需证书规格</title>
-        <pubTime>2014-06-29T16:00:00.000Z</pubTime>
+        <title>Android实战Samples</title>
+        <pubTime>2014-11-08T16:00:00.000Z</pubTime>
         
         <tag>Android</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="http://wuxiaolong.me/categories/Android/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://wuxiaolong.me/2015/04/21/SqliteSample/</loc>
-    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android之SqliteSample</title>
-        <pubTime>2015-04-20T16:00:00.000Z</pubTime>
-        
-        <tag>Android</tag>
-         
-        <tag>Sqlite</tag>
          
          
            
@@ -2793,6 +2733,50 @@
            
              
               <breadCrumb title="Life" url="http://wuxiaolong.me/categories/Life/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://wuxiaolong.me/2015/04/23/LayoutInflater/</loc>
+    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android之LayoutInflate</title>
+        <pubTime>2015-04-22T16:00:00.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+        <tag>LayoutInflate</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="http://wuxiaolong.me/categories/Android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://wuxiaolong.me/2014/06/24/java-lang-IllegalStateException-Fragment-not-attached-to-Activity/</loc>
+    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+    <data>
+        <display>
+        <title>java.lang.IllegalStateException:Fragment（XXFragment） not attached to Activity</title>
+        <pubTime>2014-06-23T16:00:00.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+        <tag>Fragment</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="http://wuxiaolong.me/categories/Android/"/>
           
         </display>
     </data>
@@ -2828,16 +2812,34 @@
 
     
   <url>
-    <loc>http://wuxiaolong.me/2015/04/27/Split/</loc>
+    <loc>http://wuxiaolong.me/2013/06/14/android-developers-should-keep-the-following-characteristics/</loc>
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     <data>
         <display>
-        <title>Android字符串分割</title>
-        <pubTime>2015-04-26T16:00:00.000Z</pubTime>
+        <title>Android开发者应该保持以下特质</title>
+        <pubTime>2013-06-13T16:00:00.000Z</pubTime>
         
         <tag>Android</tag>
          
-        <tag>Canvas</tag>
+         
+           
+             
+              <breadCrumb title="Android" url="http://wuxiaolong.me/categories/Android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://wuxiaolong.me/2015/07/27/SaveImageToGallery/</loc>
+    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android保存图片并显示系统图库</title>
+        <pubTime>2015-07-26T16:00:00.000Z</pubTime>
+        
+        <tag>Android</tag>
          
          
            
@@ -2870,16 +2872,16 @@
 
     
   <url>
-    <loc>http://wuxiaolong.me/2014/06/24/java-lang-IllegalStateException-Fragment-not-attached-to-Activity/</loc>
+    <loc>http://wuxiaolong.me/2015/04/27/Split/</loc>
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     <data>
         <display>
-        <title>java.lang.IllegalStateException:Fragment（XXFragment） not attached to Activity</title>
-        <pubTime>2014-06-23T16:00:00.000Z</pubTime>
+        <title>Android字符串分割</title>
+        <pubTime>2015-04-26T16:00:00.000Z</pubTime>
         
         <tag>Android</tag>
          
-        <tag>Fragment</tag>
+        <tag>Canvas</tag>
          
          
            
@@ -2892,16 +2894,34 @@
 
     
   <url>
-    <loc>http://wuxiaolong.me/2015/04/23/LayoutInflater/</loc>
+    <loc>http://wuxiaolong.me/2014/06/30/custom-debug-keystore/</loc>
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     <data>
         <display>
-        <title>Android之LayoutInflate</title>
-        <pubTime>2015-04-22T16:00:00.000Z</pubTime>
+        <title>Eclipse ADT的Custom debug keystore所需证书规格</title>
+        <pubTime>2014-06-29T16:00:00.000Z</pubTime>
         
         <tag>Android</tag>
          
-        <tag>LayoutInflate</tag>
+         
+           
+             
+              <breadCrumb title="Android" url="http://wuxiaolong.me/categories/Android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://wuxiaolong.me/2015/01/13/Context-Activity/</loc>
+    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android下Context、Activity、Application之间有什么区别</title>
+        <pubTime>2015-01-12T16:00:00.000Z</pubTime>
+        
+        <tag>Android</tag>
          
          
            
