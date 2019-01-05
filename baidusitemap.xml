@@ -64,6 +64,26 @@
 
     
   <url>
+    <loc>http://wuxiaolong.me/2015/05/25/android-studio-share-to-svn/</loc>
+    <lastmod>2018-10-28T08:31:39.728Z</lastmod>
+    <data>
+        <display>
+        <title>Android studio share项目到svn仓库</title>
+        <pubTime>2015-05-24T16:00:00.000Z</pubTime>
+        
+        <tag>Android Studio</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android Studio" url="http://wuxiaolong.me/categories/Android-Studio/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://wuxiaolong.me/2015/08/10/android-small-knowledge-base/</loc>
     <lastmod>2018-10-28T08:31:39.728Z</lastmod>
     <data>
@@ -84,19 +104,19 @@
 
     
   <url>
-    <loc>http://wuxiaolong.me/2015/05/25/android-studio-share-to-svn/</loc>
-    <lastmod>2018-10-28T08:31:39.728Z</lastmod>
+    <loc>http://wuxiaolong.me/2015/05/12/AdFund/</loc>
+    <lastmod>2018-10-28T08:31:39.726Z</lastmod>
     <data>
         <display>
-        <title>Android studio share项目到svn仓库</title>
-        <pubTime>2015-05-24T16:00:00.000Z</pubTime>
+        <title>广告基金</title>
+        <pubTime>2015-05-11T16:00:00.000Z</pubTime>
         
-        <tag>Android Studio</tag>
+        <tag>AD</tag>
          
          
            
              
-              <breadCrumb title="Android Studio" url="http://wuxiaolong.me/categories/Android-Studio/"/>
+              <breadCrumb title="Life" url="http://wuxiaolong.me/categories/Life/"/>
           
         </display>
     </data>
@@ -119,26 +139,6 @@
            
              
               <breadCrumb title="ListView" url="http://wuxiaolong.me/categories/ListView/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://wuxiaolong.me/2015/05/12/AdFund/</loc>
-    <lastmod>2018-10-28T08:31:39.726Z</lastmod>
-    <data>
-        <display>
-        <title>广告基金</title>
-        <pubTime>2015-05-11T16:00:00.000Z</pubTime>
-        
-        <tag>AD</tag>
-         
-         
-           
-             
-              <breadCrumb title="Life" url="http://wuxiaolong.me/categories/Life/"/>
           
         </display>
     </data>
@@ -195,9 +195,9 @@
         
         <tag>XMPP</tag>
          
-        <tag>openfire</tag>
-         
         <tag>Smack</tag>
+         
+        <tag>openfire</tag>
          
          
            
@@ -250,26 +250,6 @@
 
     
   <url>
-    <loc>http://wuxiaolong.me/2016/06/20/uCrop/</loc>
-    <lastmod>2018-10-28T08:31:39.717Z</lastmod>
-    <data>
-        <display>
-        <title>uCrop使用及源码浅析</title>
-        <pubTime>2016-06-20T00:52:32.000Z</pubTime>
-        
-        <tag>uCrop</tag>
-         
-         
-           
-             
-              <breadCrumb title="Library" url="http://wuxiaolong.me/categories/Library/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://wuxiaolong.me/2015/08/03/TabLayout/</loc>
     <lastmod>2018-10-28T08:31:39.717Z</lastmod>
     <data>
@@ -283,6 +263,26 @@
            
              
               <breadCrumb title="SupportLibrary" url="http://wuxiaolong.me/categories/SupportLibrary/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://wuxiaolong.me/2016/06/20/uCrop/</loc>
+    <lastmod>2018-10-28T08:31:39.717Z</lastmod>
+    <data>
+        <display>
+        <title>uCrop使用及源码浅析</title>
+        <pubTime>2016-06-20T00:52:32.000Z</pubTime>
+        
+        <tag>uCrop</tag>
+         
+         
+           
+             
+              <breadCrumb title="Library" url="http://wuxiaolong.me/categories/Library/"/>
           
         </display>
     </data>
@@ -930,6 +930,26 @@
 
     
   <url>
+    <loc>http://wuxiaolong.me/2017/09/05/GitBookGuide/</loc>
+    <lastmod>2018-10-28T08:31:39.687Z</lastmod>
+    <data>
+        <display>
+        <title>GitBook 使用</title>
+        <pubTime>2017-09-05T02:54:17.000Z</pubTime>
+        
+        <tag>GitBook</tag>
+         
+         
+           
+             
+              <breadCrumb title="GitBook" url="http://wuxiaolong.me/categories/GitBook/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://wuxiaolong.me/2016/03/17/GenymotionErrors/</loc>
     <lastmod>2018-10-28T08:31:39.687Z</lastmod>
     <data>
@@ -945,26 +965,6 @@
            
              
               <breadCrumb title="Android" url="http://wuxiaolong.me/categories/Android/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://wuxiaolong.me/2017/09/05/GitBookGuide/</loc>
-    <lastmod>2018-10-28T08:31:39.687Z</lastmod>
-    <data>
-        <display>
-        <title>GitBook 使用</title>
-        <pubTime>2017-09-05T02:54:17.000Z</pubTime>
-        
-        <tag>GitBook</tag>
-         
-         
-           
-             
-              <breadCrumb title="GitBook" url="http://wuxiaolong.me/categories/GitBook/"/>
           
         </display>
     </data>
@@ -2449,9 +2449,9 @@
         
         <tag>XMPP</tag>
          
-        <tag>openfire</tag>
-         
         <tag>Smack</tag>
+         
+        <tag>openfire</tag>
          
          
            
@@ -2473,9 +2473,9 @@
         
         <tag>XMPP</tag>
          
-        <tag>openfire</tag>
-         
         <tag>Smack</tag>
+         
+        <tag>openfire</tag>
          
          
            
@@ -2528,16 +2528,16 @@
 
     
   <url>
-    <loc>http://wuxiaolong.me/2015/04/21/SqliteSample/</loc>
+    <loc>http://wuxiaolong.me/2015/04/27/Split/</loc>
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     <data>
         <display>
-        <title>Android之SqliteSample</title>
-        <pubTime>2015-04-20T16:00:00.000Z</pubTime>
+        <title>Android字符串分割</title>
+        <pubTime>2015-04-26T16:00:00.000Z</pubTime>
         
         <tag>Android</tag>
          
-        <tag>Sqlite</tag>
+        <tag>Canvas</tag>
          
          
            
@@ -2658,16 +2658,16 @@
 
     
   <url>
-    <loc>http://wuxiaolong.me/2015/04/23/LayoutInflater/</loc>
+    <loc>http://wuxiaolong.me/2013/03/02/methods-SQLite-were-randomly-selected-for-the-N/</loc>
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     <data>
         <display>
-        <title>Android之LayoutInflate</title>
-        <pubTime>2015-04-22T16:00:00.000Z</pubTime>
+        <title>SQLite随机取n行的方法</title>
+        <pubTime>2013-03-01T16:00:00.000Z</pubTime>
         
         <tag>Android</tag>
          
-        <tag>LayoutInflate</tag>
+        <tag>SQLite</tag>
          
          
            
@@ -2680,14 +2680,16 @@
 
     
   <url>
-    <loc>http://wuxiaolong.me/2013/07/18/mobile-phone-information-acquisition/</loc>
+    <loc>http://wuxiaolong.me/2015/04/23/LayoutInflater/</loc>
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     <data>
         <display>
-        <title>android之获取手机信息</title>
-        <pubTime>2013-07-17T16:00:00.000Z</pubTime>
+        <title>Android之LayoutInflate</title>
+        <pubTime>2015-04-22T16:00:00.000Z</pubTime>
         
         <tag>Android</tag>
+         
+        <tag>LayoutInflate</tag>
          
          
            
@@ -2720,16 +2722,14 @@
 
     
   <url>
-    <loc>http://wuxiaolong.me/2013/03/02/methods-SQLite-were-randomly-selected-for-the-N/</loc>
+    <loc>http://wuxiaolong.me/2013/07/18/mobile-phone-information-acquisition/</loc>
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     <data>
         <display>
-        <title>SQLite随机取n行的方法</title>
-        <pubTime>2013-03-01T16:00:00.000Z</pubTime>
+        <title>android之获取手机信息</title>
+        <pubTime>2013-07-17T16:00:00.000Z</pubTime>
         
         <tag>Android</tag>
-         
-        <tag>SQLite</tag>
          
          
            
@@ -2755,6 +2755,26 @@
            
              
               <breadCrumb title="Android" url="http://wuxiaolong.me/categories/Android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://wuxiaolong.me/2014/10/13/ninety-nine-life-sentiment/</loc>
+    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
+    <data>
+        <display>
+        <title>【转】九十九段精彩的人生感悟</title>
+        <pubTime>2014-10-13T09:01:20.000Z</pubTime>
+        
+        <tag>Life</tag>
+         
+         
+           
+             
+              <breadCrumb title="Life" url="http://wuxiaolong.me/categories/Life/"/>
           
         </display>
     </data>
@@ -2790,16 +2810,14 @@
 
     
   <url>
-    <loc>http://wuxiaolong.me/2014/06/24/java-lang-IllegalStateException-Fragment-not-attached-to-Activity/</loc>
+    <loc>http://wuxiaolong.me/2013/06/14/android-developers-should-keep-the-following-characteristics/</loc>
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     <data>
         <display>
-        <title>java.lang.IllegalStateException:Fragment（XXFragment） not attached to Activity</title>
-        <pubTime>2014-06-23T16:00:00.000Z</pubTime>
+        <title>Android开发者应该保持以下特质</title>
+        <pubTime>2013-06-13T16:00:00.000Z</pubTime>
         
         <tag>Android</tag>
-         
-        <tag>Fragment</tag>
          
          
            
@@ -2812,14 +2830,16 @@
 
     
   <url>
-    <loc>http://wuxiaolong.me/2013/06/14/android-developers-should-keep-the-following-characteristics/</loc>
+    <loc>http://wuxiaolong.me/2015/04/21/SqliteSample/</loc>
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     <data>
         <display>
-        <title>Android开发者应该保持以下特质</title>
-        <pubTime>2013-06-13T16:00:00.000Z</pubTime>
+        <title>Android之SqliteSample</title>
+        <pubTime>2015-04-20T16:00:00.000Z</pubTime>
         
         <tag>Android</tag>
+         
+        <tag>Sqlite</tag>
          
          
            
@@ -2852,36 +2872,16 @@
 
     
   <url>
-    <loc>http://wuxiaolong.me/2014/10/13/ninety-nine-life-sentiment/</loc>
+    <loc>http://wuxiaolong.me/2014/06/24/java-lang-IllegalStateException-Fragment-not-attached-to-Activity/</loc>
     <lastmod>2016-08-25T11:38:54.000Z</lastmod>
     <data>
         <display>
-        <title>【转】九十九段精彩的人生感悟</title>
-        <pubTime>2014-10-13T09:01:20.000Z</pubTime>
-        
-        <tag>Life</tag>
-         
-         
-           
-             
-              <breadCrumb title="Life" url="http://wuxiaolong.me/categories/Life/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://wuxiaolong.me/2015/04/27/Split/</loc>
-    <lastmod>2016-08-25T11:38:54.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android字符串分割</title>
-        <pubTime>2015-04-26T16:00:00.000Z</pubTime>
+        <title>java.lang.IllegalStateException:Fragment（XXFragment） not attached to Activity</title>
+        <pubTime>2014-06-23T16:00:00.000Z</pubTime>
         
         <tag>Android</tag>
          
-        <tag>Canvas</tag>
+        <tag>Fragment</tag>
          
          
            
