@@ -1,0 +1,1040 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="AOSP,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="吴小龙同學" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="《AOSP 源码下载》完成后，就可以开编了。 整编整编，顾名思义就是编译整个 Android 源码，最终 out 目录会生成几个重要的镜像文件，其中有 system.img、userdata.img、ramdisk.img 等，这些是可以刷机的。">
+<meta name="keywords" content="AOSP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AOSP 源码整编单编">
+<meta property="og:url" content="http://wuxiaolong.me/2018/07/25/AOSP2/index.html">
+<meta property="og:site_name" content="吴小龙同學">
+<meta property="og:description" content="《AOSP 源码下载》完成后，就可以开编了。 整编整编，顾名思义就是编译整个 Android 源码，最终 out 目录会生成几个重要的镜像文件，其中有 system.img、userdata.img、ramdisk.img 等，这些是可以刷机的。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-05T01:45:11.615Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AOSP 源码整编单编">
+<meta name="twitter:description" content="《AOSP 源码下载》完成后，就可以开编了。 整编整编，顾名思义就是编译整个 Android 源码，最终 out 目录会生成几个重要的镜像文件，其中有 system.img、userdata.img、ramdisk.img 等，这些是可以刷机的。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://wuxiaolong.me/2018/07/25/AOSP2/">
+
+
+
+
+
+  <title> AOSP 源码整编单编 | 吴小龙同學 </title>
+
+  <style type="text/css">
+  .div_right_bottom {
+  width: 200px;
+  top: 50%;
+  right: 0px;
+  position: fixed;
+  margin-top: -100px;
+  _position: absolute; /* position fixed for IE6 */
+/*
+右上角
+float:right;
+top:0;
+边框
+border:2px solid #69c;
+  right:0px;
+  bottom:0px;
+  z-index:0;
+*/
+
+}
+</style>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+  <div class="div_right_bottom" align="center">
+  <img src="https://open.weixin.qq.com/qr/code?username=MrWuXiaolong">
+  微信公众号
+  </div>
+
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-105780265-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0e1dc2030f397dfa0d60ad22b374430d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">吴小龙同學</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">党要我帅，我不得不帅！</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-friendslinks">
+          <a href="/friendslinks/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-users"></i> <br>
+            
+            小伙伴
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-gitbook">
+          <a href="https://wuxiaolong.gitbooks.io/wuxiaolong/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br>
+            
+            GitBook
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/index.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input">
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'ywBn2eRCzfb494KCWJw3','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2018/07/25/AOSP2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吴小龙同學">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴小龙同學">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                AOSP 源码整编单编
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-25T09:35:19+08:00">
+                2018-07-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/AOSP/" itemprop="url" rel="index">
+                    <span itemprop="name">AOSP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/07/25/AOSP2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/07/25/AOSP2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>《<a href="https://mp.weixin.qq.com/s/hEWNHN4_k2HY9uhnw1diMA" target="_blank" rel="noopener">AOSP 源码下载</a>》完成后，就可以开编了。</p>
+<h1 id="整编"><a href="#整编" class="headerlink" title="整编"></a>整编</h1><p>整编，顾名思义就是编译整个 Android 源码，最终 out 目录会生成几个重要的镜像文件，其中有 system.img、userdata.img、ramdisk.img 等，这些是可以刷机的。</p>
+<a id="more"></a>
+<h2 id="初始化编译环境"><a href="#初始化编译环境" class="headerlink" title="初始化编译环境"></a>初始化编译环境</h2><p>项目目录，打开终端，输入命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">source</span> build/envsetup.sh</div></pre></td></tr></table></figure></p>
+<h2 id="选择编译目标"><a href="#选择编译目标" class="headerlink" title="选择编译目标"></a>选择编译目标</h2><p>命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lunch</div></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line">You<span class="string">'re building on Linux</span></div><div class="line"></div><div class="line">Lunch menu... pick a combo:</div><div class="line">     1. aosp_arm-eng</div><div class="line">     2. aosp_arm64-eng</div><div class="line">     3. aosp_blueline-userdebug</div><div class="line">     4. aosp_car_arm-userdebug</div><div class="line">     5. aosp_car_arm64-userdebug</div><div class="line">     6. aosp_car_x86-userdebug</div><div class="line">     7. aosp_car_x86_64-userdebug</div><div class="line">     8. aosp_cf_x86_64_auto-userdebug</div><div class="line">     9. aosp_cf_x86_64_phone-userdebug</div><div class="line">     10. aosp_cf_x86_64_tablet-userdebug</div><div class="line">     11. aosp_cf_x86_64_tablet_3g-userdebug</div><div class="line">     12. aosp_cf_x86_64_tv-userdebug</div><div class="line">     13. aosp_cf_x86_64_wear-userdebug</div><div class="line">     14. aosp_cf_x86_auto-userdebug</div><div class="line">     15. aosp_cf_x86_phone-userdebug</div><div class="line">     16. aosp_cf_x86_tablet-userdebug</div><div class="line">     17. aosp_cf_x86_tablet_3g-userdebug</div><div class="line">     18. aosp_cf_x86_tv-userdebug</div><div class="line">     19. aosp_cf_x86_wear-userdebug</div><div class="line">     20. aosp_crosshatch-userdebug</div><div class="line">     21. aosp_marlin-userdebug</div><div class="line">     22. aosp_sailfish-userdebug</div><div class="line">     23. aosp_taimen-userdebug</div><div class="line">     24. aosp_walleye-userdebug</div><div class="line">     25. aosp_walleye_test-userdebug</div><div class="line">     26. aosp_x86-eng</div><div class="line">     27. aosp_x86_64-eng</div><div class="line">     28. beagle_x15-userdebug</div><div class="line">     29. hikey-userdebug</div><div class="line">     30. hikey64_only-userdebug</div><div class="line">     31. hikey960-userdebug</div><div class="line">     32. hikey960_tv-userdebug</div><div class="line">     33. hikey_tv-userdebug</div><div class="line">     34. m_e_arm-userdebug</div><div class="line">     35. mini_emulator_arm64-userdebug</div><div class="line">     36. mini_emulator_x86-userdebug</div><div class="line">     37. mini_emulator_x86_64-userdebug</div><div class="line">     38. poplar-eng</div><div class="line">     39. poplar-user</div><div class="line">     40. poplar-userdebug</div><div class="line">     41. uml-userdebug</div><div class="line"></div><div class="line">Which would you like? [aosp_arm-eng] 26</div></pre></td></tr></table></figure></p>
+<h3 id="编译目标格式说明"><a href="#编译目标格式说明" class="headerlink" title="编译目标格式说明"></a>编译目标格式说明</h3><p>编译目标的格式：BUILD-BUILDTYPE，比如上面的 poplar-eng 的 BUILD 是 poplar，BUILDTYPE 是 eng.</p>
+<h4 id="什么是-BUILD"><a href="#什么是-BUILD" class="headerlink" title="什么是 BUILD"></a>什么是 BUILD</h4><p>BUILD 指的是特定功能的组合的特定名称，即表示编译出的镜像可以运行在什么环境。其中 aosp(Android Open Source Project)代表 Android 开源项目；arm 表示系统是运行在 arm 架构的处理器上，arm64 则是指 64 位 arm 架构处理器，x86 则表示 x86 架构的处理器，更多设备代码和编译目标参考<a href="https://source.android.google.cn/source/running.html#selecting-device-build" target="_blank" rel="noopener">官方文档</a>。</p>
+<h4 id="什么是-BUILDTYPE"><a href="#什么是-BUILDTYPE" class="headerlink" title="什么是 BUILDTYPE"></a>什么是 BUILDTYPE</h4><p>BUILDTYPE 则指的是编译类型，通常有三种: </p>
+<ul>
+<li>user：用来正式发布到市场的版本，权限受限，如没有 root 权限，不能 dedug 等。</li>
+<li>userdebug：在user版本的基础上开放了 root 权限和 debug 权限。 </li>
+<li>eng：代表 engineer，开发工程师的版本，拥有最大的权限(root等)，具有额外调试工具的开发配置。</li>
+</ul>
+<p>如果没有谷歌手机设备，可以选择 arm 或者 x86，我选择了 aosp_x86-eng，编译完后运行模拟器看看，因此这里选择序号 26。</p>
+<h2 id="开始编译"><a href="#开始编译" class="headerlink" title="开始编译"></a>开始编译</h2><p>通过 make 指令进行代码编译：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">make -j8</div></pre></td></tr></table></figure></p>
+<p>其中 -jN 参数表示处理并行任务，通常使用的任务数 N 介于编译时所用计算机上硬件线程数的 1-2 倍之间。</p>
+<p>查看计算机上的核心数：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cat /proc/cpuinfo | grep processor</div><div class="line">processor	: 0</div><div class="line">processor	: 1</div><div class="line">processor	: 2</div><div class="line">processor	: 3</div></pre></td></tr></table></figure></p>
+<p>可看到创建的虚拟机 CPU 核心共有 4 个，那么要实现最快的编译速度，可以使用介于 make -j4 到 make -j8 之间的命令。</p>
+<p>不出意外，当看到：<code>#### build completed successfully (03:55:24 (hh:mm:ss)) ####</code>就整编成功了。</p>
+<h2 id="运行模拟器"><a href="#运行模拟器" class="headerlink" title="运行模拟器"></a>运行模拟器</h2><p>整编完，网上很多都是说直接运行命令：<code>emulator</code>，但是我报以下错误了：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">emulator: WARNING: Couldn<span class="string">'t find crash service executable /media/ubuntu/disk/Project/AOSP9/prebuilts/android-emulator/linux-x86_64/emulator64-crash-service</span></div><div class="line"></div><div class="line">emulator: WARNING: system partition size adjusted to match image file (1080 MB &gt; 800 MB)</div><div class="line"></div><div class="line">queryCoreProfileSupport: swap interval not found</div><div class="line">failed to create drawable</div><div class="line">failed to create drawable</div><div class="line">failed to create drawable</div><div class="line">failed to create drawable</div><div class="line">failed to create drawable</div><div class="line">failed to create drawable</div><div class="line">failed to create drawable</div><div class="line">failed to create drawable</div><div class="line">getGLES2ExtensionString: Could not make GLES 2.x context current!</div></pre></td></tr></table></figure></p>
+<p>第一个警告不管，第二个警告可以 emulator 加参数 <code>-partition-size 2048</code>解决，也可以不管，最后一个折腾了很久，可以加参数<code>-gpu off</code>，完整运行模拟器的命令：<code>emulator -gpu off -partition-size 2048</code>，这时应该又会报：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">emulator: WARNING: Couldn<span class="string">'t find crash service executable /media/ubuntu/disk/Project/AOSP9/prebuilts/android-emulator/linux-x86_64/emulator64-crash-service</span></div><div class="line"></div><div class="line">emulator: WARNING: system partition size adjusted to match image file (1338 MB &gt; 800 MB)</div><div class="line"></div><div class="line">emulator: ERROR: Running multiple emulators with the same AVD is an experimental feature.</div><div class="line">Please use -read-only flag to enable this feature.</div></pre></td></tr></table></figure></p>
+<p>只能重启一下才能解决。</p>
+<p>如果编译完成后启动模拟器时卡在黑屏，可以尝试编译其他的！</p>
+<p>emulator 还有很多参数，可以用 <code>emulator -help</code> 查看，参数如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div></pre></td><td class="code"><pre><div class="line">-sysdir &lt;dir&gt; 为模拟器在&lt;dir&gt;目录中搜索系统硬盘镜像</div><div class="line">-system &lt;file&gt; 为模拟器从&lt;file&gt;文件中读取初始化系统镜像</div><div class="line">-datadir &lt;dir&gt; 设置用户数据写入的目录</div><div class="line">-kernel &lt;file&gt; 为模拟器设置使用指定的模拟器内核</div><div class="line">-ramdisk &lt;file&gt; 设置内存RAM 镜像文件(默认为&lt;system&gt;/ramdisk.img)</div><div class="line">-image &lt;file&gt; 废弃，使用-system &lt;file&gt; 替代</div><div class="line">-init-data &lt;file&gt; 设置初始化数据镜像(默认为&lt;system&gt;/userdata.img)</div><div class="line">-initdata &lt;file&gt; 和<span class="string">"-init-data &lt;file&gt;"</span>使用方法一致</div><div class="line">-data &lt;file&gt; 设置数据镜像(默认为&lt;datadir&gt;/userdata-qemu.img)</div><div class="line">-partition-size &lt;size&gt; system/data 分区容量大小(MB)</div><div class="line">-cache &lt;file&gt; 设置模拟器缓存分区镜像(默认为零时文件)</div><div class="line">-no-cache 禁用缓存分区</div><div class="line">-nocache 与<span class="string">"-no-cache"</span>使用方法相同</div><div class="line">-sdcard &lt;file&gt; 指定模拟器SDCard 镜像文件(默认为&lt;system&gt;/sdcard.img)</div><div class="line">-wipe-data 清除并重置用户数据镜像(从initdata 拷贝)</div><div class="line">-avd &lt;name&gt; 指定模拟器使用Android 虚拟设备</div><div class="line">-skindir &lt;dir&gt; 设置模拟器皮肤在&lt;dir&gt;目录中搜索皮肤(默认为&lt;system&gt;/skins 目录)</div><div class="line">-skin &lt;name&gt; 选择使用给定的皮肤</div><div class="line">-no-skin 不适用任何模拟器皮肤</div><div class="line">-noskin 使用方法与<span class="string">"-no-skin"</span>相同</div><div class="line">-memory &lt;size&gt; 物理RAM 内存大小(MB)</div><div class="line">-netspeed &lt;speed&gt; 设置最大网络下载、上传速度</div><div class="line">-netdelay &lt;delay&gt; 网络时延模拟</div><div class="line">-netfast 禁用网络形态</div><div class="line">-tarce &lt;name&gt; 代码配置可用</div><div class="line">-show-kernel 显示内核信息</div><div class="line">-shell 在当前终端中使用根Shell 命令</div><div class="line">-no-jni Dalvik 运行时禁用JNI 检测</div><div class="line">-nojni 使用方法与<span class="string">"-no-jni"</span>相同</div><div class="line">-logcat &lt;tag&gt; 输出给定tag 的Logcat 信息</div><div class="line"></div><div class="line">-no-audio 禁用音频支持</div><div class="line">-noaudio 与<span class="string">"-no-audio"</span>用法相同</div><div class="line">-audio &lt;backend&gt; 使用指定的音频backend</div><div class="line">-audio-in &lt;backend&gt; 使用指定的输入音频backend</div><div class="line">-audoi-out &lt;backend&gt; 使用指定的输出音频backend</div><div class="line">-raw-keys 禁用Unicode 键盘翻转图</div><div class="line">-radio 重定向无线模式接口到个性化设备</div><div class="line">-port &lt;port&gt; 设置控制台使用的TCP 端口</div><div class="line">-ports &lt;consoleport&gt;,&lt;adbport&gt; 设置控制台使用的TCP 端口和ADB 调试桥使用的TCP 端口</div><div class="line">-onion &lt;image&gt; 在屏幕上层使用覆盖PNG 图片</div><div class="line">-onion-alpha &lt;%age&gt; 指定上层皮肤半透明度</div><div class="line">-onion-rotation 0|1|2|3 指定上层皮肤旋转</div><div class="line">-scale &lt;scale&gt; 调节模拟器窗口尺寸(三种：1.0-3.0、dpi、auto)</div><div class="line">-dpi-device &lt;dpi&gt; 设置设备的resolution (dpi 单位) (默认165)</div><div class="line">-http-proxy &lt;proxy&gt; 通过一个HTTP 或HTTPS 代理来创建TCP 连接</div><div class="line">-timezone &lt;timezone&gt; 使用给定的时区，而不是主机默认的</div><div class="line">-dns-server &lt;server&gt; 在模拟系统上使用给定的DNS 服务</div><div class="line">-cpu-delay &lt;cpudelay&gt; 调节CUP 模拟</div><div class="line">-no-boot-anim 禁用动画来快速启动</div><div class="line">-no-window 禁用图形化窗口显示</div><div class="line">-version 显示模拟器版本号</div><div class="line">-report-console &lt;socket&gt; 向远程socket 报告控制台端口</div><div class="line">-gps &lt;device&gt; 重定向GPS 导航到个性化设备</div><div class="line">-keyset &lt;name&gt; 指定按键设置文件名</div><div class="line">-shell-serial &lt;device&gt; 根shell 的个性化设备</div><div class="line">-old-system 支持旧版本(pre 1.4)系统镜像</div><div class="line">-tcpdump &lt;file&gt; 把网络数据包捕获到文件中</div><div class="line">-bootchart &lt;timeout&gt; bootcharting 可用</div><div class="line">-qemu args.... 向qemu 传递参数</div><div class="line">-qemu -h 显示qemu 帮助</div><div class="line">-verbose 和<span class="string">"-debug-init"</span>相同</div><div class="line">-debug &lt;tags&gt; 可用、禁用调试信息</div><div class="line">-debug-&lt;tag&gt; 使指定的调试信息可用</div><div class="line">-debug-no-&lt;tag&gt; 禁用指定的调试信息</div><div class="line">-<span class="built_in">help</span> 打印出该帮助文档</div><div class="line">-<span class="built_in">help</span>-&lt;option&gt; 打印出指定option 的帮助文档</div><div class="line">-<span class="built_in">help</span>-disk-images 关于硬盘镜像帮助</div><div class="line">-<span class="built_in">help</span>-keys 支持按钮捆绑(手机快捷键)</div><div class="line">-<span class="built_in">help</span>-debug-tags 显示出-debug &lt;tag&gt;命令中的tag 可选值</div><div class="line">-<span class="built_in">help</span>-char-devices 个性化设备说明</div><div class="line">-<span class="built_in">help</span>-environment 环境变量</div><div class="line">-<span class="built_in">help</span>-keyset-file 指定按键绑定设置文件</div><div class="line">-<span class="built_in">help</span>-virtula-device 虚拟设备管理</div></pre></td></tr></table></figure></p>
+<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>模拟器运行需要四个文件，分别是：</p>
+<ul>
+<li>Linux Kernel</li>
+<li>system.img</li>
+<li>userdata.img</li>
+<li>ramdisk.img</li>
+</ul>
+<p>上面我 lunch 命令时选择的是 aosp_x86-eng，因此 linux 默认使用的 AOSP/prebuilds/qemu-kernel/x86/kernel-qemu 下的 kernel-qemu，而其他文件则是使用的 AOSP/out/target/product/generic_x86 目录下的 system.img、userdata.img、ramdisk.img。</p>
+<h1 id="单编"><a href="#单编" class="headerlink" title="单编"></a>单编</h1><p>单编就是编译某个模块，比如 Setting，会在 out 目录对应的产品有 Settings.apk，例如：out/target/product/generic_x86/system/priv-app/Settings/Settings.apk，这是可以直接安装的。</p>
+<p>1、source build/envsetup.sh</p>
+<p>2、lunch</p>
+<p>3、选择单编版本序号</p>
+<p>4、编译</p>
+<p>4.1、mmm<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mmm packages/apps/Settings/</div></pre></td></tr></table></figure></p>
+<p>编译指定目录下的模块，但不编译它所依赖的其它模块。</p>
+<p>4.2、mm</p>
+<p>先进入目录：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> packages/apps/Settings/</div></pre></td></tr></table></figure></p>
+<p>再编译<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mm</div></pre></td></tr></table></figure></p>
+<p>编译当前目录下的模块，它和 mmm 一样，不编译依赖模块。</p>
+<p>4.3、mma</p>
+<p>编译当前目录下的模块及其依赖项。</p>
+<p>4.4、mmma [module_path] </p>
+<p>编译指定路径下所有模块，且包含依赖</p>
+<p>4.5、make</p>
+<p>make: 不带任何参数则是编译整个系统<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">make MediaProvider</div></pre></td></tr></table></figure></p>
+<p>单个模块编译，会把该模块及其依赖的其他模块一起编译，会搜索整个源代码来定位 MediaProvider 模块所使用的 Android.mk 文件，还要判断该模块依赖的其他模块是否有修改。</p>
+<h2 id="make-snod"><a href="#make-snod" class="headerlink" title="make snod"></a>make snod</h2><p>如果我们修改代码，想看效果，怎么办？</p>
+<p>1、可以在编译完成后，借助 <code>adb install -r apk路径</code>直接将生成的 apk 文件安装到设备上，如果不是 APK，直接 push 对应的文件。</p>
+<p>2、可以编译好完成后，再使用<code>make snod</code>，重新生成 system.img，再运行模拟器也可。</p>
+		 <!--广告-->
+		﻿<h1>联系作者</h1>
+我的微信公众号：吴小龙同学，欢迎关注交流~
+<img src="https://open.weixin.qq.com/qr/code?username=MrWuXiaolong">
+<!--
+<h1><b>联系我</b></h1>
+<b>由于多说和网易云跟帖评论服务相继关闭，来必力并不给力，因此本博客决定不再折腾评论，欢迎大家可以前往我的公众号留言交流！</b>
+
+1、我的知识星球：更多分享只对您公开，￥99/永久。
+<img src="http://7q5c2h.com1.z0.glb.clouddn.com/zhishixingqiu.jpeg" style="margin-top: 20px; width: 40%; height: 40%"/> 
+<br>
+
+
+2、我的微信公众号：吴小龙同学，欢迎关注交流~
+<img src="http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_wuxiaolong_travel.jpg"  style="margin-top: 20px; width: 40%; height: 40%"/> 
+<br>
+
+3、我的微信群，可以加我微信，拉你进群，加我时<b>请备注真名</b>。
+<img src="http://7q5c2h.com1.z0.glb.clouddn.com/weixin.jpg"  style="margin-top: 20px; width: 40%; height: 40%"/> 
+<br>
+
+
+
+
+<!--
+其实有 Disqus ……
+1、Android技术交流剩者为王④群：331553260。
+<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=d129018d31e801e676743da4b05a1063f88ae52ca0407579666545596bdb7a52"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="剩者为王④群" title="剩者为王④群"></a>
+<img src="http://7q5c2h.com1.z0.glb.clouddn.com/qun4.png"  style="margin-top: 20px; width: 40%; height: 40%"/> 
+-->
+
+
+<!--<div style="padding: 10px 0; margin: 20px auto; width: 99%; text-align: center;"> 
+<b>赞助商：<a href="https://shop240489162.taobao.com/">躲角落的猫咪</a></b>
+<br>
+<img src="http://7q5c2h.com1.z0.glb.clouddn.com/taobaoshop.png"/> 
+</div>
+
+-->  
+ 
+      
+	   
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      吴小龙同學
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://wuxiaolong.me/2018/07/25/AOSP2/" title="AOSP 源码整编单编">http://wuxiaolong.me/2018/07/25/AOSP2/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+     <!--评论-->
+    
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/AOSP/" rel="tag"># AOSP</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/07/AOSP1/" rel="next" title="AOSP 源码下载">
+                <i class="fa fa-chevron-left"></i> AOSP 源码下载
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/16/AndroidColdStart/" rel="prev" title="Android APP 冷启动流程">
+                Android APP 冷启动流程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+
+  </article> 
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="吴小龙同學">
+          <p class="site-author-name" itemprop="name">吴小龙同學</p>
+           
+              <p class="site-description motion-element" itemprop="description">我的微信公众号：吴小龙同学</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/index.html">
+                <span class="site-state-item-count">141</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">123</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://open.weixin.qq.com/qr/code?username=MrWuXiaolong" target="_blank" title="WeChat">
+                  
+                    <i class="fa fa-fw fa-weixin"></i>
+                  
+                  WeChat
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/WuXiaolong" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/wuxiaolong.me" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2175011601" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#整编"><span class="nav-number">1.</span> <span class="nav-text">整编</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化编译环境"><span class="nav-number">1.1.</span> <span class="nav-text">初始化编译环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择编译目标"><span class="nav-number">1.2.</span> <span class="nav-text">选择编译目标</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#编译目标格式说明"><span class="nav-number">1.2.1.</span> <span class="nav-text">编译目标格式说明</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是-BUILD"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">什么是 BUILD</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是-BUILDTYPE"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">什么是 BUILDTYPE</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开始编译"><span class="nav-number">1.3.</span> <span class="nav-text">开始编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行模拟器"><span class="nav-number">1.4.</span> <span class="nav-text">运行模拟器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#补充"><span class="nav-number">1.4.1.</span> <span class="nav-text">补充</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#单编"><span class="nav-number">2.</span> <span class="nav-text">单编</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#make-snod"><span class="nav-number">2.1.</span> <span class="nav-text">make snod</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">吴小龙同學</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'WuXiaolong';
+      var disqus_identifier = '2018/07/25/AOSP2/';
+
+      var disqus_title = "AOSP 源码整编单编";
+
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
+      
+
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+
+  <!--崩溃欺骗
+  <script type="text/javascript" src="/js/src/dytitle.js"></script>
+  -->
+
+</body>
+</html>
