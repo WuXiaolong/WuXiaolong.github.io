@@ -411,6 +411,197 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2015/04/17/CustomToast/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吴小龙同學">
+      <meta itemprop="description" content="我的微信公众号：吴小龙同学">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴小龙同學">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2015/04/17/CustomToast/" class="post-title-link" itemprop="url">Android之CustomToast</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2015-04-17 00:00:00" itemprop="dateCreated datePublished" datetime="2015-04-17T00:00:00+08:00">2015-04-17</time>
+            
+
+            <!--
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2016-08-25 19:38:54" itemprop="dateModified" datetime="2016-08-25T19:38:54+08:00">2016-08-25</time>
+              -->
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/04/17/CustomToast/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/04/17/CustomToast/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>一、简单的CustomToast</p>
+<p>Java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomToast</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> String tip = <span class="string">""</span>;</div><div class="line">	<span class="keyword">private</span> Activity activity;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span> duration;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">CustomToast</span><span class="params">(Activity activity, String tip, <span class="keyword">int</span> duration)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.tip = tip;</div><div class="line">		<span class="keyword">this</span>.activity = activity;</div><div class="line">		<span class="keyword">this</span>.duration = duration;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="meta">@SuppressLint</span>(<span class="string">"InflateParams"</span>)</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;</div><div class="line">		LayoutInflater inflater = activity.getLayoutInflater();</div><div class="line">		View view = inflater.inflate(R.layout.custom_toast, <span class="keyword">null</span>);</div><div class="line">		TextView txt = (TextView) view.findViewById(R.id.txt);</div><div class="line">		txt.setText(tip);</div><div class="line">		Toast toast = <span class="keyword">new</span> Toast(activity);</div><div class="line">		<span class="comment">// toast.setGravity(Gravity.CENTER | Gravity.TOP, 12, 40);</span></div><div class="line">		toast.setDuration(duration);</div><div class="line">		toast.setView(view);</div><div class="line">		toast.show();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2015/04/17/CustomToast/" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2015/03/27/2015key/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -459,7 +650,7 @@
               <time title="创建时间：2015-03-27 17:37:17" itemprop="dateCreated datePublished" datetime="2015-03-27T17:37:17+08:00">2015-03-27</time>
             
 
-            
+            <!--
               
 
               
@@ -474,7 +665,7 @@
                   <span class="post-meta-item-text">更新于</span>
                 
                 <time title="修改时间：2018-01-02 13:43:06" itemprop="dateModified" datetime="2018-01-02T13:43:06+08:00">2018-01-02</time>
-              
+              -->
             
           </span>
 
@@ -650,7 +841,7 @@
               <time title="创建时间：2015-01-13 00:00:00" itemprop="dateCreated datePublished" datetime="2015-01-13T00:00:00+08:00">2015-01-13</time>
             
 
-            
+            <!--
               
 
               
@@ -665,7 +856,7 @@
                   <span class="post-meta-item-text">更新于</span>
                 
                 <time title="修改时间：2016-08-25 19:38:54" itemprop="dateModified" datetime="2016-08-25T19:38:54+08:00">2016-08-25</time>
-              
+              -->
             
           </span>
 
@@ -833,7 +1024,7 @@
               <time title="创建时间：2014-12-30 00:00:00" itemprop="dateCreated datePublished" datetime="2014-12-30T00:00:00+08:00">2014-12-30</time>
             
 
-            
+            <!--
               
 
               
@@ -848,7 +1039,7 @@
                   <span class="post-meta-item-text">更新于</span>
                 
                 <time title="修改时间：2016-12-20 22:06:32" itemprop="dateModified" datetime="2016-12-20T22:06:32+08:00">2016-12-20</time>
-              
+              -->
             
           </span>
 
@@ -1030,7 +1221,7 @@
               <time title="创建时间：2014-12-11 00:00:00" itemprop="dateCreated datePublished" datetime="2014-12-11T00:00:00+08:00">2014-12-11</time>
             
 
-            
+            <!--
               
 
               
@@ -1045,7 +1236,7 @@
                   <span class="post-meta-item-text">更新于</span>
                 
                 <time title="修改时间：2016-12-20 22:07:10" itemprop="dateModified" datetime="2016-12-20T22:07:10+08:00">2016-12-20</time>
-              
+              -->
             
           </span>
 
@@ -1220,7 +1411,7 @@
               <time title="创建时间：2014-12-05 00:00:00" itemprop="dateCreated datePublished" datetime="2014-12-05T00:00:00+08:00">2014-12-05</time>
             
 
-            
+            <!--
               
 
               
@@ -1235,7 +1426,7 @@
                   <span class="post-meta-item-text">更新于</span>
                 
                 <time title="修改时间：2018-10-28 16:31:39" itemprop="dateModified" datetime="2018-10-28T16:31:39+08:00">2018-10-28</time>
-              
+              -->
             
           </span>
 
@@ -1412,7 +1603,7 @@
               <time title="创建时间：2014-11-24 00:00:00" itemprop="dateCreated datePublished" datetime="2014-11-24T00:00:00+08:00">2014-11-24</time>
             
 
-            
+            <!--
               
 
               
@@ -1427,7 +1618,7 @@
                   <span class="post-meta-item-text">更新于</span>
                 
                 <time title="修改时间：2018-10-28 15:42:58" itemprop="dateModified" datetime="2018-10-28T15:42:58+08:00">2018-10-28</time>
-              
+              -->
             
           </span>
 
@@ -1604,7 +1795,7 @@
               <time title="创建时间：2014-11-22 00:00:00" itemprop="dateCreated datePublished" datetime="2014-11-22T00:00:00+08:00">2014-11-22</time>
             
 
-            
+            <!--
               
 
               
@@ -1619,7 +1810,7 @@
                   <span class="post-meta-item-text">更新于</span>
                 
                 <time title="修改时间：2018-10-28 16:31:39" itemprop="dateModified" datetime="2018-10-28T16:31:39+08:00">2018-10-28</time>
-              
+              -->
             
           </span>
 
@@ -1786,7 +1977,7 @@
               <time title="创建时间：2014-11-10 00:00:00" itemprop="dateCreated datePublished" datetime="2014-11-10T00:00:00+08:00">2014-11-10</time>
             
 
-            
+            <!--
               
 
               
@@ -1801,7 +1992,7 @@
                   <span class="post-meta-item-text">更新于</span>
                 
                 <time title="修改时间：2016-12-20 22:09:54" itemprop="dateModified" datetime="2016-12-20T22:09:54+08:00">2016-12-20</time>
-              
+              -->
             
           </span>
 
@@ -1978,7 +2169,7 @@
               <time title="创建时间：2014-11-09 00:00:00" itemprop="dateCreated datePublished" datetime="2014-11-09T00:00:00+08:00">2014-11-09</time>
             
 
-            
+            <!--
               
 
               
@@ -1993,7 +2184,7 @@
                   <span class="post-meta-item-text">更新于</span>
                 
                 <time title="修改时间：2016-08-25 19:38:54" itemprop="dateModified" datetime="2016-08-25T19:38:54+08:00">2016-08-25</time>
-              
+              -->
             
           </span>
 
@@ -2098,199 +2289,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2014/10/30/qiniu-photo-bed/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="吴小龙同學">
-      <meta itemprop="description" content="我的微信公众号：吴小龙同学">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吴小龙同學">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2014/10/30/qiniu-photo-bed/" class="post-title-link" itemprop="url">使用七牛作为github博客的图床</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2014-10-30 00:00:00" itemprop="dateCreated datePublished" datetime="2014-10-30T00:00:00+08:00">2014-10-30</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-10-28 16:31:39" itemprop="dateModified" datetime="2018-10-28T16:31:39+08:00">2018-10-28</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/QiNiu/" itemprop="url" rel="index"><span itemprop="name">QiNiu</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2014/10/30/qiniu-photo-bed/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2014/10/30/qiniu-photo-bed/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>注意：七牛现在使用自己的域名，不然用不了，不再推荐使用，2018/10/28。</p>
-<p>文章的图片存放:</p>
-<p>1.墙裂推荐七牛云储存,<a href="https://portal.qiniu.com/signup?code=3lk4saqepkdhu" target="_blank" rel="noopener">注册地址</a>。</p>
-<p>2.七牛云储存提供10G的免费空间,以及每月10G的流量.存放个人博客图片最好不过了</p>
-<p>3.七牛云储存还有各种图形处理功能、缩略图、视频存放速度也给力（非打广告）。</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2014/10/30/qiniu-photo-bed/" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2340,7 +2338,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">142</span>
+                    <span class="site-state-item-count">143</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
