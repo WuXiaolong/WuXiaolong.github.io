@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="本文是实际开发遇到的问题，结合情景，给出解决方案，很有启示作用。  1、比如列表有收藏按钮，当前页面收藏12345private List&amp;lt;Map&amp;lt;String, String&amp;gt;&amp;gt; mList = new ArrayList&amp;lt;&amp;gt;();...  //走收藏接口，在成功后，只更改刚刚点击的item的收藏按钮状态  mList.get(position).put(&quot;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-23T14:00:30.146Z">
+<meta property="og:updated_time" content="2019-04-21T11:05:26.339Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="刷新RecyclerView&#x2F;ListView某个item状态">
 <meta name="twitter:description" content="本文是实际开发遇到的问题，结合情景，给出解决方案，很有启示作用。  1、比如列表有收藏按钮，当前页面收藏12345private List&amp;lt;Map&amp;lt;String, String&amp;gt;&amp;gt; mList = new ArrayList&amp;lt;&amp;gt;();...  //走收藏接口，在成功后，只更改刚刚点击的item的收藏按钮状态  mList.get(position).put(&quot;">
@@ -473,7 +473,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-10-23 22:00:30" itemprop="dateModified" datetime="2018-10-23T22:00:30+08:00">2018-10-23</time>
+                <time title="修改时间：2019-04-21 19:05:26" itemprop="dateModified" datetime="2019-04-21T19:05:26+08:00">2019-04-21</time>
               -->
             
           </span>
@@ -561,7 +561,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span>?&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/textview"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"60dp"</span></div><div class="line">        <span class="attr">android:layout_gravity</span>=<span class="string">"center_vertical"</span></div><div class="line">        <span class="attr">android:gravity</span>=<span class="string">"center_vertical"</span> /&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
 <h2 id="RecyclerView局部刷新"><a href="#RecyclerView局部刷新" class="headerlink" title="RecyclerView局部刷新"></a>RecyclerView局部刷新</h2><p>RecyclerView已经替代了ListView，局部刷新很有必要知道</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//收藏成功后</span></div><div class="line">mList.get(position).put(<span class="string">"favorites"</span>, <span class="string">"0"</span>);<span class="comment">//直接更改数据源</span></div><div class="line">ViewHolder viewHolder = (ViewHolder) mRecyclerView.findViewHolderForAdapterPosition(position); <span class="comment">//得到要更新的item的view</span></div><div class="line">viewHolder.mCheck.setBackgroundResource(R.mipmap.collect_normal);<span class="comment">//更改状态</span></div></pre></td></tr></table></figure>
-<h1 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h1><p><a href="http://wuxiaolong.me/about/">点击查看</a></p>
+<h1 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h1><p><a href="http://wuxiaolong.github.io/about/" target="_blank" rel="noopener">点击查看</a></p>
          <!--广告-->
     ﻿<h1>联系作者</h1>
 我的微信公众号：吴小龙同学，欢迎关注交流~
@@ -638,8 +638,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/06/10/fragmentMenu/" rel="next" title="Fragment里更改Activity菜单">
-                <i class="fa fa-chevron-left"></i> Fragment里更改Activity菜单
+              <a href="/2015/07/08/TimeUtil/" rel="next" title="时间工具类TimeUtil">
+                <i class="fa fa-chevron-left"></i> 时间工具类TimeUtil
               </a>
             
           </div>
@@ -648,8 +648,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/07/08/TimeUtil/" rel="prev" title="时间工具类TimeUtil">
-                时间工具类TimeUtil <i class="fa fa-chevron-right"></i>
+              <a href="/2015/07/09/phone_space/" rel="prev" title="EditText输入手机号自动带空格">
+                EditText输入手机号自动带空格 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

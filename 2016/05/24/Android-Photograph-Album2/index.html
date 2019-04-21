@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="之前分享了Android调用系统相机和相册，但是由于国内Android机型繁多，各家都自己的rom，调用系统的还是会出现不少问题：  拍照后照片被旋转这种情况是使用Camera拍照以后，得到的照片会被自动旋转（90°、180°、270°）。解决方案： 1、读取图片的旋转属性">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-03-14T13:29:58.000Z">
+<meta property="og:updated_time" content="2019-04-21T11:06:33.565Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android调用系统相机和相册-填坑篇">
 <meta name="twitter:description" content="之前分享了Android调用系统相机和相册，但是由于国内Android机型繁多，各家都自己的rom，调用系统的还是会出现不少问题：  拍照后照片被旋转这种情况是使用Camera拍照以后，得到的照片会被自动旋转（90°、180°、270°）。解决方案： 1、读取图片的旋转属性">
@@ -473,7 +473,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2017-03-14 21:29:58" itemprop="dateModified" datetime="2017-03-14T21:29:58+08:00">2017-03-14</time>
+                <time title="修改时间：2019-04-21 19:06:33" itemprop="dateModified" datetime="2019-04-21T19:06:33+08:00">2019-04-21</time>
               -->
             
           </span>
@@ -543,7 +543,7 @@
 
       
         <blockquote>
-<p>之前分享了<a href="http://wuxiaolong.me/2014/11/10/Android-Photograph_Album/">Android调用系统相机和相册</a>，但是由于国内Android机型繁多，各家都自己的rom，调用系统的还是会出现不少问题：</p>
+<p>之前分享了<a href="http://wuxiaolong.github.io/2014/11/10/Android-Photograph_Album/" target="_blank" rel="noopener">Android调用系统相机和相册</a>，但是由于国内Android机型繁多，各家都自己的rom，调用系统的还是会出现不少问题：</p>
 </blockquote>
 <h1 id="拍照后照片被旋转"><a href="#拍照后照片被旋转" class="headerlink" title="拍照后照片被旋转"></a>拍照后照片被旋转</h1><p>这种情况是使用Camera拍照以后，得到的照片会被自动旋转（90°、180°、270°）。解决方案：</p>
 <p>1、读取图片的旋转属性<br><a id="more"></a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 读取图片的旋转的角度</div><div class="line"> *</div><div class="line"> * <span class="doctag">@param</span> path</div><div class="line"> *            图片绝对路径</div><div class="line"> * <span class="doctag">@return</span> 图片的旋转角度</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">getBitmapDegree</span><span class="params">(String path)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> degree = <span class="number">0</span>;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        <span class="comment">// 从指定路径下读取图片，并获取其EXIF信息</span></div><div class="line">        ExifInterface exifInterface = <span class="keyword">new</span> ExifInterface(path);</div><div class="line">        <span class="comment">// 获取图片的旋转信息</span></div><div class="line">        <span class="keyword">int</span> orientation = exifInterface.getAttributeInt(ExifInterface.TAG_ORIENTATION,</div><div class="line">                ExifInterface.ORIENTATION_NORMAL);</div><div class="line">        <span class="keyword">switch</span> (orientation) &#123;</div><div class="line">        <span class="keyword">case</span> ExifInterface.ORIENTATION_ROTATE_90:</div><div class="line">            degree = <span class="number">90</span>;</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> ExifInterface.ORIENTATION_ROTATE_180:</div><div class="line">            degree = <span class="number">180</span>;</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> ExifInterface.ORIENTATION_ROTATE_270:</div><div class="line">            degree = <span class="number">270</span>;</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">        e.printStackTrace();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> degree;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>

@@ -95,13 +95,13 @@
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="在Android 2.1版本之前，存放资源图片的文件夹名称为drawable，应用程序用到的所有的资源图片都放在其中，所以很难解决不同屏幕大小的图片适配问题。 1、资源图片 自android 2.1版本开始，存放资源图片的文件夹由原来的一个drawable文件夹变成了drawable-hdpi、drawable-mdpi和drawable-ldpi，这是为了支持不同终端设备的不同分辨率。 draw">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://wuxiaolong.me/images/2013-07-23-screen-adaptation-1.jpg">
-<meta property="og:image" content="http://wuxiaolong.me/images/2013-07-23-screen-adaptation-2.jpg">
-<meta property="og:updated_time" content="2018-10-28T08:31:39.713Z">
+<meta property="og:image" content="http://wuxiaolong.github.io/images/2013-07-23-screen-adaptation-1.jpg">
+<meta property="og:image" content="http://wuxiaolong.github.io/images/2013-07-23-screen-adaptation-2.jpg">
+<meta property="og:updated_time" content="2019-04-21T11:04:41.385Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android屏幕适配不同的资源图片、布局">
 <meta name="twitter:description" content="在Android 2.1版本之前，存放资源图片的文件夹名称为drawable，应用程序用到的所有的资源图片都放在其中，所以很难解决不同屏幕大小的图片适配问题。 1、资源图片 自android 2.1版本开始，存放资源图片的文件夹由原来的一个drawable文件夹变成了drawable-hdpi、drawable-mdpi和drawable-ldpi，这是为了支持不同终端设备的不同分辨率。 draw">
-<meta name="twitter:image" content="http://wuxiaolong.me/images/2013-07-23-screen-adaptation-1.jpg">
+<meta name="twitter:image" content="http://wuxiaolong.github.io/images/2013-07-23-screen-adaptation-1.jpg">
 
 
 
@@ -476,7 +476,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-10-28 16:31:39" itemprop="dateModified" datetime="2018-10-28T16:31:39+08:00">2018-10-28</time>
+                <time title="修改时间：2019-04-21 19:04:41" itemprop="dateModified" datetime="2019-04-21T19:04:41+08:00">2019-04-21</time>
               -->
             
           </span>
@@ -557,8 +557,8 @@
 <p>2、布局的适配：</p>
 <p>在第1点中我们已经解决了资源图片的适配问题，但是图片的大小不同势必会造成布局的差异，如果使用一个统一的布局文件，<br>可能会造成资源图片无法完整显示在屏幕内，所以对于这种问题，解决方法是建立不同的layout文件夹，对于不同屏幕的分辨率，书写其专用的.xml文件。</p>
 <p>多个layout文件夹在命名上有相应规则，以分辨率480x854为例，需要建立480x854像素的layout文件夹，命名：layout-854x480，</p>
-<p>有两点需要<code>注意</code>：①大数（854）必须在前，否则会报错；②两个数字之间的符号是小写英文字母“x”，不是乘号。系统会根据机器的分辨率来分别到这几个文件夹里面去找对应的布局文件。如下：<br><img src="http://wuxiaolong.me/images/2013-07-23-screen-adaptation-1.jpg" alt="布局文件"></p>
-<p>如果你建立的layout文件夹的分辨率是你的eclipse加载的android工具所支持的分辨率，那么在可视化的布局界面中会自动给出屏幕分辨率、屏幕尺寸（红色箭头处）等参数，值得注意的是，如果红色箭头处是“Custom…”，那么你就要人为对其进行修改，选择合适的屏幕尺寸。<br><img src="http://wuxiaolong.me/images/2013-07-23-screen-adaptation-2.jpg" alt="选择合适的屏幕尺寸"></p>
+<p>有两点需要<code>注意</code>：①大数（854）必须在前，否则会报错；②两个数字之间的符号是小写英文字母“x”，不是乘号。系统会根据机器的分辨率来分别到这几个文件夹里面去找对应的布局文件。如下：<br><img src="http://wuxiaolong.github.io/images/2013-07-23-screen-adaptation-1.jpg" alt="布局文件"></p>
+<p>如果你建立的layout文件夹的分辨率是你的eclipse加载的android工具所支持的分辨率，那么在可视化的布局界面中会自动给出屏幕分辨率、屏幕尺寸（红色箭头处）等参数，值得注意的是，如果红色箭头处是“Custom…”，那么你就要人为对其进行修改，选择合适的屏幕尺寸。<br><img src="http://wuxiaolong.github.io/images/2013-07-23-screen-adaptation-2.jpg" alt="选择合适的屏幕尺寸"></p>
 <p>3、设置屏幕的横竖屏显示：<br>如果不做特殊说明，开发的应用是横竖屏重力敏感的，如果禁止横竖屏切换，需要在AndroidManifest.xml文件中做相应的修改：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;activity android:name=<span class="string">".MenuView"</span></div><div class="line">android:label=<span class="string">"@string/app_name"</span></div><div class="line">android:screenOrientation=<span class="string">"portrait"</span>&gt;</div></pre></td></tr></table></figure>
 <p>在activity的属性中添“android:screenOrientation=”portrait””，portrait表示竖屏，横屏则用landscape表示。</p>
@@ -639,8 +639,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2013/07/19/listView/" rel="next" title="Android之ListView属性">
-                <i class="fa fa-chevron-left"></i> Android之ListView属性
+              <a href="/2013/07/23/how-to-prevent-the-APK-program-by-decompile/" rel="next" title="Android如何防止apk程序被反编译">
+                <i class="fa fa-chevron-left"></i> Android如何防止apk程序被反编译
               </a>
             
           </div>
@@ -649,8 +649,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2013/07/23/how-to-prevent-the-APK-program-by-decompile/" rel="prev" title="Android如何防止apk程序被反编译">
-                Android如何防止apk程序被反编译 <i class="fa fa-chevron-right"></i>
+              <a href="/2013/11/22/Export-aborted-because-fatal-lint-errors-were-found/" rel="prev" title="Android打包错误Export aborted because fatal lint errors were found">
+                Android打包错误Export aborted because fatal lint errors were found <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
