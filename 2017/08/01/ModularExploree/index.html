@@ -95,13 +95,13 @@
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="前言开发中，我习惯性会把一个模块的功能放在一个包下，便于查找，但烦于耦合性太高，后期维护太费劲，因此对项目进行组件化拆分势在必行。组件化好处：便于开发，团队成员只关注自己的开发的小模块，降低耦合性，后期维护方便等。相当于先有很多小组件，各自开发，最后组装，成一个 app。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://wuxiaolong.github.io/images/ModularSample.png">
-<meta property="og:image" content="http://wuxiaolong.github.io/images/ModularSample.gif">
-<meta property="og:updated_time" content="2019-04-21T11:05:22.078Z">
+<meta property="og:image" content="http://wuxiaolong.me/images/ModularSample.png">
+<meta property="og:image" content="http://wuxiaolong.me/images/ModularSample.gif">
+<meta property="og:updated_time" content="2019-04-22T14:31:20.508Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 组件化探索与思考">
 <meta name="twitter:description" content="前言开发中，我习惯性会把一个模块的功能放在一个包下，便于查找，但烦于耦合性太高，后期维护太费劲，因此对项目进行组件化拆分势在必行。组件化好处：便于开发，团队成员只关注自己的开发的小模块，降低耦合性，后期维护方便等。相当于先有很多小组件，各自开发，最后组装，成一个 app。">
-<meta name="twitter:image" content="http://wuxiaolong.github.io/images/ModularSample.png">
+<meta name="twitter:image" content="http://wuxiaolong.me/images/ModularSample.png">
 
 
 
@@ -476,7 +476,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-21 19:05:22" itemprop="dateModified" datetime="2019-04-21T19:05:22+08:00">2019-04-21</time>
+                <time title="修改时间：2019-04-22 22:31:20" itemprop="dateModified" datetime="2019-04-22T22:31:20+08:00">2019-04-22</time>
               -->
             
           </span>
@@ -546,8 +546,8 @@
 
       
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>开发中，我习惯性会把一个模块的功能放在一个包下，便于查找，但烦于耦合性太高，后期维护太费劲，因此对项目进行组件化拆分势在必行。组件化好处：便于开发，团队成员只关注自己的开发的小模块，降低耦合性，后期维护方便等。相当于先有很多小组件，各自开发，最后组装，成一个 app。<br><a id="more"></a></p>
-<h2 id="关系图"><a href="#关系图" class="headerlink" title="关系图"></a>关系图</h2><p><img src="http://wuxiaolong.github.io/images/ModularSample.png" alt=""><br>app：壳工程；<br>module1：组件1；<br>module2：组件2；<br>resource：专门放资源文件；<br>router：路由，所有页面请求都由它中转；<br>common：第三方库，公用工具、自定义 View等。</p>
-<h2 id="效果预览"><a href="#效果预览" class="headerlink" title="效果预览"></a>效果预览</h2><p><img src="http://wuxiaolong.github.io/images/ModularSample.gif" alt=""><br>组件化过程很容易想到一些问题，比如 module1 我想单独调试怎么做？module1 有页面需要跳转到module2怎么办等。接下来，我一一探索，提供解决方案。</p>
+<h2 id="关系图"><a href="#关系图" class="headerlink" title="关系图"></a>关系图</h2><p><img src="http://wuxiaolong.me/images/ModularSample.png" alt=""><br>app：壳工程；<br>module1：组件1；<br>module2：组件2；<br>resource：专门放资源文件；<br>router：路由，所有页面请求都由它中转；<br>common：第三方库，公用工具、自定义 View等。</p>
+<h2 id="效果预览"><a href="#效果预览" class="headerlink" title="效果预览"></a>效果预览</h2><p><img src="http://wuxiaolong.me/images/ModularSample.gif" alt=""><br>组件化过程很容易想到一些问题，比如 module1 我想单独调试怎么做？module1 有页面需要跳转到module2怎么办等。接下来，我一一探索，提供解决方案。</p>
 <h1 id="全局设置-Gradle"><a href="#全局设置-Gradle" class="headerlink" title="全局设置 Gradle"></a>全局设置 Gradle</h1><p>如果有很多项目，可以设置全局来统一管理版本号或依赖库，这样就不用一个个去改了，根目录下 build.gradle 添加：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">def androidSupportVersion = <span class="string">'27.1.0'</span></div><div class="line"></div><div class="line">ext &#123;</div><div class="line">    <span class="comment">//编译的 SDK 版本，如API20</span></div><div class="line">    compileSdkVersion = <span class="number">27</span></div><div class="line">    <span class="comment">//构建工具的版本，其中包括了打包工具aapt、dx等,如API20对应的build-tool的版本就是20.0.0</span></div><div class="line">    <span class="comment">//buildToolsVersion = "26.0.0"</span></div><div class="line">    <span class="comment">//兼容的最低 SDK 版本</span></div><div class="line">    minSdkVersion = <span class="number">14</span></div><div class="line">    <span class="comment">//向前兼容，保存新旧两种逻辑，并通过 if-else 方法来判断执行哪种逻辑</span></div><div class="line">    targetSdkVersion = <span class="number">27</span></div><div class="line">    appcompatV7 = <span class="string">"com.android.support:appcompat-v7:$androidSupportVersion"</span></div><div class="line">    constraintLayout = <span class="string">'com.android.support.constraint:constraint-layout:1.0.2'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>其中module/build.gradle：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">android &#123;</div><div class="line">    compileSdkVersion rootProject.ext.compileSdkVersion</div><div class="line">    buildToolsVersion rootProject.ext.buildToolsVersion</div><div class="line">    <span class="comment">//……</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h1 id="资源名重名"><a href="#资源名重名" class="headerlink" title="资源名重名"></a>资源名重名</h1><p>每个 module 都有 app<em>name，为了不让资源名重名，可以在每个组件的 build.gradle 中增加 resourcePrefix “xxx</em>“，固定每个组件的资源前缀。但是 resourcePrefix 这个值只能限定 xml 里面的资源，并不能限定图片资源，所有图片资源仍然需要你手动去修改资源名。<del>不过我更建议把图片、 strings、 colors、dimens 等资源放到 common 去，可以防止不同的资源名字却对应了同一资源值。<br>为什么叫 common，任何项目都能用，开发中发现把资源文件放在 common 明显不合理，专门建了个 resource 放资源文件，因此 resourcePrefix “xxx_” 也变得意义不大了。另外各个 module 中的 layout 的名字可能一样，其实我们按照一个规则来，比如只有一个 MainActivity，自然对应的 layout 名不一样。</del><br>PS：我最后还是用的前一种方案，这里是要权衡资源有可能重复还是能让每个模块都能独立运行资源更加清晰？</p>

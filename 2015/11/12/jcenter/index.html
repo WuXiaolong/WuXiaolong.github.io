@@ -95,13 +95,13 @@
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="123dependencies &amp;#123;  compile &apos;com.wuxiaolong.pullloadmorerecyclerview:library:1.0.4&apos;&amp;#125; build.gradle文件中只写上如上一行，就能在Android Studio中引入你的library到项目中，这样岂不是酷比了。之前github上分享一个简单的库，这两天花了点时间研究了下，如何也能这样一行就">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://wuxiaolong.github.io/images/includeMyPackage.png">
-<meta property="og:image" content="http://wuxiaolong.github.io/images/jcenterApproved.png">
-<meta property="og:updated_time" content="2019-04-21T11:05:36.741Z">
+<meta property="og:image" content="http://wuxiaolong.me/images/includeMyPackage.png">
+<meta property="og:image" content="http://wuxiaolong.me/images/jcenterApproved.png">
+<meta property="og:updated_time" content="2019-04-22T14:31:27.405Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android library分享到jcenter">
 <meta name="twitter:description" content="123dependencies &amp;#123;  compile &apos;com.wuxiaolong.pullloadmorerecyclerview:library:1.0.4&apos;&amp;#125; build.gradle文件中只写上如上一行，就能在Android Studio中引入你的library到项目中，这样岂不是酷比了。之前github上分享一个简单的库，这两天花了点时间研究了下，如何也能这样一行就">
-<meta name="twitter:image" content="http://wuxiaolong.github.io/images/includeMyPackage.png">
+<meta name="twitter:image" content="http://wuxiaolong.me/images/includeMyPackage.png">
 
 
 
@@ -476,7 +476,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-21 19:05:36" itemprop="dateModified" datetime="2019-04-21T19:05:36+08:00">2019-04-21</time>
+                <time title="修改时间：2019-04-22 22:31:27" itemprop="dateModified" datetime="2019-04-22T22:31:27+08:00">2019-04-22</time>
               -->
             
           </span>
@@ -558,10 +558,10 @@
 <p>如果没有什么问题，会显示：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">BUILD SUCCESSFUL</div></pre></td></tr></table></figure></p>
 <p>上传编译的文件到bintray，使用如下的命令：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gradlew bintrayUpload</div></pre></td></tr></table></figure></p>
 <p>如果显示如下说明成功了！<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">BUILD SUCCESSFUL</div></pre></td></tr></table></figure></p>
-<p><img src="http://wuxiaolong.github.io/images/includeMyPackage.png" alt=""><br>上传完成即可在Bintray网站上找到你的Repo，我们需要完成最后一步工作，申请你的Repo添加到JCenter。可以进入<a href="https://bintray.com/bintray/jcenter" target="_blank" rel="noopener">这个页面</a>，点击Include My Package，输入你的项目名字，点击匹配到的项目，直接send即可，然后就等管理员批准了。<br><img src="http://wuxiaolong.github.io/images/jcenterApproved.png" alt=""><br>如上，网站上会给你一条通过信息，然后就OK了，大功告成。</p>
+<p><img src="http://wuxiaolong.me/images/includeMyPackage.png" alt=""><br>上传完成即可在Bintray网站上找到你的Repo，我们需要完成最后一步工作，申请你的Repo添加到JCenter。可以进入<a href="https://bintray.com/bintray/jcenter" target="_blank" rel="noopener">这个页面</a>，点击Include My Package，输入你的项目名字，点击匹配到的项目，直接send即可，然后就等管理员批准了。<br><img src="http://wuxiaolong.me/images/jcenterApproved.png" alt=""><br>如上，网站上会给你一条通过信息，然后就OK了，大功告成。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile <span class="string">'com.wuxiaolong.pullloadmorerecyclerview:library:1.0.4'</span></div></pre></td></tr></table></figure>
 <p>一般来说，我们需要知道library的字符串形式，包含3部分<br>GROUP_ID:ARTIFACT_ID:VERSION<br>上面的例子中，GROUP_ID是com.wuxiaolong.pullloadmorerecyclerview ，即配置library中group的值；ARTIFACT_ID是library，配置library中没有写到，是library项目的名字；VERSION是1.0.4。<br>查看bintray上库：<br><a href="http://jcenter.bintray.com/com/wuxiaolong/" target="_blank" rel="noopener">http://jcenter.bintray.com/com/wuxiaolong/</a></p>
-<h1 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h1><p><a href="http://wuxiaolong.github.io/about/" target="_blank" rel="noopener">点击查看</a></p>
+<h1 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h1><p><a href="http://wuxiaolong.me/about/">点击查看</a></p>
 <h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><p><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0623/3097.html" target="_blank" rel="noopener">如何使用Android Studio把自己的Android library分享到jCenter和Maven Central</a><br><a href="http://www.jianshu.com/p/0ba8960f80a9" target="_blank" rel="noopener">将Library上传到Jcenter</a></p>
          <!--广告-->
     ﻿<h1>联系作者</h1>

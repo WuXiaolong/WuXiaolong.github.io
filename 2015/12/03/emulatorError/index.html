@@ -95,14 +95,14 @@
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="一直在用Genymotion模拟器，话说Android studio将出2.0，速度提速50倍，这是要断Genymotion的路，于是我在家里电脑运行AVD，却报以下错误：emulator: ERROR: x86 emulation currently requires hardware acceleration!Please ensure Intel HAXM is properly insta">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://wuxiaolong.github.io/images/emulatorError1.gif">
-<meta property="og:image" content="http://wuxiaolong.github.io/images/emulatorError3.png">
-<meta property="og:image" content="http://wuxiaolong.github.io/images/emulatorError2.png">
-<meta property="og:updated_time" content="2019-04-21T11:06:05.157Z">
+<meta property="og:image" content="http://wuxiaolong.me/images/emulatorError1.gif">
+<meta property="og:image" content="http://wuxiaolong.me/images/emulatorError3.png">
+<meta property="og:image" content="http://wuxiaolong.me/images/emulatorError2.png">
+<meta property="og:updated_time" content="2019-04-22T14:31:52.640Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android之emulator ERROR x86 emulation currently requires hardware acceleration">
 <meta name="twitter:description" content="一直在用Genymotion模拟器，话说Android studio将出2.0，速度提速50倍，这是要断Genymotion的路，于是我在家里电脑运行AVD，却报以下错误：emulator: ERROR: x86 emulation currently requires hardware acceleration!Please ensure Intel HAXM is properly insta">
-<meta name="twitter:image" content="http://wuxiaolong.github.io/images/emulatorError1.gif">
+<meta name="twitter:image" content="http://wuxiaolong.me/images/emulatorError1.gif">
 
 
 
@@ -477,7 +477,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-21 19:06:05" itemprop="dateModified" datetime="2019-04-21T19:06:05+08:00">2019-04-21</time>
+                <time title="修改时间：2019-04-22 22:31:52" itemprop="dateModified" datetime="2019-04-22T22:31:52+08:00">2019-04-22</time>
               -->
             
           </span>
@@ -550,11 +550,11 @@
 <a id="more"></a>
 <h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>折腾一番，解决方案如下：</p>
 <ul>
-<li><p>BIOS<br>开机按F2或delete键，进入BIOS，CPU选项，选择Intel Virtualization Technology为enable<br><img src="http://wuxiaolong.github.io/images/emulatorError1.gif" alt=""></p>
+<li><p>BIOS<br>开机按F2或delete键，进入BIOS，CPU选项，选择Intel Virtualization Technology为enable<br><img src="http://wuxiaolong.me/images/emulatorError1.gif" alt=""></p>
 </li>
-<li><p>下载Intel x86 Emulator Accelerator<br>打开 SDK Manager，如果没有Intel x86 Emulator Accelerator ，下载<br><img src="http://wuxiaolong.github.io/images/emulatorError3.png" alt=""></p>
+<li><p>下载Intel x86 Emulator Accelerator<br>打开 SDK Manager，如果没有Intel x86 Emulator Accelerator ，下载<br><img src="http://wuxiaolong.me/images/emulatorError3.png" alt=""></p>
 </li>
-<li><p>安装intelhaxm-android.exe<br>你的Android sdk安装目录\extras\intel\Hardware_Accelerated_Execution_Manager<br><img src="http://wuxiaolong.github.io/images/emulatorError2.png" alt=""></p>
+<li><p>安装intelhaxm-android.exe<br>你的Android sdk安装目录\extras\intel\Hardware_Accelerated_Execution_Manager<br><img src="http://wuxiaolong.me/images/emulatorError2.png" alt=""></p>
 </li>
 <li><p>重启<br>重启Android Studio，再试下AVD</p>
 </li>

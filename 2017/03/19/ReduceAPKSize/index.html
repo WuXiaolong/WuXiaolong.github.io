@@ -95,14 +95,14 @@
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="为什么瘦身现在APK动不动就是几十兆，当用户连接到2G和3G网络，或者按流量收费的设备是多么的浪费，这篇文章介绍了如何对APK进行瘦身，帮助更多用户毫不犹顾忌地下载你们的APP。 了解APK结构在讨论如何缩小应用程序的大小之前，先了解应用程序APK的结构，是有帮助的。APK文件包含ZIP文件，其中包含构成应用程序的所有文件。这些文件包括Java类文件，资源文件和已编译资源的文件。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://wuxiaolong.github.io/images/reduceAPKSize1.png">
-<meta property="og:image" content="http://wuxiaolong.github.io/images/reduceAPKSize2.png">
-<meta property="og:image" content="http://wuxiaolong.github.io/images/reduceAPKSize3.png">
-<meta property="og:updated_time" content="2019-04-21T11:04:50.384Z">
+<meta property="og:image" content="http://wuxiaolong.me/images/reduceAPKSize1.png">
+<meta property="og:image" content="http://wuxiaolong.me/images/reduceAPKSize2.png">
+<meta property="og:image" content="http://wuxiaolong.me/images/reduceAPKSize3.png">
+<meta property="og:updated_time" content="2019-04-22T14:31:05.348Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android APK瘦身实践">
 <meta name="twitter:description" content="为什么瘦身现在APK动不动就是几十兆，当用户连接到2G和3G网络，或者按流量收费的设备是多么的浪费，这篇文章介绍了如何对APK进行瘦身，帮助更多用户毫不犹顾忌地下载你们的APP。 了解APK结构在讨论如何缩小应用程序的大小之前，先了解应用程序APK的结构，是有帮助的。APK文件包含ZIP文件，其中包含构成应用程序的所有文件。这些文件包括Java类文件，资源文件和已编译资源的文件。">
-<meta name="twitter:image" content="http://wuxiaolong.github.io/images/reduceAPKSize1.png">
+<meta name="twitter:image" content="http://wuxiaolong.me/images/reduceAPKSize1.png">
 
 
 
@@ -477,7 +477,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-21 19:04:50" itemprop="dateModified" datetime="2019-04-21T19:04:50+08:00">2019-04-21</time>
+                <time title="修改时间：2019-04-22 22:31:05" itemprop="dateModified" datetime="2019-04-22T22:31:05+08:00">2019-04-22</time>
               -->
             
           </span>
@@ -570,7 +570,7 @@
 <p>APK大小 <strong>10903</strong> KB。</p>
 <h2 id="删除未使用到xml和图片"><a href="#删除未使用到xml和图片" class="headerlink" title="删除未使用到xml和图片"></a>删除未使用到xml和图片</h2><p>如何知道哪些xml和图片未被使用到？使用Android Studio的Lint，步骤：<br>Android Studio -&gt; Menu -&gt; Refactor -&gt; Remove Unused Resources<br>选择 Refactor 一键删除<br>选择 Perview 预览未使用到的资源</p>
 <p>或者</p>
-<p>点击菜单栏 Analyze -&gt;  Run Inspection by Name -&gt; unused resources -&gt;  Moudule ‘app’ -&gt; OK，这样会搜出来哪些未被使用到未使用到xml和图片，如下：<br><img src="http://wuxiaolong.github.io/images/reduceAPKSize1.png" alt=""><br>经过删除，APK大小 <strong>10891</strong> KB。</p>
+<p>点击菜单栏 Analyze -&gt;  Run Inspection by Name -&gt; unused resources -&gt;  Moudule ‘app’ -&gt; OK，这样会搜出来哪些未被使用到未使用到xml和图片，如下：<br><img src="http://wuxiaolong.me/images/reduceAPKSize1.png" alt=""><br>经过删除，APK大小 <strong>10891</strong> KB。</p>
 <h2 id="删除未使用到代码"><a href="#删除未使用到代码" class="headerlink" title="删除未使用到代码"></a>删除未使用到代码</h2><p>同样使用Android Studio的Lint，步骤：点击菜单栏 Analyze -&gt;  Run Inspection by Name -&gt; unused declaration -&gt;  Moudule ‘app’ -&gt; OK</p>
 <p>经过一番清理，APK大小 <strong>10880</strong> KB，才瘦了11KB，我以为能瘦很多，不过，平时必须保持良好的编码习惯，哪些没有使用到的代码还是删删掉吧，不要想着以后还会用到。</p>
 <p>重复操作上一步和这一步，会有意外的发现哦。</p>
@@ -579,7 +579,7 @@
 <h2 id="使用vector"><a href="#使用vector" class="headerlink" title="使用vector"></a>使用vector</h2><p>微言是我很早就已经做得app，一开始图标都是图片，且每个drawable都有相应尺寸的图标，占了不少大小，后来部分用vector代替了图片。注意一点，Button在xml里设置app:srcCompat居然无效，只能在代码里设置：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">button.setImageResource(R.drawable.ic_favorite_border_black_24dp)。</div></pre></td></tr></table></figure></p>
 <p>APK大小 <strong>10754</strong> KB。</p>
 <h2 id="使用shape作为背景"><a href="#使用shape作为背景" class="headerlink" title="使用shape作为背景"></a>使用shape作为背景</h2><p>很多点击效果可能会使用到图片，可以换成shape是实现，我查看了下，微言APP都是shape实现的，Good。</p>
-<h2 id="使用TinyPng"><a href="#使用TinyPng" class="headerlink" title="使用TinyPng"></a>使用TinyPng</h2><p>如果对png图片格式转成jpg，减小效果还不满意，直接使用TinyPng智能有损压缩技术，网址：<a href="https://tinypng.com/" target="_blank" rel="noopener">https://tinypng.com/</a> ，压缩效果：<br><img src="http://wuxiaolong.github.io/images/reduceAPKSize2.png" alt=""><br>对于图片资源很多的APP，APK瘦身效果不要太好。</p>
+<h2 id="使用TinyPng"><a href="#使用TinyPng" class="headerlink" title="使用TinyPng"></a>使用TinyPng</h2><p>如果对png图片格式转成jpg，减小效果还不满意，直接使用TinyPng智能有损压缩技术，网址：<a href="https://tinypng.com/" target="_blank" rel="noopener">https://tinypng.com/</a> ，压缩效果：<br><img src="http://wuxiaolong.me/images/reduceAPKSize2.png" alt=""><br>对于图片资源很多的APP，APK瘦身效果不要太好。</p>
 <p>APK大小 <strong>10341</strong> KB。</p>
 <h2 id="配置resConfigs"><a href="#配置resConfigs" class="headerlink" title="配置resConfigs"></a>配置resConfigs</h2><p>如果APP支持中文，可以配置resConfigs，只支持中文<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">android &#123;</div><div class="line">    defaultConfig &#123;</div><div class="line">        ...</div><div class="line">        <span class="comment">//语言资源，只支持中文</span></div><div class="line">        resConfigs <span class="string">"zh"</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>APK大小 <strong>10243</strong> KB。</p>
@@ -590,7 +590,7 @@
 <p>APK大小 <strong>10035</strong> KB= <strong>9.79</strong> MB。</p>
 <h2 id="使用webp格式"><a href="#使用webp格式" class="headerlink" title="使用webp格式"></a>使用webp格式</h2><p>对于 res 文件夹，通常占空间最大的就是图片了。如果你的 Android Studio 为 2.3，并且项目的 minSdkVersion 为 18 或以上，应该使用 webp 而不是 png 图片。webp 图片有更小的体积，图片质量还没有什么损失。</p>
 <p>我们可以选中 drawable 和 mipmap 文件夹，右键后选择 convert to webp，将图片转为 webp 格式。</p>
-<h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p><img src="http://wuxiaolong.github.io/images/reduceAPKSize3.png" alt=""><br>最终APK瘦身 <strong>11.43 - 9.79 = 1.63</strong> MB，瘦身效果不是很明显，说明：<br>1、我的这个APP毕竟不是商业项目，本身就不大；<br>2、我的编码习惯可以，没有多少冗余代码和无用资源，哈哈。<br>大家可以将你们的APK按照这些方法过一遍，看能瘦多少。<br>瘦身还有其他方法，生命不息，折腾不止。</p>
+<h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p><img src="http://wuxiaolong.me/images/reduceAPKSize3.png" alt=""><br>最终APK瘦身 <strong>11.43 - 9.79 = 1.63</strong> MB，瘦身效果不是很明显，说明：<br>1、我的这个APP毕竟不是商业项目，本身就不大；<br>2、我的编码习惯可以，没有多少冗余代码和无用资源，哈哈。<br>大家可以将你们的APK按照这些方法过一遍，看能瘦多少。<br>瘦身还有其他方法，生命不息，折腾不止。</p>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>官方文档Reduce APK Size<br><a href="https://developer.android.google.cn/topic/performance/reduce-apk-size.html" target="_blank" rel="noopener">https://developer.android.google.cn/topic/performance/reduce-apk-size.html</a></p>
 <p>Android APP终极瘦身指南<br><a href="http://jayfeng.com/2016/03/01/Android-APP%E7%BB%88%E6%9E%81%E7%98%A6%E8%BA%AB%E6%8C%87%E5%8D%97/" target="_blank" rel="noopener">http://jayfeng.com/2016/03/01/Android-APP%E7%BB%88%E6%9E%81%E7%98%A6%E8%BA%AB%E6%8C%87%E5%8D%97/</a></p>
 <p>AndResGuard资源混淆<br><a href="http://www.jianshu.com/p/7ffea26c9fd8" target="_blank" rel="noopener">http://www.jianshu.com/p/7ffea26c9fd8</a></p>

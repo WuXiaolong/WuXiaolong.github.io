@@ -95,14 +95,14 @@
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="作为Android应用开发者，不得不面对一个尴尬的局面，就是自己辛辛苦苦开发的应用可以被别人很轻易的就反编译出来。Google似乎也发现了这个问题，从SDK2.3开始我们可以看到在android-sdk-windows\tools\下面多了一个proguard文件夹。proguard是一个java代码混淆的工具，通过proguard，别人即使反编译你的apk包，也只会看到一些让人很难看懂的代码，从">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://wuxiaolong.github.io/images/2013-07-18-mobile-phone-information-acquisition-1.png">
-<meta property="og:image" content="http://wuxiaolong.github.io/images/2013-07-18-mobile-phone-information-acquisition-2.png">
-<meta property="og:image" content="http://wuxiaolong.github.io/images/2013-07-18-mobile-phone-information-acquisition-3.png">
-<meta property="og:updated_time" content="2019-04-21T11:05:40.508Z">
+<meta property="og:image" content="http://wuxiaolong.me/images/2013-07-18-mobile-phone-information-acquisition-1.png">
+<meta property="og:image" content="http://wuxiaolong.me/images/2013-07-18-mobile-phone-information-acquisition-2.png">
+<meta property="og:image" content="http://wuxiaolong.me/images/2013-07-18-mobile-phone-information-acquisition-3.png">
+<meta property="og:updated_time" content="2019-04-22T14:31:29.976Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android如何防止apk程序被反编译">
 <meta name="twitter:description" content="作为Android应用开发者，不得不面对一个尴尬的局面，就是自己辛辛苦苦开发的应用可以被别人很轻易的就反编译出来。Google似乎也发现了这个问题，从SDK2.3开始我们可以看到在android-sdk-windows\tools\下面多了一个proguard文件夹。proguard是一个java代码混淆的工具，通过proguard，别人即使反编译你的apk包，也只会看到一些让人很难看懂的代码，从">
-<meta name="twitter:image" content="http://wuxiaolong.github.io/images/2013-07-18-mobile-phone-information-acquisition-1.png">
+<meta name="twitter:image" content="http://wuxiaolong.me/images/2013-07-18-mobile-phone-information-acquisition-1.png">
 
 
 
@@ -477,7 +477,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-21 19:05:40" itemprop="dateModified" datetime="2019-04-21T19:05:40+08:00">2019-04-21</time>
+                <time title="修改时间：2019-04-22 22:31:29" itemprop="dateModified" datetime="2019-04-22T22:31:29+08:00">2019-04-22</time>
               -->
             
           </span>
@@ -546,12 +546,12 @@
       
 
       
-        <p>作为Android应用开发者，不得不面对一个尴尬的局面，就是自己辛辛苦苦开发的应用可以被别人很轻易的就反编译出来。Google似乎也发现了这个问题，从SDK2.3开始我们可以看到在android-sdk-windows\tools\下面多了一个proguard文件夹。proguard是一个java代码混淆的工具，通过proguard，别人即使反编译你的apk包，也只会看到一些让人很难看懂的代码，从而达到保护代码的作用。新建项目都会有以下两个文件：<br><img src="http://wuxiaolong.github.io/images/2013-07-18-mobile-phone-information-acquisition-1.png" alt=""><br>project.properties文件“proguard.config=${sdk.dir}/tools/proguard/proguard-android.txt:proguard-project.txt”注释放开。<br><img src="http://wuxiaolong.github.io/images/2013-07-18-mobile-phone-information-acquisition-2.png" alt=""><br>然后在proguard-project.txt文件里做混淆，例如：</p>
+        <p>作为Android应用开发者，不得不面对一个尴尬的局面，就是自己辛辛苦苦开发的应用可以被别人很轻易的就反编译出来。Google似乎也发现了这个问题，从SDK2.3开始我们可以看到在android-sdk-windows\tools\下面多了一个proguard文件夹。proguard是一个java代码混淆的工具，通过proguard，别人即使反编译你的apk包，也只会看到一些让人很难看懂的代码，从而达到保护代码的作用。新建项目都会有以下两个文件：<br><img src="http://wuxiaolong.me/images/2013-07-18-mobile-phone-information-acquisition-1.png" alt=""><br>project.properties文件“proguard.config=${sdk.dir}/tools/proguard/proguard-android.txt:proguard-project.txt”注释放开。<br><img src="http://wuxiaolong.me/images/2013-07-18-mobile-phone-information-acquisition-2.png" alt=""><br>然后在proguard-project.txt文件里做混淆，例如：</p>
 <a id="more"></a>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#---------------Begin: support-v4包 ----------</div><div class="line">-libraryjars   libs/android-support-v4.jar</div><div class="line">-dontwarn android.support.v4.**  #打包时忽略以下类的警告  </div><div class="line">-keep class android.support.v4.** &#123; *; &#125;  </div><div class="line">-keep interface android.support.v4.app.** &#123; *; &#125;  </div><div class="line">-keep public class * extends android.support.v4.**  </div><div class="line">#-keep public class * extends android.app.Fragment</div><div class="line">#---------------End: support-v4包 ----------</div></pre></td></tr></table></figure>
 <p>以上是混淆了support-v4包，如果混淆其他的jar，举一反三。<br>比如A.jar，它的包名是a.b.c.d。然后做混淆就如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-keep <span class="class"><span class="keyword">class</span> <span class="title">a</span>.<span class="title">b</span>.<span class="title">c</span>.<span class="title">d</span>.** </span>&#123; *; &#125;</div></pre></td></tr></table></figure>
-<p>正常的编译签名后就可以防止代码被反编译了。反编译经过代码混淆的apk得到的代码应该类似于下面的效果，是很难看懂的：<br><img src="http://wuxiaolong.github.io/images/2013-07-18-mobile-phone-information-acquisition-3.png" alt=""></p>
+<p>正常的编译签名后就可以防止代码被反编译了。反编译经过代码混淆的apk得到的代码应该类似于下面的效果，是很难看懂的：<br><img src="http://wuxiaolong.me/images/2013-07-18-mobile-phone-information-acquisition-3.png" alt=""></p>
          <!--广告-->
     ﻿<h1>联系作者</h1>
 我的微信公众号：吴小龙同学，欢迎关注交流~
@@ -626,8 +626,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2013/07/23/screen-adaptation/" rel="next" title="Android屏幕适配不同的资源图片、布局">
-                <i class="fa fa-chevron-left"></i> Android屏幕适配不同的资源图片、布局
+              <a href="/2013/07/19/listView/" rel="next" title="Android之ListView属性">
+                <i class="fa fa-chevron-left"></i> Android之ListView属性
               </a>
             
           </div>
@@ -636,8 +636,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2013/11/22/Export-aborted-because-fatal-lint-errors-were-found/" rel="prev" title="Android打包错误Export aborted because fatal lint errors were found">
-                Android打包错误Export aborted because fatal lint errors were found <i class="fa fa-chevron-right"></i>
+              <a href="/2013/07/23/screen-adaptation/" rel="prev" title="Android屏幕适配不同的资源图片、布局">
+                Android屏幕适配不同的资源图片、布局 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

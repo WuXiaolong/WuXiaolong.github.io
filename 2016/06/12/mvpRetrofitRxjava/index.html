@@ -95,13 +95,13 @@
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="关于MVP、Retrofit、RxJava，之前已经分别做了分享，如果您还没有阅读过，可以猛戳：1、Android MVP 实例2、Android Retrofit 2.0使用3、RxJava4、RxBus 假设，您对MVP、Retrofit、RxJava已经有了一点了解，那么我们开始本文：">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://wuxiaolong.github.io/images/androidmvpsample2.png">
-<meta property="og:image" content="http://wuxiaolong.github.io/images/mvpRetrofitRxjava1.png">
-<meta property="og:updated_time" content="2019-04-21T11:05:19.330Z">
+<meta property="og:image" content="http://wuxiaolong.me/images/androidmvpsample2.png">
+<meta property="og:image" content="http://wuxiaolong.me/images/mvpRetrofitRxjava1.png">
+<meta property="og:updated_time" content="2019-04-22T14:31:18.707Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android MVP+Retrofit+RxJava实践小结">
 <meta name="twitter:description" content="关于MVP、Retrofit、RxJava，之前已经分别做了分享，如果您还没有阅读过，可以猛戳：1、Android MVP 实例2、Android Retrofit 2.0使用3、RxJava4、RxBus 假设，您对MVP、Retrofit、RxJava已经有了一点了解，那么我们开始本文：">
-<meta name="twitter:image" content="http://wuxiaolong.github.io/images/androidmvpsample2.png">
+<meta name="twitter:image" content="http://wuxiaolong.me/images/androidmvpsample2.png">
 
 
 
@@ -476,7 +476,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-21 19:05:19" itemprop="dateModified" datetime="2019-04-21T19:05:19+08:00">2019-04-21</time>
+                <time title="修改时间：2019-04-22 22:31:18" itemprop="dateModified" datetime="2019-04-22T22:31:18+08:00">2019-04-22</time>
               -->
             
           </span>
@@ -545,11 +545,11 @@
       
 
       
-        <p>关于MVP、Retrofit、RxJava，之前已经分别做了分享，如果您还没有阅读过，可以猛戳：<br>1、<a href="http://wuxiaolong.github.io/2015/09/23/AndroidMVPSample/" target="_blank" rel="noopener">Android MVP 实例</a><br>2、<a href="http://wuxiaolong.github.io/2016/01/15/retrofit/" target="_blank" rel="noopener">Android Retrofit 2.0使用</a><br>3、<a href="http://wuxiaolong.github.io/2016/01/18/rxjava/" target="_blank" rel="noopener">RxJava</a><br>4、<a href="http://wuxiaolong.github.io/2016/04/07/rxbus/" target="_blank" rel="noopener">RxBus</a></p>
+        <p>关于MVP、Retrofit、RxJava，之前已经分别做了分享，如果您还没有阅读过，可以猛戳：<br>1、<a href="http://wuxiaolong.me/2015/09/23/AndroidMVPSample/">Android MVP 实例</a><br>2、<a href="http://wuxiaolong.me/2016/01/15/retrofit/">Android Retrofit 2.0使用</a><br>3、<a href="http://wuxiaolong.me/2016/01/18/rxjava/">RxJava</a><br>4、<a href="http://wuxiaolong.me/2016/04/07/rxbus/">RxBus</a></p>
 <p>假设，您对MVP、Retrofit、RxJava已经有了一点了解，那么我们开始本文：<br><a id="more"></a></p>
 <h1 id="Android-MVP优化"><a href="#Android-MVP优化" class="headerlink" title="Android MVP优化"></a>Android MVP优化</h1><p>1、MVP绑定Activity（Fragment）生命周期<br>按照之前的文章，每个Presenter都得初始化和销毁，我新加MvpActivity(MvpFragment)，加了抽象方法<code>protected abstract P createPresenter();</code>这样做的目的在需要使用MVP的地方，可以继承MvpActivity(MvpFragment)，然后初始化和销毁就不用手动一个个去加了。</p>
-<p>2、接口请求等还是放到MVP的P中<br><img src="http://wuxiaolong.github.io/images/androidmvpsample2.png" alt=""><br>这个图片，在当时写MVP文章时给出的，实际开发中，我发现每个都这样写，实在是增加了不少代码，然接口请求放到P中，还有个好处，就是MVP绑定Activity（Fragment）生命周期，当onDestroy时取消RXJava注册，以避免内存泄露。</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><p>如图，有个大致了解：<br><img src="http://wuxiaolong.github.io/images/mvpRetrofitRxjava1.png" alt=""><br>mvp：所有的mvp都放在这个包下<br>retrofit：Retrofit接口和配置文件<br>rxjava：RxJava一些回调设置<br>ui：Activity或fragment，建议按功能再细分包</p>
+<p>2、接口请求等还是放到MVP的P中<br><img src="http://wuxiaolong.me/images/androidmvpsample2.png" alt=""><br>这个图片，在当时写MVP文章时给出的，实际开发中，我发现每个都这样写，实在是增加了不少代码，然接口请求放到P中，还有个好处，就是MVP绑定Activity（Fragment）生命周期，当onDestroy时取消RXJava注册，以避免内存泄露。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><p>如图，有个大致了解：<br><img src="http://wuxiaolong.me/images/mvpRetrofitRxjava1.png" alt=""><br>mvp：所有的mvp都放在这个包下<br>retrofit：Retrofit接口和配置文件<br>rxjava：RxJava一些回调设置<br>ui：Activity或fragment，建议按功能再细分包</p>
 <h2 id="核心代码"><a href="#核心代码" class="headerlink" title="核心代码"></a>核心代码</h2><p>还是就贴出核心代码吧，源码在我的github上（<a href="https://github.com/WuXiaolong/AndroidMVPSample" target="_blank" rel="noopener">https://github.com/WuXiaolong/AndroidMVPSample</a>）。</p>
 <p>MainActivity入口，还是演示的之前的MVP的天气的接口，接口请求方法放在Presenter。</p>
 <h3 id="MvpActivity"><a href="#MvpActivity" class="headerlink" title="MvpActivity"></a>MvpActivity</h3><p>Presenter绑定Activity（Fragment）生命周期<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">MvpActivity</span>&lt;<span class="title">P</span> <span class="keyword">extends</span> <span class="title">BasePresenter</span>&gt; <span class="keyword">extends</span> <span class="title">BaseActivity</span> </span>&#123;</div><div class="line">    <span class="keyword">protected</span> P mvpPresenter;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        mvpPresenter = createPresenter();</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">abstract</span> P <span class="title">createPresenter</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onDestroy();</div><div class="line">        <span class="keyword">if</span> (mvpPresenter != <span class="keyword">null</span>) &#123;</div><div class="line">            mvpPresenter.detachView();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>

@@ -95,13 +95,13 @@
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="为什么优化虽然 Java 对内存的释放有垃圾自动回收机制，但是实际开发中，不再用到的对象因为被错误引用会导致无法回收，从而造成内存泄漏，甚至内存溢出 OOM（OutOfMemory），程序崩溃。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://wuxiaolong.github.io/images/monitor-heap-dump.png">
-<meta property="og:image" content="http://wuxiaolong.github.io/images/monitor-garbage-collect.png">
-<meta property="og:updated_time" content="2019-04-21T11:05:23.500Z">
+<meta property="og:image" content="http://wuxiaolong.me/images/monitor-heap-dump.png">
+<meta property="og:image" content="http://wuxiaolong.me/images/monitor-garbage-collect.png">
+<meta property="og:updated_time" content="2019-04-22T14:31:21.318Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 内存优化">
 <meta name="twitter:description" content="为什么优化虽然 Java 对内存的释放有垃圾自动回收机制，但是实际开发中，不再用到的对象因为被错误引用会导致无法回收，从而造成内存泄漏，甚至内存溢出 OOM（OutOfMemory），程序崩溃。">
-<meta name="twitter:image" content="http://wuxiaolong.github.io/images/monitor-heap-dump.png">
+<meta name="twitter:image" content="http://wuxiaolong.me/images/monitor-heap-dump.png">
 
 
 
@@ -476,7 +476,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-21 19:05:23" itemprop="dateModified" datetime="2019-04-21T19:05:23+08:00">2019-04-21</time>
+                <time title="修改时间：2019-04-22 22:31:21" itemprop="dateModified" datetime="2019-04-22T22:31:21+08:00">2019-04-22</time>
               -->
             
           </span>
@@ -549,7 +549,7 @@
 <h2 id="Android-GC-原理"><a href="#Android-GC-原理" class="headerlink" title="Android GC 原理"></a>Android GC 原理</h2><p>参考：<a href="https://mp.weixin.qq.com/s/CUU3Ml394H_fkabhNNX32Q" target="_blank" rel="noopener">Android GC 原理探究</a></p>
 <h2 id="Android-内存管理"><a href="#Android-内存管理" class="headerlink" title="Android 内存管理"></a>Android 内存管理</h2><p>参考：<a href="https://developer.android.google.cn/topic/performance/memory-overview.html" target="_blank" rel="noopener">Android 内存管理</a></p>
 <h1 id="如何检测"><a href="#如何检测" class="headerlink" title="如何检测"></a>如何检测</h1><h2 id="使用-LeakCanary"><a href="#使用-LeakCanary" class="headerlink" title="使用 LeakCanary"></a>使用 LeakCanary</h2><p>Android 内存泄漏检测库：<a href="https://github.com/square/leakcanary" target="_blank" rel="noopener">https://github.com/square/leakcanary</a> ，善于使用 LeakCanary 发现内存泄漏。</p>
-<h2 id="Memory-Monitor工具"><a href="#Memory-Monitor工具" class="headerlink" title="Memory Monitor工具"></a>Memory Monitor工具</h2><p>Android Studio 中的 Android Monitor ，选择其中的 Memory，<strong>跟踪整个 APP 的内存变化情况</strong>。<br>步骤如下：<br>1、与您的应用交互，在 Memory 监视器中，查看 Free 和 Alloated 内存。<br>2、点击 Dump Java Heap：<img src="http://wuxiaolong.github.io/images/monitor-heap-dump.png" alt="">，这个会打开 HPROF 查看器，如果没有，在 Captures 标签中，双击堆快照文件以打开 HPROF 查看器。<br>3、要引起堆分配，请与您的应用交互，然后点击触发 GC 的按钮： <img src="http://wuxiaolong.github.io/images/monitor-garbage-collect.png" alt=""></p>
+<h2 id="Memory-Monitor工具"><a href="#Memory-Monitor工具" class="headerlink" title="Memory Monitor工具"></a>Memory Monitor工具</h2><p>Android Studio 中的 Android Monitor ，选择其中的 Memory，<strong>跟踪整个 APP 的内存变化情况</strong>。<br>步骤如下：<br>1、与您的应用交互，在 Memory 监视器中，查看 Free 和 Alloated 内存。<br>2、点击 Dump Java Heap：<img src="http://wuxiaolong.me/images/monitor-heap-dump.png" alt="">，这个会打开 HPROF 查看器，如果没有，在 Captures 标签中，双击堆快照文件以打开 HPROF 查看器。<br>3、要引起堆分配，请与您的应用交互，然后点击触发 GC 的按钮： <img src="http://wuxiaolong.me/images/monitor-garbage-collect.png" alt=""></p>
 <h2 id="Heap-Viewer-工具"><a href="#Heap-Viewer-工具" class="headerlink" title="Heap Viewer 工具"></a>Heap Viewer 工具</h2><p><strong>实时查看App分配的内存大小和空闲内存大小，发现 Memory Leaks</strong> 。<br>详细使用教程：<a href="https://www.kancloud.cn/digest/itfootballprefermanc/100907" target="_blank" rel="noopener">Heap Viewer工具</a></p>
 <h2 id="Allocation-Tracker"><a href="#Allocation-Tracker" class="headerlink" title="Allocation Tracker"></a>Allocation Tracker</h2><p><strong>追踪内存对象的来源</strong>。<br>详细使用教程：<a href="https://www.kancloud.cn/digest/itfootballprefermanc/100908" target="_blank" rel="noopener">Allocation Tracker(Device Monitor)</a></p>
 <h1 id="优化方案"><a href="#优化方案" class="headerlink" title="优化方案"></a>优化方案</h1><h2 id="检查使用多少内存"><a href="#检查使用多少内存" class="headerlink" title="检查使用多少内存"></a>检查使用多少内存</h2><p>每个 APP 的堆（heap）内存大小有硬性限制，如果您的 APP 已达到堆内存限制，并尝试分配更多的内存，系统会抛出 OutOfMemoryError 。为了避免 OOM ，您可以查询当前设备有多少堆空间，可以通过调用系统 getMemoryInfo() 查询，返回 一个ActivityManager.MemoryInfo 对象，它提供该设备当前存储器的状态信息，包括可用的存储器，总存储器，和低于该阈值存储器。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">getMemoryInfo</span><span class="params">()</span> </span>&#123;</div><div class="line">    ActivityManager activityManager = (ActivityManager) <span class="keyword">this</span>.getSystemService(ACTIVITY_SERVICE);</div><div class="line">    ActivityManager.MemoryInfo memoryInfo = <span class="keyword">new</span> ActivityManager.MemoryInfo();</div><div class="line">    activityManager.getMemoryInfo(memoryInfo);</div><div class="line">    LogUtil.d(<span class="string">"totalMem="</span> + memoryInfo.totalMem + <span class="string">",availMem="</span> + memoryInfo.availMem);</div><div class="line">    <span class="keyword">if</span> (!memoryInfo.lowMemory) &#123;</div><div class="line">        <span class="comment">// 运行在低内存环境</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
@@ -561,8 +561,8 @@
 <h2 id="使用-nano-protobufs-序列化数据"><a href="#使用-nano-protobufs-序列化数据" class="headerlink" title="使用 nano protobufs 序列化数据"></a>使用 nano protobufs 序列化数据</h2><p>Protocol buffers 是一个语言中立，平台中立的，可扩展的机制，由谷歌进行序列化结构化数据，类似于 XML 设计的，但是更小，更快，更简单。如果需要为您的数据序列化与协议化，建议使用 nano protobufs。</p>
 <h2 id="避免内存流失"><a href="#避免内存流失" class="headerlink" title="避免内存流失"></a>避免内存流失</h2><p>内存流失可能会导致出现大量的 GC 事件，如自定义组件的 onDraw() ，避免大量创建临时对象，比如 String ，以免频繁触发 GC。GC 事件通常不影响您的 APP 的性能，然而在很短的时间段，发生许多垃圾收集事件可以快速地吃了您的帧时间，系统上时间的都花费在 GC ，就有很少时间做其他的东西像渲染或音频流。</p>
 <h2 id="使用ProGuard来剔除不需要的代码"><a href="#使用ProGuard来剔除不需要的代码" class="headerlink" title="使用ProGuard来剔除不需要的代码"></a>使用ProGuard来剔除不需要的代码</h2><p>使用 ProGuard 来剔除不需要的代码，移除任何冗余的，不必要的，或臃肿的组件，资源或库完善 APP 的内存消耗。</p>
-<h2 id="降低整体尺寸APK"><a href="#降低整体尺寸APK" class="headerlink" title="降低整体尺寸APK"></a>降低整体尺寸APK</h2><p>您可以通过减少 APP 的整体规模显著减少 APP 的内存使用情况。文章：<a href="http://wuxiaolong.github.io/2017/03/19/ReduceAPKSize/" target="_blank" rel="noopener">Android APK瘦身实践</a></p>
-<h2 id="优化布局层次"><a href="#优化布局层次" class="headerlink" title="优化布局层次"></a>优化布局层次</h2><p>通过优化视图层次结构，以减少重叠的 UI 对象的数量来提高性能。文章：<a href="http://wuxiaolong.github.io/2017/03/26/Rendering/" target="_blank" rel="noopener">Android 渲染优化</a></p>
+<h2 id="降低整体尺寸APK"><a href="#降低整体尺寸APK" class="headerlink" title="降低整体尺寸APK"></a>降低整体尺寸APK</h2><p>您可以通过减少 APP 的整体规模显著减少 APP 的内存使用情况。文章：<a href="http://wuxiaolong.me/2017/03/19/ReduceAPKSize/">Android APK瘦身实践</a></p>
+<h2 id="优化布局层次"><a href="#优化布局层次" class="headerlink" title="优化布局层次"></a>优化布局层次</h2><p>通过优化视图层次结构，以减少重叠的 UI 对象的数量来提高性能。文章：<a href="http://wuxiaolong.me/2017/03/26/Rendering/">Android 渲染优化</a></p>
 <h2 id="使用-Dagger-2依赖注入"><a href="#使用-Dagger-2依赖注入" class="headerlink" title="使用 Dagger 2依赖注入"></a>使用 Dagger 2依赖注入</h2><p>依赖注入框架可以简化您写的代码，并提供一个自适应环境测试和便于其他配置的更改。如果打算在您的 APP 使用依赖注入框架，可以考虑用 Dagger 2 ，Dagger 不使用反射扫描 APP 的代码，Dagger 是静态的，意味着它编译时不需要占用运行 Android 应用或内存的使用。</p>
 <h2 id="请小心使用外部库"><a href="#请小心使用外部库" class="headerlink" title="请小心使用外部库"></a>请小心使用外部库</h2><p>外部库的代码往往是未针对移动环境下编写并用于工作在移动客户端上时，可能是低效的。当您决定使用外部库，您可能需要优化该库为移动设备。</p>
 <h2 id="避免Bitmap浪费"><a href="#避免Bitmap浪费" class="headerlink" title="避免Bitmap浪费"></a>避免Bitmap浪费</h2><p>Bitmap是内存消耗的大头，当使用时要及时回收。另外配置：<br>inSampleSize：缩放比例，图片按需加载，避免不必要的大图载入。<br>decode format：解码格式，选择ARGB_8888/RBG_565/ARGB_4444/ALPHA_8，存在很大差异。</p>
