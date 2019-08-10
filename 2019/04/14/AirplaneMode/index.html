@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next gemini" lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/avatar.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/avatar.png?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+  <meta name="description" content="今天中午午休时，我把手机开飞行模式了，能看到 WiFi 、蜂窝数据和蓝牙都关闭了，心想，这时候还能收到短信吗？顺着好奇心，我们不妨来研究一下源码，看看点击飞行模式都发生了什么？ 基于 Android 9.0 源码分析。 AirplaneModeTile#handleClick飞行模式设置入口，下拉状态栏，点击飞行模式图">
+<meta name="keywords" content="AOSP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 当点击飞行模式都发生了什么？">
+<meta property="og:url" content="http://wuxiaolong.me/2019/04/14/AirplaneMode/index.html">
+<meta property="og:site_name" content="吴小龙同學">
+<meta property="og:description" content="今天中午午休时，我把手机开飞行模式了，能看到 WiFi 、蜂窝数据和蓝牙都关闭了，心想，这时候还能收到短信吗？顺着好奇心，我们不妨来研究一下源码，看看点击飞行模式都发生了什么？ 基于 Android 9.0 源码分析。 AirplaneModeTile#handleClick飞行模式设置入口，下拉状态栏，点击飞行模式图标，我们就从这里看起，其他入口逻辑差不多。这个源码位于AOSP/framewor">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-10T14:06:19.841Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android 当点击飞行模式都发生了什么？">
+<meta name="twitter:description" content="今天中午午休时，我把手机开飞行模式了，能看到 WiFi 、蜂窝数据和蓝牙都关闭了，心想，这时候还能收到短信吗？顺着好奇心，我们不妨来研究一下源码，看看点击飞行模式都发生了什么？ 基于 Android 9.0 源码分析。 AirplaneModeTile#handleClick飞行模式设置入口，下拉状态栏，点击飞行模式图标，我们就从这里看起，其他入口逻辑差不多。这个源码位于AOSP/framewor">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="吴小龙同學" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://wuxiaolong.me/2019/04/14/AirplaneMode/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Android 当点击飞行模式都发生了什么？ | 吴小龙同學</title>
+  
+
+
+
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-105780265-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-105780265-1');
+  </script>
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0e1dc2030f397dfa0d60ad22b374430d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">吴小龙同學</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">党要我帅，我不得不帅！</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-friendslinks">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/friendslinks/index.html" rel="section"><i class="menu-item-icon fa fa-fw fa-users"></i> <br>小伙伴</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-gitbook">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="https://wuxiaolong.gitbooks.io/wuxiaolong/" rel="noopener" target="_blank"><i class="menu-item-icon fa fa-fw fa-book"></i> <br>GitBook</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input">
+</form>
+
+<script>
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'ywBn2eRCzfb494KCWJw3','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    <a href="https://github.com/WuXiaolong" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2019/04/14/AirplaneMode/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吴小龙同學">
+      <meta itemprop="description" content="我的微信公众号：吴小龙同学">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴小龙同學">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Android 当点击飞行模式都发生了什么？
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-14 21:47:31" itemprop="dateCreated datePublished" datetime="2019-04-14T21:47:31+08:00">2019-04-14</time>
+            
+
+            <!--
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-10 22:06:19" itemprop="dateModified" datetime="2019-08-10T22:06:19+08:00">2019-08-10</time>
+              -->
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/AOSP/" itemprop="url" rel="index"><span itemprop="name">AOSP</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/04/14/AirplaneMode/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/04/14/AirplaneMode/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>今天中午午休时，我把手机开飞行模式了，能看到 WiFi 、蜂窝数据和蓝牙都关闭了，心想，这时候还能收到短信吗？顺着好奇心，我们不妨来研究一下源码，看看点击飞行模式都发生了什么？</p>
+<p>基于 Android 9.0 源码分析。</p>
+<h2 id="AirplaneModeTile-handleClick"><a href="#AirplaneModeTile-handleClick" class="headerlink" title="AirplaneModeTile#handleClick"></a>AirplaneModeTile#handleClick</h2><p>飞行模式设置入口，下拉状态栏，点击飞行模式图标，我们就从这里看起，其他入口逻辑差不多。这个源码位于<code>AOSP/frameworks/base/packages/SystemUI/src/com/android/systemui/qs/tiles/AirplaneModeTile.java</code>直接看其点击事件。<br><a id="more"></a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AirplaneModeTile</span> <span class="keyword">extends</span> <span class="title">QSTileImpl</span>&lt;<span class="title">BooleanState</span>&gt; </span>&#123;</div><div class="line">    </div><div class="line">    <span class="comment">//省略其他代码</span></div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleClick</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">boolean</span> airplaneModeEnabled = mState.value;</div><div class="line">        MetricsLogger.action(mContext, getMetricsCategory(), !airplaneModeEnabled);</div><div class="line">        <span class="keyword">if</span> (!airplaneModeEnabled &amp;&amp; Boolean.parseBoolean(</div><div class="line">                SystemProperties.get(TelephonyProperties.PROPERTY_INECM_MODE))) &#123;</div><div class="line">            Dependency.get(ActivityStarter.class).postStartActivityDismissingKeyguard(</div><div class="line">                    <span class="keyword">new</span> Intent(TelephonyIntents.ACTION_SHOW_NOTICE_ECM_BLOCK_OTHERS), <span class="number">0</span>);</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        setEnabled(!airplaneModeEnabled);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setEnabled</span><span class="params">(<span class="keyword">boolean</span> enabled)</span> </span>&#123;</div><div class="line">        <span class="keyword">final</span> ConnectivityManager mgr =</div><div class="line">                (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);</div><div class="line">        mgr.setAirplaneMode(enabled);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">//省略其他代码</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>接下来调用 ConnectivityManager#setAirplaneMode 方法。</p>
+<h2 id="ConnectivityManager-setAirplaneMode"><a href="#ConnectivityManager-setAirplaneMode" class="headerlink" title="ConnectivityManager#setAirplaneMode"></a>ConnectivityManager#setAirplaneMode</h2><p>AOSP/frameworks/base/core/java/android/net/ConnectivityManager.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RequiresPermission</span>(anyOf = &#123;</div><div class="line">        android.Manifest.permission.NETWORK_SETTINGS,</div><div class="line">        android.Manifest.permission.NETWORK_SETUP_WIZARD,</div><div class="line">        android.Manifest.permission.NETWORK_STACK&#125;)</div><div class="line"><span class="meta">@SystemApi</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAirplaneMode</span><span class="params">(<span class="keyword">boolean</span> enable)</span> </span>&#123;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        mService.setAirplaneMode(enable);</div><div class="line">    &#125; <span class="keyword">catch</span> (RemoteException e) &#123;</div><div class="line">        <span class="keyword">throw</span> e.rethrowFromSystemServer();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>mService 是 IConnectivityManager，是个接口，其实现看 ConnectivityService#setAirplaneMode。</p>
+<h2 id="ConnectivityService-setAirplaneMode"><a href="#ConnectivityService-setAirplaneMode" class="headerlink" title="ConnectivityService#setAirplaneMode"></a>ConnectivityService#setAirplaneMode</h2><p>/AOSP/frameworks/base/services/core/java/com/android/server</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAirplaneMode</span><span class="params">(<span class="keyword">boolean</span> enable)</span> </span>&#123;</div><div class="line">    enforceNetworkStackSettingsOrSetup();</div><div class="line">    <span class="keyword">final</span> <span class="keyword">long</span> ident = Binder.clearCallingIdentity();</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        <span class="keyword">final</span> ContentResolver cr = mContext.getContentResolver();</div><div class="line">        Settings.Global.putInt(cr, Settings.Global.AIRPLANE_MODE_ON, encodeBool(enable));</div><div class="line">        Intent intent = <span class="keyword">new</span> Intent(Intent.ACTION_AIRPLANE_MODE_CHANGED);</div><div class="line">        intent.putExtra(<span class="string">"state"</span>, enable);</div><div class="line">        mContext.sendBroadcastAsUser(intent, UserHandle.ALL);</div><div class="line">    &#125; <span class="keyword">finally</span> &#123;</div><div class="line">        Binder.restoreCallingIdentity(ident);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这里设置了飞行模式状态的系统变量以及发送 ACTION_AIRPLANE_MODE_CHANGED 系统广播，接下来看看该广播的接受。经过查找，ACTION_AIRPLANE_MODE_CHANGED 广播接受有好几次，，而手机开启或关闭飞行模式时，主要是开启或关闭 Radio 无线通信，其处理逻辑在 PhoneGlobals 类中。另外 WiFi 、蜂窝数据和蓝牙处理都能相应追踪到。</p>
+<p>补充：什么是 Radio？Radio 是无线通信模块的驱动程序，负责网络通信。</p>
+<h2 id="PhoneGlobals"><a href="#PhoneGlobals" class="headerlink" title="PhoneGlobals"></a>PhoneGlobals</h2><p>AOSP/packages/services/Telephony/src/com/android/phone/PhoneGlobals.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PhoneGlobals</span> <span class="keyword">extends</span> <span class="title">ContextWrapper</span> </span>&#123;</div><div class="line"> </div><div class="line">    <span class="comment">//省略其他代码</span></div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">handleAirplaneModeChange</span><span class="params">(Context context, <span class="keyword">int</span> newMode)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> cellState = Settings.Global.getInt(context.getContentResolver(),</div><div class="line">                Settings.Global.CELL_ON, PhoneConstants.CELL_ON_FLAG);</div><div class="line">        <span class="keyword">boolean</span> isAirplaneNewlyOn = (newMode == <span class="number">1</span>);</div><div class="line">        <span class="keyword">switch</span> (cellState) &#123;</div><div class="line">            <span class="keyword">case</span> PhoneConstants.CELL_OFF_FLAG:</div><div class="line">                <span class="comment">// Airplane mode does not affect the cell radio if user</span></div><div class="line">                <span class="comment">// has turned it off.</span></div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> PhoneConstants.CELL_ON_FLAG:</div><div class="line">                maybeTurnCellOff(context, isAirplaneNewlyOn);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> PhoneConstants.CELL_OFF_DUE_TO_AIRPLANE_MODE_FLAG:</div><div class="line">                maybeTurnCellOn(context, isAirplaneNewlyOn);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/*</span></div><div class="line">     * Returns true if the radio must be turned off when entering airplane mode.</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">isCellOffInAirplaneMode</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">        String airplaneModeRadios = Settings.Global.getString(context.getContentResolver(),</div><div class="line">                Settings.Global.AIRPLANE_MODE_RADIOS);</div><div class="line">        <span class="keyword">return</span> airplaneModeRadios == <span class="keyword">null</span></div><div class="line">                || airplaneModeRadios.contains(Settings.Global.RADIO_CELL);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setRadioPowerOff</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">        Log.i(LOG_TAG, <span class="string">"Turning radio off - airplane"</span>);</div><div class="line">        Settings.Global.putInt(context.getContentResolver(), Settings.Global.CELL_ON,</div><div class="line">                 PhoneConstants.CELL_OFF_DUE_TO_AIRPLANE_MODE_FLAG);</div><div class="line">        SystemProperties.set(<span class="string">"persist.radio.airplane_mode_on"</span>, <span class="string">"1"</span>);</div><div class="line">        Settings.Global.putInt(getContentResolver(), Settings.Global.ENABLE_CELLULAR_ON_BOOT, <span class="number">0</span>);</div><div class="line">        PhoneUtils.setRadioPower(<span class="keyword">false</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setRadioPowerOn</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">        Log.i(LOG_TAG, <span class="string">"Turning radio on - airplane"</span>);</div><div class="line">        Settings.Global.putInt(context.getContentResolver(), Settings.Global.CELL_ON,</div><div class="line">                PhoneConstants.CELL_ON_FLAG);</div><div class="line">        Settings.Global.putInt(getContentResolver(), Settings.Global.ENABLE_CELLULAR_ON_BOOT,</div><div class="line">                <span class="number">1</span>);</div><div class="line">        SystemProperties.set(<span class="string">"persist.radio.airplane_mode_on"</span>, <span class="string">"0"</span>);</div><div class="line">        PhoneUtils.setRadioPower(<span class="keyword">true</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">maybeTurnCellOff</span><span class="params">(Context context, <span class="keyword">boolean</span> isAirplaneNewlyOn)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (isAirplaneNewlyOn) &#123;</div><div class="line">            <span class="comment">// If we are trying to turn off the radio, make sure there are no active</span></div><div class="line">            <span class="comment">// emergency calls.  If there are, switch airplane mode back to off.</span></div><div class="line">            TelecomManager tm = (TelecomManager) context.getSystemService(TELECOM_SERVICE);</div><div class="line"></div><div class="line">            <span class="keyword">if</span> (tm != <span class="keyword">null</span> &amp;&amp; tm.isInEmergencyCall()) &#123;</div><div class="line">                <span class="comment">// Switch airplane mode back to off.</span></div><div class="line">                ConnectivityManager.from(<span class="keyword">this</span>).setAirplaneMode(<span class="keyword">false</span>);</div><div class="line">                Toast.makeText(<span class="keyword">this</span>, R.string.radio_off_during_emergency_call, Toast.LENGTH_LONG)</div><div class="line">                        .show();</div><div class="line">                Log.i(LOG_TAG, <span class="string">"Ignoring airplane mode: emergency call. Turning airplane off"</span>);</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (isCellOffInAirplaneMode(context)) &#123;</div><div class="line">                setRadioPowerOff(context);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                Log.i(LOG_TAG, <span class="string">"Ignoring airplane mode: settings prevent cell radio power off"</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">maybeTurnCellOn</span><span class="params">(Context context, <span class="keyword">boolean</span> isAirplaneNewlyOn)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (!isAirplaneNewlyOn) &#123;</div><div class="line">            setRadioPowerOn(context);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Receiver for misc intent broadcasts the Phone app cares about.</div><div class="line">     */</div><div class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">PhoneAppBroadcastReceiver</span> <span class="keyword">extends</span> <span class="title">BroadcastReceiver</span> </span>&#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceive</span><span class="params">(Context context, Intent intent)</span> </span>&#123;</div><div class="line">            String action = intent.getAction();</div><div class="line">            <span class="keyword">if</span> (action.equals(Intent.ACTION_AIRPLANE_MODE_CHANGED)) &#123;</div><div class="line">                <span class="keyword">int</span> airplaneMode = Settings.Global.getInt(getContentResolver(),</div><div class="line">                        Settings.Global.AIRPLANE_MODE_ON, AIRPLANE_OFF);</div><div class="line">                <span class="comment">// Treat any non-OFF values as ON.</span></div><div class="line">                <span class="keyword">if</span> (airplaneMode != AIRPLANE_OFF) &#123;</div><div class="line">                    airplaneMode = AIRPLANE_ON;</div><div class="line">                &#125;</div><div class="line">                handleAirplaneModeChange(context, airplaneMode);</div><div class="line">            &#125; <span class="comment">//省略其他代码</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">  <span class="comment">//省略其他代码</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>PhoneUtils.setRadioPower 会继续调用 GsmCdmaPhone#setRadioPower，调用 mSST.setRadioPower，最终由 mSST 对象向 RIL 对象发起关闭或开启 Radio 无线通信模块的请求，这里就不细看了，有兴趣可以自己继续跟下去。到这里我们就对“Android 当点击飞行模式都发生了什么？”流程有了大致了解，就酱紫，Over。</p>
+         <!--广告-->
+    ﻿<h1>联系作者</h1>
+我的微信公众号：吴小龙同学，欢迎关注交流~
+<img src="https://open.weixin.qq.com/qr/code?username=MrWuXiaolong">
+<!--
+<h1><b>联系我</b></h1>
+<b>由于多说和网易云跟帖评论服务相继关闭，来必力并不给力，因此本博客决定不再折腾评论，欢迎大家可以前往我的公众号留言交流！</b>
+
+1、我的知识星球：更多分享只对您公开，￥99/永久。
+<img src="http://7q5c2h.com1.z0.glb.clouddn.com/zhishixingqiu.jpeg" style="margin-top: 20px; width: 40%; height: 40%"/> 
+<br>
+
+
+2、我的微信公众号：吴小龙同学，欢迎关注交流~
+<img src="http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_wuxiaolong_travel.jpg"  style="margin-top: 20px; width: 40%; height: 40%"/> 
+<br>
+
+3、我的微信群，可以加我微信，拉你进群，加我时<b>请备注真名</b>。
+<img src="http://7q5c2h.com1.z0.glb.clouddn.com/weixin.jpg"  style="margin-top: 20px; width: 40%; height: 40%"/> 
+<br>
+
+
+
+
+<!--
+其实有 Disqus ……
+1、Android技术交流剩者为王④群：331553260。
+<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=d129018d31e801e676743da4b05a1063f88ae52ca0407579666545596bdb7a52"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="剩者为王④群" title="剩者为王④群"></a>
+<img src="http://7q5c2h.com1.z0.glb.clouddn.com/qun4.png"  style="margin-top: 20px; width: 40%; height: 40%"/> 
+-->
+
+
+<!--<div style="padding: 10px 0; margin: 20px auto; width: 99%; text-align: center;"> 
+<b>赞助商：<a href="https://shop240489162.taobao.com/">躲角落的猫咪</a></b>
+<br>
+<img src="http://7q5c2h.com1.z0.glb.clouddn.com/taobaoshop.png"/> 
+</div>
+
+-->  
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/AOSP/" rel="tag"># AOSP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/18/AutoBrightness/" rel="next" title="Android 亮度自动调节">
+                <i class="fa fa-chevron-left"></i> Android 亮度自动调节
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="吴小龙同學">
+            
+              <p class="site-author-name" itemprop="name">吴小龙同學</p>
+              <p class="site-description motion-element" itemprop="description">我的微信公众号：吴小龙同学</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">146</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">41</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">112</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://open.weixin.qq.com/qr/code?username=MrWuXiaolong" title="WeChat &rarr; https://open.weixin.qq.com/qr/code?username=MrWuXiaolong" rel="noopener" target="_blank"><i class="fa fa-fw fa-weixin"></i>WeChat</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/WuXiaolong" title="GitHub &rarr; https://github.com/WuXiaolong" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.zhihu.com/people/wuxiaolong.me" title="知乎 &rarr; https://www.zhihu.com/people/wuxiaolong.me" rel="noopener" target="_blank"><i class="fa fa-fw fa-book"></i>知乎</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="http://weibo.com/u/2175011601" title="Weibo &rarr; http://weibo.com/u/2175011601" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#AirplaneModeTile-handleClick"><span class="nav-number">1.</span> <span class="nav-text">AirplaneModeTile#handleClick</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ConnectivityManager-setAirplaneMode"><span class="nav-number">2.</span> <span class="nav-text">ConnectivityManager#setAirplaneMode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ConnectivityService-setAirplaneMode"><span class="nav-number">3.</span> <span class="nav-text">ConnectivityService#setAirplaneMode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PhoneGlobals"><span class="nav-number">4.</span> <span class="nav-text">PhoneGlobals</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2013 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">吴小龙同學</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.4.2</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.7.0</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://WuXiaolong.disqus.com/count.js" async></script>
+  
+
+  
+    <script>
+      var disqus_config = function () {
+        this.page.url = "http://wuxiaolong.me/2019/04/14/AirplaneMode/";
+        this.page.identifier = "2019/04/14/AirplaneMode/";
+        this.page.title = 'Android 当点击飞行模式都发生了什么？';
+        };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://WuXiaolong.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
