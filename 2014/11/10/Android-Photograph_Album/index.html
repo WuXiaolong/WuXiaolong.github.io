@@ -49,16 +49,16 @@
 <link rel="stylesheet" href="/css/main.css?v=6.7.0">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.JPG?v=6.7.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.png?v=6.7.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar.JPG?v=6.7.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar.png?v=6.7.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/avatar.JPG?v=6.7.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/avatar.png?v=6.7.0">
 
 
-  <link rel="mask-icon" href="/images/avatar.JPG?v=6.7.0" color="#222">
+  <link rel="mask-icon" href="/images/avatar.png?v=6.7.0" color="#222">
 
 
 
@@ -556,7 +556,7 @@
 <p>getAbsolutePath方法<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getAbsolutePath</span><span class="params">(<span class="keyword">final</span> Context context, <span class="keyword">final</span> Uri uri)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">null</span> == uri) <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    <span class="keyword">final</span> String scheme = uri.getScheme();</div><div class="line">    String data = <span class="keyword">null</span>;</div><div class="line">    <span class="keyword">if</span> (scheme == <span class="keyword">null</span>)</div><div class="line">        data = uri.getPath();</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (ContentResolver.SCHEME_FILE.equals(scheme)) &#123;</div><div class="line">        data = uri.getPath();</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (ContentResolver.SCHEME_CONTENT.equals(scheme)) &#123;</div><div class="line">        Cursor cursor = context.getContentResolver().query(uri, </div><div class="line">	 <span class="keyword">new</span> String[]&#123;MediaStore.Images.ImageColumns.DATA&#125;, <span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">null</span>);</div><div class="line">        <span class="keyword">if</span> (<span class="keyword">null</span> != cursor) &#123;</div><div class="line">            <span class="keyword">if</span> (cursor.moveToFirst()) &#123;</div><div class="line">                <span class="keyword">int</span> index = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);</div><div class="line">                <span class="keyword">if</span> (index &gt; -<span class="number">1</span>) &#123;</div><div class="line">                    data = cursor.getString(index);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            cursor.close();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> data;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
          <!--广告-->
     ﻿<h1>联系作者</h1>
-我的微信公众号：吴小龙同学，欢迎关注交流~
+我的微信公众号：吴小龙同学，欢迎关注交流，公号回复关键字「1024」有惊喜哦。
 <img src="https://open.weixin.qq.com/qr/code?username=MrWuXiaolong">
 <!--
 <h1><b>联系我</b></h1>
