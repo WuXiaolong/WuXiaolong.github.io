@@ -49,16 +49,16 @@
 <link rel="stylesheet" href="/css/main.css?v=6.7.0">
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.png?v=6.7.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.JPG?v=6.7.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar.png?v=6.7.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar.JPG?v=6.7.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/avatar.png?v=6.7.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/avatar.JPG?v=6.7.0">
 
 
-  <link rel="mask-icon" href="/images/avatar.png?v=6.7.0" color="#222">
+  <link rel="mask-icon" href="/images/avatar.JPG?v=6.7.0" color="#222">
 
 
 
@@ -395,6 +395,198 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2016/03/31/gradle4android2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吴小龙同學">
+      <meta itemprop="description" content="我的微信公众号：吴小龙同学">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴小龙同學">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2016/03/31/gradle4android2/" class="post-title-link" itemprop="url">Gradle for Android（二）全局设置、自定义BuildConfig、混淆</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-03-31 14:11:14" itemprop="dateCreated datePublished" datetime="2016-03-31T14:11:14+08:00">2016-03-31</time>
+            
+
+            <!--
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-22 22:31:31" itemprop="dateModified" datetime="2019-04-22T22:31:31+08:00">2019-04-22</time>
+              -->
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Gradle/" itemprop="url" rel="index"><span itemprop="name">Gradle</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/03/31/gradle4android2/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/03/31/gradle4android2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="系列博客"><a href="#系列博客" class="headerlink" title="系列博客"></a>系列博客</h1><blockquote>
+<p><a href="http://wuxiaolong.me/2016/03/30/gradle4android1/">Gradle for Android（一）基本配置、依赖管理</a><br><a href="http://wuxiaolong.me/2016/04/01/gradle4android3/">Gradle for Android（三）多渠道打包、配置签名信息</a></p>
+</blockquote>
+<h1 id="全局设置"><a href="#全局设置" class="headerlink" title="全局设置"></a>全局设置</h1><h2 id="根目录build-gradle"><a href="#根目录build-gradle" class="headerlink" title="根目录build.gradle"></a>根目录build.gradle</h2><p>如果有很多项目，可以设置全局来统一管理版本号或依赖库，根目录下build.gradle添加：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">def androidSupportVersion = <span class="string">'25.3.1'</span></div><div class="line">ext &#123;</div><div class="line">    <span class="comment">//编译的 SDK 版本，如API20</span></div><div class="line">    compileSdkVersion = <span class="number">25</span></div><div class="line">    <span class="comment">//构建工具的版本，其中包括了打包工具aapt、dx等,如API20对应的build-tool的版本就是20.0.0</span></div><div class="line">    buildToolsVersion = <span class="string">"26.0.0"</span></div><div class="line">    <span class="comment">//兼容的最低 SDK 版本</span></div><div class="line">    minSdkVersion = <span class="number">14</span></div><div class="line">    <span class="comment">//向前兼容，保存新旧两种逻辑，并通过 if-else 方法来判断执行哪种逻辑</span></div><div class="line">    targetSdkVersion = <span class="number">22</span></div><div class="line">    appcompatV7 = <span class="string">"com.android.support:appcompat-v7:$androidSupportVersion"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2016/03/31/gradle4android2/" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -2117,205 +2309,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2016/01/15/retrofit/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="吴小龙同學">
-      <meta itemprop="description" content="我的微信公众号：吴小龙同学">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吴小龙同學">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2016/01/15/retrofit/" class="post-title-link" itemprop="url">Android Retrofit 2.0使用</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2016-01-15 11:23:25" itemprop="dateCreated datePublished" datetime="2016-01-15T11:23:25+08:00">2016-01-15</time>
-            
-
-            <!--
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-04-22 22:31:02" itemprop="dateModified" datetime="2019-04-22T22:31:02+08:00">2019-04-22</time>
-              -->
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Retrofit/" itemprop="url" rel="index"><span itemprop="name">Retrofit</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/01/15/retrofit/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/01/15/retrofit/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>实例带你了解Retrofit 2.0的使用，分享目前开发Retrofit遇到的坑和心得。</p>
-</blockquote>
-<h1 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h1><p>app/build.gradle<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile <span class="string">'com.squareup.retrofit2:retrofit:2.0.0-beta3'</span></div></pre></td></tr></table></figure></p>
-<h1 id="接口调用"><a href="#接口调用" class="headerlink" title="接口调用"></a>接口调用</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Retrofit retrofit = <span class="keyword">new</span> Retrofit.Builder()</div><div class="line">                <span class="comment">//这里建议：- Base URL: 总是以/结尾；- @Url: 不要以/开头</span></div><div class="line">               .baseUrl(<span class="string">"http://www.weather.com.cn/"</span>)</div><div class="line">               .build();</div><div class="line">       ApiStores apiStores = retrofit.create(ApiStores.class);</div><div class="line">       Call&lt;ResponseBody&gt; call = apiStores.getWeather(<span class="string">"101010100"</span>);</div></pre></td></tr></table></figure>
-<p>如果@GET(“<a href="http://ip.taobao.com/service/getIpInfo.php&quot;)，则baseUrl无效。" target="_blank" rel="noopener">http://ip.taobao.com/service/getIpInfo.php&quot;)，则baseUrl无效。</a><br>注意这个任务是网络任务，不要忘记给程序加入网络权限<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">"android.permission.INTERNET"</span> /&gt;</span></div></pre></td></tr></table></figure></p>
-<h2 id="同步调用"><a href="#同步调用" class="headerlink" title="同步调用"></a>同步调用</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">          Response&lt;ResponseBody&gt; bodyResponse = call.execute();</div><div class="line">          String body = bodyResponse.body().string();<span class="comment">//获取返回体的字符串</span></div><div class="line">          Log.i(<span class="string">"wxl"</span>, <span class="string">"body="</span> + body);</div><div class="line">      &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">          e.printStackTrace();</div><div class="line">      &#125;</div></pre></td></tr></table></figure>
-<p>同步需要处理android.os.NetworkOnMainThreadException</p>
-<h2 id="异步调用"><a href="#异步调用" class="headerlink" title="异步调用"></a>异步调用</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">call.enqueue(<span class="keyword">new</span> Callback&lt;ResponseBody&gt;() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResponse</span><span class="params">(Response&lt;ResponseBody&gt; response)</span> </span>&#123;</div><div class="line">                <span class="keyword">try</span> &#123;</div><div class="line">                    Log.i(<span class="string">"wxl"</span>, <span class="string">"response="</span> + response.body().string());</div><div class="line">                &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">                    e.printStackTrace();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFailure</span><span class="params">(Throwable t)</span> </span>&#123;</div><div class="line">                Log.i(<span class="string">"wxl"</span>, <span class="string">"onFailure="</span> + t.getMessage());</div><div class="line">            &#125;</div><div class="line">        &#125;);</div></pre></td></tr></table></figure>
-<h2 id="移除请求"><a href="#移除请求" class="headerlink" title="移除请求"></a>移除请求</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">call.cancel();</div></pre></td></tr></table></figure>
-<h1 id="接口参数"><a href="#接口参数" class="headerlink" title="接口参数"></a>接口参数</h1><h2 id="Path"><a href="#Path" class="headerlink" title="Path"></a>Path</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"> <span class="comment">/**</span></div><div class="line"> * Call&lt;T&gt; get();必须是这种形式,这是2.0之后的新形式</div><div class="line"> * 如果不需要转换成Json数据,可以用了ResponseBody;</div><div class="line"> * 你也可以使用Call&lt;GsonBean&gt; get();这样的话,需要添加Gson转换器</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ApiStores</span> </span>&#123;</div><div class="line">    <span class="meta">@GET</span>(<span class="string">"adat/sk/&#123;cityId&#125;.html"</span>)</div><div class="line">    <span class="function">Call&lt;ResponseBody&gt; <span class="title">getWeather</span><span class="params">(@Path(<span class="string">"cityId"</span>)</span> String cityId)</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2016/01/15/retrofit/" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2365,7 +2358,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">146</span>
+                    <span class="site-state-item-count">147</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2819,7 +2812,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2013 – <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; 2013 – <span itemprop="copyrightYear">2020</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
