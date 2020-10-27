@@ -411,6 +411,196 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2019/06/02/SystemUI2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吴小龙同學">
+      <meta itemprop="description" content="我的微信公众号：吴小龙同学">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴小龙同學">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/06/02/SystemUI2/" class="post-title-link" itemprop="url">Android 9.0 SystemUI 主要视图 SystemBars</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-02 09:54:41" itemprop="dateCreated datePublished" datetime="2019-06-02T09:54:41+08:00">2019-06-02</time>
+            
+
+            <!--
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-10-27 23:04:49" itemprop="dateModified" datetime="2020-10-27T23:04:49+08:00">2020-10-27</time>
+              -->
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/SystemUI/" itemprop="url" rel="index"><span itemprop="name">SystemUI</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/06/02/SystemUI2/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/06/02/SystemUI2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>SystemBars 是 SystemUI 主要视图，接下来看看它是如何呈现？基于 AOSP 9.0 分析。</p>
+<h2 id="SystemBars-start"><a href="#SystemBars-start" class="headerlink" title="SystemBars#start"></a>SystemBars#start</h2><p>SystemBars 启动中 mServices[i].start() 将调用 SystemBars.start()：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SystemBars</span> <span class="keyword">extends</span> <span class="title">SystemUI</span> </span>&#123;</div><div class="line">    <span class="comment">//省略部分代码</span></div><div class="line">    <span class="keyword">private</span> SystemUI mStatusBar;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (DEBUG) Log.d(TAG, <span class="string">"start"</span>);</div><div class="line">        createStatusBarFromConfig();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//省略部分代码</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">createStatusBarFromConfig</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (DEBUG) Log.d(TAG, <span class="string">"createStatusBarFromConfig"</span>);</div><div class="line">        <span class="keyword">final</span> String clsName = mContext.getString(R.string.config_statusBarComponent);</div><div class="line">        <span class="keyword">if</span> (clsName == <span class="keyword">null</span> || clsName.length() == <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">throw</span> andLog(<span class="string">"No status bar component configured"</span>, <span class="keyword">null</span>);</div><div class="line">        &#125;</div><div class="line">        Class&lt;?&gt; cls = <span class="keyword">null</span>;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            cls = mContext.getClassLoader().loadClass(clsName);</div><div class="line">        &#125; <span class="keyword">catch</span> (Throwable t) &#123;</div><div class="line">            <span class="keyword">throw</span> andLog(<span class="string">"Error loading status bar component: "</span> + clsName, t);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            mStatusBar = (SystemUI) cls.newInstance();</div><div class="line">        &#125; <span class="keyword">catch</span> (Throwable t) &#123;</div><div class="line">            <span class="keyword">throw</span> andLog(<span class="string">"Error creating status bar component: "</span> + clsName, t);</div><div class="line">        &#125;</div><div class="line">        mStatusBar.mContext = mContext;</div><div class="line">        mStatusBar.mComponents = mComponents;</div><div class="line">        mStatusBar.start();</div><div class="line">        <span class="keyword">if</span> (DEBUG) Log.d(TAG, <span class="string">"started "</span> + mStatusBar.getClass().getSimpleName());</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//省略部分代码</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/06/02/SystemUI2/" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2019/05/02/SystemUI1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2111,196 +2301,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2018/05/14/AdaptiveIcons/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="吴小龙同學">
-      <meta itemprop="description" content="我的微信公众号：吴小龙同学">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吴小龙同學">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/05/14/AdaptiveIcons/" class="post-title-link" itemprop="url">Android 8.0 自适应图标</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-05-14 13:20:36" itemprop="dateCreated datePublished" datetime="2018-05-14T13:20:36+08:00">2018-05-14</time>
-            
-
-            <!--
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-04-22 22:32:22" itemprop="dateModified" datetime="2019-04-22T22:32:22+08:00">2019-04-22</time>
-              -->
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Adaptive-Icons/" itemprop="url" rel="index"><span itemprop="name">Adaptive Icons</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/05/14/AdaptiveIcons/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/05/14/AdaptiveIcons/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>项目中遇到一个问题，Android 8.0 系统上 APP 的 icon 显示的是默认的机器人的 icon，这是什么回事？原来 Android 8.0（API 级别 26）引入了自适应启动器图标，可以在不同设备模型中显示各种形状。下面看下官方酷炫动态图：</p>
-<p><img src="https://developer.android.google.cn/guide/practices/ui_guidelines/images/NB_Icon_Mask_Shapes_Ext_01.gif" alt="适用于自适应图标线框的各种遮罩"> <img src="https://developer.android.google.cn/guide/practices/ui_guidelines/images/NB_Icon_Mask_Shapes_Ext_02.gif" alt="适用于自适应图标的各种蒙版"><br>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2018/05/14/AdaptiveIcons/" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </p></div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2350,7 +2350,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">147</span>
+                    <span class="site-state-item-count">148</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
