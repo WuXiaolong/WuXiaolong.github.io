@@ -411,6 +411,578 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2019/07/02/SystemUI3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吴小龙同學">
+      <meta itemprop="description" content="我的微信公众号：吴小龙同学">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴小龙同學">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/07/02/SystemUI3/" class="post-title-link" itemprop="url">Android 9.0 SystemUI 下拉状态栏快捷开关</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-02 09:54:41" itemprop="dateCreated datePublished" datetime="2019-07-02T09:54:41+08:00">2019-07-02</time>
+            
+
+            <!--
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-10-27 23:30:32" itemprop="dateModified" datetime="2020-10-27T23:30:32+08:00">2020-10-27</time>
+              -->
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/SystemUI/" itemprop="url" rel="index"><span itemprop="name">SystemUI</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/07/02/SystemUI3/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/07/02/SystemUI3/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>SystemUI 下拉状态栏快捷开关是 QSPanel，qs_panel.xml，@+id/quick_settings_panel，本篇文章就来看看这些快捷开关是如何呈现的以及如何新增一个快捷开关？基于 AOSP 9.0 分析。</p>
+<h2 id="SystemUI-下拉状态栏快捷开关"><a href="#SystemUI-下拉状态栏快捷开关" class="headerlink" title="SystemUI 下拉状态栏快捷开关"></a>SystemUI 下拉状态栏快捷开关</h2><p>QSPanel 创建是从 StatusBar#makeStatusBarView 开始的。</p>
+<h3 id="StatusBar-makeStatusBarView"><a href="#StatusBar-makeStatusBarView" class="headerlink" title="StatusBar#makeStatusBarView"></a>StatusBar#makeStatusBarView</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">makeStatusBarView</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="comment">//省略其他代码</span></div><div class="line">    <span class="keyword">final</span> QSTileHost qsh = SystemUIFactory.getInstance().createQSTileHost(mContext, <span class="keyword">this</span>,</div><div class="line">            mIconController);</div><div class="line">    mBrightnessMirrorController = <span class="keyword">new</span> BrightnessMirrorController(mStatusBarWindow,</div><div class="line">            (visible) -&gt; &#123;</div><div class="line">                mBrightnessMirrorVisible = visible;</div><div class="line">                updateScrimController();</div><div class="line">            &#125;);</div><div class="line">    fragmentHostManager.addTagListener(QS.TAG, (tag, f) -&gt; &#123;</div><div class="line">        QS qs = (QS) f;</div><div class="line">        <span class="keyword">if</span> (qs <span class="keyword">instanceof</span> QSFragment) &#123;</div><div class="line">            ((QSFragment) qs).setHost(qsh);</div><div class="line">            mQSPanel = ((QSFragment) qs).getQsPanel();</div><div class="line">            mQSPanel.setBrightnessMirror(mBrightnessMirrorController);</div><div class="line">            mKeyguardStatusBar.setQSPanel(mQSPanel);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">    <span class="comment">//省略其他代码</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/07/02/SystemUI3/" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2019/06/02/SystemUI4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吴小龙同學">
+      <meta itemprop="description" content="我的微信公众号：吴小龙同学">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴小龙同學">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/06/02/SystemUI4/" class="post-title-link" itemprop="url">Android 9.0 SystemUI Notification</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-02 09:54:41" itemprop="dateCreated datePublished" datetime="2019-06-02T09:54:41+08:00">2019-06-02</time>
+            
+
+            <!--
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-10-27 23:31:27" itemprop="dateModified" datetime="2020-10-27T23:31:27+08:00">2020-10-27</time>
+              -->
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/SystemUI/" itemprop="url" rel="index"><span itemprop="name">SystemUI</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/06/02/SystemUI4/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/06/02/SystemUI4/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>本文主要分享 SystemUI Notification 具体如何呈现的？基于 AOSP 9.0 分析。</p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><img src="/images/StatusBar5.png" alt=""><br>在《Android 9.0 SystemUI 主要视图 SystemBars》知道通知在折叠时状态栏、下拉状态栏、锁屏都有通知，其中锁屏和下拉状态栏是一个布局，折叠状态栏 是在 <code>CollapsedStatusBarFragment，status_bar.xml，PhoneStatusBarView</code>，锁屏是 <code>NotificationStackScrollLayout，@+id/notification_stack_scroller</code>，先来看看锁屏的通知，NotificationStackScrollLayout 是 ViewGroup，如果来了条通知，肯定是有地方进行 addView，我们就沿着这个思路去 AOSP 寻找答案。</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/06/02/SystemUI4/" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2019/06/02/SystemUI5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吴小龙同學">
+      <meta itemprop="description" content="我的微信公众号：吴小龙同学">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴小龙同學">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/06/02/SystemUI5/" class="post-title-link" itemprop="url">Android 9.0 SystemUI NavigationBar</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-02 09:54:41" itemprop="dateCreated datePublished" datetime="2019-06-02T09:54:41+08:00">2019-06-02</time>
+            
+
+            <!--
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-10-27 23:30:52" itemprop="dateModified" datetime="2020-10-27T23:30:52+08:00">2020-10-27</time>
+              -->
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/SystemUI/" itemprop="url" rel="index"><span itemprop="name">SystemUI</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/06/02/SystemUI5/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/06/02/SystemUI5/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>导航栏有返回(back)，桌面（home），最近任务（recent），本篇主要学习这三个是如何加载的，点击事件在哪里写的？基于 AOSP 9.0 分析。</p>
+<p>NavigationBar 创建是从 StatusBar#makeStatusBarView 开始的。</p>
+<h2 id="StatusBar-makeStatusBarView"><a href="#StatusBar-makeStatusBarView" class="headerlink" title="StatusBar#makeStatusBarView"></a>StatusBar#makeStatusBarView</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">makeStatusBarView</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="comment">//省略其他代码</span></div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        <span class="keyword">boolean</span> showNav = mWindowManagerService.hasNavigationBar();</div><div class="line">        <span class="keyword">if</span> (DEBUG) Log.v(TAG, <span class="string">"hasNavigationBar="</span> + showNav);</div><div class="line">        <span class="keyword">if</span> (showNav) &#123;</div><div class="line">            createNavigationBar();</div><div class="line">        &#125;</div><div class="line">    &#125; <span class="keyword">catch</span> (RemoteException ex) &#123;</div><div class="line">        <span class="comment">// no window manager? good luck with that</span></div><div class="line">    &#125;</div><div class="line">    <span class="comment">//省略其他代码</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">createNavigationBar</span><span class="params">()</span> </span>&#123;</div><div class="line">    mNavigationBarView = NavigationBarFragment.create(mContext, (tag, fragment) -&gt; &#123;</div><div class="line">        mNavigationBar = (NavigationBarFragment) fragment;</div><div class="line">        <span class="keyword">if</span> (mLightBarController != <span class="keyword">null</span>) &#123;</div><div class="line">            mNavigationBar.setLightBarController(mLightBarController);</div><div class="line">        &#125;</div><div class="line">        mNavigationBar.setCurrentSysuiVisibility(mSystemUiVisibility);</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/06/02/SystemUI5/" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2019/06/02/SystemUI2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -663,7 +1235,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-10-27 22:50:27" itemprop="dateModified" datetime="2020-10-27T22:50:27+08:00">2020-10-27</time>
+                <time title="修改时间：2020-10-27 23:23:36" itemprop="dateModified" datetime="2020-10-27T23:23:36+08:00">2020-10-27</time>
               -->
             
           </span>
@@ -727,7 +1299,13 @@
       
         
           <p>基于 AOSP 9.0 分析。</p>
-<h2 id="开机流程"><a href="#开机流程" class="headerlink" title="开机流程"></a>开机流程</h2><p>开机大致会经历如下几个过程：<br>（1）uboot 在引导 os 启动，然后加载 kernel；<br>（2）当 kernel 加载完成后，进入 init 进程，fork 出 zygote，然后由 zygote 去启动 SystemServer；<br>（3）SystemServer 会启动系统运行所需的众多核心服务和普通服务，以及初始化和加载一些应用；<br>（4）之后就进入到锁屏或者 Launcher，开机过程就基本结束了。</p>
+<h2 id="开机流程"><a href="#开机流程" class="headerlink" title="开机流程"></a>开机流程</h2><p>开机大致会经历如下几个过程：</p>
+<ol>
+<li>uboot 在引导 os 启动，然后加载 kernel；</li>
+<li>当 kernel 加载完成后，进入 init 进程，fork 出 zygote，然后由 zygote 去启动 SystemServer；</li>
+<li>SystemServer 会启动系统运行所需的众多核心服务和普通服务，以及初始化和加载一些应用；</li>
+<li>之后就进入到锁屏或者 Launcher，开机过程就基本结束了。</li>
+</ol>
 <p>SystemUI 启动就是从 SystemServer 开始的。</p>
           <!--noindex-->
           
@@ -1729,583 +2307,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2018/08/15/AOSP3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="吴小龙同學">
-      <meta itemprop="description" content="我的微信公众号：吴小龙同学">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吴小龙同學">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/08/15/AOSP3/" class="post-title-link" itemprop="url">Android Studio 导入 AOSP 源码</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-08-15 10:24:22" itemprop="dateCreated datePublished" datetime="2018-08-15T10:24:22+08:00">2018-08-15</time>
-            
-
-            <!--
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-01-05 11:19:00" itemprop="dateModified" datetime="2019-01-05T11:19:00+08:00">2019-01-05</time>
-              -->
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/AOSP/" itemprop="url" rel="index"><span itemprop="name">AOSP</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/08/15/AOSP3/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/08/15/AOSP3/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>有了 AOSP 源码，接下来就是如何看了，可以直接文本看，可以用 Source Insight，我当然选择 Android Studio，Android Studio 是我熟悉且十分强大的工具。问题来了，如何将 AOSP 源码导入 Android Studio？</p>
-<h1 id="安装-Java"><a href="#安装-Java" class="headerlink" title="安装 Java"></a>安装 Java</h1><p>虚拟机新装的 Ubutun 一开始是没有 Java 的，需要先安装，输入命令<code>java</code>，报以下错误：<br>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2018/08/15/AOSP3/" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </p></div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2018/07/25/AOSP2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="吴小龙同學">
-      <meta itemprop="description" content="我的微信公众号：吴小龙同学">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吴小龙同學">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/07/25/AOSP2/" class="post-title-link" itemprop="url">AOSP 源码整编单编</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-07-25 09:35:19" itemprop="dateCreated datePublished" datetime="2018-07-25T09:35:19+08:00">2018-07-25</time>
-            
-
-            <!--
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-01-05 09:45:11" itemprop="dateModified" datetime="2019-01-05T09:45:11+08:00">2019-01-05</time>
-              -->
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/AOSP/" itemprop="url" rel="index"><span itemprop="name">AOSP</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/07/25/AOSP2/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/07/25/AOSP2/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>《<a href="https://mp.weixin.qq.com/s/hEWNHN4_k2HY9uhnw1diMA" target="_blank" rel="noopener">AOSP 源码下载</a>》完成后，就可以开编了。</p>
-<h1 id="整编"><a href="#整编" class="headerlink" title="整编"></a>整编</h1><p>整编，顾名思义就是编译整个 Android 源码，最终 out 目录会生成几个重要的镜像文件，其中有 system.img、userdata.img、ramdisk.img 等，这些是可以刷机的。</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2018/07/25/AOSP2/" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2018/07/07/AOSP1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="吴小龙同學">
-      <meta itemprop="description" content="我的微信公众号：吴小龙同学">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吴小龙同學">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/07/07/AOSP1/" class="post-title-link" itemprop="url">AOSP 源码下载</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-07-07 20:42:58" itemprop="dateCreated datePublished" datetime="2018-07-07T20:42:58+08:00">2018-07-07</time>
-            
-
-            <!--
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-04-22 22:32:10" itemprop="dateModified" datetime="2019-04-22T22:32:10+08:00">2019-04-22</time>
-              -->
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/AOSP/" itemprop="url" rel="index"><span itemprop="name">AOSP</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/07/07/AOSP1/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/07/07/AOSP1/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>网上关于这块大部分教程都是无效的，因为墙的缘故，无法使用官方提供的下载链接，我这里使用了<a href="https://mirrors.tuna.tsinghua.edu.cn/help/AOSP/" target="_blank" rel="noopener">清华大学的镜像</a>，是能够顺利将 AOSP 下载下来。如果你还没有安装 Ubuntu，请看《<a href="https://mp.weixin.qq.com/s/Z4vJoAhuiXbkbsFUHULzQg" target="_blank" rel="noopener">VirtualBox 安装 Ubuntu</a>》。</p>
-<h1 id="下载-repo"><a href="#下载-repo" class="headerlink" title="下载 repo"></a>下载 repo</h1><p>Repo 是一款工具，可让您在 Android 环境中更轻松地使用 Git，首先需要安装 Git：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install git</div></pre></td></tr></table></figure></p>
-<p>创建 bin，并加入 path：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mkdir ~/bin</div><div class="line">PATH=~/bin:<span class="variable">$PATH</span></div></pre></td></tr></table></figure>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2018/07/07/AOSP1/" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2350,7 +2356,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">148</span>
+                    <span class="site-state-item-count">151</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next gemini" lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/avatar.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/avatar.png?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+  <meta name="description" content="导航栏有返回(back)，桌面（home），最近任务（recent），本篇主要学习这三个是如何加载的，点击事件在哪里写的？基于 AOSP 9.0 分析。 NavigationBar 创建是从 StatusBar#makeStatusBarView 开始的。 StatusBar#makeStatusBarView1234">
+<meta name="keywords" content="SystemUI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 9.0 SystemUI NavigationBar">
+<meta property="og:url" content="http://wuxiaolong.me/2019/06/02/SystemUI5/index.html">
+<meta property="og:site_name" content="吴小龙同學">
+<meta property="og:description" content="导航栏有返回(back)，桌面（home），最近任务（recent），本篇主要学习这三个是如何加载的，点击事件在哪里写的？基于 AOSP 9.0 分析。 NavigationBar 创建是从 StatusBar#makeStatusBarView 开始的。 StatusBar#makeStatusBarView1234567891011121314151617181920212223protect">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-10-27T15:30:52.096Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android 9.0 SystemUI NavigationBar">
+<meta name="twitter:description" content="导航栏有返回(back)，桌面（home），最近任务（recent），本篇主要学习这三个是如何加载的，点击事件在哪里写的？基于 AOSP 9.0 分析。 NavigationBar 创建是从 StatusBar#makeStatusBarView 开始的。 StatusBar#makeStatusBarView1234567891011121314151617181920212223protect">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="吴小龙同學" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://wuxiaolong.me/2019/06/02/SystemUI5/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Android 9.0 SystemUI NavigationBar | 吴小龙同學</title>
+  
+
+
+
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-105780265-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-105780265-1');
+  </script>
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0e1dc2030f397dfa0d60ad22b374430d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">吴小龙同學</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">党要我帅，我不得不帅！</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-friendslinks">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/friendslinks/index.html" rel="section"><i class="menu-item-icon fa fa-fw fa-users"></i> <br>小伙伴</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-gitbook">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="https://wuxiaolong.gitbooks.io/wuxiaolong/" rel="noopener" target="_blank"><i class="menu-item-icon fa fa-fw fa-book"></i> <br>GitBook</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input">
+</form>
+
+<script>
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'ywBn2eRCzfb494KCWJw3','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    <a href="https://github.com/WuXiaolong" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2019/06/02/SystemUI5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吴小龙同學">
+      <meta itemprop="description" content="我的微信公众号：吴小龙同学">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴小龙同學">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Android 9.0 SystemUI NavigationBar
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-02 09:54:41" itemprop="dateCreated datePublished" datetime="2019-06-02T09:54:41+08:00">2019-06-02</time>
+            
+
+            <!--
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-10-27 23:30:52" itemprop="dateModified" datetime="2020-10-27T23:30:52+08:00">2020-10-27</time>
+              -->
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/SystemUI/" itemprop="url" rel="index"><span itemprop="name">SystemUI</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/06/02/SystemUI5/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/06/02/SystemUI5/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>导航栏有返回(back)，桌面（home），最近任务（recent），本篇主要学习这三个是如何加载的，点击事件在哪里写的？基于 AOSP 9.0 分析。</p>
+<p>NavigationBar 创建是从 StatusBar#makeStatusBarView 开始的。</p>
+<h2 id="StatusBar-makeStatusBarView"><a href="#StatusBar-makeStatusBarView" class="headerlink" title="StatusBar#makeStatusBarView"></a>StatusBar#makeStatusBarView</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">makeStatusBarView</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="comment">//省略其他代码</span></div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        <span class="keyword">boolean</span> showNav = mWindowManagerService.hasNavigationBar();</div><div class="line">        <span class="keyword">if</span> (DEBUG) Log.v(TAG, <span class="string">"hasNavigationBar="</span> + showNav);</div><div class="line">        <span class="keyword">if</span> (showNav) &#123;</div><div class="line">            createNavigationBar();</div><div class="line">        &#125;</div><div class="line">    &#125; <span class="keyword">catch</span> (RemoteException ex) &#123;</div><div class="line">        <span class="comment">// no window manager? good luck with that</span></div><div class="line">    &#125;</div><div class="line">    <span class="comment">//省略其他代码</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">createNavigationBar</span><span class="params">()</span> </span>&#123;</div><div class="line">    mNavigationBarView = NavigationBarFragment.create(mContext, (tag, fragment) -&gt; &#123;</div><div class="line">        mNavigationBar = (NavigationBarFragment) fragment;</div><div class="line">        <span class="keyword">if</span> (mLightBarController != <span class="keyword">null</span>) &#123;</div><div class="line">            mNavigationBar.setLightBarController(mLightBarController);</div><div class="line">        &#125;</div><div class="line">        mNavigationBar.setCurrentSysuiVisibility(mSystemUiVisibility);</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>再进入 NavigationBarFragment#create 看看。</p>
+<h2 id="NavigationBarFragment-create"><a href="#NavigationBarFragment-create" class="headerlink" title="NavigationBarFragment#create"></a>NavigationBarFragment#create</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> View <span class="title">create</span><span class="params">(Context context, FragmentListener listener)</span> </span>&#123;</div><div class="line">    WindowManager.LayoutParams lp = <span class="keyword">new</span> WindowManager.LayoutParams(</div><div class="line">            LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT,</div><div class="line">            WindowManager.LayoutParams.TYPE_NAVIGATION_BAR,</div><div class="line">            WindowManager.LayoutParams.FLAG_TOUCHABLE_WHEN_WAKING</div><div class="line">                    | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE</div><div class="line">                    | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL</div><div class="line">                    | WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH</div><div class="line">                    | WindowManager.LayoutParams.FLAG_SPLIT_TOUCH</div><div class="line">                    | WindowManager.LayoutParams.FLAG_SLIPPERY,</div><div class="line">            PixelFormat.TRANSLUCENT);</div><div class="line">    lp.token = <span class="keyword">new</span> Binder();</div><div class="line">    lp.setTitle(<span class="string">"NavigationBar"</span>);</div><div class="line">    lp.accessibilityTitle = context.getString(R.string.nav_bar);</div><div class="line">    lp.windowAnimations = <span class="number">0</span>;</div><div class="line">    View navigationBarView = LayoutInflater.from(context).inflate(</div><div class="line">            R.layout.navigation_bar_window, <span class="keyword">null</span>);</div><div class="line">    <span class="keyword">if</span> (DEBUG) Log.v(TAG, <span class="string">"addNavigationBar: about to add "</span> + navigationBarView);</div><div class="line">    <span class="keyword">if</span> (navigationBarView == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    context.getSystemService(WindowManager.class).addView(navigationBarView, lp);</div><div class="line">    FragmentHostManager fragmentHost = FragmentHostManager.get(navigationBarView);</div><div class="line">    NavigationBarFragment fragment = <span class="keyword">new</span> NavigationBarFragment();</div><div class="line">    fragmentHost.getFragmentManager().beginTransaction()</div><div class="line">            .replace(R.id.navigation_bar_frame, fragment, TAG)</div><div class="line">            .commit();</div><div class="line">    fragmentHost.addTagListener(TAG, listener);</div><div class="line">    <span class="keyword">return</span> navigationBarView;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这里 WindowManager addView 了导航栏的布局，最终 add NavigationBarFragment，接下来看 NavigationBarFragment#onCreateView</p>
+<h2 id="NavigationBarFragment-onCreateView"><a href="#NavigationBarFragment-onCreateView" class="headerlink" title="NavigationBarFragment#onCreateView"></a>NavigationBarFragment#onCreateView</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> View <span class="title">onCreateView</span><span class="params">(LayoutInflater inflater, @Nullable ViewGroup container,</span></span></div><div class="line">        Bundle savedInstanceState) &#123;</div><div class="line">    <span class="keyword">return</span> inflater.inflate(R.layout.navigation_bar, container, <span class="keyword">false</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>看下布局文件 navigation_bar.xml，这是导航栏的真正根布局。</p>
+<h2 id="navigation-bar-xml"><a href="#navigation-bar-xml" class="headerlink" title="navigation_bar.xml"></a>navigation_bar.xml</h2><p>位于 SystemUI\res\layout\navigation_bar.xml<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;com.android.systemui.statusbar.phone.NavigationBarView</div><div class="line">    xmlns:android="http://schemas.android.com/apk/res/android"</div><div class="line">    xmlns:systemui="http://schemas.android.com/apk/res-auto"</div><div class="line">    android:layout_height="match_parent"</div><div class="line">    android:layout_width="match_parent"</div><div class="line">    android:background="@drawable/system_bar_background"&gt;</div><div class="line"></div><div class="line">    &lt;com.android.systemui.statusbar.phone.NavigationBarInflaterView</div><div class="line">        android:id="@+id/navigation_inflater"</div><div class="line">        android:layout_width="match_parent"</div><div class="line">        android:layout_height="match_parent" /&gt;</div><div class="line"></div><div class="line">&lt;/com.android.systemui.statusbar.phone.NavigationBarView&gt;</div><div class="line">`</div></pre></td></tr></table></figure></p>
+<p>NavigationBarInflaterView 继承自 FrameLayout，直接看 onFinishInflate() 方法，这个方法是每个 view 被 inflate 之后都会回调。</p>
+<h2 id="NavigationBarInflaterView-onFinishInflate"><a href="#NavigationBarInflaterView-onFinishInflate" class="headerlink" title="NavigationBarInflaterView#onFinishInflate"></a>NavigationBarInflaterView#onFinishInflate</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onFinishInflate</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.onFinishInflate();</div><div class="line">    inflateChildren();</div><div class="line">    clearViews();</div><div class="line">    <span class="comment">//关键方法</span></div><div class="line">    inflateLayout(getDefaultLayout());</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这里调用了 getDefaultLayout 方法，加载资源文件。</p>
+<h2 id="NavigationBarInflaterView-getDefaultLayout"><a href="#NavigationBarInflaterView-getDefaultLayout" class="headerlink" title="NavigationBarInflaterView#getDefaultLayout"></a>NavigationBarInflaterView#getDefaultLayout</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">protected</span> String <span class="title">getDefaultLayout</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">final</span> <span class="keyword">int</span> defaultResource = mOverviewProxyService.shouldShowSwipeUpUI()</div><div class="line">            ? R.string.config_navBarLayoutQuickstep</div><div class="line">            : R.string.config_navBarLayout;</div><div class="line">    <span class="keyword">return</span> mContext.getString(defaultResource);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>config_navBarLayoutQuickstep 和 config_navBarLayout 位于 AOSP/frameworks/base/packages/SystemUI/res/values/config.xml。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"config_navBarLayout"</span> <span class="attr">translatable</span>=<span class="string">"false"</span>&gt;</span>left[.5W],back[1WC];home;recent[1WC],right[.5W]<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"config_navBarLayoutQuickstep"</span> <span class="attr">translatable</span>=<span class="string">"false"</span>&gt;</span>back[1.7WC];home;contextual[1.7WC]<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>回头再看 NavigationBarInflaterView#onFinishInflate 方法调用 NavigationBarInflaterView#inflateLayout 方法。</p>
+<h2 id="NavigationBarInflaterView-inflateLayout"><a href="#NavigationBarInflaterView-inflateLayout" class="headerlink" title="NavigationBarInflaterView#inflateLayout"></a>NavigationBarInflaterView#inflateLayout</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">inflateLayout</span><span class="params">(String newLayout)</span> </span>&#123;</div><div class="line">    mCurrentLayout = newLayout;</div><div class="line">    <span class="keyword">if</span> (newLayout == <span class="keyword">null</span>) &#123;</div><div class="line">        newLayout = getDefaultLayout();</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//根据“；”号分割成长度为3的数组</span></div><div class="line">    String[] sets = newLayout.split(GRAVITY_SEPARATOR, <span class="number">3</span>);</div><div class="line">    <span class="keyword">if</span> (sets.length != <span class="number">3</span>) &#123;</div><div class="line">        Log.d(TAG, <span class="string">"Invalid layout."</span>);</div><div class="line">        newLayout = getDefaultLayout();</div><div class="line">        sets = newLayout.split(GRAVITY_SEPARATOR, <span class="number">3</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//根据“，”号分割，包含 left[.5W]和back[1WC]</span></div><div class="line">    String[] start = sets[<span class="number">0</span>].split(BUTTON_SEPARATOR);</div><div class="line">    <span class="comment">//包含home</span></div><div class="line">    String[] center = sets[<span class="number">1</span>].split(BUTTON_SEPARATOR);</div><div class="line">    <span class="comment">//包含recent[1WC]和right[.5W]</span></div><div class="line">    String[] end = sets[<span class="number">2</span>].split(BUTTON_SEPARATOR);</div><div class="line">    <span class="comment">// Inflate these in start to end order or accessibility traversal will be messed up.</span></div><div class="line">    inflateButtons(start, mRot0.findViewById(R.id.ends_group), isRot0Landscape, <span class="keyword">true</span>);</div><div class="line">    inflateButtons(start, mRot90.findViewById(R.id.ends_group), !isRot0Landscape, <span class="keyword">true</span>);</div><div class="line">    inflateButtons(center, mRot0.findViewById(R.id.center_group), isRot0Landscape, <span class="keyword">false</span>);</div><div class="line">    inflateButtons(center, mRot90.findViewById(R.id.center_group), !isRot0Landscape, <span class="keyword">false</span>);</div><div class="line">    addGravitySpacer(mRot0.findViewById(R.id.ends_group));</div><div class="line">    addGravitySpacer(mRot90.findViewById(R.id.ends_group));</div><div class="line">    inflateButtons(end, mRot0.findViewById(R.id.ends_group), isRot0Landscape, <span class="keyword">false</span>);</div><div class="line">    inflateButtons(end, mRot90.findViewById(R.id.ends_group), !isRot0Landscape, <span class="keyword">false</span>);</div><div class="line">    updateButtonDispatchersCurrentView();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>再看 inflateButtons() 方法，遍历加载 inflateButton。</p>
+<h2 id="NavigationBarInflaterView-inflateButtons"><a href="#NavigationBarInflaterView-inflateButtons" class="headerlink" title="NavigationBarInflaterView#inflateButtons"></a>NavigationBarInflaterView#inflateButtons</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">inflateButtons</span><span class="params">(String[] buttons, ViewGroup parent, <span class="keyword">boolean</span> landscape,</span></span></div><div class="line">        <span class="keyword">boolean</span> start) &#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; buttons.length; i++) &#123;</div><div class="line">        inflateButton(buttons[i], parent, landscape, start);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">@Nullable</span></div><div class="line"><span class="function"><span class="keyword">protected</span> View <span class="title">inflateButton</span><span class="params">(String buttonSpec, ViewGroup parent, <span class="keyword">boolean</span> landscape,</span></span></div><div class="line">        <span class="keyword">boolean</span> start) &#123;</div><div class="line">    LayoutInflater inflater = landscape ? mLandscapeInflater : mLayoutInflater;</div><div class="line">    View v = createView(buttonSpec, parent, inflater);</div><div class="line">    <span class="keyword">if</span> (v == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    v = applySize(v, buttonSpec, landscape, start);</div><div class="line">    parent.addView(v);</div><div class="line">    addToDispatchers(v);</div><div class="line">    View lastView = landscape ? mLastLandscape : mLastPortrait;</div><div class="line">    View accessibilityView = v;</div><div class="line">    <span class="keyword">if</span> (v <span class="keyword">instanceof</span> ReverseRelativeLayout) &#123;</div><div class="line">        accessibilityView = ((ReverseRelativeLayout) v).getChildAt(<span class="number">0</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (lastView != <span class="keyword">null</span>) &#123;</div><div class="line">        accessibilityView.setAccessibilityTraversalAfter(lastView.getId());</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (landscape) &#123;</div><div class="line">        mLastLandscape = accessibilityView;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        mLastPortrait = accessibilityView;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> v;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>来看 NavigationBarInflaterView#createView 方法。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> View <span class="title">createView</span><span class="params">(String buttonSpec, ViewGroup parent, LayoutInflater inflater)</span> </span>&#123;</div><div class="line">    View v = <span class="keyword">null</span>;</div><div class="line">    String button = extractButton(buttonSpec);</div><div class="line">    <span class="comment">//省略其他代码</span></div><div class="line">    <span class="keyword">if</span> (HOME.equals(button)) &#123;</div><div class="line">        v = inflater.inflate(R.layout.home, parent, <span class="keyword">false</span>);</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (BACK.equals(button)) &#123;</div><div class="line">        v = inflater.inflate(R.layout.back, parent, <span class="keyword">false</span>);</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (RECENT.equals(button)) &#123;</div><div class="line">        v = inflater.inflate(R.layout.recent_apps, parent, <span class="keyword">false</span>);</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (MENU_IME_ROTATE.equals(button)) &#123;</div><div class="line">        v = inflater.inflate(R.layout.menu_ime, parent, <span class="keyword">false</span>);</div><div class="line">    &#125; <span class="comment">//省略其他代码</span></div><div class="line">    <span class="keyword">return</span> v;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>以 home 按键为例，加载了 home.xml 布局。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;com.android.systemui.statusbar.policy.KeyButtonView</div><div class="line">    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</div><div class="line">    xmlns:systemui=&quot;http://schemas.android.com/apk/res-auto&quot;</div><div class="line">    android:id=&quot;@+id/home&quot;</div><div class="line">    android:layout_width=&quot;@dimen/navigation_key_width&quot;</div><div class="line">    android:layout_height=&quot;match_parent&quot;</div><div class="line">    android:layout_weight=&quot;0&quot;</div><div class="line">    systemui:keyCode=&quot;3&quot;</div><div class="line">    android:scaleType=&quot;center&quot;</div><div class="line">    android:contentDescription=&quot;@string/accessibility_home&quot;</div><div class="line">    android:paddingStart=&quot;@dimen/navigation_key_padding&quot;</div><div class="line">    android:paddingEnd=&quot;@dimen/navigation_key_padding&quot;</div><div class="line">    /&gt;</div></pre></td></tr></table></figure></p>
+<p>从 KeyButtonView#sendEvent() 方法来看，home 等 view 的点击 touch 事件不是自己处理的，而是交由系统以实体按键（keycode）的形式处理的，不细看了。</p>
+<p>那 NavigationBar icon 是具体如何加载的？看 NavigationBarView 构造方法。</p>
+<h2 id="NavigationBarView-构造方法"><a href="#NavigationBarView-构造方法" class="headerlink" title="NavigationBarView#构造方法"></a>NavigationBarView#构造方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">NavigationBarView</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>(context, attrs);</div><div class="line">    mDisplay = ((WindowManager) context.getSystemService(</div><div class="line">            Context.WINDOW_SERVICE)).getDefaultDisplay();</div><div class="line">    mVertical = <span class="keyword">false</span>;</div><div class="line">    mShowMenu = <span class="keyword">false</span>;</div><div class="line">    mShowAccessibilityButton = <span class="keyword">false</span>;</div><div class="line">    mLongClickableAccessibilityButton = <span class="keyword">false</span>;</div><div class="line">    mOverviewProxyService = Dependency.get(OverviewProxyService.class);</div><div class="line">    mRecentsOnboarding = <span class="keyword">new</span> RecentsOnboarding(context, mOverviewProxyService);</div><div class="line">    mConfiguration = <span class="keyword">new</span> Configuration();</div><div class="line">    mConfiguration.updateFrom(context.getResources().getConfiguration());</div><div class="line">    <span class="comment">//加载 icon</span></div><div class="line">    reloadNavIcons();</div><div class="line">    <span class="comment">//mButtonDispatchers 是维护这些home back recent图标view的管理类</span></div><div class="line">    mBarTransitions = <span class="keyword">new</span> NavigationBarTransitions(<span class="keyword">this</span>);</div><div class="line">    mButtonDispatchers.put(R.id.back, <span class="keyword">new</span> ButtonDispatcher(R.id.back));</div><div class="line">    mButtonDispatchers.put(R.id.home, <span class="keyword">new</span> ButtonDispatcher(R.id.home));</div><div class="line">    mButtonDispatchers.put(R.id.recent_apps, <span class="keyword">new</span> ButtonDispatcher(R.id.recent_apps));</div><div class="line">    mButtonDispatchers.put(R.id.menu, <span class="keyword">new</span> ButtonDispatcher(R.id.menu));</div><div class="line">    mButtonDispatchers.put(R.id.ime_switcher, <span class="keyword">new</span> ButtonDispatcher(R.id.ime_switcher));</div><div class="line">    mButtonDispatchers.put(R.id.accessibility_button,</div><div class="line">            <span class="keyword">new</span> ButtonDispatcher(R.id.accessibility_button));</div><div class="line">    mButtonDispatchers.put(R.id.rotate_suggestion,</div><div class="line">            <span class="keyword">new</span> ButtonDispatcher(R.id.rotate_suggestion));</div><div class="line">    mButtonDispatchers.put(R.id.menu_container,</div><div class="line">            <span class="keyword">new</span> ButtonDispatcher(R.id.menu_container));</div><div class="line">    mDeadZone = <span class="keyword">new</span> DeadZone(<span class="keyword">this</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="NavigationBarView-reloadNavIcons"><a href="#NavigationBarView-reloadNavIcons" class="headerlink" title="NavigationBarView#reloadNavIcons"></a>NavigationBarView#reloadNavIcons</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">reloadNavIcons</span><span class="params">()</span> </span>&#123;</div><div class="line">    updateIcons(mContext, Configuration.EMPTY, mConfiguration);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">updateIcons</span><span class="params">(Context ctx, Configuration oldConfig, Configuration newConfig)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> dualToneDarkTheme = Utils.getThemeAttr(ctx, R.attr.darkIconTheme);</div><div class="line">    <span class="keyword">int</span> dualToneLightTheme = Utils.getThemeAttr(ctx, R.attr.lightIconTheme);</div><div class="line">    <span class="comment">//亮色的icon资源</span></div><div class="line">    Context lightContext = <span class="keyword">new</span> ContextThemeWrapper(ctx, dualToneLightTheme);</div><div class="line">    <span class="comment">//暗色的icon资源</span></div><div class="line">    Context darkContext = <span class="keyword">new</span> ContextThemeWrapper(ctx, dualToneDarkTheme);</div><div class="line">    <span class="keyword">if</span> (oldConfig.orientation != newConfig.orientation</div><div class="line">            || oldConfig.densityDpi != newConfig.densityDpi) &#123;</div><div class="line">        mDockedIcon = getDrawable(lightContext, darkContext, R.drawable.ic_sysbar_docked);</div><div class="line">        mHomeDefaultIcon = getHomeDrawable(lightContext, darkContext);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (oldConfig.densityDpi != newConfig.densityDpi</div><div class="line">            || oldConfig.getLayoutDirection() != newConfig.getLayoutDirection()) &#123;</div><div class="line">        mBackIcon = getBackDrawable(lightContext, darkContext);</div><div class="line">        mRecentIcon = getDrawable(lightContext, darkContext, R.drawable.ic_sysbar_recent);</div><div class="line">        mMenuIcon = getDrawable(lightContext, darkContext, R.drawable.ic_sysbar_menu);</div><div class="line">        mAccessibilityIcon = getDrawable(lightContext, darkContext,</div><div class="line">                R.drawable.ic_sysbar_accessibility_button, <span class="keyword">false</span> <span class="comment">/* hasShadow */</span>);</div><div class="line">        mImeIcon = getDrawable(lightContext, darkContext, R.drawable.ic_ime_switcher_default,</div><div class="line">                <span class="keyword">false</span> <span class="comment">/* hasShadow */</span>);</div><div class="line">        updateRotateSuggestionButtonStyle(mRotateBtnStyle, <span class="keyword">false</span>);</div><div class="line">        <span class="keyword">if</span> (ALTERNATE_CAR_MODE_UI) &#123;</div><div class="line">            updateCarModeIcons(ctx);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> KeyButtonDrawable <span class="title">getBackDrawable</span><span class="params">(Context lightContext, Context darkContext)</span> </span>&#123;</div><div class="line">    KeyButtonDrawable drawable = chooseNavigationIconDrawable(lightContext, darkContext,</div><div class="line">            R.drawable.ic_sysbar_back, R.drawable.ic_sysbar_back_quick_step);</div><div class="line">    orientBackButton(drawable);</div><div class="line">    <span class="keyword">return</span> drawable;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">orientBackButton</span><span class="params">(KeyButtonDrawable drawable)</span> </span>&#123;</div><div class="line">    <span class="keyword">final</span> <span class="keyword">boolean</span> useAltBack =</div><div class="line">        (mNavigationIconHints &amp; StatusBarManager.NAVIGATION_HINT_BACK_ALT) != <span class="number">0</span>;</div><div class="line">    drawable.setRotation(useAltBack</div><div class="line">            ? -<span class="number">90</span> : (getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) ? <span class="number">180</span> : <span class="number">0</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这里看到 NavigationBar icon 加载，点击事件在哪里写了呢？看 NavigationBarFragment#onViewCreated。</p>
+<h2 id="NavigationBarFragment-onViewCreated"><a href="#NavigationBarFragment-onViewCreated" class="headerlink" title="NavigationBarFragment#onViewCreated"></a>NavigationBarFragment#onViewCreated</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onViewCreated</span><span class="params">(View view, @Nullable Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.onViewCreated(view, savedInstanceState);</div><div class="line">    mNavigationBarView = (NavigationBarView) view;</div><div class="line">    <span class="comment">//省略其他代码</span></div><div class="line">    prepareNavigationBarView();</div><div class="line">    <span class="comment">//省略其他代码</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">prepareNavigationBarView</span><span class="params">()</span> </span>&#123;</div><div class="line">    mNavigationBarView.reorient();</div><div class="line">    ButtonDispatcher recentsButton = mNavigationBarView.getRecentsButton();</div><div class="line">    recentsButton.setOnClickListener(<span class="keyword">this</span>::onRecentsClick);</div><div class="line">    recentsButton.setOnTouchListener(<span class="keyword">this</span>::onRecentsTouch);</div><div class="line">    recentsButton.setLongClickable(<span class="keyword">true</span>);</div><div class="line">    recentsButton.setOnLongClickListener(<span class="keyword">this</span>::onLongPressBackRecents);</div><div class="line">    ButtonDispatcher backButton = mNavigationBarView.getBackButton();</div><div class="line">    backButton.setLongClickable(<span class="keyword">true</span>);</div><div class="line">    ButtonDispatcher homeButton = mNavigationBarView.getHomeButton();</div><div class="line">    homeButton.setOnTouchListener(<span class="keyword">this</span>::onHomeTouch);</div><div class="line">    homeButton.setOnLongClickListener(<span class="keyword">this</span>::onHomeLongClick);</div><div class="line">    ButtonDispatcher accessibilityButton = mNavigationBarView.getAccessibilityButton();</div><div class="line">    accessibilityButton.setOnClickListener(<span class="keyword">this</span>::onAccessibilityClick);</div><div class="line">    accessibilityButton.setOnLongClickListener(<span class="keyword">this</span>::onAccessibilityLongClick);</div><div class="line">    updateAccessibilityServicesState(mAccessibilityManager);</div><div class="line">    ButtonDispatcher rotateSuggestionButton = mNavigationBarView.getRotateSuggestionButton();</div><div class="line">    rotateSuggestionButton.setOnClickListener(<span class="keyword">this</span>::onRotateSuggestionClick);</div><div class="line">    rotateSuggestionButton.setOnHoverListener(<span class="keyword">this</span>::onRotateSuggestionHover);</div><div class="line">    updateScreenPinningGestures();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>从 mButtonDispatchers 获得 recents、back、home，然后设置点击、长按等事件，比如 onRecentsClick 方法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">onRecentsClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (LatencyTracker.isEnabled(getContext())) &#123;</div><div class="line">        LatencyTracker.getInstance(getContext()).onActionStart(</div><div class="line">                LatencyTracker.ACTION_TOGGLE_RECENTS);</div><div class="line">    &#125;</div><div class="line">    mStatusBar.awakenDreams();</div><div class="line">    mCommandQueue.toggleRecentApps();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>至此，SystemUI NavigationBar 模块代码流程分析完毕。</p>
+         <!--广告-->
+    ﻿<h1>联系作者</h1>
+我的微信公众号：吴小龙同学，欢迎关注交流，公号回复关键字「1024」有惊喜哦。
+<img src="https://open.weixin.qq.com/qr/code?username=MrWuXiaolong">
+<!--
+<h1><b>联系我</b></h1>
+<b>由于多说和网易云跟帖评论服务相继关闭，来必力并不给力，因此本博客决定不再折腾评论，欢迎大家可以前往我的公众号留言交流！</b>
+
+1、我的知识星球：更多分享只对您公开，￥99/永久。
+<img src="http://7q5c2h.com1.z0.glb.clouddn.com/zhishixingqiu.jpeg" style="margin-top: 20px; width: 40%; height: 40%"/> 
+<br>
+
+
+2、我的微信公众号：吴小龙同学，欢迎关注交流~
+<img src="http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_wuxiaolong_travel.jpg"  style="margin-top: 20px; width: 40%; height: 40%"/> 
+<br>
+
+3、我的微信群，可以加我微信，拉你进群，加我时<b>请备注真名</b>。
+<img src="http://7q5c2h.com1.z0.glb.clouddn.com/weixin.jpg"  style="margin-top: 20px; width: 40%; height: 40%"/> 
+<br>
+
+
+
+
+<!--
+其实有 Disqus ……
+1、Android技术交流剩者为王④群：331553260。
+<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=d129018d31e801e676743da4b05a1063f88ae52ca0407579666545596bdb7a52"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="剩者为王④群" title="剩者为王④群"></a>
+<img src="http://7q5c2h.com1.z0.glb.clouddn.com/qun4.png"  style="margin-top: 20px; width: 40%; height: 40%"/> 
+-->
+
+
+<!--<div style="padding: 10px 0; margin: 20px auto; width: 99%; text-align: center;"> 
+<b>赞助商：<a href="https://shop240489162.taobao.com/">躲角落的猫咪</a></b>
+<br>
+<img src="http://7q5c2h.com1.z0.glb.clouddn.com/taobaoshop.png"/> 
+</div>
+
+-->  
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/SystemUI/" rel="tag"># SystemUI</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/02/SystemUI2/" rel="next" title="Android 9.0 SystemUI 主要视图 SystemBars">
+                <i class="fa fa-chevron-left"></i> Android 9.0 SystemUI 主要视图 SystemBars
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/02/SystemUI4/" rel="prev" title="Android 9.0 SystemUI Notification">
+                Android 9.0 SystemUI Notification <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="吴小龙同學">
+            
+              <p class="site-author-name" itemprop="name">吴小龙同學</p>
+              <p class="site-description motion-element" itemprop="description">我的微信公众号：吴小龙同学</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">151</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">42</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">113</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://open.weixin.qq.com/qr/code?username=MrWuXiaolong" title="WeChat &rarr; https://open.weixin.qq.com/qr/code?username=MrWuXiaolong" rel="noopener" target="_blank"><i class="fa fa-fw fa-weixin"></i>WeChat</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/WuXiaolong" title="GitHub &rarr; https://github.com/WuXiaolong" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.zhihu.com/people/wuxiaolong.me" title="知乎 &rarr; https://www.zhihu.com/people/wuxiaolong.me" rel="noopener" target="_blank"><i class="fa fa-fw fa-book"></i>知乎</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="http://weibo.com/u/2175011601" title="Weibo &rarr; http://weibo.com/u/2175011601" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#StatusBar-makeStatusBarView"><span class="nav-number">1.</span> <span class="nav-text">StatusBar#makeStatusBarView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NavigationBarFragment-create"><span class="nav-number">2.</span> <span class="nav-text">NavigationBarFragment#create</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NavigationBarFragment-onCreateView"><span class="nav-number">3.</span> <span class="nav-text">NavigationBarFragment#onCreateView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#navigation-bar-xml"><span class="nav-number">4.</span> <span class="nav-text">navigation_bar.xml</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NavigationBarInflaterView-onFinishInflate"><span class="nav-number">5.</span> <span class="nav-text">NavigationBarInflaterView#onFinishInflate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NavigationBarInflaterView-getDefaultLayout"><span class="nav-number">6.</span> <span class="nav-text">NavigationBarInflaterView#getDefaultLayout</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NavigationBarInflaterView-inflateLayout"><span class="nav-number">7.</span> <span class="nav-text">NavigationBarInflaterView#inflateLayout</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NavigationBarInflaterView-inflateButtons"><span class="nav-number">8.</span> <span class="nav-text">NavigationBarInflaterView#inflateButtons</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NavigationBarView-构造方法"><span class="nav-number">9.</span> <span class="nav-text">NavigationBarView#构造方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NavigationBarView-reloadNavIcons"><span class="nav-number">10.</span> <span class="nav-text">NavigationBarView#reloadNavIcons</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NavigationBarFragment-onViewCreated"><span class="nav-number">11.</span> <span class="nav-text">NavigationBarFragment#onViewCreated</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2013 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">吴小龙同學</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.4.2</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.7.0</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://WuXiaolong.disqus.com/count.js" async></script>
+  
+
+  
+    <script>
+      var disqus_config = function () {
+        this.page.url = "http://wuxiaolong.me/2019/06/02/SystemUI5/";
+        this.page.identifier = "2019/06/02/SystemUI5/";
+        this.page.title = 'Android 9.0 SystemUI NavigationBar';
+        };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://WuXiaolong.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

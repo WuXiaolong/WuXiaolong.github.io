@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next gemini" lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/avatar.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/avatar.png?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+  <meta name="description" content="SystemUI 下拉状态栏快捷开关是 QSPanel，qs_panel.xml，@+id/quick_settings_panel，本篇文章就来看看这些快捷开关是如何呈现的以及如何新增一个快捷开关？基于 AOSP 9.0 分析。 SystemUI 下拉状态栏快捷开关QSPanel 创建是从 StatusBar#mak">
+<meta name="keywords" content="SystemUI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 9.0 SystemUI 下拉状态栏快捷开关">
+<meta property="og:url" content="http://wuxiaolong.me/2019/07/02/SystemUI3/index.html">
+<meta property="og:site_name" content="吴小龙同學">
+<meta property="og:description" content="SystemUI 下拉状态栏快捷开关是 QSPanel，qs_panel.xml，@+id/quick_settings_panel，本篇文章就来看看这些快捷开关是如何呈现的以及如何新增一个快捷开关？基于 AOSP 9.0 分析。 SystemUI 下拉状态栏快捷开关QSPanel 创建是从 StatusBar#makeStatusBarView 开始的。 StatusBar#makeStatus">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://wuxiaolong.me/images/StatusBar8.jpg">
+<meta property="og:updated_time" content="2020-10-27T15:30:32.083Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android 9.0 SystemUI 下拉状态栏快捷开关">
+<meta name="twitter:description" content="SystemUI 下拉状态栏快捷开关是 QSPanel，qs_panel.xml，@+id/quick_settings_panel，本篇文章就来看看这些快捷开关是如何呈现的以及如何新增一个快捷开关？基于 AOSP 9.0 分析。 SystemUI 下拉状态栏快捷开关QSPanel 创建是从 StatusBar#makeStatusBarView 开始的。 StatusBar#makeStatus">
+<meta name="twitter:image" content="http://wuxiaolong.me/images/StatusBar8.jpg">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="吴小龙同學" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://wuxiaolong.me/2019/07/02/SystemUI3/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Android 9.0 SystemUI 下拉状态栏快捷开关 | 吴小龙同學</title>
+  
+
+
+
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-105780265-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-105780265-1');
+  </script>
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0e1dc2030f397dfa0d60ad22b374430d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">吴小龙同學</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">党要我帅，我不得不帅！</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-friendslinks">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/friendslinks/index.html" rel="section"><i class="menu-item-icon fa fa-fw fa-users"></i> <br>小伙伴</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-gitbook">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="https://wuxiaolong.gitbooks.io/wuxiaolong/" rel="noopener" target="_blank"><i class="menu-item-icon fa fa-fw fa-book"></i> <br>GitBook</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input">
+</form>
+
+<script>
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'ywBn2eRCzfb494KCWJw3','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    <a href="https://github.com/WuXiaolong" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill: #222; color: #fff; position: absolute; top: 0; border: 0; right: 0" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2019/07/02/SystemUI3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吴小龙同學">
+      <meta itemprop="description" content="我的微信公众号：吴小龙同学">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴小龙同學">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Android 9.0 SystemUI 下拉状态栏快捷开关
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-02 09:54:41" itemprop="dateCreated datePublished" datetime="2019-07-02T09:54:41+08:00">2019-07-02</time>
+            
+
+            <!--
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-10-27 23:30:32" itemprop="dateModified" datetime="2020-10-27T23:30:32+08:00">2020-10-27</time>
+              -->
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/SystemUI/" itemprop="url" rel="index"><span itemprop="name">SystemUI</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/07/02/SystemUI3/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/07/02/SystemUI3/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>SystemUI 下拉状态栏快捷开关是 QSPanel，qs_panel.xml，@+id/quick_settings_panel，本篇文章就来看看这些快捷开关是如何呈现的以及如何新增一个快捷开关？基于 AOSP 9.0 分析。</p>
+<h2 id="SystemUI-下拉状态栏快捷开关"><a href="#SystemUI-下拉状态栏快捷开关" class="headerlink" title="SystemUI 下拉状态栏快捷开关"></a>SystemUI 下拉状态栏快捷开关</h2><p>QSPanel 创建是从 StatusBar#makeStatusBarView 开始的。</p>
+<h3 id="StatusBar-makeStatusBarView"><a href="#StatusBar-makeStatusBarView" class="headerlink" title="StatusBar#makeStatusBarView"></a>StatusBar#makeStatusBarView</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">makeStatusBarView</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="comment">//省略其他代码</span></div><div class="line">    <span class="keyword">final</span> QSTileHost qsh = SystemUIFactory.getInstance().createQSTileHost(mContext, <span class="keyword">this</span>,</div><div class="line">            mIconController);</div><div class="line">    mBrightnessMirrorController = <span class="keyword">new</span> BrightnessMirrorController(mStatusBarWindow,</div><div class="line">            (visible) -&gt; &#123;</div><div class="line">                mBrightnessMirrorVisible = visible;</div><div class="line">                updateScrimController();</div><div class="line">            &#125;);</div><div class="line">    fragmentHostManager.addTagListener(QS.TAG, (tag, f) -&gt; &#123;</div><div class="line">        QS qs = (QS) f;</div><div class="line">        <span class="keyword">if</span> (qs <span class="keyword">instanceof</span> QSFragment) &#123;</div><div class="line">            ((QSFragment) qs).setHost(qsh);</div><div class="line">            mQSPanel = ((QSFragment) qs).getQsPanel();</div><div class="line">            mQSPanel.setBrightnessMirror(mBrightnessMirrorController);</div><div class="line">            mKeyguardStatusBar.setQSPanel(mQSPanel);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">    <span class="comment">//省略其他代码</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>先看  SystemUIFactory#createQSTileHost。</p>
+<h3 id="SystemUIFactory-createQSTileHost"><a href="#SystemUIFactory-createQSTileHost" class="headerlink" title="SystemUIFactory#createQSTileHost"></a>SystemUIFactory#createQSTileHost</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> QSTileHost <span class="title">createQSTileHost</span><span class="params">(Context context, StatusBar statusBar,</span></span></div><div class="line">        StatusBarIconController iconController) &#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> QSTileHost(context, statusBar, iconController);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这里进行 QSTileHost 初始化。</p>
+<h3 id="QSTileHost-构造函数"><a href="#QSTileHost-构造函数" class="headerlink" title="QSTileHost#构造函数"></a>QSTileHost#构造函数</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">QSTileHost</span><span class="params">(Context context, StatusBar statusBar,</span></span></div><div class="line">        StatusBarIconController iconController) &#123;</div><div class="line">    <span class="comment">//省略其他代码</span></div><div class="line">    Dependency.get(TunerService.class).addTunable(<span class="keyword">this</span>, TILES_SETTING);</div><div class="line">    <span class="comment">//省略其他代码</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这里进行了 TunerService 注册，在 TunerServiceImpl#addTunable 重写。</p>
+<h3 id="TunerServiceImpl-addTunable"><a href="#TunerServiceImpl-addTunable" class="headerlink" title="TunerServiceImpl#addTunable"></a>TunerServiceImpl#addTunable</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addTunable</span><span class="params">(Tunable tunable, String... keys)</span> </span>&#123;</div><div class="line">    <span class="keyword">for</span> (String key : keys) &#123;</div><div class="line">        addTunable(tunable, key);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">addTunable</span><span class="params">(Tunable tunable, String key)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (!mTunableLookup.containsKey(key)) &#123;</div><div class="line">        mTunableLookup.put(key, <span class="keyword">new</span> ArraySet&lt;Tunable&gt;());</div><div class="line">    &#125;</div><div class="line">    mTunableLookup.get(key).add(tunable);</div><div class="line">    <span class="keyword">if</span> (LeakDetector.ENABLED) &#123;</div><div class="line">        mTunables.add(tunable);</div><div class="line">        Dependency.get(LeakDetector.class).trackCollection(mTunables, <span class="string">"TunerService.mTunables"</span>);</div><div class="line">    &#125;</div><div class="line">    Uri uri = Settings.Secure.getUriFor(key);</div><div class="line">    <span class="keyword">if</span> (!mListeningUris.containsKey(uri)) &#123;</div><div class="line">        mListeningUris.put(uri, key);</div><div class="line">        mContentResolver.registerContentObserver(uri, <span class="keyword">false</span>, mObserver, mCurrentUser);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// Send the first state.</span></div><div class="line">    String value = Settings.Secure.getStringForUser(mContentResolver, key, mCurrentUser);</div><div class="line">    tunable.onTuningChanged(key, value);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>tunable.onTuningChanged</code> 回调 QSTileHost#onTuningChanged。</p>
+<h3 id="QSTileHost-onTuningChanged"><a href="#QSTileHost-onTuningChanged" class="headerlink" title="QSTileHost#onTuningChanged"></a>QSTileHost#onTuningChanged</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTuningChanged</span><span class="params">(String key, String newValue)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (!TILES_SETTING.equals(key)) &#123;</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (DEBUG) Log.d(TAG, <span class="string">"Recreating tiles"</span>);</div><div class="line">    <span class="keyword">if</span> (newValue == <span class="keyword">null</span> &amp;&amp; UserManager.isDeviceInDemoMode(mContext)) &#123;</div><div class="line">        newValue = mContext.getResources().getString(R.string.quick_settings_tiles_retail_mode);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//调用 QSTileHost#loadTileSpecs，获得 config 里字符串信息</span></div><div class="line">    <span class="keyword">final</span> List&lt;String&gt; tileSpecs = loadTileSpecs(mContext, newValue);</div><div class="line">    <span class="keyword">int</span> currentUser = ActivityManager.getCurrentUser();</div><div class="line">    <span class="keyword">if</span> (tileSpecs.equals(mTileSpecs) &amp;&amp; currentUser == mCurrentUser) <span class="keyword">return</span>;</div><div class="line">    <span class="comment">//进行了过滤</span></div><div class="line">    mTiles.entrySet().stream().filter(tile -&gt; !tileSpecs.contains(tile.getKey())).forEach(</div><div class="line">            tile -&gt; &#123;</div><div class="line">                <span class="keyword">if</span> (DEBUG) Log.d(TAG, <span class="string">"Destroying tile: "</span> + tile.getKey());</div><div class="line">                tile.getValue().destroy();</div><div class="line">            &#125;);</div><div class="line">    <span class="keyword">final</span> LinkedHashMap&lt;String, QSTile&gt; newTiles = <span class="keyword">new</span> LinkedHashMap&lt;&gt;();</div><div class="line">    <span class="keyword">for</span> (String tileSpec : tileSpecs) &#123;</div><div class="line">        QSTile tile = mTiles.get(tileSpec);</div><div class="line">        <span class="keyword">if</span> (tile != <span class="keyword">null</span> &amp;&amp; (!(tile <span class="keyword">instanceof</span> CustomTile)</div><div class="line">                || ((CustomTile) tile).getUser() == currentUser)) &#123;</div><div class="line">            <span class="keyword">if</span> (tile.isAvailable()) &#123;</div><div class="line">                <span class="keyword">if</span> (DEBUG) Log.d(TAG, <span class="string">"Adding "</span> + tile);</div><div class="line">                tile.removeCallbacks();</div><div class="line">                <span class="keyword">if</span> (!(tile <span class="keyword">instanceof</span> CustomTile) &amp;&amp; mCurrentUser != currentUser) &#123;</div><div class="line">                    tile.userSwitch(currentUser);</div><div class="line">                &#125;</div><div class="line">                newTiles.put(tileSpec, tile);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                tile.destroy();</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">if</span> (DEBUG) Log.d(TAG, <span class="string">"Creating tile: "</span> + tileSpec);</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                <span class="comment">//这里通过 字符串 一个个实例化 Tile</span></div><div class="line">                tile = createTile(tileSpec);</div><div class="line">                <span class="keyword">if</span> (tile != <span class="keyword">null</span>) &#123;</div><div class="line">                    <span class="keyword">if</span> (tile.isAvailable()) &#123;</div><div class="line">                        tile.setTileSpec(tileSpec);</div><div class="line">                        newTiles.put(tileSpec, tile);</div><div class="line">                    &#125; <span class="keyword">else</span> &#123;</div><div class="line">                        tile.destroy();</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125; <span class="keyword">catch</span> (Throwable t) &#123;</div><div class="line">                Log.w(TAG, <span class="string">"Error creating tile for spec: "</span> + tileSpec, t);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    mCurrentUser = currentUser;</div><div class="line">    mTileSpecs.clear();</div><div class="line">    mTileSpecs.addAll(tileSpecs);</div><div class="line">    mTiles.clear();</div><div class="line">    mTiles.putAll(newTiles);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; mCallbacks.size(); i++) &#123;</div><div class="line">        <span class="comment">//注册，当开发状态改变时回调</span></div><div class="line">        mCallbacks.get(i).onTilesChanged();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>看下 QSTileHost#loadTileSpecs，是获得 config 里字符串信息。</p>
+<h3 id="QSTileHost-loadTileSpecs"><a href="#QSTileHost-loadTileSpecs" class="headerlink" title="QSTileHost#loadTileSpecs"></a>QSTileHost#loadTileSpecs</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">protected</span> List&lt;String&gt; <span class="title">loadTileSpecs</span><span class="params">(Context context, String tileList)</span> </span>&#123;</div><div class="line">    <span class="keyword">final</span> Resources res = context.getResources();</div><div class="line">    <span class="keyword">final</span> String defaultTileList = res.getString(R.string.quick_settings_tiles_default);</div><div class="line">    <span class="keyword">if</span> (tileList == <span class="keyword">null</span>) &#123;</div><div class="line">        tileList = res.getString(R.string.quick_settings_tiles);</div><div class="line">        <span class="keyword">if</span> (DEBUG) Log.d(TAG, <span class="string">"Loaded tile specs from config: "</span> + tileList);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">if</span> (DEBUG) Log.d(TAG, <span class="string">"Loaded tile specs from setting: "</span> + tileList);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">final</span> ArrayList&lt;String&gt; tiles = <span class="keyword">new</span> ArrayList&lt;String&gt;();</div><div class="line">    <span class="keyword">boolean</span> addedDefault = <span class="keyword">false</span>;</div><div class="line">    <span class="keyword">for</span> (String tile : tileList.split(<span class="string">","</span>)) &#123;</div><div class="line">        tile = tile.trim();</div><div class="line">        <span class="keyword">if</span> (tile.isEmpty()) <span class="keyword">continue</span>;</div><div class="line">        <span class="keyword">if</span> (tile.equals(<span class="string">"default"</span>)) &#123;</div><div class="line">            <span class="keyword">if</span> (!addedDefault) &#123;</div><div class="line">                tiles.addAll(Arrays.asList(defaultTileList.split(<span class="string">","</span>)));</div><div class="line">                addedDefault = <span class="keyword">true</span>;</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            tiles.add(tile);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> tiles;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>其中 quick_settings_tiles_default 值在 AOSP/frameworks/base/packages/SystemUI/res/values/config.xml 里：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"quick_settings_tiles_default"</span> <span class="attr">translatable</span>=<span class="string">"false"</span>&gt;</span></div><div class="line">    wifi,bt,dnd,flashlight,rotation,battery,cell,airplane,cast</div><div class="line"><span class="tag">&lt;/<span class="name">string</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>这里就是我们所看到的快捷开关的文本描述。</p>
+<p>再看 QSTileHost#onTuningChanged 中的调用 QSTileHost#createTile 方法。</p>
+<h3 id="QSTileHost-createTile"><a href="#QSTileHost-createTile" class="headerlink" title="QSTileHost#createTile"></a>QSTileHost#createTile</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> QSTile <span class="title">createTile</span><span class="params">(String tileSpec)</span> </span>&#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; mQsFactories.size(); i++) &#123;</div><div class="line">        QSTile t = mQsFactories.get(i).createTile(tileSpec);</div><div class="line">        <span class="keyword">if</span> (t != <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">return</span> t;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>调用 QSFactory#createTile，由 QSFactoryImpl#createTile 实现了。</p>
+<h3 id="QSFactoryImpl-createTile"><a href="#QSFactoryImpl-createTile" class="headerlink" title="QSFactoryImpl#createTile"></a>QSFactoryImpl#createTile</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> QSTile <span class="title">createTile</span><span class="params">(String tileSpec)</span> </span>&#123;</div><div class="line">    QSTileImpl tile = createTileInternal(tileSpec);</div><div class="line">    <span class="keyword">if</span> (tile != <span class="keyword">null</span>) &#123;</div><div class="line">        tile.handleStale(); <span class="comment">// Tile was just created, must be stale.</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> tile;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">private</span> QSTileImpl <span class="title">createTileInternal</span><span class="params">(String tileSpec)</span> </span>&#123;</div><div class="line">    <span class="comment">// Stock tiles.</span></div><div class="line">    <span class="keyword">switch</span> (tileSpec) &#123;</div><div class="line">        <span class="keyword">case</span> <span class="string">"wifi"</span>:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> WifiTile(mHost);</div><div class="line">        <span class="keyword">case</span> <span class="string">"bt"</span>:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> BluetoothTile(mHost);</div><div class="line">        <span class="keyword">case</span> <span class="string">"cell"</span>:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> CellularTile(mHost);</div><div class="line">        <span class="keyword">case</span> <span class="string">"dnd"</span>:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> DndTile(mHost);</div><div class="line">        <span class="keyword">case</span> <span class="string">"inversion"</span>:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> ColorInversionTile(mHost);</div><div class="line">        <span class="keyword">case</span> <span class="string">"airplane"</span>:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> AirplaneModeTile(mHost);</div><div class="line">        <span class="keyword">case</span> <span class="string">"work"</span>:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> WorkModeTile(mHost);</div><div class="line">        <span class="keyword">case</span> <span class="string">"rotation"</span>:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> RotationLockTile(mHost);</div><div class="line">        <span class="keyword">case</span> <span class="string">"flashlight"</span>:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> FlashlightTile(mHost);</div><div class="line">        <span class="keyword">case</span> <span class="string">"location"</span>:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> LocationTile(mHost);</div><div class="line">        <span class="keyword">case</span> <span class="string">"cast"</span>:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> CastTile(mHost);</div><div class="line">        <span class="keyword">case</span> <span class="string">"hotspot"</span>:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> HotspotTile(mHost);</div><div class="line">        <span class="keyword">case</span> <span class="string">"user"</span>:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> UserTile(mHost);</div><div class="line">        <span class="keyword">case</span> <span class="string">"battery"</span>:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> BatterySaverTile(mHost);</div><div class="line">        <span class="keyword">case</span> <span class="string">"saver"</span>:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> DataSaverTile(mHost);</div><div class="line">        <span class="keyword">case</span> <span class="string">"night"</span>:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> NightDisplayTile(mHost);</div><div class="line">        <span class="keyword">case</span> <span class="string">"nfc"</span>:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> NfcTile(mHost);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// Intent tiles.</span></div><div class="line">    <span class="keyword">if</span> (tileSpec.startsWith(IntentTile.PREFIX)) <span class="keyword">return</span> IntentTile.create(mHost, tileSpec);</div><div class="line">    <span class="keyword">if</span> (tileSpec.startsWith(CustomTile.PREFIX)) <span class="keyword">return</span> CustomTile.create(mHost, tileSpec);</div><div class="line">    <span class="comment">// Debug tiles.</span></div><div class="line">    <span class="keyword">if</span> (Build.IS_DEBUGGABLE) &#123;</div><div class="line">        <span class="keyword">if</span> (tileSpec.equals(GarbageMonitor.MemoryTile.TILE_SPEC)) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> GarbageMonitor.MemoryTile(mHost);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// Broken tiles.</span></div><div class="line">    Log.w(TAG, <span class="string">"Bad tile spec: "</span> + tileSpec);</div><div class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>看到这里通过对应的字符串分别实例化 Tile。</p>
+<p>以上涉及资源文件加载及对应实例化，接下来看看代码如何加载的，看 QSPanel#onAttachedToWindow 方法。</p>
+<h3 id="QSPanel-onAttachedToWindow"><a href="#QSPanel-onAttachedToWindow" class="headerlink" title="QSPanel#onAttachedToWindow"></a>QSPanel#onAttachedToWindow</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onAttachedToWindow</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.onAttachedToWindow();</div><div class="line">    <span class="keyword">final</span> TunerService tunerService = Dependency.get(TunerService.class);</div><div class="line">    tunerService.addTunable(<span class="keyword">this</span>, QS_SHOW_BRIGHTNESS);</div><div class="line">    <span class="keyword">if</span> (mHost != <span class="keyword">null</span>) &#123;</div><div class="line">        setTiles(mHost.getTiles());</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (mBrightnessMirrorController != <span class="keyword">null</span>) &#123;</div><div class="line">        mBrightnessMirrorController.addCallback(<span class="keyword">this</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTiles</span><span class="params">(Collection&lt;QSTile&gt; tiles)</span> </span>&#123;</div><div class="line">    setTiles(tiles, <span class="keyword">false</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTiles</span><span class="params">(Collection&lt;QSTile&gt; tiles, <span class="keyword">boolean</span> collapsedView)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (!collapsedView) &#123;</div><div class="line">        mQsTileRevealController.updateRevealedTiles(tiles);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span> (TileRecord record : mRecords) &#123;</div><div class="line">        mTileLayout.removeTile(record);</div><div class="line">        record.tile.removeCallback(record.callback);</div><div class="line">    &#125;</div><div class="line">    mRecords.clear();</div><div class="line">    <span class="keyword">for</span> (QSTile tile : tiles) &#123;</div><div class="line">        addTile(tile, collapsedView);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">protected</span> TileRecord <span class="title">addTile</span><span class="params">(<span class="keyword">final</span> QSTile tile, <span class="keyword">boolean</span> collapsedView)</span> </span>&#123;</div><div class="line">    <span class="keyword">final</span> TileRecord r = <span class="keyword">new</span> TileRecord();</div><div class="line">    r.tile = tile;</div><div class="line">    r.tileView = createTileView(tile, collapsedView);</div><div class="line">    <span class="comment">//省略其他代码</span></div><div class="line">    r.tileView.init(r.tile);</div><div class="line">    r.tile.refreshState();</div><div class="line">    mRecords.add(r);</div><div class="line">    <span class="keyword">if</span> (mTileLayout != <span class="keyword">null</span>) &#123;</div><div class="line">        mTileLayout.addTile(r);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> r;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>mTileLayout.addTile(r);由 PagedTileLayout#addTile 实现。</p>
+<h3 id="PagedTileLayout-addTile"><a href="#PagedTileLayout-addTile" class="headerlink" title="PagedTileLayout#addTile"></a>PagedTileLayout#addTile</h3><p>PagedTileLayout 是 ViewPager，重点看  setAdapter，看数据源如何 add 的。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addTile</span><span class="params">(TileRecord tile)</span> </span>&#123;</div><div class="line">    mTiles.add(tile);</div><div class="line">    postDistributeTiles();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">postDistributeTiles</span><span class="params">()</span> </span>&#123;</div><div class="line">    removeCallbacks(mDistribute);</div><div class="line">    post(mDistribute);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">private</span> <span class="keyword">final</span> Runnable mDistribute = <span class="keyword">new</span> Runnable() &#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">        distributeTiles();</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">distributeTiles</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (DEBUG) Log.d(TAG, <span class="string">"Distributing tiles"</span>);</div><div class="line">    <span class="keyword">final</span> <span class="keyword">int</span> NP = mPages.size();</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; NP; i++) &#123;</div><div class="line">        mPages.get(i).removeAllViews();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">int</span> index = <span class="number">0</span>;</div><div class="line">    <span class="keyword">final</span> <span class="keyword">int</span> NT = mTiles.size();</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; NT; i++) &#123;</div><div class="line">        TileRecord tile = mTiles.get(i);</div><div class="line">        <span class="keyword">if</span> (mPages.get(index).isFull()) &#123;</div><div class="line">            <span class="keyword">if</span> (++index == mPages.size()) &#123;</div><div class="line">                <span class="keyword">if</span> (DEBUG) Log.d(TAG, <span class="string">"Adding page for "</span></div><div class="line">                        + tile.tile.getClass().getSimpleName());</div><div class="line">                mPages.add((TilePage) LayoutInflater.from(getContext())</div><div class="line">                        .inflate(R.layout.qs_paged_page, <span class="keyword">this</span>, <span class="keyword">false</span>));</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (DEBUG) Log.d(TAG, <span class="string">"Adding "</span> + tile.tile.getClass().getSimpleName() + <span class="string">" to "</span></div><div class="line">                + index);</div><div class="line">        mPages.get(index).addTile(tile);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (mNumPages != index + <span class="number">1</span>) &#123;</div><div class="line">        mNumPages = index + <span class="number">1</span>;</div><div class="line">        <span class="keyword">while</span> (mPages.size() &gt; mNumPages) &#123;</div><div class="line">            mPages.remove(mPages.size() - <span class="number">1</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (DEBUG) Log.d(TAG, <span class="string">"Size: "</span> + mNumPages);</div><div class="line">        mPageIndicator.setNumPages(mNumPages);</div><div class="line">        setAdapter(mAdapter);</div><div class="line">        mAdapter.notifyDataSetChanged();</div><div class="line">        setCurrentItem(<span class="number">0</span>, <span class="keyword">false</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>至此，SystemUI 下拉状态栏快捷开关模块代码流程分析完毕。</p>
+<h2 id="新增一个快捷开关"><a href="#新增一个快捷开关" class="headerlink" title="新增一个快捷开关"></a>新增一个快捷开关</h2><p>0、国际惯例，先上效果图，新增一个Camera，随便用了蓝牙的图标：</p>
+<p><img src="/images/StatusBar8.jpg" alt=""></p>
+<p>1、首先在 AOSP/frameworks/base/packages/SystemUI/res/values/config.xml 里面添加截屏 Camera 的选项</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"quick_settings_tiles_default"</span> <span class="attr">translatable</span>=<span class="string">"false"</span>&gt;</span></div><div class="line">    wifi,bt,dnd,flashlight,rotation,battery,cell,airplane,cast,camera</div><div class="line"><span class="tag">&lt;/<span class="name">string</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>2、在 AOSP/frameworks/base/packages/SystemUI/res/values/strings.xml 里面还要加一个字符串<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"quick_settings_camera_label"</span>&gt;</span>Camera<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>3、在 AOSP/frameworks/base/packages/SystemUI/src/com/android/systemui/qs/tiles/ 目录下创建 CameraTile.java，实现 QSTileImpl：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.android.systemui.qs.tiles;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.content.Intent;</div><div class="line"><span class="keyword">import</span> android.provider.MediaStore;</div><div class="line"><span class="keyword">import</span> android.widget.Toast;</div><div class="line"><span class="comment">//手动添加</span></div><div class="line"><span class="keyword">import</span> com.android.systemui.R;</div><div class="line"><span class="keyword">import</span> com.android.systemui.plugins.qs.QSTile;</div><div class="line"><span class="keyword">import</span> com.android.systemui.qs.QSHost;</div><div class="line"><span class="keyword">import</span> com.android.systemui.qs.tileimpl.QSTileImpl;</div><div class="line"><span class="comment">//手动添加</span></div><div class="line"><span class="keyword">import</span> com.android.internal.logging.nano.MetricsProto.MetricsEvent;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CameraTile</span> <span class="keyword">extends</span> <span class="title">QSTileImpl</span>&lt;<span class="title">QSTile</span>.<span class="title">BooleanState</span>&gt; </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CameraTile</span><span class="params">(QSHost host)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(host);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> BooleanState <span class="title">newTileState</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> BooleanState();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">handleClick</span><span class="params">()</span> </span>&#123;</div><div class="line">        Toast.makeText(mContext,<span class="string">"Camera Click"</span>,Toast.LENGTH_LONG).show();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">handleUpdateState</span><span class="params">(BooleanState state, Object arg)</span> </span>&#123;</div><div class="line">        state.label = mContext.getString(R.string.quick_settings_camera_label);</div><div class="line">        <span class="comment">//定义图标，随便用了蓝牙的图标</span></div><div class="line">        state.icon = ResourceIcon.get(R.drawable.ic_qs_bluetooth_on);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getMetricsCategory</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> MetricsEvent.QS_CAMERA;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> Intent <span class="title">getLongClickIntent</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Intent(MediaStore.ACTION_IMAGE_CAPTURE);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">handleSetListening</span><span class="params">(<span class="keyword">boolean</span> listening)</span> </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> CharSequence <span class="title">getTileLabel</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mContext.getString(R.string.quick_settings_camera_label);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>4、在 AOSP/frameworks/base/proto/src/metrics_constants.proto，增加常量：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">QS_CAMERA = <span class="number">1568</span>;</div></pre></td></tr></table></figure></p>
+<p>5、在 AOSP/frameworks/base/packages/SystemUI/src/com/android/systemui/qs/tileimpl/QSFactoryImpl.java，增加：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> QSTileImpl <span class="title">createTileInternal</span><span class="params">(String tileSpec)</span> </span>&#123;</div><div class="line">    <span class="comment">// Stock tiles.</span></div><div class="line">    <span class="keyword">switch</span> (tileSpec) &#123;</div><div class="line">        <span class="keyword">case</span> <span class="string">"wifi"</span>:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> WifiTile(mHost);</div><div class="line">        <span class="comment">// 省略部分代码</span></div><div class="line">        <span class="keyword">case</span> <span class="string">"nfc"</span>:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> NfcTile(mHost);</div><div class="line">        <span class="keyword">case</span> <span class="string">"camera"</span>:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> CameraTile(mHost);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 省略部分代码</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>6、整编代码，运行模拟器，有效果，棒棒哒。</p>
+         <!--广告-->
+    ﻿<h1>联系作者</h1>
+我的微信公众号：吴小龙同学，欢迎关注交流，公号回复关键字「1024」有惊喜哦。
+<img src="https://open.weixin.qq.com/qr/code?username=MrWuXiaolong">
+<!--
+<h1><b>联系我</b></h1>
+<b>由于多说和网易云跟帖评论服务相继关闭，来必力并不给力，因此本博客决定不再折腾评论，欢迎大家可以前往我的公众号留言交流！</b>
+
+1、我的知识星球：更多分享只对您公开，￥99/永久。
+<img src="http://7q5c2h.com1.z0.glb.clouddn.com/zhishixingqiu.jpeg" style="margin-top: 20px; width: 40%; height: 40%"/> 
+<br>
+
+
+2、我的微信公众号：吴小龙同学，欢迎关注交流~
+<img src="http://7q5c2h.com1.z0.glb.clouddn.com/qrcode_wuxiaolong_travel.jpg"  style="margin-top: 20px; width: 40%; height: 40%"/> 
+<br>
+
+3、我的微信群，可以加我微信，拉你进群，加我时<b>请备注真名</b>。
+<img src="http://7q5c2h.com1.z0.glb.clouddn.com/weixin.jpg"  style="margin-top: 20px; width: 40%; height: 40%"/> 
+<br>
+
+
+
+
+<!--
+其实有 Disqus ……
+1、Android技术交流剩者为王④群：331553260。
+<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=d129018d31e801e676743da4b05a1063f88ae52ca0407579666545596bdb7a52"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="剩者为王④群" title="剩者为王④群"></a>
+<img src="http://7q5c2h.com1.z0.glb.clouddn.com/qun4.png"  style="margin-top: 20px; width: 40%; height: 40%"/> 
+-->
+
+
+<!--<div style="padding: 10px 0; margin: 20px auto; width: 99%; text-align: center;"> 
+<b>赞助商：<a href="https://shop240489162.taobao.com/">躲角落的猫咪</a></b>
+<br>
+<img src="http://7q5c2h.com1.z0.glb.clouddn.com/taobaoshop.png"/> 
+</div>
+
+-->  
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/SystemUI/" rel="tag"># SystemUI</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/02/SystemUI4/" rel="next" title="Android 9.0 SystemUI Notification">
+                <i class="fa fa-chevron-left"></i> Android 9.0 SystemUI Notification
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="吴小龙同學">
+            
+              <p class="site-author-name" itemprop="name">吴小龙同學</p>
+              <p class="site-description motion-element" itemprop="description">我的微信公众号：吴小龙同学</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">151</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">42</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">113</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://open.weixin.qq.com/qr/code?username=MrWuXiaolong" title="WeChat &rarr; https://open.weixin.qq.com/qr/code?username=MrWuXiaolong" rel="noopener" target="_blank"><i class="fa fa-fw fa-weixin"></i>WeChat</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/WuXiaolong" title="GitHub &rarr; https://github.com/WuXiaolong" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.zhihu.com/people/wuxiaolong.me" title="知乎 &rarr; https://www.zhihu.com/people/wuxiaolong.me" rel="noopener" target="_blank"><i class="fa fa-fw fa-book"></i>知乎</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="http://weibo.com/u/2175011601" title="Weibo &rarr; http://weibo.com/u/2175011601" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SystemUI-下拉状态栏快捷开关"><span class="nav-number">1.</span> <span class="nav-text">SystemUI 下拉状态栏快捷开关</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#StatusBar-makeStatusBarView"><span class="nav-number">1.1.</span> <span class="nav-text">StatusBar#makeStatusBarView</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SystemUIFactory-createQSTileHost"><span class="nav-number">1.2.</span> <span class="nav-text">SystemUIFactory#createQSTileHost</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#QSTileHost-构造函数"><span class="nav-number">1.3.</span> <span class="nav-text">QSTileHost#构造函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TunerServiceImpl-addTunable"><span class="nav-number">1.4.</span> <span class="nav-text">TunerServiceImpl#addTunable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#QSTileHost-onTuningChanged"><span class="nav-number">1.5.</span> <span class="nav-text">QSTileHost#onTuningChanged</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#QSTileHost-loadTileSpecs"><span class="nav-number">1.6.</span> <span class="nav-text">QSTileHost#loadTileSpecs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#QSTileHost-createTile"><span class="nav-number">1.7.</span> <span class="nav-text">QSTileHost#createTile</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#QSFactoryImpl-createTile"><span class="nav-number">1.8.</span> <span class="nav-text">QSFactoryImpl#createTile</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#QSPanel-onAttachedToWindow"><span class="nav-number">1.9.</span> <span class="nav-text">QSPanel#onAttachedToWindow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PagedTileLayout-addTile"><span class="nav-number">1.10.</span> <span class="nav-text">PagedTileLayout#addTile</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新增一个快捷开关"><span class="nav-number">2.</span> <span class="nav-text">新增一个快捷开关</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2013 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">吴小龙同學</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.4.2</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.7.0</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://WuXiaolong.disqus.com/count.js" async></script>
+  
+
+  
+    <script>
+      var disqus_config = function () {
+        this.page.url = "http://wuxiaolong.me/2019/07/02/SystemUI3/";
+        this.page.identifier = "2019/07/02/SystemUI3/";
+        this.page.title = 'Android 9.0 SystemUI 下拉状态栏快捷开关';
+        };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://WuXiaolong.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
