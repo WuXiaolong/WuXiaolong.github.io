@@ -411,7 +411,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2020/01/31/GitHubProject/">
+    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2019/05/02/SystemUI1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴小龙同學">
@@ -431,7 +431,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2020/01/31/GitHubProject/" class="post-title-link" itemprop="url">GitHub 上这几个沙雕项目，够我玩几天</a>
+                <a href="/2019/05/02/SystemUI1/" class="post-title-link" itemprop="url">Android 9.0 SystemUI 启动流程</a>
               
             
           </h1>
@@ -456,12 +456,24 @@
                 
               
 
-              <time title="创建时间：2020-01-31 14:02:18 / 修改时间：16:02:23" itemprop="dateCreated datePublished" datetime="2020-01-31T14:02:18+08:00">2020-01-31</time>
+              <time title="创建时间：2019-05-02 09:54:41" itemprop="dateCreated datePublished" datetime="2019-05-02T09:54:41+08:00">2019-05-02</time>
             
 
             <!--
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-10-27 22:50:27" itemprop="dateModified" datetime="2020-10-27T22:50:27+08:00">2020-10-27</time>
               -->
             
           </span>
@@ -478,7 +490,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/GitHub/" itemprop="url" rel="index"><span itemprop="name">GitHub</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/SystemUI/" itemprop="url" rel="index"><span itemprop="name">SystemUI</span></a></span>
 
                 
                 
@@ -493,9 +505,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/01/31/GitHubProject/#comments" itemprop="discussionUrl">
+                <a href="/2019/05/02/SystemUI1/#comments" itemprop="discussionUrl">
                 
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/01/31/GitHubProject/" itemprop="commentCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/05/02/SystemUI1/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -524,13 +536,13 @@
 
       
         
-          <p>在家里都憋坏了吧？每天睡了吃吃了睡，该找点事做做了，今天推荐几个好（沙）玩（雕）的开源项目，好在家打发时间。</p>
-<h2 id="91-吴先生"><a href="#91-吴先生" class="headerlink" title="91 吴先生"></a>91 吴先生</h2><p>一个在线的 PornHub 风格 Logo 生成工具 Logoly.Pro ，可以帮助你快速生成类似 PornHub 风格的 Logo，感觉好骚。</p>
-<h3 id="效果示例"><a href="#效果示例" class="headerlink" title="效果示例"></a>效果示例</h3>
+          <p>基于 AOSP 9.0 分析。</p>
+<h2 id="开机流程"><a href="#开机流程" class="headerlink" title="开机流程"></a>开机流程</h2><p>开机大致会经历如下几个过程：<br>（1）uboot 在引导 os 启动，然后加载 kernel；<br>（2）当 kernel 加载完成后，进入 init 进程，fork 出 zygote，然后由 zygote 去启动 SystemServer；<br>（3）SystemServer 会启动系统运行所需的众多核心服务和普通服务，以及初始化和加载一些应用；<br>（4）之后就进入到锁屏或者 Launcher，开机过程就基本结束了。</p>
+<p>SystemUI 启动就是从 SystemServer 开始的。</p>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/2020/01/31/GitHubProject/" rel="contents">
+              <a class="btn" href="/2019/05/02/SystemUI1/" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -2439,7 +2451,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">41</span>
+                      
+                    
+                    <span class="site-state-item-count">42</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -2698,7 +2712,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">112</span>
+                      
+                    
+                    <span class="site-state-item-count">113</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
