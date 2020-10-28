@@ -95,12 +95,12 @@
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="SystemUI 下拉状态栏快捷开关是 QSPanel，qs_panel.xml，@+id/quick_settings_panel，本篇文章就来看看这些快捷开关是如何呈现的以及如何新增一个快捷开关？基于 AOSP 9.0 分析。 SystemUI 下拉状态栏快捷开关QSPanel 创建是从 StatusBar#makeStatusBarView 开始的。 StatusBar#makeStatus">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://wuxiaolong.me/images/StatusBar8.jpg">
-<meta property="og:updated_time" content="2020-10-27T15:30:32.083Z">
+<meta property="og:image" content="https://smartloong.oss-cn-shanghai.aliyuncs.com/StatusBar8.jpg">
+<meta property="og:updated_time" content="2020-10-28T14:07:58.325Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 9.0 SystemUI 下拉状态栏快捷开关">
 <meta name="twitter:description" content="SystemUI 下拉状态栏快捷开关是 QSPanel，qs_panel.xml，@+id/quick_settings_panel，本篇文章就来看看这些快捷开关是如何呈现的以及如何新增一个快捷开关？基于 AOSP 9.0 分析。 SystemUI 下拉状态栏快捷开关QSPanel 创建是从 StatusBar#makeStatusBarView 开始的。 StatusBar#makeStatus">
-<meta name="twitter:image" content="http://wuxiaolong.me/images/StatusBar8.jpg">
+<meta name="twitter:image" content="https://smartloong.oss-cn-shanghai.aliyuncs.com/StatusBar8.jpg">
 
 
 
@@ -475,7 +475,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-10-27 23:30:32" itemprop="dateModified" datetime="2020-10-27T23:30:32+08:00">2020-10-27</time>
+                <time title="修改时间：2020-10-28 22:07:58" itemprop="dateModified" datetime="2020-10-28T22:07:58+08:00">2020-10-28</time>
               -->
             
           </span>
@@ -571,7 +571,7 @@
 <h3 id="PagedTileLayout-addTile"><a href="#PagedTileLayout-addTile" class="headerlink" title="PagedTileLayout#addTile"></a>PagedTileLayout#addTile</h3><p>PagedTileLayout 是 ViewPager，重点看  setAdapter，看数据源如何 add 的。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addTile</span><span class="params">(TileRecord tile)</span> </span>&#123;</div><div class="line">    mTiles.add(tile);</div><div class="line">    postDistributeTiles();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">postDistributeTiles</span><span class="params">()</span> </span>&#123;</div><div class="line">    removeCallbacks(mDistribute);</div><div class="line">    post(mDistribute);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">private</span> <span class="keyword">final</span> Runnable mDistribute = <span class="keyword">new</span> Runnable() &#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">        distributeTiles();</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">distributeTiles</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (DEBUG) Log.d(TAG, <span class="string">"Distributing tiles"</span>);</div><div class="line">    <span class="keyword">final</span> <span class="keyword">int</span> NP = mPages.size();</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; NP; i++) &#123;</div><div class="line">        mPages.get(i).removeAllViews();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">int</span> index = <span class="number">0</span>;</div><div class="line">    <span class="keyword">final</span> <span class="keyword">int</span> NT = mTiles.size();</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; NT; i++) &#123;</div><div class="line">        TileRecord tile = mTiles.get(i);</div><div class="line">        <span class="keyword">if</span> (mPages.get(index).isFull()) &#123;</div><div class="line">            <span class="keyword">if</span> (++index == mPages.size()) &#123;</div><div class="line">                <span class="keyword">if</span> (DEBUG) Log.d(TAG, <span class="string">"Adding page for "</span></div><div class="line">                        + tile.tile.getClass().getSimpleName());</div><div class="line">                mPages.add((TilePage) LayoutInflater.from(getContext())</div><div class="line">                        .inflate(R.layout.qs_paged_page, <span class="keyword">this</span>, <span class="keyword">false</span>));</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (DEBUG) Log.d(TAG, <span class="string">"Adding "</span> + tile.tile.getClass().getSimpleName() + <span class="string">" to "</span></div><div class="line">                + index);</div><div class="line">        mPages.get(index).addTile(tile);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (mNumPages != index + <span class="number">1</span>) &#123;</div><div class="line">        mNumPages = index + <span class="number">1</span>;</div><div class="line">        <span class="keyword">while</span> (mPages.size() &gt; mNumPages) &#123;</div><div class="line">            mPages.remove(mPages.size() - <span class="number">1</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (DEBUG) Log.d(TAG, <span class="string">"Size: "</span> + mNumPages);</div><div class="line">        mPageIndicator.setNumPages(mNumPages);</div><div class="line">        setAdapter(mAdapter);</div><div class="line">        mAdapter.notifyDataSetChanged();</div><div class="line">        setCurrentItem(<span class="number">0</span>, <span class="keyword">false</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>至此，SystemUI 下拉状态栏快捷开关模块代码流程分析完毕。</p>
 <h2 id="新增一个快捷开关"><a href="#新增一个快捷开关" class="headerlink" title="新增一个快捷开关"></a>新增一个快捷开关</h2><p>0、国际惯例，先上效果图，新增一个Camera，随便用了蓝牙的图标：</p>
-<p><img src="/images/StatusBar8.jpg" alt=""></p>
+<p><img src="https://smartloong.oss-cn-shanghai.aliyuncs.com/StatusBar8.jpg" alt=""></p>
 <p>1、首先在 AOSP/frameworks/base/packages/SystemUI/res/values/config.xml 里面添加截屏 Camera 的选项</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"quick_settings_tiles_default"</span> <span class="attr">translatable</span>=<span class="string">"false"</span>&gt;</span></div><div class="line">    wifi,bt,dnd,flashlight,rotation,battery,cell,airplane,cast,camera</div><div class="line"><span class="tag">&lt;/<span class="name">string</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>2、在 AOSP/frameworks/base/packages/SystemUI/res/values/strings.xml 里面还要加一个字符串<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"quick_settings_camera_label"</span>&gt;</span>Camera<span class="tag">&lt;/<span class="name">string</span>&gt;</span></div></pre></td></tr></table></figure></p>
@@ -653,8 +653,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/06/02/SystemUI4/" rel="next" title="Android 9.0 SystemUI Notification">
-                <i class="fa fa-chevron-left"></i> Android 9.0 SystemUI Notification
+              <a href="/2019/06/02/SystemUI2/" rel="next" title="Android 9.0 SystemUI 主要视图 SystemBars">
+                <i class="fa fa-chevron-left"></i> Android 9.0 SystemUI 主要视图 SystemBars
               </a>
             
           </div>
@@ -662,6 +662,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/02/SystemUI4/" rel="prev" title="Android 9.0 SystemUI Notification">
+                Android 9.0 SystemUI Notification <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
