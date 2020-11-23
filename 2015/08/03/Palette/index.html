@@ -502,17 +502,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2015/08/03/Palette/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/08/03/Palette/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -668,12 +657,9 @@
           
 
   
-    <div class="comments" id="comments">
-      <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
-      </div>
+    <div id="gitalk-container">
     </div>
-
+    
   
 
 
@@ -1342,27 +1328,8 @@
 
   
 
-  
-    <script id="dsq-count-scr" src="https://WuXiaolong.disqus.com/count.js" async></script>
-  
 
-  
-    <script>
-      var disqus_config = function () {
-        this.page.url = "http://wuxiaolong.me/2015/08/03/Palette/";
-        this.page.identifier = "2015/08/03/Palette/";
-        this.page.title = 'Android Lollipop新特性-Palette';
-        };
-      function loadComments () {
-        var d = document, s = d.createElement('script');
-        s.src = 'https://WuXiaolong.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      }
-      
-        loadComments();
-      
-    </script>
+
   
 
 
@@ -1375,6 +1342,30 @@
 
 
 
+  
+  
+  <script src="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+
+  
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.css">
+
+  
+  
+  <script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+   <script>
+        var gitalk = new Gitalk({
+          clientID: 'ef1f4ac736abe340fb4c',
+          clientSecret: '5e08ede2662da24f75e3581c039887ebeda1998c',
+          repo: 'https://github.com/WuXiaolong/BlogComment',
+          owner: 'WuXiaolong',
+          admin: ['WuXiaolong'],
+          id: md5(location.pathname),
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')
+       </script>
 
 
   
