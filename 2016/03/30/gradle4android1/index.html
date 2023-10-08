@@ -91,7 +91,7 @@
 <meta name="keywords" content="Gradle">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Gradle for Android（一）基本配置、依赖管理">
-<meta property="og:url" content="http://wuxiaolong.me/2016/03/30/gradle4android1/index.html">
+<meta property="og:url" content="http://wuxiaolong.github.io/2016/03/30/gradle4android1/index.html">
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="Gradle是一种基于Groovy的动态DSL，而Groovy语言是一种基于jvm的动态语言。这里只分享实际开发中会用到的场景，您不需要去学习Groovy语言，知道Java的您是很容易阅读Groovy语言的。系列博客涉及的知识点有：Gradle基本配置、依赖管理、全局设置、自定义BuildConfig、混淆、多渠道打包、配置签名信息、单元测试，是不是迫不及待了啊，快来学习学习。  基本配置新建项">
 <meta property="og:locale" content="zh-CN">
@@ -109,7 +109,7 @@
 
 
 
-  <link rel="canonical" href="http://wuxiaolong.me/2016/03/30/gradle4android1/">
+  <link rel="canonical" href="http://wuxiaolong.github.io/2016/03/30/gradle4android1/">
 
 
 
@@ -415,7 +415,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2016/03/30/gradle4android1/">
+    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.github.io/2016/03/30/gradle4android1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴小龙同學">
@@ -552,7 +552,7 @@
 <p><strong>注意：</strong><br>如果你的library依赖了第三方库aar，须app再次依赖。比如lib1依赖了lib2 的aar，app依赖lib1，需要：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">    compile(name: &apos;library1-release&apos;, ext: &apos;aar&apos;)</div><div class="line">    compile(name: &apos;library2-release&apos;, ext: &apos;aar&apos;)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h2 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">		compile <span class="string">'com.wuxiaolong.pullloadmorerecyclerview:library:1.0.4'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h1 id="完整配置"><a href="#完整配置" class="headerlink" title="完整配置"></a>完整配置</h1><p><a href="https://github.com/WuXiaolong/Gradle4Android" target="_blank" rel="noopener">https://github.com/WuXiaolong/Gradle4Android</a></p>
-<h1 id="系列博客"><a href="#系列博客" class="headerlink" title="系列博客"></a>系列博客</h1><p><a href="http://wuxiaolong.me/2016/03/31/gradle4android2/">Gradle for Android（二）全局设置、自定义BuildConfig、混淆</a><br><a href="http://wuxiaolong.me/2016/04/01/gradle4android3/">Gradle for Android（三）多渠道打包、配置签名信息</a></p>
+<h1 id="系列博客"><a href="#系列博客" class="headerlink" title="系列博客"></a>系列博客</h1><p><a href="http://wuxiaolong.me/2016/03/31/gradle4android2/" target="_blank" rel="noopener">Gradle for Android（二）全局设置、自定义BuildConfig、混淆</a><br><a href="http://wuxiaolong.me/2016/04/01/gradle4android3/" target="_blank" rel="noopener">Gradle for Android（三）多渠道打包、配置签名信息</a></p>
          <!--广告-->
     ﻿<h1>联系作者</h1>
 我的微信公众号：吴小龙同学，欢迎关注交流，公号回复关键字「1024」有惊喜哦。

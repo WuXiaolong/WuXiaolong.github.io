@@ -91,7 +91,7 @@
 <meta name="keywords" content="Gradle">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Gradle for Android（三）多渠道打包、配置签名信息">
-<meta property="og:url" content="http://wuxiaolong.me/2016/04/01/gradle4android3/index.html">
+<meta property="og:url" content="http://wuxiaolong.github.io/2016/04/01/gradle4android3/index.html">
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="系列博客 Gradle for Android（一）基本配置、依赖管理Gradle for Android（二）全局设置、自定义BuildConfig、混淆  多渠道打包国内有太多Android App市场，每次发版几十个渠道包。还好Android Gradle给我们提供了productFlavors，我们可以对生成的APK包进行定制。123456789productFlavors &amp;#123;/">
 <meta property="og:locale" content="zh-CN">
@@ -109,7 +109,7 @@
 
 
 
-  <link rel="canonical" href="http://wuxiaolong.me/2016/04/01/gradle4android3/">
+  <link rel="canonical" href="http://wuxiaolong.github.io/2016/04/01/gradle4android3/">
 
 
 
@@ -415,7 +415,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2016/04/01/gradle4android3/">
+    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.github.io/2016/04/01/gradle4android3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴小龙同學">
@@ -534,7 +534,7 @@
 
       
         <h1 id="系列博客"><a href="#系列博客" class="headerlink" title="系列博客"></a>系列博客</h1><blockquote>
-<p><a href="http://wuxiaolong.me/2016/03/30/gradle4android1/">Gradle for Android（一）基本配置、依赖管理</a><br><a href="http://wuxiaolong.me/2016/03/31/gradle4android2/">Gradle for Android（二）全局设置、自定义BuildConfig、混淆</a></p>
+<p><a href="http://wuxiaolong.me/2016/03/30/gradle4android1/" target="_blank" rel="noopener">Gradle for Android（一）基本配置、依赖管理</a><br><a href="http://wuxiaolong.me/2016/03/31/gradle4android2/" target="_blank" rel="noopener">Gradle for Android（二）全局设置、自定义BuildConfig、混淆</a></p>
 </blockquote>
 <h1 id="多渠道打包"><a href="#多渠道打包" class="headerlink" title="多渠道打包"></a>多渠道打包</h1><p>国内有太多Android App市场，每次发版几十个渠道包。还好Android Gradle给我们提供了productFlavors，我们可以对生成的APK包进行定制。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">productFlavors &#123;<span class="comment">//多渠道打包</span></div><div class="line">    xiaomi &#123;</div><div class="line">        applicationId <span class="string">'com.wuxiaolong.gradle4android1'</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    googlepaly &#123;</div><div class="line">        applicationId <span class="string">'com.wuxiaolong.gradle4android2'</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <a id="more"></a>

@@ -5,9 +5,9 @@
   <subtitle>党要我帅，我不得不帅！</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://wuxiaolong.me/"/>
+  <link href="http://wuxiaolong.github.io/"/>
   <updated>2021-12-19T10:42:36.650Z</updated>
-  <id>http://wuxiaolong.me/</id>
+  <id>http://wuxiaolong.github.io/</id>
   
   <author>
     <name>吴小龙同學</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>如何实现一个 System Services？</title>
-    <link href="http://wuxiaolong.me/2021/04/07/SystemServices/"/>
-    <id>http://wuxiaolong.me/2021/04/07/SystemServices/</id>
+    <link href="http://wuxiaolong.github.io/2021/04/07/SystemServices/"/>
+    <id>http://wuxiaolong.github.io/2021/04/07/SystemServices/</id>
     <published>2021-04-07T12:42:58.000Z</published>
     <updated>2021-12-19T10:42:36.650Z</updated>
     
@@ -33,17 +33,17 @@
     
     </summary>
     
-      <category term="AOSP" scheme="http://wuxiaolong.me/categories/AOSP/"/>
+      <category term="AOSP" scheme="http://wuxiaolong.github.io/categories/AOSP/"/>
     
     
-      <category term="System Services" scheme="http://wuxiaolong.me/tags/System-Services/"/>
+      <category term="System Services" scheme="http://wuxiaolong.github.io/tags/System-Services/"/>
     
   </entry>
   
   <entry>
     <title>Android 系统开发做什么？</title>
-    <link href="http://wuxiaolong.me/2021/03/29/AndroidFramework/"/>
-    <id>http://wuxiaolong.me/2021/03/29/AndroidFramework/</id>
+    <link href="http://wuxiaolong.github.io/2021/03/29/AndroidFramework/"/>
+    <id>http://wuxiaolong.github.io/2021/03/29/AndroidFramework/</id>
     <published>2021-03-29T12:42:58.000Z</published>
     <updated>2021-12-19T10:37:46.793Z</updated>
     
@@ -57,17 +57,17 @@
     
     </summary>
     
-      <category term="AOSP" scheme="http://wuxiaolong.me/categories/AOSP/"/>
+      <category term="AOSP" scheme="http://wuxiaolong.github.io/categories/AOSP/"/>
     
     
-      <category term="Android Framework" scheme="http://wuxiaolong.me/tags/Android-Framework/"/>
+      <category term="Android Framework" scheme="http://wuxiaolong.github.io/tags/Android-Framework/"/>
     
   </entry>
   
   <entry>
     <title>你敢用一年时间改变自己吗？</title>
-    <link href="http://wuxiaolong.me/2021/02/03/ChallengeMyself/"/>
-    <id>http://wuxiaolong.me/2021/02/03/ChallengeMyself/</id>
+    <link href="http://wuxiaolong.github.io/2021/02/03/ChallengeMyself/"/>
+    <id>http://wuxiaolong.github.io/2021/02/03/ChallengeMyself/</id>
     <published>2021-02-03T12:42:58.000Z</published>
     <updated>2021-03-30T13:55:28.929Z</updated>
     
@@ -83,17 +83,17 @@
     
     </summary>
     
-      <category term="猿生活" scheme="http://wuxiaolong.me/categories/%E7%8C%BF%E7%94%9F%E6%B4%BB/"/>
+      <category term="猿生活" scheme="http://wuxiaolong.github.io/categories/%E7%8C%BF%E7%94%9F%E6%B4%BB/"/>
     
     
-      <category term="Challenge" scheme="http://wuxiaolong.me/tags/Challenge/"/>
+      <category term="Challenge" scheme="http://wuxiaolong.github.io/tags/Challenge/"/>
     
   </entry>
   
   <entry>
     <title>Android 9.0 SystemUI NavigationBar</title>
-    <link href="http://wuxiaolong.me/2019/09/12/SystemUI5/"/>
-    <id>http://wuxiaolong.me/2019/09/12/SystemUI5/</id>
+    <link href="http://wuxiaolong.github.io/2019/09/12/SystemUI5/"/>
+    <id>http://wuxiaolong.github.io/2019/09/12/SystemUI5/</id>
     <published>2019-09-12T01:54:41.000Z</published>
     <updated>2020-10-28T14:11:13.284Z</updated>
     
@@ -107,17 +107,17 @@
     
     </summary>
     
-      <category term="SystemUI" scheme="http://wuxiaolong.me/categories/SystemUI/"/>
+      <category term="SystemUI" scheme="http://wuxiaolong.github.io/categories/SystemUI/"/>
     
     
-      <category term="SystemUI" scheme="http://wuxiaolong.me/tags/SystemUI/"/>
+      <category term="SystemUI" scheme="http://wuxiaolong.github.io/tags/SystemUI/"/>
     
   </entry>
   
   <entry>
     <title>Android 9.0 SystemUI Notification</title>
-    <link href="http://wuxiaolong.me/2019/08/12/SystemUI4/"/>
-    <id>http://wuxiaolong.me/2019/08/12/SystemUI4/</id>
+    <link href="http://wuxiaolong.github.io/2019/08/12/SystemUI4/"/>
+    <id>http://wuxiaolong.github.io/2019/08/12/SystemUI4/</id>
     <published>2019-08-12T01:54:41.000Z</published>
     <updated>2020-10-28T14:11:06.459Z</updated>
     
@@ -130,17 +130,17 @@
     
     </summary>
     
-      <category term="SystemUI" scheme="http://wuxiaolong.me/categories/SystemUI/"/>
+      <category term="SystemUI" scheme="http://wuxiaolong.github.io/categories/SystemUI/"/>
     
     
-      <category term="SystemUI" scheme="http://wuxiaolong.me/tags/SystemUI/"/>
+      <category term="SystemUI" scheme="http://wuxiaolong.github.io/tags/SystemUI/"/>
     
   </entry>
   
   <entry>
     <title>Android 9.0 SystemUI 下拉状态栏快捷开关</title>
-    <link href="http://wuxiaolong.me/2019/07/05/SystemUI3/"/>
-    <id>http://wuxiaolong.me/2019/07/05/SystemUI3/</id>
+    <link href="http://wuxiaolong.github.io/2019/07/05/SystemUI3/"/>
+    <id>http://wuxiaolong.github.io/2019/07/05/SystemUI3/</id>
     <published>2019-07-05T01:54:41.000Z</published>
     <updated>2020-10-28T14:11:01.813Z</updated>
     
@@ -154,17 +154,17 @@
     
     </summary>
     
-      <category term="SystemUI" scheme="http://wuxiaolong.me/categories/SystemUI/"/>
+      <category term="SystemUI" scheme="http://wuxiaolong.github.io/categories/SystemUI/"/>
     
     
-      <category term="SystemUI" scheme="http://wuxiaolong.me/tags/SystemUI/"/>
+      <category term="SystemUI" scheme="http://wuxiaolong.github.io/tags/SystemUI/"/>
     
   </entry>
   
   <entry>
     <title>Android 9.0 SystemUI 主要视图 SystemBars</title>
-    <link href="http://wuxiaolong.me/2019/06/03/SystemUI2/"/>
-    <id>http://wuxiaolong.me/2019/06/03/SystemUI2/</id>
+    <link href="http://wuxiaolong.github.io/2019/06/03/SystemUI2/"/>
+    <id>http://wuxiaolong.github.io/2019/06/03/SystemUI2/</id>
     <published>2019-06-03T01:54:41.000Z</published>
     <updated>2020-10-28T14:10:55.898Z</updated>
     
@@ -177,17 +177,17 @@
     
     </summary>
     
-      <category term="SystemUI" scheme="http://wuxiaolong.me/categories/SystemUI/"/>
+      <category term="SystemUI" scheme="http://wuxiaolong.github.io/categories/SystemUI/"/>
     
     
-      <category term="SystemUI" scheme="http://wuxiaolong.me/tags/SystemUI/"/>
+      <category term="SystemUI" scheme="http://wuxiaolong.github.io/tags/SystemUI/"/>
     
   </entry>
   
   <entry>
     <title>Android 9.0 SystemUI 启动流程</title>
-    <link href="http://wuxiaolong.me/2019/05/02/SystemUI1/"/>
-    <id>http://wuxiaolong.me/2019/05/02/SystemUI1/</id>
+    <link href="http://wuxiaolong.github.io/2019/05/02/SystemUI1/"/>
+    <id>http://wuxiaolong.github.io/2019/05/02/SystemUI1/</id>
     <published>2019-05-02T01:54:41.000Z</published>
     <updated>2020-10-28T14:06:43.725Z</updated>
     
@@ -207,17 +207,17 @@
     
     </summary>
     
-      <category term="SystemUI" scheme="http://wuxiaolong.me/categories/SystemUI/"/>
+      <category term="SystemUI" scheme="http://wuxiaolong.github.io/categories/SystemUI/"/>
     
     
-      <category term="SystemUI" scheme="http://wuxiaolong.me/tags/SystemUI/"/>
+      <category term="SystemUI" scheme="http://wuxiaolong.github.io/tags/SystemUI/"/>
     
   </entry>
   
   <entry>
     <title>Android 当点击飞行模式都发生了什么？</title>
-    <link href="http://wuxiaolong.me/2019/04/14/AirplaneMode/"/>
-    <id>http://wuxiaolong.me/2019/04/14/AirplaneMode/</id>
+    <link href="http://wuxiaolong.github.io/2019/04/14/AirplaneMode/"/>
+    <id>http://wuxiaolong.github.io/2019/04/14/AirplaneMode/</id>
     <published>2019-04-14T13:47:31.000Z</published>
     <updated>2019-08-10T14:06:19.841Z</updated>
     
@@ -231,17 +231,17 @@
     
     </summary>
     
-      <category term="AOSP" scheme="http://wuxiaolong.me/categories/AOSP/"/>
+      <category term="AOSP" scheme="http://wuxiaolong.github.io/categories/AOSP/"/>
     
     
-      <category term="AOSP" scheme="http://wuxiaolong.me/tags/AOSP/"/>
+      <category term="AOSP" scheme="http://wuxiaolong.github.io/tags/AOSP/"/>
     
   </entry>
   
   <entry>
     <title>Android 亮度自动调节</title>
-    <link href="http://wuxiaolong.me/2019/03/18/AutoBrightness/"/>
-    <id>http://wuxiaolong.me/2019/03/18/AutoBrightness/</id>
+    <link href="http://wuxiaolong.github.io/2019/03/18/AutoBrightness/"/>
+    <id>http://wuxiaolong.github.io/2019/03/18/AutoBrightness/</id>
     <published>2019-03-18T13:47:31.000Z</published>
     <updated>2019-08-10T14:06:29.722Z</updated>
     
@@ -255,17 +255,17 @@
     
     </summary>
     
-      <category term="AOSP" scheme="http://wuxiaolong.me/categories/AOSP/"/>
+      <category term="AOSP" scheme="http://wuxiaolong.github.io/categories/AOSP/"/>
     
     
-      <category term="AOSP" scheme="http://wuxiaolong.me/tags/AOSP/"/>
+      <category term="AOSP" scheme="http://wuxiaolong.github.io/tags/AOSP/"/>
     
   </entry>
   
   <entry>
     <title>AOSP 预置 APP</title>
-    <link href="http://wuxiaolong.me/2019/02/10/APPPreset/"/>
-    <id>http://wuxiaolong.me/2019/02/10/APPPreset/</id>
+    <link href="http://wuxiaolong.github.io/2019/02/10/APPPreset/"/>
+    <id>http://wuxiaolong.github.io/2019/02/10/APPPreset/</id>
     <published>2019-02-10T13:47:31.000Z</published>
     <updated>2019-08-10T14:01:54.751Z</updated>
     
@@ -278,41 +278,41 @@
     
     </summary>
     
-      <category term="AOSP" scheme="http://wuxiaolong.me/categories/AOSP/"/>
+      <category term="AOSP" scheme="http://wuxiaolong.github.io/categories/AOSP/"/>
     
     
-      <category term="AOSP" scheme="http://wuxiaolong.me/tags/AOSP/"/>
+      <category term="AOSP" scheme="http://wuxiaolong.github.io/tags/AOSP/"/>
     
   </entry>
   
   <entry>
     <title>2019 关键字</title>
-    <link href="http://wuxiaolong.me/2019/01/02/2019key/"/>
-    <id>http://wuxiaolong.me/2019/01/02/2019key/</id>
+    <link href="http://wuxiaolong.github.io/2019/01/02/2019key/"/>
+    <id>http://wuxiaolong.github.io/2019/01/02/2019key/</id>
     <published>2019-01-02T09:43:42.000Z</published>
     <updated>2021-03-30T13:55:37.018Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="回顾-18-年"><a href="#回顾-18-年" class="headerlink" title="回顾 18 年"></a>回顾 18 年</h1><p>转眼间 2018 年过去了，2018 年对我来说过得真的太快，在过去的一年，没啥成就感可言，2018 年 5 月份我换了工作，从此 996，大部分时间都投入了工作，勤勤恳恳，没什么说的。不过回顾《<a href="http://wuxiaolong.me/2018/01/02/2018key/">2018 关键字</a>》，真的要说，恭喜，我又成功地浪费了一年：</p><h2 id="高级程序员"><a href="#高级程序员" class="headerlink" title="高级程序员"></a>高级程序员</h2><p><del>自己差不多属于高级程序员了，这些年没算白混，但还不够，很多知识点知道，浮在表层，开发中一些知识不常用很快也就忘记了，新的一年，还得继续查缺补漏，深入。</del></p><p>换了工作，现在做 Android Framework 了，小白，从零开始，Framework 比应用开发难很多，适应了很久。</p><a id="more"></a><h2 id="身体"><a href="#身体" class="headerlink" title="身体"></a>身体</h2><p><del>年纪大了，该注意起来了，15 年结完婚就很少运动，现在经常肩疼，周末偶尔去打打篮球，18 年，健身要列入日常。</del></p><p>现在的身体状况感觉比以往都要好，像之前一累，肩就很疼，现在偶尔也会疼，但已经很好了，和现在的团队氛围有关，每周能和大家打一次篮球，我觉得这个篮球还是很有必要的，没有好的身体，还怎么撸码。</p><h2 id="学历"><a href="#学历" class="headerlink" title="学历"></a>学历</h2><p><del>虽然说工作了更多地看重学历，但是一些公司学历是硬性条件，我也因此碰壁，想在学历方面晋升一下，不留遗憾。</del></p><p>What？还有这个目标？</p><h2 id="英语"><a href="#英语" class="headerlink" title="英语"></a>英语</h2><p><del>渣渣，不想多说了，年年目标都有英语这项，现在依旧是渣渣，根本没有行动起来，也没有坚持下来。</del></p><p>下载了百词斩 APP，下载完毕，打开过一次，后来貌似还打开过一次……英语真的很重要！</p><h2 id="书"><a href="#书" class="headerlink" title="书"></a>书</h2><p><del>人丑就应该多读点书，我发现我更加喜欢阅读电子版的，不管是什么，现在要多看看书，积累点底蕴。</del></p><p>看了《浪潮之巅》；《刻意练习》看了一大半；买了纸质《社会心理学》，看完了序……</p><h2 id="投资理财"><a href="#投资理财" class="headerlink" title="投资理财"></a>投资理财</h2><p><del>这方面知识是我比较缺乏的，可以说一窍不通，最主要的原因是穷，还没有闲钱能做理财，18 年，要学学这方面的知识，存点钱，以备不时之需。</del></p><p>了解了点基金股票知识；《小狗钱钱》看了一点，没看下去……</p><h2 id="Python、小程序"><a href="#Python、小程序" class="headerlink" title="Python、小程序"></a>Python、小程序</h2><p><del>持续关注，也许就转行了。</del></p><p>写有《<a href="http://mp.weixin.qq.com/s?__biz=MzI4MTQyNDg3Mg==&amp;mid=2247484282&amp;idx=1&amp;sn=86dba20c482b6b2a0c298ba3004b1f83&amp;chksm=eba825fddcdfacebcb9b9586702dea8cc7c38de67fc716f0f187be95eca36a5e9ed6dcc7d29c&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">Python 3 极简教程.pdf</a>》、《<a href="http://mp.weixin.qq.com/s?__biz=MzI4MTQyNDg3Mg==&amp;mid=2247484651&amp;idx=1&amp;sn=89dcd679f4e790b5c2ef31516bd8cb57&amp;chksm=eba8226cdcdfab7ac1d53e7284b7311ee0ac069cf25a0d18293d2cd35fb57d6967d5b2bce5f4&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">小程序入门</a>》，没转行，不过转 Framework 跨度有点大，差点折了。</p><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>Flutter 抢先体验了一番，没再深入；Python、小程序都是入门了，最后觉得方向还得是 Android；完成了夙愿《<a href="http://mp.weixin.qq.com/s?__biz=MzI4MTQyNDg3Mg==&amp;mid=2247484561&amp;idx=1&amp;sn=1ba133f7d0f3668c74f6d6f5e2bc3e7b&amp;chksm=eba82216dcdfab000c2a2c7e11c42a31ad4430c395de7a5224cabba124da6433c09ea2498961&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">Java 开发接口</a>》，还不惜买了好几百块的服务器；知识星球加了不少，看下来的也就几个，更多地是维护维护自己的星球；极客时间有 8 个课程，完整学完就 1 个，3 个课程学了一半，其他都学完第 1 讲；2018 年公众号新增读者不过四五千，可谓失败……</p><h1 id="展望-19-年"><a href="#展望-19-年" class="headerlink" title="展望 19 年"></a>展望 19 年</h1><h2 id="AOSP"><a href="#AOSP" class="headerlink" title="AOSP"></a>AOSP</h2><p>熟悉 AOSP 这套代码，是我现在时刻要做的，2019 年工作依旧是我的重点，力求做到更好。</p><h2 id="演讲能力"><a href="#演讲能力" class="headerlink" title="演讲能力"></a>演讲能力</h2><p>当众讲话我还是有些怵的，怂个毛，就是干，只要有机会多练，假以时日，我认为是可以做到令我自己满意的。</p><h2 id="英语-1"><a href="#英语-1" class="headerlink" title="英语"></a>英语</h2><p>渣渣，不说了……</p><h2 id="还有什么"><a href="#还有什么" class="headerlink" title="还有什么"></a>还有什么</h2><p>我也不知道，可能又是无聊的一年？多挣点钱吧，我娃要上学了。</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="回顾-18-年"><a href="#回顾-18-年" class="headerlink" title="回顾 18 年"></a>回顾 18 年</h1><p>转眼间 2018 年过去了，2018 年对我来说过得真的太快，在过去的一年，没啥成就感可言，2018 年 5 月份我换了工作，从此 996，大部分时间都投入了工作，勤勤恳恳，没什么说的。不过回顾《<a href="http://wuxiaolong.me/2018/01/02/2018key/" target="_blank" rel="noopener">2018 关键字</a>》，真的要说，恭喜，我又成功地浪费了一年：</p><h2 id="高级程序员"><a href="#高级程序员" class="headerlink" title="高级程序员"></a>高级程序员</h2><p><del>自己差不多属于高级程序员了，这些年没算白混，但还不够，很多知识点知道，浮在表层，开发中一些知识不常用很快也就忘记了，新的一年，还得继续查缺补漏，深入。</del></p><p>换了工作，现在做 Android Framework 了，小白，从零开始，Framework 比应用开发难很多，适应了很久。</p><a id="more"></a><h2 id="身体"><a href="#身体" class="headerlink" title="身体"></a>身体</h2><p><del>年纪大了，该注意起来了，15 年结完婚就很少运动，现在经常肩疼，周末偶尔去打打篮球，18 年，健身要列入日常。</del></p><p>现在的身体状况感觉比以往都要好，像之前一累，肩就很疼，现在偶尔也会疼，但已经很好了，和现在的团队氛围有关，每周能和大家打一次篮球，我觉得这个篮球还是很有必要的，没有好的身体，还怎么撸码。</p><h2 id="学历"><a href="#学历" class="headerlink" title="学历"></a>学历</h2><p><del>虽然说工作了更多地看重学历，但是一些公司学历是硬性条件，我也因此碰壁，想在学历方面晋升一下，不留遗憾。</del></p><p>What？还有这个目标？</p><h2 id="英语"><a href="#英语" class="headerlink" title="英语"></a>英语</h2><p><del>渣渣，不想多说了，年年目标都有英语这项，现在依旧是渣渣，根本没有行动起来，也没有坚持下来。</del></p><p>下载了百词斩 APP，下载完毕，打开过一次，后来貌似还打开过一次……英语真的很重要！</p><h2 id="书"><a href="#书" class="headerlink" title="书"></a>书</h2><p><del>人丑就应该多读点书，我发现我更加喜欢阅读电子版的，不管是什么，现在要多看看书，积累点底蕴。</del></p><p>看了《浪潮之巅》；《刻意练习》看了一大半；买了纸质《社会心理学》，看完了序……</p><h2 id="投资理财"><a href="#投资理财" class="headerlink" title="投资理财"></a>投资理财</h2><p><del>这方面知识是我比较缺乏的，可以说一窍不通，最主要的原因是穷，还没有闲钱能做理财，18 年，要学学这方面的知识，存点钱，以备不时之需。</del></p><p>了解了点基金股票知识；《小狗钱钱》看了一点，没看下去……</p><h2 id="Python、小程序"><a href="#Python、小程序" class="headerlink" title="Python、小程序"></a>Python、小程序</h2><p><del>持续关注，也许就转行了。</del></p><p>写有《<a href="http://mp.weixin.qq.com/s?__biz=MzI4MTQyNDg3Mg==&amp;mid=2247484282&amp;idx=1&amp;sn=86dba20c482b6b2a0c298ba3004b1f83&amp;chksm=eba825fddcdfacebcb9b9586702dea8cc7c38de67fc716f0f187be95eca36a5e9ed6dcc7d29c&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">Python 3 极简教程.pdf</a>》、《<a href="http://mp.weixin.qq.com/s?__biz=MzI4MTQyNDg3Mg==&amp;mid=2247484651&amp;idx=1&amp;sn=89dcd679f4e790b5c2ef31516bd8cb57&amp;chksm=eba8226cdcdfab7ac1d53e7284b7311ee0ac069cf25a0d18293d2cd35fb57d6967d5b2bce5f4&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">小程序入门</a>》，没转行，不过转 Framework 跨度有点大，差点折了。</p><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>Flutter 抢先体验了一番，没再深入；Python、小程序都是入门了，最后觉得方向还得是 Android；完成了夙愿《<a href="http://mp.weixin.qq.com/s?__biz=MzI4MTQyNDg3Mg==&amp;mid=2247484561&amp;idx=1&amp;sn=1ba133f7d0f3668c74f6d6f5e2bc3e7b&amp;chksm=eba82216dcdfab000c2a2c7e11c42a31ad4430c395de7a5224cabba124da6433c09ea2498961&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">Java 开发接口</a>》，还不惜买了好几百块的服务器；知识星球加了不少，看下来的也就几个，更多地是维护维护自己的星球；极客时间有 8 个课程，完整学完就 1 个，3 个课程学了一半，其他都学完第 1 讲；2018 年公众号新增读者不过四五千，可谓失败……</p><h1 id="展望-19-年"><a href="#展望-19-年" class="headerlink" title="展望 19 年"></a>展望 19 年</h1><h2 id="AOSP"><a href="#AOSP" class="headerlink" title="AOSP"></a>AOSP</h2><p>熟悉 AOSP 这套代码，是我现在时刻要做的，2019 年工作依旧是我的重点，力求做到更好。</p><h2 id="演讲能力"><a href="#演讲能力" class="headerlink" title="演讲能力"></a>演讲能力</h2><p>当众讲话我还是有些怵的，怂个毛，就是干，只要有机会多练，假以时日，我认为是可以做到令我自己满意的。</p><h2 id="英语-1"><a href="#英语-1" class="headerlink" title="英语"></a>英语</h2><p>渣渣，不说了……</p><h2 id="还有什么"><a href="#还有什么" class="headerlink" title="还有什么"></a>还有什么</h2><p>我也不知道，可能又是无聊的一年？多挣点钱吧，我娃要上学了。</p>]]></content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;回顾-18-年&quot;&gt;&lt;a href=&quot;#回顾-18-年&quot; class=&quot;headerlink&quot; title=&quot;回顾 18 年&quot;&gt;&lt;/a&gt;回顾 18 年&lt;/h1&gt;&lt;p&gt;转眼间 2018 年过去了，2018 年对我来说过得真的太快，在过去的一年，没啥成就感可言，2018 年 5 月份我换了工作，从此 996，大部分时间都投入了工作，勤勤恳恳，没什么说的。不过回顾《&lt;a href=&quot;http://wuxiaolong.me/2018/01/02/2018key/&quot;&gt;2018 关键字&lt;/a&gt;》，真的要说，恭喜，我又成功地浪费了一年：&lt;/p&gt;
+      &lt;h1 id=&quot;回顾-18-年&quot;&gt;&lt;a href=&quot;#回顾-18-年&quot; class=&quot;headerlink&quot; title=&quot;回顾 18 年&quot;&gt;&lt;/a&gt;回顾 18 年&lt;/h1&gt;&lt;p&gt;转眼间 2018 年过去了，2018 年对我来说过得真的太快，在过去的一年，没啥成就感可言，2018 年 5 月份我换了工作，从此 996，大部分时间都投入了工作，勤勤恳恳，没什么说的。不过回顾《&lt;a href=&quot;http://wuxiaolong.me/2018/01/02/2018key/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;2018 关键字&lt;/a&gt;》，真的要说，恭喜，我又成功地浪费了一年：&lt;/p&gt;
 &lt;h2 id=&quot;高级程序员&quot;&gt;&lt;a href=&quot;#高级程序员&quot; class=&quot;headerlink&quot; title=&quot;高级程序员&quot;&gt;&lt;/a&gt;高级程序员&lt;/h2&gt;&lt;p&gt;&lt;del&gt;自己差不多属于高级程序员了，这些年没算白混，但还不够，很多知识点知道，浮在表层，开发中一些知识不常用很快也就忘记了，新的一年，还得继续查缺补漏，深入。&lt;/del&gt;&lt;/p&gt;
 &lt;p&gt;换了工作，现在做 Android Framework 了，小白，从零开始，Framework 比应用开发难很多，适应了很久。&lt;/p&gt;
     
     </summary>
     
-      <category term="猿生活" scheme="http://wuxiaolong.me/categories/%E7%8C%BF%E7%94%9F%E6%B4%BB/"/>
+      <category term="猿生活" scheme="http://wuxiaolong.github.io/categories/%E7%8C%BF%E7%94%9F%E6%B4%BB/"/>
     
     
-      <category term="key word" scheme="http://wuxiaolong.me/tags/key-word/"/>
+      <category term="key word" scheme="http://wuxiaolong.github.io/tags/key-word/"/>
     
   </entry>
   
   <entry>
     <title>Android APP 冷启动流程</title>
-    <link href="http://wuxiaolong.me/2018/09/16/AndroidColdStart/"/>
-    <id>http://wuxiaolong.me/2018/09/16/AndroidColdStart/</id>
+    <link href="http://wuxiaolong.github.io/2018/09/16/AndroidColdStart/"/>
+    <id>http://wuxiaolong.github.io/2018/09/16/AndroidColdStart/</id>
     <published>2018-09-16T05:49:31.000Z</published>
     <updated>2019-04-22T14:32:17.070Z</updated>
     
@@ -324,17 +324,17 @@
     
     </summary>
     
-      <category term="AOSP" scheme="http://wuxiaolong.me/categories/AOSP/"/>
+      <category term="AOSP" scheme="http://wuxiaolong.github.io/categories/AOSP/"/>
     
     
-      <category term="AOSP" scheme="http://wuxiaolong.me/tags/AOSP/"/>
+      <category term="AOSP" scheme="http://wuxiaolong.github.io/tags/AOSP/"/>
     
   </entry>
   
   <entry>
     <title>Android Studio 导入 AOSP 源码</title>
-    <link href="http://wuxiaolong.me/2018/08/15/AOSP3/"/>
-    <id>http://wuxiaolong.me/2018/08/15/AOSP3/</id>
+    <link href="http://wuxiaolong.github.io/2018/08/15/AOSP3/"/>
+    <id>http://wuxiaolong.github.io/2018/08/15/AOSP3/</id>
     <published>2018-08-15T02:24:22.000Z</published>
     <updated>2019-01-05T03:19:00.810Z</updated>
     
@@ -347,17 +347,17 @@
     
     </summary>
     
-      <category term="AOSP" scheme="http://wuxiaolong.me/categories/AOSP/"/>
+      <category term="AOSP" scheme="http://wuxiaolong.github.io/categories/AOSP/"/>
     
     
-      <category term="AOSP" scheme="http://wuxiaolong.me/tags/AOSP/"/>
+      <category term="AOSP" scheme="http://wuxiaolong.github.io/tags/AOSP/"/>
     
   </entry>
   
   <entry>
     <title>AOSP 源码整编单编</title>
-    <link href="http://wuxiaolong.me/2018/07/25/AOSP2/"/>
-    <id>http://wuxiaolong.me/2018/07/25/AOSP2/</id>
+    <link href="http://wuxiaolong.github.io/2018/07/25/AOSP2/"/>
+    <id>http://wuxiaolong.github.io/2018/07/25/AOSP2/</id>
     <published>2018-07-25T01:35:19.000Z</published>
     <updated>2019-01-05T01:45:11.615Z</updated>
     
@@ -370,17 +370,17 @@
     
     </summary>
     
-      <category term="AOSP" scheme="http://wuxiaolong.me/categories/AOSP/"/>
+      <category term="AOSP" scheme="http://wuxiaolong.github.io/categories/AOSP/"/>
     
     
-      <category term="AOSP" scheme="http://wuxiaolong.me/tags/AOSP/"/>
+      <category term="AOSP" scheme="http://wuxiaolong.github.io/tags/AOSP/"/>
     
   </entry>
   
   <entry>
     <title>AOSP 源码下载</title>
-    <link href="http://wuxiaolong.me/2018/07/07/AOSP1/"/>
-    <id>http://wuxiaolong.me/2018/07/07/AOSP1/</id>
+    <link href="http://wuxiaolong.github.io/2018/07/07/AOSP1/"/>
+    <id>http://wuxiaolong.github.io/2018/07/07/AOSP1/</id>
     <published>2018-07-07T12:42:58.000Z</published>
     <updated>2019-04-22T14:32:10.109Z</updated>
     
@@ -395,17 +395,17 @@
     
     </summary>
     
-      <category term="AOSP" scheme="http://wuxiaolong.me/categories/AOSP/"/>
+      <category term="AOSP" scheme="http://wuxiaolong.github.io/categories/AOSP/"/>
     
     
-      <category term="AOSP" scheme="http://wuxiaolong.me/tags/AOSP/"/>
+      <category term="AOSP" scheme="http://wuxiaolong.github.io/tags/AOSP/"/>
     
   </entry>
   
   <entry>
     <title>Android 8.0 自适应图标</title>
-    <link href="http://wuxiaolong.me/2018/05/14/AdaptiveIcons/"/>
-    <id>http://wuxiaolong.me/2018/05/14/AdaptiveIcons/</id>
+    <link href="http://wuxiaolong.github.io/2018/05/14/AdaptiveIcons/"/>
+    <id>http://wuxiaolong.github.io/2018/05/14/AdaptiveIcons/</id>
     <published>2018-05-14T05:20:36.000Z</published>
     <updated>2019-04-22T14:32:22.414Z</updated>
     
@@ -418,17 +418,17 @@
     
     </summary>
     
-      <category term="Adaptive Icons" scheme="http://wuxiaolong.me/categories/Adaptive-Icons/"/>
+      <category term="Adaptive Icons" scheme="http://wuxiaolong.github.io/categories/Adaptive-Icons/"/>
     
     
-      <category term="Adaptive Icons" scheme="http://wuxiaolong.me/tags/Adaptive-Icons/"/>
+      <category term="Adaptive Icons" scheme="http://wuxiaolong.github.io/tags/Adaptive-Icons/"/>
     
   </entry>
   
   <entry>
     <title>Android 从 Web 唤起 APP</title>
-    <link href="http://wuxiaolong.me/2018/04/04/web2app/"/>
-    <id>http://wuxiaolong.me/2018/04/04/web2app/</id>
+    <link href="http://wuxiaolong.github.io/2018/04/04/web2app/"/>
+    <id>http://wuxiaolong.github.io/2018/04/04/web2app/</id>
     <published>2018-04-04T13:58:23.000Z</published>
     <updated>2019-04-22T14:30:50.526Z</updated>
     
@@ -440,21 +440,21 @@
     
     </summary>
     
-      <category term="App Links" scheme="http://wuxiaolong.me/categories/App-Links/"/>
+      <category term="App Links" scheme="http://wuxiaolong.github.io/categories/App-Links/"/>
     
     
-      <category term="App Links" scheme="http://wuxiaolong.me/tags/App-Links/"/>
+      <category term="App Links" scheme="http://wuxiaolong.github.io/tags/App-Links/"/>
     
   </entry>
   
   <entry>
     <title>Flutter 初尝：从 Java 无缝过渡</title>
-    <link href="http://wuxiaolong.me/2018/03/08/Flutter/"/>
-    <id>http://wuxiaolong.me/2018/03/08/Flutter/</id>
+    <link href="http://wuxiaolong.github.io/2018/03/08/Flutter/"/>
+    <id>http://wuxiaolong.github.io/2018/03/08/Flutter/</id>
     <published>2018-03-08T09:04:12.000Z</published>
     <updated>2019-04-22T14:31:50.992Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="准备阶段"><a href="#准备阶段" class="headerlink" title="准备阶段"></a>准备阶段</h1><h2 id="下载-Flutter-SDK"><a href="#下载-Flutter-SDK" class="headerlink" title="下载 Flutter SDK"></a>下载 Flutter SDK</h2><p>如果不能科学上网，可以声明 PUB_HOSTED_URL 和 FLUTTER_STORAGE_BASE_URL 两个环境变量，执行如下两行命令，是为了让 Flutter 在安装过程中使用国内的镜像：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> PUB_HOSTED_URL=https://pub.flutter-io.cn</div><div class="line"><span class="built_in">export</span> FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn</div></pre></td></tr></table></figure></p><p>新建 Flutter 文件夹，克隆 Flutter SDK：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> -b beta https://github.com/flutter/flutter.git</div></pre></td></tr></table></figure></p><a id="more"></a><h2 id="配置-Flutter-环境"><a href="#配置-Flutter-环境" class="headerlink" title="配置 Flutter 环境"></a>配置 Flutter 环境</h2><p>我是 Mac 系统，Flutter SDK 下载完后的路径：Users/wuxiaolong/Flutter/flutter/ 。</p><h3 id="在命令行下，进入用户目录"><a href="#在命令行下，进入用户目录" class="headerlink" title="在命令行下，进入用户目录"></a>在命令行下，进入用户目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> <span class="variable">$HOME</span></div></pre></td></tr></table></figure><h3 id="打开-bash-profile文件"><a href="#打开-bash-profile文件" class="headerlink" title="打开.bash_profile文件"></a>打开.bash_profile文件</h3><p>执行命令打开文件：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">open -e .bash_profile</div></pre></td></tr></table></figure></p><p>打开文件后，添加 Flutter SDK 安装的路径：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> PATH=<span class="variable">$&#123;PATH&#125;</span>:/Users/wuxiaolong/Flutter/flutter/bin:<span class="variable">$PATH</span></div><div class="line">`</div></pre></td></tr></table></figure></p><h3 id="更新刚配置的环境变量"><a href="#更新刚配置的环境变量" class="headerlink" title="更新刚配置的环境变量"></a>更新刚配置的环境变量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">source</span> .bash_profile</div></pre></td></tr></table></figure><h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><p>终端直接输入  flutter，没有提示该命令找不到，则配置成功。</p><h2 id="flutter-doctor"><a href="#flutter-doctor" class="headerlink" title="flutter doctor"></a>flutter doctor</h2><p>命令行输入<code>flutter doctor</code>，安装 Futter 剩余依赖项。</p><h2 id="安装-Flutter-和-Dart-插件"><a href="#安装-Flutter-和-Dart-插件" class="headerlink" title="安装 Flutter 和 Dart 插件"></a>安装 Flutter 和 Dart 插件</h2><p>启动 Android Studio，搜索 Flutter 插件并单击 install，系统提示您安装 Dart 插件，点击 Yes 安装即可。</p><p><strong>提示</strong>：安装 Dart 插件可能会提示下载失败，多试几次。</p><h2 id="第一个项目"><a href="#第一个项目" class="headerlink" title="第一个项目"></a>第一个项目</h2><p>Android Studio - File - New - New Flutter Project，等待创建成功后，运行效果如下：<br><img src="https://upload-images.jianshu.io/upload_images/695365-3e078c4445487ce5?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt=""></p><h1 id="Dart-基本语法"><a href="#Dart-基本语法" class="headerlink" title="Dart 基本语法"></a>Dart 基本语法</h1><p>Flutter 开发语言是 Dart，这个语言相信我们做原生 Android 的都能看懂，我在学习过程，感觉这不就是 Java 嘛，我直接按照 Java 思维去写，完全没问题。</p><ol><li><p>基础数据类型有 int、double、bool、String、List（数组）、Map；</p></li><li><p>声明变量可以使用 var，也可以使用 const 和 final；</p></li><li><p>const 和 final 定义的都是常量，值不能改变，并且在声明的时候就必须初始化，这是可以省略 var 或者其他类型；</p></li><li><p>函数可以有可选参数；</p></li><li><p>if-else、for 循环、while 循环、switch-case、try-catch 等知识与 Java  类似；</p></li></ol><p>更多详见官网：<a href="https://www.dartlang.org/" target="_blank" rel="noopener">https://www.dartlang.org/</a></p><h1 id="练手"><a href="#练手" class="headerlink" title="练手"></a>练手</h1><p>这里使用了豆瓣电影的 API，功能很简单，就一个列表和详情。</p><h2 id="效果预览"><a href="#效果预览" class="headerlink" title="效果预览"></a>效果预览</h2><p><img src="http://wuxiaolong.me/images/Flutter3.gif" alt=""></p><h2 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h2><p>学习新知识，第一步就是模仿，多看，多想，多实践，在这个过程我遇到一些问题：</p><ol><li><p>Flutter 怎么打印信息？<code>print(&#39;onclick&#39;);</code></p></li><li><p>Flutter 如何看报错信息？在 Android Studio 底栏 Run 非 LogCat；</p></li><li><p>网络请求怎么写？</p></li><li><p>接口数据如何解析的？</p></li><li><p>如何一进页面就请求接口？</p></li><li><p>网络图片怎么显示？</p></li><li><p>ListView 官网介绍的 Item 是通用的，如何定制？</p></li><li><p>跳转页面如何传参？传参后怎么用？</p></li></ol><p>等等，遇到一个问题，消灭一个。</p><h1 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h1><h2 id="源码地址"><a href="#源码地址" class="headerlink" title="源码地址"></a>源码地址</h2><p><a href="https://github.com/WuXiaolong/flutter_movie" target="_blank" rel="noopener">https://github.com/WuXiaolong/flutter_movie</a> ，该项目起始页面在 lib/main.dart，注意的点我也都加了注释，去吧，学习还是要靠自己，踏出第一步，实践起来。</p><h2 id="如何导入-Flutter-项目"><a href="#如何导入-Flutter-项目" class="headerlink" title="如何导入 Flutter 项目"></a>如何导入 Flutter 项目</h2><h3 id="下载-Flutter-项目"><a href="#下载-Flutter-项目" class="headerlink" title="下载 Flutter 项目"></a>下载 Flutter 项目</h3><p>下载完 Flutter 项目，直接 Android Studio - Open。</p><h3 id="配置-Flutter-SDK"><a href="#配置-Flutter-SDK" class="headerlink" title="配置 Flutter SDK"></a>配置 Flutter SDK</h3><p><img src="http://wuxiaolong.me/images/Flutter1.png" alt=""><br>如图，点击 Open Flutter setting，点击下拉按钮，选择 Flutter SDK 路径，点击 OK，会自动配置 Dart SDK 路径。</p><h3 id="pubspec-yaml-下载库"><a href="#pubspec-yaml-下载库" class="headerlink" title="pubspec.yaml 下载库"></a>pubspec.yaml 下载库</h3><p><img src="http://wuxiaolong.me/images/Flutter2.png" alt=""><br>如图，点击 Packages get，下载项目用到的依赖库，编译完成应该就能正常运行了。</p><h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><ol><li><p>还是被 Flutter 惊艳到了，重拾当初学习 Android 的热情，却一不小心，我的肩痛又开始了；</p></li><li><p>Flutter UI 全是代码写的，不是 XML，复杂的 UI 实现有难度；</p></li><li><p>Flutter 联想功能较弱，需要先导入相应的包，才有相应的类联想；</p></li><li><p>新建了一个 package，将 dart 文件拖入，相关联包的路径会相应修改，但是我改了package 名，就无法相应修改，bug？</p></li><li><p>Flutter，我感觉可以从 Java 实现无缝过度；</p></li><li><p>I’m a iOS Developer.</p></li><li><p>Flutter 开源库远没有原生的丰富，目前还是 Beta 版，还是很值得期待，我会持续关注学习，先就酱紫吧。</p></li></ol><h1 id="相关阅读"><a href="#相关阅读" class="headerlink" title="相关阅读"></a>相关阅读</h1><p><a href="https://flutter.io/" target="_blank" rel="noopener">Flutter 官网</a></p><p><a href="http://wuxiaolong.me/2017/07/19/mac-adb-gradlew/">Mac 配置 adb 环境、gradlew：command not found</a></p><p><a href="https://github.com/CodemateLtd/FlutterMates" target="_blank" rel="noopener">FlutterMates</a></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="准备阶段"><a href="#准备阶段" class="headerlink" title="准备阶段"></a>准备阶段</h1><h2 id="下载-Flutter-SDK"><a href="#下载-Flutter-SDK" class="headerlink" title="下载 Flutter SDK"></a>下载 Flutter SDK</h2><p>如果不能科学上网，可以声明 PUB_HOSTED_URL 和 FLUTTER_STORAGE_BASE_URL 两个环境变量，执行如下两行命令，是为了让 Flutter 在安装过程中使用国内的镜像：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> PUB_HOSTED_URL=https://pub.flutter-io.cn</div><div class="line"><span class="built_in">export</span> FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn</div></pre></td></tr></table></figure></p><p>新建 Flutter 文件夹，克隆 Flutter SDK：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> -b beta https://github.com/flutter/flutter.git</div></pre></td></tr></table></figure></p><a id="more"></a><h2 id="配置-Flutter-环境"><a href="#配置-Flutter-环境" class="headerlink" title="配置 Flutter 环境"></a>配置 Flutter 环境</h2><p>我是 Mac 系统，Flutter SDK 下载完后的路径：Users/wuxiaolong/Flutter/flutter/ 。</p><h3 id="在命令行下，进入用户目录"><a href="#在命令行下，进入用户目录" class="headerlink" title="在命令行下，进入用户目录"></a>在命令行下，进入用户目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> <span class="variable">$HOME</span></div></pre></td></tr></table></figure><h3 id="打开-bash-profile文件"><a href="#打开-bash-profile文件" class="headerlink" title="打开.bash_profile文件"></a>打开.bash_profile文件</h3><p>执行命令打开文件：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">open -e .bash_profile</div></pre></td></tr></table></figure></p><p>打开文件后，添加 Flutter SDK 安装的路径：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">export</span> PATH=<span class="variable">$&#123;PATH&#125;</span>:/Users/wuxiaolong/Flutter/flutter/bin:<span class="variable">$PATH</span></div><div class="line">`</div></pre></td></tr></table></figure></p><h3 id="更新刚配置的环境变量"><a href="#更新刚配置的环境变量" class="headerlink" title="更新刚配置的环境变量"></a>更新刚配置的环境变量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">source</span> .bash_profile</div></pre></td></tr></table></figure><h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><p>终端直接输入  flutter，没有提示该命令找不到，则配置成功。</p><h2 id="flutter-doctor"><a href="#flutter-doctor" class="headerlink" title="flutter doctor"></a>flutter doctor</h2><p>命令行输入<code>flutter doctor</code>，安装 Futter 剩余依赖项。</p><h2 id="安装-Flutter-和-Dart-插件"><a href="#安装-Flutter-和-Dart-插件" class="headerlink" title="安装 Flutter 和 Dart 插件"></a>安装 Flutter 和 Dart 插件</h2><p>启动 Android Studio，搜索 Flutter 插件并单击 install，系统提示您安装 Dart 插件，点击 Yes 安装即可。</p><p><strong>提示</strong>：安装 Dart 插件可能会提示下载失败，多试几次。</p><h2 id="第一个项目"><a href="#第一个项目" class="headerlink" title="第一个项目"></a>第一个项目</h2><p>Android Studio - File - New - New Flutter Project，等待创建成功后，运行效果如下：<br><img src="https://upload-images.jianshu.io/upload_images/695365-3e078c4445487ce5?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt=""></p><h1 id="Dart-基本语法"><a href="#Dart-基本语法" class="headerlink" title="Dart 基本语法"></a>Dart 基本语法</h1><p>Flutter 开发语言是 Dart，这个语言相信我们做原生 Android 的都能看懂，我在学习过程，感觉这不就是 Java 嘛，我直接按照 Java 思维去写，完全没问题。</p><ol><li><p>基础数据类型有 int、double、bool、String、List（数组）、Map；</p></li><li><p>声明变量可以使用 var，也可以使用 const 和 final；</p></li><li><p>const 和 final 定义的都是常量，值不能改变，并且在声明的时候就必须初始化，这是可以省略 var 或者其他类型；</p></li><li><p>函数可以有可选参数；</p></li><li><p>if-else、for 循环、while 循环、switch-case、try-catch 等知识与 Java  类似；</p></li></ol><p>更多详见官网：<a href="https://www.dartlang.org/" target="_blank" rel="noopener">https://www.dartlang.org/</a></p><h1 id="练手"><a href="#练手" class="headerlink" title="练手"></a>练手</h1><p>这里使用了豆瓣电影的 API，功能很简单，就一个列表和详情。</p><h2 id="效果预览"><a href="#效果预览" class="headerlink" title="效果预览"></a>效果预览</h2><p><img src="http://wuxiaolong.me/images/Flutter3.gif" alt=""></p><h2 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h2><p>学习新知识，第一步就是模仿，多看，多想，多实践，在这个过程我遇到一些问题：</p><ol><li><p>Flutter 怎么打印信息？<code>print(&#39;onclick&#39;);</code></p></li><li><p>Flutter 如何看报错信息？在 Android Studio 底栏 Run 非 LogCat；</p></li><li><p>网络请求怎么写？</p></li><li><p>接口数据如何解析的？</p></li><li><p>如何一进页面就请求接口？</p></li><li><p>网络图片怎么显示？</p></li><li><p>ListView 官网介绍的 Item 是通用的，如何定制？</p></li><li><p>跳转页面如何传参？传参后怎么用？</p></li></ol><p>等等，遇到一个问题，消灭一个。</p><h1 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h1><h2 id="源码地址"><a href="#源码地址" class="headerlink" title="源码地址"></a>源码地址</h2><p><a href="https://github.com/WuXiaolong/flutter_movie" target="_blank" rel="noopener">https://github.com/WuXiaolong/flutter_movie</a> ，该项目起始页面在 lib/main.dart，注意的点我也都加了注释，去吧，学习还是要靠自己，踏出第一步，实践起来。</p><h2 id="如何导入-Flutter-项目"><a href="#如何导入-Flutter-项目" class="headerlink" title="如何导入 Flutter 项目"></a>如何导入 Flutter 项目</h2><h3 id="下载-Flutter-项目"><a href="#下载-Flutter-项目" class="headerlink" title="下载 Flutter 项目"></a>下载 Flutter 项目</h3><p>下载完 Flutter 项目，直接 Android Studio - Open。</p><h3 id="配置-Flutter-SDK"><a href="#配置-Flutter-SDK" class="headerlink" title="配置 Flutter SDK"></a>配置 Flutter SDK</h3><p><img src="http://wuxiaolong.me/images/Flutter1.png" alt=""><br>如图，点击 Open Flutter setting，点击下拉按钮，选择 Flutter SDK 路径，点击 OK，会自动配置 Dart SDK 路径。</p><h3 id="pubspec-yaml-下载库"><a href="#pubspec-yaml-下载库" class="headerlink" title="pubspec.yaml 下载库"></a>pubspec.yaml 下载库</h3><p><img src="http://wuxiaolong.me/images/Flutter2.png" alt=""><br>如图，点击 Packages get，下载项目用到的依赖库，编译完成应该就能正常运行了。</p><h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><ol><li><p>还是被 Flutter 惊艳到了，重拾当初学习 Android 的热情，却一不小心，我的肩痛又开始了；</p></li><li><p>Flutter UI 全是代码写的，不是 XML，复杂的 UI 实现有难度；</p></li><li><p>Flutter 联想功能较弱，需要先导入相应的包，才有相应的类联想；</p></li><li><p>新建了一个 package，将 dart 文件拖入，相关联包的路径会相应修改，但是我改了package 名，就无法相应修改，bug？</p></li><li><p>Flutter，我感觉可以从 Java 实现无缝过度；</p></li><li><p>I’m a iOS Developer.</p></li><li><p>Flutter 开源库远没有原生的丰富，目前还是 Beta 版，还是很值得期待，我会持续关注学习，先就酱紫吧。</p></li></ol><h1 id="相关阅读"><a href="#相关阅读" class="headerlink" title="相关阅读"></a>相关阅读</h1><p><a href="https://flutter.io/" target="_blank" rel="noopener">Flutter 官网</a></p><p><a href="http://wuxiaolong.me/2017/07/19/mac-adb-gradlew/" target="_blank" rel="noopener">Mac 配置 adb 环境、gradlew：command not found</a></p><p><a href="https://github.com/CodemateLtd/FlutterMates" target="_blank" rel="noopener">FlutterMates</a></p>]]></content>
     
     <summary type="html">
     
@@ -463,32 +463,32 @@
     
     </summary>
     
-      <category term="Flutter" scheme="http://wuxiaolong.me/categories/Flutter/"/>
+      <category term="Flutter" scheme="http://wuxiaolong.github.io/categories/Flutter/"/>
     
     
-      <category term="Flutter" scheme="http://wuxiaolong.me/tags/Flutter/"/>
+      <category term="Flutter" scheme="http://wuxiaolong.github.io/tags/Flutter/"/>
     
   </entry>
   
   <entry>
     <title>Python 爬虫实战（二）：使用 requests-html</title>
-    <link href="http://wuxiaolong.me/2018/02/25/PythonCrawler2/"/>
-    <id>http://wuxiaolong.me/2018/02/25/PythonCrawler2/</id>
+    <link href="http://wuxiaolong.github.io/2018/02/25/PythonCrawler2/"/>
+    <id>http://wuxiaolong.github.io/2018/02/25/PythonCrawler2/</id>
     <published>2018-02-25T14:33:46.000Z</published>
     <updated>2019-04-22T14:31:08.568Z</updated>
     
-    <content type="html"><![CDATA[<p><a href="http://wuxiaolong.me/2017/12/10/PythonCrawler1/">Python 爬虫实战（一）：使用 requests 和 BeautifulSoup</a>，我们使用了 requests 做网络请求，拿到网页数据再用 BeautifulSoup 解析，就在前不久，<a href="https://github.com/requests/requests" target="_blank" rel="noopener">requests</a> 作者 <a href="https://github.com/kennethreitz" target="_blank" rel="noopener">kennethreitz</a> 出了一个新库 <a href="https://github.com/kennethreitz/requests-html" target="_blank" rel="noopener">requests-html</a>，Pythonic HTML Parsing for Humans™，它可以用于解析 HTML 文档的。requests-html 是基于现有的框架 PyQuery、Requests、lxml 等库进行了二次封装，更加方便开发者调用。<br><a id="more"></a></p><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>Mac：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip3 install requests-html</div></pre></td></tr></table></figure></p><p>Windows：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install requests-html</div></pre></td></tr></table></figure></p><h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><p><img src="http://wuxiaolong.me/images/PythonCrawler1.png" alt=""></p><p>代码撸多了，让我们看会妹纸，爬的网站我选的是 <a href="http://www.win4000.com/zt/xinggan.html" target="_blank" rel="noopener">http://www.win4000.com/zt/xinggan.html</a> ，打开网站，观察到这是个列表，图片是缩略图，要想保存图片到本地，当然需要高清大图，因此得进入列表详情，进一步解析，完整代码如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> requests_html <span class="keyword">import</span> HTMLSession</div><div class="line"><span class="keyword">import</span> requests</div><div class="line"><span class="keyword">import</span> time</div><div class="line"></div><div class="line">session = HTMLSession()</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># 解析图片列表</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_girl_list</span><span class="params">()</span>:</span></div><div class="line">    <span class="comment"># 返回一个 response 对象</span></div><div class="line">    response = session.get(<span class="string">'http://www.win4000.com/zt/xinggan.html'</span>)  <span class="comment"># 单位秒数</span></div><div class="line"></div><div class="line">    content = response.html.find(<span class="string">'div.Left_bar'</span>, first=<span class="keyword">True</span>)</div><div class="line"></div><div class="line">    li_list = content.find(<span class="string">'li'</span>)</div><div class="line"></div><div class="line">    <span class="keyword">for</span> li <span class="keyword">in</span> li_list:</div><div class="line">        url = li.find(<span class="string">'a'</span>, first=<span class="keyword">True</span>).attrs[<span class="string">'href'</span>]</div><div class="line">        get_girl_detail(url)</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># 解析图片详细</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_girl_detail</span><span class="params">(url)</span>:</span></div><div class="line">    <span class="comment"># 返回一个 response 对象</span></div><div class="line">    response = session.get(url)  <span class="comment"># 单位秒数</span></div><div class="line">    content = response.html.find(<span class="string">'div.scroll-img-cont'</span>, first=<span class="keyword">True</span>)</div><div class="line">    li_list = content.find(<span class="string">'li'</span>)</div><div class="line">    <span class="keyword">for</span> li <span class="keyword">in</span> li_list:</div><div class="line">        img_url = li.find(<span class="string">'img'</span>, first=<span class="keyword">True</span>).attrs[<span class="string">'data-original'</span>]</div><div class="line">        img_url = img_url[<span class="number">0</span>:img_url.find(<span class="string">'_'</span>)] + <span class="string">'.jpg'</span></div><div class="line">        print(img_url + <span class="string">'.jpg'</span>)</div><div class="line">        save_image(img_url)</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># 保持大图</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">save_image</span><span class="params">(img_url)</span>:</span></div><div class="line">    img_response = requests.get(img_url)</div><div class="line">    t = int(round(time.time() * <span class="number">1000</span>))  <span class="comment"># 毫秒级时间戳</span></div><div class="line">    f = open(<span class="string">'/Users/wuxiaolong/Desktop/Girl/%d.jpg'</span> % t, <span class="string">'ab'</span>)  <span class="comment"># 存储图片，多媒体文件需要参数b（二进制文件）</span></div><div class="line">    f.write(img_response.content)  <span class="comment"># 多媒体存储content</span></div><div class="line">    f.close()</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    get_girl_list()</div></pre></td></tr></table></figure></p><p>代码就这么多，是不是感觉很简单啊。</p><p><strong>说明：</strong></p><p>1、requests-html 与 BeautifulSoup 不同，可以直接通过标签来 find，一般如下：<br>标签<br>标签.someClass<br>标签#someID<br>标签[target=_blank]<br>参数 first 是 True，表示只返回 Element 找到的第一个，更多使用：<a href="http://html.python-requests.org/" target="_blank" rel="noopener">http://html.python-requests.org/</a> ；</p><p>2、这里保存本地路径 <code>/Users/wuxiaolong/Desktop/Girl/</code>我写死了，需要读者改成自己的，如果直接是文件名，保存路径将是项目目录下。</p><h1 id="遗留问题"><a href="#遗留问题" class="headerlink" title="遗留问题"></a>遗留问题</h1><p>示例所爬网站是分页的，没有做，可以定时循环来爬妹纸哦，有兴趣的读者自己玩下。</p><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://github.com/kennethreitz/requests-html" target="_blank" rel="noopener">requests-html</a></p><p><a href="http://blog.csdn.net/qq_31845675/article/details/79501868" target="_blank" rel="noopener">今天用了一下Requests-HTML库（Python爬虫）</a></p>]]></content>
+    <content type="html"><![CDATA[<p><a href="http://wuxiaolong.me/2017/12/10/PythonCrawler1/" target="_blank" rel="noopener">Python 爬虫实战（一）：使用 requests 和 BeautifulSoup</a>，我们使用了 requests 做网络请求，拿到网页数据再用 BeautifulSoup 解析，就在前不久，<a href="https://github.com/requests/requests" target="_blank" rel="noopener">requests</a> 作者 <a href="https://github.com/kennethreitz" target="_blank" rel="noopener">kennethreitz</a> 出了一个新库 <a href="https://github.com/kennethreitz/requests-html" target="_blank" rel="noopener">requests-html</a>，Pythonic HTML Parsing for Humans™，它可以用于解析 HTML 文档的。requests-html 是基于现有的框架 PyQuery、Requests、lxml 等库进行了二次封装，更加方便开发者调用。<br><a id="more"></a></p><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>Mac：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip3 install requests-html</div></pre></td></tr></table></figure></p><p>Windows：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install requests-html</div></pre></td></tr></table></figure></p><h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><p><img src="http://wuxiaolong.me/images/PythonCrawler1.png" alt=""></p><p>代码撸多了，让我们看会妹纸，爬的网站我选的是 <a href="http://www.win4000.com/zt/xinggan.html" target="_blank" rel="noopener">http://www.win4000.com/zt/xinggan.html</a> ，打开网站，观察到这是个列表，图片是缩略图，要想保存图片到本地，当然需要高清大图，因此得进入列表详情，进一步解析，完整代码如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> requests_html <span class="keyword">import</span> HTMLSession</div><div class="line"><span class="keyword">import</span> requests</div><div class="line"><span class="keyword">import</span> time</div><div class="line"></div><div class="line">session = HTMLSession()</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># 解析图片列表</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_girl_list</span><span class="params">()</span>:</span></div><div class="line">    <span class="comment"># 返回一个 response 对象</span></div><div class="line">    response = session.get(<span class="string">'http://www.win4000.com/zt/xinggan.html'</span>)  <span class="comment"># 单位秒数</span></div><div class="line"></div><div class="line">    content = response.html.find(<span class="string">'div.Left_bar'</span>, first=<span class="keyword">True</span>)</div><div class="line"></div><div class="line">    li_list = content.find(<span class="string">'li'</span>)</div><div class="line"></div><div class="line">    <span class="keyword">for</span> li <span class="keyword">in</span> li_list:</div><div class="line">        url = li.find(<span class="string">'a'</span>, first=<span class="keyword">True</span>).attrs[<span class="string">'href'</span>]</div><div class="line">        get_girl_detail(url)</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># 解析图片详细</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_girl_detail</span><span class="params">(url)</span>:</span></div><div class="line">    <span class="comment"># 返回一个 response 对象</span></div><div class="line">    response = session.get(url)  <span class="comment"># 单位秒数</span></div><div class="line">    content = response.html.find(<span class="string">'div.scroll-img-cont'</span>, first=<span class="keyword">True</span>)</div><div class="line">    li_list = content.find(<span class="string">'li'</span>)</div><div class="line">    <span class="keyword">for</span> li <span class="keyword">in</span> li_list:</div><div class="line">        img_url = li.find(<span class="string">'img'</span>, first=<span class="keyword">True</span>).attrs[<span class="string">'data-original'</span>]</div><div class="line">        img_url = img_url[<span class="number">0</span>:img_url.find(<span class="string">'_'</span>)] + <span class="string">'.jpg'</span></div><div class="line">        print(img_url + <span class="string">'.jpg'</span>)</div><div class="line">        save_image(img_url)</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># 保持大图</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">save_image</span><span class="params">(img_url)</span>:</span></div><div class="line">    img_response = requests.get(img_url)</div><div class="line">    t = int(round(time.time() * <span class="number">1000</span>))  <span class="comment"># 毫秒级时间戳</span></div><div class="line">    f = open(<span class="string">'/Users/wuxiaolong/Desktop/Girl/%d.jpg'</span> % t, <span class="string">'ab'</span>)  <span class="comment"># 存储图片，多媒体文件需要参数b（二进制文件）</span></div><div class="line">    f.write(img_response.content)  <span class="comment"># 多媒体存储content</span></div><div class="line">    f.close()</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    get_girl_list()</div></pre></td></tr></table></figure></p><p>代码就这么多，是不是感觉很简单啊。</p><p><strong>说明：</strong></p><p>1、requests-html 与 BeautifulSoup 不同，可以直接通过标签来 find，一般如下：<br>标签<br>标签.someClass<br>标签#someID<br>标签[target=_blank]<br>参数 first 是 True，表示只返回 Element 找到的第一个，更多使用：<a href="http://html.python-requests.org/" target="_blank" rel="noopener">http://html.python-requests.org/</a> ；</p><p>2、这里保存本地路径 <code>/Users/wuxiaolong/Desktop/Girl/</code>我写死了，需要读者改成自己的，如果直接是文件名，保存路径将是项目目录下。</p><h1 id="遗留问题"><a href="#遗留问题" class="headerlink" title="遗留问题"></a>遗留问题</h1><p>示例所爬网站是分页的，没有做，可以定时循环来爬妹纸哦，有兴趣的读者自己玩下。</p><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://github.com/kennethreitz/requests-html" target="_blank" rel="noopener">requests-html</a></p><p><a href="http://blog.csdn.net/qq_31845675/article/details/79501868" target="_blank" rel="noopener">今天用了一下Requests-HTML库（Python爬虫）</a></p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;a href=&quot;http://wuxiaolong.me/2017/12/10/PythonCrawler1/&quot;&gt;Python 爬虫实战（一）：使用 requests 和 BeautifulSoup&lt;/a&gt;，我们使用了 requests 做网络请求，拿到网页数据再用 BeautifulSoup 解析，就在前不久，&lt;a href=&quot;https://github.com/requests/requests&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;requests&lt;/a&gt; 作者 &lt;a href=&quot;https://github.com/kennethreitz&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;kennethreitz&lt;/a&gt; 出了一个新库 &lt;a href=&quot;https://github.com/kennethreitz/requests-html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;requests-html&lt;/a&gt;，Pythonic HTML Parsing for Humans™，它可以用于解析 HTML 文档的。requests-html 是基于现有的框架 PyQuery、Requests、lxml 等库进行了二次封装，更加方便开发者调用。&lt;br&gt;
+      &lt;p&gt;&lt;a href=&quot;http://wuxiaolong.me/2017/12/10/PythonCrawler1/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Python 爬虫实战（一）：使用 requests 和 BeautifulSoup&lt;/a&gt;，我们使用了 requests 做网络请求，拿到网页数据再用 BeautifulSoup 解析，就在前不久，&lt;a href=&quot;https://github.com/requests/requests&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;requests&lt;/a&gt; 作者 &lt;a href=&quot;https://github.com/kennethreitz&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;kennethreitz&lt;/a&gt; 出了一个新库 &lt;a href=&quot;https://github.com/kennethreitz/requests-html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;requests-html&lt;/a&gt;，Pythonic HTML Parsing for Humans™，它可以用于解析 HTML 文档的。requests-html 是基于现有的框架 PyQuery、Requests、lxml 等库进行了二次封装，更加方便开发者调用。&lt;br&gt;
     
     </summary>
     
-      <category term="Python" scheme="http://wuxiaolong.me/categories/Python/"/>
+      <category term="Python" scheme="http://wuxiaolong.github.io/categories/Python/"/>
     
     
-      <category term="Python" scheme="http://wuxiaolong.me/tags/Python/"/>
+      <category term="Python" scheme="http://wuxiaolong.github.io/tags/Python/"/>
     
   </entry>
   

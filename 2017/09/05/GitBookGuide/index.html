@@ -91,7 +91,7 @@
 <meta name="keywords" content="GitBook">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GitBook 使用">
-<meta property="og:url" content="http://wuxiaolong.me/2017/09/05/GitBookGuide/index.html">
+<meta property="og:url" content="http://wuxiaolong.github.io/2017/09/05/GitBookGuide/index.html">
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="我想把我的博客总结归纳下，于是找到了 GitBook，多了一个写博客地方，我把它做为博客的备份。花了两三天学习了 GitBook，这里记录下。此教程基于 Mac，Windows 也差不多适用。  安装 Node.jsGitBook 是基于 Node.js 的命令行工具，下载安装 Node.js。">
 <meta property="og:locale" content="zh-CN">
@@ -113,7 +113,7 @@
 
 
 
-  <link rel="canonical" href="http://wuxiaolong.me/2017/09/05/GitBookGuide/">
+  <link rel="canonical" href="http://wuxiaolong.github.io/2017/09/05/GitBookGuide/">
 
 
 
@@ -419,7 +419,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2017/09/05/GitBookGuide/">
+    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.github.io/2017/09/05/GitBookGuide/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴小龙同學">
@@ -586,7 +586,7 @@
 <h2 id="输出静态网站"><a href="#输出静态网站" class="headerlink" title="输出静态网站"></a>输出静态网站</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ gitbook build</div></pre></td></tr></table></figure>
 <p>以上都会在书籍目录生成 _book，前者能实时预览。</p>
 <h1 id="输出-PDF-文件"><a href="#输出-PDF-文件" class="headerlink" title="输出 PDF 文件"></a>输出 PDF 文件</h1><h2 id="下载-Calibre"><a href="#下载-Calibre" class="headerlink" title="下载 Calibre"></a>下载 Calibre</h2><p>生成 PDF 文件依赖于 ebook-convert，需要安装 <a href="https://calibre-ebook.com/" target="_blank" rel="noopener">Calibre</a>;</p>
-<h2 id="配置-Calibre-环境变量"><a href="#配置-Calibre-环境变量" class="headerlink" title="配置 Calibre 环境变量"></a>配置 Calibre 环境变量</h2><p>如何配置环境变量参考<a href="http://wuxiaolong.me/2017/07/19/mac-adb-gradlew/">这里</a>，在 .bash_profile 文件加入：</p>
+<h2 id="配置-Calibre-环境变量"><a href="#配置-Calibre-环境变量" class="headerlink" title="配置 Calibre 环境变量"></a>配置 Calibre 环境变量</h2><p>如何配置环境变量参考<a href="http://wuxiaolong.me/2017/07/19/mac-adb-gradlew/" target="_blank" rel="noopener">这里</a>，在 .bash_profile 文件加入：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># Calibre</div><div class="line">export PATH=/Applications/calibre.app/Contents/MacOS:$PATH</div></pre></td></tr></table></figure>
 <p>更新刚配置的环境变量：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">source</span> .bash_profile</div></pre></td></tr></table></figure>

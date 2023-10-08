@@ -91,7 +91,7 @@
 <meta name="keywords" content="Markdown">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Markdown 常用语法">
-<meta property="og:url" content="http://wuxiaolong.me/2016/10/11/markdownGuide/index.html">
+<meta property="og:url" content="http://wuxiaolong.github.io/2016/10/11/markdownGuide/index.html">
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="Markdown 是什么，我还真不知道，嘿嘿，最初接触 Markdown，是因为 GitHub 的 README.md，知道这肯定是文本，却是 md 结尾的，于是了解并自学了点 Markdown 语法，也庆幸那点好奇，才为后来的个人博客做了基础，写博客用 Markdown 还是很便捷的。  Markdown 的语法全由一些符号所组成，易读易写。本文主要分享我平时经常使用到的 Markdown 语">
 <meta property="og:locale" content="zh-CN">
@@ -113,7 +113,7 @@
 
 
 
-  <link rel="canonical" href="http://wuxiaolong.me/2016/10/11/markdownGuide/">
+  <link rel="canonical" href="http://wuxiaolong.github.io/2016/10/11/markdownGuide/">
 
 
 
@@ -419,7 +419,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2016/10/11/markdownGuide/">
+    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.github.io/2016/10/11/markdownGuide/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴小龙同學">
@@ -557,8 +557,8 @@
 <p>效果是截图，左边是语法，右边是效果，下同。<br><img src="http://wuxiaolong.me/images/markdowm1.png" alt=""></p>
 <p>2、行首插入 1 到 6 个 #，对应到标题 1 到 6 阶，如：<br><img src="http://wuxiaolong.me/images/markdowm2.png" alt=""></p>
 <p><strong>我比较喜欢用第二种语法</strong>。</p>
-<h1 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h1><p>[吴小龙同學](<a href="http://wuxiaolong.me/">http://wuxiaolong.me/</a>)<br>效果如下：<br><a href="http://wuxiaolong.me/">吴小龙同學</a></p>
-<h1 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h1><p>![我的公众号](<a href="http://wuxiaolong.me/images/qrcode_wuxiaolong.jpg">http://wuxiaolong.me/images/qrcode_wuxiaolong.jpg</a>)<br>前面的文本可不写，效果如下：<br><img src="https://open.weixin.qq.com/qr/code?username=MrWuXiaolong" alt="吴小龙同學"></p>
+<h1 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h1><p>[吴小龙同學](<a href="http://wuxiaolong.me/" target="_blank" rel="noopener">http://wuxiaolong.me/</a>)<br>效果如下：<br><a href="http://wuxiaolong.me/" target="_blank" rel="noopener">吴小龙同學</a></p>
+<h1 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h1><p>![我的公众号](<a href="http://wuxiaolong.me/images/qrcode_wuxiaolong.jpg" target="_blank" rel="noopener">http://wuxiaolong.me/images/qrcode_wuxiaolong.jpg</a>)<br>前面的文本可不写，效果如下：<br><img src="https://open.weixin.qq.com/qr/code?username=MrWuXiaolong" alt="吴小龙同學"></p>
 <h1 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h1><p><img src="http://wuxiaolong.me/images/markdowm4.jpg" alt=""></p>
 <p>Java 代表代码语言，效果如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PaintCanvas</span> <span class="keyword">extends</span> <span class="title">View</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> Paint mPaint;</div><div class="line"></div><div class="line">    <span class="comment">// 省略构造方法</span></div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;       </div><div class="line">        mPaint = <span class="keyword">new</span> Paint();</div><div class="line">        mPaint.setAntiAlias(<span class="keyword">true</span>);        </div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>&#123;</div><div class="line">        canvas.drawCircle(<span class="number">500</span>, <span class="number">550</span>, <span class="number">500</span>, mPaint);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h1 id="横线"><a href="#横线" class="headerlink" title="横线"></a>横线</h1><p>比如代码过时，会有一个横线，用两个 ~ 包含内容来表示，~~ android:singleLine=”true”<del>，效果如下：<br>~~android:singleLine=”true”</del></p>

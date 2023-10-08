@@ -91,7 +91,7 @@
 <meta name="keywords" content="NightTheme">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android Support Library 之 夜间模式">
-<meta property="og:url" content="http://wuxiaolong.me/2016/07/12/appcompatDayNight/index.html">
+<meta property="og:url" content="http://wuxiaolong.github.io/2016/07/12/appcompatDayNight/index.html">
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="前言夜间模式实现方式：1、通过切换theme来实现夜间模式。优点：可以匹配多套主题，并不局限于黑白模式缺点：需要大量定义主题详见博客：http://wuxiaolong.me/2015/08/19/ChangeTheme/ 2、通过修改uiMode来切换夜间模式。修改uimode是修改Configuration，这种主题切换只限于黑白模式，没有其他模式，不需要大量定义主题，即本文介绍的内容。 效果">
 <meta property="og:locale" content="zh-CN">
@@ -109,7 +109,7 @@
 
 
 
-  <link rel="canonical" href="http://wuxiaolong.me/2016/07/12/appcompatDayNight/">
+  <link rel="canonical" href="http://wuxiaolong.github.io/2016/07/12/appcompatDayNight/">
 
 
 
@@ -415,7 +415,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2016/07/12/appcompatDayNight/">
+    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.github.io/2016/07/12/appcompatDayNight/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴小龙同學">
@@ -533,7 +533,7 @@
       
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>夜间模式实现方式：<br>1、通过切换theme来实现夜间模式。<br>优点：可以匹配多套主题，并不局限于黑白模式<br>缺点：需要大量定义主题<br>详见博客：<a href="http://wuxiaolong.me/2015/08/19/ChangeTheme/">http://wuxiaolong.me/2015/08/19/ChangeTheme/</a></p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>夜间模式实现方式：<br>1、通过切换theme来实现夜间模式。<br>优点：可以匹配多套主题，并不局限于黑白模式<br>缺点：需要大量定义主题<br>详见博客：<a href="http://wuxiaolong.me/2015/08/19/ChangeTheme/" target="_blank" rel="noopener">http://wuxiaolong.me/2015/08/19/ChangeTheme/</a></p>
 <p>2、通过修改uiMode来切换夜间模式。<br>修改uimode是修改Configuration，这种主题切换只限于黑白模式，没有其他模式，不需要大量定义主题，即本文介绍的内容。</p>
 <h1 id="效果预览"><a href="#效果预览" class="headerlink" title="效果预览"></a>效果预览</h1><p><img src="http://wuxiaolong.me/images/nightTheme.gif" alt=""><br><a id="more"></a></p>
 <h1 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h1><h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><p>（1）app/build.gradle<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile <span class="string">'com.android.support:appcompat-v7:24.0.0'</span></div></pre></td></tr></table></figure></p>

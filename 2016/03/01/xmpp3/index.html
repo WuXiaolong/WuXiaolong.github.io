@@ -91,7 +91,7 @@
 <meta name="keywords" content="XMPP,openfire,Smack">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android基于XMPP开发（三）【注册、登录、修改密码、修改头像】">
-<meta property="og:url" content="http://wuxiaolong.me/2016/03/01/xmpp3/index.html">
+<meta property="og:url" content="http://wuxiaolong.github.io/2016/03/01/xmpp3/index.html">
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="Android基于XMPP开发（一）【openfire服务器配置】Android基于XMPP开发（二）【连接服务器】  本篇将涉及常用的账号管理，包括：注册、登录、修改密码、修改头像。">
 <meta property="og:locale" content="zh-CN">
@@ -107,7 +107,7 @@
 
 
 
-  <link rel="canonical" href="http://wuxiaolong.me/2016/03/01/xmpp3/">
+  <link rel="canonical" href="http://wuxiaolong.github.io/2016/03/01/xmpp3/">
 
 
 
@@ -413,7 +413,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2016/03/01/xmpp3/">
+    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.github.io/2016/03/01/xmpp3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴小龙同學">
@@ -532,7 +532,7 @@
 
       
         <blockquote>
-<p><a href="http://wuxiaolong.me/2016/02/24/xmpp1/">Android基于XMPP开发（一）【openfire服务器配置】</a><br><a href="http://wuxiaolong.me/2016/02/25/xmpp2/">Android基于XMPP开发（二）【连接服务器】</a></p>
+<p><a href="http://wuxiaolong.me/2016/02/24/xmpp1/" target="_blank" rel="noopener">Android基于XMPP开发（一）【openfire服务器配置】</a><br><a href="http://wuxiaolong.me/2016/02/25/xmpp2/" target="_blank" rel="noopener">Android基于XMPP开发（二）【连接服务器】</a></p>
 </blockquote>
 <p>本篇将涉及常用的账号管理，包括：注册、登录、修改密码、修改头像。<br><a id="more"></a></p>
 <h1 id="注册"><a href="#注册" class="headerlink" title="注册"></a>注册</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">public void register(final String userName, final String password) &#123;</div><div class="line">       new Thread(new Runnable() &#123;</div><div class="line">           @Override</div><div class="line">           public void run() &#123;</div><div class="line"></div><div class="line">               String registerMsg;</div><div class="line">               try &#123;</div><div class="line">                   if (!mXMPPTCPConnection.isConnected())</div><div class="line">                       mXMPPTCPConnection.connect();</div><div class="line">               &#125; catch (Exception e) &#123;</div><div class="line">                   e.printStackTrace();</div><div class="line">                   mXMPPTCPConnection.disconnect();</div><div class="line">               &#125;</div><div class="line">               </div><div class="line">               Log.i(&quot;wxl&quot;, &quot;XMPPService connected=&quot; + mXMPPTCPConnection.isConnected());</div><div class="line">               if (mXMPPTCPConnection.isConnected()) &#123;</div><div class="line">                   String serviceName = mXMPPTCPConnection.getServiceName();</div><div class="line">                   try &#123;</div><div class="line">                       AccountManager accountManager = AccountManager.getInstance(mXMPPTCPConnection);</div><div class="line">                       Log.i(&quot;wxl&quot;, &quot;Register supportsAccountCreation=&quot; + accountManager.supportsAccountCreation());</div><div class="line">                       if (accountManager.supportsAccountCreation()) &#123;</div><div class="line">                           accountManager.createAccount(userName + &quot;@&quot; + serviceName, password);</div><div class="line">                           Log.i(TAG, &quot;注册成功&quot;);</div><div class="line">                           registerMsg = &quot;注册成功&quot;;</div><div class="line">                       &#125; else &#123;</div><div class="line">                           Log.i(TAG, &quot;服务端不能注册&quot;);</div><div class="line">                           registerMsg = &quot;服务端不能注册&quot;;</div><div class="line">                       &#125;</div><div class="line"></div><div class="line">                   &#125; catch (Exception e) &#123;</div><div class="line">                       e.printStackTrace();//</div><div class="line">                       Log.i(TAG, &quot;注册异常=&quot; + e.getMessage());</div><div class="line">                       registerMsg = &quot;注册异常=&quot; + e.getMessage();</div><div class="line">                   &#125;</div><div class="line">               &#125; else &#123;</div><div class="line">                   Log.i(TAG, &quot;connect failed&quot;);</div><div class="line">                   registerMsg = &quot;connect failed&quot;;</div><div class="line">               &#125;</div><div class="line">               mXMPPClickListener.register(registerMsg);</div><div class="line">           &#125;</div><div class="line">       &#125;).start();</div><div class="line">   &#125;</div></pre></td></tr></table></figure>

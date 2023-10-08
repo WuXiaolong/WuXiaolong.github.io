@@ -91,7 +91,7 @@
 <meta name="keywords" content="MVP,Retrofit,RxJava">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android MVP+Retrofit+RxJava实践小结">
-<meta property="og:url" content="http://wuxiaolong.me/2016/06/12/mvpRetrofitRxjava/index.html">
+<meta property="og:url" content="http://wuxiaolong.github.io/2016/06/12/mvpRetrofitRxjava/index.html">
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="关于MVP、Retrofit、RxJava，之前已经分别做了分享，如果您还没有阅读过，可以猛戳：1、Android MVP 实例2、Android Retrofit 2.0使用3、RxJava4、RxBus 假设，您对MVP、Retrofit、RxJava已经有了一点了解，那么我们开始本文：">
 <meta property="og:locale" content="zh-CN">
@@ -110,7 +110,7 @@
 
 
 
-  <link rel="canonical" href="http://wuxiaolong.me/2016/06/12/mvpRetrofitRxjava/">
+  <link rel="canonical" href="http://wuxiaolong.github.io/2016/06/12/mvpRetrofitRxjava/">
 
 
 
@@ -416,7 +416,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2016/06/12/mvpRetrofitRxjava/">
+    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.github.io/2016/06/12/mvpRetrofitRxjava/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴小龙同學">
@@ -534,7 +534,7 @@
       
 
       
-        <p>关于MVP、Retrofit、RxJava，之前已经分别做了分享，如果您还没有阅读过，可以猛戳：<br>1、<a href="http://wuxiaolong.me/2015/09/23/AndroidMVPSample/">Android MVP 实例</a><br>2、<a href="http://wuxiaolong.me/2016/01/15/retrofit/">Android Retrofit 2.0使用</a><br>3、<a href="http://wuxiaolong.me/2016/01/18/rxjava/">RxJava</a><br>4、<a href="http://wuxiaolong.me/2016/04/07/rxbus/">RxBus</a></p>
+        <p>关于MVP、Retrofit、RxJava，之前已经分别做了分享，如果您还没有阅读过，可以猛戳：<br>1、<a href="http://wuxiaolong.me/2015/09/23/AndroidMVPSample/" target="_blank" rel="noopener">Android MVP 实例</a><br>2、<a href="http://wuxiaolong.me/2016/01/15/retrofit/" target="_blank" rel="noopener">Android Retrofit 2.0使用</a><br>3、<a href="http://wuxiaolong.me/2016/01/18/rxjava/" target="_blank" rel="noopener">RxJava</a><br>4、<a href="http://wuxiaolong.me/2016/04/07/rxbus/" target="_blank" rel="noopener">RxBus</a></p>
 <p>假设，您对MVP、Retrofit、RxJava已经有了一点了解，那么我们开始本文：<br><a id="more"></a></p>
 <h1 id="Android-MVP优化"><a href="#Android-MVP优化" class="headerlink" title="Android MVP优化"></a>Android MVP优化</h1><p>1、MVP绑定Activity（Fragment）生命周期<br>按照之前的文章，每个Presenter都得初始化和销毁，我新加MvpActivity(MvpFragment)，加了抽象方法<code>protected abstract P createPresenter();</code>这样做的目的在需要使用MVP的地方，可以继承MvpActivity(MvpFragment)，然后初始化和销毁就不用手动一个个去加了。</p>
 <p>2、接口请求等还是放到MVP的P中<br><img src="http://wuxiaolong.me/images/androidmvpsample2.png" alt=""><br>这个图片，在当时写MVP文章时给出的，实际开发中，我发现每个都这样写，实在是增加了不少代码，然接口请求放到P中，还有个好处，就是MVP绑定Activity（Fragment）生命周期，当onDestroy时取消RXJava注册，以避免内存泄露。</p>

@@ -91,7 +91,7 @@
 <meta name="keywords" content="Gradle">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Gradle for Android（二）全局设置、自定义BuildConfig、混淆">
-<meta property="og:url" content="http://wuxiaolong.me/2016/03/31/gradle4android2/index.html">
+<meta property="og:url" content="http://wuxiaolong.github.io/2016/03/31/gradle4android2/index.html">
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="系列博客 Gradle for Android（一）基本配置、依赖管理Gradle for Android（三）多渠道打包、配置签名信息  全局设置根目录build.gradle如果有很多项目，可以设置全局来统一管理版本号或依赖库，根目录下build.gradle添加：123456789101112def androidSupportVersion = &apos;25.3.1&apos;ext &amp;#123;">
 <meta property="og:locale" content="zh-CN">
@@ -109,7 +109,7 @@
 
 
 
-  <link rel="canonical" href="http://wuxiaolong.me/2016/03/31/gradle4android2/">
+  <link rel="canonical" href="http://wuxiaolong.github.io/2016/03/31/gradle4android2/">
 
 
 
@@ -415,7 +415,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2016/03/31/gradle4android2/">
+    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.github.io/2016/03/31/gradle4android2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴小龙同學">
@@ -534,7 +534,7 @@
 
       
         <h1 id="系列博客"><a href="#系列博客" class="headerlink" title="系列博客"></a>系列博客</h1><blockquote>
-<p><a href="http://wuxiaolong.me/2016/03/30/gradle4android1/">Gradle for Android（一）基本配置、依赖管理</a><br><a href="http://wuxiaolong.me/2016/04/01/gradle4android3/">Gradle for Android（三）多渠道打包、配置签名信息</a></p>
+<p><a href="http://wuxiaolong.me/2016/03/30/gradle4android1/" target="_blank" rel="noopener">Gradle for Android（一）基本配置、依赖管理</a><br><a href="http://wuxiaolong.me/2016/04/01/gradle4android3/" target="_blank" rel="noopener">Gradle for Android（三）多渠道打包、配置签名信息</a></p>
 </blockquote>
 <h1 id="全局设置"><a href="#全局设置" class="headerlink" title="全局设置"></a>全局设置</h1><h2 id="根目录build-gradle"><a href="#根目录build-gradle" class="headerlink" title="根目录build.gradle"></a>根目录build.gradle</h2><p>如果有很多项目，可以设置全局来统一管理版本号或依赖库，根目录下build.gradle添加：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">def androidSupportVersion = <span class="string">'25.3.1'</span></div><div class="line">ext &#123;</div><div class="line">    <span class="comment">//编译的 SDK 版本，如API20</span></div><div class="line">    compileSdkVersion = <span class="number">25</span></div><div class="line">    <span class="comment">//构建工具的版本，其中包括了打包工具aapt、dx等,如API20对应的build-tool的版本就是20.0.0</span></div><div class="line">    buildToolsVersion = <span class="string">"26.0.0"</span></div><div class="line">    <span class="comment">//兼容的最低 SDK 版本</span></div><div class="line">    minSdkVersion = <span class="number">14</span></div><div class="line">    <span class="comment">//向前兼容，保存新旧两种逻辑，并通过 if-else 方法来判断执行哪种逻辑</span></div><div class="line">    targetSdkVersion = <span class="number">22</span></div><div class="line">    appcompatV7 = <span class="string">"com.android.support:appcompat-v7:$androidSupportVersion"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <a id="more"></a>

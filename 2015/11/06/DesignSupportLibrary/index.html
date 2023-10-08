@@ -91,7 +91,7 @@
 <meta name="keywords" content="DesignSupportLibrary">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android Design Support Library使用">
-<meta property="og:url" content="http://wuxiaolong.me/2015/11/06/DesignSupportLibrary/index.html">
+<meta property="og:url" content="http://wuxiaolong.github.io/2015/11/06/DesignSupportLibrary/index.html">
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="作为Android开发者，谷歌的Material design规范文档读过吗？谷歌出Material design规范很久了，但是市面上的Material design风格的APP却很少（Android的杯具），这个规范应该产品经理或UI设计师应该熟知于心，官网地址：https://material.google.com/，这里分享开发可能会使用的知识点和注意点，有详细sample哦。">
 <meta property="og:locale" content="zh-CN">
@@ -121,7 +121,7 @@
 
 
 
-  <link rel="canonical" href="http://wuxiaolong.me/2015/11/06/DesignSupportLibrary/">
+  <link rel="canonical" href="http://wuxiaolong.github.io/2015/11/06/DesignSupportLibrary/">
 
 
 
@@ -427,7 +427,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2015/11/06/DesignSupportLibrary/">
+    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.github.io/2015/11/06/DesignSupportLibrary/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴小龙同學">
@@ -554,21 +554,21 @@
 <p>最基本的样式集合就是基于 12、14、16、20 和 34 号的字体排版缩放。</p>
 <h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><h2 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h2><p>app/build.gradle<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">compile &apos;com.android.support:appcompat-v7:24.2.1&apos;</div><div class="line">compile &apos;com.android.support:support-v4:24.2.1&apos;</div><div class="line">compile &apos;com.android.support:design:24.2.1&apos;</div></pre></td></tr></table></figure></p>
 <h2 id="TabLayout"><a href="#TabLayout" class="headerlink" title="TabLayout"></a>TabLayout</h2><p><img src="http://wuxiaolong.me/images/DesignSupportLibrary3.gif" alt=""></p>
-<p>使用方法：<a href="http://wuxiaolong.me/2015/08/03/TabLayout/">Android Design Support Library之TabLayout</a></p>
+<p>使用方法：<a href="http://wuxiaolong.me/2015/08/03/TabLayout/" target="_blank" rel="noopener">Android Design Support Library之TabLayout</a></p>
 <h2 id="Navigation-drawer"><a href="#Navigation-drawer" class="headerlink" title="Navigation drawer"></a>Navigation drawer</h2><p><img src="http://wuxiaolong.me/images/DesignSupportLibrary4.gif" alt=""></p>
-<p>使用方法：<a href="http://wuxiaolong.me/2015/11/17/NavigationView/">Android Design Support Library之NavigationView</a></p>
+<p>使用方法：<a href="http://wuxiaolong.me/2015/11/17/NavigationView/" target="_blank" rel="noopener">Android Design Support Library之NavigationView</a></p>
 <h2 id="CoordinatorLayout"><a href="#CoordinatorLayout" class="headerlink" title="CoordinatorLayout"></a>CoordinatorLayout</h2><p><img src="http://wuxiaolong.me/images/DesignSupportLibrary5.gif" alt="Android Design Support Library之CoordinatorLayout"></p>
-<p>使用方法：<a href="http://wuxiaolong.me/2015/11/17/CoordinatorLayout/">http://wuxiaolong.me/2015/11/17/CoordinatorLayout/</a></p>
+<p>使用方法：<a href="http://wuxiaolong.me/2015/11/17/CoordinatorLayout/" target="_blank" rel="noopener">http://wuxiaolong.me/2015/11/17/CoordinatorLayout/</a></p>
 <h2 id="SearchView"><a href="#SearchView" class="headerlink" title="SearchView"></a>SearchView</h2><p><img src="http://wuxiaolong.me/images/DesignSupportLibrary11.gif" alt=""></p>
 <p>Toolbar+SearchView使用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">private void initSearchView() &#123;</div><div class="line">    final SearchView searchView = (SearchView) mToolbar.getMenu()</div><div class="line">            .findItem(R.id.menu_search).getActionView();</div><div class="line">    searchView.setQueryHint(&quot;搜索…&quot;);</div><div class="line">    searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() &#123;</div><div class="line">        @Override</div><div class="line">        public boolean onQueryTextSubmit(String query) &#123;</div><div class="line">            showToast(&quot;query=&quot; + query);</div><div class="line">            return false;</div><div class="line">        &#125;</div><div class="line">        @Override</div><div class="line">        public boolean onQueryTextChange(String s) &#123;</div><div class="line">            LogUtil.d(&quot;onQueryTextChange=&quot; + s);</div><div class="line">            // UserFeedback.show( &quot;SearchOnQueryTextChanged: &quot; + s);</div><div class="line">            return false;</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h2 id="过度动画"><a href="#过度动画" class="headerlink" title="过度动画"></a>过度动画</h2><p><img src="http://wuxiaolong.me/images/DesignSupportLibrary6.gif" alt=""></p>
 <p>需要跳到的地方，写在DetailActivity：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * @param showImage 共享的元素</div><div class="line"> */</div><div class="line">public static void startActivity(Activity activity, int position, ImageView showImage) &#123;</div><div class="line">    Intent intent = new Intent();</div><div class="line">    intent.setClass(activity, DetailActivity.class);</div><div class="line">    intent.putExtra(&quot;position&quot;, position);</div><div class="line">    ActivityOptionsCompat options = ActivityOptionsCompat</div><div class="line">            .makeSceneTransitionAnimation(activity, showImage, AppConstants.TRANSITION_PIC);</div><div class="line">    ActivityCompat.startActivity(activity, intent, options.toBundle());</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>需要在DetailActivity写：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//设置过渡动画，第一参数就是DetailActivity的共享的元素</div><div class="line">ViewCompat.setTransitionName(backdrop, AppConstants.TRANSITION_PIC);</div></pre></td></tr></table></figure></p>
 <h2 id="CollapsingToolbarLayout"><a href="#CollapsingToolbarLayout" class="headerlink" title="CollapsingToolbarLayout"></a>CollapsingToolbarLayout</h2><p><img src="http://wuxiaolong.me/images/DesignSupportLibrary7.gif" alt=""></p>
-<p>使用方法：<a href="http://wuxiaolong.me/2015/11/17/CollapsingToolbarLayout/">Android Design Support Library之CollapsingToolbarLayout</a></p>
-<h2 id="Bottom-Navigation"><a href="#Bottom-Navigation" class="headerlink" title="Bottom Navigation"></a>Bottom Navigation</h2><p>3个菜单：<br><img src="http://wuxiaolong.me/images/bottomNavigation3.gif" alt=""><br>5个菜单：<br><img src="http://wuxiaolong.me/images/bottomNavigation4.gif" alt=""><br>使用方法：<a href="http://wuxiaolong.me/2016/10/21/BottomNavigation/">http://wuxiaolong.me/2016/10/21/BottomNavigation/</a></p>
+<p>使用方法：<a href="http://wuxiaolong.me/2015/11/17/CollapsingToolbarLayout/" target="_blank" rel="noopener">Android Design Support Library之CollapsingToolbarLayout</a></p>
+<h2 id="Bottom-Navigation"><a href="#Bottom-Navigation" class="headerlink" title="Bottom Navigation"></a>Bottom Navigation</h2><p>3个菜单：<br><img src="http://wuxiaolong.me/images/bottomNavigation3.gif" alt=""><br>5个菜单：<br><img src="http://wuxiaolong.me/images/bottomNavigation4.gif" alt=""><br>使用方法：<a href="http://wuxiaolong.me/2016/10/21/BottomNavigation/" target="_blank" rel="noopener">http://wuxiaolong.me/2016/10/21/BottomNavigation/</a></p>
 <h2 id="TextInputLayout"><a href="#TextInputLayout" class="headerlink" title="TextInputLayout"></a>TextInputLayout</h2><p><img src="http://wuxiaolong.me/images/DesignSupportLibrary8.png" alt=""><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">emailTextInput.setError(&quot;请输入邮箱&quot;);</div></pre></td></tr></table></figure></p>
-<h2 id="夜间模式"><a href="#夜间模式" class="headerlink" title="夜间模式"></a>夜间模式</h2><p><img src="http://wuxiaolong.me/images/DesignSupportLibrary9.png" alt=""><br>使用方法：<a href="http://wuxiaolong.me/2016/07/12/appcompatDayNight/">Android Support Library 之 夜间模式</a></p>
+<h2 id="夜间模式"><a href="#夜间模式" class="headerlink" title="夜间模式"></a>夜间模式</h2><p><img src="http://wuxiaolong.me/images/DesignSupportLibrary9.png" alt=""><br>使用方法：<a href="http://wuxiaolong.me/2016/07/12/appcompatDayNight/" target="_blank" rel="noopener">Android Support Library 之 夜间模式</a></p>
 <h2 id="其他组件"><a href="#其他组件" class="headerlink" title="其他组件"></a>其他组件</h2><p><img src="http://wuxiaolong.me/images/DesignSupportLibrary10.png" alt=""></p>
 <p>使用方法：见<a href="https://github.com/WuXiaolong/DesignSupportLibrarySample" target="_blank" rel="noopener">源码</a></p>
 <h1 id="源码地址"><a href="#源码地址" class="headerlink" title="源码地址"></a>源码地址</h1><p><a href="https://github.com/WuXiaolong/DesignSupportLibrarySample" target="_blank" rel="noopener">https://github.com/WuXiaolong/DesignSupportLibrarySample</a>，Material design规范文档内容很多，很多东西是要细致推敲，值得产品经理或UI设计师，乃至开发人员好好学习，目前这个sample，Material design风格的效果都有了，相当一个空壳子，您只需在实际开发中塞真实数据就是一个perfect app，个人能力和精力有限，只能分享这么多了，over。</p>

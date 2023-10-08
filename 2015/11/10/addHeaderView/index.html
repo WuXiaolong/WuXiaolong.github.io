@@ -91,7 +91,7 @@
 <meta name="keywords" content="ListView,addHeaderView">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android ListView addHeaderView">
-<meta property="og:url" content="http://wuxiaolong.me/2015/11/10/addHeaderView/index.html">
+<meta property="og:url" content="http://wuxiaolong.github.io/2015/11/10/addHeaderView/index.html">
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="最近在调试我的个人大湿说app，发现在4.2系统下直接崩溃了，看log，原来是ListView addHeaderView和setAdapter方法调用顺利不同导致的错误，这里做下记录。">
 <meta property="og:locale" content="zh-CN">
@@ -110,7 +110,7 @@
 
 
 
-  <link rel="canonical" href="http://wuxiaolong.me/2015/11/10/addHeaderView/">
+  <link rel="canonical" href="http://wuxiaolong.github.io/2015/11/10/addHeaderView/">
 
 
 
@@ -416,7 +416,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.me/2015/11/10/addHeaderView/">
+    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.github.io/2015/11/10/addHeaderView/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴小龙同學">
@@ -534,7 +534,7 @@
       
 
       
-        <p>最近在调试我的个人<a href="http://wuxiaolong.me/2015/11/09/dashishuo/">大湿说app</a>，发现在4.2系统下直接崩溃了，看log，原来是ListView addHeaderView和setAdapter方法调用顺利不同导致的错误，这里做下记录。<br><a id="more"></a></p>
+        <p>最近在调试我的个人<a href="http://wuxiaolong.me/2015/11/09/dashishuo/" target="_blank" rel="noopener">大湿说app</a>，发现在4.2系统下直接崩溃了，看log，原来是ListView addHeaderView和setAdapter方法调用顺利不同导致的错误，这里做下记录。<br><a id="more"></a></p>
 <h2 id="正确调用"><a href="#正确调用" class="headerlink" title="正确调用"></a>正确调用</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mListView.addHeaderView(mHeadView);</div><div class="line">mListView.setAdapter(mListViewAdapter);</div></pre></td></tr></table></figure>
 <h2 id="究其原因"><a href="#究其原因" class="headerlink" title="究其原因"></a>究其原因</h2><p>Android-18（4.3）的addHeaderView源码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addHeaderView</span><span class="params">(View v, Object data, <span class="keyword">boolean</span> isSelectable)</span> </span>&#123;</div><div class="line">        <span class="keyword">final</span> FixedViewInfo info = <span class="keyword">new</span> FixedViewInfo();</div><div class="line">        info.view = v;</div><div class="line">        info.data = data;</div><div class="line">        info.isSelectable = isSelectable;</div><div class="line">        mHeaderViewInfos.add(info);</div><div class="line"> </div><div class="line">        <span class="comment">// Wrap the adapter if it wasn't already wrapped.</span></div><div class="line">        <span class="keyword">if</span> (mAdapter != <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">if</span> (!(mAdapter <span class="keyword">instanceof</span> HeaderViewListAdapter)) &#123;</div><div class="line">                mAdapter = <span class="keyword">new</span> HeaderViewListAdapter(mHeaderViewInfos, mFooterViewInfos, mAdapter);</div><div class="line">            &#125;</div><div class="line"> </div><div class="line">            <span class="comment">// In the case of re-adding a header view, or adding one later on,</span></div><div class="line">            <span class="comment">// we need to notify the observer.</span></div><div class="line">            <span class="keyword">if</span> (mDataSetObserver != <span class="keyword">null</span>) &#123;</div><div class="line">                mDataSetObserver.onChanged();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>Android-17（4.2）的addHeaderView的源码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addHeaderView</span><span class="params">(View v, Object data, <span class="keyword">boolean</span> isSelectable)</span> </span>&#123;</div><div class="line"> </div><div class="line">        <span class="keyword">if</span> (mAdapter != <span class="keyword">null</span> &amp;&amp; ! (mAdapter <span class="keyword">instanceof</span> HeaderViewListAdapter)) &#123;</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalStateException(</div><div class="line">                    <span class="string">"Cannot add header view to list -- setAdapter has already been called."</span>);</div><div class="line">        &#125;</div><div class="line"> </div><div class="line">        FixedViewInfo info = <span class="keyword">new</span> FixedViewInfo();</div><div class="line">        info.view = v;</div><div class="line">        info.data = data;</div><div class="line">        info.isSelectable = isSelectable;</div><div class="line">        mHeaderViewInfos.add(info);</div><div class="line"> </div><div class="line">        <span class="comment">// in the case of re-adding a header view, or adding one later on,</span></div><div class="line">        <span class="comment">// we need to notify the observer</span></div><div class="line">        <span class="keyword">if</span> (mAdapter != <span class="keyword">null</span> &amp;&amp; mDataSetObserver != <span class="keyword">null</span>) &#123;</div><div class="line">            mDataSetObserver.onChanged();</div><div class="line">        &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
