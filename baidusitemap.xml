@@ -1724,26 +1724,6 @@
 
     
   <url>
-    <loc>http://wuxiaolong.github.io/2013/06/14/android-developers-should-keep-the-following-characteristics/</loc>
-    <lastmod>2024-09-22T04:01:40.944Z</lastmod>
-    <data>
-        <display>
-        <title>Android开发者应该保持以下特质</title>
-        <pubTime>2013-06-13T16:00:00.000Z</pubTime>
-        
-        <tag>Android</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="http://wuxiaolong.github.io/categories/Android/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://wuxiaolong.github.io/2016/03/13/MyCodeHobby/</loc>
     <lastmod>2024-09-22T04:01:40.944Z</lastmod>
     <data>
@@ -1757,6 +1737,26 @@
            
              
               <breadCrumb title="猿生活" url="http://wuxiaolong.github.io/categories/%E7%8C%BF%E7%94%9F%E6%B4%BB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://wuxiaolong.github.io/2013/06/14/android-developers-should-keep-the-following-characteristics/</loc>
+    <lastmod>2024-09-22T04:01:40.944Z</lastmod>
+    <data>
+        <display>
+        <title>Android开发者应该保持以下特质</title>
+        <pubTime>2013-06-13T16:00:00.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="http://wuxiaolong.github.io/categories/Android/"/>
           
         </display>
     </data>
@@ -2946,26 +2946,6 @@
 
     
   <url>
-    <loc>http://wuxiaolong.github.io/2015/11/17/CollapsingToolbarLayout/</loc>
-    <lastmod>2024-09-22T04:01:40.855Z</lastmod>
-    <data>
-        <display>
-        <title>Android Design Support Library之CollapsingToolbarLayout</title>
-        <pubTime>2015-11-17T06:18:22.000Z</pubTime>
-        
-        <tag>CollapsingToolbarLayout</tag>
-         
-         
-           
-             
-              <breadCrumb title="SupportLibrary" url="http://wuxiaolong.github.io/categories/SupportLibrary/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://wuxiaolong.github.io/2015/03/27/2015key/</loc>
     <lastmod>2024-09-22T04:01:40.855Z</lastmod>
     <data>
@@ -2986,19 +2966,19 @@
 
     
   <url>
-    <loc>http://wuxiaolong.github.io/2014/10/30/qiniu-photo-bed/</loc>
-    <lastmod>2024-09-22T04:01:40.854Z</lastmod>
+    <loc>http://wuxiaolong.github.io/2015/11/17/CollapsingToolbarLayout/</loc>
+    <lastmod>2024-09-22T04:01:40.855Z</lastmod>
     <data>
         <display>
-        <title>使用七牛作为github博客的图床</title>
-        <pubTime>2014-10-29T16:00:00.000Z</pubTime>
+        <title>Android Design Support Library之CollapsingToolbarLayout</title>
+        <pubTime>2015-11-17T06:18:22.000Z</pubTime>
         
-        <tag>github</tag>
+        <tag>CollapsingToolbarLayout</tag>
          
          
            
              
-              <breadCrumb title="QiNiu" url="http://wuxiaolong.github.io/categories/QiNiu/"/>
+              <breadCrumb title="SupportLibrary" url="http://wuxiaolong.github.io/categories/SupportLibrary/"/>
           
         </display>
     </data>
@@ -3019,6 +2999,26 @@
            
              
               <breadCrumb title="CustomView" url="http://wuxiaolong.github.io/categories/CustomView/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://wuxiaolong.github.io/2014/10/30/qiniu-photo-bed/</loc>
+    <lastmod>2024-09-22T04:01:40.854Z</lastmod>
+    <data>
+        <display>
+        <title>使用七牛作为github博客的图床</title>
+        <pubTime>2014-10-29T16:00:00.000Z</pubTime>
+        
+        <tag>github</tag>
+         
+         
+           
+             
+              <breadCrumb title="QiNiu" url="http://wuxiaolong.github.io/categories/QiNiu/"/>
           
         </display>
     </data>
@@ -3088,26 +3088,6 @@
 
     
   <url>
-    <loc>http://wuxiaolong.github.io/2015/08/19/PreferenceUtils/</loc>
-    <lastmod>2024-09-22T04:01:40.850Z</lastmod>
-    <data>
-        <display>
-        <title>SharedPreferencesUtil</title>
-        <pubTime>2015-08-19T01:28:49.000Z</pubTime>
-        
-        <tag>SharedPreferences</tag>
-         
-         
-           
-             
-              <breadCrumb title="AndroidUtil" url="http://wuxiaolong.github.io/categories/AndroidUtil/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://wuxiaolong.github.io/2017/01/04/observerPattern/</loc>
     <lastmod>2024-09-22T04:01:40.850Z</lastmod>
     <data>
@@ -3121,6 +3101,26 @@
            
              
               <breadCrumb title="DesignPattern" url="http://wuxiaolong.github.io/categories/DesignPattern/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://wuxiaolong.github.io/2015/08/19/PreferenceUtils/</loc>
+    <lastmod>2024-09-22T04:01:40.850Z</lastmod>
+    <data>
+        <display>
+        <title>SharedPreferencesUtil</title>
+        <pubTime>2015-08-19T01:28:49.000Z</pubTime>
+        
+        <tag>SharedPreferences</tag>
+         
+         
+           
+             
+              <breadCrumb title="AndroidUtil" url="http://wuxiaolong.github.io/categories/AndroidUtil/"/>
           
         </display>
     </data>
