@@ -2573,26 +2573,6 @@
 
     
   <url>
-    <loc>http://wuxiaolong.github.io/2015/11/17/NavigationView/</loc>
-    <lastmod>2024-09-22T04:01:40.876Z</lastmod>
-    <data>
-        <display>
-        <title>Android Design Support Library之NavigationView</title>
-        <pubTime>2015-11-17T05:31:07.000Z</pubTime>
-        
-        <tag>NavigationView</tag>
-         
-         
-           
-             
-              <breadCrumb title="SupportLibrary" url="http://wuxiaolong.github.io/categories/SupportLibrary/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://wuxiaolong.github.io/2015/04/27/Split/</loc>
     <lastmod>2024-09-22T04:01:40.876Z</lastmod>
     <data>
@@ -2608,6 +2588,26 @@
            
              
               <breadCrumb title="Android" url="http://wuxiaolong.github.io/categories/Android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://wuxiaolong.github.io/2015/11/17/NavigationView/</loc>
+    <lastmod>2024-09-22T04:01:40.876Z</lastmod>
+    <data>
+        <display>
+        <title>Android Design Support Library之NavigationView</title>
+        <pubTime>2015-11-17T05:31:07.000Z</pubTime>
+        
+        <tag>NavigationView</tag>
+         
+         
+           
+             
+              <breadCrumb title="SupportLibrary" url="http://wuxiaolong.github.io/categories/SupportLibrary/"/>
           
         </display>
     </data>
@@ -2861,28 +2861,6 @@
 
     
   <url>
-    <loc>http://wuxiaolong.github.io/2015/04/21/SqliteSample/</loc>
-    <lastmod>2024-09-22T04:01:40.858Z</lastmod>
-    <data>
-        <display>
-        <title>Android之SqliteSample</title>
-        <pubTime>2015-04-20T16:00:00.000Z</pubTime>
-        
-        <tag>Android</tag>
-         
-        <tag>Sqlite</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="http://wuxiaolong.github.io/categories/Android/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://wuxiaolong.github.io/2013/07/18/mobile-phone-information-acquisition/</loc>
     <lastmod>2024-09-22T04:01:40.858Z</lastmod>
     <data>
@@ -2903,14 +2881,16 @@
 
     
   <url>
-    <loc>http://wuxiaolong.github.io/2013/07/09/shape/</loc>
-    <lastmod>2024-09-22T04:01:40.856Z</lastmod>
+    <loc>http://wuxiaolong.github.io/2015/04/21/SqliteSample/</loc>
+    <lastmod>2024-09-22T04:01:40.858Z</lastmod>
     <data>
         <display>
-        <title>Android之美化控件Shape</title>
-        <pubTime>2013-07-08T16:00:00.000Z</pubTime>
+        <title>Android之SqliteSample</title>
+        <pubTime>2015-04-20T16:00:00.000Z</pubTime>
         
-        <tag>Shape</tag>
+        <tag>Android</tag>
+         
+        <tag>Sqlite</tag>
          
          
            
@@ -2947,19 +2927,19 @@
 
     
   <url>
-    <loc>http://wuxiaolong.github.io/2015/11/17/CollapsingToolbarLayout/</loc>
-    <lastmod>2024-09-22T04:01:40.855Z</lastmod>
+    <loc>http://wuxiaolong.github.io/2013/07/09/shape/</loc>
+    <lastmod>2024-09-22T04:01:40.856Z</lastmod>
     <data>
         <display>
-        <title>Android Design Support Library之CollapsingToolbarLayout</title>
-        <pubTime>2015-11-17T06:18:22.000Z</pubTime>
+        <title>Android之美化控件Shape</title>
+        <pubTime>2013-07-08T16:00:00.000Z</pubTime>
         
-        <tag>CollapsingToolbarLayout</tag>
+        <tag>Shape</tag>
          
          
            
              
-              <breadCrumb title="SupportLibrary" url="http://wuxiaolong.github.io/categories/SupportLibrary/"/>
+              <breadCrumb title="Android" url="http://wuxiaolong.github.io/categories/Android/"/>
           
         </display>
     </data>
@@ -2987,19 +2967,19 @@
 
     
   <url>
-    <loc>http://wuxiaolong.github.io/2015/12/19/MotionEvent/</loc>
-    <lastmod>2024-09-22T04:01:40.854Z</lastmod>
+    <loc>http://wuxiaolong.github.io/2015/11/17/CollapsingToolbarLayout/</loc>
+    <lastmod>2024-09-22T04:01:40.855Z</lastmod>
     <data>
         <display>
-        <title>Android事件传递机制分析</title>
-        <pubTime>2015-12-19T08:17:02.000Z</pubTime>
+        <title>Android Design Support Library之CollapsingToolbarLayout</title>
+        <pubTime>2015-11-17T06:18:22.000Z</pubTime>
         
-        <tag>MotionEvent</tag>
+        <tag>CollapsingToolbarLayout</tag>
          
          
            
              
-              <breadCrumb title="CustomView" url="http://wuxiaolong.github.io/categories/CustomView/"/>
+              <breadCrumb title="SupportLibrary" url="http://wuxiaolong.github.io/categories/SupportLibrary/"/>
           
         </display>
     </data>
@@ -3020,6 +3000,26 @@
            
              
               <breadCrumb title="QiNiu" url="http://wuxiaolong.github.io/categories/QiNiu/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://wuxiaolong.github.io/2015/12/19/MotionEvent/</loc>
+    <lastmod>2024-09-22T04:01:40.854Z</lastmod>
+    <data>
+        <display>
+        <title>Android事件传递机制分析</title>
+        <pubTime>2015-12-19T08:17:02.000Z</pubTime>
+        
+        <tag>MotionEvent</tag>
+         
+         
+           
+             
+              <breadCrumb title="CustomView" url="http://wuxiaolong.github.io/categories/CustomView/"/>
           
         </display>
     </data>
@@ -3089,26 +3089,6 @@
 
     
   <url>
-    <loc>http://wuxiaolong.github.io/2015/08/19/PreferenceUtils/</loc>
-    <lastmod>2024-09-22T04:01:40.850Z</lastmod>
-    <data>
-        <display>
-        <title>SharedPreferencesUtil</title>
-        <pubTime>2015-08-19T01:28:49.000Z</pubTime>
-        
-        <tag>SharedPreferences</tag>
-         
-         
-           
-             
-              <breadCrumb title="AndroidUtil" url="http://wuxiaolong.github.io/categories/AndroidUtil/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://wuxiaolong.github.io/2017/01/04/observerPattern/</loc>
     <lastmod>2024-09-22T04:01:40.850Z</lastmod>
     <data>
@@ -3122,6 +3102,26 @@
            
              
               <breadCrumb title="DesignPattern" url="http://wuxiaolong.github.io/categories/DesignPattern/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://wuxiaolong.github.io/2015/08/19/PreferenceUtils/</loc>
+    <lastmod>2024-09-22T04:01:40.850Z</lastmod>
+    <data>
+        <display>
+        <title>SharedPreferencesUtil</title>
+        <pubTime>2015-08-19T01:28:49.000Z</pubTime>
+        
+        <tag>SharedPreferences</tag>
+         
+         
+           
+             
+              <breadCrumb title="AndroidUtil" url="http://wuxiaolong.github.io/categories/AndroidUtil/"/>
           
         </display>
     </data>
