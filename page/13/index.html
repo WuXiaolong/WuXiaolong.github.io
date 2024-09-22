@@ -377,7 +377,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.github.io/2015/06/10/checkPermission/">
+    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.github.io/2015/07/08/listView_item_state/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴小龙同學">
@@ -397,7 +397,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2015/06/10/checkPermission/" class="post-title-link" itemprop="url">Android判断权限被限制</a>
+                <a href="/2015/07/08/listView_item_state/" class="post-title-link" itemprop="url">刷新RecyclerView/ListView某个item状态</a>
               
             
           </h1>
@@ -422,7 +422,7 @@
                 
               
 
-              <time title="创建时间：2015-06-10 00:00:00" itemprop="dateCreated datePublished" datetime="2015-06-10T00:00:00+08:00">2015-06-10</time>
+              <time title="创建时间：2015-07-08 00:00:00" itemprop="dateCreated datePublished" datetime="2015-07-08T00:00:00+08:00">2015-07-08</time>
             
 
             <!--
@@ -491,13 +491,14 @@
 
       
         
-          <p>开发过程，如果某个权限被第三方限制了，比如录音，网上查了下</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">String permName = <span class="string">"android.permission.RECORD_AUDIO"</span>;</div><div class="line">       String pkgName = getPackageName();</div><div class="line">       <span class="comment">// 结果为0则表示使用了该权限，-1则表求没有使用该权限</span></div><div class="line">       <span class="keyword">int</span> reslut = getPackageManager().checkPermission(permName, pkgName);</div><div class="line">       Log.d(<span class="string">"wxl"</span>, <span class="string">"reslut="</span> + reslut + <span class="string">"======"</span></div><div class="line">               + PackageManager.PERMISSION_GRANTED);</div></pre></td></tr></table></figure>
-<p>实际这个方法只是检测你的APP是否使用了某个权限，但是不能检测是否被限制了。</p>
+          <blockquote>
+<p>本文是实际开发遇到的问题，结合情景，给出解决方案，很有启示作用。</p>
+</blockquote>
+<h1 id="1、比如列表有收藏按钮，当前页面收藏"><a href="#1、比如列表有收藏按钮，当前页面收藏" class="headerlink" title="1、比如列表有收藏按钮，当前页面收藏"></a>1、比如列表有收藏按钮，当前页面收藏</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> List&lt;Map&lt;String, String&gt;&gt; mList = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">...</div><div class="line">  <span class="comment">//走收藏接口，在成功后，只更改刚刚点击的item的收藏按钮状态</span></div><div class="line">  mList.get(position).put(<span class="string">"favorites"</span>, <span class="string">"1"</span>);</div><div class="line">  notifyDataSetChanged();</div></pre></td></tr></table></figure>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/2015/06/10/checkPermission/" rel="contents">
+              <a class="btn" href="/2015/07/08/listView_item_state/" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -674,6 +675,186 @@
           
             <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"> <span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">       <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">       <span class="comment">//来指出fragment愿意添加item到选项菜单(否则, fragment将接收不到对 onCreateOptionsMenu()的调用)</span></div><div class="line">       setHasOptionsMenu(<span class="keyword">true</span>);</div><div class="line">   &#125;</div><div class="line">   </div><div class="line"><span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreateOptionsMenu</span><span class="params">(Menu menu, MenuInflater inflater)</span> </span>&#123;</div><div class="line">       getActivity().getMenuInflater().inflate(R.menu.menu_yuqing_search, menu);</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
           
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.github.io/2015/06/10/checkPermission/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="吴小龙同學">
+      <meta itemprop="description" content="公众号：吴小龙同学">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="吴小龙同學">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2015/06/10/checkPermission/" class="post-title-link" itemprop="url">Android判断权限被限制</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2015-06-10 00:00:00" itemprop="dateCreated datePublished" datetime="2015-06-10T00:00:00+08:00">2015-06-10</time>
+            
+
+            <!--
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2024-09-22 12:01:41" itemprop="dateModified" datetime="2024-09-22T12:01:41+08:00">2024-09-22</time>
+              -->
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>开发过程，如果某个权限被第三方限制了，比如录音，网上查了下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">String permName = <span class="string">"android.permission.RECORD_AUDIO"</span>;</div><div class="line">       String pkgName = getPackageName();</div><div class="line">       <span class="comment">// 结果为0则表示使用了该权限，-1则表求没有使用该权限</span></div><div class="line">       <span class="keyword">int</span> reslut = getPackageManager().checkPermission(permName, pkgName);</div><div class="line">       Log.d(<span class="string">"wxl"</span>, <span class="string">"reslut="</span> + reslut + <span class="string">"======"</span></div><div class="line">               + PackageManager.PERMISSION_GRANTED);</div></pre></td></tr></table></figure>
+<p>实际这个方法只是检测你的APP是否使用了某个权限，但是不能检测是否被限制了。</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2015/06/10/checkPermission/" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1798,181 +1979,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://wuxiaolong.github.io/2015/04/23/CanvasToPhoto/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="吴小龙同學">
-      <meta itemprop="description" content="公众号：吴小龙同学">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="吴小龙同學">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2015/04/23/CanvasToPhoto/" class="post-title-link" itemprop="url">Android之Canvas中内容保存为图片</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2015-04-23 00:00:00" itemprop="dateCreated datePublished" datetime="2015-04-23T00:00:00+08:00">2015-04-23</time>
-            
-
-            <!--
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2024-09-22 12:01:41" itemprop="dateModified" datetime="2024-09-22T12:01:41+08:00">2024-09-22</time>
-              -->
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">Bitmap bm = Bitmap.createBitmap(<span class="number">320</span>, <span class="number">480</span>, Config.ARGB_8888);  </div><div class="line">        Canvas canvas = <span class="keyword">new</span> Canvas(bm);  </div><div class="line">        Paint p = <span class="keyword">new</span> Paint();  </div><div class="line">        canvas.drawRect(<span class="number">50</span>, <span class="number">50</span>, <span class="number">200</span>, <span class="number">200</span>, p);  </div><div class="line">        canvas.save(Canvas.ALL_SAVE_FLAG );  </div><div class="line">        canvas.restore();  </div><div class="line">          </div><div class="line">        File f = <span class="keyword">new</span> File(<span class="string">"/sdcard/0.png"</span>);  </div><div class="line">        FileOutputStream fos = <span class="keyword">null</span>;  </div><div class="line">        <span class="keyword">try</span> &#123;  </div><div class="line">            fos = <span class="keyword">new</span> FileOutputStream(f);  </div><div class="line">            bm.compress(Bitmap.CompressFormat.PNG, <span class="number">50</span>, fos);  </div><div class="line">        &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;  </div><div class="line">            <span class="comment">// TODO Auto-generated catch block  </span></div><div class="line">            e.printStackTrace();  </div><div class="line">        &#125;  </div><div class="line">        <span class="comment">// 其次把文件插入到系统图库</span></div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        MediaStore.Images.Media.insertImage(context.getContentResolver(),</div><div class="line">				file.getAbsolutePath(), fileName, <span class="keyword">null</span>);</div><div class="line">    &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</div><div class="line">        e.printStackTrace();</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 最后通知图库更新</span></div><div class="line">    context.sendBroadcast(<span class="keyword">new</span> Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.parse(<span class="string">"file://"</span> + path)));</div></pre></td></tr></table></figure>
-<p>这样就把Canvas中的内容保存成了sd卡上的一个png图片。简单说一下原理，自己create一个bitmap，然后让Canvas通过这个bitmap创建一个实例，然后在该canvas上绘制的内容都会画<br>在该bitmap上，保存Canvas的图层，然后把bitmap写到sd卡上的文件。注意：要在AndroidManifest.xml中添加在sd卡上读写文件的权限</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 在SDCard中创建与删除文件权限 --&gt;     </div><div class="line">&lt;uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/&gt;     </div><div class="line">&lt;!-- 往SDCard写入数据权限 --&gt;     </div><div class="line">&lt;uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/&gt;</div></pre></td></tr></table></figure>
-<p>Canvas加入图片</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Canvas canvas;</div><div class="line">Bitmap bmp = BitmapFactory.decodeResource(getResources(), R.drawable.pic180);  </div><div class="line">            canvas.drawColor(Color.BLACK);  </div><div class="line">            canvas.drawBitmap(bmp, <span class="number">10</span>, <span class="number">10</span>, <span class="keyword">null</span>);</div></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://wuxiaolong.github.io/2015/04/23/LayoutInflater/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2188,7 +2194,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">154</span>
+                    <span class="site-state-item-count">155</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

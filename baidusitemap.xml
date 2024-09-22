@@ -3,6 +3,26 @@
 
 
     
+  <url>
+    <loc>http://wuxiaolong.github.io/2024/09/22/BlogComment/</loc>
+    <lastmod>2024-09-22T08:41:13.706Z</lastmod>
+    <data>
+        <display>
+        <title>个人博客可以评论了</title>
+        <pubTime>2024-09-22T06:22:35.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="BlogBuild" url="http://wuxiaolong.github.io/categories/BlogBuild/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
   <url>
     <loc>http://wuxiaolong.github.io/2015/07/31/build-blog-by-hexo/</loc>
@@ -2861,14 +2881,16 @@
 
     
   <url>
-    <loc>http://wuxiaolong.github.io/2013/07/18/mobile-phone-information-acquisition/</loc>
+    <loc>http://wuxiaolong.github.io/2015/04/21/SqliteSample/</loc>
     <lastmod>2024-09-22T04:01:40.858Z</lastmod>
     <data>
         <display>
-        <title>android之获取手机信息</title>
-        <pubTime>2013-07-17T16:00:00.000Z</pubTime>
+        <title>Android之SqliteSample</title>
+        <pubTime>2015-04-20T16:00:00.000Z</pubTime>
         
         <tag>Android</tag>
+         
+        <tag>Sqlite</tag>
          
          
            
@@ -2881,16 +2903,14 @@
 
     
   <url>
-    <loc>http://wuxiaolong.github.io/2015/04/21/SqliteSample/</loc>
+    <loc>http://wuxiaolong.github.io/2013/07/18/mobile-phone-information-acquisition/</loc>
     <lastmod>2024-09-22T04:01:40.858Z</lastmod>
     <data>
         <display>
-        <title>Android之SqliteSample</title>
-        <pubTime>2015-04-20T16:00:00.000Z</pubTime>
+        <title>android之获取手机信息</title>
+        <pubTime>2013-07-17T16:00:00.000Z</pubTime>
         
         <tag>Android</tag>
-         
-        <tag>Sqlite</tag>
          
          
            
