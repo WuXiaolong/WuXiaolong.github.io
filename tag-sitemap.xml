@@ -1,0 +1,817 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/AppShortcuts/</loc>
+        <lastmod>2024-09-22T04:01:40.848Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/SharedPreferences/</loc>
+        <lastmod>2024-09-22T04:01:40.850Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/ObserverPattern/</loc>
+        <lastmod>2024-09-22T04:01:40.850Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/App-Links/</loc>
+        <lastmod>2024-09-22T04:01:40.851Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/Animator/</loc>
+        <lastmod>2024-09-22T04:01:40.852Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/MotionEvent/</loc>
+        <lastmod>2024-09-22T04:01:40.854Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/github/</loc>
+        <lastmod>2024-09-22T04:01:40.854Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/CollapsingToolbarLayout/</loc>
+        <lastmod>2024-09-22T04:01:40.855Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/Shape/</loc>
+        <lastmod>2024-09-22T04:01:40.856Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/Sqlite/</loc>
+        <lastmod>2024-09-22T04:01:40.858Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/GitBook/</loc>
+        <lastmod>2024-09-22T04:01:40.859Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/Singleton/</loc>
+        <lastmod>2024-09-22T04:01:40.861Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/Theme/</loc>
+        <lastmod>2024-09-22T04:01:40.862Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/lambda/</loc>
+        <lastmod>2024-09-22T04:01:40.866Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/retrolambda/</loc>
+        <lastmod>2024-09-22T04:01:40.866Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/NightTheme/</loc>
+        <lastmod>2024-09-22T04:01:40.868Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/Challenge/</loc>
+        <lastmod>2024-09-22T04:01:40.871Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/CustomView/</loc>
+        <lastmod>2024-09-22T04:01:40.872Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/CoordinatorLayout/</loc>
+        <lastmod>2024-09-22T04:01:40.873Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/NavigationView/</loc>
+        <lastmod>2024-09-22T04:01:40.876Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/LinearGradient/</loc>
+        <lastmod>2024-09-22T04:01:40.877Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/TextView/</loc>
+        <lastmod>2024-09-22T04:01:40.877Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/Genymotion/</loc>
+        <lastmod>2024-09-22T04:01:40.880Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/RuntimePermission/</loc>
+        <lastmod>2024-09-22T04:01:40.883Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/BottomNavigation/</loc>
+        <lastmod>2024-09-22T04:01:40.889Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/Jekyll/</loc>
+        <lastmod>2024-09-22T04:01:40.891Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/Banner/</loc>
+        <lastmod>2024-09-22T04:01:40.892Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/ADB/</loc>
+        <lastmod>2024-09-22T04:01:40.893Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/Modular/</loc>
+        <lastmod>2024-09-22T04:01:40.899Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/Toolbar/</loc>
+        <lastmod>2024-09-22T04:01:40.906Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/LayoutParams/</loc>
+        <lastmod>2024-09-22T04:01:40.908Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/Drawable/</loc>
+        <lastmod>2024-09-22T04:01:40.909Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/Bitmap/</loc>
+        <lastmod>2024-09-22T04:01:40.909Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/String/</loc>
+        <lastmod>2024-09-22T04:01:40.909Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/InputStream/</loc>
+        <lastmod>2024-09-22T04:01:40.909Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/byte/</loc>
+        <lastmod>2024-09-22T04:01:40.909Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/Markdown/</loc>
+        <lastmod>2024-09-22T04:01:40.911Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/Battery/</loc>
+        <lastmod>2024-09-22T04:01:40.912Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/Animation/</loc>
+        <lastmod>2024-09-22T04:01:40.913Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/Android-Studio-3-0/</loc>
+        <lastmod>2024-09-22T04:01:40.917Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/PopupWindow/</loc>
+        <lastmod>2024-09-22T04:01:40.918Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/IPC/</loc>
+        <lastmod>2024-09-22T04:01:40.922Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/Library/</loc>
+        <lastmod>2024-09-22T04:01:40.927Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/GitHub/</loc>
+        <lastmod>2024-09-22T04:01:40.934Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/AD/</loc>
+        <lastmod>2024-09-22T04:01:40.937Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/AppStart/</loc>
+        <lastmod>2024-09-22T04:01:40.938Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/App/</loc>
+        <lastmod>2024-09-22T04:01:40.943Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/code/</loc>
+        <lastmod>2024-09-22T04:01:40.944Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/SQLite/</loc>
+        <lastmod>2024-09-22T04:01:40.946Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/WeiYan/</loc>
+        <lastmod>2024-09-22T04:01:40.946Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/Android-Studio/</loc>
+        <lastmod>2024-09-22T04:01:40.948Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/Python/</loc>
+        <lastmod>2024-09-22T04:01:40.949Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/ViewDragHelper/</loc>
+        <lastmod>2024-09-22T04:01:40.958Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/TabLayout/</loc>
+        <lastmod>2024-09-22T04:01:40.959Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/CardView/</loc>
+        <lastmod>2024-09-22T04:01:40.961Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/emulator/</loc>
+        <lastmod>2024-09-22T04:01:40.962Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/Life/</loc>
+        <lastmod>2024-09-22T04:01:40.964Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/Actionbar/</loc>
+        <lastmod>2024-09-22T04:01:40.966Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/SearchView/</loc>
+        <lastmod>2024-09-22T04:01:40.966Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/Flutter/</loc>
+        <lastmod>2024-09-22T04:01:40.968Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/DragView/</loc>
+        <lastmod>2024-09-22T04:01:40.972Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/memory/</loc>
+        <lastmod>2024-09-22T04:01:40.980Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/DesignSupportLibrary/</loc>
+        <lastmod>2024-09-22T04:01:40.987Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/Rendering/</loc>
+        <lastmod>2024-09-22T04:01:40.994Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/hexo/</loc>
+        <lastmod>2024-09-22T04:01:40.997Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/ChainOfResponsibility/</loc>
+        <lastmod>2024-09-22T04:01:41.001Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/RxBus/</loc>
+        <lastmod>2024-09-22T04:01:41.002Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/Blog/</loc>
+        <lastmod>2024-09-22T04:01:41.010Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/Video/</loc>
+        <lastmod>2024-09-22T04:01:41.011Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/Font-Awesome/</loc>
+        <lastmod>2024-09-22T04:01:41.013Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/PersonalApp/</loc>
+        <lastmod>2024-09-22T04:01:41.023Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/EditText/</loc>
+        <lastmod>2024-09-22T04:01:41.024Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/Gradle/</loc>
+        <lastmod>2024-09-22T04:01:41.026Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/SystemUI/</loc>
+        <lastmod>2024-09-22T04:01:41.030Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/NDK/</loc>
+        <lastmod>2024-09-22T04:01:41.033Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/Mac/</loc>
+        <lastmod>2024-09-22T04:01:41.039Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/adb/</loc>
+        <lastmod>2024-09-22T04:01:41.039Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/gradlew/</loc>
+        <lastmod>2024-09-22T04:01:41.039Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/RxJava/</loc>
+        <lastmod>2024-09-22T04:01:41.045Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/Service/</loc>
+        <lastmod>2024-09-22T04:01:41.055Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/Kotlin/</loc>
+        <lastmod>2024-09-22T04:01:41.058Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/Retrofit/</loc>
+        <lastmod>2024-09-22T04:01:41.083Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/AndroidPay/</loc>
+        <lastmod>2024-09-22T04:01:41.087Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/XMPP/</loc>
+        <lastmod>2024-09-22T04:01:41.110Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/Smack/</loc>
+        <lastmod>2024-09-22T04:01:41.110Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/openfire/</loc>
+        <lastmod>2024-09-22T04:01:41.110Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/Fragment/</loc>
+        <lastmod>2024-09-22T04:01:41.113Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/Jcenter/</loc>
+        <lastmod>2024-09-22T04:01:41.120Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/PorterDuffXfermode/</loc>
+        <lastmod>2024-09-22T04:01:41.122Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/Shader/</loc>
+        <lastmod>2024-09-22T04:01:41.122Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/RecyclerView/</loc>
+        <lastmod>2024-09-22T04:01:41.128Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/Paint/</loc>
+        <lastmod>2024-09-22T04:01:41.139Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/Activity/</loc>
+        <lastmod>2024-09-22T04:01:41.146Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/Adaptive-Icons/</loc>
+        <lastmod>2024-09-22T04:01:41.150Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/Canvas/</loc>
+        <lastmod>2024-09-22T04:01:41.154Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/Palette/</loc>
+        <lastmod>2024-09-22T04:01:41.156Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/MVP/</loc>
+        <lastmod>2024-09-22T04:01:41.164Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/GitBranch/</loc>
+        <lastmod>2024-09-22T04:01:41.168Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/Android-Framework/</loc>
+        <lastmod>2024-09-22T04:01:41.174Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/Camera%EF%BC%8CAlbum/</loc>
+        <lastmod>2024-09-22T04:01:41.182Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/Volley/</loc>
+        <lastmod>2024-09-22T04:01:41.185Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/Android-Iconics/</loc>
+        <lastmod>2024-09-22T04:01:41.189Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/ListView/</loc>
+        <lastmod>2024-09-22T04:01:41.191Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/addHeaderView/</loc>
+        <lastmod>2024-09-22T04:01:41.191Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/AOSP/</loc>
+        <lastmod>2024-09-22T04:01:41.199Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/jarsigner/</loc>
+        <lastmod>2024-09-22T04:01:41.202Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/Permission/</loc>
+        <lastmod>2024-09-22T04:01:41.204Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/uCrop/</loc>
+        <lastmod>2024-09-22T04:01:41.210Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/zxing/</loc>
+        <lastmod>2024-09-22T04:01:41.220Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/key-word/</loc>
+        <lastmod>2024-09-22T04:01:41.249Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/APK/</loc>
+        <lastmod>2024-09-22T04:01:41.250Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/LayoutInflate/</loc>
+        <lastmod>2024-09-22T04:01:41.252Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/Android/</loc>
+        <lastmod>2024-09-22T04:01:41.253Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/contact/</loc>
+        <lastmod>2024-09-22T04:01:41.254Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/ItemTouchHelper/</loc>
+        <lastmod>2024-09-22T04:01:41.257Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://wuxiaolong.github.io/tags/System-Services/</loc>
+        <lastmod>2024-09-22T04:09:32.078Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+</urlset>
+<!-- XML Sitemap generated by Hexo SEO Friendly Sitemap Generator -->

@@ -95,12 +95,12 @@
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="效果预览">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://wuxiaolong.me/images/designsupportlibrarysample.gif">
-<meta property="og:updated_time" content="2019-04-22T14:31:57.568Z">
+<meta property="og:image" content="http://wuxiaolong.github.io/images/designsupportlibrarysample.gif">
+<meta property="og:updated_time" content="2024-09-22T04:01:40.873Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android Design Support Library之CoordinatorLayout">
 <meta name="twitter:description" content="效果预览">
-<meta name="twitter:image" content="http://wuxiaolong.me/images/designsupportlibrarysample.gif">
+<meta name="twitter:image" content="http://wuxiaolong.github.io/images/designsupportlibrarysample.gif">
 
 
 
@@ -306,40 +306,6 @@
     <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-friendslinks">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/friendslinks/index.html" rel="section"><i class="menu-item-icon fa fa-fw fa-users"></i> <br>小伙伴</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-gitbook">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="https://wuxiaolong.gitbooks.io/wuxiaolong/" rel="noopener" target="_blank"><i class="menu-item-icon fa fa-fw fa-book"></i> <br>GitBook</a>
-
-  </li>
 
       
       
@@ -419,7 +385,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴小龙同學">
-      <meta itemprop="description" content="我的微信公众号：吴小龙同学">
+      <meta itemprop="description" content="公众号：吴小龙同学">
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
@@ -475,7 +441,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-22 22:31:57" itemprop="dateModified" datetime="2019-04-22T22:31:57+08:00">2019-04-22</time>
+                <time title="修改时间：2024-09-22 12:01:40" itemprop="dateModified" datetime="2024-09-22T12:01:40+08:00">2024-09-22</time>
               -->
             
           </span>
@@ -533,14 +499,14 @@
       
 
       
-        <h1 id="效果预览"><a href="#效果预览" class="headerlink" title="效果预览"></a>效果预览</h1><p><img src="http://wuxiaolong.me/images/designsupportlibrarysample.gif" alt=""></p>
+        <h1 id="效果预览"><a href="#效果预览" class="headerlink" title="效果预览"></a>效果预览</h1><p><img src="/images/designsupportlibrarysample.gif" alt=""></p>
 <a id="more"></a>
 <h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><p>Gradle 中添加下面依赖<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile <span class="string">'com.android.support:design:23.1.0'</span></div></pre></td></tr></table></figure></p>
 <h1 id="CoordinatorLayout"><a href="#CoordinatorLayout" class="headerlink" title="CoordinatorLayout"></a>CoordinatorLayout</h1><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">&lt;android.support.design.widget.CoordinatorLayout</div><div class="line">        xmlns:android="http://schemas.android.com/apk/res/android"</div><div class="line">        xmlns:app="http://schemas.android.com/apk/res-auto"</div><div class="line">        android:layout_width="match_parent"</div><div class="line">        android:layout_height="match_parent"&gt;</div><div class="line"></div><div class="line">     &lt;! --Your Scrollable View 只支持RecyclerView和NestedScrollView--&gt;</div><div class="line">    &lt;android.support.v7.widget.RecyclerView</div><div class="line">            android:layout_width="match_parent"</div><div class="line">            android:layout_height="match_parent"</div><div class="line">            app:layout_behavior="@string/appbar_scrolling_view_behavior" /&gt;</div><div class="line"></div><div class="line">    &lt;android.support.design.widget.AppBarLayout</div><div class="line">            android:layout_width="match_parent"</div><div class="line">            android:layout_height="wrap_content"&gt;</div><div class="line">            &lt;android.support.v7.widget.Toolbar</div><div class="line">                  android:id="@+id/toolbar"</div><div class="line">                  android:layout_width="match_parent"</div><div class="line">                  android:layout_height="wrap_content"</div><div class="line">                  android:minHeight="?attr/actionBarSize"</div><div class="line">                  android:background="@color/primary"</div><div class="line">                  app:layout_scrollFlags="scroll|enterAlways"&gt;</div><div class="line"></div><div class="line">            &lt;android.support.design.widget.TabLayout</div><div class="line">                  android:layout_width="match_parent"</div><div class="line">                  android:layout_height="wrap_content"</div><div class="line">                  app:layout_scrollFlags="scroll|enterAlways"&gt;</div><div class="line">     &lt;/android.support.design.widget.AppBarLayout&gt;</div><div class="line">	 </div><div class="line">	&lt;android.support.design.widget.FloatingActionButton</div><div class="line">    android:id="@+id/fab"</div><div class="line">    android:layout_width="wrap_content"</div><div class="line">    android:layout_height="wrap_content"</div><div class="line">    android:layout_gravity="bottom|end"</div><div class="line">    android:layout_margin="@dimen/fab_margin"</div><div class="line">    android:src="@android:drawable/ic_dialog_email" /&gt;</div><div class="line">&lt;/android.support.design.widget.CoordinatorLayout&gt;</div></pre></td></tr></table></figure>
 <p>说明：<br>1、 给这个可滚动组件设置了layout_behavior<br>2、 给另一个控件设置了layout_scrollFlags<br>3、 当设置了layout_behavior的控件滑动时，就会触发设置了layout_scrollFlags的控件发生状态的改变。</p>
 <p>设置的layout_scrollFlags有如下几种选项：<br>（1） scroll: 所有想滚动出屏幕的view都需要设置这个flag，没有设置这个flag的view将被固定在屏幕顶部。<br>（2） enterAlways: 这个flag让任意向下的滚动都会导致该view变为可见，启用快速“返回模式”。<br>（3） enterAlwaysCollapsed: enterAlwaysCollapsed 是对enterAlways 的补充，当你的视图已经设置minHeight属性又使用此标志时，你的视图只能已最小高度进入，只有当滚动 视图到达顶部时才扩大到完整高度，一般跟enterAlways一起使用。<br>（4） exitUntilCollapsed：滚动退出屏幕，最后折叠在顶端，需要指定高度，也就是 minHeight ，到达这个 minHeight 时 View 就不再滑动。</p>
 <p>FloatingActionButton<br>android:layout_gravity=”bottom|end”来确定 FAB的位置在底端的最右边的位置</p>
-<h1 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h1><p><a href="http://wuxiaolong.me/about/" target="_blank" rel="noopener">点击查看</a></p>
+<h1 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h1><p><a href="/about/">点击查看</a></p>
 <h1 id="源码地址"><a href="#源码地址" class="headerlink" title="源码地址"></a>源码地址</h1><p><a href="https://github.com/WuXiaolong/DesignSupportLibrarySample" target="_blank" rel="noopener">https://github.com/WuXiaolong/DesignSupportLibrarySample</a></p>
 <h1 id="官网API"><a href="#官网API" class="headerlink" title="官网API"></a>官网API</h1><p><a href="http://developer.android.com/intl/zh-cn/reference/android/support/design/widget/CoordinatorLayout.html" target="_blank" rel="noopener">http://developer.android.com/intl/zh-cn/reference/android/support/design/widget/CoordinatorLayout.html</a></p>
          <!--广告-->
@@ -695,7 +661,7 @@
               <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="吴小龙同學">
             
               <p class="site-author-name" itemprop="name">吴小龙同學</p>
-              <p class="site-description motion-element" itemprop="description">我的微信公众号：吴小龙同学</p>
+              <p class="site-description motion-element" itemprop="description">公众号：吴小龙同学</p>
           </div>
 
           

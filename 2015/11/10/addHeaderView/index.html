@@ -95,13 +95,13 @@
 <meta property="og:site_name" content="吴小龙同學">
 <meta property="og:description" content="最近在调试我的个人大湿说app，发现在4.2系统下直接崩溃了，看log，原来是ListView addHeaderView和setAdapter方法调用顺利不同导致的错误，这里做下记录。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://wuxiaolong.me/images/dashishuo_meizu.png">
-<meta property="og:image" content="http://wuxiaolong.me/images/dashishuoDownload.png">
-<meta property="og:updated_time" content="2019-04-22T14:32:20.680Z">
+<meta property="og:image" content="http://wuxiaolong.github.io/images/dashishuo_meizu.png">
+<meta property="og:image" content="http://wuxiaolong.github.io/images/dashishuoDownload.png">
+<meta property="og:updated_time" content="2024-09-22T04:01:41.191Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android ListView addHeaderView">
 <meta name="twitter:description" content="最近在调试我的个人大湿说app，发现在4.2系统下直接崩溃了，看log，原来是ListView addHeaderView和setAdapter方法调用顺利不同导致的错误，这里做下记录。">
-<meta name="twitter:image" content="http://wuxiaolong.me/images/dashishuo_meizu.png">
+<meta name="twitter:image" content="http://wuxiaolong.github.io/images/dashishuo_meizu.png">
 
 
 
@@ -307,40 +307,6 @@
     <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
 
   </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-friendslinks">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/friendslinks/index.html" rel="section"><i class="menu-item-icon fa fa-fw fa-users"></i> <br>小伙伴</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-gitbook">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="https://wuxiaolong.gitbooks.io/wuxiaolong/" rel="noopener" target="_blank"><i class="menu-item-icon fa fa-fw fa-book"></i> <br>GitBook</a>
-
-  </li>
 
       
       
@@ -420,7 +386,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="吴小龙同學">
-      <meta itemprop="description" content="我的微信公众号：吴小龙同学">
+      <meta itemprop="description" content="公众号：吴小龙同学">
       <meta itemprop="image" content="/images/avatar.png">
     </span>
 
@@ -476,7 +442,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-22 22:32:20" itemprop="dateModified" datetime="2019-04-22T22:32:20+08:00">2019-04-22</time>
+                <time title="修改时间：2024-09-22 12:01:41" itemprop="dateModified" datetime="2024-09-22T12:01:41+08:00">2024-09-22</time>
               -->
             
           </span>
@@ -534,13 +500,13 @@
       
 
       
-        <p>最近在调试我的个人<a href="http://wuxiaolong.me/2015/11/09/dashishuo/" target="_blank" rel="noopener">大湿说app</a>，发现在4.2系统下直接崩溃了，看log，原来是ListView addHeaderView和setAdapter方法调用顺利不同导致的错误，这里做下记录。<br><a id="more"></a></p>
+        <p>最近在调试我的个人<a href="/2015/11/09/dashishuo/">大湿说app</a>，发现在4.2系统下直接崩溃了，看log，原来是ListView addHeaderView和setAdapter方法调用顺利不同导致的错误，这里做下记录。<br><a id="more"></a></p>
 <h2 id="正确调用"><a href="#正确调用" class="headerlink" title="正确调用"></a>正确调用</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mListView.addHeaderView(mHeadView);</div><div class="line">mListView.setAdapter(mListViewAdapter);</div></pre></td></tr></table></figure>
 <h2 id="究其原因"><a href="#究其原因" class="headerlink" title="究其原因"></a>究其原因</h2><p>Android-18（4.3）的addHeaderView源码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addHeaderView</span><span class="params">(View v, Object data, <span class="keyword">boolean</span> isSelectable)</span> </span>&#123;</div><div class="line">        <span class="keyword">final</span> FixedViewInfo info = <span class="keyword">new</span> FixedViewInfo();</div><div class="line">        info.view = v;</div><div class="line">        info.data = data;</div><div class="line">        info.isSelectable = isSelectable;</div><div class="line">        mHeaderViewInfos.add(info);</div><div class="line"> </div><div class="line">        <span class="comment">// Wrap the adapter if it wasn't already wrapped.</span></div><div class="line">        <span class="keyword">if</span> (mAdapter != <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">if</span> (!(mAdapter <span class="keyword">instanceof</span> HeaderViewListAdapter)) &#123;</div><div class="line">                mAdapter = <span class="keyword">new</span> HeaderViewListAdapter(mHeaderViewInfos, mFooterViewInfos, mAdapter);</div><div class="line">            &#125;</div><div class="line"> </div><div class="line">            <span class="comment">// In the case of re-adding a header view, or adding one later on,</span></div><div class="line">            <span class="comment">// we need to notify the observer.</span></div><div class="line">            <span class="keyword">if</span> (mDataSetObserver != <span class="keyword">null</span>) &#123;</div><div class="line">                mDataSetObserver.onChanged();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>Android-17（4.2）的addHeaderView的源码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addHeaderView</span><span class="params">(View v, Object data, <span class="keyword">boolean</span> isSelectable)</span> </span>&#123;</div><div class="line"> </div><div class="line">        <span class="keyword">if</span> (mAdapter != <span class="keyword">null</span> &amp;&amp; ! (mAdapter <span class="keyword">instanceof</span> HeaderViewListAdapter)) &#123;</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalStateException(</div><div class="line">                    <span class="string">"Cannot add header view to list -- setAdapter has already been called."</span>);</div><div class="line">        &#125;</div><div class="line"> </div><div class="line">        FixedViewInfo info = <span class="keyword">new</span> FixedViewInfo();</div><div class="line">        info.view = v;</div><div class="line">        info.data = data;</div><div class="line">        info.isSelectable = isSelectable;</div><div class="line">        mHeaderViewInfos.add(info);</div><div class="line"> </div><div class="line">        <span class="comment">// in the case of re-adding a header view, or adding one later on,</span></div><div class="line">        <span class="comment">// we need to notify the observer</span></div><div class="line">        <span class="keyword">if</span> (mAdapter != <span class="keyword">null</span> &amp;&amp; mDataSetObserver != <span class="keyword">null</span>) &#123;</div><div class="line">            mDataSetObserver.onChanged();</div><div class="line">        &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>在17版本中，只要adapter不为空的话，那就直接会抛出异常，而这个异常恰好就是我们文章开头说到的异常。在18版本中，如果adapter不为空的话，则会新建一个adapter，这个adapter会包含了headerview和footerview以及我们传进来的原来的adapter。这是在18版本以后做的一个处理。<br>以上源码分析来自:<a href="http://blog.csdn.net/wuzhipeng1991/article/details/39023883" target="_blank" rel="noopener">从源码上分析ListView的addHeaderView和setAdapter的调用顺序</a></p>
-<h2 id="大湿说"><a href="#大湿说" class="headerlink" title="大湿说"></a>大湿说</h2><p><img src="http://wuxiaolong.me/images/dashishuo_meizu.png" alt=""><br>魅族应用市场累计下载<code>4.4万+</code>，我可没有做过什么推广哦，精品APP，值得下载！</p>
-<h2 id="二维码下载"><a href="#二维码下载" class="headerlink" title="二维码下载"></a>二维码下载</h2><p><img src="http://wuxiaolong.me/images/dashishuoDownload.png" alt=""></p>
+<h2 id="大湿说"><a href="#大湿说" class="headerlink" title="大湿说"></a>大湿说</h2><p><img src="/images/dashishuo_meizu.png" alt=""><br>魅族应用市场累计下载<code>4.4万+</code>，我可没有做过什么推广哦，精品APP，值得下载！</p>
+<h2 id="二维码下载"><a href="#二维码下载" class="headerlink" title="二维码下载"></a>二维码下载</h2><p><img src="/images/dashishuoDownload.png" alt=""></p>
 <h2 id="应用市场"><a href="#应用市场" class="headerlink" title="应用市场"></a>应用市场</h2><p><a href="http://app.meizu.com/apps/public/detail?package_name=com.xiaomolong.ufosay" target="_blank" rel="noopener">魅族应用市场</a><br><a href="http://app.mi.com/detail/65621" target="_blank" rel="noopener">小米应用市场</a></p>
          <!--广告-->
     ﻿<h1>联系作者</h1>
@@ -696,7 +662,7 @@
               <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="吴小龙同學">
             
               <p class="site-author-name" itemprop="name">吴小龙同學</p>
-              <p class="site-description motion-element" itemprop="description">我的微信公众号：吴小龙同学</p>
+              <p class="site-description motion-element" itemprop="description">公众号：吴小龙同学</p>
           </div>
 
           
