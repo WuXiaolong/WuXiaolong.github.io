@@ -97,7 +97,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://wuxiaolong.github.io/images/StatusBar5.png">
 <meta property="og:image" content="http://wuxiaolong.github.io/images/StatusBar6.png">
-<meta property="og:updated_time" content="2024-09-22T04:01:40.895Z">
+<meta property="og:updated_time" content="2024-09-22T11:07:21.667Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 9.0 SystemUI Notification">
 <meta name="twitter:description" content="本文主要分享 SystemUI Notification 具体如何呈现的？基于 AOSP 9.0 分析。 概述在《Android 9.0 SystemUI 主要视图 SystemBars》知道通知在折叠时状态栏、下拉状态栏、锁屏都有通知，其中锁屏和下拉状态栏是一个布局，折叠状态栏 是在 CollapsedStatusBarFragment，status_bar.xml，PhoneStatusBar">
@@ -442,7 +442,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2024-09-22 12:01:40" itemprop="dateModified" datetime="2024-09-22T12:01:40+08:00">2024-09-22</time>
+                <time title="修改时间：2024-09-22 19:07:21" itemprop="dateModified" datetime="2024-09-22T19:07:21+08:00">2024-09-22</time>
               -->
             
           </span>
@@ -501,8 +501,9 @@
 
       
         <p>本文主要分享 SystemUI Notification 具体如何呈现的？基于 AOSP 9.0 分析。</p>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><img src="/images/StatusBar5.png" alt=""><br>在《Android 9.0 SystemUI 主要视图 SystemBars》知道通知在折叠时状态栏、下拉状态栏、锁屏都有通知，其中锁屏和下拉状态栏是一个布局，折叠状态栏 是在 <code>CollapsedStatusBarFragment，status_bar.xml，PhoneStatusBarView</code>，锁屏是 <code>NotificationStackScrollLayout，@+id/notification_stack_scroller</code>，先来看看锁屏的通知，NotificationStackScrollLayout 是 ViewGroup，如果来了条通知，肯定是有地方进行 addView，我们就沿着这个思路去 AOSP 寻找答案。</p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>在《Android 9.0 SystemUI 主要视图 SystemBars》知道通知在折叠时状态栏、下拉状态栏、锁屏都有通知，其中锁屏和下拉状态栏是一个布局，折叠状态栏 是在 <code>CollapsedStatusBarFragment，status_bar.xml，PhoneStatusBarView</code>，锁屏是 <code>NotificationStackScrollLayout，@+id/notification_stack_scroller</code>，先来看看锁屏的通知，NotificationStackScrollLayout 是 ViewGroup，如果来了条通知，肯定是有地方进行 addView，我们就沿着这个思路去 AOSP 寻找答案。</p>
 <a id="more"></a>
+<p><img src="/images/StatusBar5.png" alt=""></p>
 <h2 id="序列图"><a href="#序列图" class="headerlink" title="序列图"></a>序列图</h2><p><img src="/images/StatusBar6.png" alt=""><br>序列图为来通知到 SystemUI 锁屏通知呈现整个流程。</p>
 <h2 id="锁屏通知"><a href="#锁屏通知" class="headerlink" title="锁屏通知"></a>锁屏通知</h2><h2 id="NotificationStackScrollLayout-addContainerView"><a href="#NotificationStackScrollLayout-addContainerView" class="headerlink" title="NotificationStackScrollLayout#addContainerView"></a>NotificationStackScrollLayout#addContainerView</h2><p>锁屏是 NotificationStackScrollLayout，直接找 NotificationStackScrollLayout，看到有个 addContainerView方法，一看，果然是目标 addView：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addContainerView</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">    addView(v);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>反查，看到  addContainerView 被 NotificationViewHierarchyManager#updateNotificationViews 方法调用了。</p>

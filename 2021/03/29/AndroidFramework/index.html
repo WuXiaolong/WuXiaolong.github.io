@@ -98,7 +98,7 @@
 <meta property="og:image" content="http://wuxiaolong.github.io/images/AndroidFramework1.png">
 <meta property="og:image" content="http://wuxiaolong.github.io/images/AndroidFramework3.png">
 <meta property="og:image" content="http://wuxiaolong.github.io/images/AndroidFramework2.png">
-<meta property="og:updated_time" content="2024-09-22T04:01:41.174Z">
+<meta property="og:updated_time" content="2024-09-22T11:05:18.912Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 系统开发做什么？">
 <meta name="twitter:description" content="题外话18 年我从 Android 应用开发转 Framework 层开发了，从此开启了 996 幸福生活，博客技术文更新基本停滞了，被工作占据了过多的精力，实在没时间像以前一样拟稿、写作，实践、反复修改去精心准备文章，另外也不知道该写什么了，很多经验心得都会涉及到项目本身，公司内部倒是写了不少总结文档，然而工作的事不便公开分享出来。我是一个在乎别人的看法，之前被很多人骂“江郎才尽”，其实我是很难">
@@ -443,7 +443,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2024-09-22 12:01:41" itemprop="dateModified" datetime="2024-09-22T12:01:41+08:00">2024-09-22</time>
+                <time title="修改时间：2024-09-22 19:05:18" itemprop="dateModified" datetime="2024-09-22T19:05:18+08:00">2024-09-22</time>
               -->
             
           </span>
@@ -503,7 +503,9 @@
       
         <h2 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h2><p>18 年我从 Android 应用开发转 Framework 层开发了，从此开启了 996 幸福生活，博客技术文更新基本停滞了，被工作占据了过多的精力，实在没时间像以前一样拟稿、写作，实践、反复修改去精心准备文章，另外也不知道该写什么了，很多经验心得都会涉及到项目本身，公司内部倒是写了不少总结文档，然而工作的事不便公开分享出来。我是一个在乎别人的看法，之前被很多人骂“江郎才尽”，其实我是很难受的。</p>
 <p>在转 Framework 其实一开始我是很不适应，适应新环境也并没有想象当中那么容易，因此变得更不自信了，对自己的定位更加模糊，每半年换一个模块，从一开始做性能开发、转系统应用开发、又转通讯开发，刚有点感觉，因为工作调整，被安排做其他，技术没沉淀，总感觉虚的很。</p>
-<h2 id="Android-系统架构"><a href="#Android-系统架构" class="headerlink" title="Android 系统架构"></a>Android 系统架构</h2><p><img src="/images/AndroidFramework1.png" alt="官图压阵"><br><a id="more"></a><br>这是来自官方 Android 系统架构，从上往下依次为应用框架（Application Framework）、Binder IPC proxies、系统服务（Android System Services）、硬件抽象层 (HAL)、Linux 内核。</p>
+<h2 id="Android-系统架构"><a href="#Android-系统架构" class="headerlink" title="Android 系统架构"></a>Android 系统架构</h2><a id="more"></a>
+<p><img src="/images/AndroidFramework1.png" alt="官图压阵"></p>
+<p>这是来自官方 Android 系统架构，从上往下依次为应用框架（Application Framework）、Binder IPC proxies、系统服务（Android System Services）、硬件抽象层 (HAL)、Linux 内核。</p>
 <h2 id="Application-Framework"><a href="#Application-Framework" class="headerlink" title="Application Framework"></a>Application Framework</h2><p><img src="/images/AndroidFramework3.png" alt=""></p>
 <p>从旧版架构图可以看出 Application Framework 大概有：</p>
 <table>

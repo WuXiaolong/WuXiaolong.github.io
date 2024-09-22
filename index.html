@@ -439,7 +439,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2024-09-22 12:09:32" itemprop="dateModified" datetime="2024-09-22T12:09:32+08:00">2024-09-22</time>
+                <time title="修改时间：2024-09-22 19:04:49" itemprop="dateModified" datetime="2024-09-22T19:04:49+08:00">2024-09-22</time>
               -->
             
           </span>
@@ -492,7 +492,7 @@
       
         
           <p>《<a href="https://mp.weixin.qq.com/s/Yub-0az8o5XSSfo68nLq2A" target="_blank" rel="noopener">Android 系统开发做什么？</a>》写到 Android System Services 是专注于特定功能的模块化组件，应用框架 API 所提供的功能可与系统服务通信，以访问底层硬件。Android System Services 是如何写的？来以 DisplayManagerService 为例，具体来看看。</p>
-<h2 id="System-Service-是如何写的？"><a href="#System-Service-是如何写的？" class="headerlink" title="System Service 是如何写的？"></a>System Service 是如何写的？</h2>
+<h2 id="System-Service-是如何写的？"><a href="#System-Service-是如何写的？" class="headerlink" title="System Service 是如何写的？"></a>System Service 是如何写的？</h2><h3 id="应用调用"><a href="#应用调用" class="headerlink" title="应用调用"></a>应用调用</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">DisplayManager dm = getSystemService(DisplayManager.class);</div><div class="line">dm.setTemporaryBrightness(<span class="number">0.0f</span>);</div><div class="line">Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, <span class="number">0</span>);</div></pre></td></tr></table></figure>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -618,7 +618,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2024-09-22 12:01:41" itemprop="dateModified" datetime="2024-09-22T12:01:41+08:00">2024-09-22</time>
+                <time title="修改时间：2024-09-22 19:05:18" itemprop="dateModified" datetime="2024-09-22T19:05:18+08:00">2024-09-22</time>
               -->
             
           </span>
@@ -672,7 +672,7 @@
         
           <h2 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h2><p>18 年我从 Android 应用开发转 Framework 层开发了，从此开启了 996 幸福生活，博客技术文更新基本停滞了，被工作占据了过多的精力，实在没时间像以前一样拟稿、写作，实践、反复修改去精心准备文章，另外也不知道该写什么了，很多经验心得都会涉及到项目本身，公司内部倒是写了不少总结文档，然而工作的事不便公开分享出来。我是一个在乎别人的看法，之前被很多人骂“江郎才尽”，其实我是很难受的。</p>
 <p>在转 Framework 其实一开始我是很不适应，适应新环境也并没有想象当中那么容易，因此变得更不自信了，对自己的定位更加模糊，每半年换一个模块，从一开始做性能开发、转系统应用开发、又转通讯开发，刚有点感觉，因为工作调整，被安排做其他，技术没沉淀，总感觉虚的很。</p>
-<h2 id="Android-系统架构"><a href="#Android-系统架构" class="headerlink" title="Android 系统架构"></a>Android 系统架构</h2><p><img src="/images/AndroidFramework1.png" alt="官图压阵"><br>
+<h2 id="Android-系统架构"><a href="#Android-系统架构" class="headerlink" title="Android 系统架构"></a>Android 系统架构</h2>
           <!--noindex-->
           
             <div class="post-button text-center">
@@ -684,7 +684,7 @@
           <!--/noindex-->
         
       
-    </p></div>
+    </div>
 
     
 
@@ -1160,7 +1160,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2024-09-22 12:01:40" itemprop="dateModified" datetime="2024-09-22T12:01:40+08:00">2024-09-22</time>
+                <time title="修改时间：2024-09-22 19:07:21" itemprop="dateModified" datetime="2024-09-22T19:07:21+08:00">2024-09-22</time>
               -->
             
           </span>
@@ -1213,7 +1213,7 @@
       
         
           <p>本文主要分享 SystemUI Notification 具体如何呈现的？基于 AOSP 9.0 分析。</p>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><img src="/images/StatusBar5.png" alt=""><br>在《Android 9.0 SystemUI 主要视图 SystemBars》知道通知在折叠时状态栏、下拉状态栏、锁屏都有通知，其中锁屏和下拉状态栏是一个布局，折叠状态栏 是在 <code>CollapsedStatusBarFragment，status_bar.xml，PhoneStatusBarView</code>，锁屏是 <code>NotificationStackScrollLayout，@+id/notification_stack_scroller</code>，先来看看锁屏的通知，NotificationStackScrollLayout 是 ViewGroup，如果来了条通知，肯定是有地方进行 addView，我们就沿着这个思路去 AOSP 寻找答案。</p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>在《Android 9.0 SystemUI 主要视图 SystemBars》知道通知在折叠时状态栏、下拉状态栏、锁屏都有通知，其中锁屏和下拉状态栏是一个布局，折叠状态栏 是在 <code>CollapsedStatusBarFragment，status_bar.xml，PhoneStatusBarView</code>，锁屏是 <code>NotificationStackScrollLayout，@+id/notification_stack_scroller</code>，先来看看锁屏的通知，NotificationStackScrollLayout 是 ViewGroup，如果来了条通知，肯定是有地方进行 addView，我们就沿着这个思路去 AOSP 寻找答案。</p>
           <!--noindex-->
           
             <div class="post-button text-center">

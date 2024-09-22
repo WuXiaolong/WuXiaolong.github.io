@@ -93,13 +93,13 @@
 <meta property="og:title" content="如何实现一个 System Services？">
 <meta property="og:url" content="http://wuxiaolong.github.io/2021/04/07/SystemServices/index.html">
 <meta property="og:site_name" content="吴小龙同學">
-<meta property="og:description" content="《Android 系统开发做什么？》写到 Android System Services 是专注于特定功能的模块化组件，应用框架 API 所提供的功能可与系统服务通信，以访问底层硬件。Android System Services 是如何写的？来以 DisplayManagerService 为例，具体来看看。 System Service 是如何写的？">
+<meta property="og:description" content="《Android 系统开发做什么？》写到 Android System Services 是专注于特定功能的模块化组件，应用框架 API 所提供的功能可与系统服务通信，以访问底层硬件。Android System Services 是如何写的？来以 DisplayManagerService 为例，具体来看看。 System Service 是如何写的？应用调用123DisplayManager">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://smartloong.oss-cn-shanghai.aliyuncs.com/SystemServices.png">
-<meta property="og:updated_time" content="2024-09-22T04:09:32.078Z">
+<meta property="og:updated_time" content="2024-09-22T11:04:49.941Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何实现一个 System Services？">
-<meta name="twitter:description" content="《Android 系统开发做什么？》写到 Android System Services 是专注于特定功能的模块化组件，应用框架 API 所提供的功能可与系统服务通信，以访问底层硬件。Android System Services 是如何写的？来以 DisplayManagerService 为例，具体来看看。 System Service 是如何写的？">
+<meta name="twitter:description" content="《Android 系统开发做什么？》写到 Android System Services 是专注于特定功能的模块化组件，应用框架 API 所提供的功能可与系统服务通信，以访问底层硬件。Android System Services 是如何写的？来以 DisplayManagerService 为例，具体来看看。 System Service 是如何写的？应用调用123DisplayManager">
 <meta name="twitter:image" content="https://smartloong.oss-cn-shanghai.aliyuncs.com/SystemServices.png">
 
 
@@ -441,7 +441,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2024-09-22 12:09:32" itemprop="dateModified" datetime="2024-09-22T12:09:32+08:00">2024-09-22</time>
+                <time title="修改时间：2024-09-22 19:04:49" itemprop="dateModified" datetime="2024-09-22T19:04:49+08:00">2024-09-22</time>
               -->
             
           </span>
@@ -500,8 +500,8 @@
 
       
         <p>《<a href="https://mp.weixin.qq.com/s/Yub-0az8o5XSSfo68nLq2A" target="_blank" rel="noopener">Android 系统开发做什么？</a>》写到 Android System Services 是专注于特定功能的模块化组件，应用框架 API 所提供的功能可与系统服务通信，以访问底层硬件。Android System Services 是如何写的？来以 DisplayManagerService 为例，具体来看看。</p>
-<h2 id="System-Service-是如何写的？"><a href="#System-Service-是如何写的？" class="headerlink" title="System Service 是如何写的？"></a>System Service 是如何写的？</h2><a id="more"></a>
-<h3 id="应用调用"><a href="#应用调用" class="headerlink" title="应用调用"></a>应用调用</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">DisplayManager dm = getSystemService(DisplayManager.class);</div><div class="line">dm.setTemporaryBrightness(<span class="number">0.0f</span>);</div><div class="line">Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, <span class="number">0</span>);</div></pre></td></tr></table></figure>
+<h2 id="System-Service-是如何写的？"><a href="#System-Service-是如何写的？" class="headerlink" title="System Service 是如何写的？"></a>System Service 是如何写的？</h2><h3 id="应用调用"><a href="#应用调用" class="headerlink" title="应用调用"></a>应用调用</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">DisplayManager dm = getSystemService(DisplayManager.class);</div><div class="line">dm.setTemporaryBrightness(<span class="number">0.0f</span>);</div><div class="line">Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, <span class="number">0</span>);</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <p>看下 getSystemService 方法，在 Context 类里。</p>
 <h3 id="Context-getSystemService"><a href="#Context-getSystemService" class="headerlink" title="Context#getSystemService"></a>Context#getSystemService</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="meta">@Nullable</span> &lt;T&gt; <span class="function">T <span class="title">getSystemService</span><span class="params">(@NonNull Class&lt;T&gt; serviceClass)</span> </span>&#123;</div><div class="line">    <span class="comment">// Because subclasses may override getSystemService(String) we cannot</span></div><div class="line">    <span class="comment">// perform a lookup by class alone.  We must first map the class to its</span></div><div class="line">    <span class="comment">// service name then invoke the string-based method.</span></div><div class="line">    String serviceName = getSystemServiceName(serviceClass);</div><div class="line">    <span class="keyword">return</span> serviceName != <span class="keyword">null</span> ? (T)getSystemService(serviceName) : <span class="keyword">null</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="meta">@Nullable</span> <span class="function">String <span class="title">getSystemServiceName</span><span class="params">(@NonNull Class&lt;?&gt; serviceClass)</span></span>;</div></pre></td></tr></table></figure>
 <h3 id="ContextImpl-getSystemService"><a href="#ContextImpl-getSystemService" class="headerlink" title="ContextImpl#getSystemService"></a>ContextImpl#getSystemService</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getSystemServiceName</span><span class="params">(Class&lt;?&gt; serviceClass)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> SystemServiceRegistry.getSystemServiceName(serviceClass);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
