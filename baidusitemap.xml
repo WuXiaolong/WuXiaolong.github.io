@@ -3,26 +3,6 @@
 
 
     
-  <url>
-    <loc>http://wuxiaolong.github.io/2024/09/22/BlogComment/</loc>
-    <lastmod>2024-09-22T08:41:13.706Z</lastmod>
-    <data>
-        <display>
-        <title>个人博客可以评论了</title>
-        <pubTime>2024-09-22T06:22:35.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="BlogBuild" url="http://wuxiaolong.github.io/categories/BlogBuild/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
     
   <url>
     <loc>http://wuxiaolong.github.io/2015/07/31/build-blog-by-hexo/</loc>
@@ -1745,26 +1725,6 @@
 
     
   <url>
-    <loc>http://wuxiaolong.github.io/2016/03/13/MyCodeHobby/</loc>
-    <lastmod>2024-09-22T04:01:40.944Z</lastmod>
-    <data>
-        <display>
-        <title>我的编码嗜好</title>
-        <pubTime>2016-03-13T02:06:00.000Z</pubTime>
-        
-        <tag>code</tag>
-         
-         
-           
-             
-              <breadCrumb title="猿生活" url="http://wuxiaolong.github.io/categories/%E7%8C%BF%E7%94%9F%E6%B4%BB/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://wuxiaolong.github.io/2013/06/14/android-developers-should-keep-the-following-characteristics/</loc>
     <lastmod>2024-09-22T04:01:40.944Z</lastmod>
     <data>
@@ -1778,6 +1738,26 @@
            
              
               <breadCrumb title="Android" url="http://wuxiaolong.github.io/categories/Android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://wuxiaolong.github.io/2016/03/13/MyCodeHobby/</loc>
+    <lastmod>2024-09-22T04:01:40.944Z</lastmod>
+    <data>
+        <display>
+        <title>我的编码嗜好</title>
+        <pubTime>2016-03-13T02:06:00.000Z</pubTime>
+        
+        <tag>code</tag>
+         
+         
+           
+             
+              <breadCrumb title="猿生活" url="http://wuxiaolong.github.io/categories/%E7%8C%BF%E7%94%9F%E6%B4%BB/"/>
           
         </display>
     </data>
@@ -2923,6 +2903,26 @@
 
     
   <url>
+    <loc>http://wuxiaolong.github.io/2013/07/09/shape/</loc>
+    <lastmod>2024-09-22T04:01:40.856Z</lastmod>
+    <data>
+        <display>
+        <title>Android之美化控件Shape</title>
+        <pubTime>2013-07-08T16:00:00.000Z</pubTime>
+        
+        <tag>Shape</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="http://wuxiaolong.github.io/categories/Android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://wuxiaolong.github.io/2016/03/01/xmpp3/</loc>
     <lastmod>2024-09-22T04:01:40.856Z</lastmod>
     <data>
@@ -2940,26 +2940,6 @@
            
              
               <breadCrumb title="XMPP" url="http://wuxiaolong.github.io/categories/XMPP/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://wuxiaolong.github.io/2013/07/09/shape/</loc>
-    <lastmod>2024-09-22T04:01:40.856Z</lastmod>
-    <data>
-        <display>
-        <title>Android之美化控件Shape</title>
-        <pubTime>2013-07-08T16:00:00.000Z</pubTime>
-        
-        <tag>Shape</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="http://wuxiaolong.github.io/categories/Android/"/>
           
         </display>
     </data>
@@ -3109,26 +3089,6 @@
 
     
   <url>
-    <loc>http://wuxiaolong.github.io/2017/01/04/observerPattern/</loc>
-    <lastmod>2024-09-22T04:01:40.850Z</lastmod>
-    <data>
-        <display>
-        <title>设计模式之观察者模式</title>
-        <pubTime>2017-01-04T14:45:49.000Z</pubTime>
-        
-        <tag>ObserverPattern</tag>
-         
-         
-           
-             
-              <breadCrumb title="DesignPattern" url="http://wuxiaolong.github.io/categories/DesignPattern/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://wuxiaolong.github.io/2015/08/19/PreferenceUtils/</loc>
     <lastmod>2024-09-22T04:01:40.850Z</lastmod>
     <data>
@@ -3142,6 +3102,26 @@
            
              
               <breadCrumb title="AndroidUtil" url="http://wuxiaolong.github.io/categories/AndroidUtil/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://wuxiaolong.github.io/2017/01/04/observerPattern/</loc>
+    <lastmod>2024-09-22T04:01:40.850Z</lastmod>
+    <data>
+        <display>
+        <title>设计模式之观察者模式</title>
+        <pubTime>2017-01-04T14:45:49.000Z</pubTime>
+        
+        <tag>ObserverPattern</tag>
+         
+         
+           
+             
+              <breadCrumb title="DesignPattern" url="http://wuxiaolong.github.io/categories/DesignPattern/"/>
           
         </display>
     </data>
