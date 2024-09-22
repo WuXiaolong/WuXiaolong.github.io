@@ -711,9 +711,9 @@
         
         <tag>XMPP</tag>
          
-        <tag>openfire</tag>
-         
         <tag>Smack</tag>
+         
+        <tag>openfire</tag>
          
          
            
@@ -2572,6 +2572,26 @@
 
     
   <url>
+    <loc>http://wuxiaolong.github.io/2015/11/17/NavigationView/</loc>
+    <lastmod>2024-09-22T04:01:40.876Z</lastmod>
+    <data>
+        <display>
+        <title>Android Design Support Library之NavigationView</title>
+        <pubTime>2015-11-17T05:31:07.000Z</pubTime>
+        
+        <tag>NavigationView</tag>
+         
+         
+           
+             
+              <breadCrumb title="SupportLibrary" url="http://wuxiaolong.github.io/categories/SupportLibrary/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://wuxiaolong.github.io/2015/04/27/Split/</loc>
     <lastmod>2024-09-22T04:01:40.876Z</lastmod>
     <data>
@@ -2587,26 +2607,6 @@
            
              
               <breadCrumb title="Android" url="http://wuxiaolong.github.io/categories/Android/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://wuxiaolong.github.io/2015/11/17/NavigationView/</loc>
-    <lastmod>2024-09-22T04:01:40.876Z</lastmod>
-    <data>
-        <display>
-        <title>Android Design Support Library之NavigationView</title>
-        <pubTime>2015-11-17T05:31:07.000Z</pubTime>
-        
-        <tag>NavigationView</tag>
-         
-         
-           
-             
-              <breadCrumb title="SupportLibrary" url="http://wuxiaolong.github.io/categories/SupportLibrary/"/>
           
         </display>
     </data>
@@ -2785,9 +2785,9 @@
         
         <tag>XMPP</tag>
          
-        <tag>openfire</tag>
-         
         <tag>Smack</tag>
+         
+        <tag>openfire</tag>
          
          
            
@@ -2911,9 +2911,9 @@
         
         <tag>XMPP</tag>
          
-        <tag>openfire</tag>
-         
         <tag>Smack</tag>
+         
+        <tag>openfire</tag>
          
          
            
@@ -2946,26 +2946,6 @@
 
     
   <url>
-    <loc>http://wuxiaolong.github.io/2015/03/27/2015key/</loc>
-    <lastmod>2024-09-22T04:01:40.855Z</lastmod>
-    <data>
-        <display>
-        <title>2015关键字</title>
-        <pubTime>2015-03-27T09:37:17.000Z</pubTime>
-        
-        <tag>key word</tag>
-         
-         
-           
-             
-              <breadCrumb title="猿生活" url="http://wuxiaolong.github.io/categories/%E7%8C%BF%E7%94%9F%E6%B4%BB/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://wuxiaolong.github.io/2015/11/17/CollapsingToolbarLayout/</loc>
     <lastmod>2024-09-22T04:01:40.855Z</lastmod>
     <data>
@@ -2986,19 +2966,19 @@
 
     
   <url>
-    <loc>http://wuxiaolong.github.io/2014/10/30/qiniu-photo-bed/</loc>
-    <lastmod>2024-09-22T04:01:40.854Z</lastmod>
+    <loc>http://wuxiaolong.github.io/2015/03/27/2015key/</loc>
+    <lastmod>2024-09-22T04:01:40.855Z</lastmod>
     <data>
         <display>
-        <title>使用七牛作为github博客的图床</title>
-        <pubTime>2014-10-29T16:00:00.000Z</pubTime>
+        <title>2015关键字</title>
+        <pubTime>2015-03-27T09:37:17.000Z</pubTime>
         
-        <tag>github</tag>
+        <tag>key word</tag>
          
          
            
              
-              <breadCrumb title="QiNiu" url="http://wuxiaolong.github.io/categories/QiNiu/"/>
+              <breadCrumb title="猿生活" url="http://wuxiaolong.github.io/categories/%E7%8C%BF%E7%94%9F%E6%B4%BB/"/>
           
         </display>
     </data>
@@ -3019,6 +2999,26 @@
            
              
               <breadCrumb title="CustomView" url="http://wuxiaolong.github.io/categories/CustomView/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://wuxiaolong.github.io/2014/10/30/qiniu-photo-bed/</loc>
+    <lastmod>2024-09-22T04:01:40.854Z</lastmod>
+    <data>
+        <display>
+        <title>使用七牛作为github博客的图床</title>
+        <pubTime>2014-10-29T16:00:00.000Z</pubTime>
+        
+        <tag>github</tag>
+         
+         
+           
+             
+              <breadCrumb title="QiNiu" url="http://wuxiaolong.github.io/categories/QiNiu/"/>
           
         </display>
     </data>
@@ -3088,26 +3088,6 @@
 
     
   <url>
-    <loc>http://wuxiaolong.github.io/2017/01/04/observerPattern/</loc>
-    <lastmod>2024-09-22T04:01:40.850Z</lastmod>
-    <data>
-        <display>
-        <title>设计模式之观察者模式</title>
-        <pubTime>2017-01-04T14:45:49.000Z</pubTime>
-        
-        <tag>ObserverPattern</tag>
-         
-         
-           
-             
-              <breadCrumb title="DesignPattern" url="http://wuxiaolong.github.io/categories/DesignPattern/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://wuxiaolong.github.io/2015/08/19/PreferenceUtils/</loc>
     <lastmod>2024-09-22T04:01:40.850Z</lastmod>
     <data>
@@ -3121,6 +3101,26 @@
            
              
               <breadCrumb title="AndroidUtil" url="http://wuxiaolong.github.io/categories/AndroidUtil/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://wuxiaolong.github.io/2017/01/04/observerPattern/</loc>
+    <lastmod>2024-09-22T04:01:40.850Z</lastmod>
+    <data>
+        <display>
+        <title>设计模式之观察者模式</title>
+        <pubTime>2017-01-04T14:45:49.000Z</pubTime>
+        
+        <tag>ObserverPattern</tag>
+         
+         
+           
+             
+              <breadCrumb title="DesignPattern" url="http://wuxiaolong.github.io/categories/DesignPattern/"/>
           
         </display>
     </data>
